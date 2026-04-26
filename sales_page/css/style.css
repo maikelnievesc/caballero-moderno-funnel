@@ -1,0 +1,208 @@
+:root {
+    --bg-dark: #070B14;
+    --card-bg: #101623;
+    --card-border: #1E293B;
+    --text-white: #F8FAFC;
+    --text-gray: #94A3B8;
+    --accent-blue: #00E5FF;
+    --accent-blue-hover: #00B8D4;
+    --accent-gold: #EAB308;
+    --accent-gold-dark: #A16207;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-gray);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.text-container { max-width: 800px; }
+.text-center { text-align: center; }
+
+/* Global Typography */
+h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
+.section-title { font-size: 2.5rem; margin-bottom: 40px; text-align: center; line-height: 1.2; }
+.gold-text { color: var(--accent-gold); }
+.highlight { color: var(--accent-blue); }
+
+/* Header */
+.site-header { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.logo { display: flex; justify-content: center; }
+.logo img { max-height: 80px; width: auto; }
+.logo-text { font-family: var(--font-heading); color: var(--accent-gold); font-size: 1.5rem; letter-spacing: 2px; }
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0;
+    text-align: center;
+    background: radial-gradient(circle at top, #111A2E 0%, #070B14 80%);
+}
+.pre-title { color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 15px; }
+.main-title { font-size: 4rem; line-height: 1.1; margin-bottom: 25px; }
+.hero-section .subtitle { font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px auto; }
+.hero-mockup img { max-width: 100%; height: auto; max-height: 500px; margin-bottom: 40px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8)); }
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: #000;
+    padding: 20px 40px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+}
+.cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.6); }
+.pulse-btn { animation: pulse 2s infinite; }
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(0, 229, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+}
+
+/* Pain Section */
+.pain-section { padding: 80px 0; background-color: #0A0F1A; }
+.pain-list { list-style: none; margin-bottom: 40px; }
+.pain-list li { background: rgba(255,50,50,0.05); border-left: 3px solid #EF4444; padding: 15px 20px; margin-bottom: 15px; font-size: 1.1rem; }
+.empathy-box { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); font-size: 1.15rem; }
+
+/* Modules Section */
+.solution-section { padding: 100px 0; }
+.solution-section .desc { font-size: 1.2rem; margin-bottom: 60px; }
+.modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.module-card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); position: relative; overflow: hidden; transition: transform 0.3s; }
+.module-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
+.module-number { display: inline-block; background: #1E293B; color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; }
+.module-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--accent-blue); }
+.vip-module { border-color: var(--accent-gold); background: linear-gradient(to bottom, var(--card-bg), rgba(234, 179, 8, 0.05)); }
+.gold-bg { background: var(--accent-gold); color: #000; }
+.vip-module h3 { color: var(--accent-gold); }
+
+/* Bonuses Section */
+.bonuses-section { padding: 80px 0; background-color: #0A0F1A; border-top: 1px dashed var(--card-border); border-bottom: 1px dashed var(--card-border); }
+.bonus-box { display: flex; background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); margin-bottom: 20px; gap: 20px; align-items: flex-start; }
+.bonus-icon { font-size: 3rem; }
+.bonus-content h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--accent-gold); }
+.bonus-value { display: inline-block; margin-top: 10px; font-weight: 700; color: #fff; background: rgba(234, 179, 8, 0.2); padding: 5px 10px; border-radius: 4px; }
+
+/* Testimonials Section */
+.testimonials-section { padding: 80px 0; background-color: var(--bg-dark); border-top: 1px dashed var(--card-border); }
+.testimonials-section .desc { max-width: 700px; margin: 0 auto 50px auto; font-size: 1.15rem; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.testimonial-card { 
+    background: linear-gradient(145deg, var(--card-bg), #131A28);
+    padding: 25px 20px; 
+    border-radius: 16px; 
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.testimonial-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+.stars { font-size: 1rem; letter-spacing: 1px; margin-bottom: 10px; }
+.testimonial-card h4 { font-size: 1.1rem; color: var(--text-white); margin-bottom: 10px; font-weight: 700; line-height: 1.3; }
+.testimonial-card p { font-size: 0.95rem; color: var(--text-gray); font-style: italic; margin-bottom: 20px; flex-grow: 1; }
+.author-info { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; display: flex; align-items: center; gap: 15px; }
+.author-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold); }
+.author-text strong { display: block; color: var(--accent-gold); font-size: 1rem; }
+.author-text span { font-size: 0.8rem; color: #64748B; display: block; margin-top: 2px; }
+
+/* Pricing */
+.pricing-section { padding: 100px 0; }
+.price-box { background: linear-gradient(135deg, #101623, #1A2235); border: 2px solid var(--accent-gold); border-radius: 16px; padding: 50px 30px; margin-top: 40px; box-shadow: 0 10px 40px rgba(234, 179, 8, 0.15); }
+.value-strike { font-size: 1.2rem; color: #64748B; text-decoration: line-through; margin-bottom: 10px; }
+.today-price { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 30px; }
+.highlight-gold { color: var(--accent-gold); font-size: 3.5rem; }
+.massive-btn { width: 100%; font-size: 1.5rem; padding: 25px; }
+.payment-methods { margin-top: 20px; font-size: 0.9rem; color: #64748B; }
+
+/* Guarantee */
+.guarantee-section { padding: 60px 0; background: #070B14; }
+.guarantee-card { background: rgba(16, 185, 129, 0.05); border: 1px solid #10B981; padding: 40px; border-radius: 12px; text-align: center; }
+.g-icon { font-size: 3rem; margin-bottom: 15px; }
+.guarantee-card h3 { color: #10B981; margin-bottom: 15px; }
+
+/* FAQ */
+.faq-section { padding: 80px 0; background-color: #0A0F1A; }
+.accordion-item { border: 1px solid var(--card-border); margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
+.accordion-header { width: 100%; background: var(--card-bg); color: #fff; border: none; padding: 20px; text-align: left; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.accordion-header::after { content: '+'; font-size: 1.5rem; color: var(--accent-blue); }
+.accordion-header.active::after { content: '-'; }
+.accordion-content { background: #070B14; padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+.accordion-content p { padding: 20px 0; }
+
+/* Footer */
+.footer { padding: 40px 0; text-align: center; font-size: 0.8rem; background: #05080F; }
+.footer a { color: var(--text-gray); }
+.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--accent-gold); color: #000; text-align: center; padding: 15px; font-weight: 800; font-family: var(--font-heading); text-decoration: none; z-index: 1000; font-size: 1.2rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+    .hero-section { padding: 50px 0; }
+    .bonus-box { flex-direction: column; text-align: center; align-items: center; }
+    .sticky-cta.visible { display: block; }
+}
+
+/* --- PREMIUM POLISH & DYNAMISM --- */
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered transition delays for grids */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* Glassmorphism for all cards (Premium Feel) */
+.module-card, .testimonial-card, .empathy-box, .bonus-box, .price-box, .guarantee-card {
+    background: rgba(16, 22, 35, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.vip-module { border: 1px solid rgba(234, 179, 8, 0.4); }
+
+/* Sweep Shine Animation for CTA Buttons */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+}
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: shine 4s infinite;
+}
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
