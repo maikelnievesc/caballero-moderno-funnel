@@ -7,28 +7,33 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
+        const honeypot = document.getElementById('b_b5b89e257bb34a02d3fc67226_f12a3ab60e').value;
 
         if (name && email) {
             // Efecto visual de carga
-            const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = 'Procesando...';
             submitBtn.style.opacity = '0.8';
             submitBtn.style.cursor = 'wait';
 
-            // Aquí iría la integración real con Mailchimp / ActiveCampaign
-            // Simulamos un delay de 1.5s
+            // Integración con Mailchimp vía JSONP
+            const url = 'https://gmail.us8.list-manage.com/subscribe/post-json?u=b5b89e257bb34a02d3fc67226&id=f12a3ab60e&f_id=00fbd1e1f0&c=jsonpCallback';
+            const params = `&EMAIL=${encodeURIComponent(email)}&FNAME=${encodeURIComponent(name)}&b_b5b89e257bb34a02d3fc67226_f12a3ab60e=${encodeURIComponent(honeypot)}`;
+
+            // Crear script de JSONP
+            const script = document.createElement('script');
+            script.src = url + params;
+            document.body.appendChild(script);
+
+            // Callback para cuando Mailchimp responda
+            window.jsonpCallback = function(data) {
+                // Redirigir a la Carta de Ventas sin importar la respuesta de Mailchimp (éxito o ya suscrito)
+                window.location.href = '../sales_page/index.html';
+            };
+
+            // Fallback: Si Mailchimp falla o se tarda más de 3 segundos, redirigir igual
             setTimeout(() => {
-                alert(`¡Éxito! En producción, el correo de ${name} (${email}) se guardaría en tu base de datos y la página redirigiría automáticamente a tu VSL / Página de Ventas.`);
-                
-                // Restaurar el botón
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.opacity = '1';
-                submitBtn.style.cursor = 'pointer';
-                form.reset();
-                
-                // Redirección simulada a la página 2 (que crearemos luego):
-                // window.location.href = 'pagina_ventas.html';
-            }, 1500);
+                window.location.href = '../sales_page/index.html';
+            }, 3000);
         }
     });
 
