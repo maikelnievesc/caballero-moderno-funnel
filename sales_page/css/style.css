@@ -123,7 +123,8 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
 .price-box { background: linear-gradient(135deg, #101623, #1A2235); border: 2px solid var(--accent-gold); border-radius: 16px; padding: 50px 30px; margin-top: 40px; box-shadow: 0 10px 40px rgba(234, 179, 8, 0.15); }
 .value-strike { font-size: 1.2rem; color: #64748B; text-decoration: line-through; margin-bottom: 10px; }
 .today-price { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 30px; }
-.highlight-gold { color: var(--accent-gold); font-size: 3.5rem; }
+.highlight-gold { color: var(--accent-gold); font-size: 3.5rem; white-space: nowrap; }
+.currency-text { font-size: 1.5rem; margin-left: 5px; vertical-align: baseline; }
 .massive-btn { width: 100%; font-size: 1.5rem; padding: 25px; }
 .payment-methods { margin-top: 20px; font-size: 0.9rem; color: #64748B; }
 
