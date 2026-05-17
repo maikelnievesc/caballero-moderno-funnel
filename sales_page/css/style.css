@@ -15,10 +15,37 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-    background-color: var(--bg-dark);
+    background-color: #05070A;
     color: var(--text-gray);
     font-family: var(--font-body);
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    /* Cuadrícula sutil estilo Club Fénix */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    background-position: center center;
+}
+
+/* Orbes de ambiente (copia exacta de Club Fénix) */
+.ambient-orbs {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1; overflow: hidden; pointer-events: none;
+}
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: floatOrb 20s infinite alternate ease-in-out;
+}
+.orb-1 { width: 600px; height: 600px; background: rgba(0, 229, 255, 0.2); top: -100px; right: 0; }
+.orb-2 { width: 700px; height: 700px; background: rgba(212, 175, 55, 0.15); bottom: -200px; left: -100px; animation-delay: -10s; }
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, 50px) scale(1.2); }
 }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .text-container { max-width: 800px; }
@@ -40,7 +67,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
 .hero-section {
     padding: 80px 0;
     text-align: center;
-    background: radial-gradient(circle at top, #111A2E 0%, #070B14 80%);
+    background: radial-gradient(circle at top, rgba(17, 26, 46, 0.6) 0%, rgba(7, 11, 20, 0.4) 80%);
 }
 .pre-title { color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 15px; }
 .main-title { font-size: 4rem; line-height: 1.1; margin-bottom: 25px; }
@@ -71,7 +98,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
 }
 
 /* Pain Section */
-.pain-section { padding: 80px 0; background-color: #0A0F1A; }
+.pain-section { padding: 80px 0; background-color: rgba(10, 15, 26, 0.6); }
 .pain-list { list-style: none; margin-bottom: 40px; }
 .pain-list li { background: rgba(255,50,50,0.05); border-left: 3px solid #EF4444; padding: 15px 20px; margin-bottom: 15px; font-size: 1.1rem; }
 .empathy-box { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); font-size: 1.15rem; }
@@ -89,14 +116,14 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
 .vip-module h3 { color: var(--accent-gold); }
 
 /* Bonuses Section */
-.bonuses-section { padding: 80px 0; background-color: #0A0F1A; border-top: 1px dashed var(--card-border); border-bottom: 1px dashed var(--card-border); }
+.bonuses-section { padding: 80px 0; background-color: rgba(10, 15, 26, 0.5); border-top: 1px dashed var(--card-border); border-bottom: 1px dashed var(--card-border); }
 .bonus-box { display: flex; background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); margin-bottom: 20px; gap: 20px; align-items: flex-start; }
 .bonus-icon { font-size: 3rem; }
 .bonus-content h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--accent-gold); }
 .bonus-value { display: inline-block; margin-top: 10px; font-weight: 700; color: #fff; background: rgba(234, 179, 8, 0.2); padding: 5px 10px; border-radius: 4px; }
 
 /* Testimonials Section */
-.testimonials-section { padding: 80px 0; background-color: var(--bg-dark); border-top: 1px dashed var(--card-border); }
+.testimonials-section { padding: 80px 0; background-color: rgba(7, 11, 20, 0.5); border-top: 1px dashed var(--card-border); }
 .testimonials-section .desc { max-width: 700px; margin: 0 auto 50px auto; font-size: 1.15rem; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .testimonial-card { 
@@ -122,19 +149,19 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
 .pricing-section { padding: 100px 0; }
 .price-box { background: linear-gradient(135deg, #101623, #1A2235); border: 2px solid var(--accent-gold); border-radius: 16px; padding: 50px 30px; margin-top: 40px; box-shadow: 0 10px 40px rgba(234, 179, 8, 0.15); }
 .value-strike { font-size: 1.2rem; color: #64748B; text-decoration: line-through; margin-bottom: 10px; }
-.today-price { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 30px; }
-.highlight-gold { color: var(--accent-gold); font-size: 3.5rem; }
+.today-price { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 30px; white-space: nowrap; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: nowrap; }
+.highlight-gold { color: var(--accent-gold); font-size: 2.4rem; white-space: nowrap; }
 .massive-btn { width: 100%; font-size: 1.5rem; padding: 25px; }
 .payment-methods { margin-top: 20px; font-size: 0.9rem; color: #64748B; }
 
 /* Guarantee */
-.guarantee-section { padding: 60px 0; background: #070B14; }
+.guarantee-section { padding: 60px 0; background: rgba(7, 11, 20, 0.5); }
 .guarantee-card { background: rgba(16, 185, 129, 0.05); border: 1px solid #10B981; padding: 40px; border-radius: 12px; text-align: center; }
 .g-icon { font-size: 3rem; margin-bottom: 15px; }
 .guarantee-card h3 { color: #10B981; margin-bottom: 15px; }
 
 /* FAQ */
-.faq-section { padding: 80px 0; background-color: #0A0F1A; }
+.faq-section { padding: 80px 0; background-color: rgba(10, 15, 26, 0.55); }
 .accordion-item { border: 1px solid var(--card-border); margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
 .accordion-header { width: 100%; background: var(--card-bg); color: #fff; border: none; padding: 20px; text-align: left; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
 .accordion-header::after { content: '+'; font-size: 1.5rem; color: var(--accent-blue); }
@@ -143,7 +170,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
 .accordion-content p { padding: 20px 0; }
 
 /* Footer */
-.footer { padding: 40px 0; text-align: center; font-size: 0.8rem; background: #05080F; }
+.footer { padding: 40px 0; text-align: center; font-size: 0.8rem; background: rgba(5, 8, 15, 0.7); }
 .footer a { color: var(--text-gray); }
 .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--accent-gold); color: #000; text-align: center; padding: 15px; font-weight: 800; font-family: var(--font-heading); text-decoration: none; z-index: 1000; font-size: 1.2rem; }
 

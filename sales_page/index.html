@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Fondo: Orbes de Ambiente (Club Fénix) -->
+    <div class="ambient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
 
 
     <!-- HERO SECTION -->
@@ -271,5 +276,56 @@
     <a href="#checkout" class="sticky-cta">COMPRAR AHORA</a>
 
     <script src="js/main.js"></script>
+
+    <!-- Script de Estrellas Animadas (Club Fénix) -->
+    <script>
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100vw';
+        canvas.style.height = '100vh';
+        canvas.style.zIndex = '-2';
+        canvas.style.pointerEvents = 'none';
+        document.body.prepend(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        const particles = [];
+
+        for(let i = 0; i < 220; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5,
+                vx: (Math.random() - 0.5) * 0.15,
+                vy: (Math.random() - 0.5) * 0.15
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+                p.x += p.vx;
+                p.y += p.vy;
+                if(p.x < 0) p.x = width;
+                if(p.x > width) p.x = 0;
+                if(p.y < 0) p.y = height;
+                if(p.y > height) p.y = 0;
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
