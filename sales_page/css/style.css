@@ -181,6 +181,8 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-white); }
     .hero-section { padding: 50px 0; }
     .bonus-box { flex-direction: column; text-align: center; align-items: center; }
     .sticky-cta.visible { display: block; }
+    .today-price { flex-direction: column; white-space: normal; font-size: 1.5rem; line-height: 1.2; text-align: center; }
+    .highlight-gold { font-size: 2rem; white-space: normal; display: block; width: 100%; margin-top: 5px; }
 }
 
 /* --- PREMIUM POLISH & DYNAMISM --- */
