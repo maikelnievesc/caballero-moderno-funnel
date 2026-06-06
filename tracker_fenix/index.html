@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fénix Command Center | Caballero Moderno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-card">
+            <h2 style="color: var(--cyan); margin-bottom: 5px;">Fénix Command Center</h2>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Acceso Restringido</p>
+            <input type="text" id="login-user" placeholder="Usuario" class="login-input">
+            <input type="password" id="login-pass" placeholder="Contraseña" class="login-input">
+            <button id="login-btn" class="btn btn-cyan" style="width: 100%; margin-top: 10px;">Ingresar al Panel</button>
+            <p id="login-error" style="color: #ef4444; margin-top: 15px; font-size: 0.9rem; display: none;">Credenciales incorrectas.</p>
+        </div>
+    </div>
+
+    <div class="orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Fénix Command Center</h1>
+            <p>Panel de Control de Marketing y Seguimiento</p>
+            <button id="export-btn" class="btn btn-emerald">Sincronizar con la IA 🤖</button>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2 id="day-title">✅ Tareas de Hoy (<span id="current-day-label"></span>)</h2>
+                <div class="checklist-container" id="daily-tasks">
+                    <!-- Tasks will be injected by JS -->
+                </div>
+                <div style="margin-top: 20px; border-top: 1px solid var(--card-border); padding-top: 15px;">
+                    <button id="reset-daily-btn" class="btn btn-outline">Reiniciar Tareas de Hoy</button>
+                    <button id="close-day-btn" class="btn btn-outline" style="margin-left: 10px; border-color: var(--cyan); color: var(--cyan);">Cerrar Día (Ver Mañana)</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>📊 Métricas Semanales</h2>
+                <p class="subtitle" id="week-dates-label">Registra tu crecimiento (Lunes a Domingo)</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-group">
+                        <h3>Comunidad (Seguidores)</h3>
+                        <div class="input-row">
+                            <label>TikTok (Inicio vs Fin)</label>
+                            <input type="number" id="tk-start" placeholder="Inicio">
+                            <input type="number" id="tk-end" placeholder="Fin">
+                        </div>
+                        <div class="input-row">
+                            <label>Instagram (Inicio vs Fin)</label>
+                            <input type="number" id="ig-start" placeholder="Inicio">
+                            <input type="number" id="ig-end" placeholder="Fin">
+                        </div>
+                    </div>
+
+                    <div class="metric-group">
+                        <h3>Conversiones (Ventas)</h3>
+                        <div class="input-row">
+                            <label>Ventas Tripwire (Ebook 250 MXN)</label>
+                            <input type="number" id="sales-ebook" placeholder="Cant.">
+                        </div>
+                        <div class="input-row">
+                            <label>Ventas Curso (897 MXN)</label>
+                            <input type="number" id="sales-course" placeholder="Cant.">
+                        </div>
+                        <div class="input-row">
+                            <label>Conversaciones de WhatsApp Iniciadas</label>
+                            <input type="number" id="wa-chats" placeholder="Cant.">
+                        </div>
+                    </div>
+                </div>
+                <button id="save-metrics-btn" class="btn btn-cyan" style="margin-top: 20px;">Guardar Progreso Actual</button>
+                <button id="archive-week-btn" class="btn btn-outline" style="margin-top: 20px; margin-left: 10px;">Cerrar Semana y Archivar</button>
+
+                <div id="history-container" style="margin-top: 40px;">
+                    <h3 style="color: var(--cyan); border-bottom: 1px solid var(--card-border); padding-bottom: 10px; margin-bottom: 15px;">📈 Historial de Progreso</h3>
+                    <div class="table-responsive">
+                        <table class="metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>Semana</th>
+                                    <th>Crecimiento (+Seguidores)</th>
+                                    <th>Ventas (Ebk/Cur)</th>
+                                    <th>Chats</th>
+                                </tr>
+                            </thead>
+                            <tbody id="metrics-table-body">
+                                <!-- Rows will be injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>📝 Notas Rápidas / Ideas de Guiones</h2>
+                <textarea id="notes-area" rows="4" placeholder="Ej: Idea para Reel: Cómo responder a un 'jaja' en tinder..."></textarea>
+                <button id="save-notes-btn" class="btn btn-outline" style="margin-top: 10px;">Guardar Notas</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script Modal -->
+    <div id="script-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal-btn">&times;</span>
+            <h3 id="modal-title">Título del Guion</h3>
+            <div id="modal-body" class="modal-body">Contenido...</div>
+            <button class="btn btn-emerald" id="copy-script-btn">Copiar Guion</button>
+        </div>
+    </div>
+
+    <!-- Modal for Copy Success -->
+    <div id="toast" class="toast hidden">
+        <p>¡Datos copiados al portapapeles! Pégalos en el chat con Antigravity.</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
