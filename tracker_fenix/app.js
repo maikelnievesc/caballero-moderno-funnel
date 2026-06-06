@@ -415,4 +415,15 @@ ${notes}
         }, 3000);
     }
 
+    // --- 6. Hard Reset ---
+    const hardResetBtn = document.getElementById('hard-reset-btn');
+    if(hardResetBtn) {
+        hardResetBtn.addEventListener('click', () => {
+            if (confirm('⚠️ ATENCIÓN: Esto borrará TODO el historial, las métricas y las tareas marcadas. La plataforma quedará como nueva. ¿Estás absolutamente seguro de querer resetear todo?')) {
+                localStorage.clear();
+                location.reload();
+            }
+        });
+    }
+
 });
