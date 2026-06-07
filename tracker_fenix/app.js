@@ -378,6 +378,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const sCourse = document.getElementById('sales-course').value || 0;
         
         const notes = localStorage.getItem('fenix-notes') || 'Ninguna';
+        
+        let currentExp = JSON.parse(localStorage.getItem('fenix-expenses-current')) || [];
+        let expTotal = currentExp.reduce((acc, curr) => acc + curr.amount, 0);
 
         const exportText = `--- REPORTE DE FÉNIX COMMAND CENTER ---
 ✅ Tareas Diarias Completadas (${fDate}): ${completed}/${todaysTasks.length}
@@ -387,6 +390,8 @@ document.addEventListener('DOMContentLoaded', () => {
 - Crecimiento Instagram: +${igGrowth} (De ${igStart} a ${igEnd})
 - Ventas Tripwire (Ebook): ${sEbook}
 - Ventas Core (Curso): ${sCourse}
+
+💸 Gastos del Mes Corriente (Hasta ahora): $${expTotal.toFixed(2)}
 
 📝 Notas/Ideas:
 ${notes}
@@ -409,6 +414,142 @@ ${notes}
             toast.classList.add('hidden');
         }, 3000);
     }
+
+    // --- 7. Gastos Operativos ---
+    const expDateInput = document.getElementById('exp-date');
+    if (expDateInput) expDateInput.valueAsDate = new Date(); // Default today
+
+    let currentExpenses = JSON.parse(localStorage.getItem('fenix-expenses-current')) || [];
+    let historyExpenses = JSON.parse(localStorage.getItem('fenix-expenses-history')) || [];
+
+    const currentExpensesBody = document.getElementById('current-expenses-body');
+    const historicExpensesBody = document.getElementById('historic-expenses-body');
+    const expCurrentTotal = document.getElementById('exp-current-total');
+    const expHistoricTotal = document.getElementById('exp-historic-total');
+
+    function renderExpenses() {
+        if (!currentExpensesBody) return;
+        currentExpensesBody.innerHTML = '';
+        let currentTotal = 0;
+
+        currentExpenses.forEach((exp, index) => {
+            currentTotal += exp.amount;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${exp.date}</td>
+                <td>${exp.category}</td>
+                <td>${exp.concept}</td>
+                <td>$${exp.amount.toFixed(2)}</td>
+                <td><button class="btn" style="background:transparent; color:#ef4444; border:1px solid #ef4444; padding:2px 8px; font-size:0.8rem; cursor:pointer;" onclick="deleteExpense(${index})">X</button></td>
+            `;
+            currentExpensesBody.appendChild(tr);
+        });
+
+        expCurrentTotal.textContent = `$${currentTotal.toFixed(2)}`;
+
+        historicExpensesBody.innerHTML = '';
+        let historicTotal = currentTotal;
+
+        historyExpenses.forEach(record => {
+            historicTotal += record.total;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${record.monthYear}</td>
+                <td>$${record.total.toFixed(2)}</td>
+            `;
+            historicExpensesBody.appendChild(tr);
+        });
+
+        expHistoricTotal.textContent = `$${historicTotal.toFixed(2)}`;
+    }
+
+    window.deleteExpense = function(index) {
+        if(confirm('¿Seguro que deseas borrar este gasto?')) {
+            currentExpenses.splice(index, 1);
+            localStorage.setItem('fenix-expenses-current', JSON.stringify(currentExpenses));
+            renderExpenses();
+        }
+    };
+
+    const addExpenseBtn = document.getElementById('add-expense-btn');
+    if(addExpenseBtn) {
+        addExpenseBtn.addEventListener('click', () => {
+            const date = document.getElementById('exp-date').value;
+            const category = document.getElementById('exp-category').value;
+            const concept = document.getElementById('exp-concept').value;
+            const amountStr = document.getElementById('exp-amount').value;
+            const amount = parseFloat(amountStr);
+
+            if (!date || !concept || isNaN(amount)) {
+                alert('Por favor completa todos los campos (Fecha, Concepto, Monto numérico).');
+                return;
+            }
+
+            currentExpenses.push({ date, category, concept, amount });
+            localStorage.setItem('fenix-expenses-current', JSON.stringify(currentExpenses));
+            
+            document.getElementById('exp-concept').value = '';
+            document.getElementById('exp-amount').value = '';
+            
+            renderExpenses();
+            showToast('Gasto añadido correctamente.');
+        });
+    }
+
+    const closeMonthBtn = document.getElementById('close-month-btn');
+    if(closeMonthBtn) {
+        closeMonthBtn.addEventListener('click', () => {
+            if (currentExpenses.length === 0) {
+                alert('No hay gastos en el mes corriente para archivar.');
+                return;
+            }
+            const monthName = prompt('Introduce el nombre del mes que estás cerrando (Ej: Junio 2026):', '');
+            if(!monthName) return;
+
+            if (!confirm(`¿Estás seguro de cerrar ${monthName}? Los datos pasarán al historial.`)) return;
+
+            const total = currentExpenses.reduce((acc, exp) => acc + exp.amount, 0);
+            
+            historyExpenses.push({
+                monthYear: monthName,
+                total: total
+            });
+
+            localStorage.setItem('fenix-expenses-history', JSON.stringify(historyExpenses));
+            
+            currentExpenses = [];
+            localStorage.setItem('fenix-expenses-current', JSON.stringify(currentExpenses));
+            
+            renderExpenses();
+            showToast(`Mes de ${monthName} cerrado y archivado.`);
+        });
+    }
+
+    const exportCsvBtn = document.getElementById('export-csv-btn');
+    if(exportCsvBtn) {
+        exportCsvBtn.addEventListener('click', () => {
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Tipo,Fecha/Mes,Categoria,Concepto,Monto\n";
+            
+            historyExpenses.forEach(record => {
+                csvContent += `Historico,${record.monthYear},-,-,$${record.total.toFixed(2)}\n`;
+            });
+            
+            currentExpenses.forEach(exp => {
+                csvContent += `Corriente,${exp.date},${exp.category},${exp.concept},$${exp.amount.toFixed(2)}\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "fenix_gastos_operativos.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    renderExpenses();
 
     // --- 6. Hard Reset ---
     const hardResetBtn = document.getElementById('hard-reset-btn');

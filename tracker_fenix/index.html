@@ -103,6 +103,92 @@
                 <button id="save-notes-btn" class="btn btn-outline" style="margin-top: 10px;">Guardar Notas</button>
             </section>
 
+            <section class="card">
+                <h2>💸 Control de Gastos Operativos</h2>
+                <div class="metrics-grid">
+                    <div class="metric-group">
+                        <h3>Añadir Nuevo Gasto</h3>
+                        <div class="input-row">
+                            <label>Fecha</label>
+                            <input type="date" id="exp-date">
+                        </div>
+                        <div class="input-row">
+                            <label>Categoría</label>
+                            <select id="exp-category" class="login-input" style="background: var(--bg-dark); color: var(--text-light); border: 1px solid var(--card-border); padding: 10px; border-radius: 8px; font-family: 'Inter', sans-serif;">
+                                <option value="Software/Herramientas">Software / Herramientas</option>
+                                <option value="Publicidad TikTok">Publicidad TikTok</option>
+                                <option value="Publicidad Instagram">Publicidad Instagram</option>
+                                <option value="Publicidad Facebook">Publicidad Facebook</option>
+                                <option value="Publicidad YouTube">Publicidad YouTube</option>
+                                <option value="Otros Gastos">Otros Gastos</option>
+                            </select>
+                        </div>
+                        <div class="input-row">
+                            <label>Concepto (Descripción)</label>
+                            <input type="text" id="exp-concept" placeholder="Ej. Suscripción Antigravity">
+                        </div>
+                        <div class="input-row">
+                            <label>Monto ($)</label>
+                            <input type="number" id="exp-amount" placeholder="0.00" step="0.01">
+                        </div>
+                        <button id="add-expense-btn" class="btn btn-cyan" style="width: 100%; margin-top: 10px;">Añadir Gasto</button>
+                    </div>
+                    
+                    <div class="metric-group">
+                        <h3>Resumen Financiero</h3>
+                        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">Gasto Acumulado (Mes Corriente)</p>
+                            <h3 style="margin: 5px 0 0 0; color: #ef4444; font-size: 1.8rem;" id="exp-current-total">$0.00</h3>
+                        </div>
+                        <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); padding: 15px; border-radius: 8px;">
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">Gasto Total Histórico</p>
+                            <h3 style="margin: 5px 0 0 0; color: var(--cyan); font-size: 1.8rem;" id="exp-historic-total">$0.00</h3>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <button id="close-month-btn" class="btn btn-outline" style="width: 100%; margin-bottom: 10px;">Cerrar Mes y Archivar</button>
+                            <button id="export-csv-btn" class="btn btn-emerald" style="width: 100%;">Exportar Historial a CSV</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h3 style="color: var(--cyan); border-bottom: 1px solid var(--card-border); padding-bottom: 10px; margin-bottom: 15px;">Gastos del Mes Corriente</h3>
+                    <div class="table-responsive">
+                        <table class="metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Categoría</th>
+                                    <th>Concepto</th>
+                                    <th>Monto</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="current-expenses-body">
+                                <!-- Expenses injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h3 style="color: var(--cyan); border-bottom: 1px solid var(--card-border); padding-bottom: 10px; margin-bottom: 15px;">Historial de Meses Cerrados</h3>
+                    <div class="table-responsive">
+                        <table class="metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>Mes / Año</th>
+                                    <th>Total Gastado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historic-expenses-body">
+                                <!-- History injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
             <!-- Hard Reset -->
             <div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
                 <button id="hard-reset-btn" class="btn" style="background-color: transparent; color: #ef4444; border: 1px solid #ef4444; font-size: 0.8rem; padding: 8px 15px; cursor: pointer;">⚠️ Resetear Todo el Sistema (Dejar en Blanco)</button>
