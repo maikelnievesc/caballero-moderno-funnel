@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 2. Weekly Metrics Data ---
-    const metricsIds = ['tk-start', 'tk-end', 'ig-start', 'ig-end', 'sales-ebook', 'sales-course', 'wa-chats'];
+    const metricsIds = ['tk-start', 'tk-end', 'ig-start', 'ig-end', 'sales-ebook', 'sales-course'];
     
     // Load saved metrics
     metricsIds.forEach(id => {
@@ -298,7 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${record.week}</td>
                 <td>TK: +${record.tkGrowth} | IG: +${record.igGrowth}</td>
                 <td>Ebk: ${record.sEbook} | Cur: ${record.sCourse}</td>
-                <td>${record.waChats}</td>
             `;
             historyTableBody.appendChild(tr);
         });
@@ -320,15 +319,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const sEbook = parseInt(document.getElementById('sales-ebook').value || 0);
         const sCourse = parseInt(document.getElementById('sales-course').value || 0);
-        const waChats = parseInt(document.getElementById('wa-chats').value || 0);
 
         const record = {
             week: currentWeekRange,
             tkGrowth,
             igGrowth,
             sEbook,
-            sCourse,
-            waChats
+            sCourse
         };
 
         metricsHistory.push(record);
@@ -379,7 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const sEbook = document.getElementById('sales-ebook').value || 0;
         const sCourse = document.getElementById('sales-course').value || 0;
-        const waChats = document.getElementById('wa-chats').value || 0;
         
         const notes = localStorage.getItem('fenix-notes') || 'Ninguna';
 
@@ -389,7 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
 📊 Métricas Actuales (Semana ${currentWeekRange}):
 - Crecimiento TikTok: +${tkGrowth} (De ${tkStart} a ${tkEnd})
 - Crecimiento Instagram: +${igGrowth} (De ${igStart} a ${igEnd})
-- Interacciones WhatsApp Iniciadas: ${waChats}
 - Ventas Tripwire (Ebook): ${sEbook}
 - Ventas Core (Curso): ${sCourse}
 
