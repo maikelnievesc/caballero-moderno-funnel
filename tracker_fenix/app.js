@@ -25,100 +25,209 @@ document.addEventListener('DOMContentLoaded', () => {
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
 
     const weeklyAgenda = {
-        0: [ // Domingo
-            { 
-                id: 't-sun-1', 
-                text: 'Publicar Reel: "Planificación implacable"',
-                script: `[GUION PARA GRABAR]\nTítulo en pantalla: Lo que no planificas, fracasa 🛑\n\n"Un Caballero Moderno no se despierta el lunes preguntándose qué va a hacer. El domingo por la noche, su semana ya está conquistada en papel. Si dejas tus metas al azar, serás víctima del plan de alguien más. Sígueme y aprende a tomar el control."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nEl éxito empieza el domingo. 🛑🔥\nDeja de improvisar tu vida y comienza a diseñarla.\n👉 Sígueme para más desarrollo personal.\n#CaballeroModerno #AltoValor #Planificacion #DesarrolloPersonal`
-            },
-            {
-                id: 't-sun-fb',
-                text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `¿Cómo te preparas para la semana? ♟️\n\nLa mayoría de los hombres temen que llegue el lunes. El Caballero Moderno lo espera con una estrategia clara. Dedica 30 minutos de tu domingo a estructurar tus victorias semanales.\n\n👉 Únete a la comunidad y diseña tu camino.\n\n---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A confident man planning in a sleek journal, cinematic lighting, modern coffee shop, highly detailed --ar 4:5"`
-            },
-            { id: 't-sun-2', text: 'Preparar y agendar métricas semanales' },
-            { id: 't-sun-3', text: 'Atender chats de WhatsApp (Cierres semanales)' }
+        0: [ // Domingo - Empty since cycle is Monday to Saturday
+            { id: 't-sun-1', text: 'Descanso y planificación' }
         ],
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "Cómo superar los Shit Tests" (5:00 PM)',
-                script: `[GUION PARA GRABAR]\nTítulo SEO: Cómo responder a los "Shit Tests" femeninos (y superarlos)\n\n"Las mujeres de alto valor siempre pondrán a prueba tu confianza. Te dirán cosas como 'Seguro le dices eso a todas'. Si te justificas y dices '¡No, te lo juro!', perdiste. Estás demostrando inseguridad. Un verdadero Caballero Moderno usa el humor y la exageración. Tú respondes: 'Sí, de hecho tengo un Excel con todas a las que se lo digo'. Al no tomarte en serio su prueba, le demuestras que tu confianza es inquebrantable."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nNo te tomes todo de forma literal. ❌🤐\nLas pruebas son su manera subconsciente de ver si eres tan seguro como aparentas.\n👉 Suscríbete para más técnicas avanzadas.\n#CaballeroModerno #Seduccion #ShitTests #AtraerMujeres #Psicologia`
+                text: 'Publicar Video Largo en YT: "Contacto Cero: El Error que todos cometen" (5:00 PM)',
+                script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
+Título SEO: Por qué el Contacto Cero NO funciona si cometes este error (Recupera tu poder)
+
+(0:00 - 0:30) Hook: "Te acaban de rechazar o de pedir 'tiempo'. Todo el mundo en internet te dice: '¡Aplica el contacto cero! ¡Ignórala por 30 días!'. Así que lo haces. No le escribes. Pero te pasas esos 30 días revisando sus historias desde cuentas falsas, mirando si está en línea en WhatsApp, y tu vida gira en torno a su ausencia. Hermano, si haces eso, el contacto cero no sirve de nada. Hoy te voy a explicar la verdadera psicología detrás de desaparecer y cómo recuperar tu poder."
+
+(0:30 - 1:30) El problema: "El 99% de los hombres usa el contacto cero como una técnica de manipulación. Creen que es un botón mágico que hará que ella los extrañe. Pero las mujeres tienen un radar infalible para la energía. Si tú no le hablas, pero estás desesperado, vibrando en escasez, ella lo va a sentir. Cuando reaparezcas a los 30 días, seguirás siendo el mismo hombre inseguro del que se alejó. El objetivo del contacto cero no es que ella cambie, es que TÚ cambies."
+
+(1:30 - 2:30) La Verdadera Regla: "El verdadero contacto cero significa 'Desintoxicación Emocional'. Durante este periodo, su existencia debe volverse irrelevante para tu crecimiento. ¿Qué significa esto? Bloqueas o silencias todo. Te inscribes en ese curso que postergaste, te matas en el gimnasio, empiezas a leer sobre estoicismo. Cada vez que tengas ganas de escribirle, escribes en tu diario o le hablas a un mentor. Tienes que matar la versión tuya que dependía de su validación."
+
+(2:30 - 3:30) El resultado: "Si haces esto bien, pasarán dos cosas. Opción A: Ella nota la retirada real de tu energía, siente el vacío absoluto de tu atención (que antes tenía garantizada) y regresa a buscarte. Opción B: Tú creces tanto en este proceso que, cuando pasen los 30 días, te das cuenta de que ya no la quieres en tu vida porque tus estándares subieron. Cualquiera de las dos es una victoria absoluta. Recuperaste el trono. Suscríbete si quieres dominar tus emociones."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "El test de confianza"',
-                script: `[GUION PARA GRABAR]\nTítulo en pantalla: Por qué ella te pone a prueba 🚫\n\n"Si ella te desafía con un comentario sarcástico, no es porque te odie. Está viendo de qué estás hecho. Si te ofendes, fracasas. Si te ríes y le devuelves la broma, apruebas. La indiferencia juguetona es tu mejor arma. Sígueme para dominar estas situaciones."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nLas pruebas son oportunidades disfrazadas. ❌\nAprende a mantener la calma bajo presión.\n👉 Sígueme y mejora tu dinámica social.\n#CaballeroModerno #Seduccion #Confianza`
+                text: 'Publicar Reel: "El falso contacto cero"',
+                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
+Título en pantalla: El peor error del Contacto Cero 🚫
+
+"Si le aplicas contacto cero pero ves todas sus historias a los 5 minutos de publicadas... no estás haciendo contacto cero, estás haciendo el ridículo en silencio. El contacto cero no es una estrategia para que te extrañe, es un periodo de desintoxicación para que recuperes tu maldita dignidad. Si tu energía sigue enfocada en ella, no sirve. Silénciala, enfócate en tus metas y desaparece de verdad. Sígueme para recuperar tu poder."
+
+[COPIAR Y PEGAR EN DESCRIPCIÓN]
+El verdadero poder está en quitarle tu atención, no solo tus mensajes. 🛑🔥
+Si sigues orbitando su vida digital, le sigues dando validación gratuita. 
+👉 Asegúrate de usar el botón de "Silenciar" y pon el foco en ti. Sígueme para más.
+#ContactoCero #Ruptura #CaballeroModerno #PsicologiaOscura #DesarrolloPersonal #Masculinidad`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `¿Por qué ella siempre te contradice? ❌🤐\n\nEs lo que en psicología evolutiva se conoce como un test de aptitud. Tu trabajo no es convencerla con lógica, es demostrar que su presión no altera tu estado emocional. Responde con humor, no con argumentos.\n\n👉 Síguenos para aprender a mantener tu centro emocional.\n\n---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A confident man smiling calmly while a woman playfully challenges him, elegant setting, photorealistic --ar 4:5"`
-            },
-            { id: 't-mon-3', text: 'Responder comentarios y DMs' },
-            { id: 't-mon-4', text: 'Atender chats de WhatsApp' }
+                script: `El "Contacto Cero" que te enseñan en internet es una mentira manipuladora. ❌🤫
+
+Muchos hombres aplican la regla de los 30 días esperando ansiosamente junto al teléfono, contando las horas, imaginando qué estará haciendo ella. Creen que el simple acto de no enviar mensajes de texto es suficiente para crear atracción. Esto es un error brutal.
+
+El verdadero contacto cero es una declaración de guerra contra tu propia dependencia emocional. Es decirle a tu cerebro: "Mi paz mental y mi misión en la vida son mil veces más importantes que la validación de otra persona". No se trata de castigarla a ella con tu ausencia; se trata de premiarte a ti mismo con tu presencia. 
+
+Si te acaban de rechazar, retira tu atención por completo. No mires sus redes. No preguntes por ella. Invierte esa energía en construir un imperio personal tan grande que su ausencia sea solo una nota a pie de página en tu historia de éxito.
+
+👉 Únete a la comunidad de hombres que construyen desde el valor, no desde la necesidad.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a sophisticated man walking away from a shattered glass phone screen reflecting a blurred figure, stepping into a bright, golden, inspiring horizon. Symbolizing moving on and self-focus, hyper-detailed, 8k --ar 4:5"`
+            }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "El error de escribir demasiado"',
-                script: `[GUION PARA GRABAR]\nTítulo en pantalla: Textos largos = Cero atracción 📱\n\n"Si ella te envía un texto de una línea y tú respondes con tres párrafos, le estás regalando tu poder. En la comunicación digital, quien escribe menos, lidera. Mantén el misterio, sé breve y usa el chat solo para concretar la cita, no para conocerse. Sígueme si quieres dejar de ser el amigo por chat."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nEl exceso de texto mata el misterio. 🚫📱\nGuarda tus mejores historias para la cita en persona.\n👉 Sígueme para mejorar tu juego de texto.\n#CaballeroModerno #ErroresDeWhatsapp #AtraerMujeres`
+                text: 'Publicar Reel: "Por qué te rechazó"',
+                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
+Título en pantalla: La cruda verdad sobre su rechazo 💔
+
+"¿Quieres saber por qué te dejó o te rechazó? No fue por el dinero, ni por tu físico. Te rechazó porque te volviste predecible y perdiste tu centro. Empezaste a dejar tus hobbies para verla, le respondías a los dos segundos y la convertiste en tu único propósito. A ninguna mujer de alto valor le excita ser el centro de la vida de un hombre sin metas. Recupera tu propósito. Sígueme para entender la atracción real."
+
+[COPIAR Y PEGAR EN DESCRIPCIÓN]
+El exceso de disponibilidad destruye el deseo. 🚫📱
+Cuando haces de una mujer tu mundo, ella pierde el interés de habitarlo.
+👉 Sígueme para aprender a balancear tu vida y tus relaciones.
+#Rechazo #ContactoCero #CaballeroModerno #Seduccion #AltoValor`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La regla de oro del WhatsApp: Textos cortos, intenciones claras. 📵👇\n\nEl error más común de los hombres es intentar generar conexión emocional a través de una pantalla. El chat es una herramienta logística. Tu objetivo es conseguir la cita, no contarle tu vida entera.\n\n👉 Síguenos para aprender la verdadera función del chat.\n\n---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A man calmly texting, holding his phone, modern and stylish, high value, cinematic --ar 4:5"`
-            },
-            { id: 't-tue-3', text: 'Responder comentarios y DMs' }
+                script: `La anatomía de un rechazo: Por qué el exceso de interés destruye la atracción. 📵👇
+
+La paradoja más dolorosa para el hombre moderno es descubrir que darlo todo, estar siempre disponible y ser el "hombre perfecto", a menudo resulta en un "no eres tú, soy yo". 
+
+La atracción femenina requiere tensión, espacio y un grado de misterio. Cuando abandonas tu propósito, tus hobbies y a tus amigos para orbitar su vida, pasas de ser un reto estimulante a una carga predecible. La devoción absoluta, cuando no ha sido ganada a través del tiempo y el compromiso mutuo, se percibe biológicamente como debilidad.
+
+Para recuperar tu poder hoy mismo: retoma el control de tu agenda. Que ella tenga que encajar en tu vida, no que tu vida se pause para encajar en la suya. 
+
+👉 Síguenos si estás listo para dejar de mendigar atención y empezar a proyectar estatus real.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A split image. Left: a man looking desperate at his glowing phone in the dark. Right: A modern gentleman confidently reading a book in an upscale lounge, ignoring his phone. High contrast, cinematic, photorealistic --ar 4:5"`
+            }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "El poder de decir NO"',
-                script: `[GUION PARA GRABAR]\nTítulo en pantalla: Decir NO te hace irresistible 💔\n\n"El hombre que siempre está disponible no tiene valor. Si ella te propone salir hoy mismo a última hora y tú cancelas tus planes por ella, acabas de perder su respeto. Un Caballero Moderno valora su tiempo. Decir 'Hoy no puedo, pero ¿qué tal el jueves?' demuestra que tienes una vida. Sígueme para recuperar tu valor."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nTu disponibilidad no debe ser garantizada. 🛑\nTener límites es la base de la verdadera masculinidad.\n👉 Sígueme y conviértete en tu máxima prioridad.\n#CaballeroModerno #Seduccion #AltoValor`
+                text: 'Publicar Reel: "El poder del silencio"',
+                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
+Título en pantalla: Tu silencio es tu mejor respuesta 🤫
+
+"Cuando ella te dice que 'no está lista' o que 'solo quiere amistad', el 90% de los hombres intentan convencerla lógicamente o le reclaman. Error fatal. El 10% de los hombres simplemente dice 'Entiendo, que te vaya increíble', da la media vuelta y nunca más vuelve a escribir. Ese silencio ensordecedor es la mayor demostración de alto valor que puedes dar. Demuestra que no dependes de nadie. Sígueme para más estoicismo."
+
+[COPIAR Y PEGAR EN DESCRIPCIÓN]
+No intentes negociar la atracción. 🛑
+Tu retirada silenciosa y digna genera más impacto que mil mensajes rogando por una oportunidad.
+👉 Sígueme y conviértete en un maestro del autocontrol.
+#Estoicismo #CaballeroModerno #Silencio #ContactoCero #Mentalidad`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Decir NO es el mayor filtro de respeto. 💔\n\nSi siempre estás de acuerdo con todo lo que ella dice y haces todo lo que te pide, te conviertes en un fan, no en una pareja potencial. Los hombres magnéticos no tienen miedo a marcar límites saludables.\n\n👉 Síguenos para aprender a proyectar verdadero alto estatus.\n\n---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic shot of a man looking confident and relaxed, saying no with a calm gesture, elegant --ar 4:5"`
-            },
-            { id: 't-wed-2', text: 'Responder comentarios y DMs' },
-            { id: 't-wed-3', text: 'Atender chats de WhatsApp' }
+                script: `El arma más poderosa del Caballero Moderno después de un rechazo: El Silencio Absoluto. 🤫♟️
+
+Cuando eres rechazado, tu ego entra en pánico. Te pide que mandes ese párrafo de tres hojas por WhatsApp explicando tus sentimientos, o peor aún, tratando de hacerla sentir culpable. 
+
+Detente. Las palabras en ese momento comunican baja inteligencia emocional. 
+El silencio, por otro lado, comunica un mensaje devastadoramente atractivo: "Mi valor no disminuye por tu incapacidad de verlo". Al aceptar un "no" con una sonrisa relajada y desaparecer, rompes el guion que ella esperaba. Ella esperaba dramas, ruegos o insultos. Al darle vacío, plantas la semilla de la duda y, lo más importante, retienes tu dignidad intacta.
+
+Elige siempre el respeto propio por encima del cierre emocional.
+
+👉 Síguenos para aprender a dominar tus emociones en los momentos más críticos.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A close-up of an elegant, serene man slightly smiling while looking away, conveying absolute calm and stoicism. Dark cinematic background, highly detailed facial features, photorealistic --ar 4:5"`
+            }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Líder vs Macho Alfa"',
-                script: `[GUION PARA GRABAR]\nTítulo en pantalla: El mito del Macho Alfa ♟️\n\n"Ser un macho alfa no se trata de gritar, ser agresivo o tratar mal a los demás. Eso es inseguridad disfrazada. El verdadero liderazgo es silencioso. Un Caballero Moderno no necesita demostrar nada, su simple presencia transmite seguridad. Protege, provee valor y lidera con el ejemplo. Sígueme para entender la verdadera masculinidad."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nLa masculinidad tóxica nace de la inseguridad. 🤫🔥\nEl verdadero poder no necesita anunciarse.\n👉 Sígueme para más secretos de masculinidad moderna.\n#CaballeroModerno #Masculinidad #Liderazgo`
+                text: 'Publicar Reel: "Qué hacer si te busca"',
+                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
+Título en pantalla: Qué hacer cuando ella regresa ♟️
+
+"Aplicaste el contacto cero y, de repente, un mensaje de ella a las 10 PM: 'Hola, ¿cómo estás?'. Si le respondes al instante emocionado, acabas de tirar todo a la basura. Está tanteando el terreno para ver si sigues en la palma de su mano. Tarda horas en responder, sé amable pero cortante, y no la invites a salir de inmediato. Que invierta esfuerzo. Tu tiempo es un premio. Sígueme para dominar el juego a largo plazo."
+
+[COPIAR Y PEGAR EN DESCRIPCIÓN]
+El regreso no significa que ganaste. 🤫🔥
+Es una prueba. Si te muestras demasiado ansioso, perderá el interés tan rápido como apareció. Mantén el marco.
+👉 Sígueme para no arruinar tus oportunidades.
+#ContactoCero #Ex #CaballeroModerno #Masculinidad #Seduccion`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El verdadero poder no se grita, se susurra. 🤫🔥\n\nNo necesitas ser el tipo más ruidoso de la habitación para liderar. De hecho, el hombre más peligroso y atractivo es aquel que observa en silencio, pero actúa con absoluta convicción cuando es necesario.\n\n👉 Síguenos para descubrir la esencia del liderazgo magnético.\n\n---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A calm, well-dressed man observing a crowded room, quiet confidence, cinematic lighting --ar 4:5"`
-            },
-            { id: 't-thu-2', text: 'Responder comentarios y DMs' },
-            { id: 't-thu-3', text: 'Revisar métricas parciales' }
+                script: `La Prueba Final del Contacto Cero: El mensaje de "Hola, me acordé de ti". 📱🎣
+
+Muchos hombres logran sostener el contacto cero por semanas, construyen su vida y avanzan. Pero en cuanto reciben esa famosa migaja de atención (un like, un 'jaja' a una historia, o un mensaje casual), tiran su progreso por la ventana, respondiendo en 5 segundos y pidiéndole una cita.
+
+Entiende esto: ese mensaje no es una declaración de amor, es un radar. Ella quiere verificar si su ego aún tiene acceso a tu atención gratuita. 
+
+La respuesta de un hombre de alto estatus es demorada, educada, breve y sin hacer preguntas de vuelta. (Ej: 'Hola, todo excelente por acá, muy ocupado con proyectos. ¡Espero que estés bien!'). No premias un comportamiento ambiguo con tu validación total. Haz que se gane su lugar de vuelta.
+
+👉 Síguenos para descubrir cómo establecer límites de hierro que generen respeto absoluto.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A sophisticated man looking at his glowing smartphone with a neutral, uninterested expression while working on a laptop in a luxury office. Cinematic lighting, photorealistic --ar 4:5"`
+            }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "Logística de la primera cita"',
-                script: `[GUION PARA GRABAR]\nTítulo en pantalla: El peor lugar para una primera cita 🚫\n\n"Nunca, jamás la lleves al cine o a una cena formal en la primera cita. Es caro, no pueden hablar y se siente como una entrevista incómoda. Llévala a tomar un café, a caminar por un parque o a jugar billar. Algo barato, interactivo y donde puedas estar sentado junto a ella, no enfrente. Sígueme para dominar tus citas."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nEl entorno dicta la vibra de la cita. 🛋️❌\nFacilita la interacción y el contacto físico sutil eligiendo el lugar correcto.\n👉 Sígueme y aprende a diseñar citas inolvidables.\n#CaballeroModerno #PrimerCita #ConsejosParaHombres`
+                text: 'Publicar Reel: "Mejorar tus estándares"',
+                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
+Título en pantalla: Tu error no fue amarla, fue idealizarla 🚫
+
+"Después de un rechazo, tu cerebro te engaña haciéndote creer que perdiste a un ser humano perfecto e irremplazable. Falso. La estabas mirando a través de los lentes de la escasez. Quítala del pedestal. Seguramente era impuntual, caprichosa o no aportaba nada más que belleza. Empieza a subir tus estándares. Un hombre de verdad se enamora del carácter, no solo del físico. Sígueme y aprende a elegir mejor."
+
+[COPIAR Y PEGAR EN DESCRIPCIÓN]
+El pedestal en el que la pones es el mismo desde donde te mira hacia abajo. 🛋️❌
+La idealización nace de la falta de opciones. Trabaja en ti mismo y tus opciones se multiplicarán.
+👉 Sígueme y aprende a no conformarte.
+#CaballeroModerno #Abundancia #Estandares #ConsejosParaHombres`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El diseño de tu cita revela tu experiencia. ♟️👑\n\nSi la invitas a una cena cara la primera vez que se ven, estás tratando de comprar su validación. Mantén las primeras interacciones simples, casuales y centradas en la diversión mutua, no en impresionar con tu billetera.\n\n👉 Síguenos para pensar estratégicamente en tus relaciones.\n\n---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A couple laughing casually at an aesthetic coffee shop, sitting next to each other, photorealistic --ar 4:5"`
-            },
-            { id: 't-fri-2', text: 'Responder comentarios y DMs' }
+                script: `La trampa de la idealización post-ruptura. ♟️👑
+
+Cuando sufrimos un rechazo, nuestra memoria se vuelve selectiva. Solo recordamos su sonrisa, el olor de su perfume y las cosas buenas. Olvidamos convenientemente sus dramas, su falta de iniciativa, o que no compartía nuestros valores más profundos. 
+
+Esta idealización ocurre porque operamos desde la escasez mental. Creemos erróneamente que "nunca encontraremos a nadie igual". Y es cierto, no encontrarás a nadie igual, encontrarás a alguien MEJOR, pero solo si tú te conviertes en un hombre mejor.
+
+Baja a esa persona del pedestal. El único que pertenece en un pedestal en tu propia vida, eres tú y tu propósito. Exige lealtad, paz mental y compañerismo en tus futuras relaciones.
+
+👉 Síguenos para reconstruir tu mentalidad desde la abundancia, no desde la carencia.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A powerful visual metaphor: A man smashing a golden pedestal with a sledgehammer, confident and strong. Cinematic dust and lighting, dark background, photorealistic --ar 4:5"`
+            }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "Postura de dominancia relajada"',
-                script: `[GUION PARA GRABAR]\nTítulo en pantalla: El secreto de la postura relajada 👀\n\n"La ansiedad hace que te encojas y te muevas rápido. Para proyectar confianza inmediata, adopta la dominancia relajada. Hombros atrás, pecho ligeramente expuesto y movimientos un 10% más lentos. Cuando te sientes, ocupa espacio sin ser invasivo. Tu cuerpo debe decir: 'Estoy cómodo en cualquier situación'. Sígueme para más secretos de lenguaje no verbal."\n\n[COPIAR Y PEGAR EN DESCRIPCIÓN]\nComodidad extrema = Confianza extrema. 👀🔥\nSi tú estás relajado, harás que ella se relaje en tu presencia.\n👉 Sígueme para dominar el lenguaje corporal.\n#CaballeroModerno #LenguajeCorporal #Confianza`
+                text: 'Publicar Reel: "Abundancia real"',
+                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
+Título en pantalla: Cómo volverte inmune al rechazo 👀
+
+"¿Sabes cuál es el antídoto contra el dolor del rechazo? La abundancia. Y no me refiero a tener 20 mujeres escribiéndote. La abundancia real es tener metas que te apasionan, dinero en tu cuenta, salud física de hierro y un círculo de amigos leales. Cuando tu vida es un 10 sobre 10 estando solo, el rechazo de una mujer ya no te destruye, solo es un pequeño inconveniente. Sígueme para construir una vida épica."
+
+[COPIAR Y PEGAR EN DESCRIPCIÓN]
+La inmunidad emocional se construye fuera de las relaciones. 👀🔥
+Si tu felicidad depende de que ella te responda el mensaje, eres un esclavo. 
+👉 Sígueme para romper las cadenas de la dependencia.
+#CaballeroModerno #Abundancia #DesarrolloPersonal #Confianza`
             },
-            { id: 't-sat-2', text: 'Responder comentarios y DMs' }
+            {
+                id: 't-sat-fb',
+                text: 'Publicar Post en Facebook (Copiar y Pegar)',
+                script: `La Abundancia Real no es lo que te han vendido. 💎
+
+Muchos gurús te dicen que para superar un rechazo debes buscar validación inmediata en otras mujeres. Usar a otras personas como tiritas emocionales solo demuestra lo frágil que es tu ego.
+
+La verdadera abundancia es holística. Es saber que tienes la disciplina para levantar pesas 5 veces por semana. Es la tranquilidad de tus finanzas en orden. Es la sabiduría que estás adquiriendo al leer libros difíciles. Es la paz de sentarte solo en una cafetería y sentirte completo.
+
+Cuando operas desde esta abundancia real, te vuelves inquebrantable. Ya no buscas a una pareja para que "te complete" ni para tapar tus vacíos, la buscas para compartir tu plenitud. Y créeme, esa energía es la más magnética que un hombre puede proyectar.
+
+👉 Únete a la rebelión de hombres que están recuperando su control total. Síguenos.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly successful and calm man enjoying an espresso alone in a beautiful aesthetic cafe, reading a thick book, perfectly content, warm cinematic lighting, photorealistic --ar 4:5"`
+            }
         ]
     };
 
@@ -281,6 +390,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. History Table Logic ---
     const historyTableBody = document.getElementById('metrics-table-body');
+    
+    // One-time reset for Week 3
+    if (!localStorage.getItem('fenix-w3-reset')) {
+        localStorage.removeItem('fenix-history');
+        metricsIds.forEach(id => localStorage.removeItem(id));
+        localStorage.setItem('fenix-w3-reset', 'true');
+    }
+
     let metricsHistory = JSON.parse(localStorage.getItem('fenix-history')) || [];
 
     function renderHistoryTable() {
