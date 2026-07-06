@@ -82,6 +82,7 @@ a {
   width: auto;
   transform: scale(1.25);
   transform-origin: left center;
+  mix-blend-mode: multiply;
 }
 
 .nav-links {
