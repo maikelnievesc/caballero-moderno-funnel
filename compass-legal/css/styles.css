@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Boho Chic Coastal Palette */
-  --color-primary: #6B8E8E; /* Sage Green / Teal */
-  --color-primary-dark: #517070;
-  --color-secondary: #D4C5B3; /* Rattan / Sand */
-  --color-secondary-light: #F0E8DD;
+  /* Boho Chic Coastal Palette - VIVID */
+  --color-primary: #37A3A3; /* Vivid Teal/Sage */
+  --color-primary-dark: #2A7C7C;
+  --color-secondary: #E3A857; /* Warm Rattan/Gold */
+  --color-secondary-light: #FDF3E6;
   --color-bg: #FAFAFA; /* Off-white */
-  --color-text: #4A4A4A; /* Charcoal */
-  --color-text-light: #7A7A7A;
+  --color-text: #333333; /* Darker Charcoal for better contrast */
+  --color-text-light: #666666;
   --color-white: #FFFFFF;
   
   --font-heading: 'Outfit', sans-serif;
@@ -70,33 +70,27 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 90px;
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-primary);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
-.logo span {
-  color: var(--color-text);
-  font-weight: 300;
-  font-size: 1.2rem;
+.nav-logo {
+  height: 60px;
+  width: auto;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
 .nav-links a {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--color-text);
 }
