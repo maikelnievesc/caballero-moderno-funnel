@@ -56,8 +56,7 @@ a {
 
 /* ================= NAV ================= */
 .navbar {
-  background-color: rgba(250, 250, 250, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: #FFFFFF;
   position: fixed;
   top: 0;
   left: 0;
@@ -70,7 +69,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 100px;
 }
 
 .logo {
@@ -79,7 +78,7 @@ a {
 }
 
 .nav-logo {
-  height: 60px;
+  height: 80px;
   width: auto;
 }
 
@@ -160,7 +159,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;
+  opacity: 0.85;
   z-index: 1;
 }
 
@@ -170,7 +169,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(250,250,250,0.9) 0%, rgba(250,250,250,0.4) 100%);
+  background: linear-gradient(to right, rgba(250,250,250,0.7) 0%, rgba(250,250,250,0.1) 100%);
   z-index: 2;
 }
 
