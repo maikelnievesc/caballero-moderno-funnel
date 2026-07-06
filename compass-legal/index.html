@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compass Legal Services MX</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -27,7 +28,7 @@
     <header class="hero">
         <img src="img/hero.png" alt="Boho Chic Coastal Office" class="hero-bg">
         <div class="hero-overlay"></div>
-        <div class="container hero-content">
+        <div class="container hero-content" data-aos="fade-up" data-aos-duration="1000">
             <h1>Your Legal Compass in <span>Mexico</span></h1>
             <p>Professional, transparent, and specialized legal services for expats, investors, and digital nomads in Puerto Vallarta and beyond.</p>
             <div class="hero-buttons">
@@ -39,34 +40,34 @@
 
     <!-- SERVICES SECTION -->
     <section id="services" class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <h2>Our Expertise</h2>
             <p>Comprehensive legal solutions designed for the international community living or investing in Mexico.</p>
         </div>
         
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-icon">🛂</div>
                 <h3>Immigration & Residency</h3>
                 <p>Temporary and permanent residency processes, regularization, and citizenship applications.</p>
                 <a href="#" class="service-link">Learn more &rarr;</a>
             </div>
             
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-icon">🏡</div>
                 <h3>Real Estate & Fideicomisos</h3>
                 <p>Secure your property investment with bank trusts, closing coordination, and contract reviews.</p>
                 <a href="#" class="service-link">Learn more &rarr;</a>
             </div>
             
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-icon">💼</div>
                 <h3>Corporate & Business</h3>
                 <p>LLC formation, RFC registration, and corporate governance for foreign business owners.</p>
                 <a href="#" class="service-link">Learn more &rarr;</a>
             </div>
             
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="service-icon">⛵</div>
                 <h3>Maritime & TIPs</h3>
                 <p>Temporary Import Permits (TIP) resolution, boat registrations, and maritime compliance.</p>
@@ -78,13 +79,13 @@
     <!-- PACKAGES SECTION -->
     <section id="packages" class="packages">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2>Transparent Pricing Tiers</h2>
                 <p>Choose the level of support that fits your needs. No hidden fees.</p>
             </div>
             
             <div class="packages-grid">
-                <div class="package-card">
+                <div class="package-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>Basic Consultation</h3>
                     <div class="price">From $150</div>
                     <p>Perfect for DIY clients needing professional guidance.</p>
@@ -96,7 +97,7 @@
                     <a href="#" class="btn btn-outline">Book Session</a>
                 </div>
                 
-                <div class="package-card popular">
+                <div class="package-card popular" data-aos="fade-up" data-aos-delay="200">
                     <div class="popular-badge">Most Chosen</div>
                     <h3>Assisted Process</h3>
                     <div class="price">Varies</div>
@@ -110,7 +111,7 @@
                     <a href="#" class="btn btn-primary">Get a Quote</a>
                 </div>
                 
-                <div class="package-card">
+                <div class="package-card" data-aos="fade-up" data-aos-delay="300">
                     <h3>Full Representation</h3>
                     <div class="price">Custom</div>
                     <p>End-to-end legal representation and case management.</p>
@@ -128,25 +129,25 @@
 
     <!-- EDUCATIONAL SECTION -->
     <section id="resources" class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <h2>Expats Resource Center</h2>
             <p>Educating our clients to make informed legal decisions in Mexico.</p>
         </div>
         
         <div class="services-grid">
-            <div class="service-card" style="padding: 1.5rem;">
+            <div class="service-card" style="padding: 1.5rem;" data-aos="fade-up" data-aos-delay="100">
                 <h4 style="color: var(--color-primary);">Guide</h4>
                 <h3>Buying Property as a Foreigner</h3>
                 <p>Understanding the Restricted Zone and how Fideicomisos work.</p>
                 <a href="#" class="service-link">Read Article &rarr;</a>
             </div>
-            <div class="service-card" style="padding: 1.5rem;">
+            <div class="service-card" style="padding: 1.5rem;" data-aos="fade-up" data-aos-delay="200">
                 <h4 style="color: var(--color-primary);">Checklist</h4>
                 <h3>Temporary Residency</h3>
                 <p>The financial solvency requirements you need to meet for 2026.</p>
                 <a href="#" class="service-link">Download PDF &rarr;</a>
             </div>
-            <div class="service-card" style="padding: 1.5rem;">
+            <div class="service-card" style="padding: 1.5rem;" data-aos="fade-up" data-aos-delay="300">
                 <h4 style="color: var(--color-primary);">FAQ</h4>
                 <h3>Apostilles & Translations</h3>
                 <p>Why your foreign documents need to be legalized before use in Mexico.</p>
@@ -197,5 +198,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts for Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>

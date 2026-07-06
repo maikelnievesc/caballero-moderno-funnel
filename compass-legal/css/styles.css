@@ -80,6 +80,8 @@ a {
 .nav-logo {
   height: 100px;
   width: auto;
+  transform: scale(1.25);
+  transform-origin: left center;
 }
 
 .nav-links {
@@ -89,9 +91,14 @@ a {
 }
 
 .nav-links a {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--color-text);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
 }
 
 .nav-links a:hover {
