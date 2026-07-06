@@ -35,42 +35,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
 Título SEO: 3 Temas de conversación para nunca aburrir a una mujer (Atraer sin esfuerzo)
 
-(0:00 - 0:30) Hook: "El error más común que cometen el 99% de los hombres en una primera cita es hacer preguntas de entrevista de trabajo. '¿A qué te dedicas?', '¿Cuántos hermanos tienes?', '¿Dónde estudiaste?'. Hermano, si haces eso, su cerebro se apaga a los 5 minutos. Hoy te daré 3 temas de conversación psicológicamente probados que activan sus emociones, la mantienen enganchada y te hacen inolvidable."
+(0:00 - 0:30) Hook: "El error más común que cometen el 99% de los hombres en una cita es quedarse en la 'zona segura'. Hablan del clima, del tráfico o de temas aburridísimos. Resultado: Ella no siente absolutamente nada y te manda directo a la friendzone. Hoy te daré 3 temas de conversación psicológicamente probados que activan sus emociones, la mantienen enganchada y generan tensión sexual real."
 
-(0:30 - 1:30) Tema 1: Preguntas de Pasión: "En lugar de preguntar por su trabajo de forma lógica, apela a su imaginación. Pregúntale: 'Si el dinero no importara en absoluto, ¿qué estarías haciendo con tu vida en este exacto momento?'. Esto la saca de su rutina diaria y la obliga a conectarse con sus verdaderos sueños. Cuando una mujer asocia la emoción de sus pasiones con tu presencia, la atracción sube automáticamente."
+(0:30 - 1:30) Tema 1: Preguntas de Pasión: "En lugar de hablar de rutina, apela a su imaginación. Pregúntale: 'Si el dinero no importara en absoluto, ¿qué estarías haciendo con tu vida en este exacto momento?'. Esto la saca de su día a día y la obliga a conectarse con sus verdaderos sueños. Cuando una mujer asocia la emoción de sus pasiones con tu presencia, la atracción sube automáticamente."
 
-(1:30 - 2:30) Tema 2: Las Suposiciones: "Nunca le preguntes de dónde es. Dile: 'Tienes una vibra súper relajada, seguro eres del sur o creciste cerca de la playa'. Si te equivocas, no importa. La harás reír y ella misma te corregirá con entusiasmo. Al hacer suposiciones, estás demostrando que tienes capacidad de leer a las personas, lo cual comunica alto valor e inteligencia social."
+(1:30 - 2:30) Tema 2: Las Suposiciones (Lectura en frío): "Nunca le preguntes de dónde es o qué hace. Dile: 'Tienes una vibra súper relajada, seguro creciste cerca de la playa o haces yoga'. Si te equivocas, no importa. La harás reír y ella misma te corregirá con entusiasmo. Al hacer suposiciones, estás demostrando que tienes capacidad de leer a las personas, lo cual comunica alto valor e inteligencia social."
 
-(2:30 - 3:30) Tema 3: Tensiones de Futuro: "Esta es mi técnica favorita. En medio de la charla, mírala a los ojos y dile: 'Siento que eres el tipo de persona que en 5 años terminará viviendo en otro continente, adoptando tres perros y olvidándose de todo el mundo'. Estás pintando un panorama divertido, misterioso y un poco desafiante. Evita la lógica, apela a las emociones. Si dominas esto, nunca más tendrás un silencio incómodo. Suscríbete para más."`
+(2:30 - 3:30) Tema 3: Tensiones de Futuro: "Esta es mi técnica favorita. En medio de la charla, mírala a los ojos y dile: 'Siento que eres el tipo de persona que en 5 años terminará viviendo en otro continente, adoptando tres perros y olvidándose de todo el mundo'. Estás pintando un panorama divertido, misterioso y un poco desafiante. Evita la lógica, apela a las emociones. Si dominas esto, nunca más serás solo su amigo. Suscríbete para más."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "El error de la entrevista"',
+                text: 'Publicar Reel: "Por qué te ve como amigo"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Deja de hacer estas preguntas 🚫
+Título en pantalla: Evita los temas "seguros" 🚫
 
-"¿Sabes por qué ella se aburre a los 10 minutos de conocerte? Porque le haces preguntas de entrevista de trabajo. '¿A qué te dedicas? ¿Qué estudias?'. Eso apaga cualquier atracción emocional. En lugar de preguntar, haz suposiciones. Dile: 'Tienes vibra de que estudias algo relacionado con arte'. Generas intriga, la haces reír y destacas del resto. Sígueme y aprende a conversar como un hombre magnético."
+"¿Sabes por qué siempre terminas en la friendzone? Porque tus conversaciones son demasiado seguras. Hablas de las noticias, de la escuela o del trabajo. Temas 100% lógicos que no generan ni una gota de tensión. Para que ella sienta atracción, tienes que tomar riesgos conversacionales. Rompe la burbuja platónica. Bromea con ella, hazla calificar, desafíala ligeramente. Si la tratas con extremo cuidado y respeto aburrido, te verá como su mejor amigo, no como un amante. Sígueme para cambiar tu mentalidad."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Las preguntas lógicas matan la tensión emocional. ❌
-Si quieres que una mujer te recuerde, tienes que hacerla sentir, no hacerla pensar.
-👉 Sígueme para dominar el arte de la primera impresión.
-#CaballeroModerno #CitasOnline #Seduccion #AtraerMujeres #Psicologia #DesarrolloPersonal`
+La atracción no prospera en la zona de confort. ❌
+Si quieres generar interés genuino, tienes que dejar de buscar su aprobación y empezar a divertirte desafiándola.
+👉 Sígueme para aprender a dominar la tensión emocional en tus citas.
+#CaballeroModerno #Friendzone #Seduccion #AtraerMujeres #Psicologia #DesarrolloPersonal`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Las preguntas de "entrevista de trabajo" están matando tus citas. ❌🤐
+                script: `La trampa mortal de las conversaciones "Seguras". ❌🤐
 
-Todos hemos estado ahí: el silencio incómodo, el café que se enfría, y la típica pregunta de "¿Y cuántos hermanos tienes?". Si sigues recurriendo a estas interrogantes lógicas para rellenar espacios vacíos, le estás comunicando subconscientemente a su cerebro que no sabes cómo liderar una interacción emocionante.
+Muchos hombres se preguntan por qué una cita que parecía ir perfectamente bien termina con un "Me la pasé increíble, pero no sentí el 'clic'". La respuesta es dolorosamente simple: jugaste a la defensiva. 
 
-La solución radica en la psicología de las 'Suposiciones'. Cuando en lugar de preguntar le dices "Tienes vibra de ser alguien súper competitiva en los juegos de mesa", la obligas a calificarse, la haces reír y creas un puente emocional inmediato. No busques datos biográficos aburridos, busca detonadores emocionales. 
+Te quedaste en temas neutros. Hablaron sobre el menú, la ciudad, las series de moda o el clima. Fuiste un perfecto caballero, pero un caballero extremadamente predecible. La atracción biológica requiere fricción, misterio y riesgo emocional. 
 
-El hombre magnético no pide información, crea experiencias a través del diálogo.
+Si no te atreves a romper la burbuja platónica, a hacer una broma retadora, a mantener el contacto visual un segundo de más o a cambiar el tema hacia algo personal y apasionante, te estás autoproclamando como el "buen amigo". Un hombre magnético lidera la conversación hacia aguas profundas.
 
-👉 Síguenos en la página para aprender a hackear la atracción y proyectar verdadero alto estatus en todas tus interacciones diarias.
+👉 Síguenos en la página para aprender a dejar la zona de amigos de una vez por todas.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A split screen composition. On the left, a bored beautiful woman on a bad coffee date looking at her phone. On the right, a confident modern gentleman making a beautiful woman laugh naturally in an aesthetic bar, cinematic lighting, high contrast, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a frustrated gentleman sitting across from a woman in a cafe, visually representing the invisible barrier of the friendzone. Moody lighting, depth of field, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
