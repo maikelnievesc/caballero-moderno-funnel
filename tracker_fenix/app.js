@@ -31,202 +31,201 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "Contacto Cero: El Error que todos cometen" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "Temas de conversación ganadores" (5:00 PM)',
                 script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
-Título SEO: Por qué el Contacto Cero NO funciona si cometes este error (Recupera tu poder)
+Título SEO: 3 Temas de conversación para nunca aburrir a una mujer (Atraer sin esfuerzo)
 
-(0:00 - 0:30) Hook: "Te acaban de rechazar o de pedir 'tiempo'. Todo el mundo en internet te dice: '¡Aplica el contacto cero! ¡Ignórala por 30 días!'. Así que lo haces. No le escribes. Pero te pasas esos 30 días revisando sus historias desde cuentas falsas, mirando si está en línea en WhatsApp, y tu vida gira en torno a su ausencia. Hermano, si haces eso, el contacto cero no sirve de nada. Hoy te voy a explicar la verdadera psicología detrás de desaparecer y cómo recuperar tu poder."
+(0:00 - 0:30) Hook: "El error más común que cometen el 99% de los hombres en una primera cita es hacer preguntas de entrevista de trabajo. '¿A qué te dedicas?', '¿Cuántos hermanos tienes?', '¿Dónde estudiaste?'. Hermano, si haces eso, su cerebro se apaga a los 5 minutos. Hoy te daré 3 temas de conversación psicológicamente probados que activan sus emociones, la mantienen enganchada y te hacen inolvidable."
 
-(0:30 - 1:30) El problema: "El 99% de los hombres usa el contacto cero como una técnica de manipulación. Creen que es un botón mágico que hará que ella los extrañe. Pero las mujeres tienen un radar infalible para la energía. Si tú no le hablas, pero estás desesperado, vibrando en escasez, ella lo va a sentir. Cuando reaparezcas a los 30 días, seguirás siendo el mismo hombre inseguro del que se alejó. El objetivo del contacto cero no es que ella cambie, es que TÚ cambies."
+(0:30 - 1:30) Tema 1: Preguntas de Pasión: "En lugar de preguntar por su trabajo de forma lógica, apela a su imaginación. Pregúntale: 'Si el dinero no importara en absoluto, ¿qué estarías haciendo con tu vida en este exacto momento?'. Esto la saca de su rutina diaria y la obliga a conectarse con sus verdaderos sueños. Cuando una mujer asocia la emoción de sus pasiones con tu presencia, la atracción sube automáticamente."
 
-(1:30 - 2:30) La Verdadera Regla: "El verdadero contacto cero significa 'Desintoxicación Emocional'. Durante este periodo, su existencia debe volverse irrelevante para tu crecimiento. ¿Qué significa esto? Bloqueas o silencias todo. Te inscribes en ese curso que postergaste, te matas en el gimnasio, empiezas a leer sobre estoicismo. Cada vez que tengas ganas de escribirle, escribes en tu diario o le hablas a un mentor. Tienes que matar la versión tuya que dependía de su validación."
+(1:30 - 2:30) Tema 2: Las Suposiciones: "Nunca le preguntes de dónde es. Dile: 'Tienes una vibra súper relajada, seguro eres del sur o creciste cerca de la playa'. Si te equivocas, no importa. La harás reír y ella misma te corregirá con entusiasmo. Al hacer suposiciones, estás demostrando que tienes capacidad de leer a las personas, lo cual comunica alto valor e inteligencia social."
 
-(2:30 - 3:30) El resultado: "Si haces esto bien, pasarán dos cosas. Opción A: Ella nota la retirada real de tu energía, siente el vacío absoluto de tu atención (que antes tenía garantizada) y regresa a buscarte. Opción B: Tú creces tanto en este proceso que, cuando pasen los 30 días, te das cuenta de que ya no la quieres en tu vida porque tus estándares subieron. Cualquiera de las dos es una victoria absoluta. Recuperaste el trono. Suscríbete si quieres dominar tus emociones."`
+(2:30 - 3:30) Tema 3: Tensiones de Futuro: "Esta es mi técnica favorita. En medio de la charla, mírala a los ojos y dile: 'Siento que eres el tipo de persona que en 5 años terminará viviendo en otro continente, adoptando tres perros y olvidándose de todo el mundo'. Estás pintando un panorama divertido, misterioso y un poco desafiante. Evita la lógica, apela a las emociones. Si dominas esto, nunca más tendrás un silencio incómodo. Suscríbete para más."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "El falso contacto cero"',
+                text: 'Publicar Reel: "El error de la entrevista"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: El peor error del Contacto Cero 🚫
+Título en pantalla: Deja de hacer estas preguntas 🚫
 
-"Si le aplicas contacto cero pero ves todas sus historias a los 5 minutos de publicadas... no estás haciendo contacto cero, estás haciendo el ridículo en silencio. El contacto cero no es una estrategia para que te extrañe, es un periodo de desintoxicación para que recuperes tu maldita dignidad. Si tu energía sigue enfocada en ella, no sirve. Silénciala, enfócate en tus metas y desaparece de verdad. Sígueme para recuperar tu poder."
+"¿Sabes por qué ella se aburre a los 10 minutos de conocerte? Porque le haces preguntas de entrevista de trabajo. '¿A qué te dedicas? ¿Qué estudias?'. Eso apaga cualquier atracción emocional. En lugar de preguntar, haz suposiciones. Dile: 'Tienes vibra de que estudias algo relacionado con arte'. Generas intriga, la haces reír y destacas del resto. Sígueme y aprende a conversar como un hombre magnético."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El verdadero poder está en quitarle tu atención, no solo tus mensajes. 🛑🔥
-Si sigues orbitando su vida digital, le sigues dando validación gratuita. 
-👉 Asegúrate de usar el botón de "Silenciar" y pon el foco en ti. Sígueme para más.
-#ContactoCero #Ruptura #CaballeroModerno #PsicologiaOscura #DesarrolloPersonal #Masculinidad`
+Las preguntas lógicas matan la tensión emocional. ❌
+Si quieres que una mujer te recuerde, tienes que hacerla sentir, no hacerla pensar.
+👉 Sígueme para dominar el arte de la primera impresión.
+#CaballeroModerno #CitasOnline #Seduccion #AtraerMujeres #Psicologia #DesarrolloPersonal`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El "Contacto Cero" que te enseñan en internet es una mentira manipuladora. ❌🤫
+                script: `Las preguntas de "entrevista de trabajo" están matando tus citas. ❌🤐
 
-Muchos hombres aplican la regla de los 30 días esperando ansiosamente junto al teléfono, contando las horas, imaginando qué estará haciendo ella. Creen que el simple acto de no enviar mensajes de texto es suficiente para crear atracción. Esto es un error brutal.
+Todos hemos estado ahí: el silencio incómodo, el café que se enfría, y la típica pregunta de "¿Y cuántos hermanos tienes?". Si sigues recurriendo a estas interrogantes lógicas para rellenar espacios vacíos, le estás comunicando subconscientemente a su cerebro que no sabes cómo liderar una interacción emocionante.
 
-El verdadero contacto cero es una declaración de guerra contra tu propia dependencia emocional. Es decirle a tu cerebro: "Mi paz mental y mi misión en la vida son mil veces más importantes que la validación de otra persona". No se trata de castigarla a ella con tu ausencia; se trata de premiarte a ti mismo con tu presencia. 
+La solución radica en la psicología de las 'Suposiciones'. Cuando en lugar de preguntar le dices "Tienes vibra de ser alguien súper competitiva en los juegos de mesa", la obligas a calificarse, la haces reír y creas un puente emocional inmediato. No busques datos biográficos aburridos, busca detonadores emocionales. 
 
-Si te acaban de rechazar, retira tu atención por completo. No mires sus redes. No preguntes por ella. Invierte esa energía en construir un imperio personal tan grande que su ausencia sea solo una nota a pie de página en tu historia de éxito.
+El hombre magnético no pide información, crea experiencias a través del diálogo.
 
-👉 Únete a la comunidad de hombres que construyen desde el valor, no desde la necesidad.
+👉 Síguenos en la página para aprender a hackear la atracción y proyectar verdadero alto estatus en todas tus interacciones diarias.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a sophisticated man walking away from a shattered glass phone screen reflecting a blurred figure, stepping into a bright, golden, inspiring horizon. Symbolizing moving on and self-focus, hyper-detailed, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A split screen composition. On the left, a bored beautiful woman on a bad coffee date looking at her phone. On the right, a confident modern gentleman making a beautiful woman laugh naturally in an aesthetic bar, cinematic lighting, high contrast, photorealistic --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "Por qué te rechazó"',
+                text: 'Publicar Reel: "Silencios incómodos"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: La cruda verdad sobre su rechazo 💔
+Título en pantalla: Cómo usar el silencio a tu favor 🤫
 
-"¿Quieres saber por qué te dejó o te rechazó? No fue por el dinero, ni por tu físico. Te rechazó porque te volviste predecible y perdiste tu centro. Empezaste a dejar tus hobbies para verla, le respondías a los dos segundos y la convertiste en tu único propósito. A ninguna mujer de alto valor le excita ser el centro de la vida de un hombre sin metas. Recupera tu propósito. Sígueme para entender la atracción real."
+"El mayor miedo de un hombre en una cita es el 'silencio incómodo'. Así que empiezas a hablar sin parar, soltando datos irrelevantes por puro nerviosismo. Detente. Un hombre seguro de sí mismo disfruta el silencio. Cuando la charla se detenga, simplemente mírala a los ojos, relaja tus hombros y sonríe ligeramente sin decir nada. Ese silencio proyecta confianza absoluta. Ella sentirá la tensión y empezará a hablar para llenarlo. Sígueme para dominar la presión."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El exceso de disponibilidad destruye el deseo. 🚫📱
-Cuando haces de una mujer tu mundo, ella pierde el interés de habitarlo.
-👉 Sígueme para aprender a balancear tu vida y tus relaciones.
-#Rechazo #ContactoCero #CaballeroModerno #Seduccion #AltoValor`
+El que menos necesita hablar, es el que más poder tiene. 🤫🔥
+No trates de llenar cada segundo con ruido. La verdadera atracción se construye en los silencios.
+👉 Sígueme para aprender lenguaje no verbal de alto valor.
+#Silencio #CaballeroModerno #Seduccion #ContactoVisual #AltoValor`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La anatomía de un rechazo: Por qué el exceso de interés destruye la atracción. 📵👇
+                script: `El Silencio: La herramienta más intimidante y atractiva del hombre moderno. 🤫♟️
 
-La paradoja más dolorosa para el hombre moderno es descubrir que darlo todo, estar siempre disponible y ser el "hombre perfecto", a menudo resulta en un "no eres tú, soy yo". 
+Cuando la conversación hace una pausa, el hombre inseguro entra en pánico. Su cerebro percibe la falta de ruido como un rechazo inminente, por lo que comienza a hablar compulsivamente, bajando su estatus y mostrándose ansioso.
 
-La atracción femenina requiere tensión, espacio y un grado de misterio. Cuando abandonas tu propósito, tus hobbies y a tus amigos para orbitar su vida, pasas de ser un reto estimulante a una carga predecible. La devoción absoluta, cuando no ha sido ganada a través del tiempo y el compromiso mutuo, se percibe biológicamente como debilidad.
+El Caballero Moderno entiende que el silencio no es su enemigo, es su lienzo. Cuando hay una pausa, él simplemente se reclina, mantiene el contacto visual y sonríe de forma relajada. Este pequeño gesto subcomunica algo muy poderoso: "Estoy totalmente cómodo en mi propia piel y no necesito entretenerte desesperadamente". 
 
-Para recuperar tu poder hoy mismo: retoma el control de tu agenda. Que ella tenga que encajar en tu vida, no que tu vida se pause para encajar en la suya. 
+Paradójicamente, esa calma hace que ella sienta la necesidad de llenar el vacío, invirtiendo más energía en la interacción. Quien domina el silencio, domina la conversación.
 
-👉 Síguenos si estás listo para dejar de mendigar atención y empezar a proyectar estatus real.
+👉 Síguenos para dejar atrás la ansiedad social y proyectar poder real.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A split image. Left: a man looking desperate at his glowing phone in the dark. Right: A modern gentleman confidently reading a book in an upscale lounge, ignoring his phone. High contrast, cinematic, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a confident gentleman sitting in a moody jazz lounge, leaning back relaxed, making strong but calm eye contact across the table, warm lighting, photorealistic --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "El poder del silencio"',
+                text: 'Publicar Reel: "Respondiendo Shit Tests"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Tu silencio es tu mejor respuesta 🤫
+Título en pantalla: Cuando ella te pone a prueba 🚫
 
-"Cuando ella te dice que 'no está lista' o que 'solo quiere amistad', el 90% de los hombres intentan convencerla lógicamente o le reclaman. Error fatal. El 10% de los hombres simplemente dice 'Entiendo, que te vaya increíble', da la media vuelta y nunca más vuelve a escribir. Ese silencio ensordecedor es la mayor demostración de alto valor que puedes dar. Demuestra que no dependes de nadie. Sígueme para más estoicismo."
+"Están platicando increíble y de repente ella te dice: 'Seguro tú le dices eso a todas'. Acabas de recibir un Shit Test. Si te justificas diciendo '¡No, te lo juro que no!', perdiste. Estás demostrando inseguridad. Un verdadero Caballero Moderno usa el humor exagerado. Respóndele: 'Sí, de hecho tengo un Excel en mi casa para no confundirme de nombres'. Al no tomarte en serio su prueba, demuestras que tu confianza es inquebrantable. Sígueme para dominar el juego."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No intentes negociar la atracción. 🛑
-Tu retirada silenciosa y digna genera más impacto que mil mensajes rogando por una oportunidad.
-👉 Sígueme y conviértete en un maestro del autocontrol.
-#Estoicismo #CaballeroModerno #Silencio #ContactoCero #Mentalidad`
+Nunca te justifiques ante una prueba. ❌🤐
+Los "shit tests" son el mecanismo biológico de la mujer para comprobar si tu seguridad es real o fingida. 
+👉 Sígueme y aprende a usar el humor como escudo.
+#ShitTests #CaballeroModerno #Seduccion #AtraerMujeres #Psicologia`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El arma más poderosa del Caballero Moderno después de un rechazo: El Silencio Absoluto. 🤫♟️
+                script: `Por qué ella busca contradicciones en lo que dices (y cómo responder). ❌🤐
 
-Cuando eres rechazado, tu ego entra en pánico. Te pide que mandes ese párrafo de tres hojas por WhatsApp explicando tus sentimientos, o peor aún, tratando de hacerla sentir culpable. 
+Imagina que todo va perfecto y de repente ella suelta un comentario ligeramente sarcástico o retador sobre tu estilo, tu trabajo o tus intenciones. Muchos hombres se ofenden o, peor aún, intentan convencerla lógicamente de que están equivocadas. 
 
-Detente. Las palabras en ese momento comunican baja inteligencia emocional. 
-El silencio, por otro lado, comunica un mensaje devastadoramente atractivo: "Mi valor no disminuye por tu incapacidad de verlo". Al aceptar un "no" con una sonrisa relajada y desaparecer, rompes el guion que ella esperaba. Ella esperaba dramas, ruegos o insultos. Al darle vacío, plantas la semilla de la duda y, lo más importante, retienes tu dignidad intacta.
+Es un error novato. Lo que estás experimentando es un test de aptitud biológico. Ella no busca una respuesta lógica; busca una reacción emocional. Quiere ver si su opinión tiene el poder de desestabilizarte. 
 
-Elige siempre el respeto propio por encima del cierre emocional.
+La única manera de pasar la prueba es mediante el "Amuse and Ignore" (Divertir e Ignorar). Acuerda con ella de forma absurdamente exagerada. Demuéstrale que su desafío te parece divertido, no amenazante. Un hombre que no se altera ante el juicio ajeno es biológicamente irresistible.
 
-👉 Síguenos para aprender a dominar tus emociones en los momentos más críticos.
+👉 Síguenos para aprender a mantener tu centro emocional bajo cualquier circunstancia.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A close-up of an elegant, serene man slightly smiling while looking away, conveying absolute calm and stoicism. Dark cinematic background, highly detailed facial features, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A confident man smiling calmly and unbothered while a stylish woman playfully challenges him in an elegant urban setting, photorealistic, cinematic lighting --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Qué hacer si te busca"',
+                text: 'Publicar Reel: "Tensión de futuro"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Qué hacer cuando ella regresa ♟️
+Título en pantalla: Hackea su imaginación (La técnica secreta) ♟️
 
-"Aplicaste el contacto cero y, de repente, un mensaje de ella a las 10 PM: 'Hola, ¿cómo estás?'. Si le respondes al instante emocionado, acabas de tirar todo a la basura. Está tanteando el terreno para ver si sigues en la palma de su mano. Tarda horas en responder, sé amable pero cortante, y no la invites a salir de inmediato. Que invierta esfuerzo. Tu tiempo es un premio. Sígueme para dominar el juego a largo plazo."
+"Si quieres que ella piense en ti todo el día, usa la 'Tensión de Futuro'. En medio de la cita dile: 'Eres un peligro. Siento que si nos vamos de viaje juntos terminaríamos robando un banco en Las Vegas y cambiando nuestras identidades'. Estás creando una película mental donde ustedes dos son los protagonistas en una situación divertida. El cerebro femenino ama las narrativas. Ponla en una y no podrá sacarte de su cabeza. Sígueme para más."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El regreso no significa que ganaste. 🤫🔥
-Es una prueba. Si te muestras demasiado ansioso, perderá el interés tan rápido como apareció. Mantén el marco.
-👉 Sígueme para no arruinar tus oportunidades.
-#ContactoCero #Ex #CaballeroModerno #Masculinidad #Seduccion`
+No seas un libro de historia, sé una novela de aventuras. 🤫🔥
+Deja de hablar del pasado y empieza a construir narrativas divertidas en tiempo real.
+👉 Sígueme para aprender a crear conexión instantánea.
+#Conversacion #CaballeroModerno #Masculinidad #Seduccion #Psicologia`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Prueba Final del Contacto Cero: El mensaje de "Hola, me acordé de ti". 📱🎣
+                script: `El secreto para ocupar su mente: La Tensión de Futuro. 📱🎣
 
-Muchos hombres logran sostener el contacto cero por semanas, construyen su vida y avanzan. Pero en cuanto reciben esa famosa migaja de atención (un like, un 'jaja' a una historia, o un mensaje casual), tiran su progreso por la ventana, respondiendo en 5 segundos y pidiéndole una cita.
+La mayoría de los hombres centran sus conversaciones en el intercambio aburrido de datos pasados ("¿Dónde estudiaste?", "¿Dónde trabajaste?"). Si bien la información es útil, no genera ni una gota de dopamina.
 
-Entiende esto: ese mensaje no es una declaración de amor, es un radar. Ella quiere verificar si su ego aún tiene acceso a tu atención gratuita. 
+El cerebro humano está cableado para reaccionar a las historias y al futuro. La técnica de la 'Tensión de Futuro' consiste en inventar un escenario hipotético, ridículo o aventurero que los involucre a los dos. Decir cosas como "Claramente tú y yo no podemos ir nunca al supermercado juntos porque terminaríamos haciendo carreras con los carritos" crea una complicidad instantánea.
 
-La respuesta de un hombre de alto estatus es demorada, educada, breve y sin hacer preguntas de vuelta. (Ej: 'Hola, todo excelente por acá, muy ocupado con proyectos. ¡Espero que estés bien!'). No premias un comportamiento ambiguo con tu validación total. Haz que se gane su lugar de vuelta.
+Te convierte en un co-creador de experiencias en lugar de un interrogador. La próxima vez, deja el pasado atrás y empieza a pintar escenarios.
 
-👉 Síguenos para descubrir cómo establecer límites de hierro que generen respeto absoluto.
+👉 Síguenos para descubrir más sobre psicología aplicada a la atracción.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A sophisticated man looking at his glowing smartphone with a neutral, uninterested expression while working on a laptop in a luxury office. Cinematic lighting, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A vibrant, cinematic image of a modern couple laughing together in a neon-lit city street at night, looking like they share a secret. High quality, photorealistic --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "Mejorar tus estándares"',
+                text: 'Publicar Reel: "La regla del 80/20"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Tu error no fue amarla, fue idealizarla 🚫
+Título en pantalla: Hablar mucho te hace menos atractivo 🚫
 
-"Después de un rechazo, tu cerebro te engaña haciéndote creer que perdiste a un ser humano perfecto e irremplazable. Falso. La estabas mirando a través de los lentes de la escasez. Quítala del pedestal. Seguramente era impuntual, caprichosa o no aportaba nada más que belleza. Empieza a subir tus estándares. Un hombre de verdad se enamora del carácter, no solo del físico. Sígueme y aprende a elegir mejor."
+"Tenemos dos oídos y una boca por una razón. En una cita, aplica la regla del 80/20. Deja que ella hable el 80% del tiempo y tú el 20%. Los hombres inseguros hablan sin parar de sus logros, sus autos y su dinero intentando impresionar. Un hombre de alto valor hace preguntas emocionales interesantes y simplemente escucha. Al final, ella dirá: 'Tuvimos la mejor charla del mundo', ¡incluso si apenas hablaste! Sígueme para dominar la persuasión."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El pedestal en el que la pones es el mismo desde donde te mira hacia abajo. 🛋️❌
-La idealización nace de la falta de opciones. Trabaja en ti mismo y tus opciones se multiplicarán.
-👉 Sígueme y aprende a no conformarte.
-#CaballeroModerno #Abundancia #Estandares #ConsejosParaHombres`
+El misterio es tu mayor aliado. 🛋️❌
+Si le cuentas toda tu vida en la primera hora, ya no hay nada que descubrir. 
+👉 Sígueme y aprende a retener información estratégicamente.
+#CaballeroModerno #Misterio #ConsejosParaHombres #Regla8020 #AtraerMujeres`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La trampa de la idealización post-ruptura. ♟️👑
+                script: `La Regla de Oro del Misterio: Deja de tratar de impresionar. ♟️👑
 
-Cuando sufrimos un rechazo, nuestra memoria se vuelve selectiva. Solo recordamos su sonrisa, el olor de su perfume y las cosas buenas. Olvidamos convenientemente sus dramas, su falta de iniciativa, o que no compartía nuestros valores más profundos. 
+Hay un fenómeno psicológico curioso en las citas modernas: el hombre siente la necesidad imperativa de leer su currículum. Habla de su auto, su salario, y sus logros, asumiendo que el valor lógico se traduce en deseo emocional. 
 
-Esta idealización ocurre porque operamos desde la escasez mental. Creemos erróneamente que "nunca encontraremos a nadie igual". Y es cierto, no encontrarás a nadie igual, encontrarás a alguien MEJOR, pero solo si tú te conviertes en un hombre mejor.
+Falso. Cuando vomitas toda tu información en los primeros 45 minutos, aniquilas el misterio. Ya no eres un rompecabezas que ella quiera resolver, eres un libro abierto y leído. 
 
-Baja a esa persona del pedestal. El único que pertenece en un pedestal en tu propia vida, eres tú y tu propósito. Exige lealtad, paz mental y compañerismo en tus futuras relaciones.
+Implementa la regla del 80/20. Haz que ella hable el 80% del tiempo haciendo preguntas abiertas que apunten a sus pasiones, y tú habla solo el 20%. Escucha con atención real. No desveles todas tus cartas de inmediato. Un hombre que escucha activamente pero revela poco de sí mismo, proyecta un estatus masivo.
 
-👉 Síguenos para reconstruir tu mentalidad desde la abundancia, no desde la carencia.
+👉 Síguenos para aprender a construir el verdadero misterio masculino.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A powerful visual metaphor: A man smashing a golden pedestal with a sledgehammer, confident and strong. Cinematic dust and lighting, dark background, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A sophisticated man listening intently with a slight, confident smile, holding a glass of whiskey, aesthetic dark background, conveying mystery and depth, photorealistic --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "Abundancia real"',
+                text: 'Publicar Reel: "No busques puntos en común"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Cómo volverte inmune al rechazo 👀
+Título en pantalla: Estar de acuerdo en todo es aburrido 👀
 
-"¿Sabes cuál es el antídoto contra el dolor del rechazo? La abundancia. Y no me refiero a tener 20 mujeres escribiéndote. La abundancia real es tener metas que te apasionan, dinero en tu cuenta, salud física de hierro y un círculo de amigos leales. Cuando tu vida es un 10 sobre 10 estando solo, el rechazo de una mujer ya no te destruye, solo es un pequeño inconveniente. Sígueme para construir una vida épica."
+"Deja de buscar coincidir en todo con ella. '¡A mí también me gusta el sushi!', '¡Yo también amo esa película!'. Ser un clon de ella para agradarle te convierte en el amigo complaciente. Atrévete a discrepar. Si ella dice que odia el café, dile con una sonrisa: 'Acabas de romper mi corazón, creo que esto no va a funcionar'. El desacuerdo juguetón genera muchísima más tensión sexual que estar de acuerdo en todo. Sígueme para ser un reto."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La inmunidad emocional se construye fuera de las relaciones. 👀🔥
-Si tu felicidad depende de que ella te responda el mensaje, eres un esclavo. 
-👉 Sígueme para romper las cadenas de la dependencia.
-#CaballeroModerno #Abundancia #DesarrolloPersonal #Confianza`
+El conflicto juguetón genera chispa. 👀🔥
+Si siempre le dices que sí a todo, te conviertes en un fan, no en un amante. 
+👉 Sígueme para dejar de ser el "chico bueno complaciente".
+#CaballeroModerno #Flirteo #DesarrolloPersonal #Confianza`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Abundancia Real no es lo que te han vendido. 💎
+                script: `Por qué ser el "Chico que está de acuerdo en todo" destruye tus posibilidades. 💎
 
-Muchos gurús te dicen que para superar un rechazo debes buscar validación inmediata en otras mujeres. Usar a otras personas como tiritas emocionales solo demuestra lo frágil que es tu ego.
+Desde pequeños nos enseñaron que para caerle bien a alguien debíamos buscar cosas en común. En las ventas y en la amistad básica funciona. En la atracción, es un somnífero. 
 
-La verdadera abundancia es holística. Es saber que tienes la disciplina para levantar pesas 5 veces por semana. Es la tranquilidad de tus finanzas en orden. Es la sabiduría que estás adquiriendo al leer libros difíciles. Es la paz de sentarte solo en una cafetería y sentirte completo.
+Si te pasas la cita entera asintiendo con la cabeza y fingiendo que te gustan las mismas bandas que a ella solo para agradar, estás proyectando desesperación. La seducción prospera en la polaridad. 
 
-Cuando operas desde esta abundancia real, te vuelves inquebrantable. Ya no buscas a una pareja para que "te complete" ni para tapar tus vacíos, la buscas para compartir tu plenitud. Y créeme, esa energía es la más magnética que un hombre puede proyectar.
+Tener la confianza de decirle, con una sonrisa relajada: "Tus gustos musicales son horribles, pero te lo perdono", crea una fricción divertida. El desacuerdo sin agresividad demuestra que tienes identidad propia y que no vas a moldear tu personalidad para conseguir su aprobación. Sé un reto. 
 
-👉 Únete a la rebelión de hombres que están recuperando su control total. Síguenos.
+👉 Únete a la comunidad y aprende a mantener tus propios estándares.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly successful and calm man enjoying an espresso alone in a beautiful aesthetic cafe, reading a thick book, perfectly content, warm cinematic lighting, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A charismatic man playfully disagreeing with a woman, both are laughing genuinely in a stylish outdoor cafe setting, natural light, highly photorealistic --ar 4:5"`
             }
         ]
     };
