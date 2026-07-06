@@ -63,6 +63,7 @@ a {
   width: 100%;
   z-index: 1000;
   border-bottom: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
 }
 
 .nav-container {
@@ -92,7 +93,7 @@ a {
 }
 
 .nav-links a {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 500;
   color: var(--color-text);
   transition: color 0.3s ease;
