@@ -832,6 +832,10 @@ footer {
   align-self: flex-start;
 }
 
+#statusChart {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+}
+
 /* Data Table Card */
 .card {
   background-color: #FFFFFF;

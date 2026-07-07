@@ -52,9 +52,10 @@ function renderChart() {
         labels: ['Nuevo', 'En Curso', 'En Pausa', 'Completado', 'Cancelado'],
         datasets: [{
             data: [counts.nuevo, counts.curso, counts.pausa, counts.completado, counts.cancelado],
-            backgroundColor: ['#E0F2FE', '#FEF3C7', '#FEE2E2', '#DCFCE7', '#F1F5F9'],
-            borderColor: ['#0369A1', '#B45309', '#B91C1C', '#15803D', '#475569'],
-            borderWidth: 1
+            backgroundColor: ['#0EA5E9', '#F59E0B', '#EF4444', '#10B981', '#64748B'], // Vibrant modern colors
+            borderColor: '#FFFFFF',
+            borderWidth: 3,
+            hoverOffset: 4
         }]
     };
 
@@ -68,8 +69,27 @@ function renderChart() {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                cutout: '75%', // Modern thin ring
                 plugins: {
-                    legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+                    legend: { 
+                        position: 'right', 
+                        labels: { 
+                            usePointStyle: true, // Circles instead of boxes
+                            padding: 20,
+                            font: { size: 12, family: "'Inter', sans-serif" }
+                        } 
+                    },
+                    tooltip: {
+                        backgroundColor: '#0F172A',
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return ` ${context.label}: ${context.raw} casos`;
+                            }
+                        }
+                    }
                 }
             }
         });
