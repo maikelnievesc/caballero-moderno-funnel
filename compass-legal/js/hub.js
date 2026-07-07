@@ -2,10 +2,10 @@
 
 // 1. Datos Ficticios (Mock Data)
 let cases = [
-    { id: 1, name: "Michael Smith", email: "msmith@email.com", category: "Fideicomiso (Bienes Raíces)", status: "curso", comments: "Esperando firma del notario." },
-    { id: 2, name: "Sarah Jenkins", email: "s.jenkins@email.com", category: "Residencia Temporal", status: "nuevo", comments: "Agendar llamada inicial para solvencia económica." },
-    { id: 3, name: "David O'Connor", email: "doconnor@email.com", category: "Cancelación TIP (Barco)", status: "pausa", comments: "Falta documento original de importación." },
-    { id: 4, name: "Elena Rostova", email: "elena.r@email.com", category: "Creación LLC", status: "completado", comments: "RFC y acta constitutiva entregados." }
+    { id: 1, name: "Michael Smith", email: "msmith@email.com", category: "Fideicomiso (Bienes Raíces)", status: "curso", folder: "https://drive.google.com/", comments: "Esperando firma del notario." },
+    { id: 2, name: "Sarah Jenkins", email: "s.jenkins@email.com", category: "Residencia Temporal", status: "nuevo", folder: "", comments: "Agendar llamada inicial para solvencia económica." },
+    { id: 3, name: "David O'Connor", email: "doconnor@email.com", category: "Cancelación TIP (Barco)", status: "pausa", folder: "https://drive.google.com/", comments: "Falta documento original de importación." },
+    { id: 4, name: "Elena Rostova", email: "elena.r@email.com", category: "Creación LLC", status: "completado", folder: "https://drive.google.com/", comments: "RFC y acta constitutiva entregados." }
 ];
 
 // Mapeo de Estatus para la UI
@@ -58,6 +58,14 @@ function renderTable(dataToRender) {
         const st = statusMap[c.status];
         tdStatus.innerHTML = `<span class="status-pill ${st.class}">${st.text}</span>`;
         
+        // Columna Expediente (Drive)
+        const tdFolder = document.createElement('td');
+        if (c.folder) {
+            tdFolder.innerHTML = `<a href="${c.folder}" target="_blank" onclick="event.stopPropagation();" style="color: var(--color-primary); text-decoration: none; font-weight: 500;">📁 Ver Carpeta</a>`;
+        } else {
+            tdFolder.innerHTML = `<span style="color: #999; font-size: 0.9rem;">Sin enlace</span>`;
+        }
+        
         // Columna Comentarios
         const tdComments = document.createElement('td');
         tdComments.textContent = c.comments;
@@ -66,6 +74,7 @@ function renderTable(dataToRender) {
         tr.appendChild(tdEmail);
         tr.appendChild(tdCat);
         tr.appendChild(tdStatus);
+        tr.appendChild(tdFolder);
         tr.appendChild(tdComments);
 
         // Click en fila para ver detalle (Simulación)
@@ -118,6 +127,7 @@ saveCaseBtn.addEventListener('click', (e) => {
     const email = document.getElementById('caseEmail').value;
     const category = document.getElementById('caseCategory').value;
     const status = document.getElementById('caseStatus').value;
+    const folder = document.getElementById('caseFolder').value;
     const comments = document.getElementById('caseComments').value;
 
     if (!name || !email) {
@@ -132,6 +142,7 @@ saveCaseBtn.addEventListener('click', (e) => {
         email: email,
         category: category,
         status: status,
+        folder: folder,
         comments: comments
     };
 
