@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compass Hub - Dashboard</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="hub-body">
 
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" data-aos="fade-right" data-aos-duration="600">
         <div class="sidebar-header">
             <img src="img/logo.jpg" alt="Compass Logo" class="sidebar-logo">
             <span style="font-weight: 600; font-size: 1.1rem; color: var(--color-primary-dark);">Compass Hub</span>
@@ -38,7 +39,7 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
         <!-- TOPBAR -->
-        <header class="topbar">
+        <header class="topbar" data-aos="fade-down" data-aos-duration="500">
             <div class="topbar-search">
                 <input type="text" id="searchInput" placeholder="Buscar por nombre o email...">
             </div>
@@ -51,7 +52,7 @@
         <!-- CONTENT AREA -->
         <div class="content-area">
             <div class="content-wrapper">
-                <div class="page-header">
+                <div class="page-header" data-aos="fade-up" data-aos-delay="100">
                     <h1>Gestión de Casos</h1>
                     <div>
                         <button class="btn btn-outline" style="margin-right: 10px;" id="exportBtn">Exportar CSV</button>
@@ -59,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
                     <div class="table-responsive">
                         <table class="data-table" id="casesTable">
                             <thead>
@@ -134,6 +135,13 @@
     </div>
 
     <!-- MAIN JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
     <script src="js/hub.js"></script>
 </body>
 </html>
