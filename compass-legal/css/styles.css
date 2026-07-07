@@ -677,8 +677,8 @@ footer {
 }
 
 .sidebar-logo {
-  height: 32px;
-  filter: brightness(0) invert(1);
+  height: 28px;
+  width: 28px;
 }
 
 .sidebar-menu {
@@ -851,9 +851,32 @@ footer {
   background-color: #FFFFFF;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   transform: translateY(-2px);
-  cursor: pointer;
   position: relative;
   z-index: 10;
+}
+
+/* Editable Comments */
+.editable-comment {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  min-height: 2em;
+  outline: none;
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.4;
+}
+.editable-comment:hover {
+  background-color: #F1F5F9;
+  border-color: #E2E8F0;
+  cursor: text;
+}
+.editable-comment:focus {
+  background-color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(55,163,163,0.1);
+  cursor: text;
 }
 
 /* Status Pills */

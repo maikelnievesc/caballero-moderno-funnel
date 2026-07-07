@@ -88,9 +88,20 @@ function renderTable(dataToRender) {
             tdFolder.innerHTML = `<span style="color: #999; font-size: 0.9rem;">Sin enlace</span>`;
         }
         
-        // Columna Comentarios
+        // Columna Comentarios / Última Acción (Editable)
         const tdComments = document.createElement('td');
-        tdComments.textContent = c.comments;
+        const commentDiv = document.createElement('div');
+        commentDiv.contentEditable = "true";
+        commentDiv.className = "editable-comment";
+        commentDiv.textContent = c.comments;
+        
+        // Save comment when losing focus
+        commentDiv.addEventListener('blur', (e) => {
+            c.comments = e.target.textContent;
+            console.log(`Saved comment for ${c.name}: ${c.comments}`);
+        });
+        
+        tdComments.appendChild(commentDiv);
 
         tr.appendChild(tdName);
         tr.appendChild(tdEmail);
