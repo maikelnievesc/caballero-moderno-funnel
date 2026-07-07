@@ -100,6 +100,9 @@ function renderTable(dataToRender) {
             c.comments = e.target.textContent;
             console.log(`Saved comment for ${c.name}: ${c.comments}`);
         });
+
+        // Prevent row click (alert) when clicking to edit
+        commentDiv.addEventListener('click', (e) => e.stopPropagation());
         
         tdComments.appendChild(commentDiv);
 
