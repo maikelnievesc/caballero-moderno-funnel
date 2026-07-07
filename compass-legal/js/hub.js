@@ -53,10 +53,32 @@ function renderTable(dataToRender) {
         const tdCat = document.createElement('td');
         tdCat.textContent = c.category;
         
-        // Columna Estatus
+        // Columna Estatus (Interactiva)
         const tdStatus = document.createElement('td');
-        const st = statusMap[c.status];
-        tdStatus.innerHTML = `<span class="status-pill ${st.class}">${st.text}</span>`;
+        const selectStatus = document.createElement('select');
+        selectStatus.className = `status-pill ${statusMap[c.status].class}`;
+        
+        // Add options
+        Object.keys(statusMap).forEach(key => {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = statusMap[key].text;
+            if (key === c.status) option.selected = true;
+            selectStatus.appendChild(option);
+        });
+
+        // Event listener to change status
+        selectStatus.addEventListener('change', (e) => {
+            // Update data model
+            c.status = e.target.value;
+            // Update class for colors
+            selectStatus.className = `status-pill ${statusMap[c.status].class}`;
+            e.stopPropagation(); // prevent row click
+        });
+        // Prevent row click when clicking select
+        selectStatus.addEventListener('click', (e) => e.stopPropagation());
+
+        tdStatus.appendChild(selectStatus);
         
         // Columna Expediente (Drive)
         const tdFolder = document.createElement('td');
