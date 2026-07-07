@@ -773,9 +773,9 @@ footer {
 }
 
 .content-wrapper {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
-  width: 100%;
+  width: 95%;
 }
 
 .page-header {
@@ -819,9 +819,10 @@ footer {
 }
 
 .data-table th, .data-table td {
-  padding: 0.85rem 2.5rem;
+  padding: 1rem 1.5rem;
   border-bottom: 1px solid #F1F5F9;
   font-size: 0.875rem;
+  white-space: nowrap;
 }
 
 .data-table th {
@@ -836,6 +837,11 @@ footer {
 
 .data-table tbody tr {
   transition: all 0.2s ease;
+}
+
+.data-table td:last-child {
+  white-space: normal;
+  min-width: 250px;
 }
 
 .data-table tbody tr:hover {
