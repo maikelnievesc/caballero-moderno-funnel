@@ -38,17 +38,31 @@ const newCaseForm = document.getElementById('newCaseForm');
 // 3. Funciones de Renderizado
 // ==== RENDER CHART ====
 let statusChartInstance = null;
+let categoryChartInstance = null;
 
 function renderChart() {
-    const ctx = document.getElementById('statusChart').getContext('2d');
+    const statusCtx = document.getElementById('statusChart').getContext('2d');
+    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
     
     // Count statuses
     const counts = { nuevo: 0, curso: 0, pausa: 0, completado: 0, cancelado: 0 };
+    
+    // Count categories dynamically
+    const categoryCounts = {};
+
     cases.forEach(c => {
+        // Status
         if (counts[c.status] !== undefined) counts[c.status]++;
+        
+        // Category
+        if (!categoryCounts[c.category]) {
+            categoryCounts[c.category] = 0;
+        }
+        categoryCounts[c.category]++;
     });
 
-    const data = {
+    // --- Status Chart Data ---
+    const statusData = {
         labels: ['Nuevo', 'En Curso', 'En Pausa', 'Completado', 'Cancelado'],
         datasets: [{
             data: [counts.nuevo, counts.curso, counts.pausa, counts.completado, counts.cancelado],
@@ -59,39 +73,68 @@ function renderChart() {
         }]
     };
 
-    if (statusChartInstance) {
-        statusChartInstance.data = data;
-        statusChartInstance.update();
-    } else {
-        statusChartInstance = new Chart(ctx, {
-            type: 'doughnut',
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '75%', // Modern thin ring
-                plugins: {
-                    legend: { 
-                        position: 'right', 
-                        labels: { 
-                            usePointStyle: true, // Circles instead of boxes
-                            padding: 20,
-                            font: { size: 12, family: "'Inter', sans-serif" }
-                        } 
-                    },
-                    tooltip: {
-                        backgroundColor: '#0F172A',
-                        padding: 12,
-                        cornerRadius: 8,
-                        displayColors: false,
-                        callbacks: {
-                            label: function(context) {
-                                return ` ${context.label}: ${context.raw} casos`;
-                            }
-                        }
+    // Shared options for both charts
+    const commonOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '75%', // Modern thin ring
+        plugins: {
+            legend: { 
+                position: 'right', 
+                labels: { 
+                    usePointStyle: true, // Circles instead of boxes
+                    padding: 20,
+                    font: { size: 12, family: "'Inter', sans-serif" }
+                } 
+            },
+            tooltip: {
+                backgroundColor: '#0F172A',
+                padding: 12,
+                cornerRadius: 8,
+                displayColors: false,
+                callbacks: {
+                    label: function(context) {
+                        return ` ${context.label}: ${context.raw} casos`;
                     }
                 }
             }
+        }
+    };
+
+    if (statusChartInstance) {
+        statusChartInstance.data = statusData;
+        statusChartInstance.update();
+    } else {
+        statusChartInstance = new Chart(statusCtx, {
+            type: 'doughnut',
+            data: statusData,
+            options: commonOptions
+        });
+    }
+
+    // --- Category Chart Data ---
+    const categoryLabels = Object.keys(categoryCounts);
+    const categoryDataValues = Object.values(categoryCounts);
+    
+    const categoryData = {
+        labels: categoryLabels,
+        datasets: [{
+            data: categoryDataValues,
+            backgroundColor: ['#8B5CF6', '#EC4899', '#3B82F6', '#14B8A6', '#F59E0B', '#F43F5E'], // Purples, Pinks, Teals
+            borderColor: '#FFFFFF',
+            borderWidth: 3,
+            hoverOffset: 4
+        }]
+    };
+
+    if (categoryChartInstance) {
+        categoryChartInstance.data = categoryData;
+        categoryChartInstance.update();
+    } else {
+        categoryChartInstance = new Chart(categoryCtx, {
+            type: 'doughnut',
+            data: categoryData,
+            options: commonOptions
         });
     }
 }
