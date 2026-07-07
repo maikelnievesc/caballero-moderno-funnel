@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compass Hub - Dashboard</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/styles.css?v=4">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="hub-body">
 
@@ -63,23 +64,34 @@
                     </div>
                 </div>
 
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="table-responsive">
-                        <table class="data-table" id="casesTable">
-                            <thead>
-                                <tr>
-                                    <th>Nombre del Cliente</th>
-                                    <th>Email</th>
-                                    <th>Categoría</th>
-                                    <th>Estatus</th>
-                                    <th>Expediente</th>
-                                    <th>Última Acción</th>
-                                </tr>
-                            </thead>
-                            <tbody id="casesTableBody">
-                                <!-- JS WILL POPULATE THIS -->
-                            </tbody>
-                        </table>
+                <div class="dashboard-grid">
+                    <!-- Left: Charts -->
+                    <div class="chart-card" data-aos="fade-right" data-aos-delay="200">
+                        <h3>Resumen de Estatus</h3>
+                        <div style="position: relative; height: 220px; width: 100%;">
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Right: Table -->
+                    <div class="card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="table-responsive">
+                            <table class="data-table" id="casesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre del Cliente</th>
+                                        <th>Email</th>
+                                        <th>Categoría</th>
+                                        <th>Estatus</th>
+                                        <th>Expediente</th>
+                                        <th>Última Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="casesTableBody">
+                                    <!-- JS WILL POPULATE THIS -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

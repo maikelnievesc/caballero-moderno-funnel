@@ -32,18 +32,64 @@ const newCaseForm = document.getElementById('newCaseForm');
 // 3. Funciones de Renderizado
 function renderTable(dataToRender) {
     tableBody.innerHTML = ''; // Limpiar tabla
+// ==== RENDER CHART ====
+let statusChartInstance = null;
+
+function renderChart() {
+    const ctx = document.getElementById('statusChart').getContext('2d');
     
+    // Count statuses
+    const counts = { nuevo: 0, curso: 0, pausa: 0, completado: 0, cancelado: 0 };
+    cases.forEach(c => {
+        if (counts[c.status] !== undefined) counts[c.status]++;
+    });
+
+    const data = {
+        labels: ['Nuevo', 'En Curso', 'En Pausa', 'Completado', 'Cancelado'],
+        datasets: [{
+            data: [counts.nuevo, counts.curso, counts.pausa, counts.completado, counts.cancelado],
+            backgroundColor: ['#E0F2FE', '#FEF3C7', '#FEE2E2', '#DCFCE7', '#F1F5F9'],
+            borderColor: ['#0369A1', '#B45309', '#B91C1C', '#15803D', '#475569'],
+            borderWidth: 1
+        }]
+    };
+
+    if (statusChartInstance) {
+        statusChartInstance.data = data;
+        statusChartInstance.update();
+    } else {
+        statusChartInstance = new Chart(ctx, {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+                }
+            }
+        });
+    }
+}
+
+// ==== MAIN RENDERER ====
+function renderTable(dataToRender) {
+    const tbody = document.getElementById('casesTableBody');
+    tbody.innerHTML = '';
+
     if (dataToRender.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #999;">No se encontraron casos.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #999;">No se encontraron casos.</td></tr>';
         return;
     }
 
     dataToRender.forEach(c => {
         const tr = document.createElement('tr');
-        
+
         // Columna Nombre
         const tdName = document.createElement('td');
-        tdName.innerHTML = `<strong>${c.name}</strong>`;
+        tdName.style.fontWeight = "500";
+        tdName.style.color = "#0F172A";
+        tdName.textContent = c.name;
         
         // Columna Email
         const tdEmail = document.createElement('td');
@@ -73,6 +119,8 @@ function renderTable(dataToRender) {
             c.status = e.target.value;
             // Update class for colors
             selectStatus.className = `status-pill ${statusMap[c.status].class}`;
+            // Update Chart!
+            renderChart();
             e.stopPropagation(); // prevent row click
         });
         // Prevent row click when clicking select
@@ -83,7 +131,9 @@ function renderTable(dataToRender) {
         // Columna Expediente (Drive)
         const tdFolder = document.createElement('td');
         if (c.folder) {
-            tdFolder.innerHTML = `<a href="${c.folder}" target="_blank" onclick="event.stopPropagation();" style="color: var(--color-primary); text-decoration: none; font-weight: 500;">📁 Ver Carpeta</a>`;
+            tdFolder.innerHTML = `<a href="${c.folder}" target="_blank" style="color: var(--color-primary); font-weight: 500; text-decoration: none;">📁 Ver Carpeta</a>`;
+            // Prevent row click when clicking link
+            tdFolder.querySelector('a').addEventListener('click', (e) => e.stopPropagation());
         } else {
             tdFolder.innerHTML = `<span style="color: #999; font-size: 0.9rem;">Sin enlace</span>`;
         }
@@ -113,14 +163,20 @@ function renderTable(dataToRender) {
         tr.appendChild(tdFolder);
         tr.appendChild(tdComments);
 
-        // Click en fila para ver detalle (Simulación)
+        // Simulated Row Click (Future Feature)
         tr.addEventListener('click', () => {
             alert(`Vista detallada del caso de ${c.name}.\n\nAquí en el futuro se abrirá la vista con la bóveda de documentos conectada a Supabase Storage.`);
         });
 
-        tableBody.appendChild(tr);
+        tbody.appendChild(tr);
     });
 }
+
+// Initial Render
+document.addEventListener('DOMContentLoaded', () => {
+    renderTable(cases);
+    renderChart();
+});
 
 // 4. Búsqueda y Filtros
 searchInput.addEventListener('input', (e) => {
@@ -192,6 +248,3 @@ saveCaseBtn.addEventListener('click', (e) => {
 document.getElementById('exportBtn').addEventListener('click', () => {
     alert("Funcionalidad de Exportación a CSV/Excel.\nDescargando archivo 'casos_compass_legal.csv'...");
 });
-
-// Inicializar
-renderTable(cases);
