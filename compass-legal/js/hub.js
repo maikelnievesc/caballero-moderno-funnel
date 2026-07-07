@@ -36,8 +36,6 @@ const saveCaseBtn = document.getElementById('saveCaseBtn');
 const newCaseForm = document.getElementById('newCaseForm');
 
 // 3. Funciones de Renderizado
-function renderTable(dataToRender) {
-    tableBody.innerHTML = ''; // Limpiar tabla
 // ==== RENDER CHART ====
 let statusChartInstance = null;
 
