@@ -5,7 +5,13 @@ let cases = [
     { id: 1, name: "Michael Smith", email: "msmith@email.com", category: "Fideicomiso (Bienes Raíces)", status: "curso", folder: "https://drive.google.com/", comments: "Esperando firma del notario." },
     { id: 2, name: "Sarah Jenkins", email: "s.jenkins@email.com", category: "Residencia Temporal", status: "nuevo", folder: "", comments: "Agendar llamada inicial para solvencia económica." },
     { id: 3, name: "David O'Connor", email: "doconnor@email.com", category: "Cancelación TIP (Barco)", status: "pausa", folder: "https://drive.google.com/", comments: "Falta documento original de importación." },
-    { id: 4, name: "Elena Rostova", email: "elena.r@email.com", category: "Creación LLC", status: "completado", folder: "https://drive.google.com/", comments: "RFC y acta constitutiva entregados." }
+    { id: 4, name: "Elena Rostova", email: "elena.r@email.com", category: "Creación LLC", status: "completado", folder: "https://drive.google.com/", comments: "RFC y acta constitutiva entregados." },
+    { id: 5, name: "James & Lily Potter", email: "jpotter@email.com", category: "Fideicomiso (Bienes Raíces)", status: "nuevo", folder: "https://drive.google.com/", comments: "Revisando opciones de propiedades en la costa." },
+    { id: 6, name: "Robert Chen", email: "rchen@email.com", category: "Residencia Permanente", status: "curso", folder: "https://drive.google.com/", comments: "Traducción de documentos apostillados en proceso." },
+    { id: 7, name: "Ana Maria Lopez", email: "amlopez@email.com", category: "Renovación TIP (Carro)", status: "cancelado", folder: "", comments: "Cliente decidió vender el vehículo en EEUU." },
+    { id: 8, name: "Thomas Wright", email: "twright@email.com", category: "Creación LLC", status: "curso", folder: "https://drive.google.com/", comments: "Esperando confirmación de nombre por la Secretaría de Economía." },
+    { id: 9, name: "Emily Davis", email: "edavis@email.com", category: "Residencia Temporal", status: "completado", folder: "https://drive.google.com/", comments: "Tarjeta de residente entregada exitosamente." },
+    { id: 10, name: "John Miller", email: "jmiller@email.com", category: "Fideicomiso (Bienes Raíces)", status: "pausa", folder: "https://drive.google.com/", comments: "Esperando transferencia de fondos del cliente." }
 ];
 
 // Mapeo de Estatus para la UI
