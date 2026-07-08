@@ -62,10 +62,14 @@ function renderChart() {
     });
 
     // --- Status Chart Data ---
+    const rawStatusLabels = ['Nuevo', 'En Curso', 'En Pausa', 'Completado', 'Cancelado'];
+    const statusValues = [counts.nuevo, counts.curso, counts.pausa, counts.completado, counts.cancelado];
+    const statusLabels = rawStatusLabels.map((lbl, i) => `${lbl} (${statusValues[i]})`);
+
     const statusData = {
-        labels: ['Nuevo', 'En Curso', 'En Pausa', 'Completado', 'Cancelado'],
+        labels: statusLabels,
         datasets: [{
-            data: [counts.nuevo, counts.curso, counts.pausa, counts.completado, counts.cancelado],
+            data: statusValues,
             backgroundColor: ['#0EA5E9', '#F59E0B', '#EF4444', '#10B981', '#64748B'], // Vibrant modern colors
             borderColor: '#FFFFFF',
             borderWidth: 3,
@@ -94,7 +98,8 @@ function renderChart() {
                 displayColors: false,
                 callbacks: {
                     label: function(context) {
-                        return ` ${context.label}: ${context.raw} casos`;
+                        const baseLabel = context.label.split(' (')[0];
+                        return ` ${baseLabel}: ${context.raw} casos`;
                     }
                 }
             }
@@ -113,8 +118,9 @@ function renderChart() {
     }
 
     // --- Category Chart Data ---
-    const categoryLabels = Object.keys(categoryCounts);
+    const rawCategoryLabels = Object.keys(categoryCounts);
     const categoryDataValues = Object.values(categoryCounts);
+    const categoryLabels = rawCategoryLabels.map((lbl, i) => `${lbl} (${categoryDataValues[i]})`);
     
     const categoryData = {
         labels: categoryLabels,
