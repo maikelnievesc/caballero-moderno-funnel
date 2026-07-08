@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compass Hub - Dashboard</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=9">
+    <link rel="stylesheet" href="css/styles.css?v=10">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="hub-body">
@@ -95,6 +95,23 @@
                                         <th>Expediente</th>
                                         <th>Última Acción</th>
                                     </tr>
+                                    <tr class="filter-row">
+                                        <th><input type="text" id="filterName" class="column-filter" placeholder="Buscar nombre..."></th>
+                                        <th><input type="text" id="filterEmail" class="column-filter" placeholder="Buscar email..."></th>
+                                        <th><input type="text" id="filterCategory" class="column-filter" placeholder="Buscar categoría..."></th>
+                                        <th>
+                                            <select id="filterStatus" class="column-filter">
+                                                <option value="">Todos</option>
+                                                <option value="nuevo">Nuevo</option>
+                                                <option value="curso">En Curso</option>
+                                                <option value="pausa">En Pausa</option>
+                                                <option value="completado">Completado</option>
+                                                <option value="cancelado">Cancelado</option>
+                                            </select>
+                                        </th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody id="casesTableBody">
                                     <!-- JS WILL POPULATE THIS -->
@@ -166,6 +183,6 @@
             once: true
         });
     </script>
-    <script src="js/hub.js?v=7"></script>
+    <script src="js/hub.js?v=8"></script>
 </body>
 </html>

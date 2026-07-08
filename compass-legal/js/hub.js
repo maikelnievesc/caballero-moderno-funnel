@@ -258,15 +258,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 4. Búsqueda y Filtros
-searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    const filtered = cases.filter(c => 
-        c.name.toLowerCase().includes(term) || 
-        c.email.toLowerCase().includes(term) ||
-        c.category.toLowerCase().includes(term)
-    );
+const filterName = document.getElementById('filterName');
+const filterEmail = document.getElementById('filterEmail');
+const filterCategory = document.getElementById('filterCategory');
+const filterStatus = document.getElementById('filterStatus');
+
+function applyFilters() {
+    const globalTerm = searchInput.value.toLowerCase();
+    const fName = filterName.value.toLowerCase();
+    const fEmail = filterEmail.value.toLowerCase();
+    const fCat = filterCategory.value.toLowerCase();
+    const fStat = filterStatus.value;
+
+    const filtered = cases.filter(c => {
+        // Global search match (Name, Email, or Category)
+        const matchGlobal = 
+            c.name.toLowerCase().includes(globalTerm) || 
+            c.email.toLowerCase().includes(globalTerm) ||
+            c.category.toLowerCase().includes(globalTerm);
+            
+        // Column specific match
+        const matchName = c.name.toLowerCase().includes(fName);
+        const matchEmail = c.email.toLowerCase().includes(fEmail);
+        const matchCat = c.category.toLowerCase().includes(fCat);
+        const matchStat = fStat === '' ? true : c.status === fStat;
+        
+        return matchGlobal && matchName && matchEmail && matchCat && matchStat;
+    });
+
     renderTable(filtered);
-});
+}
+
+searchInput.addEventListener('input', applyFilters);
+filterName.addEventListener('input', applyFilters);
+filterEmail.addEventListener('input', applyFilters);
+filterCategory.addEventListener('input', applyFilters);
+filterStatus.addEventListener('change', applyFilters);
 
 // 5. Lógica del Modal
 function openModal() {

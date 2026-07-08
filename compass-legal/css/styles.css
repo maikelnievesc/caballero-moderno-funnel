@@ -864,13 +864,41 @@ footer {
 }
 
 .data-table th {
-  background-color: #F8FAFC;
-  color: #64748B;
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
+  color: #64748B;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #F1F5F9;
+}
+
+/* Column Filters */
+.filter-row th {
+  padding: 0.5rem 1rem 0.75rem 1rem !important;
+  background-color: #FAFAFA;
   border-bottom: 1px solid #E2E8F0;
+}
+.column-filter {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: #334155;
+  background-color: #FFFFFF;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.column-filter::placeholder {
+  color: #94A3B8;
+}
+.column-filter:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(55, 163, 163, 0.1);
 }
 
 .data-table tbody tr {
