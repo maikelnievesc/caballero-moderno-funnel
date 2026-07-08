@@ -73,7 +73,8 @@ function renderChart() {
             backgroundColor: ['#0EA5E9', '#F59E0B', '#EF4444', '#10B981', '#64748B'], // Vibrant modern colors
             borderColor: '#FFFFFF',
             borderWidth: 3,
-            hoverOffset: 4
+            borderRadius: 6,
+            hoverOffset: 8
         }]
     };
 
@@ -81,7 +82,10 @@ function renderChart() {
     const commonOptions = {
         responsive: true,
         maintainAspectRatio: false,
-        cutout: '75%', // Modern thin ring
+        cutout: '72%', // Slightly thicker for the rounded effect
+        layout: {
+            padding: 10 // Give space for the hover offset and drop shadow
+        },
         plugins: {
             legend: { 
                 position: 'right', 
@@ -130,7 +134,8 @@ function renderChart() {
             backgroundColor: ['#8B5CF6', '#EC4899', '#3B82F6', '#14B8A6', '#F59E0B', '#F43F5E'], // Purples, Pinks, Teals
             borderColor: '#FFFFFF',
             borderWidth: 3,
-            hoverOffset: 4
+            borderRadius: 6,
+            hoverOffset: 8
         }]
     };
 

@@ -833,7 +833,7 @@ footer {
 }
 
 #statusChart, #categoryChart {
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
 }
 
 /* Data Table Card */
