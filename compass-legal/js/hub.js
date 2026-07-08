@@ -88,7 +88,8 @@ function renderChart() {
                 labels: { 
                     usePointStyle: true, // Circles instead of boxes
                     padding: 20,
-                    font: { size: 12, family: "'Inter', sans-serif" }
+                    color: '#334155',
+                    font: { size: 13, family: "Outfit, Inter, sans-serif", weight: '500' }
                 } 
             },
             tooltip: {

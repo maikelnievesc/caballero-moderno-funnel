@@ -783,7 +783,7 @@ footer {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 420px 1fr;
+  grid-template-columns: 500px 1fr;
   gap: 2rem;
   align-items: start;
 }
@@ -819,7 +819,7 @@ footer {
   background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
-  padding: 1.5rem;
+  padding: 1.25rem;
   border: 1px solid #E2E8F0;
   display: flex;
   flex-direction: column;
