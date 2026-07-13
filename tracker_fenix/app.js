@@ -31,201 +31,206 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "Temas de conversación ganadores" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "El rechazo que cambió mi vida" (5:00 PM)',
                 script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
-Título SEO: 3 Temas de conversación para nunca aburrir a una mujer (Atraer sin esfuerzo)
+Título SEO: El peor rechazo de mi vida (Y por qué fue lo mejor que me pasó)
 
-(0:00 - 0:30) Hook: "El error más común que cometen el 99% de los hombres en una cita es quedarse en la 'zona segura'. Hablan del clima, del tráfico o de temas aburridísimos. Resultado: Ella no siente absolutamente nada y te manda directo a la friendzone. Hoy te daré 3 temas de conversación psicológicamente probados que activan sus emociones, la mantienen enganchada y generan tensión sexual real."
+(0:00 - 0:30) Hook: "Hoy no te voy a dar tips de seducción. Hoy te voy a contar la historia del día que sentí que mi mundo se derrumbaba. Hace unos años, invité a salir a la mujer de mis sueños. Gasté la mitad de mi sueldo en una cena, me preparé por horas, y a la mitad de la noche, ella me dijo mirando su teléfono: 'Eres un gran chico, pero no te veo de esa forma, me aburro un poco'. Ese fue el día que toqué fondo, pero también el día que desperté."
 
-(0:30 - 1:30) Tema 1: Preguntas de Pasión: "En lugar de hablar de rutina, apela a su imaginación. Pregúntale: 'Si el dinero no importara en absoluto, ¿qué estarías haciendo con tu vida en este exacto momento?'. Esto la saca de su día a día y la obliga a conectarse con sus verdaderos sueños. Cuando una mujer asocia la emoción de sus pasiones con tu presencia, la atracción sube automáticamente."
+(0:30 - 1:30) El error: "Por mucho tiempo intenté ser el 'chico perfecto'. Creía que si compraba cosas caras y era extremadamente complaciente, ella vería mi valor. Lo que no entendía es que la atracción no se compra con cenas, ni el respeto se gana diciendo que sí a todo. Yo no tenía un propósito de vida, mi propósito era ella. Y eso es lo menos atractivo que un hombre puede proyectar."
 
-(1:30 - 2:30) Tema 2: Las Suposiciones (Lectura en frío): "Nunca le preguntes de dónde es o qué hace. Dile: 'Tienes una vibra súper relajada, seguro creciste cerca de la playa o haces yoga'. Si te equivocas, no importa. La harás reír y ella misma te corregirá con entusiasmo. Al hacer suposiciones, estás demostrando que tienes capacidad de leer a las personas, lo cual comunica alto valor e inteligencia social."
+(1:30 - 2:30) El proceso: "Reconstruir mi confianza no fue como en las películas, donde vas al gimnasio y de repente eres un 'Macho Alfa'. Fue doloroso. Hubo días donde me sentía inferior. Pero empecé a documentar mis errores. Empecé a ir a terapia. Empecé a leer sobre estoicismo. Poco a poco dejé de actuar para gustarle a los demás y empecé a actuar para respetarme a mí mismo. El cambio no es de la noche a la mañana, es un proceso."
 
-(2:30 - 3:30) Tema 3: Tensiones de Futuro: "Esta es mi técnica favorita. En medio de la charla, mírala a los ojos y dile: 'Siento que eres el tipo de persona que en 5 años terminará viviendo en otro continente, adoptando tres perros y olvidándose de todo el mundo'. Estás pintando un panorama divertido, misterioso y un poco desafiante. Evita la lógica, apela a las emociones. Si dominas esto, nunca más serás solo su amigo. Suscríbete para más."`
+(2:30 - 3:30) La lección: "Si hoy estás pasando por un rechazo que te duele en el alma, quiero decirte que te entiendo. Todos hemos sido ese chico inseguro. No escondas tus errores debajo de la alfombra. Úsalos. Ese dolor es tu combustible para convertirte en el Caballero Moderno que estás destinado a ser. Si estás en este proceso, suscríbete. No estás solo, estamos construyendo esto juntos."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Por qué te ve como amigo"',
+                text: 'Publicar Reel: "Mi mayor error"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Evita los temas "seguros" 🚫
+Título en pantalla: Mi peor error con las mujeres 🚫
 
-"¿Sabes por qué siempre terminas en la friendzone? Porque tus conversaciones son demasiado seguras. Hablas de las noticias, de la escuela o del trabajo. Temas 100% lógicos que no generan ni una gota de tensión. Para que ella sienta atracción, tienes que tomar riesgos conversacionales. Rompe la burbuja platónica. Bromea con ella, hazla calificar, desafíala ligeramente. Si la tratas con extremo cuidado y respeto aburrido, te verá como su mejor amigo, no como un amante. Sígueme para cambiar tu mentalidad."
+"Durante años, cometí el peor error que un hombre puede cometer: intentar comprar el amor. Pensaba que si pagaba cenas caras y regalos, ella me vería como alguien de 'alto valor'. ¿El resultado? Me usaron por mi dinero y terminaron con chicos que no gastaban un centavo, pero que tenían confianza real. Me costó mucho tiempo entender que el estatus no está en tu billetera, está en cómo te valoras a ti mismo. Si estás cometiendo este error, detente. Empieza a invertir en ti. Sígueme, yo te enseño el camino."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La atracción no prospera en la zona de confort. ❌
-Si quieres generar interés genuino, tienes que dejar de buscar su aprobación y empezar a divertirte desafiándola.
-👉 Sígueme para aprender a dominar la tensión emocional en tus citas.
-#CaballeroModerno #Friendzone #Seduccion #AtraerMujeres #Psicologia #DesarrolloPersonal`
+Nadie respeta a un hombre que intenta sobornar a cambio de afecto. ❌
+Te lo digo por experiencia propia. El verdadero valor se proyecta desde tu carácter, no desde tu tarjeta de crédito.
+👉 Sígueme para dejar atrás los errores de novato.
+#Storytime #DesarrolloPersonal #CaballeroModerno #MiHistoria #Seduccion`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La trampa mortal de las conversaciones "Seguras". ❌🤐
+                script: `El día que entendí que mi valor no estaba en mi billetera. 💸📉
 
-Muchos hombres se preguntan por qué una cita que parecía ir perfectamente bien termina con un "Me la pasé increíble, pero no sentí el 'clic'". La respuesta es dolorosamente simple: jugaste a la defensiva. 
+Quiero ser brutalmente honesto con ustedes hoy. Hubo una época en la que yo era ese tipo: el que creía que una cena en un restaurante de cinco estrellas y regalos excesivos eran la clave para enamorar a una mujer. 
 
-Te quedaste en temas neutros. Hablaron sobre el menú, la ciudad, las series de moda o el clima. Fuiste un perfecto caballero, pero un caballero extremadamente predecible. La atracción biológica requiere fricción, misterio y riesgo emocional. 
+Lo hacía porque, en el fondo, me sentía insuficiente. Creía que mi personalidad por sí sola no era suficiente para retener la atención de nadie. Así que me escondía detrás del dinero. ¿Saben qué pasó? Atraía a personas que respetaban mis recursos, pero no me respetaban a mí. 
 
-Si no te atreves a romper la burbuja platónica, a hacer una broma retadora, a mantener el contacto visual un segundo de más o a cambiar el tema hacia algo personal y apasionante, te estás autoproclamando como el "buen amigo". Un hombre magnético lidera la conversación hacia aguas profundas.
+Desaprender ese hábito fue doloroso. Implicó enfrentarme al espejo y darme cuenta de que carecía de identidad y propósito. La transformación a un Caballero Moderno no ocurrió leyendo un libro mágico, ocurrió cuando decidí que la inversión más grande de mi vida sería en mi propio cerebro y en mi paz mental. 
 
-👉 Síguenos en la página para aprender a dejar la zona de amigos de una vez por todas.
+A ti, que me lees y que sientes que tienes que darlo todo financieramente para ser notado: eres suficiente. Pero necesitas construir tu carácter.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a frustrated gentleman sitting across from a woman in a cafe, visually representing the invisible barrier of the friendzone. Moody lighting, depth of field, 8k --ar 4:5"`
+👉 Únete a la comunidad de hombres que construyen valor real.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic image of a modern gentleman looking thoughtfully into a mirror in a dimly lit, elegant room. Reflecting on past mistakes, deep shadows, vulnerability, photorealistic --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "Silencios incómodos"',
+                text: 'Publicar Reel: "No soy el Macho Alfa"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Cómo usar el silencio a tu favor 🤫
+Título en pantalla: Renuncié a ser un "Macho Alfa" 🤫
 
-"El mayor miedo de un hombre en una cita es el 'silencio incómodo'. Así que empiezas a hablar sin parar, soltando datos irrelevantes por puro nerviosismo. Detente. Un hombre seguro de sí mismo disfruta el silencio. Cuando la charla se detenga, simplemente mírala a los ojos, relaja tus hombros y sonríe ligeramente sin decir nada. Ese silencio proyecta confianza absoluta. Ella sentirá la tensión y empezará a hablar para llenarlo. Sígueme para dominar la presión."
+"Cuando empecé a trabajar en mi confianza, consumí mucho contenido tóxico que me decía que tenía que ser un 'Macho Alfa' frío, tratar mal a la gente y nunca mostrar emociones. Lo intenté, y fue agotador. Fingir que nada te importa es la mayor muestra de inseguridad. Un verdadero Caballero Moderno llora cuando tiene que llorar, pide ayuda cuando no sabe algo, y es extremadamente cálido con los que ama. La verdadera fuerza es poder ser vulnerable sin perder el control. Sígueme para desmentir los mitos."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El que menos necesita hablar, es el que más poder tiene. 🤫🔥
-No trates de llenar cada segundo con ruido. La verdadera atracción se construye en los silencios.
-👉 Sígueme para aprender lenguaje no verbal de alto valor.
-#Silencio #CaballeroModerno #Seduccion #ContactoVisual #AltoValor`
+Fingir que eres una roca de hielo no es ser hombre, es ser un robot. 🤖❌
+El proceso de sanar implica aceptar tus emociones, no suprimirlas. 
+👉 Sígueme para entender la masculinidad desde un ángulo real y sano.
+#Masculinidad #CaballeroModerno #MachoAlfa #Vulnerabilidad #DesarrolloPersonal`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Silencio: La herramienta más intimidante y atractiva del hombre moderno. 🤫♟️
+                script: `La mentira del hombre que "no siente nada". 🎭
 
-Cuando la conversación hace una pausa, el hombre inseguro entra en pánico. Su cerebro percibe la falta de ruido como un rechazo inminente, por lo que comienza a hablar compulsivamente, bajando su estatus y mostrándose ansioso.
+Durante meses intenté adoptar la personalidad del clásico "chico malo" estoico extremo que no se inmuta por nada. Creí que mostrar interés o vulnerabilidad me hacía débil. 
 
-El Caballero Moderno entiende que el silencio no es su enemigo, es su lienzo. Cuando hay una pausa, él simplemente se reclina, mantiene el contacto visual y sonríe de forma relajada. Este pequeño gesto subcomunica algo muy poderoso: "Estoy totalmente cómodo en mi propia piel y no necesito entretenerte desesperadamente". 
+Ese fue uno de los periodos más oscuros y solitarios de mi proceso. Me di cuenta de que las personas siguen procesos, no muros inquebrantables. Al esconder mis fracasos y mis emociones, alejé a las conexiones genuinas (tanto amistades como mujeres). 
 
-Paradójicamente, esa calma hace que ella sienta la necesidad de llenar el vacío, invirtiendo más energía en la interacción. Quien domina el silencio, domina la conversación.
+Hoy entiendo que el verdadero poder de un hombre radica en conocer sus demonios, hablar de ellos sin vergüenza y tener la inteligencia emocional para manejarlos. No somos robots; somos hombres construyendo nuestro imperio con cicatrices incluidas. 
 
-👉 Síguenos para dejar atrás la ansiedad social y proyectar poder real.
+👉 Síguenos si estás listo para construir una masculinidad auténtica y sin filtros.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a confident gentleman sitting in a moody jazz lounge, leaning back relaxed, making strong but calm eye contact across the table, warm lighting, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A black and white cinematic portrait of a handsome man sitting alone, looking contemplative and human, breaking the tough guy stereotype, natural lighting, highly detailed --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "Respondiendo Shit Tests"',
+                text: 'Publicar Reel: "El dolor del crecimiento"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Cuando ella te pone a prueba 🚫
+Título en pantalla: Nadie te cuenta esta parte del proceso 📉
 
-"Están platicando increíble y de repente ella te dice: 'Seguro tú le dices eso a todas'. Acabas de recibir un Shit Test. Si te justificas diciendo '¡No, te lo juro que no!', perdiste. Estás demostrando inseguridad. Un verdadero Caballero Moderno usa el humor exagerado. Respóndele: 'Sí, de hecho tengo un Excel en mi casa para no confundirme de nombres'. Al no tomarte en serio su prueba, demuestras que tu confianza es inquebrantable. Sígueme para dominar el juego."
+"Te venden que el crecimiento personal es hermoso. Te dicen que te despiertes a las 5 AM y todo será felicidad. Déjame contarte mi verdad: mi proceso ha estado lleno de ansiedad y recaídas. Hubo noches donde dudé de todo lo que estaba construyendo. Hubo semanas donde volví a caer en malos hábitos. Y eso está bien. El éxito no es una línea recta. Si hoy sientes que retrocediste, respira. Perdonarte es el paso número uno del crecimiento. Sígueme si quieres dejar de compararte con vidas falsas de internet."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Nunca te justifiques ante una prueba. ❌🤐
-Los "shit tests" son el mecanismo biológico de la mujer para comprobar si tu seguridad es real o fingida. 
-👉 Sígueme y aprende a usar el humor como escudo.
-#ShitTests #CaballeroModerno #Seduccion #AtraerMujeres #Psicologia`
+Las redes sociales son un escaparate de victorias, casi nadie muestra el detrás de escena. 🎬❌
+El proceso duele. Aceptarlo es tu mayor ventaja.
+👉 Sígueme para acompañarnos en esta ruta.
+#Proceso #MotivacionReal #CaballeroModerno #SaludMentalMasculina #Disciplina`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Por qué ella busca contradicciones en lo que dices (y cómo responder). ❌🤐
+                script: `El crecimiento personal no es instagrameable. 📉
 
-Imagina que todo va perfecto y de repente ella suelta un comentario ligeramente sarcástico o retador sobre tu estilo, tu trabajo o tus intenciones. Muchos hombres se ofenden o, peor aún, intentan convencerla lógicamente de que están equivocadas. 
+Vemos a "gurús" que parecen tener vidas perfectas, y cuando miramos nuestra propia lucha nos sentimos defectuosos. Quiero confesar algo: he tenido días donde aplazar la alarma y cancelar mis proyectos parecía la única opción. Días donde la disciplina me abandonó por completo.
 
-Es un error novato. Lo que estás experimentando es un test de aptitud biológico. Ella no busca una respuesta lógica; busca una reacción emocional. Quiere ver si su opinión tiene el poder de desestabilizarte. 
+Aprender a liderarte a ti mismo (y después a los demás) requiere fracasar brutalmente en el intento. La diferencia entre el hombre que yo era y el que soy hoy no es que ya no fracaso, sino que ya no me castigo durante semanas por haberlo hecho. 
 
-La única manera de pasar la prueba es mediante el "Amuse and Ignore" (Divertir e Ignorar). Acuerda con ella de forma absurdamente exagerada. Demuéstrale que su desafío te parece divertido, no amenazante. Un hombre que no se altera ante el juicio ajeno es biológicamente irresistible.
+Si esta semana te equivocaste, volviste a escribirle a tu ex, o rompiste tu dieta... sacúdete. Eres un ser humano en construcción, no un producto terminado. 
 
-👉 Síguenos para aprender a mantener tu centro emocional bajo cualquier circunstancia.
+👉 Únete a nuestra comunidad donde documentamos el progreso real, no solo la perfección.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A confident man smiling calmly and unbothered while a stylish woman playfully challenges him in an elegant urban setting, photorealistic, cinematic lighting --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A realistic shot of a modern man rubbing his eyes tiredly while working late at night on a laptop, showing the real grind and fatigue of the process, moody lighting, photorealistic --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Tensión de futuro"',
+                text: 'Publicar Reel: "Las mujeres no son trofeos"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Hackea su imaginación (La técnica secreta) ♟️
+Título en pantalla: Cómo arruinaba mis propias citas 🏆
 
-"Si quieres que ella piense en ti todo el día, usa la 'Tensión de Futuro'. En medio de la cita dile: 'Eres un peligro. Siento que si nos vamos de viaje juntos terminaríamos robando un banco en Las Vegas y cambiando nuestras identidades'. Estás creando una película mental donde ustedes dos son los protagonistas en una situación divertida. El cerebro femenino ama las narrativas. Ponla en una y no podrá sacarte de su cabeza. Sígueme para más."
+"Hace años yo veía las citas como un videojuego. Tenía un guion, una lista de cosas que hacer para 'ganar' el afecto de la mujer. Actuaba. ¿Y sabes qué? Ellas lo notaban. Se daban cuenta de que yo no estaba ahí con ellas, yo estaba ahí con mi ego. Hasta que un día dejé de verlas como trofeos a conquistar y empecé a verlas como compañeras para compartir un buen rato. Ese simple cambio de paradigma hizo que mi atractivo se multiplicara por mil. Deja de intentar 'ganar'. Sígueme para más honestidad."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No seas un libro de historia, sé una novela de aventuras. 🤫🔥
-Deja de hablar del pasado y empieza a construir narrativas divertidas en tiempo real.
-👉 Sígueme para aprender a crear conexión instantánea.
-#Conversacion #CaballeroModerno #Masculinidad #Seduccion #Psicologia`
+Cuando tratas de impresionar, demuestras que no te crees suficiente. 🤫🔥
+Relájate. No es un examen, es una interacción entre dos humanos.
+👉 Sígueme para aprender a disfrutar el proceso de conocer a alguien.
+#Vulnerabilidad #CaballeroModerno #SeduccionReal #ErroresComunes #Citas`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El secreto para ocupar su mente: La Tensión de Futuro. 📱🎣
+                script: `El error de tratar las relaciones como una lista de tareas. 📝❌
 
-La mayoría de los hombres centran sus conversaciones en el intercambio aburrido de datos pasados ("¿Dónde estudiaste?", "¿Dónde trabajaste?"). Si bien la información es útil, no genera ni una gota de dopamina.
+Cuando empecé en el mundo de la mejora personal, cometí el grave error de mecanizar mis interacciones sociales. Analizaba cada palabra que decía una mujer, medía el tiempo exacto que tardaba en responderle un mensaje y ensayaba "rutinas" para parecer interesante.
 
-El cerebro humano está cableado para reaccionar a las historias y al futuro. La técnica de la 'Tensión de Futuro' consiste en inventar un escenario hipotético, ridículo o aventurero que los involucre a los dos. Decir cosas como "Claramente tú y yo no podemos ir nunca al supermercado juntos porque terminaríamos haciendo carreras con los carritos" crea una complicidad instantánea.
+Era una fachada agotadora. 
+Descubrí, a base de golpes, que la autenticidad defectuosa es mil veces más magnética que la perfección ensayada. Cuando dejas caer la máscara de "seductor invencible" y te permites reírte de tus propios nervios o admitir que no sabes algo, creas una conexión emocional imposible de falsificar.
 
-Te convierte en un co-creador de experiencias en lugar de un interrogador. La próxima vez, deja el pasado atrás y empieza a pintar escenarios.
+Las personas se enamoran de tu humanidad, no de tus tácticas.
 
-👉 Síguenos para descubrir más sobre psicología aplicada a la atracción.
+👉 Síguenos para aprender a conectar desde la autenticidad y el alto valor real.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A vibrant, cinematic image of a modern couple laughing together in a neon-lit city street at night, looking like they share a secret. High quality, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic image of a gentleman holding a torn-up piece of paper representing an old script, smiling naturally and genuinely at a cafe, showing authenticity, highly detailed --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "La regla del 80/20"',
+                text: 'Publicar Reel: "El día que dije BASTA"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Hablar mucho te hace menos atractivo 🚫
+Título en pantalla: El día que mis estándares cambiaron 🛑
 
-"Tenemos dos oídos y una boca por una razón. En una cita, aplica la regla del 80/20. Deja que ella hable el 80% del tiempo y tú el 20%. Los hombres inseguros hablan sin parar de sus logros, sus autos y su dinero intentando impresionar. Un hombre de alto valor hace preguntas emocionales interesantes y simplemente escucha. Al final, ella dirá: 'Tuvimos la mejor charla del mundo', ¡incluso si apenas hablaste! Sígueme para dominar la persuasión."
+"Recuerdo exactamente el día que mi vida cambió. Estaba esperando en un restaurante a una chica que llevaba una hora de retraso. Sin un mensaje de disculpa. En el pasado, yo la habría esperado y le habría restado importancia. Ese día, me levanté, pagué mi café y me fui. Al salir por esa puerta, mi autoestima subió de nivel de forma permanente. Aprendí que lo que toleras, es lo que te define. Si estás recibiendo migajas, es porque las estás aceptando. Sígueme y levanta tus estándares."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El misterio es tu mayor aliado. 🛋️❌
-Si le cuentas toda tu vida en la primera hora, ya no hay nada que descubrir. 
-👉 Sígueme y aprende a retener información estratégicamente.
-#CaballeroModerno #Misterio #ConsejosParaHombres #Regla8020 #AtraerMujeres`
+El límite lo pones tú, siempre. 🛋️❌
+Es preferible estar solo y respetado, que acompañado pero humillado. Yo lo aprendí a la mala, tú puedes aprenderlo hoy.
+👉 Sígueme para construir una columna vertebral de titanio.
+#Limites #Autoestima #CaballeroModerno #Storytime #Estándares`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Regla de Oro del Misterio: Deja de tratar de impresionar. ♟️👑
+                script: `La anécdota que redefinió mis estándares para siempre. ♟️👑
 
-Hay un fenómeno psicológico curioso en las citas modernas: el hombre siente la necesidad imperativa de leer su currículum. Habla de su auto, su salario, y sus logros, asumiendo que el valor lógico se traduce en deseo emocional. 
+Todos tenemos un punto de quiebre. El mío llegó cuando me di cuenta de que estaba invirtiendo más energía en justificar el mal comportamiento de las personas, que en protegerme a mí mismo. 
 
-Falso. Cuando vomitas toda tu información en los primeros 45 minutos, aniquilas el misterio. Ya no eres un rompecabezas que ella quiera resolver, eres un libro abierto y leído. 
+Aceptaba cancelaciones de última hora, conversaciones mediocres y faltas de respeto disfrazadas de "bromas". Toleraba todo esto porque temía la soledad. 
 
-Implementa la regla del 80/20. Haz que ella hable el 80% del tiempo haciendo preguntas abiertas que apunten a sus pasiones, y tú habla solo el 20%. Escucha con atención real. No desveles todas tus cartas de inmediato. Un hombre que escucha activamente pero revela poco de sí mismo, proyecta un estatus masivo.
+La soledad, hermanos, no es un castigo, es un taller de forja. Cuando decidí que prefería cenar solo en lugar de cenar con alguien que no valoraba mi tiempo, mi vida se transformó. Subir tus estándares asusta porque inicialmente perderás personas. Pero te aseguro que el espacio que dejan libre será ocupado por respeto, paz mental y relaciones de verdadera calidad.
 
-👉 Síguenos para aprender a construir el verdadero misterio masculino.
+👉 Síguenos si estás listo para dejar de aceptar menos de lo que mereces.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A sophisticated man listening intently with a slight, confident smile, holding a glass of whiskey, aesthetic dark background, conveying mystery and depth, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A powerful image of an elegant man walking out of a restaurant alone with a strong, determined, and peaceful look, leaving behind an empty table. Cinematic, empowering, 8k --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "No busques puntos en común"',
+                text: 'Publicar Reel: "Documentando el viaje"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Estar de acuerdo en todo es aburrido 👀
+Título en pantalla: Por qué hablo de mis fracasos 👀
 
-"Deja de buscar coincidir en todo con ella. '¡A mí también me gusta el sushi!', '¡Yo también amo esa película!'. Ser un clon de ella para agradarle te convierte en el amigo complaciente. Atrévete a discrepar. Si ella dice que odia el café, dile con una sonrisa: 'Acabas de romper mi corazón, creo que esto no va a funcionar'. El desacuerdo juguetón genera muchísima más tensión sexual que estar de acuerdo en todo. Sígueme para ser un reto."
+"Muchos me preguntan por qué revelo mis inseguridades y errores en internet en lugar de fingir que tengo la vida perfecta. La respuesta es sencilla: estoy harto de ver cómo las redes sociales nos mienten. Yo no soy un gurú inalcanzable. Soy un tipo normal que cometió todos los errores posibles y decidió aprender de ellos. Si mi proceso te ahorra un año de sufrimiento, mi misión está cumplida. Gracias por estar aquí y formar parte de esta comunidad. Sígueme, esto apenas comienza."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El conflicto juguetón genera chispa. 👀🔥
-Si siempre le dices que sí a todo, te conviertes en un fan, no en un amante. 
-👉 Sígueme para dejar de ser el "chico bueno complaciente".
-#CaballeroModerno #Flirteo #DesarrolloPersonal #Confianza`
+No busco seguidores, busco construir una comunidad de hombres reales. 👀🔥
+Gracias a todos los que me acompañan en este viaje. La vulnerabilidad es nuestra mayor fuerza.
+👉 Sígueme para seguir creciendo juntos.
+#Proceso #Comunidad #CaballeroModerno #Vulnerabilidad #Gratitud`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Por qué ser el "Chico que está de acuerdo en todo" destruye tus posibilidades. 💎
+                script: `Detrás de la armadura: Por qué elegí documentar mis caídas. 💎
 
-Desde pequeños nos enseñaron que para caerle bien a alguien debíamos buscar cosas en común. En las ventas y en la amistad básica funciona. En la atracción, es un somnífero. 
+Las redes sociales se han convertido en un escaparate donde todos compiten por ver quién tiene menos problemas. He decidido no jugar a ese juego. 
 
-Si te pasas la cita entera asintiendo con la cabeza y fingiendo que te gustan las mismas bandas que a ella solo para agradar, estás proyectando desesperación. La seducción prospera en la polaridad. 
+He hablado de mis fracasos, de la época en la que mi autoestima dependía de un mensaje de texto, y de lo doloroso que ha sido desaprender mis comportamientos tóxicos. Y saben qué es lo más loco... al desnudar mi proceso frente a ustedes, me he vuelto más fuerte que nunca.
 
-Tener la confianza de decirle, con una sonrisa relajada: "Tus gustos musicales son horribles, pero te lo perdono", crea una fricción divertida. El desacuerdo sin agresividad demuestra que tienes identidad propia y que no vas a moldear tu personalidad para conseguir su aprobación. Sé un reto. 
+Las personas no se inspiran con el perfeccionismo falso; se inspiran al ver a alguien caer al barro, levantarse lleno de cicatrices y seguir caminando. 
 
-👉 Únete a la comunidad y aprende a mantener tus propios estándares.
+Quiero agradecerles a cada uno de ustedes por leer, comentar y ser parte de esta tribu. El Caballero Moderno no nace perfecto, se forja en el fuego del error y la reflexión.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A charismatic man playfully disagreeing with a woman, both are laughing genuinely in a stylish outdoor cafe setting, natural light, highly photorealistic --ar 4:5"`
+👉 Únete a nosotros si crees en el poder de la mejora continua.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A warm, inviting shot of a modern gentleman looking directly into the camera with a genuine, humble smile, writing in a journal at a rustic desk. Cinematic morning light, photorealistic, intimate --ar 4:5"`
             }
         ]
     };
