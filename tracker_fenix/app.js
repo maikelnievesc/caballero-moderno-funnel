@@ -31,206 +31,201 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "El rechazo que cambió mi vida" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "Amistades tóxicas" (5:00 PM)',
                 script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
-Título SEO: El peor rechazo de mi vida (Y por qué fue lo mejor que me pasó)
+Título SEO: El día que me quedé sin amigos (Y por qué fue necesario)
 
-(0:00 - 0:30) Hook: "Hoy no te voy a dar tips de seducción. Hoy te voy a contar la historia del día que sentí que mi mundo se derrumbaba. Hace unos años, invité a salir a la mujer de mis sueños. Gasté la mitad de mi sueldo en una cena, me preparé por horas, y a la mitad de la noche, ella me dijo mirando su teléfono: 'Eres un gran chico, pero no te veo de esa forma, me aburro un poco'. Ese fue el día que toqué fondo, pero también el día que desperté."
+(0:00 - 0:30) Hook: "Nos enseñan que los verdaderos amigos son para toda la vida, pero casi nadie habla del dolor que se siente cuando te das cuenta de que tu círculo social te está hundiendo. Hubo una época en la que salir de fiesta, quejarnos de la vida y gastar dinero que no teníamos era el único pegamento de mis amistades. El día que decidí cambiar de rumbo, me quedé completamente solo."
 
-(0:30 - 1:30) El error: "Por mucho tiempo intenté ser el 'chico perfecto'. Creía que si compraba cosas caras y era extremadamente complaciente, ella vería mi valor. Lo que no entendía es que la atracción no se compra con cenas, ni el respeto se gana diciendo que sí a todo. Yo no tenía un propósito de vida, mi propósito era ella. Y eso es lo menos atractivo que un hombre puede proyectar."
+(0:30 - 1:30) El quiebre: "Cuando empecé a leer, a cuidar mi salud y a intentar construir algo de valor, las burlas de mi grupo no se hicieron esperar. 'Ya no eres divertido', me decían. Yo intentaba arrastrarlos conmigo hacia arriba, pero la gravedad de la complacencia era más fuerte. Me di cuenta de una verdad brutal: no puedes sanar en el mismo entorno que te enfermó."
 
-(1:30 - 2:30) El proceso: "Reconstruir mi confianza no fue como en las películas, donde vas al gimnasio y de repente eres un 'Macho Alfa'. Fue doloroso. Hubo días donde me sentía inferior. Pero empecé a documentar mis errores. Empecé a ir a terapia. Empecé a leer sobre estoicismo. Poco a poco dejé de actuar para gustarle a los demás y empecé a actuar para respetarme a mí mismo. El cambio no es de la noche a la mañana, es un proceso."
+(1:30 - 2:30) La soledad: "Elegir alejarme fue una de las decisiones más dolorosas de mi proceso. Pasé meses sin planes de fin de semana, lidiando con el sentimiento de culpa por haber 'abandonado' a mis amigos. Pero esa soledad fue mi taller de forja. Al vaciar mi vida de influencias mediocres, creé el espacio necesario para que llegaran personas con ambición, visión y empatía real."
 
-(2:30 - 3:30) La lección: "Si hoy estás pasando por un rechazo que te duele en el alma, quiero decirte que te entiendo. Todos hemos sido ese chico inseguro. No escondas tus errores debajo de la alfombra. Úsalos. Ese dolor es tu combustible para convertirte en el Caballero Moderno que estás destinado a ser. Si estás en este proceso, suscríbete. No estás solo, estamos construyendo esto juntos."`
+(2:30 - 3:30) La lección: "Si hoy estás perdiendo amigos porque estás subiendo tus estándares, te prometo que no estás haciendo nada malo. Estás evolucionando. Perderás la cantidad, pero ganarás en calidad. Mantente firme. La tribu correcta llegará cuando tú estés listo. Suscríbete si estás en este camino de evolución."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Mi mayor error"',
+                text: 'Publicar Reel: "Mi círculo social"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Mi peor error con las mujeres 🚫
+Título en pantalla: Tuve que alejarme de todos 🚫
 
-"Durante años, cometí el peor error que un hombre puede cometer: intentar comprar el amor. Pensaba que si pagaba cenas caras y regalos, ella me vería como alguien de 'alto valor'. ¿El resultado? Me usaron por mi dinero y terminaron con chicos que no gastaban un centavo, pero que tenían confianza real. Me costó mucho tiempo entender que el estatus no está en tu billetera, está en cómo te valoras a ti mismo. Si estás cometiendo este error, detente. Empieza a invertir en ti. Sígueme, yo te enseño el camino."
+"El momento más duro de mi crecimiento personal no fue ir al gimnasio o leer libros. Fue darme cuenta de que mis amigos de toda la vida me estaban frenando. Sus únicas metas eran salir de fiesta y quejarse del mundo. Cuando empecé a enfocarme, se burlaron. Tuve que tomar la decisión más fría de mi vida: alejarme. Y sí, dolió. Estuve solo por mucho tiempo. Pero si quieres volar con las águilas, no puedes seguir picoteando con las gallinas. Cuida tu entorno, es tu recurso más valioso. Sígueme si estás en ese proceso."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Nadie respeta a un hombre que intenta sobornar a cambio de afecto. ❌
-Te lo digo por experiencia propia. El verdadero valor se proyecta desde tu carácter, no desde tu tarjeta de crédito.
-👉 Sígueme para dejar atrás los errores de novato.
-#Storytime #DesarrolloPersonal #CaballeroModerno #MiHistoria #Seduccion`
+No puedes sanar en el mismo entorno que te enfermó. ❌
+Si estás perdiendo amigos por intentar mejorar tu vida, vas por el camino correcto.
+👉 Sígueme para rodearte de una mentalidad de crecimiento.
+#Amistades #DesarrolloPersonal #CaballeroModerno #Storytime #Crecimiento`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El día que entendí que mi valor no estaba en mi billetera. 💸📉
+                script: `El costo oculto de crecer: Quedarte solo. 📉🚶‍♂️
 
-Quiero ser brutalmente honesto con ustedes hoy. Hubo una época en la que yo era ese tipo: el que creía que una cena en un restaurante de cinco estrellas y regalos excesivos eran la clave para enamorar a una mujer. 
+Nadie te prepara para el luto que se vive cuando decides subir tus estándares y notas que tu círculo social empieza a desaparecer. Durante mucho tiempo, mi identidad estaba ligada a un grupo de personas cuyo único propósito era evadir la realidad los fines de semana.
 
-Lo hacía porque, en el fondo, me sentía insuficiente. Creía que mi personalidad por sí sola no era suficiente para retener la atención de nadie. Así que me escondía detrás del dinero. ¿Saben qué pasó? Atraía a personas que respetaban mis recursos, pero no me respetaban a mí. 
+Cuando decidí que quería más de la vida, me convertí en el "aburrido" del grupo. Intenté encajar, bajando mi nivel de energía y silenciando mis ambiciones para no incomodarlos. Ese fue mi mayor error. Estaba traicionándome a mí mismo por miedo a no pertenecer.
 
-Desaprender ese hábito fue doloroso. Implicó enfrentarme al espejo y darme cuenta de que carecía de identidad y propósito. La transformación a un Caballero Moderno no ocurrió leyendo un libro mágico, ocurrió cuando decidí que la inversión más grande de mi vida sería en mi propio cerebro y en mi paz mental. 
+El día que acepté la soledad como un precio necesario por mi paz mental, todo cambió. La soledad asusta, pero te aseguro que es mil veces preferible estar solo en la cima que acompañado en la mediocridad.
 
-A ti, que me lees y que sientes que tienes que darlo todo financieramente para ser notado: eres suficiente. Pero necesitas construir tu carácter.
+👉 Únete a la comunidad de hombres que no le temen a la soledad con propósito.
 
-👉 Únete a la comunidad de hombres que construyen valor real.
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic image of a modern gentleman looking thoughtfully into a mirror in a dimly lit, elegant room. Reflecting on past mistakes, deep shadows, vulnerability, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a modern gentleman standing alone in a misty city street at night, looking back with a sense of closure and moving forward into the light, moody, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "No soy el Macho Alfa"',
+                text: 'Publicar Reel: "La trampa de los likes"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Renuncié a ser un "Macho Alfa" 🤫
+Título en pantalla: Cómo las redes sociales me destruyeron 📱
 
-"Cuando empecé a trabajar en mi confianza, consumí mucho contenido tóxico que me decía que tenía que ser un 'Macho Alfa' frío, tratar mal a la gente y nunca mostrar emociones. Lo intenté, y fue agotador. Fingir que nada te importa es la mayor muestra de inseguridad. Un verdadero Caballero Moderno llora cuando tiene que llorar, pide ayuda cuando no sabe algo, y es extremadamente cálido con los que ama. La verdadera fuerza es poder ser vulnerable sin perder el control. Sígueme para desmentir los mitos."
+"Hubo una época en la que mi estado de ánimo dependía literalmente de cuántos likes tenía mi última foto. Si no llegaba a cierto número, me sentía como un fracasado. Vivía para el escaparate. Compraba cosas que no podía pagar para impresionar a gente que no me importaba. Hasta que un día la ansiedad me ganó. Borré la aplicación por un mes. Y descubrí el superpoder más grande: hacer cosas increíbles en completo silencio, sin que nadie te aplauda. Esa es la verdadera confianza. Sígueme para escapar de la Matrix."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Fingir que eres una roca de hielo no es ser hombre, es ser un robot. 🤖❌
-El proceso de sanar implica aceptar tus emociones, no suprimirlas. 
-👉 Sígueme para entender la masculinidad desde un ángulo real y sano.
-#Masculinidad #CaballeroModerno #MachoAlfa #Vulnerabilidad #DesarrolloPersonal`
+La validación externa es una droga, y las redes son el traficante. 💊❌
+Cuando aprendes a disfrutar tus victorias sin publicarlas, te vuelves invencible.
+👉 Sígueme para construir confianza real, no digital.
+#RedesSociales #SaludMental #CaballeroModerno #Validacion #Estoicismo`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La mentira del hombre que "no siente nada". 🎭
+                script: `Confesión: Fui adicto a que ustedes me validaran. 🎭📱
 
-Durante meses intenté adoptar la personalidad del clásico "chico malo" estoico extremo que no se inmuta por nada. Creí que mostrar interés o vulnerabilidad me hacía débil. 
+Hoy hablo desde la vulnerabilidad absoluta. Hubo un periodo de mi vida donde no podía disfrutar de un paisaje, un plato de comida o un momento con amigos si no lo estaba grabando para subirlo. Mi autoestima estaba subcontratada a una pantalla.
 
-Ese fue uno de los periodos más oscuros y solitarios de mi proceso. Me di cuenta de que las personas siguen procesos, no muros inquebrantables. Al esconder mis fracasos y mis emociones, alejé a las conexiones genuinas (tanto amistades como mujeres). 
+Medía mi valía como hombre basado en interacciones digitales. Si una historia tenía muchas vistas, yo valía mucho. Si no, era nadie. 
 
-Hoy entiendo que el verdadero poder de un hombre radica en conocer sus demonios, hablar de ellos sin vergüenza y tener la inteligencia emocional para manejarlos. No somos robots; somos hombres construyendo nuestro imperio con cicatrices incluidas. 
+Romper esa ilusión fue como un síndrome de abstinencia. Empecé a hacer cosas (leer, viajar, lograr metas) y prohibirme publicarlas. Al principio, mi cerebro gritaba: "¡Si no lo publicas, no cuenta!". Pero luego llegó una paz profunda. Entendí que la validación más importante es la que te das tú mismo cuando te miras al espejo.
 
-👉 Síguenos si estás listo para construir una masculinidad auténtica y sin filtros.
+👉 Síguenos si estás listo para construir una vida que se sienta bien, no solo que se vea bien.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A black and white cinematic portrait of a handsome man sitting alone, looking contemplative and human, breaking the tough guy stereotype, natural lighting, highly detailed --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A moody, cinematic portrait of a handsome man looking at his glowing smartphone screen in a dark room, illustrating digital isolation and the need for validation, highly detailed --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "El dolor del crecimiento"',
+                text: 'Publicar Reel: "El poder de decir NO"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Nadie te cuenta esta parte del proceso 📉
+Título en pantalla: El día que aprendí a decir NO 🛑
 
-"Te venden que el crecimiento personal es hermoso. Te dicen que te despiertes a las 5 AM y todo será felicidad. Déjame contarte mi verdad: mi proceso ha estado lleno de ansiedad y recaídas. Hubo noches donde dudé de todo lo que estaba construyendo. Hubo semanas donde volví a caer en malos hábitos. Y eso está bien. El éxito no es una línea recta. Si hoy sientes que retrocediste, respira. Perdonarte es el paso número uno del crecimiento. Sígueme si quieres dejar de compararte con vidas falsas de internet."
+"Yo era el rey de complacer a los demás. Siempre decía que sí a favores, a salidas que no me apetecían, a responsabilidades que no eran mías. ¿Por qué? Porque moría de miedo de que dejaran de quererme. Hasta que el estrés me enfermó físicamente. El primer 'NO' que dije fue aterrador. Pensé que el mundo se acabaría. ¿Y sabes qué pasó? Nada. La gente se adaptó. De hecho, me respetaron más. Tu 'Sí' no vale nada si no tienes la capacidad de decir 'No'. Sígueme para recuperar el control de tu tiempo."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Las redes sociales son un escaparate de victorias, casi nadie muestra el detrás de escena. 🎬❌
-El proceso duele. Aceptarlo es tu mayor ventaja.
-👉 Sígueme para acompañarnos en esta ruta.
-#Proceso #MotivacionReal #CaballeroModerno #SaludMentalMasculina #Disciplina`
+Ser complaciente no te hace buena persona, te hace manipulable. 🎯❌
+Poner límites es un acto de amor propio y la base del respeto ajeno.
+👉 Sígueme para aprender a proteger tu energía.
+#Limites #AmorPropio #CaballeroModerno #Psicologia #DesarrolloPersonal`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El crecimiento personal no es instagrameable. 📉
+                script: `El dolor crónico de ser el "Chico Bueno". 🛑🎭
 
-Vemos a "gurús" que parecen tener vidas perfectas, y cuando miramos nuestra propia lucha nos sentimos defectuosos. Quiero confesar algo: he tenido días donde aplazar la alarma y cancelar mis proyectos parecía la única opción. Días donde la disciplina me abandonó por completo.
+Si eres de los que siempre dice "Sí" a todo, este mensaje es para ti. Yo estuve ahí. Sentía una angustia terrible en el estómago cada vez que me pedían un favor que chocaba con mis propios planes, pero mi boca automáticamente respondía: "Claro, no hay problema".
 
-Aprender a liderarte a ti mismo (y después a los demás) requiere fracasar brutalmente en el intento. La diferencia entre el hombre que yo era y el que soy hoy no es que ya no fracaso, sino que ya no me castigo durante semanas por haberlo hecho. 
+Estaba financiando la felicidad de otros con mi propia paz mental. Pensaba que así me ganarían el respeto y el cariño de todos. La realidad fue opuesta: me convertí en el tapete de los demás. La gente no respeta a quien no se respeta a sí mismo.
 
-Si esta semana te equivocaste, volviste a escribirle a tu ex, o rompiste tu dieta... sacúdete. Eres un ser humano en construcción, no un producto terminado. 
+El día que empecé a decir "No", algunas personas se ofendieron y se alejaron. Y fue el mejor filtro que pude haber puesto en mi vida. Un Caballero Moderno es servicial y amable, pero sus límites son muros de acero.
 
-👉 Únete a nuestra comunidad donde documentamos el progreso real, no solo la perfección.
+👉 Únete a nuestra comunidad donde aprendemos a priorizarnos sin culpa.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A realistic shot of a modern man rubbing his eyes tiredly while working late at night on a laptop, showing the real grind and fatigue of the process, moody lighting, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic shot of a modern man standing calmly and firmly with a raised hand in a subtle 'stop' gesture, expressing strong boundaries and inner peace, photorealistic, elegant --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Las mujeres no son trofeos"',
+                text: 'Publicar Reel: "No eres tu trabajo"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Cómo arruinaba mis propias citas 🏆
+Título en pantalla: Mi error más caro 💼
 
-"Hace años yo veía las citas como un videojuego. Tenía un guion, una lista de cosas que hacer para 'ganar' el afecto de la mujer. Actuaba. ¿Y sabes qué? Ellas lo notaban. Se daban cuenta de que yo no estaba ahí con ellas, yo estaba ahí con mi ego. Hasta que un día dejé de verlas como trofeos a conquistar y empecé a verlas como compañeras para compartir un buen rato. Ese simple cambio de paradigma hizo que mi atractivo se multiplicara por mil. Deja de intentar 'ganar'. Sígueme para más honestidad."
+"Durante años, hice que mi carrera fuera mi personalidad entera. Si me preguntabas quién era, te decía mi cargo en la empresa. Estaba obsesionado con el éxito profesional porque creía que eso me haría atractivo y digno de amor. Un día perdí un proyecto gigante. Me sentí como la nada misma. Ahí entendí mi error: había construido mi identidad sobre algo que podía desaparecer en un segundo. Eres más que tu cuenta de banco, eres más que tu puesto. Tu valor está en tu carácter. Sígueme para encontrar equilibrio."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Cuando tratas de impresionar, demuestras que no te crees suficiente. 🤫🔥
-Relájate. No es un examen, es una interacción entre dos humanos.
-👉 Sígueme para aprender a disfrutar el proceso de conocer a alguien.
-#Vulnerabilidad #CaballeroModerno #SeduccionReal #ErroresComunes #Citas`
+El éxito profesional no puede ser tu único pilar como hombre. 🏗️❌
+Si te quitan tu trabajo hoy, ¿quién eres? 
+👉 Sígueme para aprender a construir una identidad irrompible.
+#Identidad #CaballeroModerno #Exito #SaludMental #Equilibrio`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El error de tratar las relaciones como una lista de tareas. 📝❌
+                script: `La peligrosa ilusión de que "Eres lo que haces". 💼❌
 
-Cuando empecé en el mundo de la mejora personal, cometí el grave error de mecanizar mis interacciones sociales. Analizaba cada palabra que decía una mujer, medía el tiempo exacto que tardaba en responderle un mensaje y ensayaba "rutinas" para parecer interesante.
+En la cultura actual, a los hombres se nos mide constantemente por nuestra capacidad de producción y nuestro éxito financiero. Yo me tragué esa mentira por completo. Sacrifiqué amistades, salud y relaciones amorosas en el altar del "hustle" y el progreso profesional.
 
-Era una fachada agotadora. 
-Descubrí, a base de golpes, que la autenticidad defectuosa es mil veces más magnética que la perfección ensayada. Cuando dejas caer la máscara de "seductor invencible" y te permites reírte de tus propios nervios o admitir que no sabes algo, creas una conexión emocional imposible de falsificar.
+Pensé que cuando llegara a la meta, todo tendría sentido. Pero cuando llegas a la cima de la montaña incorrecta, la vista es desoladora. 
 
-Las personas se enamoran de tu humanidad, no de tus tácticas.
+Entendí a base de ansiedad y burnout que mi carrera es solo un vehículo, no es el destino. Un verdadero hombre de valor cultiva sus pasatiempos, cuida su salud mental y nutre sus relaciones. No pongas todo tu valor en una canasta que el mercado laboral te puede arrebatar mañana.
 
-👉 Síguenos para aprender a conectar desde la autenticidad y el alto valor real.
+👉 Síguenos para aprender a balancear tu ambición con tu humanidad.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic image of a gentleman holding a torn-up piece of paper representing an old script, smiling naturally and genuinely at a cafe, showing authenticity, highly detailed --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, high-contrast image of a businessman loosening his tie and leaving his briefcase behind on a desk, walking towards a brightly lit window, signifying freedom from over-identifying with work, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "El día que dije BASTA"',
+                text: 'Publicar Reel: "Atraes lo que eres"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: El día que mis estándares cambiaron 🛑
+Título en pantalla: Por qué siempre atraía mujeres tóxicas 🚫
 
-"Recuerdo exactamente el día que mi vida cambió. Estaba esperando en un restaurante a una chica que llevaba una hora de retraso. Sin un mensaje de disculpa. En el pasado, yo la habría esperado y le habría restado importancia. Ese día, me levanté, pagué mi café y me fui. Al salir por esa puerta, mi autoestima subió de nivel de forma permanente. Aprendí que lo que toleras, es lo que te define. Si estás recibiendo migajas, es porque las estás aceptando. Sígueme y levanta tus estándares."
+"Me la pasaba quejándome de que solo atraía mujeres interesadas, dramáticas o emocionalmente indisponibles. Culpaba a la sociedad, al feminismo, a las aplicaciones de citas... a todos menos a mí. Hasta que alguien me dijo la verdad a la cara: 'Atraes lo que eres, y toleras lo que crees que mereces'. Fue un balde de agua fría. Si yo era inseguro, obviamente iba a atraer dinámicas tóxicas. En el momento en que me volví un hombre emocionalmente estable, las mujeres tóxicas perdieron todo el interés en mí. Sígueme y toma responsabilidad."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El límite lo pones tú, siempre. 🛋️❌
-Es preferible estar solo y respetado, que acompañado pero humillado. Yo lo aprendí a la mala, tú puedes aprenderlo hoy.
-👉 Sígueme para construir una columna vertebral de titanio.
-#Limites #Autoestima #CaballeroModerno #Storytime #Estándares`
+El mundo es un espejo de tus propias carencias. 🪞❌
+Si quieres una pareja de alto valor, tienes que convertirte en la persona que alguien de alto valor elegiría.
+👉 Sígueme para dejar el papel de víctima.
+#Relaciones #CaballeroModerno #Storytime #Autoestima #Responsabilidad`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La anécdota que redefinió mis estándares para siempre. ♟️👑
+                script: `El día que dejé de culpar a las mujeres por mis malas elecciones. 🪞
 
-Todos tenemos un punto de quiebre. El mío llegó cuando me di cuenta de que estaba invirtiendo más energía en justificar el mal comportamiento de las personas, que en protegerme a mí mismo. 
+Es muy fácil sentarse en un bar con amigos y quejarse de cómo "todas son iguales" o cómo "ya no hay mujeres con buenos valores". Yo fui el capitán de ese barco. Me regodeaba en mi papel de víctima incomprendida.
 
-Aceptaba cancelaciones de última hora, conversaciones mediocres y faltas de respeto disfrazadas de "bromas". Toleraba todo esto porque temía la soledad. 
+La píldora más amarga que tuve que tragar en mi proceso fue la de la responsabilidad extrema. Me di cuenta de que mi baja autoestima y mi necesidad de validación eran un faro brillante para el drama y la toxicidad. 
 
-La soledad, hermanos, no es un castigo, es un taller de forja. Cuando decidí que prefería cenar solo en lugar de cenar con alguien que no valoraba mi tiempo, mi vida se transformó. Subir tus estándares asusta porque inicialmente perderás personas. Pero te aseguro que el espacio que dejan libre será ocupado por respeto, paz mental y relaciones de verdadera calidad.
+Las relaciones caóticas que tuve no fueron mala suerte; fueron una manifestación de mi propio caos interno. Cuando sané mis heridas y definí mis principios, el drama simplemente dejó de hacer resonancia conmigo. Deja de buscar a la persona correcta, y empieza a convertirte en ella.
 
-👉 Síguenos si estás listo para dejar de aceptar menos de lo que mereces.
+👉 Síguenos si tienes la valentía de hacerte responsable de tus resultados.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A powerful image of an elegant man walking out of a restaurant alone with a strong, determined, and peaceful look, leaving behind an empty table. Cinematic, empowering, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A striking cinematic image of a modern gentleman looking into a mirror, but the reflection shows an older, more chaotic version of himself, illustrating the concept of inner reflection and responsibility, photorealistic --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "Documentando el viaje"',
+                text: 'Publicar Reel: "Perdonando al viejo yo"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Por qué hablo de mis fracasos 👀
+Título en pantalla: Un mensaje para mi versión del pasado ✉️
 
-"Muchos me preguntan por qué revelo mis inseguridades y errores en internet en lugar de fingir que tengo la vida perfecta. La respuesta es sencilla: estoy harto de ver cómo las redes sociales nos mienten. Yo no soy un gurú inalcanzable. Soy un tipo normal que cometió todos los errores posibles y decidió aprender de ellos. Si mi proceso te ahorra un año de sufrimiento, mi misión está cumplida. Gracias por estar aquí y formar parte de esta comunidad. Sígueme, esto apenas comienza."
+"Si pudiera volver el tiempo, hay muchísimas cosas que haría diferente. Las veces que rogué por amor, las veces que traicioné mis propios valores para encajar, el tiempo que perdí. A veces la culpa no me dejaba dormir. Pero hoy, decido perdonar a ese chico. Él hizo lo mejor que pudo con las herramientas y el nivel de consciencia que tenía en ese momento. No puedes odiar a la oruga por no saber volar. Si el fantasma de tus errores pasados te atormenta, perdónate. Sígueme, estamos construyendo nuestro futuro."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No busco seguidores, busco construir una comunidad de hombres reales. 👀🔥
-Gracias a todos los que me acompañan en este viaje. La vulnerabilidad es nuestra mayor fuerza.
-👉 Sígueme para seguir creciendo juntos.
-#Proceso #Comunidad #CaballeroModerno #Vulnerabilidad #Gratitud`
+El auto-odio nunca ha sido un buen motor para el cambio permanente. 🌱🤍
+Acepta tu pasado, abrázalo y úsalo como cimiento para el hombre que estás construyendo hoy.
+👉 Sígueme para crecer con consciencia.
+#Perdon #AmorPropio #CaballeroModerno #Crecimiento #SaludMental`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Detrás de la armadura: Por qué elegí documentar mis caídas. 💎
+                script: `Haciendo las paces con el hombre que solía ser. ✉️🕊️
 
-Las redes sociales se han convertido en un escaparate donde todos compiten por ver quién tiene menos problemas. He decidido no jugar a ese juego. 
+Uno de los efectos secundarios más brutales del crecimiento personal es el "Cringe" (la vergüenza ajena) que sientes al recordar quién eras hace unos años. 
 
-He hablado de mis fracasos, de la época en la que mi autoestima dependía de un mensaje de texto, y de lo doloroso que ha sido desaprender mis comportamientos tóxicos. Y saben qué es lo más loco... al desnudar mi proceso frente a ustedes, me he vuelto más fuerte que nunca.
+Durante mucho tiempo me castigué mentalmente recordando los mensajes patéticos que envié, las oportunidades que dejé pasar por miedo y la forma en que permití que me trataran. El arrepentimiento es un veneno lento. 
 
-Las personas no se inspiran con el perfeccionismo falso; se inspiran al ver a alguien caer al barro, levantarse lleno de cicatrices y seguir caminando. 
+Tuve que entender que esa versión mía, por muy defectuosa que fuera, fue la que recibió los golpes necesarios para que yo despertara. Él sobrevivió para que yo pudiera vivir. Si hoy sientes vergüenza de tus errores del pasado, significa que has crecido. Celebra el progreso, perdona la ignorancia y sigue avanzando.
 
-Quiero agradecerles a cada uno de ustedes por leer, comentar y ser parte de esta tribu. El Caballero Moderno no nace perfecto, se forja en el fuego del error y la reflexión.
+👉 Únete a nosotros. Aquí no juzgamos el pasado, construimos el futuro.
 
-👉 Únete a nosotros si crees en el poder de la mejora continua.
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A warm, inviting shot of a modern gentleman looking directly into the camera with a genuine, humble smile, writing in a journal at a rustic desk. Cinematic morning light, photorealistic, intimate --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, emotional shot of a modern gentleman placing a hand gently on the shoulder of a faded, ghostly younger version of himself, symbolizing self-forgiveness and growth, dramatic lighting, photorealistic --ar 4:5"`
             }
         ]
     };
