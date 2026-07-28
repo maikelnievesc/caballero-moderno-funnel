@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
-
     const weeklyAgenda = {
         0: [ // Domingo - Empty since cycle is Monday to Saturday
             { id: 't-sun-1', text: 'Descanso y planificación' }
@@ -31,201 +30,204 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "Amistades tóxicas" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "Dominio de la Inteligencia Social" (5:00 PM)',
                 script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
-Título SEO: El día que me quedé sin amigos (Y por qué fue necesario)
+Título SEO: 3 Trucos psicológicos para que te respeten al instante (Lenguaje Corporal)
 
-(0:00 - 0:30) Hook: "Nos enseñan que los verdaderos amigos son para toda la vida, pero casi nadie habla del dolor que se siente cuando te das cuenta de que tu círculo social te está hundiendo. Hubo una época en la que salir de fiesta, quejarnos de la vida y gastar dinero que no teníamos era el único pegamento de mis amistades. El día que decidí cambiar de rumbo, me quedé completamente solo."
+(0:00 - 0:30) Hook: "Si sientes que la gente no te toma en serio cuando hablas o que eres invisible en grupos sociales, este video es para ti. Hoy te voy a revelar 3 hacks de inteligencia social comprobados por la psicología. No tienes que fingir ser alguien más ni hablar más fuerte. Todo está en la sutileza. El 99% de los hombres ignora esto y por eso son ignorados. Aplica el número 2 hoy mismo y verás cómo cambia la forma en que te miran."
 
-(0:30 - 1:30) El quiebre: "Cuando empecé a leer, a cuidar mi salud y a intentar construir algo de valor, las burlas de mi grupo no se hicieron esperar. 'Ya no eres divertido', me decían. Yo intentaba arrastrarlos conmigo hacia arriba, pero la gravedad de la complacencia era más fuerte. Me di cuenta de una verdad brutal: no puedes sanar en el mismo entorno que te enfermó."
+(0:30 - 1:30) Truco 1 - El Triángulo Visual: "Cuando hables con una mujer que te atrae, no mires fijamente a sus ojos como un psicópata. Usa el triángulo: ojo izquierdo, ojo derecho, y luego baja la mirada a sus labios por un segundo antes de volver a sus ojos. Esto subcomunica tensión sexual a su subconsciente. Si estás en una reunión de negocios, el triángulo cambia: ojo izquierdo, ojo derecho y su frente. Eso proyecta intimidación y autoridad."
 
-(1:30 - 2:30) La soledad: "Elegir alejarme fue una de las decisiones más dolorosas de mi proceso. Pasé meses sin planes de fin de semana, lidiando con el sentimiento de culpa por haber 'abandonado' a mis amigos. Pero esa soledad fue mi taller de forja. Al vaciar mi vida de influencias mediocres, creé el espacio necesario para que llegaran personas con ambición, visión y empatía real."
+(1:30 - 2:30) Truco 2 - La pausa del poder: "Los hombres inseguros odian el silencio, así que hablan rapidísimo. El truco es este: cuando alguien te haga una pregunta importante, no respondas de inmediato. Haz una pausa de 2 a 3 segundos, respira, sostén el contacto visual y luego habla más lento de lo normal. Al hacer esto, tu cerebro proyecta que tu tiempo y tus palabras son valiosas y que no tienes prisa por complacer a nadie."
 
-(2:30 - 3:30) La lección: "Si hoy estás perdiendo amigos porque estás subiendo tus estándares, te prometo que no estás haciendo nada malo. Estás evolucionando. Perderás la cantidad, pero ganarás en calidad. Mantente firme. La tribu correcta llegará cuando tú estés listo. Suscríbete si estás en este camino de evolución."`
+(2:30 - 3:30) Truco 3 - El Espejo Retrasado: "La técnica del 'Mirroring' es vieja, pero la mayoría la hace mal. Si ella cruza los brazos y tú los cruzas inmediatamente, pareces un mimo. El truco es el espejo retrasado. Espera 10 segundos y luego adopta una postura similar a la de ella. Esto genera empatía y confort a nivel subconsciente sin que ella se dé cuenta. Suscríbete para dominar la psicología del alto estatus."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Mi círculo social"',
+                text: 'Publicar Reel: "El Triángulo Visual"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Tuve que alejarme de todos 🚫
+Título en pantalla: El truco para generar tensión con la mirada 👁️
 
-"El momento más duro de mi crecimiento personal no fue ir al gimnasio o leer libros. Fue darme cuenta de que mis amigos de toda la vida me estaban frenando. Sus únicas metas eran salir de fiesta y quejarse del mundo. Cuando empecé a enfocarme, se burlaron. Tuve que tomar la decisión más fría de mi vida: alejarme. Y sí, dolió. Estuve solo por mucho tiempo. Pero si quieres volar con las águilas, no puedes seguir picoteando con las gallinas. Cuida tu entorno, es tu recurso más valioso. Sígueme si estás en ese proceso."
+"Guarda este video porque este es el truco psicológico más poderoso para generar tensión. Cuando estés hablando con ella, no la mires fijamente sin pestañear, eso asusta. Aplica el 'Triángulo Visual'. Mira su ojo izquierdo, luego su ojo derecho, y luego baja la mirada a sus labios durante un segundo antes de volver a sus ojos. Su cerebro subconsciente leerá esa mirada hacia los labios como deseo puro. Pruébalo hoy y mira cómo su lenguaje corporal cambia al instante. Sígueme para más hacks de alto valor."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No puedes sanar en el mismo entorno que te enfermó. ❌
-Si estás perdiendo amigos por intentar mejorar tu vida, vas por el camino correcto.
-👉 Sígueme para rodearte de una mentalidad de crecimiento.
-#Amistades #DesarrolloPersonal #CaballeroModerno #Storytime #Crecimiento`
+El lenguaje no verbal dice lo que las palabras no se atreven. 🤫🔥
+Usa este truco con responsabilidad. La tensión que genera es instantánea.
+👉 Sígueme para aprender psicología social aplicada.
+#PsicologiaOscura #LenguajeCorporal #Seduccion #CaballeroModerno #InteligenciaSocial`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El costo oculto de crecer: Quedarte solo. 📉🚶‍♂️
+                script: `El secreto de la tensión silenciosa: El Triángulo Visual. 👁️♟️
 
-Nadie te prepara para el luto que se vive cuando decides subir tus estándares y notas que tu círculo social empieza a desaparecer. Durante mucho tiempo, mi identidad estaba ligada a un grupo de personas cuyo único propósito era evadir la realidad los fines de semana.
+Muchos hombres creen que para mostrar confianza deben mantener un contacto visual inquebrantable y casi agresivo. Eso no es seducción, es intimidación, y apaga por completo el confort de la mujer.
 
-Cuando decidí que quería más de la vida, me convertí en el "aburrido" del grupo. Intenté encajar, bajando mi nivel de energía y silenciando mis ambiciones para no incomodarlos. Ese fue mi mayor error. Estaba traicionándome a mí mismo por miedo a no pertenecer.
+La verdadera seducción es sutil. La próxima vez que estés en una conversación uno a uno, utiliza la técnica del Triángulo. Traza visualmente un triángulo entre sus ojos y su boca (ojo izquierdo, ojo derecho, labios). Cuando tu mirada se posa brevemente en sus labios, le envías un mensaje subconsciente a su cerebro primitivo que grita: "Atracción".
 
-El día que acepté la soledad como un precio necesario por mi paz mental, todo cambió. La soledad asusta, pero te aseguro que es mil veces preferible estar solo en la cima que acompañado en la mediocridad.
+Esta es la diferencia entre hablar como su amigo y conversar como un hombre magnético. No necesitas decir frases de películas; tu mirada hace el trabajo pesado. 
 
-👉 Únete a la comunidad de hombres que no le temen a la soledad con propósito.
+👉 Síguenos y comparte este post si estás listo para dominar tu lenguaje corporal.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a modern gentleman standing alone in a misty city street at night, looking back with a sense of closure and moving forward into the light, moody, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, ultra-realistic close up of an elegant gentleman making intense but warm eye contact in a dimly lit, aesthetic environment, showcasing subtle confidence and magnetism, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "La trampa de los likes"',
+                text: 'Publicar Reel: "El arte de moverse lento"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Cómo las redes sociales me destruyeron 📱
+Título en pantalla: Cómo ganar respeto sin hablar 🛑
 
-"Hubo una época en la que mi estado de ánimo dependía literalmente de cuántos likes tenía mi última foto. Si no llegaba a cierto número, me sentía como un fracasado. Vivía para el escaparate. Compraba cosas que no podía pagar para impresionar a gente que no me importaba. Hasta que un día la ansiedad me ganó. Borré la aplicación por un mes. Y descubrí el superpoder más grande: hacer cosas increíbles en completo silencio, sin que nadie te aplauda. Esa es la verdadera confianza. Sígueme para escapar de la Matrix."
+"¿Quieres saber si un hombre es inseguro con solo verlo? Mira la velocidad de sus movimientos. Los hombres nerviosos hacen movimientos rápidos y erráticos: revisan su teléfono compulsivamente, asienten rápido con la cabeza, hablan a mil por hora. El secreto del estatus es la lentitud. Imagina a un león en la selva, nunca tiene prisa. Camina un 20% más lento. Gira tu cabeza lentamente cuando te llamen. Haz pausas antes de hablar. La lentitud subcomunica que eres dueño de tu tiempo y de tu entorno. Sígueme y haz la prueba hoy."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La validación externa es una droga, y las redes son el traficante. 💊❌
-Cuando aprendes a disfrutar tus victorias sin publicarlas, te vuelves invencible.
-👉 Sígueme para construir confianza real, no digital.
-#RedesSociales #SaludMental #CaballeroModerno #Validacion #Estoicismo`
+La prisa es la firma de la inseguridad. ⏳❌
+Quien domina su propio ritmo, domina la sala. 
+👉 Sígueme para hackear tu lenguaje corporal y proyectar alto estatus.
+#LenguajeCorporal #AltoValor #Confianza #CaballeroModerno #Psicologia`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Confesión: Fui adicto a que ustedes me validaran. 🎭📱
+                script: `La física del Alto Estatus: Por qué los reyes no corren. 👑🚶‍♂️
 
-Hoy hablo desde la vulnerabilidad absoluta. Hubo un periodo de mi vida donde no podía disfrutar de un paisaje, un plato de comida o un momento con amigos si no lo estaba grabando para subirlo. Mi autoestima estaba subcontratada a una pantalla.
+Observa a las personas con verdadero poder en cualquier habitación. Tienen algo en común: nunca parecen estar apurados. 
 
-Medía mi valía como hombre basado en interacciones digitales. Si una historia tenía muchas vistas, yo valía mucho. Si no, era nadie. 
+La biología humana asocia el movimiento rápido y errático con el miedo y la respuesta de huida. Si en una cita asientes rápido con la cabeza todo el tiempo, mueves las manos frenéticamente o hablas sin pausas, estás gritando: "Por favor, acéptame, estoy nervioso". 
 
-Romper esa ilusión fue como un síndrome de abstinencia. Empecé a hacer cosas (leer, viajar, lograr metas) y prohibirme publicarlas. Al principio, mi cerebro gritaba: "¡Si no lo publicas, no cuenta!". Pero luego llegó una paz profunda. Entendí que la validación más importante es la que te das tú mismo cuando te miras al espejo.
+Un Caballero Moderno ralentiza sus movimientos. Bebe su trago con calma, sostiene la mirada antes de responder y no se sobresalta fácilmente. Al moverte un 20% más lento de lo que tu cerebro ansioso te pide, no solo luces más confiado ante los demás, sino que engañas a tu propio sistema nervioso para que se relaje. 
 
-👉 Síguenos si estás listo para construir una vida que se sienta bien, no solo que se vea bien.
+👉 ¿Sueles moverte rápido cuando te pones nervioso? Síguenos para aprender a calibrar tu presencia.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A moody, cinematic portrait of a handsome man looking at his glowing smartphone screen in a dark room, illustrating digital isolation and the need for validation, highly detailed --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a well-dressed modern man walking slowly and confidently through a blurred, fast-moving crowd in a busy city, illustrating the concept of inner calmness amidst chaos, photorealistic --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "El poder de decir NO"',
+                text: 'Publicar Reel: "La Micro-Retirada"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: El día que aprendí a decir NO 🛑
+Título en pantalla: El truco para que ella invierta más ♟️
 
-"Yo era el rey de complacer a los demás. Siempre decía que sí a favores, a salidas que no me apetecían, a responsabilidades que no eran mías. ¿Por qué? Porque moría de miedo de que dejaran de quererme. Hasta que el estrés me enfermó físicamente. El primer 'NO' que dije fue aterrador. Pensé que el mundo se acabaría. ¿Y sabes qué pasó? Nada. La gente se adaptó. De hecho, me respetaron más. Tu 'Sí' no vale nada si no tienes la capacidad de decir 'No'. Sígueme para recuperar el control de tu tiempo."
+"Si sientes que tú eres el único que pone esfuerzo en la conversación, usa la 'Micro-retirada'. En el punto más alto y divertido de la plática, echa tu cuerpo físicamente hacia atrás, recárgate en la silla y rompe el contacto visual un segundo. Este sutil cambio físico genera un vacío. Su cerebro detectará que te estás alejando y, por instinto, ella intentará llenar ese vacío inclinándose hacia adelante o haciendo una pregunta para recuperar tu atención. Deja de perseguir. Haz que ella invierta. Sígueme si quieres dominar la psicología de atracción."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Ser complaciente no te hace buena persona, te hace manipulable. 🎯❌
-Poner límites es un acto de amor propio y la base del respeto ajeno.
-👉 Sígueme para aprender a proteger tu energía.
-#Limites #AmorPropio #CaballeroModerno #Psicologia #DesarrolloPersonal`
+La atracción es un baile de empujar y jalar. 💃🕺
+Si siempre estás inclinado hacia ella como un perrito emocionado, eliminas el misterio.
+👉 Sígueme para equilibrar la balanza de la inversión.
+#PsicologiaSocial #Seduccion #CaballeroModerno #Atraccion #LenguajeCorporal`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El dolor crónico de ser el "Chico Bueno". 🛑🎭
+                script: `El poder de la "Micro-Retirada": Cómo hacer que ella persiga. 🎣♟️
 
-Si eres de los que siempre dice "Sí" a todo, este mensaje es para ti. Yo estuve ahí. Sentía una angustia terrible en el estómago cada vez que me pedían un favor que chocaba con mis propios planes, pero mi boca automáticamente respondía: "Claro, no hay problema".
+Uno de los errores más letales en las citas es la "sobre-inversión física". Esto sucede cuando el hombre se inclina sobre la mesa durante toda la cena, invadiendo el espacio de ella y mostrándose 100% disponible. 
 
-Estaba financiando la felicidad de otros con mi propia paz mental. Pensaba que así me ganarían el respeto y el cariño de todos. La realidad fue opuesta: me convertí en el tapete de los demás. La gente no respeta a quien no se respeta a sí mismo.
+Si siempre estás hacia adelante, no le dejas espacio a ella para acercarse.
 
-El día que empecé a decir "No", algunas personas se ofendieron y se alejaron. Y fue el mejor filtro que pude haber puesto en mi vida. Un Caballero Moderno es servicial y amable, pero sus límites son muros de acero.
+Aplica la Micro-Retirada: Cuando la interacción llegue a un pico de emoción o risa, recuéstate suavemente en el respaldo de tu silla, toma una actitud más relajada y baja la intensidad. Ese pequeño "vacío" que creas obligará a su subconsciente a inclinarse hacia adelante para mantener la conexión. El que menos espacio persigue, más poder proyecta.
 
-👉 Únete a nuestra comunidad donde aprendemos a priorizarnos sin culpa.
+👉 Guarda este post y practica sentarte hacia atrás en tu próxima interacción.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic shot of a modern man standing calmly and firmly with a raised hand in a subtle 'stop' gesture, expressing strong boundaries and inner peace, photorealistic, elegant --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, aesthetic shot of a couple at a dinner table. The modern gentleman is leaning back comfortably and confidently, while the woman is leaning forward with extreme interest, capturing the push-pull dynamic, photorealistic --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "No eres tu trabajo"',
+                text: 'Publicar Reel: "Cómo salir de una charla aburrida"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Mi error más caro 💼
+Título en pantalla: Cómo escapar de alguien sin ofender 🚪
 
-"Durante años, hice que mi carrera fuera mi personalidad entera. Si me preguntabas quién era, te decía mi cargo en la empresa. Estaba obsesionado con el éxito profesional porque creía que eso me haría atractivo y digno de amor. Un día perdí un proyecto gigante. Me sentí como la nada misma. Ahí entendí mi error: había construido mi identidad sobre algo que podía desaparecer en un segundo. Eres más que tu cuenta de banco, eres más que tu puesto. Tu valor está en tu carácter. Sígueme para encontrar equilibrio."
+"¿Te ha atrapado alguien que no para de hablar y no sabes cómo irte sin ser grosero? No digas 'Me tengo que ir'. Usa el truco de la validación más cierre. Cuando tome aire, interrúmpelo positivamente: 'Juan, me encanta lo apasionado que eres con este tema, de verdad es genial hablar contigo... por cierto, no te quito más tiempo, voy por una bebida'. Validas su ego primero y usas el 'no te quito más tiempo' haciéndole creer que le haces un favor. Te irás como un caballero y él se quedará feliz. Guárdalo, lo vas a necesitar."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El éxito profesional no puede ser tu único pilar como hombre. 🏗️❌
-Si te quitan tu trabajo hoy, ¿quién eres? 
-👉 Sígueme para aprender a construir una identidad irrompible.
-#Identidad #CaballeroModerno #Exito #SaludMental #Equilibrio`
+Inteligencia social es saber salir de situaciones incómodas dejando a todos con una sonrisa. 🧠🔥
+👉 Sígueme para más trucos de comunicación de alto nivel.
+#HabilidadesSociales #Comunicacion #CaballeroModerno #Psicologia #Networking`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La peligrosa ilusión de que "Eres lo que haces". 💼❌
+                script: `La salida elegante: Cómo escapar de conversaciones atrapantes. 🚪🍷
 
-En la cultura actual, a los hombres se nos mide constantemente por nuestra capacidad de producción y nuestro éxito financiero. Yo me tragué esa mentira por completo. Sacrifiqué amistades, salud y relaciones amorosas en el altar del "hustle" y el progreso profesional.
+Ser un Caballero Moderno no significa tener que soportar 45 minutos de un monólogo aburrido en un evento social. Tu tiempo es valioso, pero tu reputación también lo es. 
 
-Pensé que cuando llegara a la meta, todo tendría sentido. Pero cuando llegas a la cima de la montaña incorrecta, la vista es desoladora. 
+La manera novata de irse es decir "Bueno, me voy" y dejar un silencio incómodo. La manera avanzada es la 'Validación + Cierre'. 
 
-Entendí a base de ansiedad y burnout que mi carrera es solo un vehículo, no es el destino. Un verdadero hombre de valor cultiva sus pasatiempos, cuida su salud mental y nutre sus relaciones. No pongas todo tu valor en una canasta que el mercado laboral te puede arrebatar mañana.
+La próxima vez que estés atrapado, aprovecha la mínima pausa y di: "Carlos, me parece fascinante tu perspectiva sobre esto, me ha encantado escucharte... No quiero retenerte más tiempo de tu grupo, voy a saludar a unas personas." 
 
-👉 Síguenos para aprender a balancear tu ambición con tu humanidad.
+Al validar su ego primero ("me parece fascinante") y enmarcar tu salida como un favor hacia él ("no quiero retenerte"), sales de la trampa viéndote como un absoluto profesional de la inteligencia social.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, high-contrast image of a businessman loosening his tie and leaving his briefcase behind on a desk, walking towards a brightly lit window, signifying freedom from over-identifying with work, 8k --ar 4:5"`
+👉 Comparte esto con ese amigo que siempre se queda atrapado en las fiestas.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic shot of a sharply dressed modern man smoothly walking away from a crowded networking event with a polite smile, holding a glass, representing social grace and tact, high end photography, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "Atraes lo que eres"',
+                text: 'Publicar Reel: "El efecto Benjamin Franklin"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Por qué siempre atraía mujeres tóxicas 🚫
+Título en pantalla: Haz que le gustes con este truco psicológico 🧠
 
-"Me la pasaba quejándome de que solo atraía mujeres interesadas, dramáticas o emocionalmente indisponibles. Culpaba a la sociedad, al feminismo, a las aplicaciones de citas... a todos menos a mí. Hasta que alguien me dijo la verdad a la cara: 'Atraes lo que eres, y toleras lo que crees que mereces'. Fue un balde de agua fría. Si yo era inseguro, obviamente iba a atraer dinámicas tóxicas. En el momento en que me volví un hombre emocionalmente estable, las mujeres tóxicas perdieron todo el interés en mí. Sígueme y toma responsabilidad."
+"Si quieres agradarle a alguien de inmediato, no le hagas un favor. Haz que ellos te hagan un favor a ti. Se llama el Efecto Benjamin Franklin. Nuestro cerebro odia la disonancia cognitiva. Si ella te presta un bolígrafo, te sostiene el vaso un segundo o te da una pequeña recomendación, su subconsciente dirá: 'Si le estoy haciendo un favor, debe ser porque me cae bien'. Pídele un favor ridículamente pequeño en los primeros 10 minutos de conocerla y observa cómo su actitud se vuelve súper cálida. Sígueme para más hacks mentales."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El mundo es un espejo de tus propias carencias. 🪞❌
-Si quieres una pareja de alto valor, tienes que convertirte en la persona que alguien de alto valor elegiría.
-👉 Sígueme para dejar el papel de víctima.
-#Relaciones #CaballeroModerno #Storytime #Autoestima #Responsabilidad`
+Deja de ser el "chico de los favores" intentando comprar aprobación. ❌
+Deja que las personas inviertan en ti. Mientras más invierten, más te valoran.
+👉 Sígueme para dominar el juego social.
+#EfectoFranklin #Psicologia #Seduccion #CaballeroModerno #InteligenciaSocial`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El día que dejé de culpar a las mujeres por mis malas elecciones. 🪞
+                script: `El Efecto Benjamin Franklin: Haz que inviertan en ti. 🧠♟️
 
-Es muy fácil sentarse en un bar con amigos y quejarse de cómo "todas son iguales" o cómo "ya no hay mujeres con buenos valores". Yo fui el capitán de ese barco. Me regodeaba en mi papel de víctima incomprendida.
+Desde pequeños nos condicionaron a creer que para agradarle a una mujer (o a un jefe, o a un amigo) debíamos colmarlos de favores. ¿El problema? Eso comunica bajo estatus y te convierte en un sirviente, no en un reto. 
 
-La píldora más amarga que tuve que tragar en mi proceso fue la de la responsabilidad extrema. Me di cuenta de que mi baja autoestima y mi necesidad de validación eran un faro brillante para el drama y la toxicidad. 
+La psicología humana es fascinante. El Efecto Benjamin Franklin demuestra que es más probable que le agrades a alguien si ESE ALGUIEN te hace un favor a ti.
 
-Las relaciones caóticas que tuve no fueron mala suerte; fueron una manifestación de mi propio caos interno. Cuando sané mis heridas y definí mis principios, el drama simplemente dejó de hacer resonancia conmigo. Deja de buscar a la persona correcta, y empieza a convertirte en ella.
+Cuando le pides a la chica que acabas de conocer que te cuide la chaqueta un segundo, o que te alcance una servilleta, su cerebro justifica esa acción diciendo: "Si le estoy haciendo este pequeño favor, es porque es alguien valioso que me agrada". La clave está en pedir micro-favores que requieran cero esfuerzo, pero que obliguen a la otra persona a invertir en la interacción.
 
-👉 Síguenos si tienes la valentía de hacerte responsable de tus resultados.
+👉 ¿Conocías este truco de persuasión? Únete a nosotros para más.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A striking cinematic image of a modern gentleman looking into a mirror, but the reflection shows an older, more chaotic version of himself, illustrating the concept of inner reflection and responsibility, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A confident modern gentleman in a cafe subtly gesturing to a beautiful woman sitting next to him to pass him a napkin, both are smiling warmly, illustrating a micro-favor, cinematic, photorealistic --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "Perdonando al viejo yo"',
+                text: 'Publicar Reel: "Elogios de alto nivel"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Un mensaje para mi versión del pasado ✉️
+Título en pantalla: Deja de decirle que es bonita 🚫
 
-"Si pudiera volver el tiempo, hay muchísimas cosas que haría diferente. Las veces que rogué por amor, las veces que traicioné mis propios valores para encajar, el tiempo que perdí. A veces la culpa no me dejaba dormir. Pero hoy, decido perdonar a ese chico. Él hizo lo mejor que pudo con las herramientas y el nivel de consciencia que tenía en ese momento. No puedes odiar a la oruga por no saber volar. Si el fantasma de tus errores pasados te atormenta, perdónate. Sígueme, estamos construyendo nuestro futuro."
+"Si quieres destacar instantáneamente del 99% de los hombres, elimina la frase 'Qué guapa eres' de tu vocabulario. Las mujeres atractivas escuchan eso 20 veces al día, ya no tiene ningún efecto. Si quieres hackear su atención, elogia sus elecciones, no su genética. Dile: 'Tienes un gusto increíble para combinar colores' o 'Esa forma en la que te ríes es súper contagiosa, tienes una energía brutal'. Estás elogiando su carácter y su esfuerzo, no la lotería genética. Te prometo que nunca lo olvidará. Sígueme y mejora tus interacciones hoy."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El auto-odio nunca ha sido un buen motor para el cambio permanente. 🌱🤍
-Acepta tu pasado, abrázalo y úsalo como cimiento para el hombre que estás construyendo hoy.
-👉 Sígueme para crecer con consciencia.
-#Perdon #AmorPropio #CaballeroModerno #Crecimiento #SaludMental`
+Un elogio común te convierte en uno más de sus fans. ❌
+Un elogio de alto valor te convierte en alguien cuyo criterio ella respeta.
+👉 Sígueme para aprender a comunicarte como un 1%.
+#Elogios #Comunicacion #CaballeroModerno #Seduccion #AltoValor`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Haciendo las paces con el hombre que solía ser. ✉️🕊️
+                script: `Cómo diferenciarte del 99% de los hombres con un solo elogio. 💎🗣️
 
-Uno de los efectos secundarios más brutales del crecimiento personal es el "Cringe" (la vergüenza ajena) que sientes al recordar quién eras hace unos años. 
+Abre la bandeja de mensajes de cualquier mujer atractiva y verás lo mismo repetido mil veces: "Qué hermosa", "Qué bellos ojos", "Eres preciosa". 
 
-Durante mucho tiempo me castigué mentalmente recordando los mensajes patéticos que envié, las oportunidades que dejé pasar por miedo y la forma en que permití que me trataran. El arrepentimiento es un veneno lento. 
+Cuando elogias algo que ella no eligió (su genética), caes en el saco de los admiradores sin rostro. Además, al hacerlo, pones su belleza física en un pedestal, disminuyendo tu propio estatus. 
 
-Tuve que entender que esa versión mía, por muy defectuosa que fuera, fue la que recibió los golpes necesarios para que yo despertara. Él sobrevivió para que yo pudiera vivir. Si hoy sientes vergüenza de tus errores del pasado, significa que has crecido. Celebra el progreso, perdona la ignorancia y sigue avanzando.
+El Caballero Moderno elogia la "Inversión y el Carácter". En lugar de alabar sus ojos, elogia su energía: "Me encanta la vibra que transmites, es raro encontrar a alguien tan genuino hoy en día". En lugar de alabar su cuerpo, elogia su estilo: "Tienes un gusto impecable, esos anillos te quedan brutales". 
 
-👉 Únete a nosotros. Aquí no juzgamos el pasado, construimos el futuro.
+Alabando sus elecciones demuestras que tienes estándares y que te fijas en cosas mucho más profundas que lo evidente. 
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, emotional shot of a modern gentleman placing a hand gently on the shoulder of a faded, ghostly younger version of himself, symbolizing self-forgiveness and growth, dramatic lighting, photorealistic --ar 4:5"`
+👉 Síguenos si quieres aprender el arte de la comunicación magnética.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A high-quality, cinematic portrait of a charismatic modern man offering a genuine, deeply engaging compliment to a beautiful woman, focusing on eye contact and connection rather than physical admiration, photorealistic, 8k --ar 4:5"`
             }
         ]
     };
