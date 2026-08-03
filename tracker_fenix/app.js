@@ -24,210 +24,189 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
     const weeklyAgenda = {
-        0: [ // Domingo - Empty since cycle is Monday to Saturday
+        0: [ // Domingo - Empty
             { id: 't-sun-1', text: 'Descanso y planificación' }
         ],
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "Dominio de la Inteligencia Social" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "La trampa de las apps de citas" (5:00 PM)',
                 script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
-Título SEO: 3 Trucos psicológicos para que te respeten al instante (Lenguaje Corporal)
+Título SEO: Por qué no tienes matches en Tinder (La verdad del Algoritmo)
 
-(0:00 - 0:30) Hook: "Si sientes que la gente no te toma en serio cuando hablas o que eres invisible en grupos sociales, este video es para ti. Hoy te voy a revelar 3 hacks de inteligencia social comprobados por la psicología. No tienes que fingir ser alguien más ni hablar más fuerte. Todo está en la sutileza. El 99% de los hombres ignora esto y por eso son ignorados. Aplica el número 2 hoy mismo y verás cómo cambia la forma en que te miran."
+(0:00 - 0:30) Hook: "Si crees que no tienes éxito en las apps de citas porque eres feo o pobre, te están mintiendo. El problema no eres tú, es un modelo de negocio. Hoy vamos a hablar de cómo las aplicaciones de citas están diseñadas matemáticamente para mantenerte soltero, adicto a la pantalla y comprando suscripciones premium. Si usas estas apps, necesitas entender esto hoy mismo."
 
-(0:30 - 1:30) Truco 1 - El Triángulo Visual: "Cuando hables con una mujer que te atrae, no mires fijamente a sus ojos como un psicópata. Usa el triángulo: ojo izquierdo, ojo derecho, y luego baja la mirada a sus labios por un segundo antes de volver a sus ojos. Esto subcomunica tensión sexual a su subconsciente. Si estás en una reunión de negocios, el triángulo cambia: ojo izquierdo, ojo derecho y su frente. Eso proyecta intimidación y autoridad."
+(0:30 - 1:30) El Algoritmo: "Tinder y Bumble no son ONGs para que encuentres el amor. Son casinos de dopamina. El algoritmo castiga a los hombres que deslizan a la derecha en todos los perfiles (el 80% de nosotros) enviando tu perfil al fondo del pozo. Estás jugando un juego donde la casa siempre gana. Al estar en la sombra del algoritmo, tu autoestima se desploma porque crees que nadie te elige."
 
-(1:30 - 2:30) Truco 2 - La pausa del poder: "Los hombres inseguros odian el silencio, así que hablan rapidísimo. El truco es este: cuando alguien te haga una pregunta importante, no respondas de inmediato. Haz una pausa de 2 a 3 segundos, respira, sostén el contacto visual y luego habla más lento de lo normal. Al hacer esto, tu cerebro proyecta que tu tiempo y tus palabras son valiosas y que no tienes prisa por complacer a nadie."
+(1:30 - 2:30) La Ilusión de Opciones: "Para las mujeres, la experiencia es diferente pero igual de tóxica. La sobreestimulación de tener miles de matches crea la 'Paradoja de la Elección'. Siempre creen que hay alguien mejor a un 'swipe' de distancia. Esto destruye su capacidad para conectar genuinamente con un buen hombre cuando lo tienen enfrente."
 
-(2:30 - 3:30) Truco 3 - El Espejo Retrasado: "La técnica del 'Mirroring' es vieja, pero la mayoría la hace mal. Si ella cruza los brazos y tú los cruzas inmediatamente, pareces un mimo. El truco es el espejo retrasado. Espera 10 segundos y luego adopta una postura similar a la de ella. Esto genera empatía y confort a nivel subconsciente sin que ella se dé cuenta. Suscríbete para dominar la psicología del alto estatus."`
+(2:30 - 3:30) La Solución: "Sal de la Matrix. El 99% de los hombres están compitiendo en una pantalla de 6 pulgadas. El Caballero Moderno compite en el mundo real. Aprende a acercarte en un café, en una librería, en el gimnasio. En persona, no hay algoritmo que filtre tu carisma. Suscríbete si estás listo para dejar las apps y vivir en el mundo real."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "El Triángulo Visual"',
+                text: 'Publicar Reel: "Sal del Casino"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: El truco para generar tensión con la mirada 👁️
+Título en pantalla: Tinder te quiere soltero 🎰
 
-"Guarda este video porque este es el truco psicológico más poderoso para generar tensión. Cuando estés hablando con ella, no la mires fijamente sin pestañear, eso asusta. Aplica el 'Triángulo Visual'. Mira su ojo izquierdo, luego su ojo derecho, y luego baja la mirada a sus labios durante un segundo antes de volver a sus ojos. Su cerebro subconsciente leerá esa mirada hacia los labios como deseo puro. Pruébalo hoy y mira cómo su lenguaje corporal cambia al instante. Sígueme para más hacks de alto valor."
+"Las apps de citas no quieren que encuentres pareja. Si encuentras al amor de tu vida, borras la app y ellos pierden un cliente. Su modelo de negocio es mantenerte adicto a la dopamina del 'Match', deslizando infinitamente como si fuera una máquina tragamonedas. Si te sientes invisible en esas plataformas, no es porque no seas atractivo, es porque el algoritmo castiga tu perfil y lo oculta para obligarte a pagar la versión Premium. Deja de regalar tu autoestima a una pantalla. Sal al mundo real. El contacto visual no tiene algoritmo. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El lenguaje no verbal dice lo que las palabras no se atreven. 🤫🔥
-Usa este truco con responsabilidad. La tensión que genera es instantánea.
-👉 Sígueme para aprender psicología social aplicada.
-#PsicologiaOscura #LenguajeCorporal #Seduccion #CaballeroModerno #InteligenciaSocial`
+No eres feo, solo estás compitiendo en un casino amañado. 🚫📱
+El Caballero Moderno domina el arte de la conexión en persona, donde no hay filtros ni algoritmos.
+👉 Sígueme para aprender a acercarte en el mundo real.
+#Tinder #AppsDeCitas #Dopamina #CaballeroModerno #Seduccion`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El secreto de la tensión silenciosa: El Triángulo Visual. 👁️♟️
+                script: `La Matrix del Romance: Por qué debes borrar las apps de citas. 📱❌
 
-Muchos hombres creen que para mostrar confianza deben mantener un contacto visual inquebrantable y casi agresivo. Eso no es seducción, es intimidación, y apaga por completo el confort de la mujer.
+Muchos hombres llegan a mi comunidad con el ego destruido porque pasan semanas en aplicaciones de citas y apenas consiguen un par de interacciones mediocres. 
 
-La verdadera seducción es sutil. La próxima vez que estés en una conversación uno a uno, utiliza la técnica del Triángulo. Traza visualmente un triángulo entre sus ojos y su boca (ojo izquierdo, ojo derecho, labios). Cuando tu mirada se posa brevemente en sus labios, le envías un mensaje subconsciente a su cerebro primitivo que grita: "Atracción".
+Quiero que entiendas esto: estás jugando un juego arreglado. Las apps de citas funcionan exactamente igual que las máquinas tragamonedas de Las Vegas. Están diseñadas para inyectarte pequeñas dosis de dopamina intermitente, manteniéndote adicto y, lo más importante, manteniéndote SOLTERO para que sigas consumiendo su producto.
 
-Esta es la diferencia entre hablar como su amigo y conversar como un hombre magnético. No necesitas decir frases de películas; tu mirada hace el trabajo pesado. 
+Mientras la mayoría de los hombres se pelean por atención en una pantalla de 6 pulgadas, el mundo real está lleno de oportunidades para quienes tienen el coraje de mirar a los ojos y decir "Hola". 
 
-👉 Síguenos y comparte este post si estás listo para dominar tu lenguaje corporal.
+Rompe la adicción. Construye tu confianza en la vida real.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, ultra-realistic close up of an elegant gentleman making intense but warm eye contact in a dimly lit, aesthetic environment, showcasing subtle confidence and magnetism, 8k --ar 4:5"`
+👉 ¿Cuántas horas a la semana pierdes deslizando? Únete a nosotros y recupera tu tiempo.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, moody illustration of a modern gentleman looking down at a glowing smartphone screen showing a slot machine graphic, symbolizing the casino-like nature of dating apps, dark and thought-provoking, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "El arte de moverse lento"',
+                text: 'Publicar Reel: "El fin de la atención"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Cómo ganar respeto sin hablar 🛑
+Título en pantalla: Por qué ella se aburre de ti rápido 📉
 
-"¿Quieres saber si un hombre es inseguro con solo verlo? Mira la velocidad de sus movimientos. Los hombres nerviosos hacen movimientos rápidos y erráticos: revisan su teléfono compulsivamente, asienten rápido con la cabeza, hablan a mil por hora. El secreto del estatus es la lentitud. Imagina a un león en la selva, nunca tiene prisa. Camina un 20% más lento. Gira tu cabeza lentamente cuando te llamen. Haz pausas antes de hablar. La lentitud subcomunica que eres dueño de tu tiempo y de tu entorno. Sígueme y haz la prueba hoy."
+"Estamos viviendo la mayor crisis de atención de la historia. Las personas están consumiendo videos de 5 segundos todo el día. Sus cerebros están fritos por la dopamina. ¿Y sabes qué pasa? Cuando sales con ella y empiezas a contar una historia aburrida que tarda 10 minutos en llegar al punto, su cerebro se apaga. Si quieres destacar hoy, tienes que ser un maestro de la síntesis. Habla con intención. Ve al grano. Deja misterio. En un mundo de ruido constante, el hombre que sabe usar las palabras exactas y el silencio es el que domina. Sígueme para mejorar tu labia."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La prisa es la firma de la inseguridad. ⏳❌
-Quien domina su propio ritmo, domina la sala. 
-👉 Sígueme para hackear tu lenguaje corporal y proyectar alto estatus.
-#LenguajeCorporal #AltoValor #Confianza #CaballeroModerno #Psicologia`
+Competir contra la pantalla de su teléfono es la nueva realidad. 📱🤯
+Aprende a comunicarte con impacto y misterio, o serás ignorado.
+👉 Sígueme para ser un maestro de la conversación magnética.
+#Comunicacion #Atencion #CaballeroModerno #Psicologia #Dopamina`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La física del Alto Estatus: Por qué los reyes no corren. 👑🚶‍♂️
+                script: `El superpoder de la síntesis en la era del ruido. 🔇🗣️
 
-Observa a las personas con verdadero poder en cualquier habitación. Tienen algo en común: nunca parecen estar apurados. 
+Hoy en día, el "attention span" (capacidad de atención) promedio de un adulto es menor al de un pez dorado. Estamos sobreestimulados por TikToks, Reels y notificaciones constantes.
 
-La biología humana asocia el movimiento rápido y errático con el miedo y la respuesta de huida. Si en una cita asientes rápido con la cabeza todo el tiempo, mueves las manos frenéticamente o hablas sin pausas, estás gritando: "Por favor, acéptame, estoy nervioso". 
+Si en una cita te dedicas a contar anécdotas largas, llenas de detalles innecesarios ("y entonces mi amigo Juan, que por cierto tiene un perro dorado, me dijo..."), vas a perderla. Su cerebro adicto a la dopamina rápida simplemente se desconectará.
 
-Un Caballero Moderno ralentiza sus movimientos. Bebe su trago con calma, sostiene la mirada antes de responder y no se sobresalta fácilmente. Al moverte un 20% más lento de lo que tu cerebro ansioso te pide, no solo luces más confiado ante los demás, sino que engañas a tu propio sistema nervioso para que se relaje. 
+El Caballero Moderno entiende la economía de las palabras. Habla con pausas. Cuenta historias con impacto. Y lo más importante: deja vacíos para que la otra persona llene el espacio. Cuando hablas menos, pero con más peso, la gente literalmente se inclina para escucharte. 
 
-👉 ¿Sueles moverte rápido cuando te pones nervioso? Síguenos para aprender a calibrar tu presencia.
+👉 Síguenos si quieres aprender el arte de ser escuchado sin tener que gritar.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a well-dressed modern man walking slowly and confidently through a blurred, fast-moving crowd in a busy city, illustrating the concept of inner calmness amidst chaos, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a modern man speaking calmly at a dinner table, while the background and other distractions are blurred out, symbolizing focus and impactful communication, photorealistic --ar 4:5"`
             }
         ],
-        3: [ // Miércoles
+        3: [ // Miércoles - DESCANDO A PETICIÓN
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "La Micro-Retirada"',
-                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: El truco para que ella invierta más ♟️
-
-"Si sientes que tú eres el único que pone esfuerzo en la conversación, usa la 'Micro-retirada'. En el punto más alto y divertido de la plática, echa tu cuerpo físicamente hacia atrás, recárgate en la silla y rompe el contacto visual un segundo. Este sutil cambio físico genera un vacío. Su cerebro detectará que te estás alejando y, por instinto, ella intentará llenar ese vacío inclinándose hacia adelante o haciendo una pregunta para recuperar tu atención. Deja de perseguir. Haz que ella invierta. Sígueme si quieres dominar la psicología de atracción."
-
-[COPIAR Y PEGAR EN DESCRIPCIÓN]
-La atracción es un baile de empujar y jalar. 💃🕺
-Si siempre estás inclinado hacia ella como un perrito emocionado, eliminas el misterio.
-👉 Sígueme para equilibrar la balanza de la inversión.
-#PsicologiaSocial #Seduccion #CaballeroModerno #Atraccion #LenguajeCorporal`
-            },
-            {
-                id: 't-wed-fb',
-                text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El poder de la "Micro-Retirada": Cómo hacer que ella persiga. 🎣♟️
-
-Uno de los errores más letales en las citas es la "sobre-inversión física". Esto sucede cuando el hombre se inclina sobre la mesa durante toda la cena, invadiendo el espacio de ella y mostrándose 100% disponible. 
-
-Si siempre estás hacia adelante, no le dejas espacio a ella para acercarse.
-
-Aplica la Micro-Retirada: Cuando la interacción llegue a un pico de emoción o risa, recuéstate suavemente en el respaldo de tu silla, toma una actitud más relajada y baja la intensidad. Ese pequeño "vacío" que creas obligará a su subconsciente a inclinarse hacia adelante para mantener la conexión. El que menos espacio persigue, más poder proyecta.
-
-👉 Guarda este post y practica sentarte hacia atrás en tu próxima interacción.
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, aesthetic shot of a couple at a dinner table. The modern gentleman is leaning back comfortably and confidently, while the woman is leaning forward with extreme interest, capturing the push-pull dynamic, photorealistic --ar 4:5"`
+                text: 'Día de Descanso 🧘‍♂️ (Sin publicaciones)',
+                script: 'Este día no hay contenido programado según tus instrucciones. Usa este tiempo para interactuar con comentarios de días anteriores o planificar.'
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Cómo salir de una charla aburrida"',
+                text: 'Publicar Reel: "La epidemia del Ghosting"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Cómo escapar de alguien sin ofender 🚪
+Título en pantalla: La verdadera razón por la que te hizo Ghosting 👻
 
-"¿Te ha atrapado alguien que no para de hablar y no sabes cómo irte sin ser grosero? No digas 'Me tengo que ir'. Usa el truco de la validación más cierre. Cuando tome aire, interrúmpelo positivamente: 'Juan, me encanta lo apasionado que eres con este tema, de verdad es genial hablar contigo... por cierto, no te quito más tiempo, voy por una bebida'. Validas su ego primero y usas el 'no te quito más tiempo' haciéndole creer que le haces un favor. Te irás como un caballero y él se quedará feliz. Guárdalo, lo vas a necesitar."
+"Te dejaron en visto. Desapareció sin decir nada. Y tu primer instinto es pensar: '¿Qué hice mal? ¿Soy feo? ¿Dije algo raro?'. Detente ahí. El 90% de las veces, el ghosting no tiene nada que ver contigo. Vivimos en una época de sobreestimulación masiva. Las personas están abrumadas por la vida, el trabajo y cientos de mensajes en su bandeja. Huyen porque no tienen la madurez emocional para lidiar con el conflicto o la comunicación directa. No tomes un problema de inmadurez ajena como un defecto tuyo. Pasa página y eleva tus estándares. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Inteligencia social es saber salir de situaciones incómodas dejando a todos con una sonrisa. 🧠🔥
-👉 Sígueme para más trucos de comunicación de alto nivel.
-#HabilidadesSociales #Comunicacion #CaballeroModerno #Psicologia #Networking`
+El ghosting habla de su falta de madurez, no de tu falta de valor. ❌👻
+No te castigues tratando de descifrar a alguien que no sabe comunicarse.
+👉 Sígueme para construir una mentalidad a prueba de balas.
+#Ghosting #Relaciones #SaludMental #CaballeroModerno #Autoestima`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La salida elegante: Cómo escapar de conversaciones atrapantes. 🚪🍷
+                script: `El Ghosting no es sobre ti, es un síntoma social. 👻📱
 
-Ser un Caballero Moderno no significa tener que soportar 45 minutos de un monólogo aburrido en un evento social. Tu tiempo es valioso, pero tu reputación también lo es. 
+Uno de los mensajes que más recibo es de hombres destruidos porque una chica con la que llevaban saliendo semanas desapareció de la nada. Sin cierre, sin explicación.
 
-La manera novata de irse es decir "Bueno, me voy" y dejar un silencio incómodo. La manera avanzada es la 'Validación + Cierre'. 
+Lo primero que hace el ego masculino herido es buscar defectos: "¿Fui aburrido? ¿No tengo suficiente dinero?". 
 
-La próxima vez que estés atrapado, aprovecha la mínima pausa y di: "Carlos, me parece fascinante tu perspectiva sobre esto, me ha encantado escucharte... No quiero retenerte más tiempo de tu grupo, voy a saludar a unas personas." 
+La cruda realidad de esta década es que la gente está sobreestimulada y aterrorizada de la confrontación. Es mucho más fácil bloquear un número que decir: "No estoy lista para esto". El ghosting es la herramienta de los cobardes emocionales. 
 
-Al validar su ego primero ("me parece fascinante") y enmarcar tu salida como un favor hacia él ("no quiero retenerte"), sales de la trampa viéndote como un absoluto profesional de la inteligencia social.
+Si te hacen ghosting, agradécelo. Te acaban de mostrar que no tienen las herramientas emocionales para ser una pareja de alto valor a largo plazo. La basura se sacó sola.
 
-👉 Comparte esto con ese amigo que siempre se queda atrapado en las fiestas.
+👉 Comparte esto con ese amigo que sigue esperando que ella le responda.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic shot of a sharply dressed modern man smoothly walking away from a crowded networking event with a polite smile, holding a glass, representing social grace and tact, high end photography, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, moody image of a modern gentleman looking at a blurred, fading silhouette of a woman walking away in a foggy street, symbolizing ghosting, but he looks peaceful and unaffected, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "El efecto Benjamin Franklin"',
+                text: 'Publicar Reel: "El poder del aburrimiento"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Haz que le gustes con este truco psicológico 🧠
+Título en pantalla: El hábito que destruye tu carisma 📱
 
-"Si quieres agradarle a alguien de inmediato, no le hagas un favor. Haz que ellos te hagan un favor a ti. Se llama el Efecto Benjamin Franklin. Nuestro cerebro odia la disonancia cognitiva. Si ella te presta un bolígrafo, te sostiene el vaso un segundo o te da una pequeña recomendación, su subconsciente dirá: 'Si le estoy haciendo un favor, debe ser porque me cae bien'. Pídele un favor ridículamente pequeño en los primeros 10 minutos de conocerla y observa cómo su actitud se vuelve súper cálida. Sígueme para más hacks mentales."
+"La próxima vez que estés esperando en la fila del súper o esperando a un amigo en un café, haz esto: NO saques el celular. Te reto. Tu cerebro va a entrar en pánico porque no soporta el aburrimiento. Pero aquí está el secreto: el carisma y la creatividad nacen en el aburrimiento. Si estás constantemente anestesiando tu mente con TikToks, matas tu capacidad para observar el entorno, hacer contacto visual y ser espontáneo. El hombre más interesante del cuarto es el que no necesita su pantalla para sentirse seguro. Sígueme y apaga tu teléfono."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Deja de ser el "chico de los favores" intentando comprar aprobación. ❌
-Deja que las personas inviertan en ti. Mientras más invierten, más te valoran.
-👉 Sígueme para dominar el juego social.
-#EfectoFranklin #Psicologia #Seduccion #CaballeroModerno #InteligenciaSocial`
+La adicción al teléfono es la muerte de la presencia magnética. 📵👀
+Aprende a estar cómodo en tu propia piel y en el silencio.
+👉 Sígueme para recuperar tu enfoque y masculinidad.
+#Dopamina #Productividad #CaballeroModerno #Carisma #Presencia`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Efecto Benjamin Franklin: Haz que inviertan en ti. 🧠♟️
+                script: `El superpoder de estar presente (y aburrido). 📵🔋
 
-Desde pequeños nos condicionaron a creer que para agradarle a una mujer (o a un jefe, o a un amigo) debíamos colmarlos de favores. ¿El problema? Eso comunica bajo estatus y te convierte en un sirviente, no en un reto. 
+¿Cuándo fue la última vez que te sentaste en un lugar público por 10 minutos sin sacar el celular de tu bolsillo? 
 
-La psicología humana es fascinante. El Efecto Benjamin Franklin demuestra que es más probable que le agrades a alguien si ESE ALGUIEN te hace un favor a ti.
+Nos hemos convertido en una sociedad aterrorizada de sus propios pensamientos. Usamos la pantalla como un escudo protector para no interactuar, para no hacer contacto visual, para no sentir la más mínima incomodidad.
 
-Cuando le pides a la chica que acabas de conocer que te cuide la chaqueta un segundo, o que te alcance una servilleta, su cerebro justifica esa acción diciendo: "Si le estoy haciendo este pequeño favor, es porque es alguien valioso que me agrada". La clave está en pedir micro-favores que requieran cero esfuerzo, pero que obliguen a la otra persona a invertir en la interacción.
+Pero la incomodidad es donde reside el crecimiento. La próxima vez que estés en una cita y ella vaya al baño, no saques el celular. Observa el lugar. Siéntete cómodo ocupando espacio sin hacer nada. Cuando ella vuelva, te encontrará presente y enraizado, no jorobado con el cuello hacia abajo esclavo de una pantalla. Esa pequeña diferencia proyecta un nivel de confianza brutal.
 
-👉 ¿Conocías este truco de persuasión? Únete a nosotros para más.
+👉 ¿Aceptas el reto de no sacar el celular en tu próxima sala de espera? Únete a nosotros.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A confident modern gentleman in a cafe subtly gesturing to a beautiful woman sitting next to him to pass him a napkin, both are smiling warmly, illustrating a micro-favor, cinematic, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic photograph of an elegant man sitting confidently in a cafe, looking forward and observing the world calmly, while everyone else in the background is hunched over their glowing phones, photorealistic --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "Elogios de alto nivel"',
+                text: 'Publicar Reel: "El aura de la presencia"',
                 script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Deja de decirle que es bonita 🚫
+Título en pantalla: Por qué pasas desapercibido 👻
 
-"Si quieres destacar instantáneamente del 99% de los hombres, elimina la frase 'Qué guapa eres' de tu vocabulario. Las mujeres atractivas escuchan eso 20 veces al día, ya no tiene ningún efecto. Si quieres hackear su atención, elogia sus elecciones, no su genética. Dile: 'Tienes un gusto increíble para combinar colores' o 'Esa forma en la que te ríes es súper contagiosa, tienes una energía brutal'. Estás elogiando su carácter y su esfuerzo, no la lotería genética. Te prometo que nunca lo olvidará. Sígueme y mejora tus interacciones hoy."
+"La mayoría de los hombres son invisibles cuando entran a un lugar. ¿Por qué? Porque su energía está fragmentada. Están físicamente en la sala, pero mentalmente están pensando en el trabajo, en sus problemas financieros, o en el mensaje que no les han respondido. A las mujeres no las seduce el dinero ni los autos, las seduce la PRESENCIA. Cuando hablas con alguien y estás 100% ahí, escuchando, sin pensar en tu respuesta, generas un aura que la mayoría nunca experimenta. Sé el ancla en el caos. Sígueme para destacar del 99%."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Un elogio común te convierte en uno más de sus fans. ❌
-Un elogio de alto valor te convierte en alguien cuyo criterio ella respeta.
-👉 Sígueme para aprender a comunicarte como un 1%.
-#Elogios #Comunicacion #CaballeroModerno #Seduccion #AltoValor`
+Tu atención es el recurso más escaso y valioso que puedes regalar. 🎁🔥
+Cuando estás verdaderamente presente, te vuelves inolvidable.
+👉 Sígueme para construir presencia y magnetismo real.
+#Presencia #AtractivoMasculino #CaballeroModerno #Mindfulness #Seduccion`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Cómo diferenciarte del 99% de los hombres con un solo elogio. 💎🗣️
+                script: `El magnetismo de la presencia total. ⚓👁️
 
-Abre la bandeja de mensajes de cualquier mujer atractiva y verás lo mismo repetido mil veces: "Qué hermosa", "Qué bellos ojos", "Eres preciosa". 
+En un mundo donde todos están distraídos, prestar atención absoluta es el nuevo superpoder. 
 
-Cuando elogias algo que ella no eligió (su genética), caes en el saco de los admiradores sin rostro. Además, al hacerlo, pones su belleza física en un pedestal, disminuyendo tu propio estatus. 
+Piensa en tus últimas interacciones sociales. ¿Estabas realmente escuchando o solo estabas esperando tu turno para hablar? Las mujeres tienen un radar increíble para detectar cuando un hombre está mentalmente ausente. 
 
-El Caballero Moderno elogia la "Inversión y el Carácter". En lugar de alabar sus ojos, elogia su energía: "Me encanta la vibra que transmites, es raro encontrar a alguien tan genuino hoy en día". En lugar de alabar su cuerpo, elogia su estilo: "Tienes un gusto impecable, esos anillos te quedan brutales". 
+El verdadero estatus no lo da un reloj caro, lo da la capacidad de hacer sentir a la persona que tienes enfrente que, en ese momento, no existe nada más en el mundo. Eso requiere dominar tu propia mente, apagar la ansiedad por el futuro y anclarte en el presente. 
 
-Alabando sus elecciones demuestras que tienes estándares y que te fijas en cosas mucho más profundas que lo evidente. 
+Sé el hombre que trae calma al caos. 
 
-👉 Síguenos si quieres aprender el arte de la comunicación magnética.
+👉 Síguenos si quieres dominar el juego interno.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A high-quality, cinematic portrait of a charismatic modern man offering a genuine, deeply engaging compliment to a beautiful woman, focusing on eye contact and connection rather than physical admiration, photorealistic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A deeply cinematic portrait of a modern gentleman offering intense, calming eye contact in a busy, chaotic, and blurred environment, signifying the anchor of presence, dramatic lighting, 8k --ar 4:5"`
             }
         ]
     };
