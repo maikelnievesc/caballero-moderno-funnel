@@ -30,183 +30,230 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "La trampa de las apps de citas" (5:00 PM)',
-                script: `[GUION PARA GRABAR YOUTUBE (3.5 mins)]
-Título SEO: Por qué no tienes matches en Tinder (La verdad del Algoritmo)
+                text: 'Publicar Video Largo en YT: "El poder del misterio" (5:00 PM)',
+                script: `[GUION PARA VIDEO FACELESS - YT (3.5 mins)]
+Título SEO: Por qué hablar demasiado te hace menos atractivo (El Poder del Misterio)
 
-(0:00 - 0:30) Hook: "Si crees que no tienes éxito en las apps de citas porque eres feo o pobre, te están mintiendo. El problema no eres tú, es un modelo de negocio. Hoy vamos a hablar de cómo las aplicaciones de citas están diseñadas matemáticamente para mantenerte soltero, adicto a la pantalla y comprando suscripciones premium. Si usas estas apps, necesitas entender esto hoy mismo."
+[Visual sugerido: Imágenes cinemáticas de hombres solitarios caminando por la ciudad de noche, lluvia, manejando autos clásicos, tomando café en silencio. Todo muy estilo 'Peaky Blinders' o 'Drive'.]
 
-(0:30 - 1:30) El Algoritmo: "Tinder y Bumble no son ONGs para que encuentres el amor. Son casinos de dopamina. El algoritmo castiga a los hombres que deslizan a la derecha en todos los perfiles (el 80% de nosotros) enviando tu perfil al fondo del pozo. Estás jugando un juego donde la casa siempre gana. Al estar en la sombra del algoritmo, tu autoestima se desploma porque crees que nadie te elige."
+(0:00 - 0:30) Hook: "El mayor error que cometen los hombres en la primera cita es vomitar toda su biografía en los primeros 10 minutos. Te esfuerzas tanto por impresionarla, que le cuentas tus logros, tus fracasos, lo que ganas y lo que planeas hacer. ¿Y sabes qué logras? Matar el misterio. Hoy te voy a enseñar por qué el silencio es la herramienta de seducción más letal de un Caballero Moderno."
 
-(1:30 - 2:30) La Ilusión de Opciones: "Para las mujeres, la experiencia es diferente pero igual de tóxica. La sobreestimulación de tener miles de matches crea la 'Paradoja de la Elección'. Siempre creen que hay alguien mejor a un 'swipe' de distancia. Esto destruye su capacidad para conectar genuinamente con un buen hombre cuando lo tienen enfrente."
+(0:30 - 1:30) El problema de la sobre-exposición: "La atracción se alimenta de lo desconocido. Cuando un libro te cuenta el final en la primera página, dejas de leer. Cuando tú le cuentas todo tu pasado en una hora, le robas la oportunidad de descubrirte. Hablar mucho subcomunica inseguridad; grita 'por favor, valídame, mira todo lo que he logrado'."
 
-(2:30 - 3:30) La Solución: "Sal de la Matrix. El 99% de los hombres están compitiendo en una pantalla de 6 pulgadas. El Caballero Moderno compite en el mundo real. Aprende a acercarte en un café, en una librería, en el gimnasio. En persona, no hay algoritmo que filtre tu carisma. Suscríbete si estás listo para dejar las apps y vivir en el mundo real."`
+(1:30 - 2:30) La técnica del Iceberg: "Aplica la regla del Iceberg. Deja que ella solo vea el 10% de quién eres. Si te pregunta a qué te dedicas, responde de forma breve y juguetona, y devuelve la pregunta. Deja que se pregunte qué haces los fines de semana, por qué eres tan tranquilo, qué piensas realmente. Esa incertidumbre genera espacio en su mente. Y cuando ocupas espacio en su mente, la atracción se dispara."
+
+(2:30 - 3:30) Conclusión: "Un hombre de alto valor no necesita un megáfono para anunciar su presencia. Sus acciones hablan, su estilo habla, su postura habla. La próxima vez que salgas, muerde tu lengua. Habla un 20% y deja que ella hable el 80%. Suscríbete si quieres aprender a dominar el juego del silencio."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Sal del Casino"',
-                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Tinder te quiere soltero 🎰
+                text: 'Publicar Reel: "La regla del silencio"',
+                script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
+Título en pantalla: El error que mata la atracción al instante 🤐
 
-"Las apps de citas no quieren que encuentres pareja. Si encuentras al amor de tu vida, borras la app y ellos pierden un cliente. Su modelo de negocio es mantenerte adicto a la dopamina del 'Match', deslizando infinitamente como si fuera una máquina tragamonedas. Si te sientes invisible en esas plataformas, no es porque no seas atractivo, es porque el algoritmo castiga tu perfil y lo oculta para obligarte a pagar la versión Premium. Deja de regalar tu autoestima a una pantalla. Sal al mundo real. El contacto visual no tiene algoritmo. Sígueme."
+[Visual sugerido: Clip de B-roll muy estético. Un hombre arreglándose la corbata, o sirviéndose un vaso de whisky en cámara lenta. Tonos oscuros, elegantes.]
+
+Voz en off: "Hablar demasiado es el asesino silencioso de la atracción. Los hombres inseguros sienten la necesidad de llenar cada silencio incómodo con palabras, presumiendo su trabajo o su dinero para impresionar. Grave error. La verdadera masculinidad es misteriosa. Cuando hablas menos, tus palabras pesan más. Deja que ella adivine. Deja que te pregunte. Si le das el libro completo en la primera cita, no tendrá motivos para leer el segundo capítulo. Cierra la boca y abre los oídos. Sígueme para convertirte en un hombre magnético."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No eres feo, solo estás compitiendo en un casino amañado. 🚫📱
-El Caballero Moderno domina el arte de la conexión en persona, donde no hay filtros ni algoritmos.
-👉 Sígueme para aprender a acercarte en el mundo real.
-#Tinder #AppsDeCitas #Dopamina #CaballeroModerno #Seduccion`
+El misterio genera obsesión. La sobre-exposición genera aburrimiento. ♟️📉
+No le robes a una mujer el placer de descubrirte poco a poco.
+👉 Sígueme para dominar la psicología oscura y la seducción.
+#Misterio #Seduccion #CaballeroModerno #PsicologiaOscura #AltoValor`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Matrix del Romance: Por qué debes borrar las apps de citas. 📱❌
+                script: `El arte de cerrar la boca: Por qué el misterio atrae más que el currículum. 🤐♟️
 
-Muchos hombres llegan a mi comunidad con el ego destruido porque pasan semanas en aplicaciones de citas y apenas consiguen un par de interacciones mediocres. 
+La gran mayoría de los hombres van a las citas armados con su "currículum vital". Desesperados por validación, proceden a listar sus logros, sus bienes y sus planes a futuro en los primeros 20 minutos. 
 
-Quiero que entiendas esto: estás jugando un juego arreglado. Las apps de citas funcionan exactamente igual que las máquinas tragamonedas de Las Vegas. Están diseñadas para inyectarte pequeñas dosis de dopamina intermitente, manteniéndote adicto y, lo más importante, manteniéndote SOLTERO para que sigas consumiendo su producto.
+¿Qué comunica esto subconscientemente? "Tengo miedo de que no te guste quién soy, así que intentaré comprarte con lo que tengo".
 
-Mientras la mayoría de los hombres se pelean por atención en una pantalla de 6 pulgadas, el mundo real está lleno de oportunidades para quienes tienen el coraje de mirar a los ojos y decir "Hola". 
+El Caballero Moderno domina el silencio. Responde a las preguntas con calma, da detalles mínimos pero interesantes, y devuelve el foco de la conversación. Él entiende que la atracción femenina es como un rompecabezas: si le das todas las piezas armadas de golpe, se aburrirá inmediatamente.
 
-Rompe la adicción. Construye tu confianza en la vida real.
+Deja vacíos. Deja que ella se pregunte quién eres realmente. 
 
-👉 ¿Cuántas horas a la semana pierdes deslizando? Únete a nosotros y recupera tu tiempo.
+👉 ¿Sueles hablar demasiado cuando te pones nervioso? Síguenos para aprender a calibrar.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, moody illustration of a modern gentleman looking down at a glowing smartphone screen showing a slot machine graphic, symbolizing the casino-like nature of dating apps, dark and thought-provoking, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, dark academia aesthetic image of a modern gentleman sitting in a dimly lit, luxurious lounge. Only half of his face is illuminated by a warm lamp, symbolizing mystery and secrets, photorealistic, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "El fin de la atención"',
-                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Por qué ella se aburre de ti rápido 📉
+                text: 'Publicar Reel: "Cómo responder insultos"',
+                script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
+Título en pantalla: Cómo responder a una falta de respeto 🛑
 
-"Estamos viviendo la mayor crisis de atención de la historia. Las personas están consumiendo videos de 5 segundos todo el día. Sus cerebros están fritos por la dopamina. ¿Y sabes qué pasa? Cuando sales con ella y empiezas a contar una historia aburrida que tarda 10 minutos en llegar al punto, su cerebro se apaga. Si quieres destacar hoy, tienes que ser un maestro de la síntesis. Habla con intención. Ve al grano. Deja misterio. En un mundo de ruido constante, el hombre que sabe usar las palabras exactas y el silencio es el que domina. Sígueme para mejorar tu labia."
+[Visual sugerido: B-roll cinemático de un lobo caminando en la nieve, o un hombre de negocios mirando fijamente por la ventana de un rascacielos. Vibras de estoicismo.]
+
+Voz en off: "Si alguien te falta el respeto o te lanza un insulto sutil frente a otros, nunca te enojes ni devuelvas el insulto. El enojo demuestra que lograron sacarte de tu centro. En su lugar, haz esto: Míralo a los ojos, haz un silencio absoluto de 3 segundos, esboza una sonrisa muy leve, y luego cambia de tema con otra persona como si él no existiera. Ese silencio prolongado combinado con indiferencia total, lo hará sentir estúpido y diminuto frente a todo el grupo. El mayor desprecio es no hacer aprecio. Sígueme para más inteligencia social."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Competir contra la pantalla de su teléfono es la nueva realidad. 📱🤯
-Aprende a comunicarte con impacto y misterio, o serás ignorado.
-👉 Sígueme para ser un maestro de la conversación magnética.
-#Comunicacion #Atencion #CaballeroModerno #Psicologia #Dopamina`
+Tu atención es un privilegio. No se la regales a quien te falta el respeto. 🛑👑
+El estoicismo es tu mejor arma en la guerra social.
+👉 Sígueme para dominar tus emociones.
+#Estoicismo #Respeto #CaballeroModerno #InteligenciaSocial #Psicologia`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El superpoder de la síntesis en la era del ruido. 🔇🗣️
+                script: `La respuesta más letal a un insulto es el silencio. 🗡️🤐
 
-Hoy en día, el "attention span" (capacidad de atención) promedio de un adulto es menor al de un pez dorado. Estamos sobreestimulados por TikToks, Reels y notificaciones constantes.
+Cuando alguien te falta el respeto, especialmente en grupo, su objetivo es hacerte reaccionar. Quieren verte enojado, a la defensiva o intentando justificarte. Si haces alguna de estas tres cosas, ellos ganan el juego de poder.
 
-Si en una cita te dedicas a contar anécdotas largas, llenas de detalles innecesarios ("y entonces mi amigo Juan, que por cierto tiene un perro dorado, me dijo..."), vas a perderla. Su cerebro adicto a la dopamina rápida simplemente se desconectará.
+La herramienta más subestimada de un hombre de alto valor es la indiferencia estoica. 
 
-El Caballero Moderno entiende la economía de las palabras. Habla con pausas. Cuenta historias con impacto. Y lo más importante: deja vacíos para que la otra persona llene el espacio. Cuando hablas menos, pero con más peso, la gente literalmente se inclina para escucharte. 
+Si te lanzan una burla, sostén el contacto visual, no digas absolutamente nada durante 4 segundos, y luego continúa tu conversación con otra persona. Ese silencio ensordecedor obligará al agresor a escuchar el eco de su propia estupidez. Lo despojas de todo su poder sin levantar la voz.
 
-👉 Síguenos si quieres aprender el arte de ser escuchado sin tener que gritar.
+El verdadero poder no es gritar más fuerte, es que tu silencio pese más que sus palabras.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a modern man speaking calmly at a dinner table, while the background and other distractions are blurred out, symbolizing focus and impactful communication, photorealistic --ar 4:5"`
+👉 Síguenos si estás construyendo un carácter inquebrantable.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A powerful cinematic image of a lone, strong man standing completely still and unbothered amidst a chaotic, moving background, symbolizing stoic calmness in the face of disrespect, high contrast, 8k --ar 4:5"`
             }
         ],
-        3: [ // Miércoles - DESCANDO A PETICIÓN
+        3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Día de Descanso 🧘‍♂️ (Sin publicaciones)',
-                script: 'Este día no hay contenido programado según tus instrucciones. Usa este tiempo para interactuar con comentarios de días anteriores o planificar.'
+                text: 'Publicar Reel: "Sé pacífico, no inofensivo"',
+                script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
+Título en pantalla: El error de ser un "Hombre Bueno" ⚠️
+
+[Visual sugerido: Clips dinámicos intercalados de un hombre entrenando boxeo/artes marciales intensamente, seguido de un clip del mismo hombre vestido de traje ajustándose los gemelos.]
+
+Voz en off: "Jordan Peterson dijo algo brillante: 'Un hombre inofensivo no es un buen hombre. Un buen hombre es un hombre muy, muy peligroso que lo tiene bajo control voluntario'. Las mujeres no se sienten atraídas por el 'chico bueno' que es incapaz de defenderse. Se sienten atraídas por el hombre que tiene la capacidad de destruir, pero elige la paz. Si eres inofensivo, no eres virtuoso, eres débil. Ve al gimnasio, aprende a pelear, hazte fuerte, y luego usa esa fuerza para proteger. Sígueme y conviértete en un monstruo controlado."
+
+[COPIAR Y PEGAR EN DESCRIPCIÓN]
+La debilidad nunca ha sido una virtud. 🦁⚔️
+La verdadera paz solo la puede ofrecer aquel que está preparado para la guerra.
+👉 Sígueme si estás trabajando en tu fuerza física y mental.
+#Masculinidad #JordanPeterson #CaballeroModerno #Fuerza #Estoicismo`
+            },
+            {
+                id: 't-wed-fb',
+                text: 'Publicar Post en Facebook (Copiar y Pegar)',
+                script: `Ser inofensivo no te hace un buen hombre. Te hace débil. ⚔️🦁
+
+Existe una confusión masiva en la sociedad moderna. Nos han enseñado a castrar nuestra agresividad natural bajo la excusa de ser "buenas personas". 
+
+Pero como bien dice la psicología evolutiva: Un hombre que no tiene la capacidad de causar daño y es pacífico, no es virtuoso, simplemente es inofensivo. No tiene otra opción. 
+
+En cambio, un hombre que es fuerte, capaz de defenderse física y mentalmente, pero que ELIGE ser amable y pacífico... ese es un hombre de verdadero valor. 
+
+Tu deber como Caballero Moderno es cultivar tu fuerza (física, financiera y mental). Sé peligroso para los problemas, pero un refugio seguro para los tuyos. 
+
+👉 ¿Estás entrenando tu cuerpo y tu mente? Únete a la tribu.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic split composition: one side shows the shadows of a man intensely hitting a heavy bag in a gritty gym, the other side shows the same man in a sharp suit petting a dog calmly, symbolizing controlled strength, photorealistic --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "La epidemia del Ghosting"',
-                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: La verdadera razón por la que te hizo Ghosting 👻
+                text: 'Publicar Reel: "La regla del 1%"',
+                script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
+Título en pantalla: Cómo ser un 1% más atractivo hoy 💎
 
-"Te dejaron en visto. Desapareció sin decir nada. Y tu primer instinto es pensar: '¿Qué hice mal? ¿Soy feo? ¿Dije algo raro?'. Detente ahí. El 90% de las veces, el ghosting no tiene nada que ver contigo. Vivimos en una época de sobreestimulación masiva. Las personas están abrumadas por la vida, el trabajo y cientos de mensajes en su bandeja. Huyen porque no tienen la madurez emocional para lidiar con el conflicto o la comunicación directa. No tomes un problema de inmadurez ajena como un defecto tuyo. Pasa página y eleva tus estándares. Sígueme."
+[Visual sugerido: Tomas detalle (close-ups) muy estéticos: un buen reloj en la muñeca, lustrando unos zapatos de cuero, aplicando perfume, arreglando el cuello de una camisa.]
+
+Voz en off: "No necesitas ganarte la lotería genética para estar en el top 10% de los hombres más atractivos. Solo necesitas arreglar los detalles que el 90% ignora. Usa un perfume de nicho, no el comercial que usan todos. Ajusta tus camisas para que encajen perfecto en tus hombros, un sastre cuesta menos que una camiseta nueva. Mantén tus zapatos impecables. Y lo más importante, mantén tus uñas cortas y limpias. Las mujeres son criaturas de detalles. Mientras otros hombres descuidan su imagen, tú arrasarás por simple eliminación. Sígueme para elevar tu estética."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El ghosting habla de su falta de madurez, no de tu falta de valor. ❌👻
-No te castigues tratando de descifrar a alguien que no sabe comunicarse.
-👉 Sígueme para construir una mentalidad a prueba de balas.
-#Ghosting #Relaciones #SaludMental #CaballeroModerno #Autoestima`
+El diablo está en los detalles, y la atracción también. 👞👔
+El estilo no es sobre cuánto gastas, es sobre cuánto te importa tu presentación.
+👉 Sígueme para convertirte en la mejor versión visual de ti mismo.
+#EstiloMasculino #Grooming #CaballeroModerno #AltoValor #Elegancia`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Ghosting no es sobre ti, es un síntoma social. 👻📱
+                script: `El estatus silencioso: Por qué los detalles te hacen irresistible. 👔💎
 
-Uno de los mensajes que más recibo es de hombres destruidos porque una chica con la que llevaban saliendo semanas desapareció de la nada. Sin cierre, sin explicación.
+He escuchado a miles de hombres quejarse de que "las mujeres solo se fijan en el físico de modelo". Mentira. Se fijan en el cuidado personal, que es un indicador biológico de estatus y disciplina.
 
-Lo primero que hace el ego masculino herido es buscar defectos: "¿Fui aburrido? ¿No tengo suficiente dinero?". 
+Puedes tener un rostro promedio, pero si entras a una sala proyectando el "Efecto Halo", el juego cambia. 
+¿Qué es el Efecto Halo? 
+- Un perfume amaderado que deja rastro cuando pasas.
+- Ropa que abraza tus hombros correctamente (llévala al sastre, es barato).
+- Zapatos de cuero impecablemente limpios.
+- Postura recta (hombros atrás, barbilla alta).
 
-La cruda realidad de esta década es que la gente está sobreestimulada y aterrorizada de la confrontación. Es mucho más fácil bloquear un número que decir: "No estoy lista para esto". El ghosting es la herramienta de los cobardes emocionales. 
+Mientras el 90% de los hombres andan en tenis sucios y camisetas holgadas, tú automáticamente te colocas en la cima de la jerarquía visual sin decir una sola palabra.
 
-Si te hacen ghosting, agradécelo. Te acaban de mostrar que no tienen las herramientas emocionales para ser una pareja de alto valor a largo plazo. La basura se sacó sola.
+👉 Invierte en ti. Únete a nuestra comunidad para elevar tus estándares.
 
-👉 Comparte esto con ese amigo que sigue esperando que ella le responda.
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, moody image of a modern gentleman looking at a blurred, fading silhouette of a woman walking away in a foggy street, symbolizing ghosting, but he looks peaceful and unaffected, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A macro cinematic shot focusing on the refined details of a modern gentleman: adjusting a luxurious cufflink on a crisp white shirt, subtle background blur, high fashion lighting, photorealistic --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "El poder del aburrimiento"',
-                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: El hábito que destruye tu carisma 📱
+                text: 'Publicar Reel: "Deja de convencerlas"',
+                script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
+Título en pantalla: El secreto de la abundancia real 🧠
 
-"La próxima vez que estés esperando en la fila del súper o esperando a un amigo en un café, haz esto: NO saques el celular. Te reto. Tu cerebro va a entrar en pánico porque no soporta el aburrimiento. Pero aquí está el secreto: el carisma y la creatividad nacen en el aburrimiento. Si estás constantemente anestesiando tu mente con TikToks, matas tu capacidad para observar el entorno, hacer contacto visual y ser espontáneo. El hombre más interesante del cuarto es el que no necesita su pantalla para sentirse seguro. Sígueme y apaga tu teléfono."
+[Visual sugerido: B-roll de un hombre leyendo un libro estoico en una biblioteca, o un hombre enfocado trabajando tarde en su laptop con una taza de café. Cero distracciones.]
+
+Voz en off: "El momento en que te vuelves extremadamente atractivo es el momento en el que dejas de intentar convencer a la gente de tu valor. Si una chica te cancela una cita, no le pidas explicaciones. Si no te responde el mensaje, archiva el chat y sigue trabajando en tus metas. Perseguir es comportamiento de presa, no de cazador. La abundancia real no es tener 10 mujeres en tu teléfono, es tener un propósito de vida tan grande que no te importa quién decide irse. El hombre que no necesita a nadie, atrae a todos. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La adicción al teléfono es la muerte de la presencia magnética. 📵👀
-Aprende a estar cómodo en tu propia piel y en el silencio.
-👉 Sígueme para recuperar tu enfoque y masculinidad.
-#Dopamina #Productividad #CaballeroModerno #Carisma #Presencia`
+Deja de negociar tu valor con personas que no lo ven. 📉❌
+Cuando tu propósito es el centro de tu vida, el rechazo pierde todo su poder.
+👉 Sígueme para desarrollar inmunidad emocional.
+#Abundancia #Mentalidad #CaballeroModerno #Seduccion #Proposito`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El superpoder de estar presente (y aburrido). 📵🔋
+                script: `La verdadera abundancia no es tener opciones, es tener desapego. 🍂⛓️
 
-¿Cuándo fue la última vez que te sentaste en un lugar público por 10 minutos sin sacar el celular de tu bolsillo? 
+Un error fatal de los hombres modernos es creer que la "Mentalidad de Abundancia" significa hablar con cinco chicas al mismo tiempo. Eso es ego disfrazado de abundancia.
 
-Nos hemos convertido en una sociedad aterrorizada de sus propios pensamientos. Usamos la pantalla como un escudo protector para no interactuar, para no hacer contacto visual, para no sentir la más mínima incomodidad.
+La abundancia real es el desapego absoluto de los resultados. 
+Es invitar a salir a alguien y que si dice "No", tu noche siga siendo igual de espectacular leyendo un libro o trabajando en tu negocio.
+Es no sentir la necesidad patológica de enviar un doble mensaje cuando te dejan en visto. 
 
-Pero la incomodidad es donde reside el crecimiento. La próxima vez que estés en una cita y ella vaya al baño, no saques el celular. Observa el lugar. Siéntete cómodo ocupando espacio sin hacer nada. Cuando ella vuelva, te encontrará presente y enraizado, no jorobado con el cuello hacia abajo esclavo de una pantalla. Esa pequeña diferencia proyecta un nivel de confianza brutal.
+Cuando el centro de tu vida es tu propósito (tus metas, tu salud, tu legado) y no las mujeres, automáticamente adquieres un aura de seguridad que es imposible de fingir. Las personas gravitan hacia quienes no las necesitan.
 
-👉 ¿Aceptas el reto de no sacar el celular en tu próxima sala de espera? Únete a nosotros.
+👉 ¿Tu propósito ya es más grande que tus excusas? Síguenos.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic photograph of an elegant man sitting confidently in a cafe, looking forward and observing the world calmly, while everyone else in the background is hunched over their glowing phones, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic image of a modern gentleman walking confidently away from a blurry crowd towards a bright, golden sunset horizon, symbolizing walking towards his purpose with detachment, 8k --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "El aura de la presencia"',
-                script: `[GUION PARA GRABAR - TIKTOK/IG/FB/YT SHORTS]
-Título en pantalla: Por qué pasas desapercibido 👻
+                text: 'Publicar Reel: "El costo del liderazgo"',
+                script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
+Título en pantalla: Por qué caminarás solo ⛰️
 
-"La mayoría de los hombres son invisibles cuando entran a un lugar. ¿Por qué? Porque su energía está fragmentada. Están físicamente en la sala, pero mentalmente están pensando en el trabajo, en sus problemas financieros, o en el mensaje que no les han respondido. A las mujeres no las seduce el dinero ni los autos, las seduce la PRESENCIA. Cuando hablas con alguien y estás 100% ahí, escuchando, sin pensar en tu respuesta, generas un aura que la mayoría nunca experimenta. Sé el ancla en el caos. Sígueme para destacar del 99%."
+[Visual sugerido: Tomas de drones épicas. Un hombre en la cima de una montaña, o un auto deportivo manejando solo por una carretera vacía en el desierto al amanecer.]
+
+Voz en off: "Nadie te advierte sobre el aislamiento del liderazgo. Cuando decides dejar la pornografía, comer limpio, leer, invertir y no salir de fiesta cada fin de semana, la mayoría de tus amigos te dirán que has cambiado, que eres aburrido. Y sí, caminarás solo por mucho tiempo. Las cimas de las montañas no están abarrotadas de gente. Si quieres resultados del 1%, tienes que estar dispuesto a soportar la soledad que el 99% no soporta. Sigue caminando. Tu nueva tribu te espera en la cima. Sígueme para no rendirte."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Tu atención es el recurso más escaso y valioso que puedes regalar. 🎁🔥
-Cuando estás verdaderamente presente, te vuelves inolvidable.
-👉 Sígueme para construir presencia y magnetismo real.
-#Presencia #AtractivoMasculino #CaballeroModerno #Mindfulness #Seduccion`
+La soledad es el precio de admisión para la grandeza. 👑🦅
+No bajes tus estándares para encajar en lugares donde ya no cabes.
+👉 Sígueme si estás en la etapa solitaria del proceso, aquí somos tribu.
+#Liderazgo #Motivacion #CaballeroModerno #DesarrolloPersonal #Mentalidad`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El magnetismo de la presencia total. ⚓👁️
+                script: `El costo oculto de la grandeza es el aislamiento temporal. 🦅🏔️
 
-En un mundo donde todos están distraídos, prestar atención absoluta es el nuevo superpoder. 
+Hay un peaje que todo hombre debe pagar cuando decide abandonar la mediocridad: perderá temporalmente a casi todos los que lo rodean.
 
-Piensa en tus últimas interacciones sociales. ¿Estabas realmente escuchando o solo estabas esperando tu turno para hablar? Las mujeres tienen un radar increíble para detectar cuando un hombre está mentalmente ausente. 
+Cuando dejas de anestesiarte con alcohol, videojuegos y entretenimiento vacío, te vuelves un espejo incómodo para aquellos que no quieren cambiar. Te llamarán raro, obsesionado o aburrido. Intentarán arrastrarte de vuelta a la zona de confort.
 
-El verdadero estatus no lo da un reloj caro, lo da la capacidad de hacer sentir a la persona que tienes enfrente que, en ese momento, no existe nada más en el mundo. Eso requiere dominar tu propia mente, apagar la ansiedad por el futuro y anclarte en el presente. 
+Resiste. La soledad que sientes hoy no es un castigo, es un filtro. Estás limpiando tu ecosistema. Si aguantas la presión de caminar solo durante tu reconstrucción, llegarás a un nivel donde inevitablemente chocarás con hombres de tu mismo calibre. 
 
-Sé el hombre que trae calma al caos. 
+Las águilas vuelan solas; son los cuervos los que vuelan en bandada.
 
-👉 Síguenos si quieres dominar el juego interno.
+👉 Etiqueta o comparte esto con ese amigo que está enfocado en sus metas.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A deeply cinematic portrait of a modern gentleman offering intense, calming eye contact in a busy, chaotic, and blurred environment, signifying the anchor of presence, dramatic lighting, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"An epic, sweeping cinematic shot of a single eagle soaring above a majestic mountain peak at dawn. Below in the blur are smaller birds in a flock. Symbolizing solitary leadership and high standards, photorealistic --ar 4:5"`
             }
         ]
     };
