@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
+    
+    // --- Agenda de la Semana 10 (Psicología de la Atracción) ---
     const weeklyAgenda = {
         0: [ // Domingo - Empty
             { id: 't-sun-1', text: 'Descanso y planificación' }
