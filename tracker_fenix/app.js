@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
     
-    // --- Agenda de la Semana 11 (Magnetismo Primitivo y Arquetipos) ---
+    // --- Agenda de la Semana 12 (Filosofía Oscura y Seducción) ---
     const weeklyAgenda = {
         0: [ // Domingo - Empty
             { id: 't-sun-1', text: 'Descanso y planificación' }
@@ -32,243 +32,238 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "El Arquetipo del Rey" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "Mejor ser temido (respetado) que amado" (5:00 PM)',
                 script: `[GUION PARA VIDEO FACELESS - YT (3.5 mins)]
-Título SEO: Por qué nadie te respeta: El Arquetipo del Rey
+Título SEO: El error de buscar ser "Amado": La lección de Maquiavelo
 
-[Visual sugerido: B-roll cinemático. Un león descansando pero alerta. Un rey en un tablero de ajedrez. Un hombre de negocios entrando a una sala, todos voltean a verlo. Estética oscura, dorada y majestuosa.]
+[Visual sugerido: B-roll cinemático. Una estatua de mármol clásico (estilo renacentista), un rey antiguo, o un hombre vestido de forma impecable en las sombras leyendo un libro antiguo. Oscuro y académico.]
 
-(0:00 - 0:30) Hook: "¿Te has dado cuenta de que hay hombres que no necesitan gritar para que los escuchen? Entran a una habitación y el ambiente cambia. Las mujeres los miran, los hombres se apartan. No es suerte, no es dinero, es psicología evolutiva. Están proyectando lo que Carl Jung llamó: El Arquetipo del Rey. Y hoy te voy a enseñar cómo hackear tu lenguaje corporal para despertar esa energía."
+(0:00 - 0:30) Hook: "Maquiavelo escribió hace 500 años una frase que destruye por completo el consejo de citas moderno: 'Es mucho más seguro ser temido que amado, si se debe renunciar a uno de los dos'. En el contexto moderno, 'temido' significa 'respetado'. Y el gran error que comete el 99% de los hombres hoy en día es que prefieren ser amados antes que respetados. Hoy entenderás por qué esta actitud te condena al fracaso."
 
-(0:30 - 1:30) El error del bufón: "El 90% de los hombres actúan como el 'Bufón'. Se ríen de más, intentan complacer a todos, se mueven rápido, y piden disculpas por existir. El Bufón busca validación. El Rey no busca validación de nadie, porque él es quien la otorga. La regla número uno del Rey es la lentitud deliberada. Muévete un 20% más lento de lo que tu ansiedad te pide. Gira la cabeza lentamente, camina sin prisa."
+(0:30 - 1:30) La trampa del afecto: "Cuando buscas ser 'amado' desde el día uno, te vuelves complaciente. Pagas todas las cenas, cambias tus horarios, aguantas faltas de respeto y nunca dices que no. Quieres comprar el afecto. Pero el amor sin respeto no es amor, es lástima. Las mujeres no pueden sentir atracción genuina por un hombre al que pueden pisotear. El respeto es el cimiento, el amor es el tejado. Estás empezando la casa por el tejado."
 
-(1:30 - 2:30) Ocupar el espacio: "El Rey no se hace pequeño. Cuando te sientes, relaja los hombros, ocupa tu espacio. No cruces los brazos protegiendo tus órganos vitales como una presa. El Rey es el dueño del territorio, por lo que su lenguaje corporal es abierto y relajado. Cuando hablas desde la relajación absoluta en situaciones de alta presión, subcomunicas que eres intocable."
+(1:30 - 2:30) Construyendo Respeto: "Para ser respetado (o 'temido', en el sentido maquiavélico de que teman perderte), debes tener reglas inquebrantables. Si ella llega una hora tarde, te levantas y te vas. Si te falta el respeto, le retiras tu atención. Estar dispuesto a destruir la relación para proteger tus estándares es exactamente lo que hace que tu valor se dispare. No eres malo, eres un hombre con una frontera vigilada."
 
-(2:30 - 3:30) Conclusión: "Deja de intentar impresionar a la corte. Deja de sobre-explicarte. Un Rey da directrices claras, escucha con atención, y no se altera por el caos a su alrededor. Cultiva tu presencia física y el respeto te seguirá automáticamente. Suscríbete si estás listo para dejar de ser el bufón."`
+(2:30 - 3:30) Conclusión: "Deja de intentar gustarles a todos. El hombre que quiere agradar a todos, termina siendo una broma para sí mismo. Prioriza tu respeto, tu propósito y tus límites. Si haces eso, el amor que recibas será real, no comprado. Suscríbete si estás listo para leer el juego con otros ojos."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Muévete más lento"',
+                text: 'Publicar Reel: "Respeto > Amor"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: El truco psicológico del 20% 👑
+Título en pantalla: La cruda verdad sobre el amor 🖤
 
-[Visual sugerido: Un hombre acomodándose los gemelos de la camisa en cámara extremadamente lenta. O un león caminando lentamente por la sabana.]
+[Visual sugerido: Un hombre encendiendo un fósforo en cámara lenta. O una pieza de ajedrez (el rey) cayendo sobre el tablero.]
 
-Voz en off: "Hay un truco psicológico brutal para triplicar tu carisma instantáneamente. Muévete y habla un 20% más lento. Los hombres nerviosos, inseguros o que sienten que su tiempo no vale nada, se mueven rápido, asienten con la cabeza frenéticamente y hablan a mil por hora para que no los interrumpan. Eso huele a presa. El depredador, el hombre de alto estatus, se mueve con calma, porque sabe que el mundo lo va a esperar. Baja la velocidad de tus manos, haz pausas de dos segundos antes de responder, y mira lo que sucede con el nivel de respeto que recibes. Sígueme para dominar la psicología del estatus."
+Voz en off: "El error más catastrófico del hombre moderno es intentar que las mujeres lo amen, antes de exigir que lo respeten. Cuando buscas amor, te vuelves dócil, regalas tu tiempo, pagas por atención y no pones límites. Básicamente te conviertes en un sirviente. Y las mujeres nunca se enamoran de sus sirvientes. Como dijo Maquiavelo, si tienes que elegir entre ser amado o respetado, elige siempre el respeto. El amor sin respeto es solo lástima disfrazada. Pon límites. Exige estándares. Arriésgate a perderla. Irónicamente, el miedo a perderte es lo único que garantizará que se quede. Sígueme para más filosofía de alto valor."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La prisa es el lenguaje corporal de los subordinados. ⏳♚
-Los reyes no corren.
-👉 Sígueme para reclamar tu poder personal.
-#Arquetipos #LenguajeCorporal #CaballeroModerno #Psicologia #Estatus`
+El respeto es el único cimiento sólido. El amor construido sobre la sumisión se derrumba. 🏛️♟️
+No regales lo que deberías cobrar en respeto.
+👉 Sígueme para forjar una mentalidad de hierro.
+#Maquiavelo #FilosofiaOscura #CaballeroModerno #Respeto #AltoValor`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Arquetipo del Rey: Por qué la prisa destruye tu estatus. ♚♟️
+                script: `El Síndrome del Sirviente: Por qué el respeto va antes que el amor. 🏛️♟️
 
-En el mundo animal, los movimientos rápidos y erráticos pertenecen a las presas. Los depredadores de la cima de la cadena alimenticia se mueven despacio, conservando su energía, porque no tienen a nadie de quién huir.
+Vivimos en una época que nos dice "entrega todo, sé súper romántico, dale flores en la primera cita, hazla sentir como una reina". Nos enseñaron a comprar el amor.
 
-En las dinámicas sociales humanas, pasa exactamente lo mismo.
+El problema es que la atracción femenina no responde a los sobornos lógicos ni a la devoción ciega. Responde al estatus y al respeto.
 
-Observa al CEO de una empresa o al hombre más magnético del lugar. No habla rápido, no asiente con la cabeza mil veces cuando le hablan, y definitivamente no se apresura a responder. Domina el "Arquetipo del Rey": lentitud deliberada y relajación bajo presión.
+Nicolás Maquiavelo tenía razón: Si no puedes ser amado y respetado (temido de perderte) al mismo tiempo, siempre elige el respeto. 
 
-Si quieres que te respeten más hoy mismo: 
-1. Haz una pausa de 2 segundos antes de responder cualquier pregunta.
-2. Camina un 20% más despacio.
-3. No te encojas al sentarte; reclama tu espacio.
+Cuando aguantas cancelaciones de último minuto o mensajes dejados en visto solo porque "no quieres que se enoje", le estás demostrando que tu tiempo y tu dignidad valen cero. Y nadie ama lo que no vale nada.
 
-👉 ¿Estás proyectando energía de rey o de bufón? Analízate.
+El Caballero Moderno entiende que sus límites son la puerta de entrada a su vida. Si cruzas la línea, se retira. Y esa disposición a caminar hacia la puerta es lo que lo hace magnético.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a golden chess King standing tall, casting a massive, imposing shadow over a chaotic board of fallen pawns, dramatic lighting, moody and elegant, 8k --ar 4:5"`
+👉 ¿Has sacrificado tu respeto por mendigar amor? Únete a nosotros y cambia el guion.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, dark academia aesthetic image of an ancient marble bust of a Roman Emperor half-lit by a flickering candle in a dark room. Symbolizing stoic power, respect, and dark philosophy, photorealistic, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "Integrando la Sombra"',
+                text: 'Publicar Reel: "Amor Fati (El rechazo es combustible)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué prefiere a los "Tóxicos" 🐺
+Título en pantalla: Cómo volverte inmune al rechazo 🔥
 
-[Visual sugerido: Un lobo negro enseñando los dientes pero tranquilo. B-roll oscuro, humo, estética de 'peligro controlado'.]
+[Visual sugerido: Un hombre caminando bajo una lluvia torrencial con paso firme, o fuego consumiendo un papel. Vibras de estoicismo puro y transformación.]
 
-Voz en off: "Te molesta que ella elija al chico malo en lugar de a ti. Crees que está loca. Pero la biología evolutiva tiene otra explicación. Ella no busca toxicidad, busca 'Energía Oscura'. Busca capacidad de agresión. En tiempos primitivos, el hombre inofensivo no podía protegerla de la tribu enemiga. El chico malo muestra agresión, y su cerebro primitivo se excita porque ve a un protector potencial, aunque hoy en día esté mal calibrado. ¿La solución? Integra tu sombra. Aprende a pelear, ponte físicamente intimidante, vuélvete capaz de destruir, y luego elige ser un caballero. Eso es irresistible. Sígueme."
+Voz en off: "Friedrich Nietzsche propuso una idea llamada 'Amor Fati': Amar tu destino. No solo soportarlo, amarlo. Cuando una mujer te rechaza, te ignora o te traiciona, el hombre débil llora y se deprime. El hombre de alto valor aplica Amor Fati. Mira el rechazo a los ojos y dice: 'Exactamente esto era lo que necesitaba'. Usa ese dolor como combustible puro. Ese rechazo es lo que lo empuja al gimnasio a las 5 de la mañana, es lo que lo hace enfocarse en sus finanzas, es lo que lo hace peligroso. El dolor no viene a destruirte, viene a forjarte. Ama tu destino. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No tienes que ser tóxico, tienes que ser PELIGROSO bajo control voluntario. 🐺⚔️
-El hombre inofensivo es ignorado por la evolución.
-👉 Sígueme para despertar tu instinto protector.
-#EnergiaOscura #Evolucion #CaballeroModerno #Masculinidad #Seduccion`
+El rechazo no es un castigo, es la herramienta de forja del universo. ⚔️🔥
+Amor Fati: Aprende a amar la adversidad.
+👉 Sígueme para construir una resiliencia inquebrantable.
+#AmorFati #Nietzsche #CaballeroModerno #Estoicismo #DesarrolloPersonal`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Paradoja del Chico Malo: No es toxicidad, es biología evolutiva. 🐺🧬
+                script: `Amor Fati: El superpoder del hombre inquebrantable. 🔥⚔️
 
-Los hombres buenos siempre hacen la misma pregunta: "¿Por qué las mujeres prefieren a patanes que las tratan mal, si yo le ofrezco el mundo?"
+Hay dos formas de reaccionar cuando la vida (o una mujer) te golpea duro:
 
-La respuesta está escondida en nuestro cerebro primitivo (el cerebro reptiliano). Hace 10,000 años, la supervivencia de una mujer dependía de emparejarse con el hombre capaz de ejercer mayor violencia contra amenazas externas. 
+1. El Victimismo: "¿Por qué a mí? Fui tan bueno, di lo mejor, el mundo es injusto". (El camino del hombre débil, que lleva a la depresión y la amargura).
 
-El "Chico Malo" proyecta rasgos de agresión, audacia y nulo miedo a la confrontación. El cerebro subconsciente de la mujer lee esto como: "Protector fuerte". 
+2. Amor Fati: "Amo mi destino". (El concepto de Friedrich Nietzsche).
+Amor Fati no es resignación. Es abrazar agresivamente la adversidad. Es entender que ese corazón roto, esa traición o ese rechazo era EXACTAMENTE el evento que necesitabas para despertar. 
 
-El error del chico malo es que usa esa agresión contra ELLA. El error del chico bueno es que carece totalmente de esa agresión. 
+Es la chispa que te levanta del sofá, te mete al gimnasio, te obliga a leer, a mejorar tu estilo y a elevar tu estatus financiero. 
 
-El Caballero Moderno es la mezcla perfecta: Tiene la capacidad de la violencia (fuerza, carácter fuerte, habilidades de combate), pero la tiene bajo absoluto control voluntario. Es una bestia que decide ser un caballero. Eso, señores, rompe cualquier algoritmo de atracción.
+El dolor es el mejor pre-entreno del mundo. Cuando logras ver el rechazo no como una pérdida, sino como la lección que necesitabas para forjarte como un hombre superior, te vuelves literalmente invencible.
 
-👉 ¿Estás cultivando tu fuerza o solo tu amabilidad?
+👉 Convierte tu dolor en poder. Únete a la tribu.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, ultra-moody shot of a modern gentleman's reflection in a dark puddle. The reflection subtlely hints at a powerful wolf or a darker, primal version of himself, symbolizing the integration of the shadow self, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody image of a modern gentleman standing confidently while a storm rages behind him, subtle lightning illuminating his silhouette, symbolizing Amor Fati and embracing the storm, 8k --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "El hack de la voz profunda"',
+                text: 'Publicar Reel: "Memento Mori (No hay tiempo para juegos)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: El secreto de una voz hipnótica 🎙️
+Título en pantalla: Tu tiempo se acaba ⏳
 
-[Visual sugerido: Olas oscuras chocando en cámara lenta contra rocas. O un hombre de traje de espaldas mirando la ciudad nocturna. Sensación de vibración profunda.]
+[Visual sugerido: Un reloj de bolsillo antiguo, la arena cayendo, o las manecillas de un reloj moviéndose rápido. Tonos sepia oscuros.]
 
-Voz en off: "Puedes decir las palabras perfectas, pero si tu voz vibra en la garganta y no en el pecho, vas a generar cero tensión sexual. Cuando los hombres se ponen nerviosos frente a una mujer hermosa, su voz se vuelve más aguda y hablan desde la nariz o la garganta. Ese es el sonido de la sumisión. El hack biológico de la dominancia es hablar desde el diafragma. Antes de hablarle, exhala todo el aire, relaja el pecho y proyecta tu voz desde el estómago. Una voz grave y resonante calma el sistema nervioso de la mujer y le subcomunica protección física. Sígueme para dominar la seducción."
+Voz en off: "Los emperadores romanos tenían un siervo que les susurraba al oído: 'Memento Mori'. Recuerda que vas a morir. Suena oscuro, pero es la máxima lección de libertad. ¿Por qué estás perdiendo semanas analizando el mensaje de texto de una chica que no te valora? ¿Por qué mendigas atención? ¿Por qué pospones tus metas financieras por salir de fiesta? Tu tiempo en este planeta se está consumiendo en este preciso segundo. Un Caballero Moderno no tolera juegos mentales ni falta de interés, porque su tiempo es demasiado valioso. Despierta. Enfócate en tu propósito. Memento Mori. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Tu voz revela tus inseguridades antes de que digas una sola palabra. 🌊🗣️
-Relaja el pecho, habla desde el estómago.
-👉 Sígueme para aprender los secretos no verbales de la atracción.
-#LenguajeCorporal #Seduccion #CaballeroModerno #Comunicacion #AltoValor`
+El recurso más valioso que tienes no es el dinero, es tu tiempo. ⏳💀
+No lo desperdicies en personas que no saben valorarlo.
+👉 Sígueme para alinear tu vida con tu verdadero propósito.
+#MementoMori #Estoicismo #CaballeroModerno #Proposito #Masculinidad`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El magnetismo de la frecuencia: Por qué tu voz te está saboteando. 🎙️🌊
+                script: `Memento Mori: La cura contra las relaciones tóxicas. ⏳💀
 
-Si pones atención, notarás un fenómeno interesante: cuando hablas con tu jefe, con la chica que te gusta o cuando estás bajo estrés, el tono de tu voz sube. Se vuelve más agudo y tu ritmo se acelera. 
+"Recuerda que vas a morir". Esta era la frase estoica que resonaba en la antigua Roma. No para deprimir, sino para despertar.
 
-Hablas desde la garganta. Biológicamente, los tonos agudos y rápidos son señales de angustia y sumisión. 
+La mayoría de los hombres viven como si tuvieran mil años. Gastan 6 meses intentando convencer a una chica que los dejó en la 'friendzone'. Pierden horas analizando por qué los dejaron en visto. Tolera dramas absurdos y juegos mentales.
 
-Cuando hablas con tus amigos de toda la vida, tu voz baja, se vuelve más ronca y vibra en tu pecho. Estás relajado. Esa es la voz de la autoridad y la confianza.
+Cuando internalizas la realidad de que tu tiempo es limitado y se agota a cada segundo, tu tolerancia por las tonterías cae a cero. 
 
-Para generar atracción subconsciente, tienes que hackear tu sistema nervioso. Antes de iniciar una conversación importante, respira hondo hasta inflar el estómago, relaja la mandíbula y habla empujando el aire desde el diafragma. El sonido debe vibrar en tu pecho. 
+De repente, ya no te importa si ella responde tarde. Tu cerebro está enfocado en construir tu negocio, moldear tu físico, proteger a tu familia. Cuando vives con este nivel de urgencia y propósito, cortas de raíz a la gente que te hace perder el tiempo. Y paradójicamente, esa indiferencia absoluta a los juegos es lo que te vuelve brutalmente atractivo.
 
-Esa resonancia grave transmite masculinidad sólida y calma el sistema nervioso de quien te escucha.
+👉 Tu reloj sigue avanzando. ¿En qué estás gastando hoy tu tiempo?
 
-👉 Haz la prueba hoy mismo. 
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly abstract, cinematic macro shot of deep bass soundwaves rippling through dark water, symbolizing the physical impact of a deep, resonant voice, elegant and moody, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A macro, cinematic dark aesthetic shot of an ornate antique pocket watch resting on a skull, soft shadows, moody lighting, symbolizing Memento Mori and the value of time, photorealistic --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Mirada de depredador"',
+                text: 'Publicar Reel: "El Arte de la Guerra (El mercado)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Contacto visual: Depredador vs Presa 🦅
+Título en pantalla: Sun Tzu y el mercado de citas ⚔️
 
-[Visual sugerido: Close up a los ojos de un león o un águila fijando su objetivo, intercalado con los ojos de un hombre entrecerrando ligeramente la mirada (Hunter eyes). Cinematografía intensa.]
+[Visual sugerido: Un pergamino antiguo, o un juego de estrategia (mapa de guerra, ajedrez). Hombre moviendo piezas en la oscuridad.]
 
-Voz en off: "La forma en que miras a una mujer define si te verá como una opción o como un fanático más. Existen dos tipos de miradas. La mirada de presa: ojos muy abiertos, parpadeo constante, y desvías la vista hacia abajo cuando ella te atrapa mirándola. Esto grita baja autoestima. Luego está la mirada del depredador: los párpados ligeramente caídos, un parpadeo lento y relajado, y cuando ella te mira, no apartas los ojos. Sostienes la mirada, esbozas una media sonrisa y sigues con lo tuyo. Ese nivel de seguridad inquebrantable genera cortocircuitos en su cerebro. Sígueme."
+Voz en off: "Sun Tzu dijo: 'Si conoces al enemigo y te conoces a ti mismo, no temerás el resultado de cien batallas'. Las citas modernas son un campo de batalla psicológico. El problema es que no te conoces. Crees que eres un 10, pero vistes mal, ganas poco y no tienes habilidades sociales. Y tampoco conoces el mercado: no entiendes que las mujeres responden al estatus, la preselección y la seguridad, no a la poesía barata. Deja de quejarte del algoritmo. Analiza tus debilidades, mejora tu apariencia, aumenta tus ingresos y aprende psicología humana. Cuando domines ambas partes, ganarás sin pelear. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Nunca bajes la mirada primero. Y si lo haces, que sea hacia un lado, nunca hacia el piso. 🦅👁️
-El contacto visual es el primer test de confianza.
-👉 Sígueme para dominar la psicología de la atracción.
-#ContactoVisual #Seguridad #CaballeroModerno #PsicologiaOscura #HunterEyes`
+Deja de culpar a las mujeres y empieza a estudiar el juego. ♟️📜
+Conocimiento + Ejecución = Resultados.
+👉 Sígueme para dominar la estrategia social de alto nivel.
+#SunTzu #Estrategia #CaballeroModerno #Seduccion #ValorPersonal`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Contacto Visual: El test de confianza que repruebas a diario. 🦅👁️
+                script: `Sun Tzu aplicado al romance moderno. ⚔️📜
 
-Imagina la situación: Estás en un café o en el gimnasio. Ves a una mujer atractiva. Ella voltea, te atrapa mirándola y... ¿qué haces?
+"Si conoces al enemigo y te conoces a ti mismo, no temerás el resultado de cien batallas." - Sun Tzu.
 
-El 95% de los hombres, presas del pánico, apartan la mirada inmediatamente hacia el piso, como si hubieran cometido un crimen. 
-Subcomunicación: "Perdón por mirarte, sé que no estoy a tu nivel, me intimidas".
+Si bien las mujeres no son el "enemigo", el mercado de citas actual es un campo altamente competitivo. Y la gran mayoría de los hombres pierden la guerra antes de salir de casa por dos razones:
 
-El hombre de alto estatus no pide disculpas por sentir atracción. Su mirada es la de un depredador relajado (párpados pesados, parpadeo lento). Si lo atrapan mirando, sostiene la mirada durante dos segundos, sonríe levemente con la mitad de la boca y luego aparta la mirada *hacia un lado*, nunca hacia abajo.
+1. No se conocen a sí mismos: Tienen un ego inflado pero un valor de mercado bajo. No cuidan su físico, no tienen ambición, visten mal, pero esperan a una supermodelo.
 
-Hacia abajo = Sumisión.
-Hacia un lado = Elección.
+2. No conocen las reglas del juego: Creen que las mujeres se sienten atraídas por lo mismo que los hombres. Los hombres somos visuales; las mujeres son criaturas que responden al estatus, la seguridad emocional, la confianza y la preselección.
 
-Mantén el marco. Tu mirada debe penetrar, no suplicar.
+Si sigues intentando ganar el juego enviando fotos no solicitadas o pagando cenas caras, estás usando tácticas del siglo pasado. Estudia psicología evolutiva. Trabaja en tus finanzas. Entrena tu cuerpo. Conoce tus herramientas y conoce el terreno.
 
-👉 Etiqueta al amigo que siempre baja la mirada al piso.
+👉 Deja de improvisar. Únete a nuestra tribu y aprende estrategia de alto valor.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"An extreme cinematic close-up of a modern gentleman's eyes, slightly squinted (hunter eyes), reflecting a dark city neon light. Showing absolute calm and unbothered confidence, 8k, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody image of a modern gentleman standing in a dimly lit library, studying a grand, ancient map of a battlefield. Merging modern elegance with ancient strategy, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "Vulnerabilidad agresiva"',
+                text: 'Publicar Reel: "La Ley del Péndulo (Tensión vs Aburrimiento)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: El imán de tus cicatrices ⚔️
+Título en pantalla: Por qué se aburren del chico bueno 🕰️
 
-[Visual sugerido: B-roll de un herrero golpeando metal candente (forjando una espada) o un hombre levantándose del suelo con lluvia. Resiliencia pura.]
+[Visual sugerido: Un péndulo de Newton moviéndose, o una montaña rusa en cámara lenta. Sensación de movimiento y contraste.]
 
-Voz en off: "Los hombres falsos intentan ocultar sus fracasos. Presumen relojes alquilados y fingen que nunca han perdido. Las mujeres huelen esa inseguridad a kilómetros. El verdadero carisma nace de lo que llamo 'Vulnerabilidad Agresiva'. Es el hombre que te mira a los ojos y te dice: 'Sí, quebré mi primera empresa', o 'Sí, me rompieron el corazón y toqué fondo... pero mírame ahora'. Aceptar tus cicatrices como medallas de guerra sin sentir pena por ti mismo, demuestra una confianza tan monstruosa que resulta hipnótica. Un hombre que no le teme a su pasado, es un hombre invencible. Sígueme."
+Voz en off: "Schopenhauer dijo que la vida es un péndulo que oscila entre el dolor y el aburrimiento. Las relaciones funcionan igual. Cuando eres el 'chico bueno' perfecto, que nunca pelea, que siempre está disponible y le da todo en bandeja de plata... matas la tensión. El dolor desaparece, pero el péndulo se va al extremo del aburrimiento total. Y el aburrimiento destruye la atracción. Las mujeres necesitan la montaña rusa emocional. Necesitan el miedo a perderte, la tensión de no saber qué piensas, el conflicto resuelto. Necesitan drama positivo. No seas el chico seguro y aburrido, sé el caos controlado. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Tus fracasos no te definen, tu resurrección sí. 🔥🦅
-Nunca escondas tus cicatrices, son la prueba de que el fuego no te consumió.
-👉 Sígueme para construir una mentalidad inquebrantable.
-#Resiliencia #Mentalidad #CaballeroModerno #Estoicismo #Exito`
+La seguridad total mata la atracción química. 🎢⚡
+El deseo solo puede existir en la incertidumbre.
+👉 Sígueme para entender los secretos oscuros de la seducción.
+#Filosofia #Atraccion #CaballeroModerno #Schopenhauer #Psicologia`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Vulnerabilidad Agresiva: El carisma del hombre forjado. ⚔️🔥
+                script: `La Ley del Péndulo: Por qué tu relación perfecta está a punto de morir. 🕰️⚡
 
-La sociedad te vende la idea de que para ser atractivo debes ser impecable. Sin errores, sin deudas, sin problemas emocionales, el "Macho Alfa" perfecto.
+El filósofo Arthur Schopenhauer dijo: "La vida oscila como un péndulo entre el sufrimiento y el aburrimiento". 
 
-Eso no genera conexión, genera falsedad. 
+Este es el secreto mejor guardado de las dinámicas de pareja. Cuando un hombre se esfuerza por ser 100% perfecto, complaciente, evitar todas las discusiones y darle a su mujer una vida de seguridad absoluta... el péndulo se mueve de inmediato hacia el aburrimiento.
 
-Lo que verdaderamente impacta y genera un respeto profundo es la Vulnerabilidad Agresiva. Es la capacidad de hablar de tus fracasos más grandes (esa vez que te echaron del trabajo, esa relación donde fuiste el tóxico y aprendiste, ese negocio que quebró) sin una sola gota de victimismo.
+Y para una mujer, el aburrimiento emocional es el destructor número uno del deseo sexual y la atracción. 
 
-El hombre débil cuenta sus problemas para dar lástima.
-El Caballero Moderno cuenta sus cicatrices como quien narra cómo mató al dragón. 
+El cerebro femenino necesita una montaña rusa emocional (dentro de parámetros saludables). Necesita la tensión de que le digas que "NO". Necesita verte ocupado y no disponible. Necesita sentir la ligera incertidumbre de que podrías irte si te faltan el respeto. 
 
-Aceptar tu pasado con el pecho hacia afuera subcomunica una confianza letal: "Fui destruido, me reconstruí, y soy inmune a la vergüenza". Eso, señores, es verdadero poder.
+Ese contraste, ese "caos positivo", es lo que mantiene la chispa viva. Si te vuelves demasiado seguro, te vuelves invisible.
 
-👉 ¿Qué cicatriz te hizo el hombre que eres hoy?
+👉 ¿Estás pecando de ser demasiado predecible? 
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody image of glowing hot steel being forged on an anvil in a dark smithy, symbolizing the aggressive vulnerability and the pain required to forge a strong man, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic cinematic image of a massive swinging pendulum in a dark, atmospheric room. One side illuminated by cold blue light, the other by warm fire, symbolizing the swing between tension and boredom, photorealistic --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "El Arquetipo del Mago"',
+                text: 'Publicar Reel: "El Mito de Sísifo (Ama el proceso)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Cómo volverte adictivo (El Mago) 🎩
+Título en pantalla: El error de buscar la felicidad ⛰️
 
-[Visual sugerido: Clips visualmente alucinantes: una tormenta eléctrica silenciosa, fuego ardiendo en cámara lenta, o un hombre caminando hacia la neblina donde no se ve el fondo.]
+[Visual sugerido: B-roll épico de un hombre escalando una montaña empinada, o entrenando hasta el fallo en el gimnasio. Mucha épica y esfuerzo.]
 
-Voz en off: "Si quieres mantener a una mujer completamente enamorada de ti a largo plazo, debes incorporar el Arquetipo del Mago: La capacidad de crear caos positivo e imprevisibilidad. La rutina es la prisión del romance. Si ella sabe exactamente qué le vas a decir, a qué hora la vas a llamar y a dónde la vas a llevar a cenar, el aburrimiento está garantizado. El Mago cambia las reglas de golpe. Aparece sin avisar, cambia los planes a último minuto por una aventura espontánea, es críptico y misterioso. Si te vuelves predecible, te vuelves invisible. Mantén viva la magia. Sígueme."
+Voz en off: "Estás deprimido porque crees que serás feliz cuando consigas a la chica perfecta o el auto de lujo. Mentira. Albert Camus usó el Mito de Sísifo (el hombre condenado a empujar una roca hasta la cima de la montaña por la eternidad) para explicarnos algo vital. La felicidad no está en llegar a la cima, está en empujar la roca. La atracción real no sucede cuando persigues a una mujer; sucede cuando te enamoras del proceso de construirte a ti mismo. Cuando te obsesionas con tu gimnasio, tus negocios y tu mente, la ansiedad desaparece. Imagina a Sísifo feliz. Ama el esfuerzo brutal de ser hombre. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La previsibilidad es la muerte de la pasión. 🌫️✨
-Si siempre juegas seguro, terminarás jugando solo. Añade caos positivo.
-👉 Sígueme para dominar las dinámicas de largo plazo.
-#PsicologiaOscura #Seduccion #CaballeroModerno #Arquetipos #Atraccion`
+El propósito no es el destino, es el sudor que dejas en el camino. ⛰️🦅
+Deja de perseguir mujeres y empieza a perseguir la excelencia.
+👉 Sígueme para construir una vida de la que estés orgulloso.
+#Sisifo #Camus #CaballeroModerno #Proposito #Masculinidad`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Arquetipo del Mago: Por qué la previsibilidad aniquila la pasión. 🎩✨
+                script: `El Mito de Sísifo: Por qué perseguir mujeres te hace miserable. ⛰️🦅
 
-Las relaciones no mueren por falta de amor, mueren por exceso de certidumbre. 
+En la mitología griega, Sísifo fue condenado a empujar una roca enorme hasta la cima de una montaña, solo para verla caer y tener que empezar de nuevo por la eternidad. 
 
-Cuando iniciaste con ella, todo era un misterio. No sabía si le ibas a escribir, no sabía de qué iban a hablar. El cerebro estaba inundado de dopamina. Tres años después, sabe que los viernes comen pizza y ven Netflix a las 8:00 pm exactas. 
+Albert Camus, el filósofo, dijo algo brillante: "Hay que imaginar a Sísifo feliz". 
 
-Has dejado morir al Mago, el arquetipo de la imprevisibilidad y la transformación. 
+La miseria del hombre moderno viene de creer que la felicidad está en la cima (conseguir el dinero, casarse con la chica hermosa). Pero una vez que llegas, la biología te quita la dopamina y te sientes vacío.
 
-Para mantener la chispa viva, tienes que inyectar "caos positivo" periódicamente. Cancela la cena predecible y llévala a manejar por la carretera sin rumbo. Hazle una broma desconcertante. Deja de decirle "Te amo" de forma automatizada al colgar el teléfono. 
+El secreto del Caballero Moderno es enamorarse de empujar la roca. Es amar el dolor del gimnasio a las 5 am. Es disfrutar el proceso de construir un negocio, incluso cuando falla. 
 
-Debes recordar esto: Las mujeres son criaturas emocionales que prosperan en el misterio y la pequeña incertidumbre. Si te vuelves un libro abierto y ya leído, la cerrará y buscará otro.
+Cuando cambias el foco del "resultado" (conseguir a la chica) al "proceso" (construirte como un hombre de alto valor), la magia ocurre: tu ansiedad desaparece, tu necesidad se evapora, y automáticamente te vuelves 100 veces más atractivo.
 
-👉 ¿Cuándo fue la última vez que fuiste espontáneo de verdad?
+👉 Deja de perseguir mariposas. Construye un jardín hermoso y las mariposas vendrán solas.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, mysterious shot of a modern gentleman standing in thick, cinematic fog at night under a single streetlamp. You can't quite read his expression, symbolizing the archetype of the Magician and unpredictability, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"An epic, sweeping cinematic shot of a lone, powerful man pushing a massive boulder up a steep, rocky mountain at dawn. Aesthetic, gritty, symbolizing the love for the struggle, photorealistic, 8k --ar 4:5"`
             }
         ]
     };
