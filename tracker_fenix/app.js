@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
     
-    // --- Agenda de la Semana 12 (Filosofía Oscura y Seducción) ---
+    // --- Agenda de la Semana 13 (Control del Marco y Dinámicas de Poder) ---
     const weeklyAgenda = {
         0: [ // Domingo - Empty
             { id: 't-sun-1', text: 'Descanso y planificación' }
@@ -32,238 +32,246 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "Mejor ser temido (respetado) que amado" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "La Batalla de los Marcos" (5:00 PM)',
                 script: `[GUION PARA VIDEO FACELESS - YT (3.5 mins)]
-Título SEO: El error de buscar ser "Amado": La lección de Maquiavelo
+Título SEO: Por qué siempre pierdes las discusiones: El Control del Marco
 
-[Visual sugerido: B-roll cinemático. Una estatua de mármol clásico (estilo renacentista), un rey antiguo, o un hombre vestido de forma impecable en las sombras leyendo un libro antiguo. Oscuro y académico.]
+[Visual sugerido: B-roll cinemático. Un juego de ajedrez donde el rey negro acorrala al blanco. Dos leones mirándose fijamente. Una entrevista de alto nivel estilo 'Succession'. Estética oscura y psicológica.]
 
-(0:00 - 0:30) Hook: "Maquiavelo escribió hace 500 años una frase que destruye por completo el consejo de citas moderno: 'Es mucho más seguro ser temido que amado, si se debe renunciar a uno de los dos'. En el contexto moderno, 'temido' significa 'respetado'. Y el gran error que comete el 99% de los hombres hoy en día es que prefieren ser amados antes que respetados. Hoy entenderás por qué esta actitud te condena al fracaso."
+(0:00 - 0:30) Hook: "¿Alguna vez has estado hablando con una mujer y, sin darte cuenta, terminaste justificándote o pidiendo disculpas por algo que ni siquiera era tu culpa? Bienvenido a la 'Batalla de los Marcos'. En psicología social, un 'Marco' (Frame) es la perspectiva o realidad bajo la cual se está llevando a cabo una interacción. Y hay una regla de oro inmutable: El marco más fuerte siempre absorbe al más débil. Hoy te voy a enseñar a dominar esta dinámica de poder."
 
-(0:30 - 1:30) La trampa del afecto: "Cuando buscas ser 'amado' desde el día uno, te vuelves complaciente. Pagas todas las cenas, cambias tus horarios, aguantas faltas de respeto y nunca dices que no. Quieres comprar el afecto. Pero el amor sin respeto no es amor, es lástima. Las mujeres no pueden sentir atracción genuina por un hombre al que pueden pisotear. El respeto es el cimiento, el amor es el tejado. Estás empezando la casa por el tejado."
+(0:30 - 1:30) Quien se justifica, pierde: "Cuando una mujer te lanza un 'shit test' o te cuestiona ('¿Por qué tardaste en responder?' o '¿Eres así de aburrido siempre?'), está intentando jalarte hacia su marco. Si tú respondes con lógica, pones excusas o te justificas, acabas de aceptar que ella es la autoridad y tú estás siendo evaluado. En el momento en que te justificas, pierdes la atracción. El hombre de alto estatus no es evaluado, él evalúa."
 
-(1:30 - 2:30) Construyendo Respeto: "Para ser respetado (o 'temido', en el sentido maquiavélico de que teman perderte), debes tener reglas inquebrantables. Si ella llega una hora tarde, te levantas y te vas. Si te falta el respeto, le retiras tu atención. Estar dispuesto a destruir la relación para proteger tus estándares es exactamente lo que hace que tu valor se dispare. No eres malo, eres un hombre con una frontera vigilada."
+(1:30 - 2:30) Cómo mantener tu Marco: "Para mantener tu marco, debes usar el humor, la indiferencia o la exageración. Si ella te dice 'Seguro le dices eso a todas', tú no dices 'No, te lo juro que no'. Tú dices, con una media sonrisa: 'Solo a las que me invitan a cenar. ¿A dónde me vas a llevar?'. Inmediatamente volteas el marco. Ahora eres tú el premio, y es ella quien debe invertir. Mantener tu realidad frente a la presión externa es el rasgo masculino más atractivo que existe."
 
-(2:30 - 3:30) Conclusión: "Deja de intentar gustarles a todos. El hombre que quiere agradar a todos, termina siendo una broma para sí mismo. Prioriza tu respeto, tu propósito y tus límites. Si haces eso, el amor que recibas será real, no comprado. Suscríbete si estás listo para leer el juego con otros ojos."`
+(2:30 - 3:30) Conclusión: "La próxima vez que sientas la urgencia de dar largas explicaciones para quedar bien, muerde tu lengua. Mantén contacto visual, sonríe ligeramente y no te tomes tan en serio. Sé el centro de tu propia realidad. Suscríbete si estás listo para dejar de reaccionar y empezar a liderar."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Respeto > Amor"',
+                text: 'Publicar Reel: "Quien reacciona, pierde"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: La cruda verdad sobre el amor 🖤
+Título en pantalla: La regla #1 de la psicología social ♟️
 
-[Visual sugerido: Un hombre encendiendo un fósforo en cámara lenta. O una pieza de ajedrez (el rey) cayendo sobre el tablero.]
+[Visual sugerido: Un hombre sentado relajado mientras un vaso se rompe cerca o hay caos alrededor, él ni se inmuta. O el océano chocando contra una roca sólida.]
 
-Voz en off: "El error más catastrófico del hombre moderno es intentar que las mujeres lo amen, antes de exigir que lo respeten. Cuando buscas amor, te vuelves dócil, regalas tu tiempo, pagas por atención y no pones límites. Básicamente te conviertes en un sirviente. Y las mujeres nunca se enamoran de sus sirvientes. Como dijo Maquiavelo, si tienes que elegir entre ser amado o respetado, elige siempre el respeto. El amor sin respeto es solo lástima disfrazada. Pon límites. Exige estándares. Arriésgate a perderla. Irónicamente, el miedo a perderte es lo único que garantizará que se quede. Sígueme para más filosofía de alto valor."
+Voz en off: "Hay una ley de poder en las dinámicas sociales que nadie te explica: La persona que reacciona más, es la persona que tiene menos poder. Si alguien te insulta de forma sutil y tú te enojas, pierdes. Si una mujer te hace una prueba y tú te pones nervioso y te justificas, pierdes. Quien altera su estado emocional por culpa del otro, acaba de entregarle el control de su mente. A esto se le llama 'Control del Marco'. El hombre magnético es como una roca en medio del océano. Las olas de drama, críticas o coqueteo chocan contra él, pero no lo mueven. Deja de ser reactivo. Conviértete en la roca. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El respeto es el único cimiento sólido. El amor construido sobre la sumisión se derrumba. 🏛️♟️
-No regales lo que deberías cobrar en respeto.
-👉 Sígueme para forjar una mentalidad de hierro.
-#Maquiavelo #FilosofiaOscura #CaballeroModerno #Respeto #AltoValor`
+El que más invierte emocionalmente en una interacción, es el subordinado. 🪨🌊
+Deja de reaccionar a todo. Mantén tu centro.
+👉 Sígueme para forjar un carácter inquebrantable.
+#PsicologiaSocial #ControlDelMarco #CaballeroModerno #Estoicismo #Poder`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Síndrome del Sirviente: Por qué el respeto va antes que el amor. 🏛️♟️
+                script: `La Batalla de los Marcos: Por qué quien se justifica, pierde. ♟️🪨
 
-Vivimos en una época que nos dice "entrega todo, sé súper romántico, dale flores en la primera cita, hazla sentir como una reina". Nos enseñaron a comprar el amor.
+Cada conversación que tienes es un choque de realidades. En psicología de la seducción y los negocios, esto se llama "Control del Marco" (Frame Control).
 
-El problema es que la atracción femenina no responde a los sobornos lógicos ni a la devoción ciega. Responde al estatus y al respeto.
+Imagina este escenario: Una chica te dice en tono de broma: "¿Esa es la camisa que vas a usar para nuestra cita?".
 
-Nicolás Maquiavelo tenía razón: Si no puedes ser amado y respetado (temido de perderte) al mismo tiempo, siempre elige el respeto. 
+El hombre con un Marco Débil se asusta. Su mente piensa: "Oh no, no le gusta". Inmediatamente responde: "Ah, ¿no te gusta? Puedo cambiarme rápido, es que estaba apurado". 
+Resultado: Acaba de ceder el poder. Ahora ella es el juez y él es el concursante. Atracción destruida.
 
-Cuando aguantas cancelaciones de último minuto o mensajes dejados en visto solo porque "no quieres que se enoje", le estás demostrando que tu tiempo y tu dignidad valen cero. Y nadie ama lo que no vale nada.
+El hombre con un Marco Fuerte sabe que es el premio. Sonríe ligeramente, la mira a los ojos y responde: "Sí, elegí mi camisa de la suerte. Trata de no distraerte mucho hoy". 
+Resultado: Él mantuvo su realidad. Él lidera. Atracción disparada.
 
-El Caballero Moderno entiende que sus límites son la puerta de entrada a su vida. Si cruzas la línea, se retira. Y esa disposición a caminar hacia la puerta es lo que lo hace magnético.
+Nunca pidas disculpas por ser tú. Nunca des explicaciones innecesarias a quien solo está poniendo a prueba tu seguridad.
 
-👉 ¿Has sacrificado tu respeto por mendigar amor? Únete a nosotros y cambia el guion.
+👉 ¿Eres reactivo o eres la roca?
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, dark academia aesthetic image of an ancient marble bust of a Roman Emperor half-lit by a flickering candle in a dark room. Symbolizing stoic power, respect, and dark philosophy, photorealistic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a massive, dark monolithic rock standing perfectly still in a stormy, crashing ocean. Symbolizing the stoic Frame Control and unreactiveness, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "Amor Fati (El rechazo es combustible)"',
+                text: 'Publicar Reel: "La Ley del Menor Esfuerzo"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Cómo volverte inmune al rechazo 🔥
+Título en pantalla: Por qué esforzarte te hace menos atractivo 🚫
 
-[Visual sugerido: Un hombre caminando bajo una lluvia torrencial con paso firme, o fuego consumiendo un papel. Vibras de estoicismo puro y transformación.]
+[Visual sugerido: B-roll de un hombre sirviéndose un trago tranquilamente, ignorando a una multitud. O un león bostezando mientras otros animales corren.]
 
-Voz en off: "Friedrich Nietzsche propuso una idea llamada 'Amor Fati': Amar tu destino. No solo soportarlo, amarlo. Cuando una mujer te rechaza, te ignora o te traiciona, el hombre débil llora y se deprime. El hombre de alto valor aplica Amor Fati. Mira el rechazo a los ojos y dice: 'Exactamente esto era lo que necesitaba'. Usa ese dolor como combustible puro. Ese rechazo es lo que lo empuja al gimnasio a las 5 de la mañana, es lo que lo hace enfocarse en sus finanzas, es lo que lo hace peligroso. El dolor no viene a destruirte, viene a forjarte. Ama tu destino. Sígueme."
+Voz en off: "Te enseñaron que para conseguir algo que vale la pena, tienes que esforzarte muchísimo. En el trabajo y en el gimnasio, eso es verdad. En la atracción, es veneno. Existe la 'Ley del Menor Esfuerzo Social'. Significa que la persona que parece estar intentando impresionar, automáticamente comunica que tiene menor valor. Si hablas más fuerte de lo normal, si te ríes excesivamente de sus chistes malos, o si usas ropa súper llamativa para que te miren... hueles a desesperación. El estatus real susurra, no grita. Relaja tus hombros, habla suave, no te esfuerces por caer bien. El verdadero magnetismo es parecer que no te importa en lo absoluto. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El rechazo no es un castigo, es la herramienta de forja del universo. ⚔️🔥
-Amor Fati: Aprende a amar la adversidad.
-👉 Sígueme para construir una resiliencia inquebrantable.
-#AmorFati #Nietzsche #CaballeroModerno #Estoicismo #DesarrolloPersonal`
+El estatus no se grita, se subcomunica. 🧊♟️
+Quien intenta impresionar, ya perdió. Relájate.
+👉 Sígueme para dominar el magnetismo silencioso.
+#Estatus #Seduccion #CaballeroModerno #LeyDelMenorEsfuerzo #Carisma`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Amor Fati: El superpoder del hombre inquebrantable. 🔥⚔️
+                script: `La Ley del Menor Esfuerzo: Tratar demasiado fuerte es tu perdición. 🧊🚫
 
-Hay dos formas de reaccionar cuando la vida (o una mujer) te golpea duro:
+Hay una regla contradictoria en las dinámicas sociales que frustra al 90% de los hombres: En la atracción, la ley del esfuerzo físico no aplica. 
 
-1. El Victimismo: "¿Por qué a mí? Fui tan bueno, di lo mejor, el mundo es injusto". (El camino del hombre débil, que lleva a la depresión y la amargura).
+Si quieres músculos grandes, tienes que levantar pesas pesadas (esfuerzo brutal). 
+Pero si quieres generar atracción masiva, tienes que parecer que NO estás haciendo ningún esfuerzo.
 
-2. Amor Fati: "Amo mi destino". (El concepto de Friedrich Nietzsche).
-Amor Fati no es resignación. Es abrazar agresivamente la adversidad. Es entender que ese corazón roto, esa traición o ese rechazo era EXACTAMENTE el evento que necesitabas para despertar. 
+El "Try-Hard" (el que se esfuerza demasiado) es el tipo que paga cenas carísimas para una chica que acaba de conocer, cuenta chistes gritando para que todos en la mesa lo miren, y se viste con marcas gigantes para demostrar que tiene dinero. 
+Subcomunicación: "Por favor, acéptenme".
 
-Es la chispa que te levanta del sofá, te mete al gimnasio, te obliga a leer, a mejorar tu estilo y a elevar tu estatus financiero. 
+El Caballero Moderno domina la "Sprezzatura" (el arte italiano de la indiferencia calculada). Viste impecable pero sin logos. Habla pausado. Se ríe solo si el chiste es genuinamente bueno. Trata a la mujer hermosa de la misma forma que trataría al cajero del banco: con educación y cero necesidad de impresionarla.
 
-El dolor es el mejor pre-entreno del mundo. Cuando logras ver el rechazo no como una pérdida, sino como la lección que necesitabas para forjarte como un hombre superior, te vuelves literalmente invencible.
+👉 El verdadero poder es relajado. 
 
-👉 Convierte tu dolor en poder. Únete a la tribu.
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody image of a modern gentleman standing confidently while a storm rages behind him, subtle lightning illuminating his silhouette, symbolizing Amor Fati and embracing the storm, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic cinematic image of a modern gentleman in a sharp but understated dark suit, sitting comfortably in a high-end lounge, looking completely relaxed and unbothered, exuding silent power (Sprezzatura), 8k --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "Memento Mori (No hay tiempo para juegos)"',
+                text: 'Publicar Reel: "Patrones de Interrupción"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Tu tiempo se acaba ⏳
+Título en pantalla: Cómo hackear su piloto automático 🧠
 
-[Visual sugerido: Un reloj de bolsillo antiguo, la arena cayendo, o las manecillas de un reloj moviéndose rápido. Tonos sepia oscuros.]
+[Visual sugerido: Matriz de código cayendo, o un disco de vinilo rayándose. Efecto visual de una falla en el sistema (Glitch), rápido y dinámico.]
 
-Voz en off: "Los emperadores romanos tenían un siervo que les susurraba al oído: 'Memento Mori'. Recuerda que vas a morir. Suena oscuro, pero es la máxima lección de libertad. ¿Por qué estás perdiendo semanas analizando el mensaje de texto de una chica que no te valora? ¿Por qué mendigas atención? ¿Por qué pospones tus metas financieras por salir de fiesta? Tu tiempo en este planeta se está consumiendo en este preciso segundo. Un Caballero Moderno no tolera juegos mentales ni falta de interés, porque su tiempo es demasiado valioso. Despierta. Enfócate en tu propósito. Memento Mori. Sígueme."
+Voz en off: "Las mujeres hermosas viven en piloto automático. Reciben los mismos cumplidos, los mismos mensajes de 'Hola, ¿qué tal tu día?', y las mismas miradas urgidas todos los días. Su cerebro ha creado una muralla para ignorarlos. Si quieres que te preste atención, tienes que usar un 'Patrón de Interrupción'. En PNL, esto significa hacer o decir algo tan inesperado que el cerebro no tiene un guion preprogramado para responder. En lugar de decirle 'Qué bonitos ojos tienes', acércate, mírala serio y dile: 'Tienes cara de que mientes en los juegos de mesa'. Su cerebro se descolocará, se reirá y te verá como una falla en la Matrix. Acabas de captar su atención total. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El recurso más valioso que tienes no es el dinero, es tu tiempo. ⏳💀
-No lo desperdicies en personas que no saben valorarlo.
-👉 Sígueme para alinear tu vida con tu verdadero propósito.
-#MementoMori #Estoicismo #CaballeroModerno #Proposito #Masculinidad`
+No seas un NPC más en su vida. Rompe el guion. 🧠⚡
+Los patrones de interrupción son el hack más rápido para generar curiosidad.
+👉 Sígueme para dominar la comunicación persuasiva.
+#PsicologiaOscura #PNL #CaballeroModerno #Atraccion #Carisma`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Memento Mori: La cura contra las relaciones tóxicas. ⏳💀
+                script: `Patrones de Interrupción: El hack para salir de la Matrix del "Hola, ¿cómo estás?". 🧠⚡
 
-"Recuerda que vas a morir". Esta era la frase estoica que resonaba en la antigua Roma. No para deprimir, sino para despertar.
+Imagina ser una mujer atractiva. Entras a Instagram y tienes 50 mensajes idénticos: 
+- "Qué hermosa eres".
+- "Hola, ¿qué tal tu día?".
+- "Preciosa".
 
-La mayoría de los hombres viven como si tuvieran mil años. Gastan 6 meses intentando convencer a una chica que los dejó en la 'friendzone'. Pierden horas analizando por qué los dejaron en visto. Tolera dramas absurdos y juegos mentales.
+El cerebro humano, para no volverse loco, automatiza las respuestas a los estímulos repetitivos. A esto se le llama "Piloto Automático". Cuando le dices un cumplido genérico, su cerebro ni siquiera lo registra, simplemente lo archiva en la carpeta de "Fans aburridos".
 
-Cuando internalizas la realidad de que tu tiempo es limitado y se agota a cada segundo, tu tolerancia por las tonterías cae a cero. 
+Para penetrar esa barrera, la PNL (Programación Neurolingüística) utiliza los "Patrones de Interrupción".
 
-De repente, ya no te importa si ella responde tarde. Tu cerebro está enfocado en construir tu negocio, moldear tu físico, proteger a tu familia. Cuando vives con este nivel de urgencia y propósito, cortas de raíz a la gente que te hace perder el tiempo. Y paradójicamente, esa indiferencia absoluta a los juegos es lo que te vuelve brutalmente atractivo.
+Tienes que decir o hacer algo que rompa la secuencia lógica esperada. 
+En lugar de invitarle un trago diciendo "¿Puedo invitarte algo?", acércate y dile con mucha seriedad: "¿Eres de las que roba las papas fritas del plato ajeno, o se puede confiar en ti?".
 
-👉 Tu reloj sigue avanzando. ¿En qué estás gastando hoy tu tiempo?
+Su cerebro no tiene una respuesta preprogramada para eso. Hará un cortocircuito, se reirá por la sorpresa, y Boom: acabas de ganar su total atención porque eres diferente.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A macro, cinematic dark aesthetic shot of an ornate antique pocket watch resting on a skull, soft shadows, moody lighting, symbolizing Memento Mori and the value of time, photorealistic --ar 4:5"`
+👉 ¿Sigues usando los mismos guiones aburridos que el resto? 
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, surreal image of a vinyl record being scratched, or a visual representation of a 'glitch' in the matrix in a crowded bar. Symbolizing breaking the pattern of normal social interaction, highly aesthetic, 8k --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "El Arte de la Guerra (El mercado)"',
+                text: 'Publicar Reel: "Dominio de Grupo"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Sun Tzu y el mercado de citas ⚔️
+Título en pantalla: Cómo liderar a otros hombres (Sin pelear) 🐺
 
-[Visual sugerido: Un pergamino antiguo, o un juego de estrategia (mapa de guerra, ajedrez). Hombre moviendo piezas en la oscuridad.]
+[Visual sugerido: B-roll de un lobo alfa observando a la manada desde arriba en silencio. O varios hombres de negocios, pero solo uno (enfoque oscuro) está relajado.]
 
-Voz en off: "Sun Tzu dijo: 'Si conoces al enemigo y te conoces a ti mismo, no temerás el resultado de cien batallas'. Las citas modernas son un campo de batalla psicológico. El problema es que no te conoces. Crees que eres un 10, pero vistes mal, ganas poco y no tienes habilidades sociales. Y tampoco conoces el mercado: no entiendes que las mujeres responden al estatus, la preselección y la seguridad, no a la poesía barata. Deja de quejarte del algoritmo. Analiza tus debilidades, mejora tu apariencia, aumenta tus ingresos y aprende psicología humana. Cuando domines ambas partes, ganarás sin pelear. Sígueme."
+Voz en off: "Cuando hay un grupo de hombres compitiendo por la atención de las mujeres, siempre hay dos tipos. Está el payaso: levanta la voz, cuenta chistes histéricos, e intenta dominar la conversación. Y luego está el líder silencioso. Mientras los demás compiten, él se sienta recostado hacia atrás. No compite por la palabra. Hace preguntas cortas y deja que los otros hombres hablen para validarse ante él. Físicamente ocupa más espacio, sus movimientos son lentos. Irónicamente, el hombre que no necesita ser el centro de atención, termina atrayendo la mirada de todas, porque subcomunica que no tiene nada que probar. Sé el líder silencioso. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Deja de culpar a las mujeres y empieza a estudiar el juego. ♟️📜
-Conocimiento + Ejecución = Resultados.
-👉 Sígueme para dominar la estrategia social de alto nivel.
-#SunTzu #Estrategia #CaballeroModerno #Seduccion #ValorPersonal`
+En un cuarto lleno de hombres gritando, el que susurra tiene el poder. 🐺🤫
+Deja que los betas compitan, el alfa evalúa.
+👉 Sígueme para dominar la dinámica social de grupos.
+#Liderazgo #DinamicaSocial #CaballeroModerno #Masculinidad #AltoValor`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Sun Tzu aplicado al romance moderno. ⚔️📜
+                script: `Dominio de Grupo: Por qué el líder no es el que más grita. 🐺🤫
 
-"Si conoces al enemigo y te conoces a ti mismo, no temerás el resultado de cien batallas." - Sun Tzu.
+Pon a cinco hombres y un par de mujeres hermosas en una mesa, y observarás la biología evolutiva en su estado más primitivo.
 
-Si bien las mujeres no son el "enemigo", el mercado de citas actual es un campo altamente competitivo. Y la gran mayoría de los hombres pierden la guerra antes de salir de casa por dos razones:
+En cuestión de minutos, empezará la competencia. Verás a los hombres (incluso a tus amigos) hablando más fuerte, alardeando sobre sus trabajos, interrumpiéndose y contando chistes para ver quién hace reír más a las chicas. Es una danza de pavos reales.
 
-1. No se conocen a sí mismos: Tienen un ego inflado pero un valor de mercado bajo. No cuidan su físico, no tienen ambición, visten mal, pero esperan a una supermodelo.
+El error número uno es entrar a competir en ese circo. 
 
-2. No conocen las reglas del juego: Creen que las mujeres se sienten atraídas por lo mismo que los hombres. Los hombres somos visuales; las mujeres son criaturas que responden al estatus, la seguridad emocional, la confianza y la preselección.
+El hombre magnético de alto estatus adopta la postura del "Líder Silencioso". Se recuesta en su silla (ocupando espacio). No eleva la voz. Sonríe ligeramente ante los intentos de los demás por impresionar. Hace preguntas y permite que los otros hombres intenten impresionarlo a ÉL.
 
-Si sigues intentando ganar el juego enviando fotos no solicitadas o pagando cenas caras, estás usando tácticas del siglo pasado. Estudia psicología evolutiva. Trabaja en tus finanzas. Entrena tu cuerpo. Conoce tus herramientas y conoce el terreno.
+Las mujeres tienen un radar agudo para el estatus. Rápidamente notarán que mientras 4 hombres compiten por atención, hay 1 hombre que no siente la necesidad de probar nada. Y la curiosidad por ese hombre silencioso las volverá locas.
 
-👉 Deja de improvisar. Únete a nuestra tribu y aprende estrategia de alto valor.
+👉 No compitas en su juego, cambia las reglas.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody image of a modern gentleman standing in a dimly lit library, studying a grand, ancient map of a battlefield. Merging modern elegance with ancient strategy, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a dark, elegant poker table with several men blurrily leaning in aggressively, while one man in sharp focus leans back comfortably in the shadows, quietly holding his cards, symbolizing silent leadership, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "La Ley del Péndulo (Tensión vs Aburrimiento)"',
+                text: 'Publicar Reel: "El Efecto Takeaway"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué se aburren del chico bueno 🕰️
+Título en pantalla: Vete cuando la fiesta esté buena 🚪
 
-[Visual sugerido: Un péndulo de Newton moviéndose, o una montaña rusa en cámara lenta. Sensación de movimiento y contraste.]
+[Visual sugerido: Un hombre caminando alejándose de una fiesta llena de luces y gente hacia la oscuridad, o alguien colgando un teléfono con calma.]
 
-Voz en off: "Schopenhauer dijo que la vida es un péndulo que oscila entre el dolor y el aburrimiento. Las relaciones funcionan igual. Cuando eres el 'chico bueno' perfecto, que nunca pelea, que siempre está disponible y le da todo en bandeja de plata... matas la tensión. El dolor desaparece, pero el péndulo se va al extremo del aburrimiento total. Y el aburrimiento destruye la atracción. Las mujeres necesitan la montaña rusa emocional. Necesitan el miedo a perderte, la tensión de no saber qué piensas, el conflicto resuelto. Necesitan drama positivo. No seas el chico seguro y aburrido, sé el caos controlado. Sígueme."
+Voz en off: "Este es el truco de manipulación de estatus más poderoso que vas a aprender: El Takeaway. La mayoría de los hombres se quedan en una cita o en una conversación hasta que se vuelve incómoda o se acaba el tema. Están exprimiendo hasta la última gota de validación. El hombre de alto valor hace exactamente lo contrario. En el momento más divertido de la cita, cuando ella se está riendo y hay máxima tensión química, él mira su reloj y dice: 'Me encantaría quedarme, pero tengo que madrugar mañana'. Corta la interacción en el punto más alto de dopamina. Eso la dejará literalmente adicta a tu presencia. Siempre retírate siendo el premio. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La seguridad total mata la atracción química. 🎢⚡
-El deseo solo puede existir en la incertidumbre.
-👉 Sígueme para entender los secretos oscuros de la seducción.
-#Filosofia #Atraccion #CaballeroModerno #Schopenhauer #Psicologia`
+Nunca dejes que el globo se desinfle frente a ella. Pínchalo cuando esté en lo más alto. 🎈🚪
+El Takeaway es el arte de dejar a la gente queriendo más.
+👉 Sígueme para convertirte en una adicción saludable.
+#PsicologiaSocial #Seduccion #CaballeroModerno #Takeaway #Atraccion`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Ley del Péndulo: Por qué tu relación perfecta está a punto de morir. 🕰️⚡
+                script: `El Efecto Takeaway: Retírate cuando la fiesta esté en su clímax. 🚪🎈
 
-El filósofo Arthur Schopenhauer dijo: "La vida oscila como un péndulo entre el sufrimiento y el aburrimiento". 
+Existe una regla de oro en el mundo del espectáculo (y en la seducción): Deja siempre a tu audiencia con ganas de más.
 
-Este es el secreto mejor guardado de las dinámicas de pareja. Cuando un hombre se esfuerza por ser 100% perfecto, complaciente, evitar todas las discusiones y darle a su mujer una vida de seguridad absoluta... el péndulo se mueve de inmediato hacia el aburrimiento.
+El error garrafal que cometen los hombres cuando por fin consiguen una cita que va muy bien, es que no saben irse. Se quedan hasta las 3 de la mañana hablando, hasta que ya no hay tema de conversación, empiezan los bostezos y la interacción muere por inercia.
 
-Y para una mujer, el aburrimiento emocional es el destructor número uno del deseo sexual y la atracción. 
+Estás entrenando a su cerebro para asociarte con aburrimiento al final de la noche.
 
-El cerebro femenino necesita una montaña rusa emocional (dentro de parámetros saludables). Necesita la tensión de que le digas que "NO". Necesita verte ocupado y no disponible. Necesita sentir la ligera incertidumbre de que podrías irte si te faltan el respeto. 
+Prueba el Efecto "Takeaway" (Quitar o retirar). Cuando la cita esté en su punto MÁS ALTO, cuando ella se esté riendo a carcajadas, tocándote el brazo y la química sea eléctrica, di esto:
+"Ha sido increíble, pero mañana tengo un día pesado. Tenemos que irnos".
 
-Ese contraste, ese "caos positivo", es lo que mantiene la chispa viva. Si te vuelves demasiado seguro, te vuelves invisible.
+Cortar la dopamina en el pico más alto provoca un vacío masivo. Su cerebro se quedará reproduciendo esa noche en bucle y estará literalmente desesperada por volver a verte.
 
-👉 ¿Estás pecando de ser demasiado predecible? 
+👉 Sé el hombre que controla su tiempo, no el que lo regala.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic cinematic image of a massive swinging pendulum in a dark, atmospheric room. One side illuminated by cold blue light, the other by warm fire, symbolizing the swing between tension and boredom, photorealistic --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A moody, highly cinematic image of a sharp-dressed gentleman walking away from a bright, glowing, blurry party scene into the cool, dark night, symbolizing leaving on a high note, photorealistic, 8k --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "El Mito de Sísifo (Ama el proceso)"',
+                text: 'Publicar Reel: "Arquitectura Espacial"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: El error de buscar la felicidad ⛰️
+Título en pantalla: Cómo sentarte en una primera cita 🪑
 
-[Visual sugerido: B-roll épico de un hombre escalando una montaña empinada, o entrenando hasta el fallo en el gimnasio. Mucha épica y esfuerzo.]
+[Visual sugerido: B-roll mostrando dos tazas de café o tragos. Diagrama visual muy rápido o simplemente planos estéticos de un bar oscuro desde diferentes ángulos.]
 
-Voz en off: "Estás deprimido porque crees que serás feliz cuando consigas a la chica perfecta o el auto de lujo. Mentira. Albert Camus usó el Mito de Sísifo (el hombre condenado a empujar una roca hasta la cima de la montaña por la eternidad) para explicarnos algo vital. La felicidad no está en llegar a la cima, está en empujar la roca. La atracción real no sucede cuando persigues a una mujer; sucede cuando te enamoras del proceso de construirte a ti mismo. Cuando te obsesionas con tu gimnasio, tus negocios y tu mente, la ansiedad desaparece. Imagina a Sísifo feliz. Ama el esfuerzo brutal de ser hombre. Sígueme."
+Voz en off: "Si vas a una cita y te sientas frente a frente con ella, como en una entrevista de trabajo, ya empezaste perdiendo. La arquitectura espacial dicta las emociones. Sentarte cara a cara genera confrontación subconsciente y bloquea cualquier posibilidad de romper la barrera física (el kino). El truco de los seductores de élite es sentarse a 90 grados, en la esquina de una mesa, o uno al lado del otro en la barra de un bar. Esto subcomunica que están juntos contra el mundo, no uno contra el otro. Además, permite el contacto físico accidental. Cambia tu posicionamiento físico, y cambiarás el resultado de la noche. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El propósito no es el destino, es el sudor que dejas en el camino. ⛰️🦅
-Deja de perseguir mujeres y empieza a perseguir la excelencia.
-👉 Sígueme para construir una vida de la que estés orgulloso.
-#Sisifo #Camus #CaballeroModerno #Proposito #Masculinidad`
+No vayas a una cita como si fueras a pedir trabajo de contador. 📐☕
+Las entrevistas son frente a frente. El romance es a 90 grados.
+👉 Sígueme para dominar la logística de la atracción.
+#LenguajeCorporal #PrimeraCita #CaballeroModerno #Seduccion #Logistica`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Mito de Sísifo: Por qué perseguir mujeres te hace miserable. ⛰️🦅
+                script: `Arquitectura Espacial: La logística oculta de una primera cita. 📐☕
 
-En la mitología griega, Sísifo fue condenado a empujar una roca enorme hasta la cima de una montaña, solo para verla caer y tener que empezar de nuevo por la eternidad. 
+El 90% de los hombres arruinan su primera cita antes de siquiera decir "Hola". Lo arruinan con la logística espacial.
 
-Albert Camus, el filósofo, dijo algo brillante: "Hay que imaginar a Sísifo feliz". 
+Van a Starbucks, eligen una mesa cuadrada, y se sientan EXACTAMENTE frente a la mujer. 
 
-La miseria del hombre moderno viene de creer que la felicidad está en la cima (conseguir el dinero, casarse con la chica hermosa). Pero una vez que llegas, la biología te quita la dopamina y te sientes vacío.
+En psicología espacial, la posición frente a frente es la posición de la confrontación, la negociación y la entrevista de trabajo. Hay una barrera física (la mesa) separándolos. Esto eleva la tensión defensiva y hace que cualquier intento de contacto físico (rozar una mano) se sienta forzado y lejano.
 
-El secreto del Caballero Moderno es enamorarse de empujar la roca. Es amar el dolor del gimnasio a las 5 am. Es disfrutar el proceso de construir un negocio, incluso cuando falla. 
+El Caballero Moderno sabe que la logística lo es todo. Llévala a la barra de un bar (sentados lado a lado) o busca una mesa cuadrada y siéntate en la esquina, a 90 grados de ella. 
 
-Cuando cambias el foco del "resultado" (conseguir a la chica) al "proceso" (construirte como un hombre de alto valor), la magia ocurre: tu ansiedad desaparece, tu necesidad se evapora, y automáticamente te vuelves 100 veces más atractivo.
+Sentarse a 90 grados o lado a lado elimina la sensación de interrogatorio. Invita a compartir el mismo punto de vista visual (mirar el lugar juntos) y hace que romper la barrera del contacto físico sea tan natural como rozar codos por accidente. 
 
-👉 Deja de perseguir mariposas. Construye un jardín hermoso y las mariposas vendrán solas.
+👉 Los pequeños detalles separan a los novatos de los maestros.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"An epic, sweeping cinematic shot of a lone, powerful man pushing a massive boulder up a steep, rocky mountain at dawn. Aesthetic, gritty, symbolizing the love for the struggle, photorealistic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic overhead shot of a moody, dimly lit bar table. Two elegant cocktail glasses are placed at a 90-degree angle corner of the table, not opposite each other, symbolizing intimate spatial architecture, 8k --ar 4:5"`
             }
         ]
     };
