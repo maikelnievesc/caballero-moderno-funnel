@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
     
-    // --- Agenda de la Semana 13 (Control del Marco y Dinámicas de Poder) ---
+    // --- Agenda de la Semana 14 (La Economía de la Atracción) ---
     const weeklyAgenda = {
         0: [ // Domingo - Empty
             { id: 't-sun-1', text: 'Descanso y planificación' }
@@ -32,246 +32,249 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "La Batalla de los Marcos" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "La Inflación de tu Atención" (5:00 PM)',
                 script: `[GUION PARA VIDEO FACELESS - YT (3.5 mins)]
-Título SEO: Por qué siempre pierdes las discusiones: El Control del Marco
+Título SEO: Por qué eres invisible para ella: La Economía de la Atracción
 
-[Visual sugerido: B-roll cinemático. Un juego de ajedrez donde el rey negro acorrala al blanco. Dos leones mirándose fijamente. Una entrevista de alto nivel estilo 'Succession'. Estética oscura y psicológica.]
+[Visual sugerido: B-roll cinemático. Gráficos de Wall Street en verde y rojo, máquinas imprimiendo billetes, hombres de negocios caminando rápido, estética de lujo y economía 'dark'.]
 
-(0:00 - 0:30) Hook: "¿Alguna vez has estado hablando con una mujer y, sin darte cuenta, terminaste justificándote o pidiendo disculpas por algo que ni siquiera era tu culpa? Bienvenido a la 'Batalla de los Marcos'. En psicología social, un 'Marco' (Frame) es la perspectiva o realidad bajo la cual se está llevando a cabo una interacción. Y hay una regla de oro inmutable: El marco más fuerte siempre absorbe al más débil. Hoy te voy a enseñar a dominar esta dinámica de poder."
+(0:00 - 0:30) Hook: "¿Sabías que las leyes de la economía que rigen a Wall Street son exactamente las mismas leyes que deciden si una mujer se siente atraída por ti o te ignora? Hoy no vamos a hablar de romance, vamos a hablar de economía pura. Y el error número uno que está quebrando tu valor social en este mismo instante se llama: 'Inflación de Atención'. Presta atención, porque esto va a cambiar tu forma de ver las relaciones."
 
-(0:30 - 1:30) Quien se justifica, pierde: "Cuando una mujer te lanza un 'shit test' o te cuestiona ('¿Por qué tardaste en responder?' o '¿Eres así de aburrido siempre?'), está intentando jalarte hacia su marco. Si tú respondes con lógica, pones excusas o te justificas, acabas de aceptar que ella es la autoridad y tú estás siendo evaluado. En el momento en que te justificas, pierdes la atracción. El hombre de alto estatus no es evaluado, él evalúa."
+(0:30 - 1:30) Ley de Oferta y Demanda: "En economía básica, cuando un gobierno imprime demasiados billetes, el valor de esa moneda cae al suelo. Se llama inflación. El dinero pierde su poder adquisitivo porque hay demasiado circulando. En el mercado de citas, tu atención, tus likes y tus mensajes son tu moneda. Si tú 'imprimes' likes ilimitados, respondes en 3 segundos y siempre estás disponible, estás hiper-inflando tu moneda. Tu atención ya no vale nada porque hay una sobreoferta."
 
-(1:30 - 2:30) Cómo mantener tu Marco: "Para mantener tu marco, debes usar el humor, la indiferencia o la exageración. Si ella te dice 'Seguro le dices eso a todas', tú no dices 'No, te lo juro que no'. Tú dices, con una media sonrisa: 'Solo a las que me invitan a cenar. ¿A dónde me vas a llevar?'. Inmediatamente volteas el marco. Ahora eres tú el premio, y es ella quien debe invertir. Mantener tu realidad frente a la presión externa es el rasgo masculino más atractivo que existe."
+(1:30 - 2:30) El patrón oro del estatus: "Los diamantes son caros porque son escasos. El agua es barata porque abunda. El hombre de alto estatus opera bajo el 'Patrón Oro'. Su atención está respaldada por su propósito. Como está construyendo un negocio, entrenando su cuerpo o educando su mente, su atención es escasa. Y cuando le dedica 30 minutos de su atención a una mujer, esos 30 minutos valen oro. Ella siente el peso de ese valor."
 
-(2:30 - 3:30) Conclusión: "La próxima vez que sientas la urgencia de dar largas explicaciones para quedar bien, muerde tu lengua. Mantén contacto visual, sonríe ligeramente y no te tomes tan en serio. Sé el centro de tu propia realidad. Suscríbete si estás listo para dejar de reaccionar y empezar a liderar."`
+(2:30 - 3:30) Conclusión: "Deja de regalar tu moneda. Deja de ser un cajero automático de validación gratuita. Si quieres que tu presencia sea valorada, tiene que ser escasa. Empieza a cobrar caro por tu tiempo. Suscríbete si estás listo para dejar la bancarrota emocional y empezar a jugar en las grandes ligas."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Quien reacciona, pierde"',
+                text: 'Publicar Reel: "Inflación de Atención"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: La regla #1 de la psicología social ♟️
+Título en pantalla: Tu atención ya no vale nada 📉
 
-[Visual sugerido: Un hombre sentado relajado mientras un vaso se rompe cerca o hay caos alrededor, él ni se inmuta. O el océano chocando contra una roca sólida.]
+[Visual sugerido: Clip cinemático de billetes cayendo o quemándose, o un hombre cerrando una bóveda acorazada.]
 
-Voz en off: "Hay una ley de poder en las dinámicas sociales que nadie te explica: La persona que reacciona más, es la persona que tiene menos poder. Si alguien te insulta de forma sutil y tú te enojas, pierdes. Si una mujer te hace una prueba y tú te pones nervioso y te justificas, pierdes. Quien altera su estado emocional por culpa del otro, acaba de entregarle el control de su mente. A esto se le llama 'Control del Marco'. El hombre magnético es como una roca en medio del océano. Las olas de drama, críticas o coqueteo chocan contra él, pero no lo mueven. Deja de ser reactivo. Conviértete en la roca. Sígueme."
+Voz en off: "Estás cometiendo un error económico brutal con las mujeres: La Inflación de Atención. En economía, si imprimes billetes a lo loco, el dinero pierde su valor. Cuando tú le das likes a todas sus fotos, respondes sus historias en segundos y le das cumplidos gratis todos los días, estás hiper-inflando tu moneda. Tu atención pasa a valer cero. ¿Por qué iba a esforzarse por ti si le das la recompensa gratis? El hombre magnético restringe la oferta. Su validación es escasa, y por lo tanto, es carísima. Deja de devaluarte. Haz que tu tiempo vuelva a ser un lujo. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El que más invierte emocionalmente en una interacción, es el subordinado. 🪨🌊
-Deja de reaccionar a todo. Mantén tu centro.
-👉 Sígueme para forjar un carácter inquebrantable.
-#PsicologiaSocial #ControlDelMarco #CaballeroModerno #Estoicismo #Poder`
+Lo que se regala en abundancia, termina en la basura. 🗑️💸
+Aplica la ley de la oferta y la demanda a tu vida social.
+👉 Sígueme para dominar la economía del alto valor.
+#Economia #CaballeroModerno #Atraccion #AltoValor #Seduccion`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Batalla de los Marcos: Por qué quien se justifica, pierde. ♟️🪨
+                script: `La Inflación de tu Atención: Por qué le aburres. 📉💸
 
-Cada conversación que tienes es un choque de realidades. En psicología de la seducción y los negocios, esto se llama "Control del Marco" (Frame Control).
+Si mañana el gobierno decide regalarle un Ferrari a cada ciudadano, ¿qué pasaría? Al día siguiente, ver un Ferrari en la calle dejaría de ser especial. Perdería su estatus mágico.
 
-Imagina este escenario: Una chica te dice en tono de broma: "¿Esa es la camisa que vas a usar para nuestra cita?".
+Tu atención funciona exactamente igual. 
 
-El hombre con un Marco Débil se asusta. Su mente piensa: "Oh no, no le gusta". Inmediatamente responde: "Ah, ¿no te gusta? Puedo cambiarme rápido, es que estaba apurado". 
-Resultado: Acaba de ceder el poder. Ahora ella es el juez y él es el concursante. Atracción destruida.
+Muchos hombres se preguntan por qué la chica que les gusta perdió el interés, si ellos "le dieron todo". Ese es precisamente el problema. Le diste todo gratis. 
 
-El hombre con un Marco Fuerte sabe que es el premio. Sonríe ligeramente, la mira a los ojos y responde: "Sí, elegí mi camisa de la suerte. Trata de no distraerte mucho hoy". 
-Resultado: Él mantuvo su realidad. Él lidera. Atracción disparada.
+Si eres el tipo que responde en 2 segundos, le envía mensajes de "buenos días" incondicionales, y cancela sus planes para verla, estás sufriendo de Inflación de Atención. Has creado una sobreoferta de tu validación, llevando su valor a cero.
 
-Nunca pidas disculpas por ser tú. Nunca des explicaciones innecesarias a quien solo está poniendo a prueba tu seguridad.
+El Caballero Moderno es la Reserva Federal de su propia energía. Restringe la oferta. Su atención es cara porque su tiempo está invertido en su propósito, no en su teléfono. 
 
-👉 ¿Eres reactivo o eres la roca?
+👉 ¿Estás devaluando tu propio estatus sin darte cuenta?
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a massive, dark monolithic rock standing perfectly still in a stormy, crashing ocean. Symbolizing the stoic Frame Control and unreactiveness, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, dark academia image of a modern gentleman sitting in a shadowy room, carelessly tossing a gold coin in the air. Symbolizing control over value and attention, photorealistic, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "La Ley del Menor Esfuerzo"',
+                text: 'Publicar Reel: "La Falacia del Costo Hundido"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué esforzarte te hace menos atractivo 🚫
+Título en pantalla: Por qué no puedes soltarla ⚓
 
-[Visual sugerido: B-roll de un hombre sirviéndose un trago tranquilamente, ignorando a una multitud. O un león bostezando mientras otros animales corren.]
+[Visual sugerido: B-roll de un ancla hundiéndose en el océano oscuro, o un hombre mirando un barco ardiendo a lo lejos. Sensación de pérdida.]
 
-Voz en off: "Te enseñaron que para conseguir algo que vale la pena, tienes que esforzarte muchísimo. En el trabajo y en el gimnasio, eso es verdad. En la atracción, es veneno. Existe la 'Ley del Menor Esfuerzo Social'. Significa que la persona que parece estar intentando impresionar, automáticamente comunica que tiene menor valor. Si hablas más fuerte de lo normal, si te ríes excesivamente de sus chistes malos, o si usas ropa súper llamativa para que te miren... hueles a desesperación. El estatus real susurra, no grita. Relaja tus hombros, habla suave, no te esfuerces por caer bien. El verdadero magnetismo es parecer que no te importa en lo absoluto. Sígueme."
+Voz en off: "¿Por qué sigues rogándole a una mujer que te trata mal? En finanzas, esto se llama 'La Falacia del Costo Hundido'. Ocurre cuando un inversor sigue inyectando dinero en una empresa que está quebrando, solo porque ya invirtió mucho antes y no quiere aceptar la pérdida. Tú estás haciendo lo mismo. Llevas 6 meses pagando cenas, aguantando rechazos y perdiendo tu dignidad. Y tu cerebro te engaña diciendo: 'Un poco más de esfuerzo y cambiará'. Mentira. Acepta la pérdida. Retira tu inversión emocional hoy mismo. Duele ahora, pero te salva la vida mañana. Corta el cable. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El estatus no se grita, se subcomunica. 🧊♟️
-Quien intenta impresionar, ya perdió. Relájate.
-👉 Sígueme para dominar el magnetismo silencioso.
-#Estatus #Seduccion #CaballeroModerno #LeyDelMenorEsfuerzo #Carisma`
+No sigas invirtiendo en un negocio (o relación) que está en bancarrota. 📉⚓
+Aceptar la pérdida a tiempo es la mejor victoria financiera y emocional.
+👉 Sígueme para construir inteligencia emocional.
+#CostoHundido #Psicologia #CaballeroModerno #Finanzas #RelacionesToxicas`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Ley del Menor Esfuerzo: Tratar demasiado fuerte es tu perdición. 🧊🚫
+                script: `La Falacia del Costo Hundido: Por qué te quedas donde no te valoran. ⚓📉
 
-Hay una regla contradictoria en las dinámicas sociales que frustra al 90% de los hombres: En la atracción, la ley del esfuerzo físico no aplica. 
+Imagina que compras un boleto de $500 pesos para ver una película. A los 20 minutos, te das cuenta de que la película es horrible. ¿Te sales del cine para disfrutar el resto de tu día, o te quedas sufriendo 2 horas solo porque "ya pagaste"?
 
-Si quieres músculos grandes, tienes que levantar pesas pesadas (esfuerzo brutal). 
-Pero si quieres generar atracción masiva, tienes que parecer que NO estás haciendo ningún esfuerzo.
+El 90% de la gente se queda. Esto se llama la "Falacia del Costo Hundido".
 
-El "Try-Hard" (el que se esfuerza demasiado) es el tipo que paga cenas carísimas para una chica que acaba de conocer, cuenta chistes gritando para que todos en la mesa lo miren, y se viste con marcas gigantes para demostrar que tiene dinero. 
-Subcomunicación: "Por favor, acéptenme".
+Es el mismo error cognitivo que te mantiene persiguiendo a una mujer que te ignora, o atrapado en una relación tóxica. Tu cerebro te dice: "Ya le invertí 6 meses de mi vida, ya le pagué 10 cenas, ya aguanté sus dramas... si me voy ahora, todo ese esfuerzo fue en vano".
 
-El Caballero Moderno domina la "Sprezzatura" (el arte italiano de la indiferencia calculada). Viste impecable pero sin logos. Habla pausado. Se ríe solo si el chiste es genuinamente bueno. Trata a la mujer hermosa de la misma forma que trataría al cajero del banco: con educación y cero necesidad de impresionarla.
+Error. Ese esfuerzo YA se perdió. Lo único que puedes controlar es si vas a seguir perdiendo MÁS tiempo, MÁS dinero y MÁS dignidad mañana.
 
-👉 El verdadero poder es relajado. 
+El hombre superior sabe "cortar pérdidas" (Cut Losses). Si no hay retorno de inversión (respeto, lealtad, paz), levántate de la mesa y vete. 
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic cinematic image of a modern gentleman in a sharp but understated dark suit, sitting comfortably in a high-end lounge, looking completely relaxed and unbothered, exuding silent power (Sprezzatura), 8k --ar 4:5"`
+👉 ¿A qué "inversión muerta" le sigues metiendo energía?
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, ultra-moody shot of a massive heavy anchor chain snapping in slow motion under dark water. Symbolizing breaking free from sunk costs, highly aesthetic, 8k --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "Patrones de Interrupción"',
+                text: 'Publicar Reel: "El Costo de Oportunidad"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Cómo hackear su piloto automático 🧠
+Título en pantalla: Lo que te cuesta pensar en ella 💸
 
-[Visual sugerido: Matriz de código cayendo, o un disco de vinilo rayándose. Efecto visual de una falla en el sistema (Glitch), rápido y dinámico.]
+[Visual sugerido: Un hombre frente a dos caminos en la niebla, o un reloj de lujo haciendo 'tic tac' con billetes desenfocados de fondo.]
 
-Voz en off: "Las mujeres hermosas viven en piloto automático. Reciben los mismos cumplidos, los mismos mensajes de 'Hola, ¿qué tal tu día?', y las mismas miradas urgidas todos los días. Su cerebro ha creado una muralla para ignorarlos. Si quieres que te preste atención, tienes que usar un 'Patrón de Interrupción'. En PNL, esto significa hacer o decir algo tan inesperado que el cerebro no tiene un guion preprogramado para responder. En lugar de decirle 'Qué bonitos ojos tienes', acércate, mírala serio y dile: 'Tienes cara de que mientes en los juegos de mesa'. Su cerebro se descolocará, se reirá y te verá como una falla en la Matrix. Acabas de captar su atención total. Sígueme."
+Voz en off: "Estás en tu cama, triste, pasando 3 horas analizando por qué te dejó en visto. Te voy a explicar tu verdadero problema usando el 'Costo de Oportunidad'. En la economía, toda decisión tiene un costo oculto: aquello a lo que renuncias para hacer lo que estás haciendo. Esas 3 horas sufriendo por una mujer que no te valora, son 3 horas que NO pasaste en el gimnasio, que NO usaste para leer, que NO usaste para crear una fuente de ingresos. No estás perdiendo a la chica, estás perdiendo tu potencial, tu imperio y tu vida. El costo de oportunidad de ser débil es demasiado alto. Levántate. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No seas un NPC más en su vida. Rompe el guion. 🧠⚡
-Los patrones de interrupción son el hack más rápido para generar curiosidad.
-👉 Sígueme para dominar la comunicación persuasiva.
-#PsicologiaOscura #PNL #CaballeroModerno #Atraccion #Carisma`
+Llorar por quien no te valora te está costando millones a largo plazo. ⏳💸
+Tu atención es capital. Invierte donde haya retorno.
+👉 Sígueme para enfocarte en tu propósito.
+#CostoDeOportunidad #Exito #CaballeroModerno #Mentalidad #Proposito`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Patrones de Interrupción: El hack para salir de la Matrix del "Hola, ¿cómo estás?". 🧠⚡
+                script: `El Costo de Oportunidad: El precio oculto de rogar atención. ⏳💸
 
-Imagina ser una mujer atractiva. Entras a Instagram y tienes 50 mensajes idénticos: 
-- "Qué hermosa eres".
-- "Hola, ¿qué tal tu día?".
-- "Preciosa".
+Hay un concepto económico brutal llamado "Costo de Oportunidad". Se define como el valor de la mejor alternativa que dejas pasar cuando tomas una decisión.
 
-El cerebro humano, para no volverse loco, automatiza las respuestas a los estímulos repetitivos. A esto se le llama "Piloto Automático". Cuando le dices un cumplido genérico, su cerebro ni siquiera lo registra, simplemente lo archiva en la carpeta de "Fans aburridos".
+Si tienes $1,000 dólares y los gastas en fiesta, el costo de oportunidad es la inversión o el negocio que pudiste haber iniciado con ese dinero.
 
-Para penetrar esa barrera, la PNL (Programación Neurolingüística) utiliza los "Patrones de Interrupción".
+Aplícalo a tu vida romántica: Si pasas 2 horas al día stalkeando el Instagram de tu ex, lamentándote por un rechazo o enviando mensajes a chicas que responden con un emoji frío... ¿cuál es el costo de oportunidad?
 
-Tienes que decir o hacer algo que rompa la secuencia lógica esperada. 
-En lugar de invitarle un trago diciendo "¿Puedo invitarte algo?", acércate y dile con mucha seriedad: "¿Eres de las que roba las papas fritas del plato ajeno, o se puede confiar en ti?".
+El costo es el físico espectacular que no estás construyendo en el gimnasio. 
+El costo es la paz mental que no tienes. 
+El costo es el conocimiento que no estás leyendo.
 
-Su cerebro no tiene una respuesta preprogramada para eso. Hará un cortocircuito, se reirá por la sorpresa, y Boom: acabas de ganar su total atención porque eres diferente.
+Tus emociones y tu atención son tu capital más valioso. Estás gastando capital Premium en inversiones que dan cero rendimiento. 
 
-👉 ¿Sigues usando los mismos guiones aburridos que el resto? 
+👉 Redirige tu capital hacia ti mismo hoy. 
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, surreal image of a vinyl record being scratched, or a visual representation of a 'glitch' in the matrix in a crowded bar. Symbolizing breaking the pattern of normal social interaction, highly aesthetic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, moody image of a modern gentleman looking at a luxury watch, while in the blurry background, a faint shadow of a woman walks away. Symbolizing the realization of opportunity cost and time, 8k --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Dominio de Grupo"',
+                text: 'Publicar Reel: "El Principio de Pareto (80/20)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Cómo liderar a otros hombres (Sin pelear) 🐺
+Título en pantalla: La cruda verdad de las apps de citas 📊
 
-[Visual sugerido: B-roll de un lobo alfa observando a la manada desde arriba en silencio. O varios hombres de negocios, pero solo uno (enfoque oscuro) está relajado.]
+[Visual sugerido: Un gráfico de barras estético en neon rojo, o un león comiendo solo mientras las hienas miran de lejos.]
 
-Voz en off: "Cuando hay un grupo de hombres compitiendo por la atención de las mujeres, siempre hay dos tipos. Está el payaso: levanta la voz, cuenta chistes histéricos, e intenta dominar la conversación. Y luego está el líder silencioso. Mientras los demás compiten, él se sienta recostado hacia atrás. No compite por la palabra. Hace preguntas cortas y deja que los otros hombres hablen para validarse ante él. Físicamente ocupa más espacio, sus movimientos son lentos. Irónicamente, el hombre que no necesita ser el centro de atención, termina atrayendo la mirada de todas, porque subcomunica que no tiene nada que probar. Sé el líder silencioso. Sígueme."
+Voz en off: "El Principio de Pareto dicta que el 80% de los resultados vienen del 20% de las causas. En el romance moderno, esto es brutalmente real: El 20% de los hombres se quedan con el 80% de la atención femenina. ¿Por qué? Porque el mercado premia a los ganadores. El 80% de los hombres promedio no van al gimnasio, visten mal, no tienen ambición y se quejan del algoritmo de Tinder. El top 20% está construyendo un cuerpo de hierro, mejorando sus ingresos y dominando su carisma. Tienes dos opciones: llorar porque el mercado es injusto, o ponerte a trabajar hoy mismo para entrar en ese 20%. La elección es tuya. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-En un cuarto lleno de hombres gritando, el que susurra tiene el poder. 🐺🤫
-Deja que los betas compitan, el alfa evalúa.
-👉 Sígueme para dominar la dinámica social de grupos.
-#Liderazgo #DinamicaSocial #CaballeroModerno #Masculinidad #AltoValor`
+El mundo no es justo, es competitivo. 📊🐺
+Deja de quejarte del mercado y conviértete en el producto de más alto valor.
+👉 Sígueme para entrar al top 20%.
+#Pareto #Ley8020 #CaballeroModerno #Competencia #AltoValor`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Dominio de Grupo: Por qué el líder no es el que más grita. 🐺🤫
+                script: `El Principio de Pareto: Por qué el mercado de citas es despiadado. 📊🐺
 
-Pon a cinco hombres y un par de mujeres hermosas en una mesa, y observarás la biología evolutiva en su estado más primitivo.
+El economista Vilfredo Pareto descubrió que el 80% de la tierra en Italia era propiedad del 20% de la población. Esta ley (80/20) se aplica a casi todo: el 80% de las ventas vienen del 20% de los clientes.
 
-En cuestión de minutos, empezará la competencia. Verás a los hombres (incluso a tus amigos) hablando más fuerte, alardeando sobre sus trabajos, interrumpiéndose y contando chistes para ver quién hace reír más a las chicas. Es una danza de pavos reales.
+Y en las dinámicas sociales modernas (especialmente en apps de citas y redes sociales), la regla es igual de salvaje: El 20% de los hombres compiten por el 80% de la atención femenina. 
 
-El error número uno es entrar a competir en ese circo. 
+Mientras el 80% de los hombres (el promedio) se queja de que "las mujeres son muy exigentes", envían fotos no solicitadas y no cuidan su higiene...
 
-El hombre magnético de alto estatus adopta la postura del "Líder Silencioso". Se recuesta en su silla (ocupando espacio). No eleva la voz. Sonríe ligeramente ante los intentos de los demás por impresionar. Hace preguntas y permite que los otros hombres intenten impresionarlo a ÉL.
+El Top 20% está en silencio:
+1. Entrenando duro en el gimnasio.
+2. Vistiendo de forma impecable.
+3. Construyendo fuentes de ingresos.
+4. Desarrollando inteligencia emocional.
 
-Las mujeres tienen un radar agudo para el estatus. Rápidamente notarán que mientras 4 hombres compiten por atención, hay 1 hombre que no siente la necesidad de probar nada. Y la curiosidad por ese hombre silencioso las volverá locas.
+El mercado no tiene piedad con la mediocridad. Puedes ofenderte por las reglas del juego, o puedes aprenderlas, usarlas a tu favor y convertirte en el 20%. 
 
-👉 No compitas en su juego, cambia las reglas.
+👉 ¿Qué hiciste hoy para salir del promedio?
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic shot of a dark, elegant poker table with several men blurrily leaning in aggressively, while one man in sharp focus leans back comfortably in the shadows, quietly holding his cards, symbolizing silent leadership, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, highly aesthetic image of a steep pyramid or graph in dark stone. One lone, sharp-dressed man stands at the very top glowing subtly, while a faceless crowd stands in the shadows at the bottom, symbolizing the 80/20 rule, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "El Efecto Takeaway"',
+                text: 'Publicar Reel: "Monopolios y Diversificación"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Vete cuando la fiesta esté buena 🚪
+Título en pantalla: El peligro de apostarlo todo a ella 🎲
 
-[Visual sugerido: Un hombre caminando alejándose de una fiesta llena de luces y gente hacia la oscuridad, o alguien colgando un teléfono con calma.]
+[Visual sugerido: Un hombre apostando todas sus fichas de casino en un solo número (Ruleta), o un barco inmenso a punto de hundirse por cargar peso de un solo lado.]
 
-Voz en off: "Este es el truco de manipulación de estatus más poderoso que vas a aprender: El Takeaway. La mayoría de los hombres se quedan en una cita o en una conversación hasta que se vuelve incómoda o se acaba el tema. Están exprimiendo hasta la última gota de validación. El hombre de alto valor hace exactamente lo contrario. En el momento más divertido de la cita, cuando ella se está riendo y hay máxima tensión química, él mira su reloj y dice: 'Me encantaría quedarme, pero tengo que madrugar mañana'. Corta la interacción en el punto más alto de dopamina. Eso la dejará literalmente adicta a tu presencia. Siempre retírate siendo el premio. Sígueme."
+Voz en off: "Cualquier inversor novato sabe que poner todo tu dinero en una sola acción es suicidio financiero. Si esa empresa quiebra, lo pierdes todo. Sin embargo, los hombres hacen esto emocionalmente todos los días. Convierten a una sola mujer en su única fuente de felicidad. No tienen hobbies, perdieron a sus amigos, y odian su trabajo. Han creado un Monopolio Emocional. Si ella se va o tiene un mal día, tu vida entera se derrumba. El hombre de alto estatus diversifica su identidad. Su felicidad viene de sus negocios, su entrenamiento, sus hermanos de batalla y su propósito. Ella es un complemento al portafolio, no todo el capital. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Nunca dejes que el globo se desinfle frente a ella. Pínchalo cuando esté en lo más alto. 🎈🚪
-El Takeaway es el arte de dejar a la gente queriendo más.
-👉 Sígueme para convertirte en una adicción saludable.
-#PsicologiaSocial #Seduccion #CaballeroModerno #Takeaway #Atraccion`
+Nunca pongas la llave de tu felicidad en el bolsillo de otra persona. 🎲📉
+Diversifica tus fuentes de propósito. 
+👉 Sígueme para construir independencia emocional.
+#Diversificacion #Inversiones #CaballeroModerno #Independencia #Estoicismo`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Efecto Takeaway: Retírate cuando la fiesta esté en su clímax. 🚪🎈
+                script: `Diversificación de Identidad: Por qué depender de ella te destruirá. 🎲📉
 
-Existe una regla de oro en el mundo del espectáculo (y en la seducción): Deja siempre a tu audiencia con ganas de más.
+Regla número 1 de las inversiones: "Nunca pongas todos tus huevos en la misma canasta". 
 
-El error garrafal que cometen los hombres cuando por fin consiguen una cita que va muy bien, es que no saben irse. Se quedan hasta las 3 de la mañana hablando, hasta que ya no hay tema de conversación, empiezan los bostezos y la interacción muere por inercia.
+Si inviertes el 100% de tus ahorros en una sola empresa y esta quiebra, tu vida se arruina. La diversificación es el escudo de los ricos.
 
-Estás entrenando a su cerebro para asociarte con aburrimiento al final de la noche.
+A nivel psicológico, los hombres promedio cometen este error letal. Conocen a una chica y de repente:
+- Dejan de salir con sus amigos.
+- Faltan al gimnasio para estar con ella.
+- Abandonan sus pasatiempos.
 
-Prueba el Efecto "Takeaway" (Quitar o retirar). Cuando la cita esté en su punto MÁS ALTO, cuando ella se esté riendo a carcajadas, tocándote el brazo y la química sea eléctrica, di esto:
-"Ha sido increíble, pero mañana tengo un día pesado. Tenemos que irnos".
+Han invertido el 100% de su identidad y su felicidad en una sola persona. Si ella se enoja, su mundo se cae. Si ella los deja, entran en depresión clínica. 
 
-Cortar la dopamina en el pico más alto provoca un vacío masivo. Su cerebro se quedará reproduciendo esa noche en bucle y estará literalmente desesperada por volver a verte.
+El Caballero Moderno tiene un portafolio diversificado: Su felicidad se divide entre su propósito de vida, su salud física, su red de contactos, sus metas financieras y su paz mental. Una mujer increíble es simplemente un activo maravilloso que se suma al portafolio, pero si se va, el imperio no colapsa.
 
-👉 Sé el hombre que controla su tiempo, no el que lo regala.
+👉 ¿Dependes de alguien más para sonreír hoy? 
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A moody, highly cinematic image of a sharp-dressed gentleman walking away from a bright, glowing, blurry party scene into the cool, dark night, symbolizing leaving on a high note, photorealistic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody image of a modern gentleman standing confidently behind a massive roulette table in a dark casino, holding multiple chips in his hand rather than betting them all on one number, symbolizing diversification and control, 8k --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "Arquitectura Espacial"',
+                text: 'Publicar Reel: "Escasez Real vs Fingida"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Cómo sentarte en una primera cita 🪑
+Título en pantalla: Deja de hacerte el interesante 🎭
 
-[Visual sugerido: B-roll mostrando dos tazas de café o tragos. Diagrama visual muy rápido o simplemente planos estéticos de un bar oscuro desde diferentes ángulos.]
+[Visual sugerido: Un hombre quitándose una máscara elegante en la oscuridad, o alguien fingiendo trabajar frente a una computadora apagada. Contraste de mentira vs verdad.]
 
-Voz en off: "Si vas a una cita y te sientas frente a frente con ella, como en una entrevista de trabajo, ya empezaste perdiendo. La arquitectura espacial dicta las emociones. Sentarte cara a cara genera confrontación subconsciente y bloquea cualquier posibilidad de romper la barrera física (el kino). El truco de los seductores de élite es sentarse a 90 grados, en la esquina de una mesa, o uno al lado del otro en la barra de un bar. Esto subcomunica que están juntos contra el mundo, no uno contra el otro. Además, permite el contacto físico accidental. Cambia tu posicionamiento físico, y cambiarás el resultado de la noche. Sígueme."
+Voz en off: "Los falsos 'gurús' de seducción te dicen: 'Espera 3 horas para responderle el mensaje para que parezcas escaso y ocupado'. Eso es Escasez Fingida, y las mujeres huelen esa manipulación a kilómetros de distancia. Estás contando los minutos frente a tu celular esperando para contestar. Eres un fraude. La verdadera magia ocurre cuando aplicas la Escasez Real. Tardas 3 horas en responder porque estabas en una reunión de negocios, entrenando o leyendo, y literalmente NO tenías el teléfono en la mano. No tienes que fingir que tienes una vida interesante, tienes que construir una. Construye valor real y la atracción será un accidente automático. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No vayas a una cita como si fueras a pedir trabajo de contador. 📐☕
-Las entrevistas son frente a frente. El romance es a 90 grados.
-👉 Sígueme para dominar la logística de la atracción.
-#LenguajeCorporal #PrimeraCita #CaballeroModerno #Seduccion #Logistica`
+La manipulación requiere memoria y esfuerzo. La realidad se sostiene sola. 🎭🛡️
+No finjas estar ocupado. Ocúpate construyendo tu imperio.
+👉 Sígueme para alejarte de los trucos baratos y construir valor real.
+#Seduccion #DesarrolloPersonal #CaballeroModerno #AltoValor #Manipulacion`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Arquitectura Espacial: La logística oculta de una primera cita. 📐☕
+                script: `Escasez Real vs Escasez Fingida: El fraude de hacerte el interesante. 🎭🛡️
 
-El 90% de los hombres arruinan su primera cita antes de siquiera decir "Hola". Lo arruinan con la logística espacial.
+La industria de la seducción barata arruinó a muchos hombres con un consejo tóxico: "Finge que estás ocupado. Si te escribe, déjala en visto un rato para que sufra".
 
-Van a Starbucks, eligen una mesa cuadrada, y se sientan EXACTAMENTE frente a la mujer. 
+Eso es Escasez Fingida. Es un truco manipulativo de bajo nivel. Y lo peor de todo, es que mientras "la haces esperar", tú estás sudando frío mirando el reloj de tu celular, rezando para que no pierda el interés. Eres esclavo de tu propia trampa.
 
-En psicología espacial, la posición frente a frente es la posición de la confrontación, la negociación y la entrevista de trabajo. Hay una barrera física (la mesa) separándolos. Esto eleva la tensión defensiva y hace que cualquier intento de contacto físico (rozar una mano) se sienta forzado y lejano.
+Las mujeres tienen un sexto sentido biológico para detectar el fraude.
 
-El Caballero Moderno sabe que la logística lo es todo. Llévala a la barra de un bar (sentados lado a lado) o busca una mesa cuadrada y siéntate en la esquina, a 90 grados de ella. 
+El Caballero Moderno no juega jueguitos de texto. Él aplica Escasez Real.
+Si tarda 4 horas en responder un WhatsApp, no es para manipularla, es porque su teléfono estaba en modo avión mientras él estaba en el gimnasio, cerrando un negocio o enfocado en su propósito. 
 
-Sentarse a 90 grados o lado a lado elimina la sensación de interrogatorio. Invita a compartir el mismo punto de vista visual (mirar el lugar juntos) y hace que romper la barrera del contacto físico sea tan natural como rozar codos por accidente. 
+No tienes que fingir que tu tiempo vale. Tienes que hacer cosas que hagan que tu tiempo valga. 
 
-👉 Los pequeños detalles separan a los novatos de los maestros.
+👉 Deja los trucos baratos. Construye una vida de la que no necesites escapar.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic overhead shot of a moody, dimly lit bar table. Two elegant cocktail glasses are placed at a 90-degree angle corner of the table, not opposite each other, symbolizing intimate spatial architecture, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic image of a modern gentleman's desk in a dark room. On the desk, a glowing smartphone with notifications is completely ignored, out of focus, while in sharp focus the man is sketching blueprints or reading a heavy book, symbolizing real scarcity and focus, 8k --ar 4:5"`
             }
         ]
     };
