@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
     
-    // --- Agenda de la Semana 14 (La Economía de la Atracción) ---
+    // --- Agenda de la Semana 15 (Biología Evolutiva y Atracción) ---
     const weeklyAgenda = {
         0: [ // Domingo - Empty
             { id: 't-sun-1', text: 'Descanso y planificación' }
@@ -32,249 +32,241 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [ // Lunes
             { 
                 id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "La Inflación de tu Atención" (5:00 PM)',
+                text: 'Publicar Video Largo en YT: "El Algoritmo de la Atracción" (5:00 PM)',
                 script: `[GUION PARA VIDEO FACELESS - YT (3.5 mins)]
-Título SEO: Por qué eres invisible para ella: La Economía de la Atracción
+Título SEO: El secreto biológico que las mujeres no te cuentan (Hipergamia)
 
-[Visual sugerido: B-roll cinemático. Gráficos de Wall Street en verde y rojo, máquinas imprimiendo billetes, hombres de negocios caminando rápido, estética de lujo y economía 'dark'.]
+[Visual sugerido: B-roll cinemático. Una cadena de ADN girando en la oscuridad, leones cazando en la sabana, un reloj antiguo y hombres vestidos impecablemente. Estética científica y cruda.]
 
-(0:00 - 0:30) Hook: "¿Sabías que las leyes de la economía que rigen a Wall Street son exactamente las mismas leyes que deciden si una mujer se siente atraída por ti o te ignora? Hoy no vamos a hablar de romance, vamos a hablar de economía pura. Y el error número uno que está quebrando tu valor social en este mismo instante se llama: 'Inflación de Atención'. Presta atención, porque esto va a cambiar tu forma de ver las relaciones."
+(0:00 - 0:30) Hook: "El 99% de los hombres fracasa en las citas porque intentan aplicar lógica moderna a un cerebro que tiene millones de años de antigüedad. Creen que siendo amables y pagando cenas van a generar deseo. Hoy vamos a destruir los mitos románticos de Disney y vamos a hablar de ciencia fría y dura: Biología Evolutiva. Si entiendes el 'algoritmo' de la hipergamia, nunca más volverás a preguntarte por qué te rechazaron."
 
-(0:30 - 1:30) Ley de Oferta y Demanda: "En economía básica, cuando un gobierno imprime demasiados billetes, el valor de esa moneda cae al suelo. Se llama inflación. El dinero pierde su poder adquisitivo porque hay demasiado circulando. En el mercado de citas, tu atención, tus likes y tus mensajes son tu moneda. Si tú 'imprimes' likes ilimitados, respondes en 3 segundos y siempre estás disponible, estás hiper-inflando tu moneda. Tu atención ya no vale nada porque hay una sobreoferta."
+(0:30 - 1:30) El instinto de supervivencia: "Hace miles de años, si una mujer elegía a un hombre débil, ella y su descendencia morían en el invierno. La biología cableó su cerebro para sentir atracción automática por el estatus, la fuerza y la capacidad de proveer seguridad. Esto se llama Hipergamia: la tendencia biológica a buscar una pareja de igual o mayor estatus. No es que sean interesadas, es que su ADN les exige asegurar la supervivencia."
 
-(1:30 - 2:30) El patrón oro del estatus: "Los diamantes son caros porque son escasos. El agua es barata porque abunda. El hombre de alto estatus opera bajo el 'Patrón Oro'. Su atención está respaldada por su propósito. Como está construyendo un negocio, entrenando su cuerpo o educando su mente, su atención es escasa. Y cuando le dedica 30 minutos de su atención a una mujer, esos 30 minutos valen oro. Ella siente el peso de ese valor."
+(1:30 - 2:30) El error del hombre moderno: "El problema es que tú te ofendes por esto. Te quejas de que 'las mujeres de hoy exigen mucho'. El hombre superior no se queja del algoritmo, lo usa a su favor. Entiende que el respeto y la admiración son los precursores del deseo. Si no te admira, no te desea. Tu trabajo no es convencerla con palabras, es convertirte en un hombre que demuestre competencia, liderazgo y ambición."
 
-(2:30 - 3:30) Conclusión: "Deja de regalar tu moneda. Deja de ser un cajero automático de validación gratuita. Si quieres que tu presencia sea valorada, tiene que ser escasa. Empieza a cobrar caro por tu tiempo. Suscríbete si estás listo para dejar la bancarrota emocional y empezar a jugar en las grandes ligas."`
+(2:30 - 3:30) Conclusión: "Deja de intentar negociar la atracción. La atracción no es una elección lógica, es una respuesta biológica a estímulos de alto valor. Mejora tu físico, eleva tu intelecto y domina tu entorno. Suscríbete si estás listo para dejar de llorar por las reglas y empezar a ganar el juego."`
             },
             { 
                 id: 't-mon-2', 
-                text: 'Publicar Reel: "Inflación de Atención"',
+                text: 'Publicar Reel: "Hipergamia Evolutiva"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Tu atención ya no vale nada 📉
+Título en pantalla: Por qué la amabilidad no genera atracción 🧬
 
-[Visual sugerido: Clip cinemático de billetes cayendo o quemándose, o un hombre cerrando una bóveda acorazada.]
+[Visual sugerido: B-roll de un león rugiendo o un lobo alfa liderando la manada. Contraste con un hombre moderno.]
 
-Voz en off: "Estás cometiendo un error económico brutal con las mujeres: La Inflación de Atención. En economía, si imprimes billetes a lo loco, el dinero pierde su valor. Cuando tú le das likes a todas sus fotos, respondes sus historias en segundos y le das cumplidos gratis todos los días, estás hiper-inflando tu moneda. Tu atención pasa a valer cero. ¿Por qué iba a esforzarse por ti si le das la recompensa gratis? El hombre magnético restringe la oferta. Su validación es escasa, y por lo tanto, es carísima. Deja de devaluarte. Haz que tu tiempo vuelva a ser un lujo. Sígueme."
+Voz en off: "Te vendieron la mentira de que para enamorar a una mujer solo tienes que ser amable y tratarla como a una princesa. La biología evolutiva dice otra cosa. El cerebro femenino está diseñado para buscar supervivencia y estatus. Se llama hipergamia. Si eres muy amable pero eres débil, no tienes ambición y te disculpas por todo, su cerebro biológico te ve como un peligro para su supervivencia emocional y física. La amabilidad es un requisito básico de la decencia humana, no es una estrategia de seducción. Si quieres generar deseo crudo, tienes que demostrar competencia, fuerza y liderazgo. Deja de ser solo un 'chico bueno' y conviértete en un hombre capaz. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Lo que se regala en abundancia, termina en la basura. 🗑️💸
-Aplica la ley de la oferta y la demanda a tu vida social.
-👉 Sígueme para dominar la economía del alto valor.
-#Economia #CaballeroModerno #Atraccion #AltoValor #Seduccion`
+La biología no sabe de romanticismo. Responde al estatus y la supervivencia. 🧬🦁
+Ser amable no es un superpoder, es lo mínimo indispensable.
+👉 Sígueme para entender la cruda realidad del comportamiento humano.
+#BiologiaEvolutiva #Psicologia #CaballeroModerno #Masculinidad #AltoValor`
             },
             {
                 id: 't-mon-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Inflación de tu Atención: Por qué le aburres. 📉💸
+                script: `Hipergamia Evolutiva: Por qué a la biología no le importa tu poesía. 🧬🦁
 
-Si mañana el gobierno decide regalarle un Ferrari a cada ciudadano, ¿qué pasaría? Al día siguiente, ver un Ferrari en la calle dejaría de ser especial. Perdería su estatus mágico.
+Desde que nacemos, nos bombardean con películas donde el chico promedio, torpe pero de "buen corazón", termina conquistando a la supermodelo porque le llevó flores bajo la lluvia.
 
-Tu atención funciona exactamente igual. 
+La realidad biológica es mucho más fría y exacta.
 
-Muchos hombres se preguntan por qué la chica que les gusta perdió el interés, si ellos "le dieron todo". Ese es precisamente el problema. Le diste todo gratis. 
+Durante millones de años de evolución, el cerebro femenino fue programado con un mecanismo de supervivencia llamado Hipergamia: la necesidad de emparejarse con el hombre más competente y de mayor estatus posible en su tribu. Si en la prehistoria elegía a un hombre débil, ella no sobrevivía el invierno. 
 
-Si eres el tipo que responde en 2 segundos, le envía mensajes de "buenos días" incondicionales, y cancela sus planes para verla, estás sufriendo de Inflación de Atención. Has creado una sobreoferta de tu validación, llevando su valor a cero.
+Ese mismo cerebro de hace un millón de años es el que opera hoy cuando usas Tinder o estás en un bar. Ella no evalúa tu poesía, su subconsciente evalúa tu capacidad para liderar, tu lenguaje corporal relajado bajo presión, y tu ambición.
 
-El Caballero Moderno es la Reserva Federal de su propia energía. Restringe la oferta. Su atención es cara porque su tiempo está invertido en su propósito, no en su teléfono. 
+Muchos hombres se enojan con esto y dicen "son unas interesadas". El Caballero Moderno sonríe, entiende el algoritmo de la evolución, y se pone a trabajar en sí mismo para convertirse en el hombre más competente de la sala.
 
-👉 ¿Estás devaluando tu propio estatus sin darte cuenta?
+👉 No intentes negociar la atracción. Conviértete en el estímulo correcto.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, dark academia image of a modern gentleman sitting in a shadowy room, carelessly tossing a gold coin in the air. Symbolizing control over value and attention, photorealistic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a dark, elegant room where a glowing, futuristic DNA double helix hovers above a heavy oak desk. Symbolizing the biological code of attraction, aesthetic, 8k --ar 4:5"`
             }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "La Falacia del Costo Hundido"',
+                text: 'Publicar Reel: "Las Pruebas de Aptitud (Shit Tests)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué no puedes soltarla ⚓
+Título en pantalla: Por qué ella siempre te pone a prueba ⚔️
 
-[Visual sugerido: B-roll de un ancla hundiéndose en el océano oscuro, o un hombre mirando un barco ardiendo a lo lejos. Sensación de pérdida.]
+[Visual sugerido: Espadas chocando en cámara lenta, o un herrero golpeando acero al rojo vivo.]
 
-Voz en off: "¿Por qué sigues rogándole a una mujer que te trata mal? En finanzas, esto se llama 'La Falacia del Costo Hundido'. Ocurre cuando un inversor sigue inyectando dinero en una empresa que está quebrando, solo porque ya invirtió mucho antes y no quiere aceptar la pérdida. Tú estás haciendo lo mismo. Llevas 6 meses pagando cenas, aguantando rechazos y perdiendo tu dignidad. Y tu cerebro te engaña diciendo: 'Un poco más de esfuerzo y cambiará'. Mentira. Acepta la pérdida. Retira tu inversión emocional hoy mismo. Duele ahora, pero te salva la vida mañana. Corta el cable. Sígueme."
+Voz en off: "Estás hablando con la chica que te gusta, todo va bien, y de repente te suelta un comentario hiriente: 'Tus zapatos son horribles'. Te enojas o te pones nervioso. Acabas de reprobar la prueba biológica más antigua del mundo: El Shit Test. Desde la biología evolutiva, las mujeres necesitan comprobar que eres tan fuerte como aparentas. Si te derrumbas emocionalmente por un comentario sobre tus zapatos, ¿cómo vas a protegerla durante una crisis real de vida o muerte? El test no es un ataque, es una auditoría de tu masculinidad. El hombre de alto valor no se ofende; sonríe, no se justifica, y le responde con humor. Sé inquebrantable. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-No sigas invirtiendo en un negocio (o relación) que está en bancarrota. 📉⚓
-Aceptar la pérdida a tiempo es la mejor victoria financiera y emocional.
-👉 Sígueme para construir inteligencia emocional.
-#CostoHundido #Psicologia #CaballeroModerno #Finanzas #RelacionesToxicas`
+Un 'Shit Test' no es un insulto, es una solicitud subconsciente de seguridad. ⚔️🔥
+Si te rompes con una palabra, pierdes el juego.
+👉 Sígueme para dominar la psicología del comportamiento humano.
+#ShitTest #PsicologiaFemenina #CaballeroModerno #Estoicismo #Seduccion`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `La Falacia del Costo Hundido: Por qué te quedas donde no te valoran. ⚓📉
+                script: `Pruebas de Aptitud: La verdad biológica detrás de los "Shit Tests". ⚔️🔥
 
-Imagina que compras un boleto de $500 pesos para ver una película. A los 20 minutos, te das cuenta de que la película es horrible. ¿Te sales del cine para disfrutar el resto de tu día, o te quedas sufriendo 2 horas solo porque "ya pagaste"?
+Todo hombre ha pasado por esto: La cita va increíble, hay química, y de la nada, ella te lanza un comentario pasivo-agresivo o una prueba absurda. 
+"Esa camisa te hace ver un poco raro, ¿no crees?" o "¿Siempre hablas tanto?".
 
-El 90% de la gente se queda. Esto se llama la "Falacia del Costo Hundido".
+El hombre promedio entra en pánico, se ofende, o empieza a justificarse ("No, bueno, es que esta camisa me la regalaron..."). Acaba de destruir la atracción.
 
-Es el mismo error cognitivo que te mantiene persiguiendo a una mujer que te ignora, o atrapado en una relación tóxica. Tu cerebro te dice: "Ya le invertí 6 meses de mi vida, ya le pagué 10 cenas, ya aguanté sus dramas... si me voy ahora, todo ese esfuerzo fue en vano".
+En la biología evolutiva, esto tiene una función vital. Las mujeres usan los "Shit Tests" para auditar tu congruencia. Quieren saber si la confianza que proyectas es real o es una máscara. Su biología dice: "Si este tipo pierde los papeles porque critiqué su camisa, ¿qué va a hacer cuando haya un problema real, como perder el trabajo o una crisis familiar? Es débil".
 
-Error. Ese esfuerzo YA se perdió. Lo único que puedes controlar es si vas a seguir perdiendo MÁS tiempo, MÁS dinero y MÁS dignidad mañana.
+El Caballero Moderno entiende que el fuego prueba el acero. Cuando llega la prueba, él no reacciona. Mantiene contacto visual, sonríe con arrogancia juguetona y responde exagerando: "Lo sé, uso esta camisa específicamente para ahuyentar a las chicas aburridas. Veo que no funcionó contigo".
 
-El hombre superior sabe "cortar pérdidas" (Cut Losses). Si no hay retorno de inversión (respeto, lealtad, paz), levántate de la mesa y vete. 
+👉 Pasa la auditoría. No te tomes en serio.
 
-👉 ¿A qué "inversión muerta" le sigues metiendo energía?
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, ultra-moody shot of a massive heavy anchor chain snapping in slow motion under dark water. Symbolizing breaking free from sunk costs, highly aesthetic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic macro shot of red-hot steel being struck by a blacksmith's hammer in a dark forge, sparks flying everywhere. Symbolizing being tested under pressure, ultra-detailed, 8k --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "El Costo de Oportunidad"',
+                text: 'Publicar Reel: "El Efecto Preselección"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Lo que te cuesta pensar en ella 💸
+Título en pantalla: El truco biológico de la envidia 👥
 
-[Visual sugerido: Un hombre frente a dos caminos en la niebla, o un reloj de lujo haciendo 'tic tac' con billetes desenfocados de fondo.]
+[Visual sugerido: Un hombre caminando seguro por la calle en cámara lenta mientras las sombras de mujeres voltean a mirarlo. Estilo muy elegante.]
 
-Voz en off: "Estás en tu cama, triste, pasando 3 horas analizando por qué te dejó en visto. Te voy a explicar tu verdadero problema usando el 'Costo de Oportunidad'. En la economía, toda decisión tiene un costo oculto: aquello a lo que renuncias para hacer lo que estás haciendo. Esas 3 horas sufriendo por una mujer que no te valora, son 3 horas que NO pasaste en el gimnasio, que NO usaste para leer, que NO usaste para crear una fuente de ingresos. No estás perdiendo a la chica, estás perdiendo tu potencial, tu imperio y tu vida. El costo de oportunidad de ser débil es demasiado alto. Levántate. Sígueme."
+Voz en off: "¿Alguna vez notaste que cuando tienes novia, de repente otras mujeres te prestan más atención? No es magia, es un fenómeno biológico documentado llamado 'Mate Copying' o Preselección. Evaluar el valor de un hombre requiere mucho esfuerzo y riesgo para el cerebro femenino. Pero si otras mujeres hermosas ya te han validado riéndose de tus chistes o saliendo contigo, ellas hicieron el trabajo pesado. Tu valor está certificado. Automáticamente te conviertes en un recurso escaso y deseable. Por eso, el peor error es llegar solo y desesperado a un evento. Aprende a rodearte de alta energía social, y el resto se hará solo. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Llorar por quien no te valora te está costando millones a largo plazo. ⏳💸
-Tu atención es capital. Invierte donde haya retorno.
-👉 Sígueme para enfocarte en tu propósito.
-#CostoDeOportunidad #Exito #CaballeroModerno #Mentalidad #Proposito`
+El efecto preselección: Las mujeres desean lo que otras mujeres ya han aprobado. 👥✨
+Construye una red social poderosa y la atracción será un efecto secundario.
+👉 Sígueme para hackear las dinámicas sociales.
+#Preseleccion #Psicologia #CaballeroModerno #Atraccion #DinamicaSocial`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Costo de Oportunidad: El precio oculto de rogar atención. ⏳💸
+                script: `El Efecto Preselección: Por qué te desean más cuando estás acompañado. 👥✨
 
-Hay un concepto económico brutal llamado "Costo de Oportunidad". Se define como el valor de la mejor alternativa que dejas pasar cuando tomas una decisión.
+Es un fenómeno que confunde a todos los hombres: Cuando estás soltero y desesperado por atención, pareces ser invisible para las mujeres. Pero el día que consigues una novia hermosa, de repente otras mujeres empiezan a coquetearte. 
 
-Si tienes $1,000 dólares y los gastas en fiesta, el costo de oportunidad es la inversión o el negocio que pudiste haber iniciado con ese dinero.
+¿Es brujería? No. Es biología. En zoología y psicología evolutiva, se le conoce como "Mate Copying" (Copia de Pareja) o Preselección.
 
-Aplícalo a tu vida romántica: Si pasas 2 horas al día stalkeando el Instagram de tu ex, lamentándote por un rechazo o enviando mensajes a chicas que responden con un emoji frío... ¿cuál es el costo de oportunidad?
+Para una mujer, evaluar si eres peligroso, perdedor, exitoso o seguro requiere mucho tiempo y riesgo. Pero si te ve entrar a un lugar haciéndole reír a dos mujeres hermosas, su cerebro toma un atajo cognitivo: "Si ellas confían en él y lo encuentran divertido, entonces él tiene alto valor. Ya pasó el control de calidad".
 
-El costo es el físico espectacular que no estás construyendo en el gimnasio. 
-El costo es la paz mental que no tienes. 
-El costo es el conocimiento que no estás leyendo.
+Tu valor social acaba de ser certificado por otras mujeres. 
 
-Tus emociones y tu atención son tu capital más valioso. Estás gastando capital Premium en inversiones que dan cero rendimiento. 
+La lección aquí no es que uses a la gente, sino que entiendas la importancia de construir una vida social rica. Sé el hombre que conecta con todos, que hace reír a sus amigas y que no opera desde la escasez y el aislamiento.
 
-👉 Redirige tu capital hacia ti mismo hoy. 
+👉 La validación social es tu mejor tarjeta de presentación.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, moody image of a modern gentleman looking at a luxury watch, while in the blurry background, a faint shadow of a woman walks away. Symbolizing the realization of opportunity cost and time, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A moody, highly cinematic shot of a sharp-dressed modern gentleman at a dark, luxurious bar. He is engaged in conversation, but in the blurred foreground, we see the silhouettes of other people observing him with interest, symbolizing preselection and social proof, 8k --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "El Principio de Pareto (80/20)"',
+                text: 'Publicar Reel: "Dimorfismo Sexual (Polaridad)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: La cruda verdad de las apps de citas 📊
+Título en pantalla: Por qué ser su "mejor amigo" te destruye 🧲
 
-[Visual sugerido: Un gráfico de barras estético en neon rojo, o un león comiendo solo mientras las hienas miran de lejos.]
+[Visual sugerido: Dos imanes gigantes acercándose o rechazándose. O el choque de dos elementos: fuego y agua.]
 
-Voz en off: "El Principio de Pareto dicta que el 80% de los resultados vienen del 20% de las causas. En el romance moderno, esto es brutalmente real: El 20% de los hombres se quedan con el 80% de la atención femenina. ¿Por qué? Porque el mercado premia a los ganadores. El 80% de los hombres promedio no van al gimnasio, visten mal, no tienen ambición y se quejan del algoritmo de Tinder. El top 20% está construyendo un cuerpo de hierro, mejorando sus ingresos y dominando su carisma. Tienes dos opciones: llorar porque el mercado es injusto, o ponerte a trabajar hoy mismo para entrar en ese 20%. La elección es tuya. Sígueme."
+Voz en off: "La atracción humana funciona exactamente igual que el magnetismo: polos opuestos se atraen. En biología, esto es el 'Dimorfismo Sexual'. La masculinidad cruda y estoica se siente naturalmente atraída por la feminidad caótica y emocional, y viceversa. Si te conviertes en su mejor amigo, chismeas con ella por horas y eres demasiado suave, estás destruyendo tu polaridad masculina. Te estás acercando a su energía. Y dos polos positivos se repelen. Para que exista tensión sexual, tiene que haber contraste. Tienes que ser la roca inamovible frente a su tormenta. Nunca sacrifiques tu núcleo masculino para encajar. La polaridad es lo único que crea deseo real. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El mundo no es justo, es competitivo. 📊🐺
-Deja de quejarte del mercado y conviértete en el producto de más alto valor.
-👉 Sígueme para entrar al top 20%.
-#Pareto #Ley8020 #CaballeroModerno #Competencia #AltoValor`
+La amistad mata la polaridad sexual. 🧲⚡
+Si actúas como su amiga, te tratará como a una.
+👉 Sígueme para recuperar tu núcleo masculino.
+#Polaridad #Masculinidad #CaballeroModerno #Atraccion #EnergiaMasculina`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Principio de Pareto: Por qué el mercado de citas es despiadado. 📊🐺
+                script: `Polaridad Masculina: Por qué intentar ser su mejor amigo asesina la atracción. 🧲⚡
 
-El economista Vilfredo Pareto descubrió que el 80% de la tierra en Italia era propiedad del 20% de la población. Esta ley (80/20) se aplica a casi todo: el 80% de las ventas vienen del 20% de los clientes.
+La física básica dicta que los polos opuestos se atraen. En la psicología de las relaciones, a esto le llamamos "Polaridad".
 
-Y en las dinámicas sociales modernas (especialmente en apps de citas y redes sociales), la regla es igual de salvaje: El 20% de los hombres compiten por el 80% de la atención femenina. 
+La energía masculina cruda (dirección, estoicismo, propósito, lógica) actúa como un imán hacia la energía femenina profunda (emoción, flujo, intuición, caos). La tensión sexual existe EN EL ESPACIO entre estas dos diferencias.
 
-Mientras el 80% de los hombres (el promedio) se queja de que "las mujeres son muy exigentes", envían fotos no solicitadas y no cuidan su higiene...
+El error catastrófico del "chico bueno" es intentar acercarse a ella comportándose como una de sus amigas. Pasa 4 horas en el teléfono escuchando sus chismes, analizando los problemas de sus otras amigas, y mostrando un exceso de emotividad complaciente. 
 
-El Top 20% está en silencio:
-1. Entrenando duro en el gimnasio.
-2. Vistiendo de forma impecable.
-3. Construyendo fuentes de ingresos.
-4. Desarrollando inteligencia emocional.
+Acaba de destruir la polaridad. Ahora es el Polo Femenino. Y como dos polos iguales se repelen, el deseo sexual muere instantáneamente, y le dicen la famosa frase: "Eres un chico increíble, te veo como un hermano".
 
-El mercado no tiene piedad con la mediocridad. Puedes ofenderte por las reglas del juego, o puedes aprenderlas, usarlas a tu favor y convertirte en el 20%. 
+El Caballero Moderno ama a las mujeres, pero mantiene su núcleo intacto. Él es la roca, la montaña silenciosa. Ese contraste es lo que vuelve locas a las mujeres.
 
-👉 ¿Qué hiciste hoy para salir del promedio?
+👉 No diluyas tu masculinidad para encajar. Tu poder está en el contraste.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, highly aesthetic image of a steep pyramid or graph in dark stone. One lone, sharp-dressed man stands at the very top glowing subtly, while a faceless crowd stands in the shadows at the bottom, symbolizing the 80/20 rule, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic image of raw elements colliding: a dark, solid stone mountain against a chaotic, beautiful swirling ocean wave. Symbolizing the polarity between masculine and feminine energy, photorealistic, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "Monopolios y Diversificación"',
+                text: 'Publicar Reel: "Triada Oscura y Peligro Biológico"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: El peligro de apostarlo todo a ella 🎲
+Título en pantalla: Por qué prefieren al "Chico Malo" 🐍
 
-[Visual sugerido: Un hombre apostando todas sus fichas de casino en un solo número (Ruleta), o un barco inmenso a punto de hundirse por cargar peso de un solo lado.]
+[Visual sugerido: Un hombre trajeado ajustándose los puños en las sombras. O un lobo mirando fijamente a la cámara con ojos amarillos.]
 
-Voz en off: "Cualquier inversor novato sabe que poner todo tu dinero en una sola acción es suicidio financiero. Si esa empresa quiebra, lo pierdes todo. Sin embargo, los hombres hacen esto emocionalmente todos los días. Convierten a una sola mujer en su única fuente de felicidad. No tienen hobbies, perdieron a sus amigos, y odian su trabajo. Han creado un Monopolio Emocional. Si ella se va o tiene un mal día, tu vida entera se derrumba. El hombre de alto estatus diversifica su identidad. Su felicidad viene de sus negocios, su entrenamiento, sus hermanos de batalla y su propósito. Ella es un complemento al portafolio, no todo el capital. Sígueme."
+Voz en off: "Llevas toda tu vida preguntándote por qué las mujeres hermosas ignoran al chico bueno que las trata bien, y se obsesionan con el 'chico malo'. La biología evolutiva tiene la respuesta. El cerebro femenino asocia los rasgos de la 'Triada Oscura' (narcisismo, maquiavelismo y psicopatía) con altos niveles de testosterona, dominancia social y capacidad de protegerla frente a otros hombres. Biológicamente, un hombre inofensivo es inútil para la supervivencia. No te estoy diciendo que seas un criminal. Te estoy diciendo que tienes que integrar tu sombra. Tienes que ser un hombre capaz de ser peligroso, pero que decide mantener ese peligro bajo control voluntario. Sé un monstruo educado. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Nunca pongas la llave de tu felicidad en el bolsillo de otra persona. 🎲📉
-Diversifica tus fuentes de propósito. 
-👉 Sígueme para construir independencia emocional.
-#Diversificacion #Inversiones #CaballeroModerno #Independencia #Estoicismo`
+Un hombre inofensivo no es un buen hombre, es solo un hombre débil. 🐍⚔️
+Integra tu sombra. Sé peligroso, pero mantenlo bajo control.
+👉 Sígueme para dominar la verdadera masculinidad de alto valor.
+#ChicoMalo #TriadaOscura #CaballeroModerno #Psicologia #Sombra`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Diversificación de Identidad: Por qué depender de ella te destruirá. 🎲📉
+                script: `El Mito del Chico Malo: Integrando el Peligro Biológico. 🐍⚔️
 
-Regla número 1 de las inversiones: "Nunca pongas todos tus huevos en la misma canasta". 
+"¿Por qué siempre se van con el patán si yo soy un buen tipo?" 
+Es el lamento eterno del hombre moderno. Y la respuesta no está en que las mujeres sean tontas, está en la biología evolutiva.
 
-Si inviertes el 100% de tus ahorros en una sola empresa y esta quiebra, tu vida se arruina. La diversificación es el escudo de los ricos.
+En la antigüedad, un hombre inofensivo y excesivamente amable no podía proteger a su tribu de los invasores o los depredadores. La biología cableó a las mujeres para buscar señales de dominancia agresiva, lo que hoy psicólogos llaman rasgos de la "Triada Oscura" (Maquiavelismo, Narcisismo y Psicopatía). 
 
-A nivel psicológico, los hombres promedio cometen este error letal. Conocen a una chica y de repente:
-- Dejan de salir con sus amigos.
-- Faltan al gimnasio para estar con ella.
-- Abandonan sus pasatiempos.
+El chico malo subcomunica que no le importa lo que piensen de él, que tiene altos niveles de testosterona y que no tiene miedo al conflicto. Biológicamente, eso es magnético.
 
-Han invertido el 100% de su identidad y su felicidad en una sola persona. Si ella se enoja, su mundo se cae. Si ella los deja, entran en depresión clínica. 
+Jordan Peterson lo explica perfectamente: "No deberías ser inofensivo. Deberías ser un monstruo, un hombre absolutamente peligroso, y luego aprender a controlarlo". 
 
-El Caballero Moderno tiene un portafolio diversificado: Su felicidad se divide entre su propósito de vida, su salud física, su red de contactos, sus metas financieras y su paz mental. Una mujer increíble es simplemente un activo maravilloso que se suma al portafolio, pero si se va, el imperio no colapsa.
+El Caballero Moderno no es un criminal ni un patán. Es un hombre inmensamente capaz de ser agresivo, de romper cuellos si es necesario para defender a su familia o su empresa, pero elige la educación y la paz. 
 
-👉 ¿Dependes de alguien más para sonreír hoy? 
+👉 Ser inofensivo no es virtud, es debilidad. Sé letal, pero educado.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody image of a modern gentleman standing confidently behind a massive roulette table in a dark casino, holding multiple chips in his hand rather than betting them all on one number, symbolizing diversification and control, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody portrait of a sharp-dressed modern gentleman with a shadow cast over half his face. Behind him, a subtle reflection of a dark wolf or predator. Symbolizing the controlled danger and the integrated shadow, 8k --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "Escasez Real vs Fingida"',
+                text: 'Publicar Reel: "El Lenguaje de la Simetría y Salud"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Deja de hacerte el interesante 🎭
+Título en pantalla: Tu físico es tu currículum biológico 🧬
 
-[Visual sugerido: Un hombre quitándose una máscara elegante en la oscuridad, o alguien fingiendo trabajar frente a una computadora apagada. Contraste de mentira vs verdad.]
+[Visual sugerido: B-roll de un hombre entrenando pesas pesadas en blanco y negro, o esculturas griegas perfectas.]
 
-Voz en off: "Los falsos 'gurús' de seducción te dicen: 'Espera 3 horas para responderle el mensaje para que parezcas escaso y ocupado'. Eso es Escasez Fingida, y las mujeres huelen esa manipulación a kilómetros de distancia. Estás contando los minutos frente a tu celular esperando para contestar. Eres un fraude. La verdadera magia ocurre cuando aplicas la Escasez Real. Tardas 3 horas en responder porque estabas en una reunión de negocios, entrenando o leyendo, y literalmente NO tenías el teléfono en la mano. No tienes que fingir que tienes una vida interesante, tienes que construir una. Construye valor real y la atracción será un accidente automático. Sígueme."
+Voz en off: "Deja de repetir la mentira de que el físico no importa. La biología no es políticamente correcta. Cuando una mujer te mira por primera vez, su cerebro escanea tus proporciones en milisegundos. ¿Tienes los hombros anchos y la cintura estrecha? ¿Tienes una mandíbula definida? Estos no son estándares de belleza culturales, son indicadores biológicos de altos niveles de testosterona, un sistema inmunológico fuerte y buena genética para la reproducción. Ir al gimnasio no es solo para verte bien sin camisa, es para hackear el algoritmo evolutivo más profundo del cerebro humano. Tu físico dice en voz alta la disciplina que tienes en privado. Empieza a levantar pesas. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La manipulación requiere memoria y esfuerzo. La realidad se sostiene sola. 🎭🛡️
-No finjas estar ocupado. Ocúpate construyendo tu imperio.
-👉 Sígueme para alejarte de los trucos baratos y construir valor real.
-#Seduccion #DesarrolloPersonal #CaballeroModerno #AltoValor #Manipulacion`
+El físico no miente. Es el reflejo físico de tu disciplina mental. 🏛️🧬
+Hackea el algoritmo biológico construyendo un cuerpo de hierro.
+👉 Sígueme para maximizar tu atractivo al más alto nivel.
+#Estetica #Biologia #CaballeroModerno #Gimnasio #Masculinidad`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Escasez Real vs Escasez Fingida: El fraude de hacerte el interesante. 🎭🛡️
+                script: `El Currículum Biológico: Por qué la estética importa más de lo que crees. 🏛️🧬
 
-La industria de la seducción barata arruinó a muchos hombres con un consejo tóxico: "Finge que estás ocupado. Si te escribe, déjala en visto un rato para que sufra".
+La sociedad moderna intenta vendernos la idea de que "el físico no importa, lo que cuenta es lo de adentro". Es una frase reconfortante, pero es una mentira biológica masiva.
 
-Eso es Escasez Fingida. Es un truco manipulativo de bajo nivel. Y lo peor de todo, es que mientras "la haces esperar", tú estás sudando frío mirando el reloj de tu celular, rezando para que no pierda el interés. Eres esclavo de tu propia trampa.
+La atracción inicial no es una decisión moral, es un algoritmo evolutivo. 
 
-Las mujeres tienen un sexto sentido biológico para detectar el fraude.
+Cuando entras a una habitación, el cerebro subconsciente de las mujeres escanea tus proporciones:
+- Hombros anchos y cintura estrecha (Forma de V) = Altos niveles de testosterona y capacidad para cazar/pelear.
+- Piel limpia y buena postura = Sistema inmunológico fuerte y salud genética.
 
-El Caballero Moderno no juega jueguitos de texto. Él aplica Escasez Real.
-Si tarda 4 horas en responder un WhatsApp, no es para manipularla, es porque su teléfono estaba en modo avión mientras él estaba en el gimnasio, cerrando un negocio o enfocado en su propósito. 
+No es superficialidad, es la biología buscando los mejores genes posibles para garantizar la supervivencia. 
 
-No tienes que fingir que tu tiempo vale. Tienes que hacer cosas que hagan que tu tiempo valga. 
+El gimnasio no es un lugar para inflar tu ego, es la herramienta para reescribir tu currículum biológico. Construir un cuerpo fuerte comunica subconscientemente disciplina, trabajo duro y poder. 
 
-👉 Deja los trucos baratos. Construye una vida de la que no necesites escapar.
+👉 No puedes exigir atracción si ni siquiera respetas tu propio templo.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic image of a modern gentleman's desk in a dark room. On the desk, a glowing smartphone with notifications is completely ignored, out of focus, while in sharp focus the man is sketching blueprints or reading a heavy book, symbolizing real scarcity and focus, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, aesthetic black and white image of an ancient Greek marble statue perfectly merged with a modern man in a tailored suit, emphasizing the timeless biological standard of the V-taper masculine physique, 8k --ar 4:5"`
             }
         ]
     };
