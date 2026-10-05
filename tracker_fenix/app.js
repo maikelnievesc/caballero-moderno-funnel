@@ -24,249 +24,221 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const linkVentas = "https://maikelnievesc.github.io/caballero-moderno-funnel/ebook/";
     
-    // --- Agenda de la Semana 15 (Biología Evolutiva y Atracción) ---
+    // --- Agenda de la Semana 16 (Inteligencia Social de Alto Riesgo: FBI/CIA) ---
     const weeklyAgenda = {
-        0: [ // Domingo - Empty
+        0: [ // Domingo
             { id: 't-sun-1', text: 'Descanso y planificación' }
         ],
-        1: [ // Lunes
-            { 
-                id: 't-mon-1', 
-                text: 'Publicar Video Largo en YT: "El Algoritmo de la Atracción" (5:00 PM)',
-                script: `[GUION PARA VIDEO FACELESS - YT (3.5 mins)]
-Título SEO: El secreto biológico que las mujeres no te cuentan (Hipergamia)
-
-[Visual sugerido: B-roll cinemático. Una cadena de ADN girando en la oscuridad, leones cazando en la sabana, un reloj antiguo y hombres vestidos impecablemente. Estética científica y cruda.]
-
-(0:00 - 0:30) Hook: "El 99% de los hombres fracasa en las citas porque intentan aplicar lógica moderna a un cerebro que tiene millones de años de antigüedad. Creen que siendo amables y pagando cenas van a generar deseo. Hoy vamos a destruir los mitos románticos de Disney y vamos a hablar de ciencia fría y dura: Biología Evolutiva. Si entiendes el 'algoritmo' de la hipergamia, nunca más volverás a preguntarte por qué te rechazaron."
-
-(0:30 - 1:30) El instinto de supervivencia: "Hace miles de años, si una mujer elegía a un hombre débil, ella y su descendencia morían en el invierno. La biología cableó su cerebro para sentir atracción automática por el estatus, la fuerza y la capacidad de proveer seguridad. Esto se llama Hipergamia: la tendencia biológica a buscar una pareja de igual o mayor estatus. No es que sean interesadas, es que su ADN les exige asegurar la supervivencia."
-
-(1:30 - 2:30) El error del hombre moderno: "El problema es que tú te ofendes por esto. Te quejas de que 'las mujeres de hoy exigen mucho'. El hombre superior no se queja del algoritmo, lo usa a su favor. Entiende que el respeto y la admiración son los precursores del deseo. Si no te admira, no te desea. Tu trabajo no es convencerla con palabras, es convertirte en un hombre que demuestre competencia, liderazgo y ambición."
-
-(2:30 - 3:30) Conclusión: "Deja de intentar negociar la atracción. La atracción no es una elección lógica, es una respuesta biológica a estímulos de alto valor. Mejora tu físico, eleva tu intelecto y domina tu entorno. Suscríbete si estás listo para dejar de llorar por las reglas y empezar a ganar el juego."`
-            },
-            { 
-                id: 't-mon-2', 
-                text: 'Publicar Reel: "Hipergamia Evolutiva"',
-                script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué la amabilidad no genera atracción 🧬
-
-[Visual sugerido: B-roll de un león rugiendo o un lobo alfa liderando la manada. Contraste con un hombre moderno.]
-
-Voz en off: "Te vendieron la mentira de que para enamorar a una mujer solo tienes que ser amable y tratarla como a una princesa. La biología evolutiva dice otra cosa. El cerebro femenino está diseñado para buscar supervivencia y estatus. Se llama hipergamia. Si eres muy amable pero eres débil, no tienes ambición y te disculpas por todo, su cerebro biológico te ve como un peligro para su supervivencia emocional y física. La amabilidad es un requisito básico de la decencia humana, no es una estrategia de seducción. Si quieres generar deseo crudo, tienes que demostrar competencia, fuerza y liderazgo. Deja de ser solo un 'chico bueno' y conviértete en un hombre capaz. Sígueme."
-
-[COPIAR Y PEGAR EN DESCRIPCIÓN]
-La biología no sabe de romanticismo. Responde al estatus y la supervivencia. 🧬🦁
-Ser amable no es un superpoder, es lo mínimo indispensable.
-👉 Sígueme para entender la cruda realidad del comportamiento humano.
-#BiologiaEvolutiva #Psicologia #CaballeroModerno #Masculinidad #AltoValor`
-            },
-            {
-                id: 't-mon-fb',
-                text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Hipergamia Evolutiva: Por qué a la biología no le importa tu poesía. 🧬🦁
-
-Desde que nacemos, nos bombardean con películas donde el chico promedio, torpe pero de "buen corazón", termina conquistando a la supermodelo porque le llevó flores bajo la lluvia.
-
-La realidad biológica es mucho más fría y exacta.
-
-Durante millones de años de evolución, el cerebro femenino fue programado con un mecanismo de supervivencia llamado Hipergamia: la necesidad de emparejarse con el hombre más competente y de mayor estatus posible en su tribu. Si en la prehistoria elegía a un hombre débil, ella no sobrevivía el invierno. 
-
-Ese mismo cerebro de hace un millón de años es el que opera hoy cuando usas Tinder o estás en un bar. Ella no evalúa tu poesía, su subconsciente evalúa tu capacidad para liderar, tu lenguaje corporal relajado bajo presión, y tu ambición.
-
-Muchos hombres se enojan con esto y dicen "son unas interesadas". El Caballero Moderno sonríe, entiende el algoritmo de la evolución, y se pone a trabajar en sí mismo para convertirse en el hombre más competente de la sala.
-
-👉 No intentes negociar la atracción. Conviértete en el estímulo correcto.
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, photorealistic image of a dark, elegant room where a glowing, futuristic DNA double helix hovers above a heavy oak desk. Symbolizing the biological code of attraction, aesthetic, 8k --ar 4:5"`
-            }
+        1: [ // Lunes (Cambio de frecuencia: Lunes de actualización)
+            { id: 't-mon-1', text: 'Actualización y preparación de la semana' }
         ],
         2: [ // Martes
             { 
                 id: 't-tue-1', 
-                text: 'Publicar Reel: "Las Pruebas de Aptitud (Shit Tests)"',
+                text: 'Publicar Video Largo en YT: "Secretos del FBI para leer su mente" (5:00 PM)',
+                script: `[GUION PARA VIDEO FACELESS - YT (3.5 mins)]
+Título SEO: Cómo leer a las mujeres usando tácticas del FBI (Inteligencia Social)
+
+[Visual sugerido: B-roll cinemático. Cuartos de interrogatorio oscuros con humo, agentes en traje negro caminando en cámara lenta, monitores de cámaras de seguridad, estética de espionaje y operaciones tácticas.]
+
+(0:00 - 0:30) Hook: "¿Qué pasaría si pudieras leer la mente de una mujer en los primeros 30 segundos de una cita usando las mismas tácticas que usan los negociadores de rehenes del FBI? La mayoría de los hombres son ciegos a las señales sociales. Hoy vamos a dejar los consejos románticos y vamos a entrar en el oscuro mundo de la Inteligencia Social y el Espionaje. Te voy a enseñar a leer microexpresiones y a extraer información sin que ella se dé cuenta."
+
+(0:30 - 1:30) La Calibración y Microexpresiones: "En el FBI se le llama 'Calibración'. Cuando le haces un cumplido a una mujer, no escuches lo que te dice, observa su lenguaje corporal en el primer segundo. ¿Sus pupilas se dilatan? ¿Su sonrisa es simétrica e involucra los ojos (sonrisa de Duchenne), o es una sonrisa tensa solo con los labios? Si sus pies apuntan hacia la puerta, su cerebro primitivo quiere escapar. El hombre de alto estatus no asume, él calibra."
+
+(1:30 - 2:30) El Silencio Táctico: "Durante un interrogatorio, el silencio es el arma más pesada. A los humanos les aterra el vacío conversacional. En una cita, el hombre promedio llena los silencios hablando sin parar y justificándose. El hombre superior lanza una pregunta calibrada y luego se calla, manteniendo contacto visual relajado. Esa presión psicológica hace que ella invierta más palabras, revele sus secretos y te perciba como una autoridad magnética."
+
+(2:30 - 3:30) Conclusión: "La seducción no es un juego de palabras bonitas, es ingeniería social. El que recolecta más información, tiene el control del marco. Deja de intentar impresionar y empieza a observar. Suscríbete si estás listo para dominar la psicología del comportamiento humano y jugar con ventaja."`
+            },
+            { 
+                id: 't-tue-2', 
+                text: 'Publicar Reel: "Calibración (Lectura Fría)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué ella siempre te pone a prueba ⚔️
+Título en pantalla: Cómo leer su mente en 3 segundos 🕵️‍♂️
 
-[Visual sugerido: Espadas chocando en cámara lenta, o un herrero golpeando acero al rojo vivo.]
+[Visual sugerido: B-roll de un ojo en macro enfocándose, o un hombre de traje negro revisando un expediente en las sombras.]
 
-Voz en off: "Estás hablando con la chica que te gusta, todo va bien, y de repente te suelta un comentario hiriente: 'Tus zapatos son horribles'. Te enojas o te pones nervioso. Acabas de reprobar la prueba biológica más antigua del mundo: El Shit Test. Desde la biología evolutiva, las mujeres necesitan comprobar que eres tan fuerte como aparentas. Si te derrumbas emocionalmente por un comentario sobre tus zapatos, ¿cómo vas a protegerla durante una crisis real de vida o muerte? El test no es un ataque, es una auditoría de tu masculinidad. El hombre de alto valor no se ofende; sonríe, no se justifica, y le responde con humor. Sé inquebrantable. Sígueme."
+Voz en off: "Estás en una cita y crees que le gustas porque te sonríe y es amable. Error. Los agentes del FBI saben que las palabras pueden mentir, pero el cuerpo no. Fíjate en esto: Cuando ella se ríe de tu chiste, ¿sus pies apuntan hacia ti o hacia la puerta de salida? Si apuntan a la salida, su subconsciente quiere huir. Cuando le hablas, ¿parpadea rápido o mantiene un contacto visual relajado? El parpadeo rápido indica estrés táctico. El hombre promedio vive ciego, asumiendo cosas. El hombre superior 'calibra' la realidad. Observa las microexpresiones antes de actuar. La seducción es 90% lectura fría y 10% palabras. Aprende a observar. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Un 'Shit Test' no es un insulto, es una solicitud subconsciente de seguridad. ⚔️🔥
-Si te rompes con una palabra, pierdes el juego.
-👉 Sígueme para dominar la psicología del comportamiento humano.
-#ShitTest #PsicologiaFemenina #CaballeroModerno #Estoicismo #Seduccion`
+El cuerpo nunca miente. Aprende a leer el subtexto. 🕵️‍♂️👁️
+La seducción es inteligencia social pura.
+👉 Sígueme para dominar la lectura fría y el lenguaje corporal.
+#FBI #LenguajeCorporal #Psicologia #CaballeroModerno #Seduccion`
             },
             {
                 id: 't-tue-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Pruebas de Aptitud: La verdad biológica detrás de los "Shit Tests". ⚔️🔥
+                script: `Lectura Fría: Cómo leer a una mujer usando tácticas del FBI. 🕵️‍♂️👁️
 
-Todo hombre ha pasado por esto: La cita va increíble, hay química, y de la nada, ella te lanza un comentario pasivo-agresivo o una prueba absurda. 
-"Esa camisa te hace ver un poco raro, ¿no crees?" o "¿Siempre hablas tanto?".
+La mayoría de los hombres fracasan en el romance porque sufren de "ceguera situacional". Escuchan las palabras "la estoy pasando muy bien", y asumen que es verdad, ignorando que el lenguaje corporal de ella grita incomodidad.
 
-El hombre promedio entra en pánico, se ofende, o empieza a justificarse ("No, bueno, es que esta camisa me la regalaron..."). Acaba de destruir la atracción.
+Los analistas de comportamiento del FBI enseñan algo llamado "Calibración". Es el arte de observar la línea base de una persona y detectar anomalías.
 
-En la biología evolutiva, esto tiene una función vital. Las mujeres usan los "Shit Tests" para auditar tu congruencia. Quieren saber si la confianza que proyectas es real o es una máscara. Su biología dice: "Si este tipo pierde los papeles porque critiqué su camisa, ¿qué va a hacer cuando haya un problema real, como perder el trabajo o una crisis familiar? Es débil".
+En tu próxima interacción, olvida lo que ella está diciendo y observa:
+1. Dirección de los pies: Si apuntan hacia ti, hay interés. Si apuntan a la puerta, quiere irse.
+2. Tensión en el cuello: Si se toca el cuello constantemente, está buscando consuelo subconsciente ante el estrés.
+3. Sonrisa de Duchenne: Una sonrisa real arruga los costados de los ojos. Si solo mueve los labios, es cortesía fingida.
 
-El Caballero Moderno entiende que el fuego prueba el acero. Cuando llega la prueba, él no reacciona. Mantiene contacto visual, sonríe con arrogancia juguetona y responde exagerando: "Lo sé, uso esta camisa específicamente para ahuyentar a las chicas aburridas. Veo que no funcionó contigo".
+El Caballero Moderno no se deja engañar por palabras bonitas. Él lee la matriz. Él calibra el nivel de atracción real antes de invertir su tiempo y su capital.
 
-👉 Pasa la auditoría. No te tomes en serio.
+👉 Deja de adivinar. Empieza a observar el subtexto.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic macro shot of red-hot steel being struck by a blacksmith's hammer in a dark forge, sparks flying everywhere. Symbolizing being tested under pressure, ultra-detailed, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, highly detailed close up of a modern gentleman's piercing eye in the shadows, reflecting a glowing security monitor or matrix data. Symbolizing cold reading and observation, spy aesthetic, 8k --ar 4:5"`
             }
         ],
         3: [ // Miércoles
             { 
                 id: 't-wed-1', 
-                text: 'Publicar Reel: "El Efecto Preselección"',
+                text: 'Publicar Reel: "Espejeo (Empatía Táctica)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: El truco biológico de la envidia 👥
+Título en pantalla: El truco del FBI para agradarle a todos 🤝
 
-[Visual sugerido: Un hombre caminando seguro por la calle en cámara lenta mientras las sombras de mujeres voltean a mirarlo. Estilo muy elegante.]
+[Visual sugerido: Dos sombras sincronizando sus movimientos, o un espejo elegante reflejando a un hombre de traje.]
 
-Voz en off: "¿Alguna vez notaste que cuando tienes novia, de repente otras mujeres te prestan más atención? No es magia, es un fenómeno biológico documentado llamado 'Mate Copying' o Preselección. Evaluar el valor de un hombre requiere mucho esfuerzo y riesgo para el cerebro femenino. Pero si otras mujeres hermosas ya te han validado riéndose de tus chistes o saliendo contigo, ellas hicieron el trabajo pesado. Tu valor está certificado. Automáticamente te conviertes en un recurso escaso y deseable. Por eso, el peor error es llegar solo y desesperado a un evento. Aprende a rodearte de alta energía social, y el resto se hará solo. Sígueme."
+Voz en off: "Chris Voss, el mejor negociador de rehenes del FBI, descubrió un truco psicológico brutal llamado 'Espejeo'. Y funciona igual de bien en las citas. A los humanos les aterra lo diferente y confían ciegamente en lo que se parece a ellos. Si ella usa un tono de voz bajo y pausado, baja tu tono de voz. Si ella se inclina hacia adelante, tú te inclinas levemente unos segundos después. A nivel subconsciente, su cerebro primitivo dirá: 'Él es como yo. Es seguro'. Has hackeado su sistema de confianza en menos de 5 minutos sin tener que presumir tu dinero ni tu coche. Usa la empatía táctica y dominarás cualquier cuarto en el que entres. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El efecto preselección: Las mujeres desean lo que otras mujeres ya han aprobado. 👥✨
-Construye una red social poderosa y la atracción será un efecto secundario.
-👉 Sígueme para hackear las dinámicas sociales.
-#Preseleccion #Psicologia #CaballeroModerno #Atraccion #DinamicaSocial`
+El Espejeo es un arma psicológica de conexión instantánea. 🤝🎙️
+A las personas les encanta la gente que se parece a ellas.
+👉 Sígueme para aprender más ingeniería social táctica.
+#ChrisVoss #InteligenciaSocial #CaballeroModerno #Persuasion #FBI`
             },
             {
                 id: 't-wed-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Efecto Preselección: Por qué te desean más cuando estás acompañado. 👥✨
+                script: `Empatía Táctica: El hack de los negociadores de rehenes para enamorar. 🤝🎙️
 
-Es un fenómeno que confunde a todos los hombres: Cuando estás soltero y desesperado por atención, pareces ser invisible para las mujeres. Pero el día que consigues una novia hermosa, de repente otras mujeres empiezan a coquetearte. 
+En el mundo del espionaje y la negociación de alto riesgo, convencer a un criminal de que confíe en ti en 5 minutos es cuestión de vida o muerte. Usan una técnica infalible: El Espejeo (Mirroring).
 
-¿Es brujería? No. Es biología. En zoología y psicología evolutiva, se le conoce como "Mate Copying" (Copia de Pareja) o Preselección.
+Biológicamente, tememos a lo desconocido y confiamos en lo que es familiar. 
 
-Para una mujer, evaluar si eres peligroso, perdedor, exitoso o seguro requiere mucho tiempo y riesgo. Pero si te ve entrar a un lugar haciéndole reír a dos mujeres hermosas, su cerebro toma un atajo cognitivo: "Si ellas confían en él y lo encuentran divertido, entonces él tiene alto valor. Ya pasó el control de calidad".
+Si estás en una cita y ella es muy energética, habla rápido y mueve mucho las manos, pero tú le respondes de forma súper lenta y robótica, la conexión se rompe. Su cerebro dice "somos incompatibles".
 
-Tu valor social acaba de ser certificado por otras mujeres. 
+El Espejeo consiste en imitar sutilmente (sin parecer un mimo psicópata):
+- Su volumen de voz.
+- Su velocidad al hablar.
+- Sus micro-posturas (si se recarga en la mesa, tú lo haces después).
+- Repetir las últimas 3 palabras que dijo en forma de pregunta.
 
-La lección aquí no es que uses a la gente, sino que entiendas la importancia de construir una vida social rica. Sé el hombre que conecta con todos, que hace reír a sus amigas y que no opera desde la escasez y el aislamiento.
+En menos de 10 minutos, su sistema nervioso central baja las defensas. Siente que "te conoce de toda la vida". El Caballero Moderno es un camaleón social que sabe adaptar su frecuencia para hackear la confianza.
 
-👉 La validación social es tu mejor tarjeta de presentación.
+👉 No presumas. Empatiza de forma táctica.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A moody, highly cinematic shot of a sharp-dressed modern gentleman at a dark, luxurious bar. He is engaged in conversation, but in the blurred foreground, we see the silhouettes of other people observing him with interest, symbolizing preselection and social proof, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic image of two people sitting across a dimly lit luxury table, their body language perfectly matching like a reflection in a mirror. Moody spy thriller lighting, photorealistic, 8k --ar 4:5"`
             }
         ],
         4: [ // Jueves
             { 
                 id: 't-thu-1', 
-                text: 'Publicar Reel: "Dimorfismo Sexual (Polaridad)"',
+                text: 'Publicar Reel: "Extracción de Información"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué ser su "mejor amigo" te destruye 🧲
+Título en pantalla: Haz que ella te cuente todos sus secretos 🕵️‍♂️
 
-[Visual sugerido: Dos imanes gigantes acercándose o rechazándose. O el choque de dos elementos: fuego y agua.]
+[Visual sugerido: Un archivo confidencial top-secret abriéndose, o una grabadora antigua de cinta girando en la oscuridad.]
 
-Voz en off: "La atracción humana funciona exactamente igual que el magnetismo: polos opuestos se atraen. En biología, esto es el 'Dimorfismo Sexual'. La masculinidad cruda y estoica se siente naturalmente atraída por la feminidad caótica y emocional, y viceversa. Si te conviertes en su mejor amigo, chismeas con ella por horas y eres demasiado suave, estás destruyendo tu polaridad masculina. Te estás acercando a su energía. Y dos polos positivos se repelen. Para que exista tensión sexual, tiene que haber contraste. Tienes que ser la roca inamovible frente a su tormenta. Nunca sacrifiques tu núcleo masculino para encajar. La polaridad es lo único que crea deseo real. Sígueme."
+Voz en off: "El error número uno que cometen los hombres en una cita es convertirla en una entrevista de trabajo aburrida, o peor, hablar de sí mismos sin parar para impresionar. La CIA tiene un protocolo de 'Extracción de Información'. El agente nunca habla más del 20% del tiempo. El objetivo es lanzar una 'Pregunta Calibrada' que obligue a la otra persona a abrirse. En lugar de preguntar '¿Qué estudias?', pregunta 'Pareces alguien que siempre está analizando a los demás, ¿a qué te dedicas?'. Esa falsa suposición hará que ella quiera corregirte o darte la razón, invirtiendo muchísima energía emocional. Haz que ella hable el 80% del tiempo y creerá que eres el hombre más fascinante del mundo. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-La amistad mata la polaridad sexual. 🧲⚡
-Si actúas como su amiga, te tratará como a una.
-👉 Sígueme para recuperar tu núcleo masculino.
-#Polaridad #Masculinidad #CaballeroModerno #Atraccion #EnergiaMasculina`
+El que más habla, más control pierde. 🤐🕵️‍♂️
+Haz preguntas calibradas y deja que ella invierta su energía en ti.
+👉 Sígueme para dominar el control del marco conversacional.
+#IngenieriaSocial #Psicologia #CIA #CaballeroModerno #Comunicacion`
             },
             {
                 id: 't-thu-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `Polaridad Masculina: Por qué intentar ser su mejor amigo asesina la atracción. 🧲⚡
+                script: `Extracción de Información: El poder del 80/20 en una conversación. 🤐🕵️‍♂️
 
-La física básica dicta que los polos opuestos se atraen. En la psicología de las relaciones, a esto le llamamos "Polaridad".
+Hay una regla no escrita en los interrogatorios de inteligencia: El que hace las preguntas tiene el poder, pero el que más habla, es el que está subordinado.
 
-La energía masculina cruda (dirección, estoicismo, propósito, lógica) actúa como un imán hacia la energía femenina profunda (emoción, flujo, intuición, caos). La tensión sexual existe EN EL ESPACIO entre estas dos diferencias.
+Cuando un hombre intenta impresionar a una mujer, empieza a hablar como loco. Le cuenta sobre su coche, su dinero, sus amigos... todo para buscar su aprobación. Se está subcomunicando como una persona de bajo valor.
 
-El error catastrófico del "chico bueno" es intentar acercarse a ella comportándose como una de sus amigas. Pasa 4 horas en el teléfono escuchando sus chismes, analizando los problemas de sus otras amigas, y mostrando un exceso de emotividad complaciente. 
+Los maestros de la ingeniería social hacen exactamente lo contrario. Usan preguntas calibradas para hacer que la otra persona hable el 80% del tiempo. 
+Y no preguntas aburridas ("¿Cuántos hermanos tienes?"), sino Asunciones Frías:
+"Tienes una vibra muy analítica, apuesto a que eres la amiga que da los consejos fríos en tu grupo, ¿verdad?".
 
-Acaba de destruir la polaridad. Ahora es el Polo Femenino. Y como dos polos iguales se repelen, el deseo sexual muere instantáneamente, y le dicen la famosa frase: "Eres un chico increíble, te veo como un hermano".
+Ella sentirá la necesidad urgente de explicarse, corregirte o darte la razón con una historia larguísima. Mientras ella invierte energía emocional, tú solo escuchas con una sonrisa de Mona Lisa. Al final de la noche, ella sentirá una química brutal contigo, simplemente porque la hiciste sentir interesante.
 
-El Caballero Moderno ama a las mujeres, pero mantiene su núcleo intacto. Él es la roca, la montaña silenciosa. Ese contraste es lo que vuelve locas a las mujeres.
+👉 Sé el director de la entrevista, no el entrevistado.
 
-👉 No diluyas tu masculinidad para encajar. Tu poder está en el contraste.
-
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic image of raw elements colliding: a dark, solid stone mountain against a chaotic, beautiful swirling ocean wave. Symbolizing the polarity between masculine and feminine energy, photorealistic, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, moody image of a modern gentleman sitting back in a leather armchair in the shadows, listening calmly, while an old-school vintage wiretap tape recorder slowly spins on the table. Symbolizing intelligence gathering, 8k --ar 4:5"`
             }
         ],
         5: [ // Viernes
             { 
                 id: 't-fri-1', 
-                text: 'Publicar Reel: "Triada Oscura y Peligro Biológico"',
+                text: 'Publicar Reel: "El Silencio Táctico"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Por qué prefieren al "Chico Malo" 🐍
+Título en pantalla: Tu arma más letal es callarte la boca 🤫
 
-[Visual sugerido: Un hombre trajeado ajustándose los puños en las sombras. O un lobo mirando fijamente a la cámara con ojos amarillos.]
+[Visual sugerido: Un reloj de arena cayendo en cámara lenta, o un hombre llevándose el dedo a los labios (Shhh) en la oscuridad.]
 
-Voz en off: "Llevas toda tu vida preguntándote por qué las mujeres hermosas ignoran al chico bueno que las trata bien, y se obsesionan con el 'chico malo'. La biología evolutiva tiene la respuesta. El cerebro femenino asocia los rasgos de la 'Triada Oscura' (narcisismo, maquiavelismo y psicopatía) con altos niveles de testosterona, dominancia social y capacidad de protegerla frente a otros hombres. Biológicamente, un hombre inofensivo es inútil para la supervivencia. No te estoy diciendo que seas un criminal. Te estoy diciendo que tienes que integrar tu sombra. Tienes que ser un hombre capaz de ser peligroso, pero que decide mantener ese peligro bajo control voluntario. Sé un monstruo educado. Sígueme."
+Voz en off: "A los seres humanos les aterra el silencio. Nos hace sentir incómodos y vulnerables. En los interrogatorios de alto riesgo, los investigadores usan el 'Silencio Táctico'. Le hacen una pregunta al sospechoso, y cuando este responde algo corto, el investigador no dice nada. Solo lo mira a los ojos, en silencio, durante 5 o 10 segundos. La presión psicológica es tan fuerte que la persona empieza a hablar más, revelando secretos solo para llenar ese vacío. En tus relaciones, si ella te dice una excusa o un comentario pasivo-agresivo, no te justifiques ni te enojes. Mírala a los ojos con una pequeña sonrisa y quédate callado. Ella solita se tropezará intentando explicarse. El silencio es poder. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-Un hombre inofensivo no es un buen hombre, es solo un hombre débil. 🐍⚔️
-Integra tu sombra. Sé peligroso, pero mantenlo bajo control.
-👉 Sígueme para dominar la verdadera masculinidad de alto valor.
-#ChicoMalo #TriadaOscura #CaballeroModerno #Psicologia #Sombra`
+Quien no soporta el silencio, termina revelando todas sus cartas. 🤫⏳
+Usa el vacío conversacional a tu favor.
+👉 Sígueme para construir una presencia inquebrantable.
+#SilencioTactico #Poder #CaballeroModerno #LenguajeCorporal #Mentalidad`
             },
             {
                 id: 't-fri-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Mito del Chico Malo: Integrando el Peligro Biológico. 🐍⚔️
+                script: `El Silencio Táctico: Por qué callarte te da el control absoluto. 🤫⏳
 
-"¿Por qué siempre se van con el patán si yo soy un buen tipo?" 
-Es el lamento eterno del hombre moderno. Y la respuesta no está en que las mujeres sean tontas, está en la biología evolutiva.
+Hay una diferencia brutal entre un silencio incómodo y un silencio de poder.
 
-En la antigüedad, un hombre inofensivo y excesivamente amable no podía proteger a su tribu de los invasores o los depredadores. La biología cableó a las mujeres para buscar señales de dominancia agresiva, lo que hoy psicólogos llaman rasgos de la "Triada Oscura" (Maquiavelismo, Narcisismo y Psicopatía). 
+El hombre promedio odia el silencio. Si está con una mujer atractiva y la conversación se pausa, entra en pánico. Empieza a balbucear o hacer preguntas estúpidas para llenar el vacío, subcomunicando ansiedad y bajo estatus.
 
-El chico malo subcomunica que no le importa lo que piensen de él, que tiene altos niveles de testosterona y que no tiene miedo al conflicto. Biológicamente, eso es magnético.
+En el mundo de la investigación, el "Silencio Táctico" es un arma pesada. Haces una pregunta, te responden, y tú no dices absolutamente nada. Solo mantienes un contacto visual relajado y asientes lentamente.
 
-Jordan Peterson lo explica perfectamente: "No deberías ser inofensivo. Deberías ser un monstruo, un hombre absolutamente peligroso, y luego aprender a controlarlo". 
+La tensión social que se genera es inmensa. La naturaleza humana odia los vacíos de información, así que la otra persona sentirá la necesidad compulsiva de seguir hablando, revelando sus inseguridades o justificándose para aliviar esa tensión. 
 
-El Caballero Moderno no es un criminal ni un patán. Es un hombre inmensamente capaz de ser agresivo, de romper cuellos si es necesario para defender a su familia o su empresa, pero elige la educación y la paz. 
+El Caballero Moderno es el maestro de la pausa. Entiende que un silencio de 4 segundos después de que ella hace un comentario (como un Shit Test), desarma por completo su ataque sin mover un solo músculo. 
 
-👉 Ser inofensivo no es virtud, es debilidad. Sé letal, pero educado.
+👉 Tu silencio pesa más que tus gritos. Aprende a sostenerlo.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly cinematic, moody portrait of a sharp-dressed modern gentleman with a shadow cast over half his face. Behind him, a subtle reflection of a dark wolf or predator. Symbolizing the controlled danger and the integrated shadow, 8k --ar 4:5"`
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A highly aesthetic, cinematic dark image of an hourglass standing on a mahogany desk. The sand falls slowly. In the blurred background, a man in a sharp suit sits silently, exuding immense power and calm. 8k --ar 4:5"`
             }
         ],
         6: [ // Sábado
             { 
                 id: 't-sat-1', 
-                text: 'Publicar Reel: "El Lenguaje de la Simetría y Salud"',
+                text: 'Publicar Reel: "Ingeniería Social (Pretexto)"',
                 script: `[GUION PARA REEL FACELESS - TIKTOK/IG/FB]
-Título en pantalla: Tu físico es tu currículum biológico 🧬
+Título en pantalla: Cómo hackear la confianza de cualquier grupo 🎭
 
-[Visual sugerido: B-roll de un hombre entrenando pesas pesadas en blanco y negro, o esculturas griegas perfectas.]
+[Visual sugerido: Un hombre cruzando un detector de metales VIP, o alguien abriendo una cerradura de caja fuerte de manera experta.]
 
-Voz en off: "Deja de repetir la mentira de que el físico no importa. La biología no es políticamente correcta. Cuando una mujer te mira por primera vez, su cerebro escanea tus proporciones en milisegundos. ¿Tienes los hombros anchos y la cintura estrecha? ¿Tienes una mandíbula definida? Estos no son estándares de belleza culturales, son indicadores biológicos de altos niveles de testosterona, un sistema inmunológico fuerte y buena genética para la reproducción. Ir al gimnasio no es solo para verte bien sin camisa, es para hackear el algoritmo evolutivo más profundo del cerebro humano. Tu físico dice en voz alta la disciplina que tienes en privado. Empieza a levantar pesas. Sígueme."
+Voz en off: "Los espías no entran a un edificio rompiendo ventanas, entran por la puerta principal usando algo llamado 'Pretexto'. Es el arte de crear un escenario falso para integrarte a un entorno. Si ves a una mujer hermosa con sus amigas, el error es acercarte como un depredador desesperado enfocado solo en ella. Eso enciende sus alarmas de seguridad. El hombre de alto valor usa ingeniería social. Se acerca al grupo completo con un pretexto divertido: 'Necesito una opinión rápida para desempatar una apuesta, ¿quién de ustedes es la más mentirosa?'. En 10 segundos todo el grupo se está riendo, pasaste por debajo de su radar de defensas y lograste familiaridad instantánea. Eres un hacker social. Sígueme."
 
 [COPIAR Y PEGAR EN DESCRIPCIÓN]
-El físico no miente. Es el reflejo físico de tu disciplina mental. 🏛️🧬
-Hackea el algoritmo biológico construyendo un cuerpo de hierro.
-👉 Sígueme para maximizar tu atractivo al más alto nivel.
-#Estetica #Biologia #CaballeroModerno #Gimnasio #Masculinidad`
+Nunca ataques el castillo de frente. Usa el Pretexto para abrir las puertas. 🎭🔓
+La ingeniería social destruye cualquier barrera defensiva.
+👉 Sígueme para dominar la dinámica de grupos.
+#IngenieriaSocial #Espionaje #CaballeroModerno #Atraccion #Carisma`
             },
             {
                 id: 't-sat-fb',
                 text: 'Publicar Post en Facebook (Copiar y Pegar)',
-                script: `El Currículum Biológico: Por qué la estética importa más de lo que crees. 🏛️🧬
+                script: `El Pretexto: Hackeando el radar defensivo con Ingeniería Social. 🎭🔓
 
-La sociedad moderna intenta vendernos la idea de que "el físico no importa, lo que cuenta es lo de adentro". Es una frase reconfortante, pero es una mentira biológica masiva.
+Las mujeres hermosas tienen un "Radar Anti-Perdedores" (Bitch Shield) activado las 24 horas del día. Si te acercas caminando directo hacia ella de forma lineal, sudando y viéndole el escote, su alarma se dispara y te destruye en 2 segundos.
 
-La atracción inicial no es una decisión moral, es un algoritmo evolutivo. 
+Los profesionales de la Inteligencia Social nunca atacan la fortaleza de frente. Usan una técnica de infiltración llamada "El Pretexto".
 
-Cuando entras a una habitación, el cerebro subconsciente de las mujeres escanea tus proporciones:
-- Hombros anchos y cintura estrecha (Forma de V) = Altos niveles de testosterona y capacidad para cazar/pelear.
-- Piel limpia y buena postura = Sistema inmunológico fuerte y salud genética.
+El pretexto es una excusa válida, socialmente calibrada, que desactiva las defensas iniciales. No llegas buscando un número de teléfono, llegas buscando una opinión externa para un debate divertido. 
 
-No es superficialidad, es la biología buscando los mejores genes posibles para garantizar la supervivencia. 
+Llegas de lado, con lenguaje corporal que indica que te vas a ir rápido, y te diriges a todo su grupo de amigos, no solo a ella. 
+"Oigan, rápida opinión: estoy debatiendo con un amigo... si tu novia se va a Las Vegas y no te avisa, ¿es infidelidad técnica o solo mala educación?".
 
-El gimnasio no es un lugar para inflar tu ego, es la herramienta para reescribir tu currículum biológico. Construir un cuerpo fuerte comunica subconscientemente disciplina, trabajo duro y poder. 
+Acabas de infiltrarte en el grupo sin disparar las alarmas de presión sexual. Generaste familiaridad. Ellas te validaron. 
 
-👉 No puedes exigir atracción si ni siquiera respetas tu propio templo.
+El Caballero Moderno es un artista de la logística social. Entra al sistema y luego toma el control.
 
----\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic, aesthetic black and white image of an ancient Greek marble statue perfectly merged with a modern man in a tailored suit, emphasizing the timeless biological standard of the V-taper masculine physique, 8k --ar 4:5"`
+👉 Sé el Hacker, no el Invasor.
+
+---\n🎨 PROMPT IMAGEN (Midjourney/DALL-E):\n"A cinematic shot of an elegant vault door or a VIP velvet rope being opened smoothly by a modern gentleman without any effort. Symbolizing social engineering and smooth infiltration, dark luxury aesthetic, 8k --ar 4:5"`
             }
         ]
     };
