@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Callback para cuando Mailchimp responda
             window.jsonpCallback = function(data) {
-                // Redirigir a la Carta de Ventas sin importar la respuesta de Mailchimp (éxito o ya suscrito)
-                window.location.href = '../sales_page/index.html';
+                // Redirigir a la Carta de Ventas del TRIPWIRE sin importar la respuesta de Mailchimp (éxito o ya suscrito)
+                window.location.href = 'https://go.hotmart.com/V103992992G';
             };
 
             // Fallback: Si Mailchimp falla o se tarda más de 3 segundos, redirigir igual
             setTimeout(() => {
-                window.location.href = '../sales_page/index.html';
+                window.location.href = 'https://go.hotmart.com/V103992992G';
             }, 3000);
         }
     });
