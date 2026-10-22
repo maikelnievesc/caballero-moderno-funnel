@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVOCADO CLUB 🥑 — Estudio de Mercado, Requerimientos y Dossier (Actualizado con Retro de Ari)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Base Aguacate Compartida */
+      --bg-cream: #F7FAF2;
+      --card-white: #FFFFFF;
+      --avo-dark: #1C3829;
+      --avo-forest: #2A523B;
+      --avo-primary: #68A332;
+      --avo-light: #8FD14F;
+      --avo-pale: #EBF5DF;
+      --text-main: #1E2E24;
+      --text-muted: #5A6E60;
+      --border-soft: #DCE8D0;
+
+      /* Variables Dinámicas de Acento (Por defecto: Opción A - Coral Semilla) */
+      --accent-main: #E86F52;
+      --accent-soft: #FDF0ED;
+      --accent-secondary: #D99B26;
+      --accent-sec-soft: #FEF6E6;
+      --accent-name: "Opción A: Coral Semilla & Dorado";
+    }
+
+    /* Tema Alternativo: Opción B - Frambuesa Wellness & Malva */
+    body.theme-berry {
+      --accent-main: #D84A7E;
+      --accent-soft: #FBF0F5;
+      --accent-secondary: #8B5CF6;
+      --accent-sec-soft: #F3EEFF;
+      --accent-name: "Opción B: Rosa Frambuesa & Malva Wellness";
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 24px 20px 80px;
+      transition: all 0.25s ease;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* BARRA FLOTANTE INTERACTIVA PARA CAMBIAR PALETA EN VIVO */
+    .theme-switcher-bar {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      background: rgba(28, 56, 41, 0.94);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(28, 56, 41, 0.22);
+      border: 1px solid rgba(143, 209, 79, 0.35);
+    }
+
+    .theme-switcher-bar .title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #E2F0D5;
+    }
+
+    .theme-btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .theme-btn {
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .theme-btn:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .theme-btn.active {
+      background: #FFFFFF;
+      color: var(--avo-dark);
+      border-color: var(--avo-light);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* HERO HEADER CON ESTÉTICA AGUACATE */
+    .hero {
+      background: linear-gradient(135deg, #1C3829 0%, #2E5B3E 55%, #558B2F 100%);
+      color: #FFFFFF;
+      padding: 40px 42px;
+      border-radius: 22px;
+      box-shadow: 0 16px 36px rgba(28, 56, 41, 0.16);
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 5px solid var(--accent-main);
+    }
+
+    .hero::after {
+      content: "🥑";
+      position: absolute;
+      right: 30px;
+      bottom: -15px;
+      font-size: 9.5rem;
+      opacity: 0.13;
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-main);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #E2F0D5;
+      font-size: 1.03rem;
+      max-width: 820px;
+    }
+
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .meta-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: #F1F8E9;
+      font-weight: 600;
+    }
+
+    /* SECTION TITLES */
+    .section-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 38px 0 18px;
+    }
+
+    .section-banner span.num {
+      background: var(--accent-main);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 6px 14px;
+      border-radius: 10px;
+      letter-spacing: 0.04em;
+      transition: background 0.25s ease;
+    }
+
+    .section-banner h2 {
+      margin: 0;
+      font-size: 1.55rem;
+      color: var(--avo-dark);
+      font-weight: 800;
+    }
+
+    /* CARDS & GRIDS */
+    .card {
+      background: var(--card-white);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 26px 30px;
+      margin-bottom: 22px;
+      box-shadow: 0 6px 20px rgba(28, 56, 41, 0.04);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--avo-dark);
+      font-size: 1.22rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--avo-pale);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding: 28px 24px; }
+      .hero h1 { font-size: 1.65rem; }
+    }
+
+    /* TABLES */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 0.94rem;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th {
+      background: var(--avo-dark);
+      color: #fff;
+      text-align: left;
+      padding: 14px 16px;
+      font-weight: 700;
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #FBFDF9;
+    }
+
+    /* CALLOUTS */
+    .callout-avo {
+      background: var(--avo-pale);
+      border-left: 5px solid var(--avo-primary);
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+
+    .callout-accent {
+      background: var(--accent-soft);
+      border-left: 5px solid var(--accent-main);
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 16px 0;
+      transition: all 0.25s ease;
+    }
+
+    .callout-sec {
+      background: var(--accent-sec-soft);
+      border-left: 5px solid var(--accent-secondary);
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 16px 0;
+      transition: all 0.25s ease;
+    }
+
+    /* PRICE CARDS */
+    .price-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 22px;
+      text-align: center;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .price-card.featured {
+      border-color: var(--accent-main);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+      transform: translateY(-4px);
+    }
+
+    .price-ribbon {
+      display: inline-block;
+      background: var(--accent-main);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .price-amount {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--avo-dark);
+      margin: 6px 0;
+    }
+
+    .price-mxn {
+      font-size: 0.9rem;
+      color: var(--avo-primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    /* COLOR SWATCHES */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #fff;
+    }
+
+    .swatch-color {
+      height: 62px;
+      display: flex;
+      align-items: flex-end;
+      padding: 8px 10px;
+      font-weight: 800;
+      font-size: 0.76rem;
+    }
+
+    .swatch-info {
+      padding: 9px 10px;
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    /* MODULE CARDS */
+    .module-card {
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-top: 4px solid var(--avo-primary);
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: 0 4px 14px rgba(28, 56, 41, 0.04);
+      position: relative;
+    }
+
+    .module-card.accent-top {
+      border-top-color: var(--accent-main);
+    }
+
+    .module-tag {
+      display: inline-block;
+      background: var(--avo-pale);
+      color: var(--avo-forest);
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .module-card h4 {
+      margin: 0 0 10px;
+      font-size: 1.13rem;
+      color: var(--avo-dark);
+    }
+
+    .module-card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.92rem;
+    }
+
+    .module-card li {
+      margin-bottom: 7px;
+    }
+
+    .new-badge {
+      display: inline-block;
+      background: var(--accent-main);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    /* NUTRIOLOGA BOX */
+    .nutri-box {
+      background: linear-gradient(135deg, #1C3829 0%, #264A36 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 32px 36px;
+      margin-top: 36px;
+      box-shadow: 0 14px 32px rgba(28, 56, 41, 0.2);
+      border-top: 5px solid var(--accent-main);
+    }
+
+    .nutri-box h2 {
+      margin-top: 0;
+      color: #C5F099;
+      font-size: 1.5rem;
+    }
+
+    .nutri-step {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+    }
+
+    .nutri-step strong {
+      color: #8FD14F;
+      font-size: 1.02rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .badge-pro {
+      background: var(--accent-main);
+      color: #fff;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- SELECTOR INTERACTIVO DE PALETA DE COLORES EN VIVO -->
+    <div class="theme-switcher-bar">
+      <div class="title">
+        <span>🎨 <strong>Probador de Identidad Visual en Vivo:</strong> Haz clic para comparar las 2 opciones con Ari</span>
+      </div>
+      <div class="theme-btns">
+        <button class="theme-btn active" id="btn-coral" onclick="setTheme('coral')">
+          <span class="dot" style="background: #68A332;"></span>
+          <span class="dot" style="background: #E86F52;"></span>
+          Opción 1: Aguacate & Coral Semilla
+        </button>
+        <button class="theme-btn" id="btn-berry" onclick="setTheme('berry')">
+          <span class="dot" style="background: #68A332;"></span>
+          <span class="dot" style="background: #D84A7E;"></span>
+          Opción 2: Aguacate & Rosa Frambuesa Wellness
+        </button>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">🥑 DOSSIER OFICIAL ACTUALIZADO (CON RETRO DE NUTRIÓLOGA ARI)</div>
+      <h1>Avocado Club: Plataforma de Nutrición Interactiva</h1>
+      <p>Estudio de Mercado enfocado en <strong>México</strong>, Módulo de <strong>Control Clínico y Metabólico</strong>, Domingo de Menú Abierto, Calibración Individual con IA (SMAE) y Especificación de los 7 Módulos respaldados por la <strong>Nutrióloga Ari</strong> en Nayarit.</p>
+      <div class="meta-strip">
+        <div class="meta-pill">🇲🇽 Mercado Meta: Mujeres 25-48 años en México</div>
+        <div class="meta-pill">👩‍⚕️ Respaldo Clínico: Nutrióloga Ari (Nayarit)</div>
+        <div class="meta-pill">🩺 Incluye: Control de Insulina, Presión y Digestión</div>
+        <div class="meta-pill">💳 Entrada: $9.99 USD → $14.99 USD/mes</div>
+      </div>
+    </div>
+
+    <!-- PARTE 1: ESTUDIO DE MERCADO -->
+    <div class="section-banner">
+      <span class="num">PARTE 1</span>
+      <h2>Estudio de Mercado: ¿Por qué enfocarnos 100% en México?</h2>
+    </div>
+
+    <div class="card">
+      <h3>🇲🇽 1. El Superpoder de Acotar a México (Mercado Masivo + Cero Fricción Cultural)</h3>
+      <p>Acotar nuestro segmento a <strong>Mujeres de 25 a 48 años en México</strong> (más mujeres mexicanas viviendo en EE.UU.) nos coloca en el <strong>mercado más grande y rentable de habla hispana en Hotmart</strong>, integrando tanto objetivos estéticos como <strong>Control Clínico</strong> (insulina, hipertensión y colitis, que tienen altísima prevalencia en México):</p>
+
+      <div class="grid-3" style="margin-top: 16px; margin-bottom: 16px;">
+        <div class="callout-avo" style="margin: 0;">
+          <strong>📈 +22 Millones de Compradoras</strong><br>
+          En México hay más de 22 millones de mujeres en el rango de 25 a 48 años con acceso a compras en línea (y +12 millones de mexicanas en EE.UU. que cocinan igual).
+        </div>
+        <div class="callout-accent" style="margin: 0;">
+          <strong>🛒 Ingredientes y Precios de México</strong><br>
+          Podemos hablar de <em>tortilla, bolillo, queso panela, queso Oaxaca, nopales, frijoles de la olla, jitomate y aguacate</em> con costos reales de súper/mercado en pesos mexicanos.
+        </div>
+        <div class="callout-sec" style="margin: 0;">
+          <strong>👩‍⚕️ Estándar Clínico SMAE + Control Metabólico</strong><br>
+          Toda la plataforma se rige bajo el <strong>SMAE</strong> y protocolos de control glucémico y cardioprotector avalados por la Nutrióloga Ari.
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 48%;">❌ Lo que está SATURADO en Hotmart</th>
+            <th style="width: 52%;">✅ Lo que ofrece AVOCADO CLUB con Ari</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PDFs estáticos y aburridos:</strong> La clienta los descarga el día 1 y al día 4 ya se olvidó de abrirlos.</td>
+            <td><strong>App Web Interactiva:</strong> Eliges tu objetivo (físico o clínico), tus medidas y qué comida mexicana te gusta, y tienes tu semana al instante.</td>
+          </tr>
+          <tr>
+            <td><strong>Dietas rígidas de lunes a domingo:</strong> La gente rompe la dieta el domingo por estrés y abandona el lunes por culpa.</td>
+            <td><strong>Domingo de "Menú Abierto de Favoritos":</strong> De lunes a sábado sigues tu plan guiado y el domingo eliges libremente lo que más te gustó en la semana.</td>
+          </tr>
+          <tr>
+            <td><strong>Esclavitud a la báscula gramera:</strong> Pesar cada gramo de comida genera ansiedad y abandono en la semana 2.</td>
+            <td><strong>Método Visual de Porciones (Sin Báscula):</strong> Medir con la palma de la mano, el puño, el pulgar, cucharadas o tazas caseras.</td>
+          </tr>
+          <tr>
+            <td><strong>"Coaches" sin cédula que ignoran condiciones médicas:</strong> Peligroso para quien tiene resistencia a la insulina o presión alta.</td>
+            <td><strong>Nutrióloga Real (Ari):</strong> Incluye ruta de <strong>Control Clínico</strong> (insulina, presión arterial, digestión), revisa platos en el foro y sube video-recetas cada 15 días.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>👩🏻‍💼 2. Perfil de la Clienta Ideal (Buyer Persona México)</h3>
+        <p>Entre el <strong>78% y 85% de las compradoras de nutrición son mujeres</strong>. Aunque el sistema incluye el cálculo metabólico para hombres y mujeres, todo el diseño visual y mensaje le habla a:</p>
+        <ul>
+          <li><strong>Perfil:</strong> Mujeres de 25 a 48 años en México (trabajadoras, profesionistas, emprendedoras o mamás ocupadas).</li>
+          <li><strong>Dolor #1 ("¿Qué cocino hoy que no salga caro?"):</strong> Odia que le impongan alimentos que no le gustan o tener que cocinar un platillo para ella y otro para su familia.</li>
+          <li><strong>Dolor #2 (Salud Metabólica y Cintura/Cadera):</strong> Muchas buscan bajar grasa abdominal, reducir centímetros de cintura/cadera o controlar su **insulina, presión o inflamación** sin pasar hambre.</li>
+          <li><strong>Dolor #3 (Cero tiempo para el Gym):</strong> Necesita rutinas de 20-30 min en su sala (caminatas, sentadillas, abdomen, desplantes) sin aparatos.</li>
+          <li><strong>Dolor #4 (Falta de acompañamiento):</strong> Quiere subir foto de su comida y que Ari le dé tips reales durante la semana.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🧠 3. Domingo Abierto + Calibración Individual con IA</h3>
+        <p><strong>¿Cómo funciona el ciclo semanal para cada persona?</strong> Combinamos flexibilidad psicológica el fin de semana con nuestro <strong>Motor de IA Algorítmica (SMAE)</strong> en Supabase:</p>
+        <ul>
+          <li><strong>Lunes a Sábado (Estructura Guiada):</strong> Menú diario personalizado según su objetivo o condición clínica.</li>
+          <li><strong>Domingo de "Menú Abierto" <span class="new-badge">NUEVO</span>:</strong> El domingo queda como día semi-libre donde la usuaria escoge de los platillos que más le gustaron en la semana.</li>
+          <li><strong>Cierre Semanal (Domingo en la noche o Lunes en la mañana) <span class="new-badge">NUEVO</span>:</strong>
+            <ul>
+              <li>Registra su nuevo peso y actualiza medidas de <strong>cintura y cadera</strong>.</li>
+              <li>Marca qué platillos le encantaron (❤️) y cuáles cambiar (❌), más su nivel de saciedad.</li>
+              <li>La IA recalibra individualmente sus calorías, nutrientes clínicos y platillos para la nueva semana.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DETALLE DEL NUEVO BLOQUE DE CONTROL CLÍNICO -->
+    <div class="card" style="border-left: 6px solid var(--avo-primary);">
+      <h3>🩺 Detalle de la Nueva Ruta: "Control Clínico y Salud Metabólica" (Módulo 1)</h3>
+      <p>De acuerdo con la retroalimentación de <strong>Ari</strong>, el 5to botón oficial en el Onboarding lleva el nombre de <strong>"Control Clínico y Salud Metabólica"</strong>. Al seleccionarlo, despliega las <strong>3 afecciones más populares en México</strong> y pregunta si desea combinarlo con pérdida o mantenimiento de peso:</p>
+
+      <div class="grid-2" style="margin-bottom: 14px;">
+        <div class="callout-avo" style="margin: 0;">
+          <strong>🎯 Las 3 Sub-Opciones Clínicas Oficiales:</strong>
+          <ol style="margin: 8px 0 0; padding-left: 20px; font-size: 0.9rem;">
+            <li>🩸 <strong>Resistencia a la Insulina, Glucosa y SOP (Prediabetes):</strong> Control de carga glucémica, combinación inteligente de carbohidratos complejos con fibra, proteína y aguacate para evitar picos de insulina.</li>
+            <li>❤️ <strong>Presión Arterial y Salud Cardiovascular (Hipertensión / Triglicéridos):</strong> Enfoque cardioprotector estilo DASH mexicano, bajo en sodio oculto/ultraprocesados y rico en potasio y grasas saludables.</li>
+            <li>🌿 <strong>Salud Digestiva y Desinflamación (Colitis / Gastritis):</strong> Alimentos antiinflamatorios, cocciones nobles y libre de irritantes.</li>
+          </ol>
+        </div>
+
+        <div class="callout-accent" style="margin: 0;">
+          <strong>⚖️ Combinación Inteligente (Clínico + Meta de Peso):</strong>
+          <p style="margin: 8px 0 0; font-size: 0.9rem;">
+            Como muchas pacientes con resistencia a la insulina, hipertensión o colitis también buscan reducir grasa corporal, al elegir cualquiera de las 3 sub-opciones la app le pregunta:<br><br>
+            • <strong>Opción A:</strong> <em>"Quiero controlar mi condición y además <strong>Bajar de Peso</strong> (Déficit calórico seguro)"</em>.<br>
+            • <strong>Opción B:</strong> <em>"Quiero controlar mi condición y <strong>Mantener mi Peso actual</strong>"</em>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRECIOS OFICIALES -->
+    <div class="section-banner">
+      <span class="num">PARTE 2</span>
+      <h2>Arquitectura Oficial de Precios y Colores (Avocado Club)</h2>
+    </div>
+
+    <div class="card">
+      <h3>💰 Escalera de Precios en Hotmart (Conversión + Retención 90 Días)</h3>
+      <p>Mientras una sola consulta presencial cuesta de $600 a $1,200 MXN, <strong>Avocado Club</strong> ofrece una entrada irresistible y un candado trimestral de alto ahorro:</p>
+
+      <div class="grid-3" style="margin-top: 20px; margin-bottom: 10px;">
+        <div class="price-card">
+          <div class="price-ribbon" style="background: var(--avo-primary);">GANCHO DE ENTRADA (MES 1)</div>
+          <h4 style="margin: 4px 0; color: var(--avo-dark);">Primer Mes de Prueba</h4>
+          <div class="price-amount">$9.99 <span style="font-size: 1rem;">USD</span></div>
+          <div class="price-mxn">~$195 MXN (Primeros 30 días)</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Destruye cualquier objeción de compra. La clienta entra por menos de $200 pesos, vive la experiencia completa y a partir del Mes 2 se renueva automáticamente a $14.99 USD.</p>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-ribbon">RENOVACIÓN MENSUAL ESTÁNDAR</div>
+          <h4 style="margin: 4px 0; color: var(--avo-dark);">Membresía Mensual</h4>
+          <div class="price-amount">$14.99 <span style="font-size: 1rem;">USD/mes</span></div>
+          <div class="price-mxn">~$290 MXN al mes (~$9.60 pesos/día)</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Precio ultra-accesible para el mercado mexicano. Cuesta menos que una sola consulta presencial y le da planes semanales vivos, rutinas, recetario quincenal y foro con Ari.</p>
+        </div>
+
+        <div class="price-card">
+          <div class="price-ribbon" style="background: var(--accent-secondary);">MÁXIMO AHORRO (CANDADO 90 DÍAS)</div>
+          <h4 style="margin: 4px 0; color: var(--avo-dark);">Plan Trimestral VIP</h4>
+          <div class="price-amount">$34.99 <span style="font-size: 1rem;">USD / 3 meses</span></div>
+          <div class="price-mxn">~$680 MXN total (Equivale a ~$226 MXN/mes)</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;"><strong>¡Ahorra más del 22%!</strong> Enfatiza el compromiso de 90 días (el tiempo ideal para ver una transformación física y clínica real) y nos asegura 3 meses de retención inmediata.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARATIVA DE LAS 2 OPCIONES DE COLORES -->
+    <div class="card">
+      <h3>🎨 Comparativa de Identidad Visual: Las 2 Opciones "Aguacate"</h3>
+      <p>Ambas opciones conservan el ADN fresco de <strong>Avocado Club</strong> (Verde Aguacate Vibrante <code>#68A332</code>, Verde Hoja Profundo <code>#1C3829</code> y Fondo Crema Pulpa <code>#F7FAF2</code>). Lo que cambia es el <strong>color de energía/acento</strong>:</p>
+
+      <div class="grid-2" style="margin-top: 18px; margin-bottom: 0;">
+        <div style="border: 2px solid #E86F52; border-radius: 16px; padding: 20px; background: #FFFCFB;">
+          <span class="module-tag" style="background: #FDF0ED; color: #C84B2E;">OPCIÓN 1 — CÁLIDA Y ORGÁNICA</span>
+          <h4 style="margin: 4px 0 8px; color: var(--avo-dark); font-size: 1.15rem;">🥑 Aguacate + Coral Semilla & Dorado</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0;">Inspirada en los tonos naturales de la semilla del aguacate, el barro mexicano y frutas tropicales. Transmite calidez casera, cocina rica y energía vital.</p>
+          <div class="swatch-grid">
+            <div class="swatch">
+              <div class="swatch-color" style="background: #68A332; color: #fff;">#68A332</div>
+              <div class="swatch-info"><strong>Verde Aguacate</strong><br>Base primaria</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #E86F52; color: #fff;">#E86F52</div>
+              <div class="swatch-info"><strong>Coral Semilla</strong><br>Botones y rachas</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #D99B26; color: #fff;">#D99B26</div>
+              <div class="swatch-info"><strong>Dorado Miel</strong><br>Medallas y VIP</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border: 2px solid #D84A7E; border-radius: 16px; padding: 20px; background: #FFFBFE;">
+          <span class="module-tag" style="background: #FBF0F5; color: #B8295E;">OPCIÓN 2 — FEMENINA Y WELLNESS</span>
+          <h4 style="margin: 4px 0 8px; color: var(--avo-dark); font-size: 1.15rem;">🌸 Aguacate + Rosa Frambuesa & Malva</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0;">Inspirada en el contraste botánico verde aguacate + rosa bugambilia/pitahaya/frambuesa. Transmite un estilo <em>Wellness & Fitness Femenino</em> súper moderno y llamativo.</p>
+          <div class="swatch-grid">
+            <div class="swatch">
+              <div class="swatch-color" style="background: #68A332; color: #fff;">#68A332</div>
+              <div class="swatch-info"><strong>Verde Aguacate</strong><br>Base primaria</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #D84A7E; color: #fff;">#D84A7E</div>
+              <div class="swatch-info"><strong>Rosa Frambuesa</strong><br>Botones y ❤️</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #8B5CF6; color: #fff;">#8B5CF6</div>
+              <div class="swatch-info"><strong>Malva Botánico</strong><br>Insignias y logros</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTE 3: REQUERIMIENTOS FUNCIONALES -->
+    <div class="section-banner">
+      <span class="num">PARTE 3</span>
+      <h2>Especificación de Requerimientos Funcionales (Los 7 Módulos Actualizados)</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="module-card">
+        <span class="module-tag">MÓDULO 1 — RF-01</span>
+        <h4>🎯 Onboarding, Clínico y Medidas</h4>
+        <ul>
+          <li><strong>5 Objetivos:</strong> Perder peso, Ganar músculo, Mantener, Subir de peso o <strong>Control Clínico</strong> <span class="new-badge">NUEVO</span> (<em>1. Insulina/Glucosa, 2. Presión Arterial, 3. Digestión/Colitis</em>).</li>
+          <li><strong>Biometría + Cintura y Cadera <span class="new-badge">NUEVO</span>:</strong> Edad, talla, peso actual/meta y registro obligatorio de <strong>cintura (cm) y cadera (cm)</strong>.</li>
+          <li><strong>Gustos Mexicanos:</strong> Selector visual de qué alimentos <strong>SÍ le gustan</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="module-card accent-top">
+        <span class="module-tag">MÓDULO 2 — RF-02</span>
+        <h4>📅 Plan Semanal + Domingo Libre</h4>
+        <ul>
+          <li><strong>Lunes a Sábado Guiado + Lista del Súper:</strong> Con precios MXN y botón de intercambio.</li>
+          <li><strong>Domingo de "Menú Abierto" <span class="new-badge">NUEVO</span>:</strong> Día semi-libre donde escoge de lo que más le gustó en la semana.</li>
+          <li><strong>Cierre Semanal (Domingo o Lunes AM) <span class="new-badge">NUEVO</span>:</strong> Registra peso/medidas, da feedback (❤️/❌) y la IA calibra la nueva semana.</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <span class="module-tag">MÓDULO 3 — RF-03</span>
+        <h4>✋ Porciones Visuales Semanales</h4>
+        <ul>
+          <li><strong>Sin Báscula Gramera:</strong> Porciones calculadas según el peso y condición clínica de la usuaria traducidas a medidas cotidianas.</li>
+          <li><strong>Guía Visual:</strong> Palma de la mano (proteína), puño (arroz/frijol), pulgar (aguacate), cucharadas y tazas.</li>
+          <li><strong>Renovación Semanal:</strong> Nuevos ejemplos visuales cada semana.</li>
+        </ul>
+      </div>
+
+      <div class="module-card accent-top">
+        <span class="module-tag">MÓDULO 4 — RF-04</span>
+        <h4>🍲 Recetario Quincenal + Video</h4>
+        <ul>
+          <li><strong>Recetario Dinámico:</strong> Filtrable por tiempo (&lt;15 min), calorías, apto para insulina/presión o comida del día.</li>
+          <li><strong>Actualización 2 veces al mes:</strong> Nuevas recetas los días 1 y 15 de cada mes.</li>
+          <li><strong>Video-Receta de Ari:</strong> Al menos 1 vez cada 15 días se estrena video preparando una receta paso a paso.</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <span class="module-tag">MÓDULO 5 — RF-05</span>
+        <h4>🏃‍♀️ Rutinas de Ejercicio en Casa</h4>
+        <ul>
+          <li><strong>Acorde a su Objetivo:</strong> Quema de grasa, sensibilidad a la insulina, tonificación de pierna/glúteo/abdomen o mantenimiento.</li>
+          <li><strong>100% en Casa sin Equipo:</strong> Caminatas, trote ligero, sentadillas, desplantes, lagartijas, planchas.</li>
+          <li><strong>Temporizador Integrado:</strong> Series, repeticiones y botón de rutina completada.</li>
+        </ul>
+      </div>
+
+      <div class="module-card accent-top">
+        <span class="module-tag">MÓDULO 6 — RF-06</span>
+        <h4>📸 Foro Híbrido con Ari</h4>
+        <ul>
+          <li><strong>En la Plataforma Web:</strong> Guía del plato ideal, galería de mejores platos de la semana y tips de Ari.</li>
+          <li><strong>Grupo VIP (Telegram/WhatsApp):</strong> Las socias suben foto de lo que comieron, piden tips y Ari las revisa y orienta desde su celular.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="border-top: 4px solid var(--accent-secondary);">
+      <span class="module-tag" style="background: var(--accent-sec-soft); color: var(--avo-dark);">MÓDULO 7 — RF-07</span>
+      <h3>📈 Dashboard de Progreso (Peso + Cintura y Cadera) y Gamificación</h3>
+      <div class="grid-2" style="margin-bottom: 0;">
+        <div>
+          <ul>
+            <li><strong>Gráfica de Evolución de Peso + Medidas Corporales:</strong> Seguimiento semanal de peso (kg) junto con la reducción de <strong>cintura (cm) y cadera (cm)</strong> e índice cintura-cadera.</li>
+            <li><strong>Contador Diario de Hidratación:</strong> Registro interactivo de vasos de agua al día.</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><strong>Niveles y Rachas:</strong> Racha de semanas cumplidas y rangos evolutivos (<em>Semilla 🌱 → Brote 🌿 → Floración 🌸 → Aguacate Hass 🥑 → Reina Saludable 👑</em>).</li>
+            <li><strong>Medallas Desbloqueables:</strong> Recompensas visuales por constancia semanal, recetas preparadas y reducción de medidas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTE 4: SECCIÓN ESPECIAL PARA LA NUTRIÓLOGA ARI -->
+    <div class="nutri-box">
+      <h2>👩‍⚕️ Guía Ejecutiva para Ari (División de Trabajo)</h2>
+      <p style="color: #E2F0D5; margin-bottom: 22px;">El objetivo de <strong>Avocado Club</strong> es que tu conocimiento clínico y nutricional llegue a cientos de mujeres en todo México sin que tengas que dar cientos de consultas individuales ni hacer trabajo técnico pesado:</p>
+
+      <div class="nutri-step">
+        <strong>1. Base de Datos de Menús, Control Clínico y Recetas (SMAE) <span class="badge-pro">NOSOTROS LO ARMAMOS, TÚ VALIDAS</span></strong>
+        Nosotros estructuramos toda la base de datos de platillos mexicanos, porciones visuales y menús (incluyendo las variantes para <em>Resistencia a la Insulina, Presión Arterial y Salud Digestiva</em> bajo el SMAE) para entregártela lista. <strong>Tu único rol aquí es revisarla, sugerir cualquier ajuste clínico y darle tu sello de aprobación.</strong>
+      </div>
+
+      <div class="nutri-step">
+        <strong>2. Video-Recetas Quincenales (1 Video cada 15 días) <span class="badge-pro">AUTORIDAD Y CERCANÍA</span></strong>
+        Dos veces al mes (días 1 y 15) actualizamos el recetario dinámico e incluimos <strong>1 video corto grabado desde tu celular</strong> preparando una receta fácil, rica y económica. Nosotros nos encargamos de editarlo y subirlo a la plataforma.
+      </div>
+
+      <div class="nutri-step">
+        <strong>3. Revisión en el Foro VIP de Comidas (Telegram / WhatsApp) <span class="badge-pro">DESDE TU CELULAR</span></strong>
+        Las suscriptoras subirán fotos de sus platos y dudas puntuales en la comunidad privada. Podrás revisarlas y responderles de forma práctica desde tu teléfono (con mensajes cortos o notas de voz) en un bloque breve de tu día.
+      </div>
+
+      <div class="nutri-step">
+        <strong>4. Video Corto de Presentación para la Página de Ventas <span class="badge-pro">CONFIANZA TOTAL</span></strong>
+        Te daremos un guion breve y estructurado para grabar un video de 90 segundos dando la bienvenida a <strong>Avocado Club</strong>, lo cual multiplica la confianza de las compradoras al ver a una nutrióloga mexicana real detrás de la plataforma.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function setTheme(theme) {
+      const body = document.body;
+      const btnCoral = document.getElementById('btn-coral');
+      const btnBerry = document.getElementById('btn-berry');
+
+      if (theme === 'berry') {
+        body.classList.add('theme-berry');
+        btnBerry.classList.add('active');
+        btnCoral.classList.remove('active');
+      } else {
+        body.classList.remove('theme-berry');
+        btnCoral.classList.add('active');
+        btnBerry.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>

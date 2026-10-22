@@ -1,0 +1,3098 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVOCADO CLUB 🥑 — Plataforma Oficial de Nutrición & Salud Metabólica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      /* PALETA OFICIAL: AGUACATE + CORAL SEMILLA & DORADO */
+      --bg-cream: #F7FAF2;
+      --bg-soft: #ECF4E2;
+      --card-white: #FFFFFF;
+      --avo-dark: #142B1F;
+      --avo-forest: #1E3F2D;
+      --avo-primary: #68A332;
+      --avo-bright: #8FD14F;
+      --avo-pale: #E8F3DC;
+      --coral: #E86F52;
+      --coral-dark: #C95236;
+      --coral-soft: #FDF0ED;
+      --gold: #D99B26;
+      --gold-light: #FDE68A;
+      --gold-soft: #FEF7E6;
+      --text-main: #18281E;
+      --text-muted: #566B5C;
+      --border-soft: #D8E6C9;
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --shadow-elevated: 0 20px 50px rgba(20, 43, 31, 0.08), 0 4px 14px rgba(20, 43, 31, 0.04);
+      --shadow-glow: 0 12px 30px rgba(232, 111, 82, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.025em;
+    }
+
+    /* =========================================================
+       ANIMACIONES DINÁMICAS (KINETIC UI)
+       ========================================================= */
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes floatDelayed {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(143, 209, 79, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(143, 209, 79, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(143, 209, 79, 0); }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-120%) skewX(-20deg); }
+      100% { transform: translateX(220%) skewX(-20deg); }
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================================================
+       VISTA 1: LOGIN DE DOS PANELES VERTICALES (REDISEÑO PRO)
+       ========================================================= */
+    #login-view {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    /* PANEL IZQUIERDO: CINEMATOGRÁFICO CON CARRUSEL DE 3 FOTOS DE FONDO */
+    .split-visual {
+      position: relative;
+      padding: 44px 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #FFFFFF;
+      overflow: hidden;
+      background: var(--avo-dark);
+    }
+
+    .bg-slides-container {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1.6s ease-in-out, transform 7s ease-out;
+    }
+
+    .bg-slide.active {
+      opacity: 1;
+      transform: scale(1.07);
+    }
+
+    .bg-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(155deg, rgba(17, 38, 27, 0.66) 0%, rgba(20, 43, 31, 0.82) 55%, rgba(17, 38, 27, 0.93) 100%);
+      z-index: 1;
+    }
+
+    .slide-indicators {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.35);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .slide-dot.active {
+      width: 24px;
+      background: var(--avo-bright);
+    }
+
+    .ambient-orb-1 {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(143, 209, 79, 0.22) 0%, transparent 70%);
+      top: -90px;
+      left: -80px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ambient-orb-2 {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 111, 82, 0.18) 0%, transparent 70%);
+      bottom: -60px;
+      right: -60px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .visual-top-bar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* PROPUESTA DE LOGO OFICIAL 3D GRANDE Y PREMIUM */
+    .master-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      text-decoration: none;
+    }
+
+    .logo-emblem-svg {
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 2.5px solid rgba(217, 155, 38, 0.78);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42), 0 0 22px rgba(143, 209, 79, 0.28);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #142B1F;
+      flex-shrink: 0;
+    }
+
+    .logo-emblem-svg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.24);
+      display: block;
+    }
+
+    .master-brand-logo:hover .logo-emblem-svg {
+      transform: scale(1.06) rotate(-3deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 28px rgba(217, 155, 38, 0.45);
+    }
+
+    .logo-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title-main {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 2.3rem;
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    .logo-title-main span.club-gold {
+      background: linear-gradient(135deg, #8FD14F 0%, #D99B26 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-subtitle-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #C5F099;
+      margin-top: 4px;
+    }
+
+    /* LIVE COMMUNITY TICKER */
+    .live-activity-pill {
+      background: rgba(20, 43, 31, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(143, 209, 79, 0.35);
+      padding: 8px 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #F1F8E9;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      background: #8FD14F;
+      border-radius: 50%;
+      animation: pulseDot 2s infinite;
+    }
+
+    /* CONTENIDO CENTRAL DEL PANEL IZQUIERDO */
+    .visual-hero-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 590px;
+      margin: auto 0;
+      padding: 24px 0;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, rgba(232, 111, 82, 0.9), rgba(217, 155, 38, 0.9));
+      padding: 6px 15px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 6px 18px rgba(232, 111, 82, 0.3);
+    }
+
+    .visual-hero-copy h1 {
+      font-size: 3.15rem;
+      font-weight: 800;
+      line-height: 1.08;
+      margin-bottom: 18px;
+      color: #FFFFFF;
+    }
+
+    .visual-hero-copy h1 span.highlight {
+      color: var(--avo-bright);
+      text-decoration: underline;
+      text-decoration-color: rgba(232, 111, 82, 0.7);
+      text-decoration-thickness: 4px;
+      text-underline-offset: 6px;
+    }
+
+    .visual-hero-copy p {
+      font-size: 1.04rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.62;
+      margin-bottom: 24px;
+    }
+
+    .feature-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mini-feat-badge {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mini-feat-badge i {
+      color: var(--avo-bright);
+    }
+
+    /* TARJETAS DE CRISTAL FLOTANTES CON ANIMACIÓN */
+    .glass-cards-row {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 22px;
+      padding: 18px 22px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+
+    .glass-card.card-right {
+      animation: floatDelayed 7s ease-in-out infinite 1.2s;
+      background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(217, 155, 38, 0.15));
+      border-color: rgba(253, 230, 138, 0.35);
+    }
+
+    .nutri-badge-flex {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nutri-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .nutri-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 2px solid var(--avo-bright);
+    }
+
+    .verified-tick {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      background: var(--avo-primary);
+      color: #fff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      border: 2px solid #142B1F;
+    }
+
+    /* =========================================================
+       PANEL DERECHO: PROFUNDIDAD 3D MULTICAPA Y RELIEVE TÁCTIL
+       ========================================================= */
+    .split-auth {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(104, 163, 50, 0.24) 0%, transparent 45%),
+        radial-gradient(circle at 15% 85%, rgba(232, 111, 82, 0.18) 0%, transparent 48%),
+        linear-gradient(160deg, #F3F8EC 0%, #E6F0DA 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 44px;
+      position: relative;
+      perspective: 1200px;
+      overflow: hidden;
+    }
+
+    /* Escenario 3D con capas traseras y GIRO 3D DE TARJETA (FLIP CARD) */
+    .auth-3d-stage {
+      position: relative;
+      max-width: 478px;
+      width: 100%;
+      height: 604px;
+      z-index: 2;
+      perspective: 1600px;
+    }
+
+    /* Capa trasera 1 (Verde Bosque / Dorado inclinada) */
+    .auth-3d-stage::before {
+      content: "";
+      position: absolute;
+      inset: 8px -10px -14px 10px;
+      background: linear-gradient(135deg, #1E3F2D 0%, #68A332 100%);
+      border-radius: 34px;
+      transform: rotate(2.3deg);
+      opacity: 0.22;
+      z-index: -2;
+      box-shadow: 0 25px 50px rgba(20, 43, 31, 0.3);
+      transition: transform 0.72s cubic-bezier(0.34, 1.35, 0.64, 1);
+    }
+
+    /* Capa trasera 2 (Crema / Coral inclinada al lado opuesto) */
+    .auth-3d-stage::after {
+      content: "";
+      position: absolute;
+      inset: 4px 8px -8px -8px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FDF0ED 100%);
+      border: 1.5px solid rgba(232, 111, 82, 0.3);
+      border-radius: 32px;
+      transform: rotate(-1.7deg);
+      z-index: -1;
+      box-shadow: 0 18px 36px rgba(20, 43, 31, 0.12);
+      transition: transform 0.72s cubic-bezier(0.34, 1.35, 0.64, 1);
+    }
+
+    /* Cuando la tarjeta gira, las capas de fondo acompañan el movimiento */
+    .auth-3d-stage.is-flipped::before {
+      transform: rotate(-2.3deg);
+    }
+
+    .auth-3d-stage.is-flipped::after {
+      transform: rotate(1.7deg);
+    }
+
+    /* Contenedor rotatorio 3D que mantiene ambas caras del mismo tamaño exacto */
+    .auth-flipper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.75s cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+
+    .auth-3d-stage.is-flipped .auth-flipper {
+      transform: rotateY(180deg);
+    }
+
+    /* Tarjeta Maestra del Panel Derecho (Ambas caras: Frontal y Trasera) */
+    .auth-elevated-card {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAFDF7 100%);
+      border: 2px solid #FFFFFF;
+      outline: 1px solid #CFE0BE;
+      border-radius: 30px;
+      padding: 30px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow:
+        0 32px 64px -12px rgba(20, 43, 31, 0.22),
+        0 14px 28px -8px rgba(20, 43, 31, 0.12),
+        inset 0 2px 4px rgba(255, 255, 255, 1),
+        inset 0 -6px 14px rgba(104, 163, 50, 0.06);
+      overflow: hidden;
+    }
+
+    .auth-elevated-card.card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+    }
+
+    .auth-elevated-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: linear-gradient(90deg, var(--avo-primary), var(--coral), var(--gold));
+    }
+
+    .auth-top-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--avo-pale);
+      color: var(--avo-forest);
+      font-weight: 800;
+      font-size: 0.74rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .member-tier-chip {
+      background: var(--gold-soft);
+      color: #9A6700;
+      border: 1px solid #F5DC9B;
+      font-weight: 800;
+      font-size: 0.73rem;
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+
+    .auth-elevated-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--avo-dark);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .auth-elevated-card p.sub {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* TABS INTERACTIVOS CON PROFUNDIDAD CÓNCAVA (RECESSED WELL) */
+    .auth-mode-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #E8F1DE;
+      padding: 6px;
+      border-radius: 16px;
+      border: 1px solid #CFE0BE;
+      box-shadow: inset 0 3px 6px rgba(20, 43, 31, 0.08);
+      margin-bottom: 22px;
+    }
+
+    .auth-tab-btn {
+      padding: 11px 12px;
+      border-radius: 12px;
+      border: none;
+      background: transparent;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .auth-tab-btn.active {
+      background: #FFFFFF;
+      color: var(--avo-dark);
+      box-shadow: 0 5px 14px rgba(20, 43, 31, 0.12), 0 1px 2px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+    }
+
+    /* INPUTS MODERNOS CON PROFUNDIDAD INTERIOR */
+    .modern-field {
+      margin-bottom: 15px;
+    }
+
+    .modern-field label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--avo-dark);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modern-input-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .modern-input-box i.left-ico {
+      position: absolute;
+      left: 16px;
+      color: var(--avo-primary);
+      font-size: 1rem;
+    }
+
+    .modern-input-box i.right-check {
+      position: absolute;
+      right: 16px;
+      color: var(--avo-primary);
+      font-size: 0.95rem;
+    }
+
+    .modern-input-box input {
+      width: 100%;
+      padding: 15px 40px 15px 44px;
+      border-radius: 15px;
+      border: 1.5px solid #CFE0BE;
+      background: #F4F9EE;
+      box-shadow: inset 0 2px 5px rgba(20, 43, 31, 0.05);
+      font-family: inherit;
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+
+    .modern-input-box input:focus {
+      outline: none;
+      border-color: var(--avo-primary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(104, 163, 50, 0.15), 0 6px 14px rgba(20, 43, 31, 0.05);
+    }
+
+    /* BOTÓN PRINCIPAL CON EFECTO SHIMMER (DESTELLO DINÁMICO) */
+    .btn-enter-club {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 17px 24px;
+      border-radius: 16px;
+      border: none;
+      background: linear-gradient(135deg, var(--coral) 0%, #D85234 100%);
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .btn-enter-club::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      animation: shimmer 3.2s infinite;
+    }
+
+    .btn-enter-club:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 16px 34px rgba(232, 111, 82, 0.45);
+    }
+
+    .btn-onboarding-quick {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1.5px dashed var(--avo-primary);
+      background: var(--avo-pale);
+      color: var(--avo-dark);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn-onboarding-quick:hover {
+      background: var(--avo-primary);
+      color: #FFFFFF;
+      border-style: solid;
+    }
+
+    /* PRUEBA SOCIAL DE MIEMBROS ACTIVAS ABAJO DEL BOTÓN */
+    .social-proof-footer {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid #E5EFE0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .avatar-stack {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar-stack img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      object-fit: cover;
+      margin-left: -9px;
+    }
+
+    .avatar-stack img:first-child {
+      margin-left: 0;
+    }
+
+    /* LIENZO DINÁMICO DE FRUTAS Y VERDURAS FLOTANTES (ESTILO CLUB FÉNIX EN PANELES DERECHOS) */
+    .floating-veggie-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       VISTA 2: PLATAFORMA INTERIOR CON PROFUNDIDAD 3D Y FLIP CARDS
+       ========================================================= */
+    #app-view {
+      display: none;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(104, 163, 50, 0.18) 0%, transparent 42%),
+        radial-gradient(circle at 18% 88%, rgba(232, 111, 82, 0.14) 0%, transparent 45%),
+        linear-gradient(160deg, #F3F8EC 0%, #E7F0DC 100%);
+    }
+
+    .app-layout {
+      display: grid;
+      grid-template-columns: 334px 1fr;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR VERTICAL MÁS ANCHO (334px) CON RELIEVE Y SOMBRA PROFUNDA */
+    .sidebar {
+      background: linear-gradient(180deg, #12271C 0%, #1B3929 100%);
+      color: #FFFFFF;
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 1px solid rgba(143, 209, 79, 0.25);
+      box-shadow: 14px 0 40px rgba(20, 43, 31, 0.18);
+      z-index: 10;
+    }
+
+    /* LOGO SUPERIOR IZQUIERDO CLICABLE EN UN SOLO RENGLÓN */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 8px 10px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      border-radius: 16px;
+      transition: all 0.22s ease;
+    }
+
+    .sidebar-brand:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+    }
+
+    /* TARJETA DE PERFIL TIPO "GLOBO" 3D CON ETIQUETA EN UN SOLO RENGLÓN */
+    .user-profile-widget {
+      position: relative;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.13) 0%, rgba(20, 43, 31, 0.55) 100%);
+      border: 1.5px solid rgba(197, 240, 153, 0.32);
+      border-radius: 22px;
+      padding: 15px 16px;
+      margin: 16px 0 18px;
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.26),
+        inset 0 1px 2px rgba(255, 255, 255, 0.25);
+    }
+
+    /* Globo (Speech-bubble pill) para el protocolo en un solo renglón */
+    .profile-goal-bubble {
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 11px;
+      background: linear-gradient(90deg, rgba(104, 163, 50, 0.28), rgba(232, 111, 82, 0.24));
+      border: 1px solid rgba(197, 240, 153, 0.38);
+      border-radius: 12px;
+      padding: 7px 11px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #F4F9EE;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Piquito superior del globo apuntando al perfil */
+    .profile-goal-bubble::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 22px;
+      width: 10px;
+      height: 10px;
+      background: #284E37;
+      border-top: 1px solid rgba(197, 240, 153, 0.38);
+      border-left: 1px solid rgba(197, 240, 153, 0.38);
+      transform: rotate(45deg);
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 15px;
+      border-radius: 14px;
+      color: rgba(255, 255, 255, 0.76);
+      font-weight: 600;
+      font-size: 0.89rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.22s ease;
+    }
+
+    .nav-item i {
+      width: 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      transform: translateX(4px);
+      border-color: rgba(197, 240, 153, 0.2);
+    }
+
+    .nav-item.active {
+      background: linear-gradient(135deg, var(--avo-primary), #4E8220);
+      color: #FFFFFF;
+      font-weight: 800;
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 10px 22px rgba(104, 163, 50, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    }
+
+    .nav-item .badge-nav {
+      margin-left: auto;
+      background: linear-gradient(135deg, var(--coral), #D85234);
+      color: #fff;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 99px;
+      box-shadow: 0 4px 10px rgba(232, 111, 82, 0.35);
+    }
+
+    .btn-logout-sidebar {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #E2F0D5;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 11px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-logout-sidebar:hover {
+      background: rgba(232, 111, 82, 0.25);
+      border-color: var(--coral);
+      color: #fff;
+    }
+
+    /* CONTENIDO PRINCIPAL INTERIOR CON ESCENARIO 3D Y FONDO DINÁMICO */
+    .main-area {
+      position: relative;
+      overflow: hidden;
+      padding: 28px 36px 50px;
+      width: 100%;
+      perspective: 1600px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAFDF7 100%);
+      padding: 18px 26px;
+      border-radius: 24px;
+      border: 2px solid #FFFFFF;
+      outline: 1px solid #CFE0BE;
+      box-shadow:
+        0 18px 38px -10px rgba(20, 43, 31, 0.12),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .top-bar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--avo-primary), var(--coral), var(--gold));
+    }
+
+    .streak-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .streak-pill {
+      background: #F4F9EE;
+      border: 1.5px solid #CFE0BE;
+      box-shadow: inset 0 2px 4px rgba(20, 43, 31, 0.05);
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ESCENARIO 3D DE MÓDULOS CON ALTURA UNIFORME Y GIRO DE TARJETA */
+    .modules-3d-viewport {
+      position: relative;
+      z-index: 2;
+      min-height: 635px;
+      perspective: 1800px;
+    }
+
+    .module-section {
+      display: none;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+
+    .module-section.active {
+      display: block;
+      animation: moduleFlip3D 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes moduleFlip3D {
+      0% {
+        opacity: 0;
+        transform: perspective(1600px) rotateY(-14deg) rotateX(4deg) translateY(14px) scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: perspective(1600px) rotateY(0deg) rotateX(0deg) translateY(0) scale(1);
+      }
+    }
+
+    /* BENTO GRID CON PROFUNDIDAD 3D MULTICAPA */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .bento-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 253, 247, 0.85) 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 2px solid #FFFFFF;
+      outline: 1px solid #CFE0BE;
+      border-radius: 28px;
+      padding: 26px 28px;
+      box-shadow:
+        0 24px 48px -12px rgba(20, 43, 31, 0.14),
+        0 10px 20px -6px rgba(20, 43, 31, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 1),
+        inset 0 -5px 12px rgba(104, 163, 50, 0.05);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--avo-primary), var(--avo-bright));
+      opacity: 0.85;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 30px 60px -12px rgba(20, 43, 31, 0.2),
+        0 14px 28px -6px rgba(20, 43, 31, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+    }
+
+    /* =========================================================
+       SISTEMA UNIVERSAL DE TARJETAS GIRATORIAS 3D (FLIP CARDS)
+       DENTRO DE LOS MÓDULOS (TAMAÑO 100% FIJO SIN BRINCOS)
+       ========================================================= */
+    .flip-stage-3d {
+      position: relative;
+      width: 100%;
+      perspective: 1600px;
+    }
+
+    .flip-inner-3d {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.75s cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+
+    .flip-stage-3d.is-flipped .flip-inner-3d {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face-3d {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 253, 247, 0.87) 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 2px solid #FFFFFF;
+      outline: 1px solid #CFE0BE;
+      border-radius: 28px;
+      padding: 26px 28px;
+      box-shadow:
+        0 24px 48px -12px rgba(20, 43, 31, 0.14),
+        0 10px 20px -6px rgba(20, 43, 31, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 1),
+        inset 0 -5px 12px rgba(104, 163, 50, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .flip-face-3d::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--avo-primary), var(--coral), var(--gold));
+    }
+
+    .flip-face-3d.back {
+      transform: rotateY(180deg);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%);
+    }
+
+    /* Botón de giro 3D reutilizable dentro de las tarjetas */
+    .btn-flip-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #CFE0BE;
+      background: #F4F9EE;
+      color: var(--avo-dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(20, 43, 31, 0.06);
+    }
+
+    .btn-flip-trigger:hover {
+      background: var(--avo-primary);
+      color: #FFFFFF;
+      border-color: var(--avo-primary);
+      transform: translateY(-1px);
+    }
+
+    .btn-flip-trigger.coral-flip {
+      background: var(--coral-soft);
+      border-color: #F5C2B8;
+      color: var(--coral);
+    }
+
+    .btn-flip-trigger.coral-flip:hover {
+      background: var(--coral);
+      color: #FFFFFF;
+    }
+
+    /* Cajas métricas con relieve cóncavo (Recessed Metric Wells) */
+    .metric-well {
+      background: #F4F9EE;
+      padding: 13px 14px;
+      border-radius: 16px;
+      border: 1.5px solid #CFE0BE;
+      box-shadow: inset 0 2px 5px rgba(20, 43, 31, 0.06);
+    }
+
+    .col-8 { grid-column: span 8; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-3 { grid-column: span 3; }
+    .col-12 { grid-column: span 12; }
+
+    @media (max-width: 1080px) {
+      #login-view { grid-template-columns: 1fr; }
+      .app-layout { grid-template-columns: 1fr; }
+      .sidebar { height: auto; position: relative; }
+      .col-8, .col-4, .col-6, .col-3 { grid-column: span 12; }
+    }
+
+    .card-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--avo-forest);
+      background: var(--avo-pale);
+      border: 1px solid #CFE0BE;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .card-label.coral { background: var(--coral-soft); color: var(--coral); border-color: #F5C2B8; }
+    .card-label.gold { background: var(--gold-soft); color: #9A6700; border-color: #F5DC9B; }
+
+    /* VASOS DE AGUA INTERACTIVOS */
+    .water-glasses {
+      display: flex;
+      gap: 9px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .glass-cup {
+      width: 42px;
+      height: 50px;
+      border-radius: 9px 9px 15px 15px;
+      border: 2px solid #93C5FD;
+      background: #EFF6FF;
+      box-shadow: inset 0 2px 4px rgba(37, 99, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.98rem;
+      transition: all 0.22s;
+    }
+
+    .glass-cup.filled {
+      background: linear-gradient(180deg, #60A5FA, #2563EB);
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.28);
+    }
+
+    /* DÍAS DE LA SEMANA EN POZO CÓNCAVO (RECESSED BAR) */
+    .day-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      background: #E8F1DE;
+      padding: 6px;
+      border-radius: 16px;
+      border: 1px solid #CFE0BE;
+      box-shadow: inset 0 3px 6px rgba(20, 43, 31, 0.08);
+    }
+
+    .day-tab {
+      padding: 9px 14px;
+      border-radius: 11px;
+      border: none;
+      background: transparent;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.84rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .day-tab.active {
+      background: #FFFFFF;
+      color: var(--avo-dark);
+      box-shadow: 0 4px 12px rgba(20, 43, 31, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .day-tab.sunday-free {
+      margin-left: auto;
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+      border: 1px solid #F59E0B;
+      color: #92400E;
+    }
+
+    .day-tab.sunday-free:hover {
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #FFFFFF;
+    }
+
+    .meal-row {
+      display: grid;
+      grid-template-columns: 108px 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 13px 16px;
+      border-radius: 16px;
+      border: 1.5px solid #D5E4C5;
+      margin-bottom: 10px;
+      background: #F9FCF6;
+      box-shadow: 0 4px 12px rgba(20, 43, 31, 0.03);
+      transition: all 0.2s;
+    }
+
+    .meal-row:hover {
+      border-color: var(--avo-primary);
+      background: #FFFFFF;
+      transform: translateX(3px);
+    }
+
+    .meal-time-badge {
+      background: var(--avo-pale);
+      color: var(--avo-dark);
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 8px 8px;
+      border-radius: 11px;
+      text-align: center;
+      border: 1px solid #CFE0BE;
+    }
+
+    .swap-btn {
+      background: #FFFFFF;
+      border: 1.5px solid #CFE0BE;
+      padding: 8px 13px;
+      border-radius: 11px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+      color: var(--avo-dark);
+      transition: all 0.2s;
+      box-shadow: 0 3px 8px rgba(20, 43, 31, 0.05);
+    }
+
+    .swap-btn:hover {
+      border-color: var(--coral);
+      background: var(--coral-soft);
+      color: var(--coral);
+    }
+
+    /* OBJETIVOS Y CONTROL CLÍNICO */
+    .obj-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obj-card {
+      border: 2px solid #D5E4C5;
+      border-radius: 18px;
+      padding: 14px 12px;
+      cursor: pointer;
+      background: #F9FCF6;
+      transition: all 0.22s;
+      box-shadow: 0 6px 14px rgba(20, 43, 31, 0.04);
+    }
+
+    .obj-card:hover {
+      border-color: var(--avo-primary);
+      background: #FFFFFF;
+      transform: translateY(-3px);
+    }
+
+    .obj-card.selected {
+      border-color: var(--coral);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF3EF 100%);
+      box-shadow: 0 12px 24px rgba(232, 111, 82, 0.18);
+      transform: translateY(-2px);
+    }
+
+    .food-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1.5px solid #CFE0BE;
+      background: #F4F9EE;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin: 3px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .food-chip.liked {
+      background: linear-gradient(135deg, var(--avo-primary), #528722);
+      color: #fff;
+      border-color: var(--avo-primary);
+      box-shadow: 0 5px 12px rgba(104, 163, 50, 0.28);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =================================================================
+       VISTA 1: LOGIN DE DOS PANELES VERTICALES (DINÁMICO Y PROFESIONAL)
+       ================================================================= -->
+  <section id="login-view">
+    
+    <!-- PANEL VERTICAL IZQUIERDO: CINEMATOGRÁFICO + CARRUSEL DE 3 FOTOS ROTANDO -->
+    <div class="split-visual">
+      <div class="bg-slides-container">
+        <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1600&q=85');"></div>
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1600&q=85');"></div>
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1600&q=85');"></div>
+        <div class="bg-slide-overlay"></div>
+      </div>
+      <div class="ambient-orb-1"></div>
+      <div class="ambient-orb-2"></div>
+
+      <!-- CABECERA CON EL NUEVO LOGO GRANDE DE AVOCADO CLUB -->
+      <div class="visual-top-bar">
+        <div class="master-brand-logo">
+          <div class="logo-emblem-svg">
+            <img src="logo_avocado_club.jpg" alt="Avocado Club Emblem" />
+          </div>
+          <div class="logo-text-block">
+            <div class="logo-title-main">
+              AVOCADO <span class="club-gold">CLUB</span>
+            </div>
+            <div class="logo-subtitle-tag">Nutrición & Salud Metabólica • México</div>
+          </div>
+        </div>
+
+        <!-- Actividad en vivo dinámica -->
+        <div class="live-activity-pill">
+          <span class="live-dot"></span>
+          <span id="live-ticker-text">Socorro M. (Guadalajara) bajó 3.5 cm de cintura</span>
+        </div>
+      </div>
+
+      <!-- COPY HERO PRINCIPAL -->
+      <div class="visual-hero-copy">
+        <div class="hero-kicker">
+          <i class="fa-solid fa-crown"></i> Plataforma Interactiva • Avalada por Nutrióloga Ari
+        </div>
+        <h1>
+          Tu nutrición semanal adaptada a <span class="highlight">lo que sí te gusta comer.</span>
+        </h1>
+        <p>
+          Olvídate de los PDFs estáticos y de pesar cada gramo. Recibe planes semanales con ingredientes reales de México, ruta de <strong>Control Clínico</strong> (insulina, presión y digestión), domingos de menú abierto y acompañamiento directo de tu nutrióloga.
+        </p>
+
+        <div class="feature-badges-row">
+          <div class="mini-feat-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Calibración IA cada Domingo/Lunes</div>
+          <div class="mini-feat-badge"><i class="fa-solid fa-heart-pulse"></i> Control Insulina y Presión</div>
+          <div class="mini-feat-badge"><i class="fa-solid fa-hand"></i> Porciones con la Mano</div>
+        </div>
+
+        <div class="slide-indicators">
+          <span class="slide-dot active" onclick="goToBgSlide(0)"></span>
+          <span class="slide-dot" onclick="goToBgSlide(1)"></span>
+          <span class="slide-dot" onclick="goToBgSlide(2)"></span>
+        </div>
+      </div>
+
+      <!-- TARJETAS FLOTANTES CON MOVIMIENTO SUAVE -->
+      <div class="glass-cards-row">
+        <div class="glass-card">
+          <div class="nutri-badge-flex">
+            <div class="nutri-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=240&q=80" alt="Nutrióloga Ari" class="nutri-avatar">
+              <div class="verified-tick"><i class="fa-solid fa-check"></i></div>
+            </div>
+            <div>
+              <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #8FD14F; font-weight: 800;">DIRECCIÓN CLÍNICA • NAYARIT, MÉXICO</div>
+              <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.08rem;">Nutrióloga Ari</div>
+              <div style="font-size: 0.8rem; color: rgba(255,255,255,0.86); margin-top: 2px;">"Reviso tus fotos de comida en el foro VIP y cada 15 días cocinamos juntas una nueva video-receta."</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card card-right" style="display: flex; flex-direction: column; justify-content: center;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.72rem; color: #FDE68A; font-weight: 800; letter-spacing: 0.05em;">📏 RESULTADO REAL</span>
+            <span style="background: rgba(143, 209, 79, 0.25); color: #C5F099; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 99px;">Semana 4</span>
+          </div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 1.75rem; font-weight: 900; margin: 4px 0;">-4.2 cm Cintura</div>
+          <div style="font-size: 0.77rem; color: rgba(255,255,255,0.85);">Sin dejar la tortilla ni el bolillo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL VERTICAL DERECHO: TARJETA 3D CON GIRO REAL + FONDO DINÁMICO DE FRUTAS/VERDURAS -->
+    <div class="split-auth">
+      <canvas id="veggie-canvas-login" class="floating-veggie-canvas"></canvas>
+      <div class="auth-3d-stage" id="auth-3d-stage">
+        <div class="auth-flipper">
+
+          <!-- ========================================================
+               CARA FRONTAL (0°): YA SOY SOCIA (INICIAR SESIÓN)
+               ======================================================== -->
+          <div class="auth-elevated-card card-front">
+            <div>
+              <div class="auth-top-status">
+                <span class="status-chip">
+                  <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--avo-primary); display: inline-block;"></span>
+                  Portal de Socias Activo
+                </span>
+                <span class="member-tier-chip">👑 Membresía Hotmart</span>
+              </div>
+
+              <h2>Bienvenida a tu Club</h2>
+              <p class="sub" style="margin-bottom: 16px;">Ingresa a tu espacio personal o haz clic en el botón para entrar de inmediato en modo vista previa.</p>
+
+              <!-- Pestañas que accionan el giro 3D -->
+              <div class="auth-mode-tabs" style="margin-bottom: 18px;">
+                <button type="button" class="auth-tab-btn active" onclick="switchAuthMode('login')">
+                  Ya soy Socia (Entrar)
+                </button>
+                <button type="button" class="auth-tab-btn" onclick="switchAuthMode('register')">
+                  Soy Nueva (Hotmart) <i class="fa-solid fa-rotate" style="margin-left: 4px; font-size: 0.75rem; color: var(--coral);"></i>
+                </button>
+              </div>
+
+              <!-- Campos limpios de Correo y Contraseña -->
+              <div class="modern-field">
+                <label>
+                  <span>Correo Electrónico (Hotmart)</span>
+                  <span style="color: var(--avo-primary);">✓ Cuenta Activa</span>
+                </label>
+                <div class="modern-input-box">
+                  <i class="fa-regular fa-envelope left-ico"></i>
+                  <input type="email" value="mariana.gomez@avocadoclub.mx" placeholder="El correo que usaste en Hotmart" />
+                  <i class="fa-solid fa-circle-check right-check"></i>
+                </div>
+              </div>
+
+              <div class="modern-field" style="margin-bottom: 12px;">
+                <label>
+                  <span>Contraseña</span>
+                  <span style="color: var(--coral); cursor: pointer; text-transform: none; font-weight: 700;">¿Olvidaste tu contraseña?</span>
+                </label>
+                <div class="modern-input-box">
+                  <i class="fa-solid fa-lock left-ico"></i>
+                  <input type="password" value="••••••••••••" placeholder="••••••••••••" />
+                  <i class="fa-regular fa-eye right-check" style="color: var(--text-muted);"></i>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.81rem; color: var(--text-muted); margin-bottom: 10px;">
+                <label style="display: flex; align-items: center; gap: 7px; cursor: pointer; font-weight: 600;">
+                  <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 15px; height: 15px;">
+                  Mantener mi sesión iniciada en este dispositivo
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <!-- BOTÓN PRINCIPAL DE ENTRADA EN 1 CLIC -->
+              <button class="btn-enter-club" onclick="enterPlatform()" style="margin-top: 0;">
+                <span>Entrar a Avocado Club</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+
+              <!-- Prueba social inferior -->
+              <div class="social-proof-footer" style="margin-top: 16px; padding-top: 14px;">
+                <div class="avatar-stack">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Socia 1">
+                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Socia 2">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Socia 3">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80" alt="Socia 4">
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.35;">
+                  <strong style="color: var(--avo-dark);">+420 socias en México</strong> registraron su plato y medidas esta semana.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================================
+               CARA TRASERA (180°): SOY NUEVA (CHECKOUT HOTMART / ACTIVAR)
+               ======================================================== -->
+          <div class="auth-elevated-card card-back">
+            <div>
+              <div class="auth-top-status" style="margin-bottom: 12px;">
+                <span class="status-chip" style="background: #FFF1EC; color: #C2410C;">
+                  🔥 Inscripción Oficial Hotmart
+                </span>
+                <span class="member-tier-chip">1er Mes $9.99 USD</span>
+              </div>
+
+              <h2 style="font-size: 1.82rem; margin-bottom: 4px;">Únete o Activa tu Acceso</h2>
+              <p class="sub" style="margin-bottom: 12px; font-size: 0.85rem;">Inscríbete hoy en Hotmart o crea tu contraseña si acabas de realizar tu pago:</p>
+
+              <!-- Pestañas en la cara trasera para regresar con giro 3D -->
+              <div class="auth-mode-tabs" style="margin-bottom: 14px;">
+                <button type="button" class="auth-tab-btn" onclick="switchAuthMode('login')">
+                  <i class="fa-solid fa-rotate-left" style="margin-right: 4px; font-size: 0.75rem; color: var(--avo-primary);"></i> Ya soy Socia (Entrar)
+                </button>
+                <button type="button" class="auth-tab-btn active" onclick="switchAuthMode('register')">
+                  Soy Nueva (Hotmart)
+                </button>
+              </div>
+
+              <!-- OPCIÓN A: Tarjeta compacta de compra en Hotmart -->
+              <div style="background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%); border: 1.5px solid #FDBA74; border-radius: 15px; padding: 11px 14px; margin-bottom: 12px; box-shadow: 0 6px 16px rgba(232, 111, 82, 0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="font-size: 0.73rem; font-weight: 800; color: #9A3412;">¿Aún no tienes tu membresía?</span>
+                  <span style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 0.95rem; color: var(--avo-dark);">$9.99 USD <span style="font-size: 0.68rem; font-weight: 600; color: var(--text-muted);">1er mes</span></span>
+                </div>
+                <button type="button" onclick="window.open('https://pay.hotmart.com', '_blank')" style="width: 100%; padding: 9px 12px; border-radius: 10px; border: none; background: linear-gradient(135deg, #E86F52 0%, #D95338 100%); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.83rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; box-shadow: 0 4px 12px rgba(232, 111, 82, 0.25);">
+                  <i class="fa-solid fa-cart-shopping"></i> Ir a Pagar en Hotmart ($9.99 USD) <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
+                </button>
+              </div>
+
+              <!-- Divisor -->
+              <div style="display: flex; align-items: center; gap: 8px; margin: 8px 0 10px;">
+                <div style="flex: 1; height: 1px; background: var(--border-soft);"></div>
+                <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: var(--avo-primary); letter-spacing: 0.05em;">¿Ya pagaste en Hotmart? Activa tu cuenta:</span>
+                <div style="flex: 1; height: 1px; background: var(--border-soft);"></div>
+              </div>
+
+              <!-- OPCIÓN B: Activar con correo de Hotmart -->
+              <div class="modern-field" style="margin-bottom: 10px;">
+                <label style="margin-bottom: 4px;">
+                  <span>Correo de Compra en Hotmart</span>
+                  <span style="color: var(--avo-primary);">⚡ Validado por Webhook</span>
+                </label>
+                <div class="modern-input-box">
+                  <i class="fa-regular fa-envelope left-ico"></i>
+                  <input type="email" value="mariana.gomez@avocadoclub.mx" style="padding: 12px 38px 12px 42px;" />
+                  <i class="fa-solid fa-circle-check right-check"></i>
+                </div>
+              </div>
+
+              <div class="modern-field" style="margin-bottom: 0;">
+                <label style="margin-bottom: 4px;">
+                  <span>Crea tu Contraseña</span>
+                  <span style="color: var(--text-muted); text-transform: none; font-weight: 600;">Mínimo 8 caracteres</span>
+                </label>
+                <div class="modern-input-box">
+                  <i class="fa-solid fa-key left-ico"></i>
+                  <input type="password" value="••••••••••••" style="padding: 12px 38px 12px 42px;" />
+                  <i class="fa-solid fa-shield-halved right-check"></i>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn-enter-club" onclick="enterPlatform()" style="margin-top: 0; background: linear-gradient(135deg, var(--avo-primary) 0%, var(--avo-forest) 100%); box-shadow: 0 12px 26px rgba(104, 163, 50, 0.35);">
+                <span>Activar Cuenta y Entrar al Club</span>
+                <i class="fa-solid fa-check-double"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       VISTA 2: INTERIOR DE LA PLATAFORMA (SIDEBAR + 7 MÓDULOS)
+       ================================================================= -->
+  <section id="app-view">
+    <div class="app-layout">
+      
+      <!-- SIDEBAR IZQUIERDO MÁS ANCHO CON LOGO EN 1 RENGLÓN CLICABLE Y PERFIL TIPO GLOBO -->
+      <aside class="sidebar">
+        <div>
+          <!-- Clic en Avocado Club regresa a la página de inicio -->
+          <div class="sidebar-brand" onclick="backToLogin()" title="Ir a la página de inicio">
+            <div class="logo-emblem-svg" style="width: 66px; height: 66px; border-radius: 18px; flex-shrink: 0;">
+              <img src="logo_avocado_club.jpg" alt="Avocado Club Logo" style="transform: scale(1.32);" />
+            </div>
+            <div style="min-width: 0;">
+              <div style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.74rem; line-height: 1; white-space: nowrap; letter-spacing: -0.02em;">
+                AVOCADO <span style="color: var(--avo-bright);">CLUB</span>
+              </div>
+              <div style="font-size: 0.72rem; font-weight: 800; color: #C5F099; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; white-space: nowrap;">
+                🏠 Inicio • Portal Socias
+              </div>
+            </div>
+          </div>
+
+          <!-- PERFIL CON DISEÑO DE GLOBO (SPEECH BUBBLE) EN UN SOLO RENGLÓN -->
+          <div class="user-profile-widget">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 11px;">
+                <div style="position: relative; flex-shrink: 0;">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.25);">
+                  <span style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #8FD14F; border: 2px solid #142B1F;"></span>
+                </div>
+                <div>
+                  <div style="font-weight: 800; font-size: 0.96rem; color: #FFFFFF; white-space: nowrap;">Mariana Gómez</div>
+                  <div style="font-size: 0.68rem; color: #FDE68A; font-weight: 700; white-space: nowrap;">👑 Socia VIP Activa</div>
+                </div>
+              </div>
+              <button type="button" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" title="Editar mis objetivos" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); color: #C5F099; width: 32px; height: 32px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-pen" style="font-size: 0.75rem;"></i>
+              </button>
+            </div>
+
+            <!-- Globo de Objetivo en un solo renglón -->
+            <div class="profile-goal-bubble">
+              <span>🩸 Control Insulina + Bajar Peso</span>
+              <i class="fa-solid fa-circle-check" style="color: #8FD14F; font-size: 0.82rem;"></i>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #FDE68A; font-weight: 800; margin-bottom: 5px;">
+              <span>🥑 Rango: Aguacate Hass</span>
+              <span>750 / 1000 XP</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.12); height: 7px; border-radius: 99px; overflow: hidden;">
+              <div style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold));"></div>
+            </div>
+          </div>
+
+          <ul class="nav-menu">
+            <li class="nav-item active" id="nav-mod-dashboard" onclick="openModule('mod-dashboard', this)">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Dashboard & Progreso</span>
+            </li>
+            <li class="nav-item" id="nav-mod-onboarding" onclick="openModule('mod-onboarding', this)">
+              <i class="fa-solid fa-sliders"></i>
+              <span>1. Objetivos y Medidas</span>
+            </li>
+            <li class="nav-item" id="nav-mod-plan" onclick="openModule('mod-plan', this)">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>2. Mi Plan + Domingo Libre</span>
+            </li>
+            <li class="nav-item" id="nav-mod-porciones" onclick="openModule('mod-porciones', this)">
+              <i class="fa-solid fa-hand-sparkles"></i>
+              <span>3. Porciones sin Báscula</span>
+            </li>
+            <li class="nav-item" id="nav-mod-recetario" onclick="openModule('mod-recetario', this)">
+              <i class="fa-solid fa-utensils"></i>
+              <span>4. Recetario + Video Ari</span>
+              <span class="badge-nav">Nuevo</span>
+            </li>
+            <li class="nav-item" id="nav-mod-ejercicios" onclick="openModule('mod-ejercicios', this)">
+              <i class="fa-solid fa-person-running"></i>
+              <span>5. Rutinas en Casa</span>
+            </li>
+            <li class="nav-item" id="nav-mod-foro" onclick="openModule('mod-foro', this)">
+              <i class="fa-solid fa-camera-retro"></i>
+              <span>6. Foro El Plato del Día</span>
+            </li>
+          </ul>
+        </div>
+
+        <div style="padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+          <button class="btn-logout-sidebar" onclick="backToLogin()">
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+          </button>
+        </div>
+      </aside>
+
+      <!-- ÁREA PRINCIPAL DE CONTENIDO (PANEL DERECHO CON FONDO DINÁMICO DE FRUTAS Y VERDURAS) -->
+      <main class="main-area">
+        <canvas id="veggie-canvas-app" class="floating-veggie-canvas"></canvas>
+        
+        <div class="top-bar">
+          <div>
+            <div style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.06em;">Semana 3 • Protocolo Avalado por Nutrióloga Ari</div>
+            <h1 style="font-size: 1.75rem; color: var(--avo-dark);">Hola, Mariana 👋 ¡Tu cuerpo te agradece hoy!</h1>
+          </div>
+
+          <div class="streak-banner">
+            <div class="streak-pill" style="color: var(--coral); background: var(--coral-soft); border-color: #F5C2B8;">
+              <i class="fa-solid fa-fire-flame-curved"></i> 18 Días en Racha
+            </div>
+            <div class="streak-pill">
+              📏 Cintura: <strong style="color: var(--avo-primary);">79 cm (-4.0 cm)</strong>
+            </div>
+            <div class="streak-pill" style="background: var(--gold-soft); border-color: #F5DC9B; color: #9A6700;">
+              🏅 4 Medallas
+            </div>
+            <button type="button" onclick="backToLogin()" title="Cerrar Sesión e ir al Inicio" style="background: #FFF1EE; border: 1.5px solid #F5C2B8; color: var(--coral); padding: 8px 14px; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;">
+              <i class="fa-solid fa-right-from-bracket"></i> Salir
+            </button>
+          </div>
+        </div>
+
+        <!-- ESCENARIO 3D DE MÓDULOS CON GIRO Y TAMAÑO ESTABLE -->
+        <div class="modules-3d-viewport" id="modules-3d-stage">
+
+          <!-- =========================================================
+               MÓDULO 7: DASHBOARD DE PROGRESO Y GAMIFICACIÓN (CON FLIP 3D)
+               ========================================================= -->
+          <div id="mod-dashboard" class="module-section active">
+            <div class="bento-grid">
+              
+              <!-- TARJETA 3D GIRATORIA 1: GRÁFICA DE PESO vs ANÁLISIS CINTURA/CADERA (TAMAÑO FIJO 405px) -->
+              <div class="col-8 flip-stage-3d" id="flip-dash-chart" style="height: 405px;">
+                <div class="flip-inner-3d">
+                  
+                  <!-- CARA FRONTAL: EVOLUCIÓN DE PESO Y MEDIDAS -->
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label" style="margin: 0;"><i class="fa-solid fa-chart-line"></i> MÓDULO 7 • EVOLUCIÓN SEMANAL DE PESO Y MEDIDAS</span>
+                        <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-dash-chart')">
+                          <i class="fa-solid fa-rotate"></i> Ver Análisis Clínico Cintura/Cadera
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.4rem; color: var(--avo-dark); margin-bottom: 12px;">Progreso Real: Báscula + Centímetros</h3>
+
+                      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
+                        <div class="metric-well">
+                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">PESO ACTUAL</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">68.4 kg <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.8 kg</span></div>
+                        </div>
+                        <div class="metric-well" style="background: var(--coral-soft); border-color: #F5C2B8;">
+                          <div style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">CINTURA (CM)</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">79 cm <span style="font-size: 0.75rem; color: var(--coral);">-4.0 cm</span></div>
+                        </div>
+                        <div class="metric-well">
+                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">CADERA (CM)</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">99 cm <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.5 cm</span></div>
+                        </div>
+                        <div class="metric-well" style="background: var(--gold-soft); border-color: #F5DC9B;">
+                          <div style="font-size: 0.68rem; color: #9A6700; font-weight: 800;">ÍNDICE CINT/CAD</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">0.79 <span style="font-size: 0.72rem; color: var(--avo-primary);">Óptimo</span></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <svg viewBox="0 0 650 140" style="width: 100%; height: 145px; background: #F4F9EE; border-radius: 16px; border: 1.5px solid #CFE0BE; padding: 10px;">
+                      <line x1="40" y1="28" x2="610" y2="28" stroke="#DCE8CE" stroke-dasharray="4"/>
+                      <line x1="40" y1="74" x2="610" y2="74" stroke="#DCE8CE" stroke-dasharray="4"/>
+                      <line x1="40" y1="120" x2="610" y2="120" stroke="#DCE8CE" stroke-dasharray="4"/>
+                      <polyline fill="none" stroke="#68A332" stroke-width="4" points="60,32 230,60 410,88 580,114" />
+                      <circle cx="60" cy="32" r="6" fill="#68A332" />
+                      <circle cx="230" cy="60" r="6" fill="#68A332" />
+                      <circle cx="410" cy="88" r="6" fill="#68A332" />
+                      <circle cx="580" cy="114" r="7" fill="#E86F52" stroke="#FFFFFF" stroke-width="2" />
+                      <text x="45" y="20" font-size="11" font-weight="bold" fill="#142B1F">Sem 1: 71.2kg (83cm)</text>
+                      <text x="200" y="48" font-size="11" font-weight="bold" fill="#142B1F">Sem 2: 70.1kg (81.5cm)</text>
+                      <text x="380" y="76" font-size="11" font-weight="bold" fill="#142B1F">Sem 3: 69.2kg (80cm)</text>
+                      <text x="495" y="100" font-size="11" font-weight="bold" fill="#E86F52">Hoy: 68.4kg (79cm)</text>
+                    </svg>
+                  </div>
+
+                  <!-- CARA TRASERA: DIAGNÓSTICO METABÓLICO DE CINTURA Y CADERA DE ARI -->
+                  <div class="flip-face-3d back">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-heart-pulse"></i> INTERPRETACIÓN CLÍNICA • NUTRIÓLOGA ARI</span>
+                        <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-dash-chart')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver a la Gráfica
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.38rem; color: var(--avo-dark); margin-bottom: 8px;">¿Por qué tus -4.0 cm de cintura valen oro?</h3>
+                      <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px;">
+                        En mujeres con resistencia a la insulina o inflamación, el indicador más exacto es el <strong>Índice Cintura-Cadera (ICC)</strong>:
+                      </p>
+
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                        <div class="metric-well" style="background: #FFFFFF;">
+                          <div style="font-weight: 800; color: var(--avo-primary); font-size: 0.85rem; margin-bottom: 4px;">✅ Zona Cardioprotectora (&lt; 0.85)</div>
+                          <p style="font-size: 0.8rem; color: var(--text-main); line-height: 1.45;">
+                            Bajaste de <strong>0.82 a 0.79</strong> en 3 semanas. Esto indica pérdida real de grasa visceral y mejor sensibilidad a la insulina.
+                          </p>
+                        </div>
+                        <div class="metric-well" style="background: #FFF9EB; border-color: #F5DC9B;">
+                          <div style="font-weight: 800; color: #9A6700; font-size: 0.85rem; margin-bottom: 4px;">👩‍⚕️ Nota de Ari para tu Semana 4:</div>
+                          <p style="font-size: 0.8rem; color: var(--text-main); line-height: 1.45;">
+                            "Mariana, tu desinflamación abdominal va excelente. Mantendremos el aguacate y nopales en desayuno."
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--border-soft);">
+                      <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Próxima toma de medidas: <strong>Domingo en la noche o Lunes AM</strong></span>
+                      <button class="btn-enter-club" style="width: auto; padding: 9px 18px; font-size: 0.82rem; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
+                        📝 Ir al Cierre Semanal
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- TARJETA 3D GIRATORIA 2: GAMIFICACIÓN Y RECOMPENSAS (TAMAÑO FIJO 405px) -->
+              <div class="col-4 flip-stage-3d" id="flip-dash-rank" style="height: 405px;">
+                <div class="flip-inner-3d">
+                  
+                  <!-- CARA FRONTAL: RANGO Y MEDALLAS -->
+                  <div class="flip-face-3d front" style="background: linear-gradient(160deg, #142B1F 0%, #244935 100%); color: #fff; border-color: rgba(197,240,153,0.3);">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="card-label gold" style="margin: 0;">🏆 TU NIVEL EN EL CLUB</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-rank')">
+                          Premios <i class="fa-solid fa-rotate"></i>
+                        </button>
+                      </div>
+                      <div style="text-align: center; margin: 10px 0;">
+                        <div style="font-size: 3.1rem; line-height: 1; margin-bottom: 4px;">🥑</div>
+                        <h3 style="font-size: 1.35rem; color: #FFFFFF;">Rango: Aguacate Hass</h3>
+                        <p style="font-size: 0.79rem; color: #C5F099; margin-bottom: 10px;">A 250 XP de alcanzar <strong>Reina Saludable 👑</strong></p>
+                        <div style="background: rgba(255,255,255,0.14); height: 11px; border-radius: 99px; overflow: hidden; margin-bottom: 14px;">
+                          <div style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold));"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div style="font-size: 0.72rem; font-weight: 800; color: #E2F0D5; margin-bottom: 7px; letter-spacing: 0.05em;">MEDALLAS DESBLOQUEADAS:</div>
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px; font-size: 0.74rem;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">🌱 1ra Semana Lista</div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">💧 Hidratación Top</div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">📏 -4 cm Cintura</div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">🍲 Receta de Ari</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: PRÓXIMAS RECOMPENSAS POR DESBLOQUEAR -->
+                  <div class="flip-face-3d back" style="background: linear-gradient(160deg, #1C3A2A 0%, #142B1F 100%); color: #fff; border-color: rgba(253,230,138,0.35);">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span class="card-label gold" style="margin: 0;">🎁 BENEFICIOS POR NIVEL</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-rank')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver
+                        </button>
+                      </div>
+                      <h4 style="font-size: 1.15rem; color: #FDE68A; margin-bottom: 10px;">Cómo ganar XP esta semana:</h4>
+                      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.79rem;">
+                        <div style="background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 11px; display: flex; justify-content: space-between;">
+                          <span>📸 Subir foto al Plato del Día</span>
+                          <strong style="color: #8FD14F;">+50 XP</strong>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 11px; display: flex; justify-content: space-between;">
+                          <span>📏 Cierre semanal (Peso/Cintura)</span>
+                          <strong style="color: #8FD14F;">+100 XP</strong>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 11px; display: flex; justify-content: space-between;">
+                          <span>🏃‍♀️ Completar 3 rutinas en casa</span>
+                          <strong style="color: #8FD14F;">+100 XP</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="background: rgba(217, 155, 38, 0.2); border: 1px solid #F59E0B; border-radius: 12px; padding: 10px 12px; font-size: 0.76rem; color: #FEF3C7;">
+                      👑 <strong>Al llegar a Reina Saludable (1,000 XP):</strong> Desbloqueas el Recetario Especial de Postres Sin Azúcar de Ari.
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="bento-card col-6">
+                <span class="card-label">💧 HIDRATACIÓN INTERACTIVA (TOCA UN VASO PARA SUMAR)</span>
+                <h3 id="water-title" style="font-size: 1.25rem;">Llevas 6 de 8 vasos de agua hoy</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Tomar agua natural ayuda a metabolizar grasas y evita confundir sed con antojo dulce.</p>
+                <div class="water-glasses" id="water-container">
+                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
+                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
+                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
+                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
+                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
+                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
+                  <div class="glass-cup" onclick="toggleWater(this)">💧</div>
+                  <div class="glass-cup" onclick="toggleWater(this)">💧</div>
+                </div>
+              </div>
+
+              <div class="bento-card col-6" style="background: linear-gradient(145deg, #FFFFFF 0%, #FFF2EE 100%);">
+                <span class="card-label coral">👩‍⚕️ CÁPSULA QUINCENAL DE LA NUTRIÓLOGA ARI</span>
+                <h3 style="font-size: 1.25rem; color: var(--avo-dark);">"¡Ya está lista la nueva Video-Receta de Enchiladas Fit!"</h3>
+                <p style="font-size: 0.85rem; color: var(--text-main); margin: 6px 0 14px;">Con salsa cremosa de aguacate y queso panela, ideal para cuidar tu glucosa sin renunciar al sabor mexicano.</p>
+                <button class="btn-enter-club" style="width: auto; padding: 10px 18px; font-size: 0.85rem; margin: 0;" onclick="openModule('mod-recetario', document.getElementById('nav-mod-recetario'))">
+                  ▶️ Ver Video-Receta Quincenal
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- =========================================================
+               MÓDULO 1: ONBOARDING, CONTROL CLÍNICO Y MEDIDAS (CON FLIP 3D FIJO)
+               ========================================================= -->
+          <div id="mod-onboarding" class="module-section">
+            <div class="bento-card">
+              <span class="card-label">🎯 MÓDULO 1 • CONFIGURACIÓN DE OBJETIVOS, CONTROL CLÍNICO Y MEDIDAS</span>
+              <h2 style="font-size: 1.55rem; margin-bottom: 4px;">1. Selecciona tu Objetivo Principal (5 Caminos)</h2>
+              <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px;">Haz clic en cualquier objetivo: la tarjeta inferior <strong>gira en 3D manteniendo el mismo tamaño</strong> para no mover la página:</p>
+
+              <div class="obj-grid">
+                <div class="obj-card" onclick="selectObj(this, false, 'Perder Peso y Grasa Corporal', 'Déficit calórico de 400 kcal con alta saciedad (1,500 kcal/día) priorizando proteína magra y fibra.')">
+                  <div style="font-size: 1.5rem; margin-bottom: 4px;">🔥</div>
+                  <div style="font-weight: 800; font-size: 0.9rem;">Perder Peso y Grasa</div>
+                  <div style="font-size: 0.74rem; color: var(--text-muted);">Déficit inteligente</div>
+                </div>
+                <div class="obj-card" onclick="selectObj(this, false, 'Ganar Músculo y Tonificar', 'Recomposición corporal con 1.8g de proteína por kg de peso e hidratos complejos estratégicos.')">
+                  <div style="font-size: 1.5rem; margin-bottom: 4px;">🍑</div>
+                  <div style="font-weight: 800; font-size: 0.9rem;">Ganar Músculo</div>
+                  <div style="font-size: 0.74rem; color: var(--text-muted);">Alta proteína</div>
+                </div>
+                <div class="obj-card" onclick="selectObj(this, false, 'Mantener mi Peso Saludable', 'Balance normocalórico flexible con platillos mexicanos familiares y energía estable.')">
+                  <div style="font-size: 1.5rem; margin-bottom: 4px;">⚖️</div>
+                  <div style="font-weight: 800; font-size: 0.9rem;">Mantener mi Peso</div>
+                  <div style="font-size: 0.74rem; color: var(--text-muted);">Hábitos en familia</div>
+                </div>
+                <div class="obj-card" onclick="selectObj(this, false, 'Subir de Peso Saludablemente', 'Superávit limpio con grasas buenas (aguacate, semillas), proteína y carbohidratos densos.')">
+                  <div style="font-size: 1.5rem; margin-bottom: 4px;">📈</div>
+                  <div style="font-weight: 800; font-size: 0.9rem;">Subir de Peso</div>
+                  <div style="font-size: 0.74rem; color: var(--text-muted);">Superávit limpio</div>
+                </div>
+                <div class="obj-card selected" onclick="selectObj(this, true)">
+                  <div style="font-size: 1.5rem; margin-bottom: 4px;">🩺</div>
+                  <div style="font-weight: 800; font-size: 0.9rem; color: var(--coral);">Control Clínico</div>
+                  <div style="font-size: 0.74rem; color: var(--text-main);">Insulina, Presión o Colitis</div>
+                </div>
+              </div>
+
+              <!-- SUBPANEL 3D FLIP DE ALTURA FIJA (210px) PARA QUE NUNCA BRINQUE EL TAMAÑO -->
+              <div class="flip-stage-3d" id="flip-onboarding-protocol" style="height: 210px; margin-bottom: 18px;">
+                <div class="flip-inner-3d">
+                  
+                  <!-- CARA FRONTAL: PROTOCOLO CLÍNICO DE ARI (3 AFECCIONES) -->
+                  <div class="flip-face-3d front" style="background: var(--avo-pale); padding: 18px 22px;">
+                    <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.94rem;">
+                      👩‍⚕️ Protocolo de Control Clínico de la Nutrióloga Ari — Selecciona la condición principal:
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                      <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 2px solid var(--avo-primary); cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
+                        <input type="radio" name="clin" checked style="margin-top: 3px; accent-color: var(--avo-primary);">
+                        <div>
+                          <strong style="font-size: 0.82rem; display: block;">🩸 1. Insulina, Glucosa y SOP</strong>
+                          <span style="font-size: 0.72rem; color: var(--text-muted);">Bajo índice glucémico + fibra y aguacate.</span>
+                        </div>
+                      </label>
+                      <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 1px solid #CFE0BE; cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
+                        <input type="radio" name="clin" style="margin-top: 3px; accent-color: var(--avo-primary);">
+                        <div>
+                          <strong style="font-size: 0.82rem; display: block;">❤️ 2. Presión Arterial</strong>
+                          <span style="font-size: 0.72rem; color: var(--text-muted);">Bajo en sodio oculto, rico en potasio.</span>
+                        </div>
+                      </label>
+                      <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 1px solid #CFE0BE; cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
+                        <input type="radio" name="clin" style="margin-top: 3px; accent-color: var(--avo-primary);">
+                        <div>
+                          <strong style="font-size: 0.82rem; display: block;">🌿 3. Colitis y Gastritis</strong>
+                          <span style="font-size: 0.72rem; color: var(--text-muted);">Desinflamación abdominal sin irritantes.</span>
+                        </div>
+                      </label>
+                    </div>
+                    <div style="background: #FFFFFF; padding: 9px 14px; border-radius: 11px; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
+                      <span style="font-weight: 800;">⚖️ ¿Combinar Control Clínico con pérdida de peso?</span>
+                      <div style="display: flex; gap: 14px; font-weight: 700;">
+                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" checked style="accent-color: var(--coral);"> Sí, Control Clínico + Bajar de Peso</label>
+                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" style="accent-color: var(--coral);"> Solo Control Clínico + Mantener Peso</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: PROTOCOLO FITNESS ESTÁNDAR (SIN SALTO DE ALTURA) -->
+                  <div class="flip-face-3d back" style="background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%); padding: 20px 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span class="card-label coral" style="margin: 0;">⚡ PROTOCOLO METABÓLICO PERSONALIZADO</span>
+                      <button type="button" class="btn-flip-trigger" onclick="selectObj(document.querySelectorAll('.obj-card')[4], true)">
+                        🩺 Cambiar a Control Clínico <i class="fa-solid fa-rotate"></i>
+                      </button>
+                    </div>
+                    <div>
+                      <h4 id="fitness-obj-title" style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">Objetivo: Perder Peso y Grasa Corporal</h4>
+                      <p id="fitness-obj-desc" style="font-size: 0.85rem; color: var(--text-main);">Déficit calórico de 400 kcal con alta saciedad (1,500 kcal/día) priorizando proteína magra y fibra.</p>
+                    </div>
+                    <div style="display: flex; gap: 14px; font-size: 0.8rem; font-weight: 800; color: var(--avo-forest);">
+                      <span style="background: #fff; padding: 7px 12px; border-radius: 9px; border: 1px solid #FDBA74;">🍽️ 3 Comidas + 1 Colación</span>
+                      <span style="background: #fff; padding: 7px 12px; border-radius: 9px; border: 1px solid #FDBA74;">☀️ Domingo de Menú Abierto Incluido</span>
+                      <span style="background: #fff; padding: 7px 12px; border-radius: 9px; border: 1px solid #FDBA74;">🇲🇽 Ingredientes de Súper Mexicano</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="font-size: 1.2rem;">2. Tus Medidas Corporales (Cintura y Cadera Obligatorias)</h3>
+                <span id="live-icc-badge" style="background: var(--avo-pale); color: var(--avo-forest); font-weight: 800; font-size: 0.78rem; padding: 5px 12px; border-radius: 99px; border: 1px solid #CFE0BE;">
+                  📏 Índice Cintura/Cadera Calculado: <strong>0.80 (Saludable)</strong>
+                </span>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 18px;">
+                <div class="modern-field" style="margin: 0;"><label>Edad</label><div class="modern-input-box"><input type="number" value="34" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Estatura (cm)</label><div class="modern-input-box"><input type="number" value="162" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Peso Actual (kg)</label><div class="modern-input-box"><input type="number" value="68.4" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Peso Meta (kg)</label><div class="modern-input-box"><input type="number" value="62.0" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cintura (cm)*</label><div class="modern-input-box"><input type="number" id="inp-waist" value="79" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
+                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cadera (cm)*</label><div class="modern-input-box"><input type="number" id="inp-hip" value="99" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1;">
+                  <h3 style="font-size: 1.15rem; margin-bottom: 6px;">3. Alimentos de México que SÍ te gustan (Toca para activar/quitar):</h3>
+                  <div>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥑 Aguacate Hass</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥚 Huevo</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🍗 Pollo</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🧀 Queso Panela/Oaxaca</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🌮 Tortilla de Maíz</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥖 Bolillo</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🫘 Frijoles</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🌵 Nopales</span>
+                    <span class="food-chip" onclick="this.classList.toggle('liked')">🐟 Atún</span>
+                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥩 Bistec de Res</span>
+                  </div>
+                </div>
+                <button class="btn-enter-club" style="width: auto; padding: 15px 26px; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
+                  ✨ Guardar y Generar Plan Semanal <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               MÓDULO 2: PLAN SEMANAL + DOMINGO LIBRE EN TARJETA 3D GIRATORIA
+               ========================================================= -->
+          <div id="mod-plan" class="module-section">
+            <div class="bento-grid">
+              
+              <!-- TARJETA IZQUIERDA (COL-8): GIRO 3D ENTRE LUNES-SÁBADO Y DOMINGO MENÚ ABIERTO (ALTURA FIJA 555px) -->
+              <div class="col-8 flip-stage-3d" id="flip-plan-card" style="height: 555px;">
+                <div class="flip-inner-3d">
+
+                  <!-- CARA FRONTAL: MENÚ GUIADO LUNES A SÁBADO -->
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="card-label" style="margin: 0;">📅 MÓDULO 2 • PLAN SEMANAL (1,550 KCAL • CONTROL INSULINA)</span>
+                        <span style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary);" id="active-day-indicator">📍 Viendo: Lunes</span>
+                      </div>
+                      <h2 style="font-size: 1.48rem; margin: 6px 0 10px;">Tu Menú Diario (Haz clic en Domingo para girar la tarjeta)</h2>
+
+                      <div class="day-tabs">
+                        <button type="button" class="day-tab active" onclick="selectWeekday(0, this)">Lunes</button>
+                        <button type="button" class="day-tab" onclick="selectWeekday(1, this)">Martes</button>
+                        <button type="button" class="day-tab" onclick="selectWeekday(2, this)">Miércoles</button>
+                        <button type="button" class="day-tab" onclick="selectWeekday(3, this)">Jueves</button>
+                        <button type="button" class="day-tab" onclick="selectWeekday(4, this)">Viernes</button>
+                        <button type="button" class="day-tab" onclick="selectWeekday(5, this)">Sábado</button>
+                        <button type="button" class="day-tab sunday-free" onclick="flipToSunday(true)">
+                          ☀️ Domingo Libre <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>
+                        </button>
+                      </div>
+
+                      <div id="weekday-meals-list">
+                        <div class="meal-row">
+                          <div class="meal-time-badge">☀️ Desayuno<br>~380 kcal</div>
+                          <div id="meal-desc-1">
+                            <div style="font-weight: 800; font-size: 0.94rem;">Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 huevos + 1/2 taza nopales + 40g queso panela + 1/3 aguacate + 1 tortilla de maíz.</div>
+                          </div>
+                          <button class="swap-btn" onclick="swapMeal(1)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                        </div>
+
+                        <div class="meal-row">
+                          <div class="meal-time-badge">🍲 Comida<br>~540 kcal</div>
+                          <div id="meal-desc-2">
+                            <div style="font-weight: 800; font-size: 0.94rem;">Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">1 palma de pechuga + pimientos y cebolla + 1/2 taza frijoles + 1/3 aguacate.</div>
+                          </div>
+                          <button class="swap-btn" onclick="swapMeal(2)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                        </div>
+
+                        <div class="meal-row">
+                          <div class="meal-time-badge">🍎 Colación<br>~210 kcal</div>
+                          <div id="meal-desc-3">
+                            <div style="font-weight: 800; font-size: 0.94rem;">Yogur Griego Natural sin Azúcar con Fresas y Almendras</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">1/2 taza yogur griego + 1/2 taza fresas picadas + 10 almendras fileteadas.</div>
+                          </div>
+                          <button class="swap-btn" onclick="swapMeal(3)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                        </div>
+
+                        <div class="meal-row" style="margin-bottom: 0;">
+                          <div class="meal-time-badge">🌙 Cena<br>~420 kcal</div>
+                          <div id="meal-desc-4">
+                            <div style="font-weight: 800; font-size: 0.94rem;">Tostadas Horneadas de Pollo o Queso Panela con Aguacate</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 tostadas Susalia/horneadas + lechuga, salsa casera + proteína y 1/3 de aguacate.</div>
+                          </div>
+                          <button class="swap-btn" onclick="swapMeal(4)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: ☀️ DOMINGO DE MENÚ ABIERTO INTELIGENTE (MISMA ALTURA 555px) -->
+                  <div class="flip-face-3d back" style="background: linear-gradient(180deg, #FFFDF7 0%, #FEF6DF 100%);">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label gold" style="margin: 0;">☀️ DOMINGO DE MENÚ ABIERTO • RECOMENDACIÓN DE ARI</span>
+                        <button type="button" class="btn-flip-trigger" onclick="flipToSunday(false)">
+                          <i class="fa-solid fa-rotate-left"></i> Volver a Lunes–Sábado
+                        </button>
+                      </div>
+                      <h2 style="font-size: 1.55rem; color: #78350F; margin-bottom: 6px;">¡Hoy es tu Domingo de Menú Abierto!</h2>
+                      <p style="font-size: 0.86rem; color: #92400E; margin-bottom: 16px;">
+                        Elige libremente tus comidas favoritas de la semana para disfrutar en familia sin culpa y manteniendo tus porciones con la mano:
+                      </p>
+
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                        <div style="background: #FFFFFF; padding: 14px 16px; border-radius: 16px; border: 1.5px solid #F5DC9B; box-shadow: 0 6px 16px rgba(217, 155, 38, 0.08);">
+                          <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.88rem; margin-bottom: 8px;">☀️ Elige tu Desayuno Dominical Favorito:</div>
+                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
+                            <input type="radio" name="sun_b" checked style="accent-color: var(--avo-primary);"> Chilaquiles horneados con pollo y aguacate
+                          </label>
+                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
+                            <input type="radio" name="sun_b" style="accent-color: var(--avo-primary);"> Molletes en bolillo desmigajado con queso panela
+                          </label>
+                          <label style="display: flex; gap: 8px; font-size: 0.81rem; cursor: pointer;">
+                            <input type="radio" name="sun_b" style="accent-color: var(--avo-primary);"> Hotcakes de avena y plátano con fresas
+                          </label>
+                        </div>
+
+                        <div style="background: #FFFFFF; padding: 14px 16px; border-radius: 16px; border: 1.5px solid #F5DC9B; box-shadow: 0 6px 16px rgba(217, 155, 38, 0.08);">
+                          <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.88rem; margin-bottom: 8px;">🍲 Elige tu Comida Familiar de Domingo:</div>
+                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
+                            <input type="radio" name="sun_l" checked style="accent-color: var(--avo-primary);"> Carne asada magra con nopales, guacamole y 2 tortillas
+                          </label>
+                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
+                            <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);"> Ceviche fresco de pescado con aguacate y tostadas
+                          </label>
+                          <label style="display: flex; gap: 8px; font-size: 0.81rem; cursor: pointer;">
+                            <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);"> Fajitas de pollo gratinadas con queso Oaxaca
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 13px 18px; display: flex; justify-content: space-between; align-items: center;">
+                      <div>
+                        <strong style="font-size: 0.86rem; color: var(--avo-dark);">🔄 Recuerda: Hoy domingo en la noche o mañana lunes AM</strong>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);">Registra tu peso, cintura y cadera en la tarjeta derecha para que la IA calibre tu nueva semana.</div>
+                      </div>
+                      <button type="button" class="btn-flip-trigger coral-flip" onclick="flipToSunday(false)">
+                        ✓ Menú Dominical Listo
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- TARJETA DERECHA (COL-4): GIRO 3D ENTRE CIERRE SEMANAL IA Y LISTA DEL SÚPER (ALTURA FIJA 555px) -->
+              <div class="col-4 flip-stage-3d" id="flip-plan-sidebar" style="height: 555px;">
+                <div class="flip-inner-3d">
+
+                  <!-- CARA FRONTAL: CIERRE SEMANAL IA -->
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label coral" style="margin: 0;">🔄 CIERRE SEMANAL IA</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
+                          🛒 Lista Súper <i class="fa-solid fa-rotate"></i>
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Calibra tu Próxima Semana</h3>
+                      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px;">Haz tu check-in el domingo por la noche o lunes temprano:</p>
+
+                      <div class="modern-field" style="margin-bottom: 10px;">
+                        <label>Nuevo Peso (kg)</label>
+                        <div class="modern-input-box"><input type="number" value="68.4" style="padding: 11px 14px;"></div>
+                      </div>
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                        <div class="modern-field" style="margin: 0;"><label>Cintura (cm)</label><div class="modern-input-box"><input type="number" value="79" style="padding: 11px 14px;"></div></div>
+                        <div class="modern-field" style="margin: 0;"><label>Cadera (cm)</label><div class="modern-input-box"><input type="number" value="99" style="padding: 11px 14px;"></div></div>
+                      </div>
+
+                      <div class="modern-field" style="margin-bottom: 12px;">
+                        <label>¿Cómo sentiste el menú de esta semana?</label>
+                        <select style="width: 100%; padding: 11px 12px; border-radius: 13px; border: 1.5px solid #CFE0BE; background: #F4F9EE; font-family: inherit; font-weight: 700; font-size: 0.82rem;">
+                          <option>😍 Me encantó y quedé satisfecha</option>
+                          <option>🔄 Quiero cambiar los desayunos</option>
+                          <option>⚡ Necesito recetas aún más rápidas</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <button class="btn-enter-club" style="margin-top: 0;" onclick="this.innerHTML='<span>✅ ¡Semana Calibrada con IA!</span>'">
+                        <span>🧠 Recalibrar Semana con IA</span>
+                      </button>
+                      <div style="text-align: center; margin-top: 10px;">
+                        <span style="font-size: 0.74rem; color: var(--text-muted); cursor: pointer; font-weight: 700;" onclick="toggleCardFlip('flip-plan-sidebar')">
+                          👉 Toca aquí para girar y ver tu <strong>Lista del Súper (~$620 MXN)</strong>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: LISTA DEL SÚPER MEXICANA INTERACTIVA -->
+                  <div class="flip-face-3d back">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label" style="margin: 0;">🛒 LISTA DEL SÚPER • MÉXICO</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
+                          <i class="fa-solid fa-rotate-left"></i> Cierre IA
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.22rem; margin-bottom: 4px;">Tu Carrito de la Semana</h3>
+                      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">Presupuesto estimado en mercado/súper local: <strong>~$620 MXN</strong></p>
+
+                      <div style="display: flex; flex-direction: column; gap: 7px; font-size: 0.81rem;">
+                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
+                          <span><input type="checkbox" checked style="accent-color: var(--avo-primary);"> 1 kg Pechuga de pollo</span>
+                          <strong>~$135 MXN</strong>
+                        </label>
+                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
+                          <span><input type="checkbox" checked style="accent-color: var(--avo-primary);"> 4 Aguacates Hass medianos</span>
+                          <strong>~$85 MXN</strong>
+                        </label>
+                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
+                          <span><input type="checkbox" checked style="accent-color: var(--avo-primary);"> 1 Cartera de Huevo (30 pzas)</span>
+                          <strong>~$88 MXN</strong>
+                        </label>
+                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
+                          <span><input type="checkbox" style="accent-color: var(--avo-primary);"> Queso Panela 400g + Oaxaca</span>
+                          <strong>~$115 MXN</strong>
+                        </label>
+                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
+                          <span><input type="checkbox" style="accent-color: var(--avo-primary);"> Nopales, Jitomate, Lechuga y Tortillas</span>
+                          <strong>~$110 MXN</strong>
+                        </label>
+                      </div>
+                    </div>
+
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center; padding: 12px;" onclick="alert('📲 Lista del Súper enviada a tu WhatsApp lista para ir al mercado.')">
+                      <i class="fa-brands fa-whatsapp"></i> Mandar mi Lista a mi WhatsApp
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- =========================================================
+               MÓDULO 3: GUÍA SEMANAL DE PORCIONES (4 TARJETAS 3D FLIP INTERACTIVAS)
+               ========================================================= -->
+          <div id="mod-porciones" class="module-section">
+            <div class="bento-card" style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                  <span class="card-label">✋ MÓDULO 3 • GUÍA VISUAL SEMANAL DE PORCIONES (SIN BÁSCULA)</span>
+                  <h2 style="font-size: 1.55rem; margin-bottom: 4px;">Tus Porciones Visuales para tus 68.4 kg</h2>
+                  <p style="font-size: 0.88rem; color: var(--text-muted);">Haz clic en cualquiera de las 4 tarjetas para <strong>girarla en 3D</strong> y ver tus equivalencias exactas del Sistema Mexicano (SMAE):</p>
+                </div>
+                <span class="streak-pill" style="background: var(--avo-pale); color: var(--avo-forest);">
+                  <i class="fa-solid fa-rotate"></i> Toca cualquier tarjeta para girarla 180°
+                </span>
+              </div>
+            </div>
+
+            <div class="bento-grid">
+              <!-- FLIP CARD MANO 1: PALMA (PROTEÍNAS) -->
+              <div class="col-3 flip-stage-3d" id="flip-hand-1" style="height: 335px; cursor: pointer;" onclick="toggleCardFlip('flip-hand-1')">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front" style="text-align: center; align-items: center;">
+                    <span class="card-label coral">PROTEÍNAS MAGRAS</span>
+                    <div style="width: 78px; height: 78px; border-radius: 24px; background: var(--coral-soft); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: inset 0 2px 6px rgba(232,111,82,0.15);">🖐️</div>
+                    <div>
+                      <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">1 Palma de tu Mano</h3>
+                      <p style="font-size: 0.82rem; color: var(--text-muted);">Sin contar los dedos. Equivale a ~110g-120g de proteína cocida en desayuno, comida y cena.</p>
+                    </div>
+                    <span class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;">
+                      Ver Equivalentes <i class="fa-solid fa-rotate"></i>
+                    </span>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label coral">🇲🇽 EQUIVALENTES EN MÉXICO</span>
+                      <h4 style="font-size: 1.05rem; margin-bottom: 8px;">¿A qué equivale 1 Palma?</h4>
+                      <ul style="font-size: 0.8rem; color: var(--text-main); padding-left: 16px; line-height: 1.65;">
+                        <li><strong>Pechuga de pollo:</strong> 1 milanesa mediana (110g)</li>
+                        <li><strong>Bistec de res:</strong> 1 palma asada sin grasa</li>
+                        <li><strong>Huevo:</strong> 2 huevos enteros + 2 claras</li>
+                        <li><strong>Queso Panela:</strong> 4 rebanadas gruesas (80g)</li>
+                        <li><strong>Atún:</strong> 1 lata drenada en agua</li>
+                      </ul>
+                    </div>
+                    <span class="btn-flip-trigger" style="width: 100%; justify-content: center;"><i class="fa-solid fa-rotate-left"></i> Volver</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FLIP CARD MANO 2: PUÑO (CARBOHIDRATOS) -->
+              <div class="col-3 flip-stage-3d" id="flip-hand-2" style="height: 335px; cursor: pointer;" onclick="toggleCardFlip('flip-hand-2')">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front" style="text-align: center; align-items: center;">
+                    <span class="card-label">CARBOHIDRATOS</span>
+                    <div style="width: 78px; height: 78px; border-radius: 24px; background: var(--avo-pale); display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">✊</div>
+                    <div>
+                      <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">1/2 Puño Cerrado</h3>
+                      <p style="font-size: 0.82rem; color: var(--text-muted);">Medida calibrada por Ari para mantener tu glucosa e insulina estables todo el día.</p>
+                    </div>
+                    <span class="btn-flip-trigger" style="width: 100%; justify-content: center;">
+                      Ver Equivalentes <i class="fa-solid fa-rotate"></i>
+                    </span>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label">🇲🇽 EQUIVALENTES EN MÉXICO</span>
+                      <h4 style="font-size: 1.05rem; margin-bottom: 8px;">¿A qué equivale 1/2 Puño?</h4>
+                      <ul style="font-size: 0.8rem; color: var(--text-main); padding-left: 16px; line-height: 1.65;">
+                        <li><strong>Tortilla de maíz:</strong> 1 a 2 piezas calientes</li>
+                        <li><strong>Bolillo:</strong> 1/2 pieza sin migajón</li>
+                        <li><strong>Arroz o Frijol:</strong> 1/2 taza cocida de la olla</li>
+                        <li><strong>Tostadas:</strong> 2 piezas horneadas (Susalia)</li>
+                        <li><strong>Avena:</strong> 1/3 taza en hojuelas</li>
+                      </ul>
+                    </div>
+                    <span class="btn-flip-trigger" style="width: 100%; justify-content: center;"><i class="fa-solid fa-rotate-left"></i> Volver</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FLIP CARD MANO 3: PULGAR (GRASAS / AGUACATE) -->
+              <div class="col-3 flip-stage-3d" id="flip-hand-3" style="height: 335px; cursor: pointer;" onclick="toggleCardFlip('flip-hand-3')">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front" style="text-align: center; align-items: center;">
+                    <span class="card-label gold">GRASAS SALUDABLES</span>
+                    <div style="width: 78px; height: 78px; border-radius: 24px; background: var(--gold-soft); display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">👍</div>
+                    <div>
+                      <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">1 Pulgar (Aguacate)</h3>
+                      <p style="font-size: 0.82rem; color: var(--text-muted);">Grasas monoinsaturadas que apagan la ansiedad dulce y protegen tus hormonas.</p>
+                    </div>
+                    <span class="btn-flip-trigger" style="width: 100%; justify-content: center;">
+                      Ver Equivalentes <i class="fa-solid fa-rotate"></i>
+                    </span>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label gold">🇲🇽 EQUIVALENTES EN MÉXICO</span>
+                      <h4 style="font-size: 1.05rem; margin-bottom: 8px;">¿A qué equivale 1 Pulgar?</h4>
+                      <ul style="font-size: 0.8rem; color: var(--text-main); padding-left: 16px; line-height: 1.65;">
+                        <li><strong>Aguacate Hass:</strong> 1/3 de pieza mediana</li>
+                        <li><strong>Guacamole casero:</strong> 2 cucharadas soperas</li>
+                        <li><strong>Almendras o Nueces:</strong> 10 piezas naturales</li>
+                        <li><strong>Aceite de Oliva/Aguacate:</strong> 1 cdita para cocinar</li>
+                      </ul>
+                    </div>
+                    <span class="btn-flip-trigger" style="width: 100%; justify-content: center;"><i class="fa-solid fa-rotate-left"></i> Volver</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FLIP CARD MANO 4: 2 MANOS ABIERTAS (VERDURAS) -->
+              <div class="col-3 flip-stage-3d" id="flip-hand-4" style="height: 335px; cursor: pointer;" onclick="toggleCardFlip('flip-hand-4')">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front" style="text-align: center; align-items: center;">
+                    <span class="card-label">FIBRA Y SACIEDAD</span>
+                    <div style="width: 78px; height: 78px; border-radius: 24px; background: var(--avo-pale); display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">🤲</div>
+                    <div>
+                      <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">2 Manos Abiertas</h3>
+                      <p style="font-size: 0.82rem; color: var(--text-muted);">Cubre la mitad de tu plato con verduras para blindar tu glucosa y desinflamar.</p>
+                    </div>
+                    <span class="btn-flip-trigger" style="width: 100%; justify-content: center;">
+                      Ver Equivalentes <i class="fa-solid fa-rotate"></i>
+                    </span>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label">🇲🇽 EQUIVALENTES EN MÉXICO</span>
+                      <h4 style="font-size: 1.05rem; margin-bottom: 8px;">Verduras Libres en tu Plato:</h4>
+                      <ul style="font-size: 0.8rem; color: var(--text-main); padding-left: 16px; line-height: 1.65;">
+                        <li><strong>Nopales asados o cocidos:</strong> 1 a 2 tazas</li>
+                        <li><strong>Calabacitas a la mexicana:</strong> 1 taza generosa</li>
+                        <li><strong>Pico de gallo / Lechuga / Pepino:</strong> Libre</li>
+                        <li><strong>Flor de calabaza y Champiñones:</strong> Libre</li>
+                      </ul>
+                    </div>
+                    <span class="btn-flip-trigger" style="width: 100%; justify-content: center;"><i class="fa-solid fa-rotate-left"></i> Volver</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               MÓDULO 4: RECETARIO DINÁMICO QUINCENAL + TARJETAS DE RECETA 3D FLIP
+               ========================================================= -->
+          <div id="mod-recetario" class="module-section">
+            <div class="bento-grid">
+              <div class="bento-card col-12" style="background: linear-gradient(135deg, #142B1F 0%, #264D38 100%); color: #fff; padding: 22px 28px;">
+                <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: center;">
+                  <div>
+                    <span class="card-label gold">🎬 ESTRENO QUINCENAL • EN LA COCINA CON ARI</span>
+                    <h2 style="font-size: 1.68rem; margin-bottom: 8px;">Video-Receta de la Quincena: Enchiladas Verdes Fit con Aguacate</h2>
+                    <p style="font-size: 0.88rem; color: #E2F0D5; margin-bottom: 14px;">Cada día 1 y 15 del mes estrenamos nuevas recetas mexicanas y un video paso a paso grabado por la Nutrióloga Ari.</p>
+                    <div style="display: flex; gap: 16px; font-size: 0.83rem; color: #C5F099; font-weight: 700;">
+                      <span>⏱️ 15 min</span>
+                      <span>🔥 395 kcal</span>
+                      <span>💰 ~$38 MXN por porción</span>
+                      <span>🩸 Apta Control Insulina</span>
+                    </div>
+                  </div>
+                  <div style="position: relative; border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.28); height: 185px; background: url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80') center/cover; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="alert('▶️ Reproduciendo Video-Receta Quincenal de la Nutrióloga Ari...')">
+                    <div style="width: 62px; height: 62px; border-radius: 50%; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 10px 25px rgba(0,0,0,0.4);">
+                      <i class="fa-solid fa-play"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RECETA 1 CON GIRO 3D -->
+              <div class="col-4 flip-stage-3d" id="flip-rec-1" style="height: 295px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.85); color: #C5F099; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🩸 Control Insulina</span>
+                      </div>
+                      <h4 style="font-size: 1.08rem; margin-bottom: 4px;">Bowl Azteca de Pollo, Elote y Aguacate</h4>
+                      <p style="font-size: 0.79rem; color: var(--text-muted);">440 kcal • 36g Proteína • Ideal para llevar.</p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-1')">
+                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                    </button>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label">📋 RECETA PASO A PASO</span>
+                      <h4 style="font-size: 0.98rem; margin-bottom: 6px;">Bowl Azteca (~$42 MXN)</h4>
+                      <p style="font-size: 0.76rem; color: var(--text-main); line-height: 1.45; margin-bottom: 8px;">
+                        <strong>Ingredientes:</strong> 1 palma de pechuga asada, 1/3 taza arroz, 1/3 taza frijol negro, pico de gallo, 1/3 aguacate Hass y queso panela.
+                      </p>
+                      <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.45;">
+                        <strong>Preparación:</strong> Sella el pollo con limón y ajo, sirve sobre cama de lechuga con arroz y frijol, y corona con aguacate fresco.
+                      </p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-1')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RECETA 2 CON GIRO 3D -->
+              <div class="col-4 flip-stage-3d" id="flip-rec-2" style="height: 295px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">❤️ Favorito en México</span>
+                      </div>
+                      <h4 style="font-size: 1.08rem; margin-bottom: 4px;">Molletes en Bolillo Desmigajado con Aguacate</h4>
+                      <p style="font-size: 0.79rem; color: var(--text-muted);">340 kcal • 22g Proteína • Cenas rápidas en 8 min.</p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-2')">
+                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                    </button>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label coral">📋 RECETA PASO A PASO</span>
+                      <h4 style="font-size: 0.98rem; margin-bottom: 6px;">Molletes Fit (~$28 MXN)</h4>
+                      <p style="font-size: 0.76rem; color: var(--text-main); line-height: 1.45; margin-bottom: 8px;">
+                        <strong>Ingredientes:</strong> 1/2 bolillo sin migajón, 1/3 taza frijoles machacados sin manteca, 50g queso Panela u Oaxaca y pico de gallo.
+                      </p>
+                      <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.45;">
+                        <strong>Preparación:</strong> Tuesta el bolillo en sartén o airfryer, unta frijoles, gratina el queso y sirve con aguacate y pico de gallo.
+                      </p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-2')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RECETA 3 CON GIRO 3D -->
+              <div class="col-4 flip-stage-3d" id="flip-rec-3" style="height: 295px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🌿 Cero Azúcar</span>
+                      </div>
+                      <h4 style="font-size: 1.08rem; margin-bottom: 4px;">Mousse Cremoso de Cacao, Yogur y Aguacate</h4>
+                      <p style="font-size: 0.79rem; color: var(--text-muted);">185 kcal • Quita el antojo dulce sin subir glucosa.</p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-3')">
+                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                    </button>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label">📋 RECETA PASO A PASO</span>
+                      <h4 style="font-size: 0.98rem; margin-bottom: 6px;">Mousse de Aguacate (~$25 MXN)</h4>
+                      <p style="font-size: 0.76rem; color: var(--text-main); line-height: 1.45; margin-bottom: 8px;">
+                        <strong>Ingredientes:</strong> 1/3 aguacate Hass maduro, 1/2 taza yogur griego sin azúcar, 1 cda cacao 100%, vainilla y fruto del monje/stevia.
+                      </p>
+                      <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.45;">
+                        <strong>Preparación:</strong> Licúa todo 40 segundos hasta obtener textura de mousse francés, refrigera 15 min y decora con fresas.
+                      </p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-3')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               MÓDULO 5: PLAN DE EJERCICIOS EN CASA (CON FLIP 3D DE NIVEL)
+               ========================================================= -->
+          <div id="mod-ejercicios" class="module-section">
+            <div class="bento-grid">
+              <div class="bento-card col-8">
+                <span class="card-label">🏃‍♀️ MÓDULO 5 • RUTINAS EN CASA SIN EQUIPO (25 MINUTOS)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 4px;">Tu Rutina de Hoy: Pierna, Glúteo y Sensibilidad a la Insulina</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">Diseñada para hacer en tu sala sin aparatos ni impacto en rodillas:</p>
+
+                <div class="meal-row">
+                  <div class="meal-time-badge">Paso 1<br>8 Min</div>
+                  <div>
+                    <div style="font-weight: 800;">🚶‍♀️ Caminata Activa en Casa o Marcha en tu Lugar</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Ritmo constante moviendo brazos para activar circulación y oxidación de glucosa.</div>
+                  </div>
+                  <span style="font-weight: 800; color: var(--avo-primary); font-size: 0.82rem;">✅ Completado</span>
+                </div>
+
+                <div class="meal-row">
+                  <div class="meal-time-badge">Paso 2<br>4 Series</div>
+                  <div>
+                    <div style="font-weight: 800;">🍑 Sentadillas Controladas (15 reps) + Desplantes (10 por pierna)</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Baja en 2 segundos apoyada de una silla si lo necesitas, sube apretando glúteo.</div>
+                  </div>
+                  <button class="swap-btn" id="timer-btn" onclick="startRestTimer()">⏱️ Descanso 45s</button>
+                </div>
+
+                <div class="meal-row" style="margin-bottom: 0;">
+                  <div class="meal-time-badge">Paso 3<br>3 Series</div>
+                  <div>
+                    <div style="font-weight: 800;">💪 Lagartijas en Pared o Sillón (12 reps) + Plancha Abdominal (30s)</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Fortalece brazos y faja abdominal para reducir centímetros de cintura.</div>
+                  </div>
+                  <button class="btn-enter-club" style="width: auto; padding: 9px 18px; font-size: 0.82rem; margin: 0;" onclick="this.innerText='🎉 ¡Rutina Registrada (+50 XP)!' ">🔥 Marcar Lista</button>
+                </div>
+              </div>
+
+              <!-- TARJETA 3D FLIP DERECHA EN EJERCICIOS -->
+              <div class="col-4 flip-stage-3d" id="flip-workout-card" style="height: 430px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label coral" style="margin: 0;">⚡ IMPACTO METABÓLICO</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-workout-card')">
+                          Variantes <i class="fa-solid fa-rotate"></i>
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 8px;">¿Por qué entrenar 25 min después de comer?</h3>
+                      <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px;">
+                        Activar los músculos grandes (piernas y glúteos) absorbe la glucosa en sangre sin requerir picos de insulina.
+                      </p>
+                      <div class="metric-well" style="margin-bottom: 10px;">
+                        <div style="font-size: 0.72rem; font-weight: 800; color: var(--avo-primary);">QUEMA ESTIMADA HOY</div>
+                        <div style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 900;">~210 kcal + +50 XP</div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-workout-card')">
+                      🔄 Girar para ver Adaptación Sin Impacto
+                    </button>
+                  </div>
+
+                  <div class="flip-face-3d back">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label" style="margin: 0;">🧘‍♀️ CUIDADO ARTICULAR</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-workout-card')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Adaptaciones si te duelen las rodillas:</h3>
+                      <ul style="font-size: 0.81rem; color: var(--text-main); padding-left: 16px; line-height: 1.65;">
+                        <li><strong>En lugar de sentadilla libre:</strong> Siéntate y levántate de una silla del comedor de forma controlada.</li>
+                        <li><strong>En lugar de desplantes:</strong> Elevación de puente de glúteo acostada en tapete o alfombra.</li>
+                        <li><strong>Caminata:</strong> 10 minutos caminando dentro de casa después de la comida principal.</li>
+                      </ul>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-workout-card')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a la Rutina
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               MÓDULO 6: FORO HÍBRIDO "EL PLATO DEL DÍA" CON TARJETA 3D FLIP
+               ========================================================= -->
+          <div id="mod-foro" class="module-section">
+            <div class="bento-grid">
+              <div class="bento-card col-8">
+                <span class="card-label">📸 MÓDULO 6 • PLATOS DESTACADOS REVISADOS POR LA NUTRIÓLOGA ARI</span>
+                <h2 style="font-size: 1.48rem; margin-bottom: 14px;">El Muro del Plato del Día (Comunidad México)</h2>
+
+                <div class="meal-row" style="grid-template-columns: 82px 1fr;">
+                  <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" style="width: 82px; height: 82px; border-radius: 14px; object-fit: cover;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <div style="font-weight: 800; font-size: 0.92rem;">Lupita M. (Guadalajara) • <span style="color: var(--avo-primary);">Comida de hoy</span></div>
+                      <button class="swap-btn" style="padding: 4px 10px;" onclick="this.innerText='❤️ 25'">❤️ 24</button>
+                    </div>
+                    <p style="font-size: 0.82rem; margin: 4px 0;">"Hoy preparé mi bowl con fajitas de pollo, media taza de arroz y mi tercio de aguacate."</p>
+                    <div style="background: var(--avo-pale); padding: 8px 12px; border-radius: 10px; font-size: 0.78rem; margin-top: 6px; border: 1px solid #CFE0BE;">
+                      <strong>👩‍⚕️ Respuesta de Nutrióloga Ari:</strong> "¡Excelente proporción, Lupita! Tu palma de proteína y las dos manos de verdura están impecables para tu control de glucosa."
+                    </div>
+                  </div>
+                </div>
+
+                <div class="meal-row" style="grid-template-columns: 82px 1fr; margin-bottom: 0;">
+                  <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=200&q=80" style="width: 82px; height: 82px; border-radius: 14px; object-fit: cover;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <div style="font-weight: 800; font-size: 0.92rem;">Karla R. (Tepic, Nayarit) • <span style="color: var(--coral);">Desayuno Control Insulina</span></div>
+                      <button class="swap-btn" style="padding: 4px 10px;" onclick="this.innerText='🥑 19'">🥑 18</button>
+                    </div>
+                    <p style="font-size: 0.82rem; margin: 4px 0;">"Huevito con nopales, queso panela asado y aguacate. ¡Ya bajé 3 cm de cintura!"</p>
+                    <div style="background: var(--avo-pale); padding: 8px 12px; border-radius: 10px; font-size: 0.78rem; margin-top: 6px; border: 1px solid #CFE0BE;">
+                      <strong>👩‍⚕️ Respuesta de Nutrióloga Ari:</strong> "¡Eso, Karla! El nopal con proteína y aguacate en la mañana evita los antojos de pan a media tarde."
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TARJETA 3D FLIP DERECHA EN EL FORO (WHATSAPP VIP vs SUBIR FOTO WEB) -->
+              <div class="col-4 flip-stage-3d" id="flip-forum-card" style="height: 445px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front" style="background: linear-gradient(160deg, #142B1F 0%, #244935 100%); color: #fff;">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span class="card-label gold" style="margin: 0;">💬 COMUNIDAD VIP EN VIVO</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-forum-card')">
+                          Subir aquí <i class="fa-solid fa-rotate"></i>
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.35rem; margin-bottom: 10px;">Sube la Foto de tu Plato Hoy</h3>
+                      <p style="font-size: 0.84rem; color: #E2F0D5; line-height: 1.5; margin-bottom: 16px;">
+                        Entra con 1 clic al grupo exclusivo en celular donde la <strong>Nutrióloga Ari</strong> revisa tus comidas, responde dudas de porciones y te motiva todos los días:
+                      </p>
+                      <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 12px; font-size: 0.78rem; color: #C5F099;">
+                        🟢 <strong>48 socias conectadas hoy</strong> compartiendo sus desayunos y comidas.
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn-enter-club" style="margin-top: 0;" onclick="alert('📱 Abriendo Comunidad VIP de Avocado Club con la Nutrióloga Ari...')">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Abrir Foro VIP en Celular
+                      </button>
+                      <div style="text-align: center; margin-top: 10px;">
+                        <span style="font-size: 0.74rem; color: #C5F099; cursor: pointer; font-weight: 700;" onclick="toggleCardFlip('flip-forum-card')">
+                          🔄 ¿Prefieres subir tu foto desde aquí? Gira la tarjeta
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flip-face-3d back">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label" style="margin: 0;">📸 SUBIR PLATO DESDE WEB</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-forum-card')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.22rem; margin-bottom: 6px;">Comparte tu Comida con Ari</h3>
+                      <div style="border: 2px dashed var(--avo-primary); background: #F4F9EE; border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 12px; cursor: pointer;" onclick="this.innerHTML='✅ <strong>Foto_Comida_Hoy.jpg</strong> lista para enviar'">
+                        <i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.8rem; color: var(--avo-primary); margin-bottom: 6px;"></i>
+                        <div style="font-size: 0.82rem; font-weight: 800; color: var(--avo-dark);">Haz clic para elegir la foto de tu plato</div>
+                        <div style="font-size: 0.73rem; color: var(--text-muted);">Ganas +50 XP al compartir tu comida</div>
+                      </div>
+                      <div class="modern-field" style="margin: 0;">
+                        <label>¿Qué preparaste hoy?</label>
+                        <div class="modern-input-box">
+                          <input type="text" placeholder="Ej. Fajitas de pollo con nopales y aguacate" style="padding: 11px 14px;" />
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-enter-club" style="margin-top: 0;" onclick="this.innerHTML='<span>🎉 ¡Plato enviado a revisión de Ari (+50 XP)!</span>'">
+                      <span>Enviar Foto al Muro y a Ari</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <script>
+    // Carrusel automático de las 3 fotos de fondo del panel izquierdo
+    let currentBgSlide = 0;
+    const bgSlides = document.querySelectorAll('.bg-slide');
+    const bgDots = document.querySelectorAll('.slide-dot');
+
+    function goToBgSlide(idx) {
+      if (!bgSlides.length) return;
+      bgSlides.forEach(s => s.classList.remove('active'));
+      bgDots.forEach(d => d.classList.remove('active'));
+      currentBgSlide = idx;
+      bgSlides[currentBgSlide].classList.add('active');
+      if (bgDots[currentBgSlide]) bgDots[currentBgSlide].classList.add('active');
+    }
+
+    setInterval(() => {
+      if (bgSlides.length > 0) {
+        const nextIdx = (currentBgSlide + 1) % bgSlides.length;
+        goToBgSlide(nextIdx);
+      }
+    }, 5200);
+
+    // Giro 3D de la tarjeta derecha en Login (Flip Card) sin cambiar el tamaño de la tarjeta
+    function switchAuthMode(mode) {
+      const stage = document.getElementById('auth-3d-stage');
+      if (!stage) return;
+      if (mode === 'register') {
+        stage.classList.add('is-flipped');
+      } else {
+        stage.classList.remove('is-flipped');
+      }
+    }
+
+    // Giro 3D universal para cualquier tarjeta interactiva dentro de la plataforma (#app-view)
+    function toggleCardFlip(stageId) {
+      const el = document.getElementById(stageId);
+      if (el) el.classList.toggle('is-flipped');
+    }
+
+    // Ticker dinámico en el panel izquierdo del Login
+    const tickerMessages = [
+      "Socorro M. (Guadalajara) bajó 3.5 cm de cintura",
+      "Nutrióloga Ari subió nuevo tip de desayunos para insulina",
+      "Fernanda L. (Monterrey) desbloqueó rango Aguacate Hass 🥑",
+      "Paola V. (CDMX) completó su Cierre Semanal con IA"
+    ];
+    let tickerIdx = 0;
+    setInterval(() => {
+      const el = document.getElementById('live-ticker-text');
+      if (el) {
+        tickerIdx = (tickerIdx + 1) % tickerMessages.length;
+        el.style.opacity = 0;
+        setTimeout(() => {
+          el.innerText = tickerMessages[tickerIdx];
+          el.style.opacity = 1;
+        }, 250);
+      }
+    }, 4200);
+
+    // Entrar a la plataforma con 1 solo clic
+    function enterPlatform(initialModule) {
+      document.getElementById('login-view').style.display = 'none';
+      document.getElementById('app-view').style.display = 'block';
+      window.scrollTo(0, 0);
+      window.dispatchEvent(new Event('resize'));
+      if (initialModule) {
+        openModule(initialModule, document.getElementById('nav-' + initialModule));
+      }
+    }
+
+    function backToLogin() {
+      document.getElementById('app-view').style.display = 'none';
+      document.getElementById('login-view').style.display = 'grid';
+      window.scrollTo(0, 0);
+      window.dispatchEvent(new Event('resize'));
+    }
+
+    function openModule(modId, navEl) {
+      document.querySelectorAll('.module-section').forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById(modId);
+      if (target) target.classList.add('active');
+
+      if (navEl) {
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        navEl.classList.add('active');
+      }
+      // Asegurar que el lienzo de frutitas cubra siempre el 100% de cualquier módulo/página activa
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 50);
+    }
+
+    // Giro 3D de altura fija en el Módulo 1 al alternar entre Control Clínico y Objetivos Fitness
+    function selectObj(cardEl, isClinical, titleText, descText) {
+      document.querySelectorAll('.obj-card').forEach(c => c.classList.remove('selected'));
+      if (cardEl) cardEl.classList.add('selected');
+      const flipBox = document.getElementById('flip-onboarding-protocol');
+      if (!flipBox) return;
+      if (isClinical) {
+        flipBox.classList.remove('is-flipped');
+      } else {
+        if (titleText) document.getElementById('fitness-obj-title').innerText = 'Objetivo: ' + titleText;
+        if (descText) document.getElementById('fitness-obj-desc').innerText = descText;
+        flipBox.classList.add('is-flipped');
+      }
+    }
+
+    // Calculadora en vivo de Índice Cintura/Cadera en Módulo 1
+    function calcLiveICC() {
+      const w = parseFloat(document.getElementById('inp-waist')?.value || 79);
+      const h = parseFloat(document.getElementById('inp-hip')?.value || 99);
+      const badge = document.getElementById('live-icc-badge');
+      if (w > 0 && h > 0 && badge) {
+        const icc = (w / h).toFixed(2);
+        const status = icc < 0.85 ? 'Saludable ✅' : 'Prioridad Desinflamación 🩺';
+        badge.innerHTML = `📏 Índice Cintura/Cadera Calculado: <strong>${icc} (${status})</strong>`;
+      }
+    }
+
+    // Módulo 2: Cambiar entre días Lunes-Sábado y girar tarjeta 3D al elegir Domingo Libre
+    const weekdayMealsData = [
+      { day: "Lunes", b: "Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate", l: "Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz", s: "Yogur Griego Natural sin Azúcar con Fresas y Almendras", d: "Tostadas Horneadas de Pollo o Queso Panela con Aguacate" },
+      { day: "Martes", b: "Huevos a la Mexicana con Ejotes, 1/3 Aguacate y 1 Tortilla", l: "Bistec de Res Asado con Nopales, Queso Oaxaca y Frijoles", s: "Jícama y Pepino con Limón + 10 Almendras", d: "Molletes en 1/2 Bolillo sin Migajón con Queso Panela y Pico de Gallo" },
+      { day: "Miércoles", b: "Avena Cocida con Canela, Proteína/Claras y Fresas Picadas", l: "Bowl Azteca de Pechuga Asada, Elote, Aguacate y Lechuga", s: "Mousse Cremoso de Cacao y Aguacate", d: "Quesadillas en Tortilla de Maíz (2 pzas) con Champiñones y Aguacate" },
+      { day: "Jueves", b: "Chilaquiles Horneados Verdes con Pollo Deshebrado y Aguacate", l: "Filete de Pescado al Mojo de Ajo con Ensalada Fresca y Arroz", s: "Yogur Griego con Semillas de Chía y Papaya", d: "Sincronizadas en Tortilla de Maíz con Pechuga de Pavo, Panela y Aguacate" },
+      { day: "Viernes", b: "Omelette de Espinacas con Queso Oaxaca y 1/3 de Aguacate Hass", l: "Tacos de Lechuga y Tortilla con Fajitas de Res y Guacamole", s: "Manzana Verde Picada con 1 Cda de Crema de Cacahuate Natural", d: "Ensalada Templada de Pollo, Queso Panela y Tostada Horneada" },
+      { day: "Sábado", b: "Machaca o Huevo con Nopales en Salsa Verde + 1/3 Aguacate", l: "Ceviche Mexicano de Pescado o Atún con Aguacate y Tostadas", s: "Fresas con Yogur Griego y Canela", d: "Tacos Dorados en Airfryer de Pollo con Lechuga, Queso y Aguacate" }
+    ];
+
+    function selectWeekday(dayIdx, tabEl) {
+      document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+      if (tabEl) tabEl.classList.add('active');
+      const data = weekdayMealsData[dayIdx] || weekdayMealsData[0];
+      const ind = document.getElementById('active-day-indicator');
+      if (ind) ind.innerText = `📍 Viendo: ${data.day}`;
+      document.getElementById('meal-desc-1').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.b}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Porción calibrada con el método de la mano + 1/3 aguacate Hass.</div>`;
+      document.getElementById('meal-desc-2').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.l}</div><div style="font-size: 0.8rem; color: var(--text-muted);">1 palma de proteína + 2 manos de verdura + 1/2 puño de carbohidrato.</div>`;
+      document.getElementById('meal-desc-3').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.s}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Colación saciante para mantener glucosa estable por la tarde.</div>`;
+      document.getElementById('meal-desc-4').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.d}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Cena ligera y desinflamatoria lista en menos de 10 minutos.</div>`;
+    }
+
+    function flipToSunday(isSunday) {
+      const card = document.getElementById('flip-plan-card');
+      if (!card) return;
+      if (isSunday) {
+        card.classList.add('is-flipped');
+      } else {
+        card.classList.remove('is-flipped');
+      }
+    }
+
+    // Interacción real: Vasos de agua
+    function toggleWater(cupEl) {
+      cupEl.classList.toggle('filled');
+      const count = document.querySelectorAll('#water-container .glass-cup.filled').length;
+      document.getElementById('water-title').innerText = `Llevas ${count} de 8 vasos de agua hoy`;
+    }
+
+    // Interacción real: Intercambiar platillo (Swap)
+    const swapOptions = {
+      1: ["Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate", "🔄 Molletes en Bolillo sin Migajón con Frijoles, Queso Panela y Aguacate"],
+      2: ["Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz", "🔄 Bistec de Res Asado con Nopales, Queso Oaxaca y Tortilla"],
+      3: ["Yogur Griego Natural sin Azúcar con Fresas y Almendras", "🔄 Mousse Rápido de Cacao, Aguacate y Yogur Griego"],
+      4: ["Tostadas Horneadas de Pollo o Queso Panela con Aguacate", "🔄 Quesadillas en Tortilla de Maíz con Queso Oaxaca, Flor de Calabaza y Aguacate"]
+    };
+    const swapState = { 1: false, 2: false, 3: false, 4: false };
+
+    function swapMeal(num) {
+      swapState[num] = !swapState[num];
+      const title = swapOptions[num][swapState[num] ? 1 : 0];
+      const el = document.getElementById('meal-desc-' + num);
+      if (el) {
+        el.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem; color: ${swapState[num] ? 'var(--avo-primary)' : 'var(--text-main)'};">${title}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Equivalencia exacta SMAE avalada por la Nutrióloga Ari.</div>`;
+      }
+    }
+
+    // Cronómetro real de descanso en Módulo 5
+    let restTimer = null;
+    function startRestTimer() {
+      const btn = document.getElementById('timer-btn');
+      if (restTimer) clearInterval(restTimer);
+      let sec = 45;
+      btn.innerText = `⏳ ${sec}s...`;
+      restTimer = setInterval(() => {
+        sec--;
+        if (sec <= 0) {
+          clearInterval(restTimer);
+          btn.innerText = `✅ ¡Lista para la siguiente serie!`;
+        } else {
+          btn.innerText = `⏳ ${sec}s...`;
+        }
+      }, 1000);
+    }
+
+    // =========================================================================
+    // MOTOR DINÁMICO DE PARTÍCULAS BOTÁNICAS (FRUTAS Y VERDURAS MINIATURA)
+    // ESTILO "CLUB FÉNIX" EN LOS PANELES DERECHOS DE LOGIN Y TODAS LAS PÁGINAS
+    // =========================================================================
+    function createVeggieField(canvasId, count) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      // Mayor variedad de frutas y verduras frescas
+      const icons = [
+        '🥑', '🍓', '🍉', '🍍', '🍇', '🍑', '🍊', '🥝', '🍐', '🍒',
+        '🥭', '🥦', '🍋', '🫐', '🥕', '🍎', '🌿', '🥬', '🍅', '🥒', '🥑'
+      ];
+      let w = 0, h = 0;
+      let initializedBounds = false;
+      const particles = [];
+
+      function resize() {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+        const newW = parent.clientWidth;
+        const newH = parent.clientHeight;
+        if (newW > 0 && newH > 0) {
+          const wasZero = (w === 0 || h === 0 || !initializedBounds);
+          w = canvas.width = newW;
+          h = canvas.height = newH;
+          if (wasZero && particles.length > 0) {
+            initializedBounds = true;
+            for (let p of particles) {
+              p.x = Math.random() * w;
+              p.y = Math.random() * h;
+            }
+          }
+        }
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * (w || 1000),
+          y: Math.random() * (h || 850),
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: -0.28 - Math.random() * 0.46,
+          size: 14 + Math.random() * 11,
+          angle: Math.random() * Math.PI * 2,
+          vAngle: (Math.random() - 0.5) * 0.009,
+          alpha: 0.28 + Math.random() * 0.32,
+          icon: icons[i % icons.length],
+          isDot: i % 10 === 0
+        });
+      }
+
+      function animate() {
+        if (w === 0 || h === 0) resize();
+        if (w > 0 && h > 0) {
+          ctx.clearRect(0, 0, w, h);
+
+          for (let p of particles) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.angle += p.vAngle;
+
+            if (p.y < -30) {
+              p.y = h + 25;
+              p.x = Math.random() * w;
+            }
+            if (p.x < -30) p.x = w + 25;
+            if (p.x > w + 30) p.x = -25;
+
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.angle);
+            ctx.globalAlpha = p.alpha;
+
+            if (p.isDot) {
+              // Destello botánico suave (como las estrellitas de Club Fénix)
+              ctx.beginPath();
+              ctx.arc(0, 0, p.size * 0.22, 0, Math.PI * 2);
+              ctx.fillStyle = '#68A332';
+              ctx.shadowColor = '#8FD14F';
+              ctx.shadowBlur = 8;
+              ctx.fill();
+            } else {
+              ctx.font = `${Math.round(p.size)}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              ctx.fillText(p.icon, 0, 0);
+            }
+            ctx.restore();
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    // Mayor densidad y presencia de frutitas en Login y en todas las páginas/módulos interiores
+    createVeggieField('veggie-canvas-login', 54);
+    createVeggieField('veggie-canvas-app', 92);
+  </script>
+</body>
+</html>
