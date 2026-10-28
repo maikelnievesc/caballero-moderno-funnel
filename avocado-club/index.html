@@ -3361,7 +3361,7 @@
           const nextIdx = (currentBgSlide + 1) % bgSlides.length;
           goToBgSlide(nextIdx);
         }
-      }, 18000); // 18 segundos por cada foto y bloque de texto principal
+      }, 14000); // 14 segundos por cada foto y bloque de texto principal
     }
     resetBgInterval();
 
@@ -3415,7 +3415,7 @@
       if (ariIntervalTimer) clearInterval(ariIntervalTimer);
       ariIntervalTimer = setInterval(() => {
         nextAriannaSlide(1);
-      }, 20000); // 20 segundos por cada faceta de la Nutrióloga Arianna
+      }, 16000); // 16 segundos por cada faceta de la Nutrióloga Arianna
     }
     resetAriInterval();
 
@@ -3488,7 +3488,7 @@
       if (resIntervalTimer) clearInterval(resIntervalTimer);
       resIntervalTimer = setInterval(() => {
         nextResultSlide(1);
-      }, 16000); // 16 segundos por cada resultado real
+      }, 12000); // 12 segundos por cada resultado real
     }
     resetResultInterval();
 
@@ -3559,7 +3559,7 @@
           el.style.opacity = 1;
         }, 650);
       }
-    }, 15000);
+    }, 11000);
 
     // Entrar a la plataforma con 1 solo clic
     function enterPlatform(initialModule) {
