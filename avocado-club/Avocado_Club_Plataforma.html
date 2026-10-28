@@ -59,12 +59,12 @@
 
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-4px); }
     }
 
     @keyframes floatDelayed {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-4px); }
     }
 
     @keyframes pulseDot {
@@ -119,7 +119,7 @@
       background-position: center;
       opacity: 0;
       transform: scale(1);
-      transition: opacity 2.4s ease-in-out, transform 14s ease-out;
+      transition: opacity 3s ease-in-out, transform 18s ease-out;
     }
 
     .bg-slide.active {
@@ -314,12 +314,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity 0.75s ease-in-out, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .hero-rotator-box.fading-out {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(8px);
     }
 
     .visual-hero-copy h1 {
@@ -387,7 +387,7 @@
       border-radius: 22px;
       padding: 16px 20px;
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
-      animation: floatSlow 6s ease-in-out infinite;
+      animation: floatSlow 12s ease-in-out infinite;
       cursor: pointer;
       transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
       min-height: 122px;
@@ -402,7 +402,7 @@
     }
 
     .glass-card.card-right {
-      animation: floatDelayed 7s ease-in-out infinite 1.2s;
+      animation: floatDelayed 14s ease-in-out infinite 2s;
       background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(217, 155, 38, 0.16));
       border-color: rgba(253, 230, 138, 0.38);
     }
@@ -412,7 +412,7 @@
     }
 
     .card-fade-body {
-      transition: opacity 0.52s ease, transform 0.52s ease;
+      transition: opacity 0.65s ease-in-out, transform 0.65s ease-in-out;
     }
 
     .card-fade-body.switching {
@@ -1636,7 +1636,7 @@
         <!-- Actividad en vivo dinámica -->
         <div class="live-activity-pill">
           <span class="live-dot"></span>
-          <span id="live-ticker-text">Socorro M. (Guadalajara) bajó 3.5 cm de cintura</span>
+          <span id="live-ticker-text" style="transition: opacity 0.65s ease-in-out;">Socorro M. (Guadalajara) bajó 3.5 cm de cintura</span>
         </div>
       </div>
 
@@ -3337,7 +3337,7 @@
       bgSlides[currentBgSlide].classList.add('active');
       if (bgDots[currentBgSlide]) bgDots[currentBgSlide].classList.add('active');
 
-      // Rotar también el título h1 y el párrafo p en conjunto con la imagen de fondo (cadencia pausada y suave)
+      // Rotar también el título h1 y el párrafo p en conjunto con la imagen de fondo (cadencia muy pausada y suave)
       const rotBox = document.getElementById('hero-rotator-box');
       const h1El = document.getElementById('hero-dynamic-h1');
       const pEl = document.getElementById('hero-dynamic-p');
@@ -3348,7 +3348,7 @@
           h1El.innerHTML = slideCopy.h1;
           pEl.innerHTML = slideCopy.p;
           rotBox.classList.remove('fading-out');
-        }, 420);
+        }, 740);
       }
       resetBgInterval();
     }
@@ -3361,7 +3361,7 @@
           const nextIdx = (currentBgSlide + 1) % bgSlides.length;
           goToBgSlide(nextIdx);
         }
-      }, 13000); // 13 segundos por cada foto y bloque de texto principal
+      }, 18000); // 18 segundos por cada foto y bloque de texto principal
     }
     resetBgInterval();
 
@@ -3402,7 +3402,7 @@
           titleEl.innerText = data.title;
           quoteEl.innerText = data.quote;
           body.classList.remove('switching');
-        }, 360);
+        }, 640);
       }
       resetAriInterval();
     }
@@ -3415,7 +3415,7 @@
       if (ariIntervalTimer) clearInterval(ariIntervalTimer);
       ariIntervalTimer = setInterval(() => {
         nextAriannaSlide(1);
-      }, 15000); // 15 segundos por cada faceta de la Nutrióloga Arianna
+      }, 20000); // 20 segundos por cada faceta de la Nutrióloga Arianna
     }
     resetAriInterval();
 
@@ -3475,7 +3475,7 @@
           dsc.innerText = data.desc;
           if (tg) tg.innerText = data.tag;
           body.classList.remove('switching');
-        }, 360);
+        }, 640);
       }
       resetResultInterval();
     }
@@ -3488,7 +3488,7 @@
       if (resIntervalTimer) clearInterval(resIntervalTimer);
       resIntervalTimer = setInterval(() => {
         nextResultSlide(1);
-      }, 12000); // 12 segundos por cada resultado real
+      }, 16000); // 16 segundos por cada resultado real
     }
     resetResultInterval();
 
@@ -3557,9 +3557,9 @@
         setTimeout(() => {
           el.innerText = tickerMessages[tickerIdx];
           el.style.opacity = 1;
-        }, 350);
+        }, 650);
       }
-    }, 10000);
+    }, 15000);
 
     // Entrar a la plataforma con 1 solo clic
     function enterPlatform(initialModule) {
