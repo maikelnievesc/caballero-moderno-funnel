@@ -308,11 +308,25 @@
       box-shadow: 0 6px 18px rgba(232, 111, 82, 0.3);
     }
 
+    /* Contenedor rotatorio del título y subtítulo sincronizado con las 3 fotos */
+    .hero-rotator-box {
+      min-height: 222px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .hero-rotator-box.fading-out {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
     .visual-hero-copy h1 {
-      font-size: 3.15rem;
+      font-size: 3.05rem;
       font-weight: 800;
       line-height: 1.08;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       color: #FFFFFF;
     }
 
@@ -325,10 +339,10 @@
     }
 
     .visual-hero-copy p {
-      font-size: 1.04rem;
+      font-size: 1.02rem;
       color: rgba(255, 255, 255, 0.88);
-      line-height: 1.62;
-      margin-bottom: 24px;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     .feature-badges-row {
@@ -355,13 +369,14 @@
       color: var(--avo-bright);
     }
 
-    /* TARJETAS DE CRISTAL FLOTANTES CON ANIMACIÓN */
+    /* TARJETAS DE CRISTAL FLOTANTES CON ANIMACIÓN E INTERACTIVIDAD */
     .glass-cards-row {
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: 1.24fr 0.76fr;
       gap: 18px;
+      align-items: stretch;
     }
 
     .glass-card {
@@ -370,15 +385,84 @@
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid rgba(255, 255, 255, 0.26);
       border-radius: 22px;
-      padding: 18px 22px;
+      padding: 16px 20px;
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
       animation: floatSlow 6s ease-in-out infinite;
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+      min-height: 122px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(143, 209, 79, 0.65);
+      background: rgba(255, 255, 255, 0.17);
     }
 
     .glass-card.card-right {
       animation: floatDelayed 7s ease-in-out infinite 1.2s;
-      background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(217, 155, 38, 0.15));
-      border-color: rgba(253, 230, 138, 0.35);
+      background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(217, 155, 38, 0.16));
+      border-color: rgba(253, 230, 138, 0.38);
+    }
+
+    .glass-card.card-right:hover {
+      border-color: rgba(253, 230, 138, 0.8);
+    }
+
+    .card-fade-body {
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .card-fade-body.switching {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+
+    .mini-rotator-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .mini-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.35);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .mini-dot.active {
+      width: 16px;
+      background: #8FD14F;
+    }
+
+    .mini-dot.gold-dot.active {
+      background: #FDE68A;
+    }
+
+    .mini-nav-arrow {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(20, 43, 31, 0.45);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .mini-nav-arrow:hover {
+      background: var(--avo-primary);
+      border-color: #8FD14F;
+      transform: scale(1.08);
     }
 
     .nutri-badge-flex {
@@ -397,7 +481,9 @@
       height: 58px;
       border-radius: 16px;
       object-fit: cover;
+      object-position: center top;
       border: 2px solid var(--avo-bright);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
 
     .verified-tick {
@@ -1554,54 +1640,98 @@
         </div>
       </div>
 
-      <!-- COPY HERO PRINCIPAL -->
+      <!-- COPY HERO PRINCIPAL (CON TÍTULO Y SUBTÍTULO ROTANDO JUNTO CON LAS 3 IMÁGENES) -->
       <div class="visual-hero-copy">
+        <!-- Fijo siempre sin moverse -->
         <div class="hero-kicker">
-          <i class="fa-solid fa-crown"></i> Plataforma Interactiva • Avalada por Nutrióloga Ari
+          <i class="fa-solid fa-crown"></i> Plataforma Interactiva • Avalada por Nutrióloga Arianna
         </div>
-        <h1>
-          Tu nutrición semanal adaptada a <span class="highlight">lo que sí te gusta comer.</span>
-        </h1>
-        <p>
-          Olvídate de los PDFs estáticos y de pesar cada gramo. Recibe planes semanales con ingredientes reales de México, ruta de <strong>Control Clínico</strong> (insulina, presión y digestión), domingos de menú abierto y acompañamiento directo de tu nutrióloga.
-        </p>
+
+        <!-- Bloque dinámico sincronizado con las 3 fotos de fondo -->
+        <div class="hero-rotator-box" id="hero-rotator-box">
+          <h1 id="hero-dynamic-h1">
+            Tu nutrición semanal adaptada a <span class="highlight">lo que sí te gusta comer.</span>
+          </h1>
+          <p id="hero-dynamic-p">
+            Olvídate de los PDFs estáticos y de pesar cada gramo. Recibe planes semanales con ingredientes reales de México, ruta de <strong>Control Clínico</strong> (insulina, presión y digestión), domingos de menú abierto y acompañamiento directo de la Nutrióloga Arianna.
+          </p>
+        </div>
 
         <div class="feature-badges-row">
-          <div class="mini-feat-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Calibración IA cada Domingo/Lunes</div>
+          <div class="mini-feat-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Calibración cada Domingo/Lunes</div>
           <div class="mini-feat-badge"><i class="fa-solid fa-heart-pulse"></i> Control Insulina y Presión</div>
           <div class="mini-feat-badge"><i class="fa-solid fa-hand"></i> Porciones con la Mano</div>
         </div>
 
         <div class="slide-indicators">
-          <span class="slide-dot active" onclick="goToBgSlide(0)"></span>
-          <span class="slide-dot" onclick="goToBgSlide(1)"></span>
-          <span class="slide-dot" onclick="goToBgSlide(2)"></span>
+          <span class="slide-dot active" onclick="goToBgSlide(0)" title="Mensaje 1"></span>
+          <span class="slide-dot" onclick="goToBgSlide(1)" title="Mensaje 2"></span>
+          <span class="slide-dot" onclick="goToBgSlide(2)" title="Mensaje 3"></span>
         </div>
       </div>
 
-      <!-- TARJETAS FLOTANTES CON MOVIMIENTO SUAVE -->
+      <!-- TARJETAS FLOTANTES INTERACTIVAS (3 ROTACIONES ARIANNA + 5 RESULTADOS REALES) -->
       <div class="glass-cards-row">
-        <div class="glass-card">
+        <!-- TARJETA IZQUIERDA: FOTO DE ARIANNA CON BATA + 3 FACETAS ROTANDO -->
+        <div class="glass-card" onclick="nextAriannaSlide(1)" title="Haz clic para ver más sobre la Nutrióloga Arianna">
           <div class="nutri-badge-flex">
             <div class="nutri-avatar-wrap">
-              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=240&q=80" alt="Nutrióloga Ari" class="nutri-avatar">
+              <img src="nutriologa_arianna.jpg" alt="Nutrióloga Arianna" class="nutri-avatar">
               <div class="verified-tick"><i class="fa-solid fa-check"></i></div>
             </div>
-            <div>
-              <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #8FD14F; font-weight: 800;">DIRECCIÓN CLÍNICA • NAYARIT, MÉXICO</div>
-              <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.08rem;">Nutrióloga Ari</div>
-              <div style="font-size: 0.8rem; color: rgba(255,255,255,0.86); margin-top: 2px;">"Reviso tus fotos de comida en el foro VIP y cada 15 días cocinamos juntas una nueva video-receta."</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                <div id="arianna-card-kicker" style="font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #8FD14F; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  👩‍⚕️ DIRECCIÓN CLÍNICA • NAYARIT, MÉXICO
+                </div>
+                <div class="mini-rotator-dots" onclick="event.stopPropagation();">
+                  <span class="mini-dot ari-dot active" onclick="goToAriannaSlide(0)"></span>
+                  <span class="mini-dot ari-dot" onclick="goToAriannaSlide(1)"></span>
+                  <span class="mini-dot ari-dot" onclick="goToAriannaSlide(2)"></span>
+                </div>
+              </div>
+              <div class="card-fade-body" id="arianna-card-body">
+                <div id="arianna-card-title" style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.05rem; margin-top: 1px;">
+                  Nutrióloga Arianna
+                </div>
+                <div id="arianna-card-quote" style="font-size: 0.79rem; color: rgba(255,255,255,0.88); margin-top: 2px; line-height: 1.38;">
+                  "Reviso tus fotos de comida en el foro VIP y cada 15 días cocinamos juntas una nueva video-receta."
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="glass-card card-right" style="display: flex; flex-direction: column; justify-content: center;">
+        <!-- TARJETA DERECHA: 5 RESULTADOS REALES INTERACTIVOS Y ROTATORIOS -->
+        <div class="glass-card card-right" onclick="nextResultSlide(1)" title="Haz clic para explorar los 5 resultados reales">
           <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.72rem; color: #FDE68A; font-weight: 800; letter-spacing: 0.05em;">📏 RESULTADO REAL</span>
-            <span style="background: rgba(143, 209, 79, 0.25); color: #C5F099; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 99px;">Semana 4</span>
+            <span id="res-card-label" style="font-size: 0.7rem; color: #FDE68A; font-weight: 800; letter-spacing: 0.04em;">📏 RESULTADO REAL (1/5)</span>
+            <div style="display: flex; align-items: center; gap: 5px;" onclick="event.stopPropagation();">
+              <span id="res-card-week" style="background: rgba(143, 209, 79, 0.25); color: #C5F099; font-size: 0.68rem; font-weight: 800; padding: 2px 8px; border-radius: 99px;">Semana 4</span>
+              <button type="button" class="mini-nav-arrow" onclick="nextResultSlide(-1)" title="Resultado anterior"><i class="fa-solid fa-chevron-left"></i></button>
+              <button type="button" class="mini-nav-arrow" onclick="nextResultSlide(1)" title="Siguiente resultado"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
           </div>
-          <div style="font-family: 'Outfit', sans-serif; font-size: 1.75rem; font-weight: 900; margin: 4px 0;">-4.2 cm Cintura</div>
-          <div style="font-size: 0.77rem; color: rgba(255,255,255,0.85);">Sin dejar la tortilla ni el bolillo</div>
+
+          <div class="card-fade-body" id="results-card-body" style="margin: 3px 0;">
+            <div id="res-card-metric" style="font-family: 'Outfit', sans-serif; font-size: 1.62rem; font-weight: 900; line-height: 1.12; color: #FFFFFF;">
+              -4.2 cm Cintura
+            </div>
+            <div id="res-card-desc" style="font-size: 0.76rem; color: rgba(255,255,255,0.9); margin-top: 3px; font-weight: 600;">
+              Mariana G. • Sin dejar la tortilla ni el bolillo
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;" onclick="event.stopPropagation();">
+            <span id="res-card-tag" style="font-size: 0.67rem; color: #C5F099; font-weight: 800;">🩸 Glucosa e insulina estables</span>
+            <div class="mini-rotator-dots">
+              <span class="mini-dot gold-dot res-dot active" onclick="goToResultSlide(0)"></span>
+              <span class="mini-dot gold-dot res-dot" onclick="goToResultSlide(1)"></span>
+              <span class="mini-dot gold-dot res-dot" onclick="goToResultSlide(2)"></span>
+              <span class="mini-dot gold-dot res-dot" onclick="goToResultSlide(3)"></span>
+              <span class="mini-dot gold-dot res-dot" onclick="goToResultSlide(4)"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1619,7 +1749,7 @@
             <div>
               <div class="auth-top-status">
                 <span class="status-chip">
-                  <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--avo-primary); display: inline-block;"></span>
+                  <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--avo-primary); display: inline-block; animation: pulseDot 2s infinite;"></span>
                   Portal de Socias Activo
                 </span>
                 <span class="member-tier-chip">👑 Membresía Hotmart</span>
@@ -1642,7 +1772,7 @@
               <div class="modern-field">
                 <label>
                   <span>Correo Electrónico (Hotmart)</span>
-                  <span style="color: var(--avo-primary);">✓ Cuenta Activa</span>
+                  <span style="color: var(--avo-primary);">✓ Cuenta Verificada</span>
                 </label>
                 <div class="modern-input-box">
                   <i class="fa-regular fa-envelope left-ico"></i>
@@ -1654,20 +1784,21 @@
               <div class="modern-field" style="margin-bottom: 12px;">
                 <label>
                   <span>Contraseña</span>
-                  <span style="color: var(--coral); cursor: pointer; text-transform: none; font-weight: 700;">¿Olvidaste tu contraseña?</span>
+                  <span id="forgot-pass-link" onclick="sendMagicRecovery(this)" style="color: var(--coral); cursor: pointer; text-transform: none; font-weight: 700; transition: color 0.2s;">¿Olvidaste tu contraseña?</span>
                 </label>
                 <div class="modern-input-box">
                   <i class="fa-solid fa-lock left-ico"></i>
-                  <input type="password" value="••••••••••••" placeholder="••••••••••••" />
-                  <i class="fa-regular fa-eye right-check" style="color: var(--text-muted);"></i>
+                  <input type="password" id="login-pass-inp" value="AvocadoClub2026" placeholder="••••••••••••" />
+                  <i class="fa-regular fa-eye right-check" onclick="toggleLoginPassword('login-pass-inp', this)" title="Mostrar / ocultar contraseña" style="color: var(--text-muted); cursor: pointer;"></i>
                 </div>
               </div>
 
-              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.81rem; color: var(--text-muted); margin-bottom: 10px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">
                 <label style="display: flex; align-items: center; gap: 7px; cursor: pointer; font-weight: 600;">
                   <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 15px; height: 15px;">
-                  Mantener mi sesión iniciada en este dispositivo
+                  Mantener mi sesión iniciada
                 </label>
+                <span style="font-size: 0.73rem; font-weight: 700; color: var(--avo-forest);"><i class="fa-solid fa-shield-heart" style="color: var(--avo-primary);"></i> Acceso Seguro</span>
               </div>
             </div>
 
@@ -1678,16 +1809,16 @@
                 <i class="fa-solid fa-arrow-right-long"></i>
               </button>
 
-              <!-- Prueba social inferior -->
+              <!-- Prueba social inferior mejorada -->
               <div class="social-proof-footer" style="margin-top: 16px; padding-top: 14px;">
                 <div class="avatar-stack">
+                  <img src="nutriologa_arianna.jpg" alt="Nutrióloga Arianna" title="Nutrióloga Arianna" style="border-color: var(--avo-primary);">
                   <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Socia 1">
                   <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Socia 2">
                   <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Socia 3">
-                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80" alt="Socia 4">
                 </div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.35;">
-                  <strong style="color: var(--avo-dark);">+420 socias en México</strong> registraron su plato y medidas esta semana.
+                <div style="font-size: 0.74rem; color: var(--text-muted); line-height: 1.35;">
+                  <strong style="color: var(--avo-dark);">Nutrióloga Arianna + 420 socias</strong> activas hoy en México compartiendo platos y progreso.
                 </div>
               </div>
             </div>
@@ -1706,7 +1837,7 @@
               </div>
 
               <h2 style="font-size: 1.82rem; margin-bottom: 4px;">Únete o Activa tu Acceso</h2>
-              <p class="sub" style="margin-bottom: 12px; font-size: 0.85rem;">Inscríbete hoy en Hotmart o crea tu contraseña si acabas de realizar tu pago:</p>
+              <p class="sub" style="margin-bottom: 12px; font-size: 0.85rem;">Inscríbete hoy en Hotmart con la Nutrióloga Arianna o crea tu contraseña si ya pagaste:</p>
 
               <!-- Pestañas en la cara trasera para regresar con giro 3D -->
               <div class="auth-mode-tabs" style="margin-bottom: 14px;">
@@ -1756,8 +1887,8 @@
                 </label>
                 <div class="modern-input-box">
                   <i class="fa-solid fa-key left-ico"></i>
-                  <input type="password" value="••••••••••••" style="padding: 12px 38px 12px 42px;" />
-                  <i class="fa-solid fa-shield-halved right-check"></i>
+                  <input type="password" id="reg-pass-inp" value="AvocadoClub2026" style="padding: 12px 38px 12px 42px;" />
+                  <i class="fa-regular fa-eye right-check" onclick="toggleLoginPassword('reg-pass-inp', this)" title="Mostrar / ocultar contraseña" style="color: var(--text-muted); cursor: pointer;"></i>
                 </div>
               </div>
             </div>
@@ -1851,7 +1982,7 @@
             </li>
             <li class="nav-item" id="nav-mod-recetario" onclick="openModule('mod-recetario', this)">
               <i class="fa-solid fa-utensils"></i>
-              <span>4. Recetario + Video Ari</span>
+              <span style="white-space: nowrap; font-size: 0.82rem;">4. Recetario + Video Arianna</span>
               <span class="badge-nav">Nuevo</span>
             </li>
             <li class="nav-item" id="nav-mod-ejercicios" onclick="openModule('mod-ejercicios', this)">
@@ -1883,7 +2014,7 @@
         
         <div class="top-bar">
           <div>
-            <div style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.06em;">Semana 3 • Protocolo Avalado por Nutrióloga Ari</div>
+            <div style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.06em;">Semana 3 • Protocolo Avalado por Nutrióloga Arianna</div>
             <h1 style="font-size: 1.75rem; color: var(--avo-dark);">Hola, Mariana 👋 ¡Tu cuerpo te agradece hoy!</h1>
           </div>
 
@@ -1963,11 +2094,11 @@
                     </svg>
                   </div>
 
-                  <!-- CARA TRASERA: DIAGNÓSTICO METABÓLICO DE CINTURA Y CADERA DE ARI -->
+                  <!-- CARA TRASERA: DIAGNÓSTICO METABÓLICO DE CINTURA Y CADERA DE ARIANNA -->
                   <div class="flip-face-3d back">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-heart-pulse"></i> INTERPRETACIÓN CLÍNICA • NUTRIÓLOGA ARI</span>
+                        <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-heart-pulse"></i> INTERPRETACIÓN CLÍNICA • NUTRIÓLOGA ARIANNA</span>
                         <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-dash-chart')">
                           <i class="fa-solid fa-rotate-left"></i> Volver a la Gráfica
                         </button>
@@ -1985,7 +2116,7 @@
                           </p>
                         </div>
                         <div class="metric-well" style="background: #FFF9EB; border-color: #F5DC9B;">
-                          <div style="font-weight: 800; color: #9A6700; font-size: 0.85rem; margin-bottom: 4px;">👩‍⚕️ Nota de Ari para tu Semana 4:</div>
+                          <div style="font-weight: 800; color: #9A6700; font-size: 0.85rem; margin-bottom: 4px;">👩‍⚕️ Nota de Arianna para tu Semana 4:</div>
                           <p style="font-size: 0.8rem; color: var(--text-main); line-height: 1.45;">
                             "Mariana, tu desinflamación abdominal va excelente. Mantendremos el aguacate y nopales en desayuno."
                           </p>
@@ -2033,7 +2164,7 @@
                         <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">🌱 1ra Semana Lista</div>
                         <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">💧 Hidratación Top</div>
                         <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">📏 -4 cm Cintura</div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">🍲 Receta de Ari</div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">🍲 Receta de Arianna</div>
                       </div>
                     </div>
                   </div>
@@ -2065,7 +2196,7 @@
                     </div>
 
                     <div style="background: rgba(217, 155, 38, 0.2); border: 1px solid #F59E0B; border-radius: 12px; padding: 10px 12px; font-size: 0.76rem; color: #FEF3C7;">
-                      👑 <strong>Al llegar a Reina Saludable (1,000 XP):</strong> Desbloqueas el Recetario Especial de Postres Sin Azúcar de Ari.
+                      👑 <strong>Al llegar a Reina Saludable (1,000 XP):</strong> Desbloqueas el Recetario Especial de Postres Sin Azúcar de Arianna.
                     </div>
                   </div>
 
@@ -2089,7 +2220,7 @@
               </div>
 
               <div class="bento-card col-6" style="background: linear-gradient(145deg, #FFFFFF 0%, #FFF2EE 100%);">
-                <span class="card-label coral">👩‍⚕️ CÁPSULA QUINCENAL DE LA NUTRIÓLOGA ARI</span>
+                <span class="card-label coral">👩‍⚕️ CÁPSULA QUINCENAL DE LA NUTRIÓLOGA ARIANNA</span>
                 <h3 style="font-size: 1.25rem; color: var(--avo-dark);">"¡Ya está lista la nueva Video-Receta de Enchiladas Fit!"</h3>
                 <p style="font-size: 0.85rem; color: var(--text-main); margin: 6px 0 14px;">Con salsa cremosa de aguacate y queso panela, ideal para cuidar tu glucosa sin renunciar al sabor mexicano.</p>
                 <button class="btn-enter-club" style="width: auto; padding: 10px 18px; font-size: 0.85rem; margin: 0;" onclick="openModule('mod-recetario', document.getElementById('nav-mod-recetario'))">
@@ -2141,10 +2272,10 @@
               <div class="flip-stage-3d" id="flip-onboarding-protocol" style="height: 210px; margin-bottom: 18px;">
                 <div class="flip-inner-3d">
                   
-                  <!-- CARA FRONTAL: PROTOCOLO CLÍNICO DE ARI (3 AFECCIONES) -->
+                  <!-- CARA FRONTAL: PROTOCOLO CLÍNICO DE ARIANNA (3 AFECCIONES) -->
                   <div class="flip-face-3d front" style="background: var(--avo-pale); padding: 18px 22px;">
                     <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.94rem;">
-                      👩‍⚕️ Protocolo de Control Clínico de la Nutrióloga Ari — Selecciona la condición principal:
+                      👩‍⚕️ Protocolo de Control Clínico de la Nutrióloga Arianna — Selecciona la condición principal:
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                       <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 2px solid var(--avo-primary); cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
@@ -2314,7 +2445,7 @@
                   <div class="flip-face-3d back" style="background: linear-gradient(180deg, #FFFDF7 0%, #FEF6DF 100%);">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span class="card-label gold" style="margin: 0;">☀️ DOMINGO DE MENÚ ABIERTO • RECOMENDACIÓN DE ARI</span>
+                        <span class="card-label gold" style="margin: 0;">☀️ DOMINGO DE MENÚ ABIERTO • RECOMENDACIÓN DE ARIANNA</span>
                         <button type="button" class="btn-flip-trigger" onclick="flipToSunday(false)">
                           <i class="fa-solid fa-rotate-left"></i> Volver a Lunes–Sábado
                         </button>
@@ -2518,7 +2649,7 @@
                     <div style="width: 78px; height: 78px; border-radius: 24px; background: var(--avo-pale); display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">✊</div>
                     <div>
                       <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">1/2 Puño Cerrado</h3>
-                      <p style="font-size: 0.82rem; color: var(--text-muted);">Medida calibrada por Ari para mantener tu glucosa e insulina estables todo el día.</p>
+                      <p style="font-size: 0.82rem; color: var(--text-muted);">Medida calibrada por Arianna para mantener tu glucosa e insulina estables todo el día.</p>
                     </div>
                     <span class="btn-flip-trigger" style="width: 100%; justify-content: center;">
                       Ver Equivalentes <i class="fa-solid fa-rotate"></i>
@@ -2611,9 +2742,9 @@
               <div class="bento-card col-12" style="background: linear-gradient(135deg, #142B1F 0%, #264D38 100%); color: #fff; padding: 22px 28px;">
                 <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: center;">
                   <div>
-                    <span class="card-label gold">🎬 ESTRENO QUINCENAL • EN LA COCINA CON ARI</span>
+                    <span class="card-label gold">🎬 ESTRENO QUINCENAL • EN LA COCINA CON ARIANNA</span>
                     <h2 style="font-size: 1.68rem; margin-bottom: 8px;">Video-Receta de la Quincena: Enchiladas Verdes Fit con Aguacate</h2>
-                    <p style="font-size: 0.88rem; color: #E2F0D5; margin-bottom: 14px;">Cada día 1 y 15 del mes estrenamos nuevas recetas mexicanas y un video paso a paso grabado por la Nutrióloga Ari.</p>
+                    <p style="font-size: 0.88rem; color: #E2F0D5; margin-bottom: 14px;">Cada día 1 y 15 del mes estrenamos nuevas recetas mexicanas y un video paso a paso grabado por la Nutrióloga Arianna.</p>
                     <div style="display: flex; gap: 16px; font-size: 0.83rem; color: #C5F099; font-weight: 700;">
                       <span>⏱️ 15 min</span>
                       <span>🔥 395 kcal</span>
@@ -2621,7 +2752,7 @@
                       <span>🩸 Apta Control Insulina</span>
                     </div>
                   </div>
-                  <div style="position: relative; border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.28); height: 185px; background: url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80') center/cover; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="alert('▶️ Reproduciendo Video-Receta Quincenal de la Nutrióloga Ari...')">
+                  <div style="position: relative; border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.28); height: 185px; background: url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80') center/cover; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="alert('▶️ Reproduciendo Video-Receta Quincenal de la Nutrióloga Arianna...')">
                     <div style="width: 62px; height: 62px; border-radius: 50%; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 10px 25px rgba(0,0,0,0.4);">
                       <i class="fa-solid fa-play"></i>
                     </div>
@@ -2823,7 +2954,7 @@
           <div id="mod-foro" class="module-section">
             <div class="bento-grid">
               <div class="bento-card col-8">
-                <span class="card-label">📸 MÓDULO 6 • PLATOS DESTACADOS REVISADOS POR LA NUTRIÓLOGA ARI</span>
+                <span class="card-label">📸 MÓDULO 6 • PLATOS DESTACADOS REVISADOS POR LA NUTRIÓLOGA ARIANNA</span>
                 <h2 style="font-size: 1.48rem; margin-bottom: 14px;">El Muro del Plato del Día (Comunidad México)</h2>
 
                 <div class="meal-row" style="grid-template-columns: 82px 1fr;">
@@ -2835,7 +2966,7 @@
                     </div>
                     <p style="font-size: 0.82rem; margin: 4px 0;">"Hoy preparé mi bowl con fajitas de pollo, media taza de arroz y mi tercio de aguacate."</p>
                     <div style="background: var(--avo-pale); padding: 8px 12px; border-radius: 10px; font-size: 0.78rem; margin-top: 6px; border: 1px solid #CFE0BE;">
-                      <strong>👩‍⚕️ Respuesta de Nutrióloga Ari:</strong> "¡Excelente proporción, Lupita! Tu palma de proteína y las dos manos de verdura están impecables para tu control de glucosa."
+                      <strong>👩‍⚕️ Respuesta de Nutrióloga Arianna:</strong> "¡Excelente proporción, Lupita! Tu palma de proteína y las dos manos de verdura están impecables para tu control de glucosa."
                     </div>
                   </div>
                 </div>
@@ -2849,7 +2980,7 @@
                     </div>
                     <p style="font-size: 0.82rem; margin: 4px 0;">"Huevito con nopales, queso panela asado y aguacate. ¡Ya bajé 3 cm de cintura!"</p>
                     <div style="background: var(--avo-pale); padding: 8px 12px; border-radius: 10px; font-size: 0.78rem; margin-top: 6px; border: 1px solid #CFE0BE;">
-                      <strong>👩‍⚕️ Respuesta de Nutrióloga Ari:</strong> "¡Eso, Karla! El nopal con proteína y aguacate en la mañana evita los antojos de pan a media tarde."
+                      <strong>👩‍⚕️ Respuesta de Nutrióloga Arianna:</strong> "¡Eso, Karla! El nopal con proteína y aguacate en la mañana evita los antojos de pan a media tarde."
                     </div>
                   </div>
                 </div>
@@ -2868,14 +2999,14 @@
                       </div>
                       <h3 style="font-size: 1.35rem; margin-bottom: 10px;">Sube la Foto de tu Plato Hoy</h3>
                       <p style="font-size: 0.84rem; color: #E2F0D5; line-height: 1.5; margin-bottom: 16px;">
-                        Entra con 1 clic al grupo exclusivo en celular donde la <strong>Nutrióloga Ari</strong> revisa tus comidas, responde dudas de porciones y te motiva todos los días:
+                        Entra con 1 clic al grupo exclusivo en celular donde la <strong>Nutrióloga Arianna</strong> revisa tus comidas, responde dudas de porciones y te motiva todos los días:
                       </p>
                       <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 12px; font-size: 0.78rem; color: #C5F099;">
                         🟢 <strong>48 socias conectadas hoy</strong> compartiendo sus desayunos y comidas.
                       </div>
                     </div>
                     <div>
-                      <button class="btn-enter-club" style="margin-top: 0;" onclick="alert('📱 Abriendo Comunidad VIP de Avocado Club con la Nutrióloga Ari...')">
+                      <button class="btn-enter-club" style="margin-top: 0;" onclick="alert('📱 Abriendo Comunidad VIP de Avocado Club con la Nutrióloga Arianna...')">
                         <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Abrir Foro VIP en Celular
                       </button>
                       <div style="text-align: center; margin-top: 10px;">
@@ -2894,7 +3025,7 @@
                           <i class="fa-solid fa-rotate-left"></i> Volver
                         </button>
                       </div>
-                      <h3 style="font-size: 1.22rem; margin-bottom: 6px;">Comparte tu Comida con Ari</h3>
+                      <h3 style="font-size: 1.22rem; margin-bottom: 6px;">Comparte tu Comida con Arianna</h3>
                       <div style="border: 2px dashed var(--avo-primary); background: #F4F9EE; border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 12px; cursor: pointer;" onclick="this.innerHTML='✅ <strong>Foto_Comida_Hoy.jpg</strong> lista para enviar'">
                         <i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.8rem; color: var(--avo-primary); margin-bottom: 6px;"></i>
                         <div style="font-size: 0.82rem; font-weight: 800; color: var(--avo-dark);">Haz clic para elegir la foto de tu plato</div>
@@ -2907,8 +3038,8 @@
                         </div>
                       </div>
                     </div>
-                    <button class="btn-enter-club" style="margin-top: 0;" onclick="this.innerHTML='<span>🎉 ¡Plato enviado a revisión de Ari (+50 XP)!</span>'">
-                      <span>Enviar Foto al Muro y a Ari</span>
+                    <button class="btn-enter-club" style="margin-top: 0;" onclick="this.innerHTML='<span>🎉 ¡Plato enviado a revisión de Arianna (+50 XP)!</span>'">
+                      <span>Enviar Foto al Muro y a Arianna</span>
                     </button>
                   </div>
                 </div>
@@ -2917,7 +3048,7 @@
           </div>
 
           <!-- =========================================================
-               MÓDULO 7 (NUEVO): "LA SEMILLA DE HOY" (RITUAL EMOCIONAL, MENTALIDAD Y BOTIQUÍN DE ARI)
+               MÓDULO 7 (NUEVO): "LA SEMILLA DE HOY" (RITUAL EMOCIONAL, MENTALIDAD Y BOTIQUÍN DE ARIANNA)
                ========================================================= -->
           <div id="mod-semilla" class="module-section">
             
@@ -2970,11 +3101,11 @@
 
             <div class="bento-grid">
               
-              <!-- TARJETA 3D GIRATORIA IZQUIERDA (COL-8): LA SEMILLA PROFUNDA DE HOY vs BOTIQUÍN S.O.S. DE ARI (ALTURA FIJA 430px) -->
+              <!-- TARJETA 3D GIRATORIA IZQUIERDA (COL-8): LA SEMILLA PROFUNDA DE HOY vs BOTIQUÍN S.O.S. DE ARIANNA (ALTURA FIJA 430px) -->
               <div class="col-8 flip-stage-3d" id="flip-seed-main" style="height: 430px;">
                 <div class="flip-inner-3d">
 
-                  <!-- CARA FRONTAL: REENCUADRE EMOCIONAL + HACK METABÓLICO + NOTA DE VOZ DE ARI -->
+                  <!-- CARA FRONTAL: REENCUADRE EMOCIONAL + HACK METABÓLICO + NOTA DE VOZ DE ARIANNA -->
                   <div class="flip-face-3d front">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
@@ -2993,7 +3124,7 @@
                           "No necesitas tener un día perfecto ni dos horas libres en la cocina para cuidarte. Cuando eliges nutrirte bien en medio del caos, le estás diciendo a tu cuerpo: ‘Incluso ocupada, yo sigo siendo prioridad’."
                         </blockquote>
                         <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: #C5F099;">
-                          <span>— Escrito por <strong>Nutrióloga Ari</strong> para tu camino en Avocado Club</span>
+                          <span>— Escrito por <strong>Nutrióloga Arianna</strong> para tu camino en Avocado Club</span>
                           <button type="button" onclick="saveSeedToVault(this)" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #FDE68A; padding: 4px 11px; border-radius: 99px; font-weight: 800; font-size: 0.72rem; cursor: pointer;">
                             🔖 Guardar en mi Cofre
                           </button>
@@ -3016,7 +3147,7 @@
                       </div>
                     </div>
 
-                    <!-- Barra inferior: Audio matutino de Ari + Botón Sembrar Semilla -->
+                    <!-- Barra inferior: Audio matutino de Arianna + Botón Sembrar Semilla -->
                     <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 12px; align-items: center;">
                       <div class="audio-capsule-bar">
                         <div style="display: flex; align-items: center; gap: 10px;">
@@ -3024,7 +3155,7 @@
                             <i class="fa-solid fa-play" style="font-size: 0.8rem;"></i>
                           </button>
                           <div>
-                            <div style="font-size: 0.78rem; font-weight: 800; color: var(--avo-dark);" id="seed-audio-title">Audio de Ari: "Calma tu cortisol hoy"</div>
+                            <div style="font-size: 0.78rem; font-weight: 800; color: var(--avo-dark);" id="seed-audio-title">Audio de Arianna: "Calma tu cortisol hoy"</div>
                             <div style="font-size: 0.69rem; color: var(--text-muted);">Nota de voz matutina • 0:48 seg</div>
                           </div>
                         </div>
@@ -3043,7 +3174,7 @@
                   <div class="flip-face-3d back" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFF6F3 100%);">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span class="card-label coral" style="margin: 0;">🚨 BOTIQUÍN S.O.S. DE ARI • RESCATE EN MOMENTOS CRÍTICOS</span>
+                        <span class="card-label coral" style="margin: 0;">🚨 BOTIQUÍN S.O.S. DE ARIANNA • RESCATE EN MOMENTOS CRÍTICOS</span>
                         <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-seed-main')">
                           <i class="fa-solid fa-rotate-left"></i> Volver a La Semilla de Hoy
                         </button>
@@ -3064,7 +3195,7 @@
                         <div class="metric-well" style="background: #FFFFFF;">
                           <div style="font-weight: 800; font-size: 0.86rem; color: var(--avo-forest);">🌮 2. "Tengo comida familiar / tacos y no quiero aislarme"</div>
                           <p style="font-size: 0.79rem; color: var(--text-main); margin-top: 3px;">
-                            <strong>Usa la Regla 2x1 de Ari:</strong> Pide tus tacos con tortilla de maíz (evita frituras), ponles abundante carne asada, guacamole, cilantro y cebolla. Disfruta a tu familia con cero culpa.
+                            <strong>Usa la Regla 2x1 de Arianna:</strong> Pide tus tacos con tortilla de maíz (evita frituras), ponles abundante carne asada, guacamole, cilantro y cebolla. Disfruta a tu familia con cero culpa.
                           </p>
                         </div>
 
@@ -3078,9 +3209,9 @@
                     </div>
 
                     <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px;">
-                      <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">¿Necesitas apoyo directo de Ari en este momento?</span>
+                      <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">¿Necesitas apoyo directo de Arianna en este momento?</span>
                       <button type="button" class="btn-flip-trigger" onclick="openModule('mod-foro', document.getElementById('nav-mod-foro'))">
-                        💬 Escribir a Ari en el Foro VIP
+                        💬 Escribir a Arianna en el Foro VIP
                       </button>
                     </div>
                   </div>
@@ -3150,7 +3281,7 @@
                           "Un plato fuera del plan no arruina tu progreso; usar la culpa para rendirte toda la semana sí."
                         </div>
                         <div class="metric-well" style="padding: 10px 12px; font-size: 0.77rem;">
-                          <strong style="color: var(--coral); display: block; margin-bottom: 2px;">🩸 Truco de Glucosa de Ari:</strong>
+                          <strong style="color: var(--coral); display: block; margin-bottom: 2px;">🩸 Truco de Glucosa de Arianna:</strong>
                           "Empezar tu comida con 4 bocados de nopal o ensalada reduce hasta un 30% el pico de insulina."
                         </div>
                         <div class="metric-well" style="padding: 10px 12px; font-size: 0.77rem;">
@@ -3177,10 +3308,26 @@
   </section>
 
   <script>
-    // Carrusel automático de las 3 fotos de fondo del panel izquierdo
+    // Carrusel automático de las 3 fotos de fondo + rotación sincronizada del Título y Subtítulo
+    // (La etiqueta superior "Plataforma Interactiva • Avalada por Nutrióloga Arianna" permanece fija siempre)
     let currentBgSlide = 0;
     const bgSlides = document.querySelectorAll('.bg-slide');
     const bgDots = document.querySelectorAll('.slide-dot');
+
+    const heroSlidesData = [
+      {
+        h1: 'Tu nutrición semanal adaptada a <span class="highlight">lo que sí te gusta comer.</span>',
+        p: 'Olvídate de los PDFs estáticos y de pesar cada gramo. Recibe planes semanales con ingredientes reales de México, ruta de <strong>Control Clínico</strong> (insulina, presión y digestión), domingos de menú abierto y acompañamiento directo de la Nutrióloga Arianna.'
+      },
+      {
+        h1: 'Desinflama tu cintura y controla tu glucosa <span class="highlight">sin dejar la tortilla.</span>',
+        p: 'Menús pensados para tu vida real en México: mide tus porciones usando únicamente tu mano, intercambia cualquier platillo en 1 clic con equivalencias exactas y disfruta tu <strong>Domingo de Menú Abierto</strong> en familia sin culpa.'
+      },
+      {
+        h1: 'No estás sola: cocina, entrena y <span class="highlight">evoluciona cada semana.</span>',
+        p: 'Cada domingo o lunes recalibra tu plan con tus centímetros de cintura y cadera, estrena <strong>video-recetas quincenales</strong> grabadas por la Nutrióloga Arianna y comparte tus platos todos los días con nuestra comunidad.'
+      }
+    ];
 
     function goToBgSlide(idx) {
       if (!bgSlides.length) return;
@@ -3189,6 +3336,20 @@
       currentBgSlide = idx;
       bgSlides[currentBgSlide].classList.add('active');
       if (bgDots[currentBgSlide]) bgDots[currentBgSlide].classList.add('active');
+
+      // Rotar también el título h1 y el párrafo p en conjunto con la imagen de fondo
+      const rotBox = document.getElementById('hero-rotator-box');
+      const h1El = document.getElementById('hero-dynamic-h1');
+      const pEl = document.getElementById('hero-dynamic-p');
+      const slideCopy = heroSlidesData[currentBgSlide] || heroSlidesData[0];
+      if (rotBox && h1El && pEl) {
+        rotBox.classList.add('fading-out');
+        setTimeout(() => {
+          h1El.innerHTML = slideCopy.h1;
+          pEl.innerHTML = slideCopy.p;
+          rotBox.classList.remove('fading-out');
+        }, 210);
+      }
     }
 
     setInterval(() => {
@@ -3196,7 +3357,153 @@
         const nextIdx = (currentBgSlide + 1) % bgSlides.length;
         goToBgSlide(nextIdx);
       }
-    }, 5200);
+    }, 5400);
+
+    // Rotación en 3 facetas de la tarjeta de la Nutrióloga Arianna (con su foto en bata)
+    const ariannaSlidesData = [
+      {
+        kicker: "👩‍⚕️ DIRECCIÓN CLÍNICA • NAYARIT, MÉXICO",
+        title: "Nutrióloga Arianna",
+        quote: "\"Reviso tus fotos de comida en el foro VIP y cada 15 días cocinamos juntas una nueva video-receta.\""
+      },
+      {
+        kicker: "🩺 ESPECIALISTA EN SALUD METABÓLICA",
+        title: "Control de Insulina, Presión y Colitis",
+        quote: "\"Calibro tu menú cada semana con tus medidas de cintura y cadera para desinflamar sin efecto rebote.\""
+      },
+      {
+        kicker: "🎬 CADA 1 Y 15 DEL MES • EN LA COCINA",
+        title: "Platillos Mexicanos sin Báscula",
+        quote: "\"Comemos rico con ingredientes de mercado local: aguacate, tortilla, bolillo y porciones con la mano.\""
+      }
+    ];
+    let currentAriSlide = 0;
+
+    function goToAriannaSlide(idx) {
+      currentAriSlide = (idx + ariannaSlidesData.length) % ariannaSlidesData.length;
+      const dots = document.querySelectorAll('.ari-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentAriSlide));
+      const body = document.getElementById('arianna-card-body');
+      const kickerEl = document.getElementById('arianna-card-kicker');
+      const titleEl = document.getElementById('arianna-card-title');
+      const quoteEl = document.getElementById('arianna-card-quote');
+      const data = ariannaSlidesData[currentAriSlide];
+      if (body && kickerEl && titleEl && quoteEl) {
+        body.classList.add('switching');
+        setTimeout(() => {
+          kickerEl.innerText = data.kicker;
+          titleEl.innerText = data.title;
+          quoteEl.innerText = data.quote;
+          body.classList.remove('switching');
+        }, 180);
+      }
+    }
+
+    function nextAriannaSlide(step) {
+      goToAriannaSlide(currentAriSlide + step);
+    }
+
+    setInterval(() => {
+      nextAriannaSlide(1);
+    }, 5800);
+
+    // Rotación interactiva de 5 Resultados Reales en la tarjeta inferior derecha del panel izquierdo
+    const realResultsData = [
+      {
+        week: "Semana 4",
+        metric: "-4.2 cm Cintura",
+        desc: "Mariana G. • Sin dejar la tortilla ni el bolillo",
+        tag: "🩸 Glucosa e insulina estables"
+      },
+      {
+        week: "Semana 6",
+        metric: "-5.8 kg y -6 cm",
+        desc: "Socorro M. (GDL) • Adiós colitis e inflamación",
+        tag: "🌿 Digestión ligera todo el día"
+      },
+      {
+        week: "Semana 3",
+        metric: "Glucosa 88 mg/dL",
+        desc: "Karla R. (Tepic) • Cero antojos dulces de tarde",
+        tag: "⚡ Energía continua sin rebote"
+      },
+      {
+        week: "Semana 5",
+        metric: "-5.1 cm Cadera",
+        desc: "Fernanda L. (MTY) • Comiendo igual que mi familia",
+        tag: "☀️ Con Domingos de Menú Abierto"
+      },
+      {
+        week: "Semana 8",
+        metric: "Talla 9 a Talla 5",
+        desc: "Paola V. (CDMX) • Sin pesar comida en báscula",
+        tag: "🖐️ Usando el Método de la Mano"
+      }
+    ];
+    let currentResultSlide = 0;
+
+    function goToResultSlide(idx) {
+      currentResultSlide = (idx + realResultsData.length) % realResultsData.length;
+      const dots = document.querySelectorAll('.res-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentResultSlide));
+      const body = document.getElementById('results-card-body');
+      const lbl = document.getElementById('res-card-label');
+      const wk = document.getElementById('res-card-week');
+      const met = document.getElementById('res-card-metric');
+      const dsc = document.getElementById('res-card-desc');
+      const tg = document.getElementById('res-card-tag');
+      const data = realResultsData[currentResultSlide];
+      if (body && met && dsc) {
+        body.classList.add('switching');
+        setTimeout(() => {
+          if (lbl) lbl.innerText = `📏 RESULTADO REAL (${currentResultSlide + 1}/5)`;
+          if (wk) wk.innerText = data.week;
+          met.innerText = data.metric;
+          dsc.innerText = data.desc;
+          if (tg) tg.innerText = data.tag;
+          body.classList.remove('switching');
+        }, 180);
+      }
+    }
+
+    function nextResultSlide(step) {
+      goToResultSlide(currentResultSlide + step);
+    }
+
+    setInterval(() => {
+      nextResultSlide(1);
+    }, 4600);
+
+    // Mejoras interactivas del Panel Derecho (Mostrar/ocultar contraseña y Recuperación en 1 clic)
+    function toggleLoginPassword(inputId, iconEl) {
+      const inp = document.getElementById(inputId);
+      if (!inp) return;
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        if (iconEl) {
+          iconEl.classList.remove('fa-eye');
+          iconEl.classList.add('fa-eye-slash');
+          iconEl.style.color = 'var(--avo-primary)';
+        }
+      } else {
+        inp.type = 'password';
+        if (iconEl) {
+          iconEl.classList.remove('fa-eye-slash');
+          iconEl.classList.add('fa-eye');
+          iconEl.style.color = 'var(--text-muted)';
+        }
+      }
+    }
+
+    function sendMagicRecovery(linkEl) {
+      if (!linkEl) return;
+      linkEl.innerText = '✓ Enlace enviado a tu correo Hotmart';
+      linkEl.style.color = 'var(--avo-primary)';
+      setTimeout(() => {
+        linkEl.innerText = '¿Olvidaste tu contraseña?';
+        linkEl.style.color = 'var(--coral)';
+      }, 3500);
+    }
 
     // Giro 3D de la tarjeta derecha en Login (Flip Card) sin cambiar el tamaño de la tarjeta
     function switchAuthMode(mode) {
@@ -3218,9 +3525,10 @@
     // Ticker dinámico en el panel izquierdo del Login
     const tickerMessages = [
       "Socorro M. (Guadalajara) bajó 3.5 cm de cintura",
-      "Nutrióloga Ari subió nuevo tip de desayunos para insulina",
+      "Nutrióloga Arianna subió nuevo tip de desayunos para insulina",
       "Fernanda L. (Monterrey) desbloqueó rango Aguacate Hass 🥑",
-      "Paola V. (CDMX) completó su Cierre Semanal con IA"
+      "Paola V. (CDMX) completó su Cierre Semanal con IA",
+      "Karla R. (Tepic) compartió su desayuno en El Plato del Día"
     ];
     let tickerIdx = 0;
     setInterval(() => {
@@ -3346,7 +3654,7 @@
       const title = swapOptions[num][swapState[num] ? 1 : 0];
       const el = document.getElementById('meal-desc-' + num);
       if (el) {
-        el.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem; color: ${swapState[num] ? 'var(--avo-primary)' : 'var(--text-main)'};">${title}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Equivalencia exacta SMAE avalada por la Nutrióloga Ari.</div>`;
+        el.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem; color: ${swapState[num] ? 'var(--avo-primary)' : 'var(--text-main)'};">${title}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Equivalencia exacta SMAE avalada por la Nutrióloga Arianna.</div>`;
       }
     }
 
@@ -3375,30 +3683,30 @@
       {
         tag: "🌱 Semilla #142 · Calma bajo presión y cortisol",
         quote: "«Tu cuerpo no necesita perfección militar cuando tu agenda arde; necesita que no te abandones. Comer sencillo y con amor en un día caótico vale el doble que comer perfecto en un día libre.»",
-        hackTitle: "⚡ Micro-Hack Metabólico de 30 Segundos (Nutrióloga Ari):",
+        hackTitle: "⚡ Micro-Hack Metabólico de 30 Segundos (Nutrióloga Arianna):",
         hackText: "Antes de tu primer bocado hoy, haz <strong>3 respiraciones profundas (inhala 4s, exhala 6s)</strong> y empieza por las verduras o la proteína. Bajar tu ritmo cardíaco reduce el pico de insulina hasta un 25%.",
-        audioTitle: "🎧 Escuchar a Ari: «Respira, hoy lo simple basta» (0:48s)"
+        audioTitle: "🎧 Escuchar a Arianna: «Respira, hoy lo simple basta» (0:48s)"
       },
       {
         tag: "🍫 Semilla #143 · Paz frente al antojo y la ansiedad",
         quote: "«Un antojo dulce a media tarde no es falta de fuerza de voluntad; muchas veces es tu cerebro agotado pidiendo dopamina o descanso. Escúchalo con ternura, no con castigo.»",
-        hackTitle: "⚡ Micro-Hack Anti-Picos de Glucosa (Nutrióloga Ari):",
+        hackTitle: "⚡ Micro-Hack Anti-Picos de Glucosa (Nutrióloga Arianna):",
         hackText: "Nunca comas un carbohidrato o dulce 'desnudo'. <strong>Vístelo primero con grasa buena o proteína</strong> (10 almendras, yogur griego o 1/3 de aguacate) para aplanar la curva de glucosa y apagar la ansiedad.",
-        audioTitle: "🎧 Escuchar a Ari: «Cómo abrazar el antojo sin culpa» (0:52s)"
+        audioTitle: "🎧 Escuchar a Arianna: «Cómo abrazar el antojo sin culpa» (0:52s)"
       },
       {
         tag: "🤍 Semilla #144 · Reconciliación y cero culpa",
         quote: "«Una comida fuera del plan no arruina tu progreso, igual que una sola ensalada no te transforma en un día. Lo único que sabotea tu metabolismo es la culpa que te lleva al 'como ya fallé, sigo hasta el lunes'.»",
-        hackTitle: "⚡ Micro-Hack de Retorno Inmediato (Nutrióloga Ari):",
+        hackTitle: "⚡ Micro-Hack de Retorno Inmediato (Nutrióloga Arianna):",
         hackText: "Prohibido ayunar por castigo o hacer horas extra de cardio. <strong>Toma 2 vasos de agua mineral con limón</strong> y haz que tu siguiente comida tenga proteína + aguacate + vegetales verdes.",
-        audioTitle: "🎧 Escuchar a Ari: «El perdón metabólico en la siguiente comida» (0:45s)"
+        audioTitle: "🎧 Escuchar a Arianna: «El perdón metabólico en la siguiente comida» (0:45s)"
       },
       {
         tag: "🔋 Semilla #145 · Compasión con tu inflamación y ciclo",
         quote: "«Hay días en que tu cuerpo retiene líquidos porque está reparando tejidos o navegando tus hormonas. La báscula mide gravedad, jamás mide tu belleza, tu esfuerzo ni tu salud celular.»",
-        hackTitle: "⚡ Micro-Hack Desinflamatorio de Hoy (Nutrióloga Ari):",
+        hackTitle: "⚡ Micro-Hack Desinflamatorio de Hoy (Nutrióloga Arianna):",
         hackText: "Hoy prioriza alimentos tibios y cocidos en lugar de crudos fríos, <strong>agrega jengibre o infusión de manzanilla</strong> tras la comida y camina 10 minutos suaves para activar tu drenaje linfático.",
-        audioTitle: "🎧 Escuchar a Ari: «Cuando tu cuerpo pide descanso y suavidad» (0:50s)"
+        audioTitle: "🎧 Escuchar a Arianna: «Cuando tu cuerpo pide descanso y suavidad» (0:50s)"
       }
     ];
 
