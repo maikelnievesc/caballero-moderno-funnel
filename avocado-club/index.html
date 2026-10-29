@@ -871,66 +871,141 @@
 
     .app-layout {
       display: grid;
-      grid-template-columns: 334px 1fr;
+      grid-template-columns: 356px 1fr;
       min-height: 100vh;
     }
 
-    /* SIDEBAR VERTICAL MÁS ANCHO (334px) CON RELIEVE Y SOMBRA PROFUNDA */
+    /* SIDEBAR VERTICAL CON GLOW UP 3D BOTÁNICO Y BORDE LUMINOSO */
     .sidebar {
-      background: linear-gradient(180deg, #12271C 0%, #1B3929 100%);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 209, 79, 0.22) 0%, transparent 38%),
+        radial-gradient(circle at 88% 90%, rgba(217, 155, 38, 0.16) 0%, transparent 42%),
+        linear-gradient(180deg, #0F2319 0%, #173525 52%, #11261B 100%);
       color: #FFFFFF;
-      padding: 24px 22px;
+      padding: 22px 22px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: sticky;
       top: 0;
       height: 100vh;
-      border-right: 1px solid rgba(143, 209, 79, 0.25);
-      box-shadow: 14px 0 40px rgba(20, 43, 31, 0.18);
+      border-right: 1.5px solid rgba(143, 209, 79, 0.35);
+      box-shadow:
+        18px 0 46px rgba(15, 35, 25, 0.24),
+        inset -1px 0 0 rgba(255, 255, 255, 0.12);
       z-index: 10;
     }
 
-    /* LOGO SUPERIOR IZQUIERDO CLICABLE EN UN SOLO RENGLÓN */
+    /* LOGO SUPERIOR IZQUIERDO CLICABLE CON LÍNEA INFERIOR QUE LLEGA HASTA EL FINAL DEL LETRERO */
     .sidebar-brand {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 13px;
-      padding: 8px 10px 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 4px 16px;
       cursor: pointer;
-      border-radius: 16px;
-      transition: all 0.22s ease;
+      border-radius: 14px 14px 0 0;
+      transition: all 0.24s ease;
+      width: 100%;
+    }
+
+    /* Línea luminosa recta de extremo a extremo debajo de AVOCADO CLUB */
+    .sidebar-brand::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, rgba(143, 209, 79, 0.75) 0%, rgba(253, 230, 138, 0.75) 55%, rgba(143, 209, 79, 0.45) 100%);
+      box-shadow: 0 2px 10px rgba(143, 209, 79, 0.3);
     }
 
     .sidebar-brand:hover {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.05);
       transform: translateY(-1px);
     }
 
-    /* TARJETA DE PERFIL TIPO "GLOBO" 3D CON ETIQUETA EN UN SOLO RENGLÓN */
+    /* TARJETA DE PERFIL INTERACTIVA CON GLOW UP 3D (CLIC EN TODA LA PESTAÑA ABRE EL PERFIL) */
     .user-profile-widget {
       position: relative;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.13) 0%, rgba(20, 43, 31, 0.55) 100%);
-      border: 1.5px solid rgba(197, 240, 153, 0.32);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(22, 49, 35, 0.72) 100%);
+      border: 1.5px solid rgba(197, 240, 153, 0.38);
       border-radius: 22px;
-      padding: 15px 16px;
-      margin: 16px 0 18px;
+      padding: 14px 15px;
+      margin: 15px 0 15px;
+      cursor: pointer;
+      transition: all 0.26s cubic-bezier(0.22, 1, 0.36, 1);
       box-shadow:
-        0 14px 28px rgba(0, 0, 0, 0.26),
-        inset 0 1px 2px rgba(255, 255, 255, 0.25);
+        0 16px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+    }
+
+    .user-profile-widget::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--avo-bright), var(--gold), var(--coral));
+      opacity: 0.9;
+    }
+
+    .user-profile-widget:hover {
+      transform: translateY(-2px);
+      border-color: rgba(253, 230, 138, 0.75);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.21) 0%, rgba(26, 58, 41, 0.82) 100%);
+      box-shadow:
+        0 20px 36px rgba(0, 0, 0, 0.36),
+        0 0 20px rgba(143, 209, 79, 0.22),
+        inset 0 1px 2px rgba(255, 255, 255, 0.38);
+    }
+
+    .user-profile-widget.active-profile {
+      border-color: #FDE68A;
+      background: linear-gradient(145deg, rgba(143, 209, 79, 0.24) 0%, rgba(20, 43, 31, 0.85) 100%);
+      box-shadow:
+        0 18px 36px rgba(0, 0, 0, 0.38),
+        0 0 24px rgba(217, 155, 38, 0.35),
+        inset 0 1px 2px rgba(255, 255, 255, 0.45);
+    }
+
+    .profile-open-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(253, 230, 138, 0.4);
+      color: #FDE68A;
+      padding: 5px 10px;
+      border-radius: 99px;
+      font-size: 0.69rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: all 0.22s ease;
+    }
+
+    .user-profile-widget:hover .profile-open-pill,
+    .user-profile-widget.active-profile .profile-open-pill {
+      background: linear-gradient(135deg, var(--gold), #B87D14);
+      color: #FFFFFF;
+      border-color: #FDE68A;
+      box-shadow: 0 4px 12px rgba(217, 155, 38, 0.35);
     }
 
     /* Globo (Speech-bubble pill) para el protocolo en un solo renglón */
     .profile-goal-bubble {
       position: relative;
       margin-top: 10px;
-      margin-bottom: 11px;
-      background: linear-gradient(90deg, rgba(104, 163, 50, 0.28), rgba(232, 111, 82, 0.24));
-      border: 1px solid rgba(197, 240, 153, 0.38);
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, rgba(104, 163, 50, 0.32), rgba(232, 111, 82, 0.28));
+      border: 1px solid rgba(197, 240, 153, 0.42);
       border-radius: 12px;
       padding: 7px 11px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 800;
       color: #F4F9EE;
       white-space: nowrap;
@@ -949,8 +1024,8 @@
       width: 10px;
       height: 10px;
       background: #284E37;
-      border-top: 1px solid rgba(197, 240, 153, 0.38);
-      border-left: 1px solid rgba(197, 240, 153, 0.38);
+      border-top: 1px solid rgba(197, 240, 153, 0.42);
+      border-left: 1px solid rgba(197, 240, 153, 0.42);
       transform: rotate(45deg);
     }
 
@@ -958,49 +1033,73 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
     }
 
     .nav-item {
       display: flex;
       align-items: center;
-      gap: 11px;
-      padding: 10px 14px;
+      gap: 10px;
+      padding: 8px 11px;
       border-radius: 13px;
-      color: rgba(255, 255, 255, 0.76);
+      color: rgba(255, 255, 255, 0.8);
       font-weight: 600;
-      font-size: 0.87rem;
+      font-size: 0.85rem;
       cursor: pointer;
       border: 1px solid transparent;
       transition: all 0.22s ease;
+      position: relative;
     }
 
     .nav-item i {
-      width: 20px;
-      text-align: center;
-      font-size: 1rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      color: #C5F099;
+      flex-shrink: 0;
+      transition: all 0.22s ease;
     }
 
     .nav-item:hover {
       background: rgba(255, 255, 255, 0.1);
       color: #FFFFFF;
       transform: translateX(4px);
-      border-color: rgba(197, 240, 153, 0.2);
+      border-color: rgba(197, 240, 153, 0.25);
+    }
+
+    .nav-item:hover i {
+      background: rgba(143, 209, 79, 0.25);
+      color: #FFFFFF;
+      border-color: rgba(197, 240, 153, 0.45);
     }
 
     .nav-item.active {
-      background: linear-gradient(135deg, var(--avo-primary), #4E8220);
+      background: linear-gradient(135deg, var(--avo-primary) 0%, #46781B 100%);
       color: #FFFFFF;
       font-weight: 800;
-      border-color: rgba(255, 255, 255, 0.35);
-      box-shadow: 0 10px 22px rgba(104, 163, 50, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+      border-color: rgba(253, 230, 138, 0.45);
+      box-shadow:
+        0 10px 22px rgba(104, 163, 50, 0.42),
+        inset 0 1px 2px rgba(255, 255, 255, 0.42);
+    }
+
+    .nav-item.active i {
+      background: rgba(255, 255, 255, 0.22);
+      color: #FDE68A;
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
     .nav-item .badge-nav {
       margin-left: auto;
       background: linear-gradient(135deg, var(--coral), #D85234);
       color: #fff;
-      font-size: 0.66rem;
+      font-size: 0.64rem;
       font-weight: 800;
       padding: 2px 8px;
       border-radius: 99px;
@@ -1009,33 +1108,34 @@
 
     .btn-logout-sidebar {
       width: 100%;
-      background: rgba(255, 255, 255, 0.08);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
       color: #E2F0D5;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      padding: 11px 14px;
-      border-radius: 12px;
+      border: 1px solid rgba(197, 240, 153, 0.22);
+      padding: 10px 14px;
+      border-radius: 13px;
       cursor: pointer;
       font-family: inherit;
-      font-weight: 700;
-      font-size: 0.82rem;
+      font-weight: 800;
+      font-size: 0.81rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.2s;
+      transition: all 0.22s ease;
     }
 
     .btn-logout-sidebar:hover {
-      background: rgba(232, 111, 82, 0.25);
+      background: linear-gradient(135deg, rgba(232, 111, 82, 0.32), rgba(216, 82, 52, 0.22));
       border-color: var(--coral);
       color: #fff;
+      transform: translateY(-1px);
     }
 
-    /* CONTENIDO PRINCIPAL INTERIOR CON ESCENARIO 3D Y FONDO DINÁMICO */
+    /* CONTENIDO PRINCIPAL INTERIOR (PANEL DERECHO) CON GLOW UP Y ESCENARIO 3D */
     .main-area {
       position: relative;
       overflow: hidden;
-      padding: 28px 36px 50px;
+      padding: 26px 34px 48px;
       width: 100%;
       perspective: 1600px;
     }
@@ -1047,13 +1147,16 @@
       margin-bottom: 24px;
       flex-wrap: wrap;
       gap: 16px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FAFDF7 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 252, 244, 0.92) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 18px 26px;
-      border-radius: 24px;
+      border-radius: 26px;
       border: 2px solid #FFFFFF;
-      outline: 1px solid #CFE0BE;
+      outline: 1.5px solid #C5DFB0;
       box-shadow:
-        0 18px 38px -10px rgba(20, 43, 31, 0.12),
+        0 22px 44px -12px rgba(20, 43, 31, 0.14),
+        0 6px 16px -4px rgba(20, 43, 31, 0.06),
         inset 0 2px 4px rgba(255, 255, 255, 1);
       position: relative;
       z-index: 2;
@@ -1066,28 +1169,34 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--avo-primary), var(--coral), var(--gold));
+      height: 6px;
+      background: linear-gradient(90deg, var(--avo-primary), var(--avo-bright), var(--coral), var(--gold));
     }
 
     .streak-banner {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .streak-pill {
       background: #F4F9EE;
       border: 1.5px solid #CFE0BE;
-      box-shadow: inset 0 2px 4px rgba(20, 43, 31, 0.05);
-      padding: 8px 15px;
+      box-shadow: 0 4px 10px rgba(20, 43, 31, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+      padding: 8px 14px;
       border-radius: 999px;
       font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .streak-pill.clickable-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(104, 163, 50, 0.18);
     }
 
     /* ESCENARIO 3D DE MÓDULOS CON ALTURA UNIFORME Y GIRO DE TARJETA */
@@ -1273,8 +1382,10 @@
     }
 
     .col-8 { grid-column: span 8; }
-    .col-4 { grid-column: span 4; }
+    .col-7 { grid-column: span 7; }
     .col-6 { grid-column: span 6; }
+    .col-5 { grid-column: span 5; }
+    .col-4 { grid-column: span 4; }
     .col-3 { grid-column: span 3; }
     .col-12 { grid-column: span 12; }
 
@@ -1282,7 +1393,7 @@
       #login-view { grid-template-columns: 100%; max-width: 100vw; overflow-x: hidden; }
       .app-layout { grid-template-columns: 100%; max-width: 100vw; overflow-x: hidden; }
       .sidebar { height: auto; position: relative; }
-      .col-8, .col-4, .col-6, .col-3 { grid-column: span 12; }
+      .col-8, .col-7, .col-6, .col-5, .col-4, .col-3 { grid-column: span 12; }
     }
 
     /* =========================================================
@@ -1539,6 +1650,117 @@
       .avatar-stack img {
         width: 28px;
         height: 28px;
+      }
+
+      /* =======================================================
+         OPTIMIZACIÓN MÓVIL DE LA 2ª PÁGINA (#app-view)
+         SIN TOCAR LA IDENTIDAD NI EL DISEÑO WEB DE ESCRITORIO
+         ======================================================= */
+      .app-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .sidebar {
+        padding: 18px 16px;
+        width: 100%;
+        max-width: 100vw;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 2px solid rgba(143, 209, 79, 0.38);
+      }
+
+      /* Menú de módulos en cuadrícula táctil de 2 columnas en móvil para acceso rápido */
+      .nav-menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+
+      .nav-item {
+        padding: 9px 10px;
+        font-size: 0.76rem;
+        gap: 7px;
+      }
+
+      .nav-item i {
+        width: 24px;
+        height: 24px;
+        font-size: 0.78rem;
+      }
+
+      .nav-item .badge-nav {
+        display: none;
+      }
+
+      .main-area {
+        padding: 18px 14px 40px;
+        width: 100%;
+        max-width: 100vw;
+      }
+
+      .top-bar {
+        padding: 16px 16px;
+        border-radius: 20px;
+        margin-bottom: 18px;
+        gap: 12px;
+      }
+
+      .top-bar h1 {
+        font-size: 1.35rem !important;
+        line-height: 1.2;
+      }
+
+      .streak-banner {
+        width: 100%;
+        gap: 7px;
+      }
+
+      .streak-pill {
+        font-size: 0.73rem;
+        padding: 7px 11px;
+      }
+
+      .bento-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .bento-card {
+        padding: 18px 16px;
+        border-radius: 22px;
+      }
+
+      /* En celular, las tarjetas 3D Flip conservan su giro 180° pero ajustan su altura automáticamente para nunca cortar contenido */
+      .flip-stage-3d {
+        height: auto !important;
+        min-height: 0 !important;
+      }
+
+      .flip-inner-3d {
+        display: grid;
+        height: auto !important;
+      }
+
+      .flip-face-3d {
+        grid-area: 1 / 1;
+        position: relative !important;
+        inset: auto !important;
+        height: auto !important;
+        padding: 18px 16px !important;
+        border-radius: 22px;
+        gap: 14px;
+      }
+
+      .obj-grid,
+      .mood-selector-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
       }
     }
 
@@ -2191,40 +2413,40 @@
   <section id="app-view">
     <div class="app-layout">
       
-      <!-- SIDEBAR IZQUIERDO MÁS ANCHO CON LOGO EN 1 RENGLÓN CLICABLE Y PERFIL TIPO GLOBO -->
+      <!-- SIDEBAR IZQUIERDO CON GLOW UP, LÍNEA COMPLETA BAJO AVOCADO CLUB Y PERFIL CLICABLE -->
       <aside class="sidebar">
         <div>
-          <!-- Clic en Avocado Club regresa a la página de inicio -->
+          <!-- Clic en Avocado Club regresa a la página de inicio (con línea inferior completa de extremo a extremo) -->
           <div class="sidebar-brand" onclick="backToLogin()" title="Ir a la página de inicio">
-            <div class="logo-emblem-svg" style="width: 66px; height: 66px; border-radius: 18px; flex-shrink: 0;">
+            <div class="logo-emblem-svg" style="width: 62px; height: 62px; border-radius: 17px; flex-shrink: 0;">
               <img src="logo_avocado_club.jpg" alt="Avocado Club Logo" style="transform: scale(1.32);" />
             </div>
-            <div style="min-width: 0;">
-              <div style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.74rem; line-height: 1; white-space: nowrap; letter-spacing: -0.02em;">
-                AVOCADO <span style="color: var(--avo-bright);">CLUB</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.62rem; line-height: 1; white-space: nowrap; letter-spacing: -0.02em;">
+                AVOCADO <span style="background: linear-gradient(135deg, #8FD14F 0%, #FDE68A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CLUB</span>
               </div>
-              <div style="font-size: 0.72rem; font-weight: 800; color: #C5F099; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; white-space: nowrap;">
-                🏠 Inicio • Portal Socias
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C5F099; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 5px; white-space: nowrap; display: flex; align-items: center; gap: 5px;">
+                <span>🏠 Inicio • Portal Socias</span>
               </div>
             </div>
           </div>
 
-          <!-- PERFIL CON DISEÑO DE GLOBO (SPEECH BUBBLE) EN UN SOLO RENGLÓN -->
-          <div class="user-profile-widget">
-            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-              <div style="display: flex; align-items: center; gap: 11px;">
+          <!-- PERFIL INTERACTIVO: DAR CLIC EN TODA LA PESTAÑA ABRE LA TARJETA DE PERFIL (#mod-perfil) -->
+          <div class="user-profile-widget" id="sidebar-profile-card" onclick="openModule('mod-perfil', this)" title="Haz clic para abrir tu tarjeta de Perfil Personal">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 11px; min-width: 0;">
                 <div style="position: relative; flex-shrink: 0;">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" style="width: 46px; height: 46px; border-radius: 14px; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.25);">
-                  <span style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #8FD14F; border: 2px solid #142B1F;"></span>
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" style="width: 48px; height: 48px; border-radius: 15px; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 6px 14px rgba(0,0,0,0.3);">
+                  <span style="position: absolute; bottom: -2px; right: -2px; width: 13px; height: 13px; border-radius: 50%; background: #8FD14F; border: 2px solid #142B1F;"></span>
                 </div>
-                <div>
+                <div style="min-width: 0;">
                   <div style="font-weight: 800; font-size: 0.96rem; color: #FFFFFF; white-space: nowrap;">Mariana Gómez</div>
-                  <div style="font-size: 0.68rem; color: #FDE68A; font-weight: 700; white-space: nowrap;">👑 Socia VIP Activa</div>
+                  <div style="font-size: 0.68rem; color: #FDE68A; font-weight: 700; white-space: nowrap;">👑 Socia VIP • Guadalajara</div>
                 </div>
               </div>
-              <button type="button" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" title="Editar mis objetivos" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); color: #C5F099; width: 32px; height: 32px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                <i class="fa-solid fa-pen" style="font-size: 0.75rem;"></i>
-              </button>
+              <span class="profile-open-pill">
+                Mi Perfil <i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i>
+              </span>
             </div>
 
             <!-- Globo de Objetivo en un solo renglón -->
@@ -2237,8 +2459,8 @@
               <span>🥑 Rango: Aguacate Hass</span>
               <span>750 / 1000 XP</span>
             </div>
-            <div style="background: rgba(255,255,255,0.12); height: 7px; border-radius: 99px; overflow: hidden;">
-              <div style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold));"></div>
+            <div style="background: rgba(255,255,255,0.14); height: 7px; border-radius: 99px; overflow: hidden;">
+              <div style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold)); border-radius: 99px;"></div>
             </div>
           </div>
 
@@ -2280,26 +2502,45 @@
           </ul>
         </div>
 
-        <div style="padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <!-- PIE DEL SIDEBAR CON CONEXIÓN DE NUTRIÓLOGA ARIANNA + CERRAR SESIÓN -->
+        <div style="padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 9px;">
+          <div style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(197,240,153,0.2); border-radius: 13px; padding: 8px 11px;">
+            <img src="nutriologa_arianna.jpg" alt="Nutrióloga Arianna" style="width: 34px; height: 34px; border-radius: 10px; object-fit: cover; object-position: center top; border: 1.5px solid var(--avo-bright); flex-shrink: 0;">
+            <div style="min-width: 0;">
+              <div style="font-size: 0.74rem; font-weight: 800; color: #FFFFFF; white-space: nowrap;">Nutrióloga Arianna</div>
+              <div style="font-size: 0.65rem; color: #C5F099; font-weight: 700; white-space: nowrap;">🟢 Dirección Clínica Activa</div>
+            </div>
+          </div>
           <button class="btn-logout-sidebar" onclick="backToLogin()">
             <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
           </button>
         </div>
       </aside>
 
-      <!-- ÁREA PRINCIPAL DE CONTENIDO (PANEL DERECHO CON FONDO DINÁMICO DE FRUTAS Y VERDURAS) -->
+      <!-- ÁREA PRINCIPAL DE CONTENIDO (PANEL DERECHO CON GLOW UP Y FONDO DINÁMICO DE FRUTAS Y VERDURAS) -->
       <main class="main-area">
         <canvas id="veggie-canvas-app" class="floating-veggie-canvas"></canvas>
         
         <div class="top-bar">
-          <div>
-            <div style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.06em;">Semana 3 • Protocolo Avalado por Nutrióloga Arianna</div>
-            <h1 style="font-size: 1.75rem; color: var(--avo-dark);">Hola, Mariana 👋 ¡Tu cuerpo te agradece hoy!</h1>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(135deg, var(--avo-pale), #D5ECC0); border: 1.5px solid #B5D99C; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 6px 14px rgba(104, 163, 50, 0.15); flex-shrink: 0;">
+              🥑
+            </div>
+            <div>
+              <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.73rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.06em;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--avo-primary); display: inline-block;"></span>
+                Semana 3 • Protocolo Avalado por Nutrióloga Arianna
+              </div>
+              <h1 style="font-size: 1.7rem; color: var(--avo-dark); line-height: 1.15;">Hola, Mariana 👋 ¡Tu cuerpo te agradece hoy!</h1>
+            </div>
           </div>
 
           <div class="streak-banner">
-            <button type="button" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" class="streak-pill" style="cursor: pointer; background: var(--avo-pale); border-color: var(--avo-primary); color: var(--avo-forest); transition: transform 0.2s;">
-              🌱 Ver La Semilla de Hoy
+            <button type="button" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" class="streak-pill clickable-pill" style="cursor: pointer; background: linear-gradient(135deg, #F1F9E8, #E2F2D1); border-color: var(--avo-primary); color: var(--avo-forest);">
+              🌱 La Semilla de Hoy
+            </button>
+            <button type="button" onclick="openModule('mod-perfil', document.getElementById('sidebar-profile-card'))" class="streak-pill clickable-pill" style="cursor: pointer; background: var(--gold-soft); border-color: #F5DC9B; color: #9A6700;">
+              <i class="fa-solid fa-user-check"></i> Mi Perfil VIP
             </button>
             <div class="streak-pill" style="color: var(--coral); background: var(--coral-soft); border-color: #F5C2B8;">
               <i class="fa-solid fa-fire-flame-curved"></i> <span id="top-streak-text">18 Días en Racha</span>
@@ -2315,6 +2556,236 @@
 
         <!-- ESCENARIO 3D DE MÓDULOS CON GIRO Y TAMAÑO ESTABLE -->
         <div class="modules-3d-viewport" id="modules-3d-stage">
+
+          <!-- =========================================================
+               VISTA ESPECIAL DE PERFIL DE LA SOCIA (#mod-perfil)
+               SE ABRE AL HACER CLIC EN LA PESTAÑA DE PERFIL DEL PANEL IZQUIERDO
+               ========================================================= -->
+          <div id="mod-perfil" class="module-section">
+            <div class="bento-grid">
+
+              <!-- TARJETA 3D GIRATORIA 1 (COL-7): FICHA PERSONAL DE MARIANA vs SUSCRIPCIÓN HOTMART Y AJUSTES (465px) -->
+              <div class="col-7 flip-stage-3d" id="flip-profile-main" style="height: 465px;">
+                <div class="flip-inner-3d">
+
+                  <!-- CARA FRONTAL: EXPEDIENTE PERSONAL DE SOCIA VIP -->
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                        <span class="card-label gold" style="margin: 0;"><i class="fa-solid fa-id-badge"></i> PERFIL OFICIAL DE SOCIA VIP • AVOCADO CLUB</span>
+                        <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-profile-main')">
+                          <i class="fa-solid fa-rotate"></i> Membresía Hotmart y Ajustes
+                        </button>
+                      </div>
+
+                      <!-- Cabecera con foto grande de Mariana y distintivos -->
+                      <div style="display: flex; align-items: center; gap: 18px; background: linear-gradient(135deg, #142B1F 0%, #214532 100%); padding: 16px 20px; border-radius: 20px; color: #FFFFFF; margin-bottom: 14px; border: 1.5px solid rgba(197,240,153,0.3);">
+                        <div style="position: relative; flex-shrink: 0;">
+                          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80" alt="Mariana Gómez" style="width: 72px; height: 72px; border-radius: 20px; object-fit: cover; border: 2.5px solid #FDE68A; box-shadow: 0 8px 20px rgba(0,0,0,0.35);">
+                          <span style="position: absolute; bottom: -4px; right: -4px; background: var(--avo-primary); color: #fff; font-size: 0.68rem; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #142B1F;"><i class="fa-solid fa-check"></i></span>
+                        </div>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                            <h3 style="font-size: 1.38rem; color: #FFFFFF; margin: 0;">Mariana Gómez</h3>
+                            <span style="background: rgba(253,230,138,0.2); border: 1px solid #FDE68A; color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 2px 9px; border-radius: 99px;">👑 Rango Aguacate Hass</span>
+                          </div>
+                          <div style="font-size: 0.8rem; color: #C5F099; margin-top: 3px; font-weight: 600;">
+                            📍 Guadalajara, Jalisco, México • Socia activa desde Octubre 2026
+                          </div>
+                          <div style="font-size: 0.74rem; color: rgba(255,255,255,0.8); margin-top: 4px;">
+                            👩‍⚕️ Nutrióloga de Cabecera: <strong>Nutrióloga Arianna (Nayarit, MX)</strong>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Datos personales y clínicos en cuadrícula limpia -->
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="metric-well">
+                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">CORREO DE ACCESO (HOTMART)</div>
+                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px; word-break: break-all;">mariana.gomez@avocadoclub.mx</div>
+                        </div>
+                        <div class="metric-well">
+                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">WHATSAPP COMUNIDAD VIP</div>
+                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px;">+52 (33) 1849 2041 <span style="color: var(--avo-primary); font-size: 0.72rem;">✓ Activo</span></div>
+                        </div>
+                        <div class="metric-well" style="background: var(--coral-soft); border-color: #F5C2B8;">
+                          <div style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">PROTOCOLO CLÍNICO ACTUAL</div>
+                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px;">🩸 Control Insulina + Bajar Peso</div>
+                        </div>
+                        <div class="metric-well" style="background: var(--gold-soft); border-color: #F5DC9B;">
+                          <div style="font-size: 0.68rem; color: #9A6700; font-weight: 800;">PLAN CALÓRICO Y MÉTODO</div>
+                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px;">1,550 kcal • Porciones con la Mano</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 10px;">
+                      <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;">ID de Membresía: <strong>#AVO-2026-0418</strong></span>
+                      <div style="display: flex; gap: 8px;">
+                        <button type="button" class="btn-flip-trigger" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))">
+                          📊 Ir a mi Dashboard
+                        </button>
+                        <button type="button" class="btn-flip-trigger coral-flip" onclick="toggleCardFlip('flip-profile-main')">
+                          ⚙️ Gestionar Cuenta y Hotmart
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: SUSCRIPCIÓN HOTMART Y PREFERENCIAS DE NOTIFICACIÓN -->
+                  <div class="flip-face-3d back">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-Sliders"></i> MEMBRESÍA HOTMART Y NOTIFICACIONES</span>
+                        <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-profile-main')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver a mi Ficha
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.32rem; color: var(--avo-dark); margin-bottom: 6px;">Estado de tu Suscripción y Alertas</h3>
+                      <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Tu cuenta está sincronizada automáticamente con Hotmart y con el foro de la Nutrióloga Arianna:
+                      </p>
+
+                      <div class="metric-well" style="background: #F4F9EE; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                          <div style="font-size: 0.72rem; font-weight: 800; color: var(--avo-primary);">🔥 SUSCRIPCIÓN OFICIAL HOTMART</div>
+                          <div style="font-size: 0.94rem; font-weight: 800; color: var(--avo-dark);">Membresía Activa • Acceso Total a los 7 Módulos</div>
+                          <div style="font-size: 0.75rem; color: var(--text-muted);">Próxima renovación automática: <strong>23 de Noviembre 2026</strong></div>
+                        </div>
+                        <span style="background: var(--avo-primary); color: #fff; font-weight: 800; font-size: 0.73rem; padding: 5px 12px; border-radius: 99px;">✓ Al Corriente</span>
+                      </div>
+
+                      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem;">
+                        <label class="metric-well" style="padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                          <span>🌱 Recibir "La Semilla de Hoy" de la Nutrióloga Arianna (8:00 AM)</span>
+                          <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 16px; height: 16px;">
+                        </label>
+                        <label class="metric-well" style="padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                          <span>📏 Recordatorio de Cierre Semanal (Domingos 7:00 PM)</span>
+                          <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 16px; height: 16px;">
+                        </label>
+                        <label class="metric-well" style="padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                          <span>🎬 Aviso de nueva Video-Receta Quincenal (Días 1 y 15)</span>
+                          <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 16px; height: 16px;">
+                        </label>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft);">
+                      <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-profile-main')">
+                        <i class="fa-solid fa-rotate-left"></i> Volver
+                      </button>
+                      <button type="button" class="btn-enter-club" style="width: auto; padding: 10px 20px; font-size: 0.84rem; margin: 0;" onclick="this.innerHTML='<span>✅ Preferencias Guardadas</span>'">
+                        <span>Guardar Cambios de Perfil</span>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- TARJETA 3D GIRATORIA 2 (COL-5): MI TRANSFORMACIÓN PERSONAL vs MEDALLAS DEL CLUB (465px) -->
+              <div class="col-5 flip-stage-3d" id="flip-profile-stats" style="height: 465px;">
+                <div class="flip-inner-3d">
+
+                  <!-- CARA FRONTAL: RESUMEN DE TRANSFORMACIÓN Y "MI PORQUÉ" -->
+                  <div class="flip-face-3d front" style="background: linear-gradient(160deg, #142B1F 0%, #234733 100%); color: #FFFFFF;">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span class="card-label gold" style="margin: 0;">✨ MI HISTORIA EN EL CLUB</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-profile-stats')">
+                          Mis Medallas <i class="fa-solid fa-rotate"></i>
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 4px;">Tu Avance desde el Día 1</h3>
+                      <p style="font-size: 0.79rem; color: #C5F099; margin-bottom: 12px;">Comparativa de tus medidas iniciales vs tu Semana 3 actual:</p>
+
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 14px;">
+                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 14px; padding: 11px 12px;">
+                          <div style="font-size: 0.68rem; color: #C5F099; font-weight: 800;">PESO CORPORAL</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">71.2 ➔ 68.4 kg</div>
+                          <div style="font-size: 0.72rem; color: #8FD14F; font-weight: 800;">-2.8 kg logrados</div>
+                        </div>
+                        <div style="background: rgba(232,111,82,0.18); border: 1px solid rgba(245,194,184,0.4); border-radius: 14px; padding: 11px 12px;">
+                          <div style="font-size: 0.68rem; color: #FDE68A; font-weight: 800;">CINTURA (CM)</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">83 ➔ 79 cm</div>
+                          <div style="font-size: 0.72rem; color: #FDE68A; font-weight: 800;">-4.0 cm desinflamación</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 14px; padding: 11px 12px;">
+                          <div style="font-size: 0.68rem; color: #C5F099; font-weight: 800;">CADERA (CM)</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">101.5 ➔ 99 cm</div>
+                          <div style="font-size: 0.72rem; color: #8FD14F; font-weight: 800;">-2.5 cm reales</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 14px; padding: 11px 12px;">
+                          <div style="font-size: 0.68rem; color: #C5F099; font-weight: 800;">ÍNDICE CINT/CAD</div>
+                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">0.82 ➔ 0.79</div>
+                          <div style="font-size: 0.72rem; color: #8FD14F; font-weight: 800;">✅ Rango Cardioprotector</div>
+                        </div>
+                      </div>
+
+                      <div style="background: rgba(255,255,255,0.08); border-left: 4px solid #FDE68A; border-radius: 12px; padding: 10px 14px;">
+                        <div style="font-size: 0.68rem; font-weight: 800; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.05em;">💛 Mi Compromiso Personal:</div>
+                        <div style="font-size: 0.8rem; color: #F4F9EE; font-style: italic; margin-top: 3px; line-height: 1.4;">
+                          "Recuperar mi energía de todos los días, mantener mi insulina en paz y disfrutar la comida mexicana con mi familia sin culpa."
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.14);">
+                      <span style="font-size: 0.74rem; color: #C5F099; font-weight: 700;">🔥 18 días seguidos activa</span>
+                      <button type="button" class="btn-flip-trigger" style="padding: 6px 12px; font-size: 0.75rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                        📏 Actualizar Medidas
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: COLECCIÓN DE INSIGNIAS Y RECOMPENSAS DE MARIANA -->
+                  <div class="flip-face-3d back">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span class="card-label gold" style="margin: 0;">🏆 VITRINA DE LOGROS</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-profile-stats')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver
+                        </button>
+                      </div>
+                      <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">Medallas de Mariana (750 XP)</h3>
+                      <p style="font-size: 0.79rem; color: var(--text-muted); margin-bottom: 12px;">Te faltan solo <strong>250 XP</strong> para el rango <strong>Reina Saludable 👑</strong>:</p>
+
+                      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem;">
+                        <div class="metric-well" style="padding: 10px 12px; display: flex; align-items: center; gap: 10px;">
+                          <span style="font-size: 1.35rem;">🌱</span>
+                          <div>
+                            <strong style="color: var(--avo-dark); display: block;">1ra Semana Completada (+150 XP)</strong>
+                            <span style="font-size: 0.73rem; color: var(--text-muted);">Calibración inicial completada con éxito.</span>
+                          </div>
+                        </div>
+                        <div class="metric-well" style="padding: 10px 12px; display: flex; align-items: center; gap: 10px;">
+                          <span style="font-size: 1.35rem;">📏</span>
+                          <div>
+                            <strong style="color: var(--avo-dark); display: block;">-4.0 cm de Cintura Logrados (+250 XP)</strong>
+                            <span style="font-size: 0.73rem; color: var(--text-muted);">Reducción real de inflamación abdominal.</span>
+                          </div>
+                        </div>
+                        <div class="metric-well" style="padding: 10px 12px; display: flex; align-items: center; gap: 10px;">
+                          <span style="font-size: 1.35rem;">👩‍⚕️</span>
+                          <div>
+                            <strong style="color: var(--avo-dark); display: block;">Cocina con Nutrióloga Arianna (+200 XP)</strong>
+                            <span style="font-size: 0.73rem; color: var(--text-muted);">Preparaste 3 video-recetas quincenales.</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-profile-stats')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a mi Resumen de Transformación
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
 
           <!-- =========================================================
                MÓDULO 7: DASHBOARD DE PROGRESO Y GAMIFICACIÓN (CON FLIP 3D)
@@ -3853,7 +4324,7 @@
 
     function backToLogin() {
       document.getElementById('app-view').style.display = 'none';
-      document.getElementById('login-view').style.display = 'grid';
+      document.getElementById('login-view').style.display = '';
       window.scrollTo(0, 0);
       window.dispatchEvent(new Event('resize'));
     }
@@ -3863,8 +4334,13 @@
       const target = document.getElementById(modId);
       if (target) target.classList.add('active');
 
-      if (navEl) {
-        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+      const profCard = document.getElementById('sidebar-profile-card');
+      if (profCard) profCard.classList.remove('active-profile');
+
+      if (modId === 'mod-perfil') {
+        if (profCard) profCard.classList.add('active-profile');
+      } else if (navEl && navEl.classList.contains('nav-item')) {
         navEl.classList.add('active');
       }
       // Asegurar que el lienzo de frutitas cubra siempre el 100% de cualquier módulo/página activa
