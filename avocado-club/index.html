@@ -2277,7 +2277,7 @@
                 </label>
                 <div class="modern-input-box">
                   <i class="fa-regular fa-envelope left-ico"></i>
-                  <input type="email" value="mariana.gomez@avocadoclub.mx" placeholder="El correo que usaste en Hotmart" />
+                  <input type="email" id="login-email-inp" value="mariana.gomez@avocadoclub.mx" placeholder="El correo que usaste en Hotmart" />
                   <i class="fa-solid fa-circle-check right-check"></i>
                 </div>
               </div>
@@ -2440,8 +2440,8 @@
                   <span style="position: absolute; bottom: -2px; right: -2px; width: 13px; height: 13px; border-radius: 50%; background: #8FD14F; border: 2px solid #142B1F;"></span>
                 </div>
                 <div style="min-width: 0;">
-                  <div style="font-weight: 800; font-size: 0.96rem; color: #FFFFFF; white-space: nowrap;">Mariana Gómez</div>
-                  <div style="font-size: 0.68rem; color: #FDE68A; font-weight: 700; white-space: nowrap;">👑 Socia VIP • Guadalajara</div>
+                  <div id="sidebar-user-name" style="font-weight: 800; font-size: 0.96rem; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Mariana Gómez</div>
+                  <div id="sidebar-user-sub" style="font-size: 0.68rem; color: #FDE68A; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">👑 Socia VIP • Guadalajara</div>
                 </div>
               </div>
               <span class="profile-open-pill">
@@ -2449,18 +2449,18 @@
               </span>
             </div>
 
-            <!-- Globo de Objetivo en un solo renglón -->
+            <!-- Globo de Objetivo en un solo renglón sincronizado con Módulo 1 -->
             <div class="profile-goal-bubble">
-              <span>🩸 Control Insulina + Bajar Peso</span>
+              <span id="sidebar-goal-text">🩸 Control Insulina + Bajar Peso</span>
               <i class="fa-solid fa-circle-check" style="color: #8FD14F; font-size: 0.82rem;"></i>
             </div>
 
             <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #FDE68A; font-weight: 800; margin-bottom: 5px;">
-              <span>🥑 Rango: Aguacate Hass</span>
-              <span>750 / 1000 XP</span>
+              <span id="sidebar-rank-text">🥑 Rango: Aguacate Hass</span>
+              <span id="sidebar-xp-text">750 / 1000 XP</span>
             </div>
             <div style="background: rgba(255,255,255,0.14); height: 7px; border-radius: 99px; overflow: hidden;">
-              <div style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold)); border-radius: 99px;"></div>
+              <div id="sidebar-xp-bar" style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold)); border-radius: 99px; transition: width 0.4s ease;"></div>
             </div>
           </div>
 
@@ -2523,32 +2523,34 @@
         
         <div class="top-bar">
           <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(135deg, var(--avo-pale), #D5ECC0); border: 1.5px solid #B5D99C; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 6px 14px rgba(104, 163, 50, 0.15); flex-shrink: 0;">
+            <div onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))" title="Ir a Dashboard & Progreso" style="width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(135deg, var(--avo-pale), #D5ECC0); border: 1.5px solid #B5D99C; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 6px 14px rgba(104, 163, 50, 0.15); flex-shrink: 0; cursor: pointer;">
               🥑
             </div>
             <div>
-              <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.73rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.06em;">
+              <div id="top-protocol-subtitle" style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.73rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap;">
                 <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--avo-primary); display: inline-block;"></span>
-                Semana 3 • Protocolo Avalado por Nutrióloga Arianna
+                <span id="top-week-label">Semana 3</span> • <span id="top-protocol-label">Protocolo: Control Insulina + Bajar Peso</span> • <span id="top-date-label" style="color: var(--avo-forest);">Hoy</span>
               </div>
-              <h1 style="font-size: 1.7rem; color: var(--avo-dark); line-height: 1.15;">Hola, Mariana 👋 ¡Tu cuerpo te agradece hoy!</h1>
+              <h1 id="top-greeting-title" style="font-size: 1.65rem; color: var(--avo-dark); line-height: 1.15; transition: opacity 0.45s ease;">
+                Hola, <span id="top-user-firstname">Mariana</span> 👋 <span id="top-dynamic-phrase">¡Tu cuerpo te agradece hoy!</span>
+              </h1>
             </div>
           </div>
 
           <div class="streak-banner">
-            <button type="button" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" class="streak-pill clickable-pill" style="cursor: pointer; background: linear-gradient(135deg, #F1F9E8, #E2F2D1); border-color: var(--avo-primary); color: var(--avo-forest);">
-              🌱 La Semilla de Hoy
+            <button type="button" id="top-pill-semilla" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" title="Abrir Módulo 7: La Semilla de Hoy" class="streak-pill clickable-pill" style="cursor: pointer; background: linear-gradient(135deg, #F1F9E8, #E2F2D1); border-color: var(--avo-primary); color: var(--avo-forest); font-family: inherit;">
+              <span id="top-semilla-text">🌱 La Semilla de Hoy</span>
             </button>
-            <button type="button" onclick="openModule('mod-perfil', document.getElementById('sidebar-profile-card'))" class="streak-pill clickable-pill" style="cursor: pointer; background: var(--gold-soft); border-color: #F5DC9B; color: #9A6700;">
+            <button type="button" id="top-pill-perfil" onclick="openModule('mod-perfil', document.getElementById('sidebar-profile-card'))" title="Abrir mi Tarjeta de Perfil Personal" class="streak-pill clickable-pill" style="cursor: pointer; background: var(--gold-soft); border-color: #F5DC9B; color: #9A6700; font-family: inherit;">
               <i class="fa-solid fa-user-check"></i> Mi Perfil VIP
             </button>
-            <div class="streak-pill" style="color: var(--coral); background: var(--coral-soft); border-color: #F5C2B8;">
+            <button type="button" id="top-pill-streak" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))" title="Ver mi racha y evolución en Dashboard & Progreso" class="streak-pill clickable-pill" style="cursor: pointer; color: var(--coral); background: var(--coral-soft); border-color: #F5C2B8; font-family: inherit;">
               <i class="fa-solid fa-fire-flame-curved"></i> <span id="top-streak-text">18 Días en Racha</span>
-            </div>
-            <div class="streak-pill">
-              📏 Cintura: <strong style="color: var(--avo-primary);">79 cm (-4.0 cm)</strong>
-            </div>
-            <button type="button" onclick="backToLogin()" title="Cerrar Sesión e ir al Inicio" style="background: #FFF1EE; border: 1.5px solid #F5C2B8; color: var(--coral); padding: 8px 14px; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;">
+            </button>
+            <button type="button" id="top-pill-waist" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" title="Haz clic para actualizar tu medida de cintura y cadera en Módulo 1" class="streak-pill clickable-pill" style="cursor: pointer; font-family: inherit;">
+              📏 Cintura: <strong id="top-waist-text" style="color: var(--avo-primary);">79 cm (-4.0 cm)</strong>
+            </button>
+            <button type="button" id="top-btn-logout" onclick="backToLogin()" title="Cerrar Sesión y volver a la pantalla de acceso" style="background: #FFF1EE; border: 1.5px solid #F5C2B8; color: var(--coral); padding: 8px 14px; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;">
               <i class="fa-solid fa-right-from-bracket"></i> Salir
             </button>
           </div>
@@ -2559,124 +2561,139 @@
 
           <!-- =========================================================
                VISTA ESPECIAL DE PERFIL DE LA SOCIA (#mod-perfil)
-               SE ABRE AL HACER CLIC EN LA PESTAÑA DE PERFIL DEL PANEL IZQUIERDO
+               100% FUNCIONAL, EDITABLE Y SINCRONIZADA EN TIEMPO REAL
                ========================================================= -->
           <div id="mod-perfil" class="module-section">
             <div class="bento-grid">
 
-              <!-- TARJETA 3D GIRATORIA 1 (COL-7): FICHA PERSONAL DE MARIANA vs SUSCRIPCIÓN HOTMART Y AJUSTES (465px) -->
+              <!-- TARJETA 3D GIRATORIA 1 (COL-7): DATOS PERSONALES EDITABLES vs SEGURIDAD Y CUENTA (465px) -->
               <div class="col-7 flip-stage-3d" id="flip-profile-main" style="height: 465px;">
                 <div class="flip-inner-3d">
 
-                  <!-- CARA FRONTAL: EXPEDIENTE PERSONAL DE SOCIA VIP -->
+                  <!-- CARA FRONTAL: DATOS PERSONALES EDITABLES DE LA SOCIA -->
                   <div class="flip-face-3d front">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-                        <span class="card-label gold" style="margin: 0;"><i class="fa-solid fa-id-badge"></i> PERFIL OFICIAL DE SOCIA VIP • AVOCADO CLUB</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                        <span class="card-label gold" style="margin: 0;"><i class="fa-solid fa-id-badge"></i> MIS DATOS PERSONALES • AVOCADO CLUB</span>
                         <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-profile-main')">
-                          <i class="fa-solid fa-rotate"></i> Membresía Hotmart y Ajustes
+                          <i class="fa-solid fa-lock"></i> Contraseña y Cuenta
                         </button>
                       </div>
 
-                      <!-- Cabecera con foto grande de Mariana y distintivos -->
-                      <div style="display: flex; align-items: center; gap: 18px; background: linear-gradient(135deg, #142B1F 0%, #214532 100%); padding: 16px 20px; border-radius: 20px; color: #FFFFFF; margin-bottom: 14px; border: 1.5px solid rgba(197,240,153,0.3);">
+                      <!-- Cabecera sincronizada en vivo -->
+                      <div style="display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #142B1F 0%, #214532 100%); padding: 14px 18px; border-radius: 18px; color: #FFFFFF; margin-bottom: 12px; border: 1.5px solid rgba(197,240,153,0.3);">
                         <div style="position: relative; flex-shrink: 0;">
-                          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80" alt="Mariana Gómez" style="width: 72px; height: 72px; border-radius: 20px; object-fit: cover; border: 2.5px solid #FDE68A; box-shadow: 0 8px 20px rgba(0,0,0,0.35);">
-                          <span style="position: absolute; bottom: -4px; right: -4px; background: var(--avo-primary); color: #fff; font-size: 0.68rem; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #142B1F;"><i class="fa-solid fa-check"></i></span>
+                          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80" alt="Foto de Perfil" style="width: 66px; height: 66px; border-radius: 18px; object-fit: cover; border: 2.5px solid #FDE68A; box-shadow: 0 8px 20px rgba(0,0,0,0.35);">
+                          <span style="position: absolute; bottom: -4px; right: -4px; background: var(--avo-primary); color: #fff; font-size: 0.65rem; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #142B1F;"><i class="fa-solid fa-check"></i></span>
                         </div>
                         <div style="flex: 1; min-width: 0;">
                           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                            <h3 style="font-size: 1.38rem; color: #FFFFFF; margin: 0;">Mariana Gómez</h3>
-                            <span style="background: rgba(253,230,138,0.2); border: 1px solid #FDE68A; color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 2px 9px; border-radius: 99px;">👑 Rango Aguacate Hass</span>
+                            <h3 id="prof-header-name" style="font-size: 1.32rem; color: #FFFFFF; margin: 0;">Mariana Gómez</h3>
+                            <span id="prof-header-rank" style="background: rgba(253,230,138,0.2); border: 1px solid #FDE68A; color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 2px 9px; border-radius: 99px;">👑 Rango Aguacate Hass</span>
                           </div>
-                          <div style="font-size: 0.8rem; color: #C5F099; margin-top: 3px; font-weight: 600;">
-                            📍 Guadalajara, Jalisco, México • Socia activa desde Octubre 2026
+                          <div id="prof-header-city" style="font-size: 0.79rem; color: #C5F099; margin-top: 3px; font-weight: 600;">
+                            📍 Guadalajara, Jalisco • Socia VIP Activa
                           </div>
-                          <div style="font-size: 0.74rem; color: rgba(255,255,255,0.8); margin-top: 4px;">
-                            👩‍⚕️ Nutrióloga de Cabecera: <strong>Nutrióloga Arianna (Nayarit, MX)</strong>
+                          <div style="font-size: 0.73rem; color: rgba(255,255,255,0.82); margin-top: 3px;">
+                            👩‍⚕️ Nutrióloga Titular: <strong>Nutrióloga Arianna</strong>
                           </div>
                         </div>
                       </div>
 
-                      <!-- Datos personales y clínicos en cuadrícula limpia -->
+                      <!-- Campos editables que actualizan toda la plataforma en tiempo real -->
                       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <div class="metric-well">
-                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">CORREO DE ACCESO (HOTMART)</div>
-                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px; word-break: break-all;">mariana.gomez@avocadoclub.mx</div>
+                        <div class="modern-field" style="margin: 0;">
+                          <label style="font-size: 0.68rem; margin-bottom: 4px;">NOMBRE COMPLETO</label>
+                          <div class="modern-input-box">
+                            <input type="text" id="prof-inp-name" value="Mariana Gómez" oninput="saveUserProfile()" style="padding: 9px 12px; font-size: 0.86rem;" />
+                          </div>
                         </div>
-                        <div class="metric-well">
-                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">WHATSAPP COMUNIDAD VIP</div>
-                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px;">+52 (33) 1849 2041 <span style="color: var(--avo-primary); font-size: 0.72rem;">✓ Activo</span></div>
+                        <div class="modern-field" style="margin: 0;">
+                          <label style="font-size: 0.68rem; margin-bottom: 4px;">CIUDAD / ESTADO</label>
+                          <div class="modern-input-box">
+                            <input type="text" id="prof-inp-city" value="Guadalajara, Jalisco" oninput="saveUserProfile()" style="padding: 9px 12px; font-size: 0.86rem;" />
+                          </div>
                         </div>
-                        <div class="metric-well" style="background: var(--coral-soft); border-color: #F5C2B8;">
-                          <div style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">PROTOCOLO CLÍNICO ACTUAL</div>
-                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px;">🩸 Control Insulina + Bajar Peso</div>
+                        <div class="modern-field" style="margin: 0;">
+                          <label style="font-size: 0.68rem; margin-bottom: 4px;">CORREO DE TU CUENTA (HOTMART)</label>
+                          <div class="modern-input-box">
+                            <input type="email" id="prof-inp-email" value="mariana.gomez@avocadoclub.mx" oninput="saveUserProfile()" style="padding: 9px 12px; font-size: 0.86rem;" />
+                          </div>
                         </div>
-                        <div class="metric-well" style="background: var(--gold-soft); border-color: #F5DC9B;">
-                          <div style="font-size: 0.68rem; color: #9A6700; font-weight: 800;">PLAN CALÓRICO Y MÉTODO</div>
-                          <div style="font-size: 0.86rem; font-weight: 800; color: var(--avo-dark); margin-top: 2px;">1,550 kcal • Porciones con la Mano</div>
+                        <div class="modern-field" style="margin: 0;">
+                          <label style="font-size: 0.68rem; margin-bottom: 4px;">WHATSAPP DE CONTACTO</label>
+                          <div class="modern-input-box">
+                            <input type="tel" id="prof-inp-phone" value="+52 33 1849 2041" style="padding: 9px 12px; font-size: 0.86rem;" />
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 10px;">
-                      <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;">ID de Membresía: <strong>#AVO-2026-0418</strong></span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
+                      <button type="button" class="btn-flip-trigger" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))">
+                        📊 Ir a Dashboard & Progreso
+                      </button>
                       <div style="display: flex; gap: 8px;">
-                        <button type="button" class="btn-flip-trigger" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))">
-                          📊 Ir a mi Dashboard
-                        </button>
                         <button type="button" class="btn-flip-trigger coral-flip" onclick="toggleCardFlip('flip-profile-main')">
-                          ⚙️ Gestionar Cuenta y Hotmart
+                          🔒 Cambiar Contraseña
+                        </button>
+                        <button type="button" class="btn-enter-club" style="width: auto; padding: 9px 16px; font-size: 0.8rem; margin: 0;" onclick="saveUserProfile(this)">
+                          <span>💾 Guardar Perfil</span>
                         </button>
                       </div>
                     </div>
                   </div>
 
-                  <!-- CARA TRASERA: SUSCRIPCIÓN HOTMART Y PREFERENCIAS DE NOTIFICACIÓN -->
+                  <!-- CARA TRASERA: SEGURIDAD DE ACCESO, CAMBIO DE CONTRASEÑA Y PORTAL HOTMART -->
                   <div class="flip-face-3d back">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-Sliders"></i> MEMBRESÍA HOTMART Y NOTIFICACIONES</span>
+                        <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-shield-halved"></i> SEGURIDAD DE ACCESO Y CUENTA</span>
                         <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-profile-main')">
-                          <i class="fa-solid fa-rotate-left"></i> Volver a mi Ficha
+                          <i class="fa-solid fa-rotate-left"></i> Volver a Mis Datos
                         </button>
                       </div>
-                      <h3 style="font-size: 1.32rem; color: var(--avo-dark); margin-bottom: 6px;">Estado de tu Suscripción y Alertas</h3>
-                      <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
-                        Tu cuenta está sincronizada automáticamente con Hotmart y con el foro de la Nutrióloga Arianna:
+                      <h3 style="font-size: 1.28rem; color: var(--avo-dark); margin-bottom: 4px;">Contraseña y Gestión de Cuenta</h3>
+                      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Actualiza tu contraseña de acceso al portal o administra tu suscripción directamente en Hotmart:
                       </p>
 
-                      <div class="metric-well" style="background: #F4F9EE; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-                        <div>
-                          <div style="font-size: 0.72rem; font-weight: 800; color: var(--avo-primary);">🔥 SUSCRIPCIÓN OFICIAL HOTMART</div>
-                          <div style="font-size: 0.94rem; font-weight: 800; color: var(--avo-dark);">Membresía Activa • Acceso Total a los 7 Módulos</div>
-                          <div style="font-size: 0.75rem; color: var(--text-muted);">Próxima renovación automática: <strong>23 de Noviembre 2026</strong></div>
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                        <div class="modern-field" style="margin: 0;">
+                          <label style="font-size: 0.68rem; margin-bottom: 4px;">NUEVA CONTRASEÑA</label>
+                          <div class="modern-input-box">
+                            <input type="password" id="prof-pass-new" placeholder="Mínimo 6 caracteres" style="padding: 10px 36px 10px 12px; font-size: 0.85rem;" />
+                            <i class="fa-regular fa-eye right-check" onclick="toggleLoginPassword('prof-pass-new', this)" style="color: var(--text-muted); cursor: pointer;"></i>
+                          </div>
                         </div>
-                        <span style="background: var(--avo-primary); color: #fff; font-weight: 800; font-size: 0.73rem; padding: 5px 12px; border-radius: 99px;">✓ Al Corriente</span>
+                        <div class="modern-field" style="margin: 0;">
+                          <label style="font-size: 0.68rem; margin-bottom: 4px;">CONFIRMAR CONTRASEÑA</label>
+                          <div class="modern-input-box">
+                            <input type="password" id="prof-pass-confirm" placeholder="Repite tu contraseña" style="padding: 10px 36px 10px 12px; font-size: 0.85rem;" />
+                            <i class="fa-regular fa-eye right-check" onclick="toggleLoginPassword('prof-pass-confirm', this)" style="color: var(--text-muted); cursor: pointer;"></i>
+                          </div>
+                        </div>
                       </div>
 
-                      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem;">
-                        <label class="metric-well" style="padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                          <span>🌱 Recibir "La Semilla de Hoy" de la Nutrióloga Arianna (8:00 AM)</span>
-                          <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 16px; height: 16px;">
-                        </label>
-                        <label class="metric-well" style="padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                          <span>📏 Recordatorio de Cierre Semanal (Domingos 7:00 PM)</span>
-                          <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 16px; height: 16px;">
-                        </label>
-                        <label class="metric-well" style="padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                          <span>🎬 Aviso de nueva Video-Receta Quincenal (Días 1 y 15)</span>
-                          <input type="checkbox" checked style="accent-color: var(--avo-primary); width: 16px; height: 16px;">
-                        </label>
+                      <div id="prof-pass-feedback" style="font-size: 0.78rem; font-weight: 700; color: var(--avo-primary); margin-bottom: 10px; min-height: 18px;"></div>
+
+                      <div class="metric-well" style="background: #F4F9EE; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                          <div style="font-size: 0.7rem; font-weight: 800; color: var(--avo-primary);">🔥 GESTIÓN DE SUSCRIPCIÓN EN HOTMART</div>
+                          <div style="font-size: 0.82rem; font-weight: 700; color: var(--avo-dark);">Para consultar tus recibos o método de pago, entra a tu panel oficial de Hotmart:</div>
+                        </div>
+                        <button type="button" class="btn-flip-trigger" onclick="window.open('https://consumer.hotmart.com', '_blank')">
+                          Ir a Hotmart <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.68rem;"></i>
+                        </button>
                       </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft);">
-                      <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-profile-main')">
-                        <i class="fa-solid fa-rotate-left"></i> Volver
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
+                      <button type="button" onclick="backToLogin()" style="background: #FFF1EE; border: 1.5px solid #F5C2B8; color: var(--coral); padding: 9px 15px; border-radius: 11px; font-family: inherit; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
                       </button>
-                      <button type="button" class="btn-enter-club" style="width: auto; padding: 10px 20px; font-size: 0.84rem; margin: 0;" onclick="this.innerHTML='<span>✅ Preferencias Guardadas</span>'">
-                        <span>Guardar Cambios de Perfil</span>
+                      <button type="button" class="btn-enter-club" style="width: auto; padding: 10px 18px; font-size: 0.82rem; margin: 0;" onclick="updateUserPassword(this)">
+                        <span>🔑 Actualizar Contraseña</span>
                       </button>
                     </div>
                   </div>
@@ -2684,62 +2701,62 @@
                 </div>
               </div>
 
-              <!-- TARJETA 3D GIRATORIA 2 (COL-5): MI TRANSFORMACIÓN PERSONAL vs MEDALLAS DEL CLUB (465px) -->
+              <!-- TARJETA 3D GIRATORIA 2 (COL-5): EXPEDIENTE NUTRICIONAL SINCRONIZADO vs NIVEL Y MEDALLAS (465px) -->
               <div class="col-5 flip-stage-3d" id="flip-profile-stats" style="height: 465px;">
                 <div class="flip-inner-3d">
 
-                  <!-- CARA FRONTAL: RESUMEN DE TRANSFORMACIÓN Y "MI PORQUÉ" -->
+                  <!-- CARA FRONTAL: RESUMEN DE MEDIDAS Y OBJETIVO SINCRONIZADO CON MÓDULOS 1 Y 2 -->
                   <div class="flip-face-3d front" style="background: linear-gradient(160deg, #142B1F 0%, #234733 100%); color: #FFFFFF;">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span class="card-label gold" style="margin: 0;">✨ MI HISTORIA EN EL CLUB</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label gold" style="margin: 0;">📊 EXPEDIENTE SINCRONIZADO</span>
                         <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-profile-stats')">
                           Mis Medallas <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
-                      <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 4px;">Tu Avance desde el Día 1</h3>
-                      <p style="font-size: 0.79rem; color: #C5F099; margin-bottom: 12px;">Comparativa de tus medidas iniciales vs tu Semana 3 actual:</p>
+                      <h3 style="font-size: 1.24rem; color: #FFFFFF; margin-bottom: 3px;">Tus Medidas y Meta Actual</h3>
+                      <p style="font-size: 0.76rem; color: #C5F099; margin-bottom: 10px;">Conectado automáticamente con <strong>1. Objetivos y Medidas</strong>:</p>
 
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 14px;">
-                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 14px; padding: 11px 12px;">
-                          <div style="font-size: 0.68rem; color: #C5F099; font-weight: 800;">PESO CORPORAL</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">71.2 ➔ 68.4 kg</div>
-                          <div style="font-size: 0.72rem; color: #8FD14F; font-weight: 800;">-2.8 kg logrados</div>
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 13px; padding: 9px 11px;">
+                          <div style="font-size: 0.65rem; color: #C5F099; font-weight: 800;">PROTOCOLO ACTIVO</div>
+                          <div id="prof-stat-protocol" style="font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; color: #FFFFFF; margin-top: 2px;">🩸 Control Insulina + Bajar Peso</div>
+                          <div style="font-size: 0.68rem; color: #8FD14F; font-weight: 700;">Avalado por Nutrióloga Arianna</div>
                         </div>
-                        <div style="background: rgba(232,111,82,0.18); border: 1px solid rgba(245,194,184,0.4); border-radius: 14px; padding: 11px 12px;">
-                          <div style="font-size: 0.68rem; color: #FDE68A; font-weight: 800;">CINTURA (CM)</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">83 ➔ 79 cm</div>
-                          <div style="font-size: 0.72rem; color: #FDE68A; font-weight: 800;">-4.0 cm desinflamación</div>
+                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 13px; padding: 9px 11px;">
+                          <div style="font-size: 0.65rem; color: #C5F099; font-weight: 800;">PESO ACTUAL VS META</div>
+                          <div id="prof-stat-weight" style="font-family: 'Outfit', sans-serif; font-size: 1.08rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">68.4 kg <span style="font-size: 0.76rem; color: #FDE68A;">(Meta: 62 kg)</span></div>
+                          <div id="prof-stat-weight-diff" style="font-size: 0.7rem; color: #8FD14F; font-weight: 800;">-2.8 kg desde el inicio (71.2 kg)</div>
                         </div>
-                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 14px; padding: 11px 12px;">
-                          <div style="font-size: 0.68rem; color: #C5F099; font-weight: 800;">CADERA (CM)</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">101.5 ➔ 99 cm</div>
-                          <div style="font-size: 0.72rem; color: #8FD14F; font-weight: 800;">-2.5 cm reales</div>
+                        <div style="background: rgba(232,111,82,0.18); border: 1px solid rgba(245,194,184,0.4); border-radius: 13px; padding: 9px 11px;">
+                          <div style="font-size: 0.65rem; color: #FDE68A; font-weight: 800;">CINTURA Y CADERA</div>
+                          <div id="prof-stat-waist" style="font-family: 'Outfit', sans-serif; font-size: 1.08rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">79 cm / 99 cm</div>
+                          <div id="prof-stat-waist-diff" style="font-size: 0.7rem; color: #FDE68A; font-weight: 800;">-4.0 cm de cintura (Inicio: 83 cm)</div>
                         </div>
-                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 14px; padding: 11px 12px;">
-                          <div style="font-size: 0.68rem; color: #C5F099; font-weight: 800;">ÍNDICE CINT/CAD</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">0.82 ➔ 0.79</div>
-                          <div style="font-size: 0.72rem; color: #8FD14F; font-weight: 800;">✅ Rango Cardioprotector</div>
+                        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 13px; padding: 9px 11px;">
+                          <div style="font-size: 0.65rem; color: #C5F099; font-weight: 800;">ÍNDICE CINT/CAD</div>
+                          <div id="prof-stat-icc" style="font-family: 'Outfit', sans-serif; font-size: 1.08rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">0.80</div>
+                          <div id="prof-stat-icc-status" style="font-size: 0.7rem; color: #8FD14F; font-weight: 800;">✅ Rango Cardioprotector</div>
                         </div>
                       </div>
 
-                      <div style="background: rgba(255,255,255,0.08); border-left: 4px solid #FDE68A; border-radius: 12px; padding: 10px 14px;">
-                        <div style="font-size: 0.68rem; font-weight: 800; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.05em;">💛 Mi Compromiso Personal:</div>
-                        <div style="font-size: 0.8rem; color: #F4F9EE; font-style: italic; margin-top: 3px; line-height: 1.4;">
-                          "Recuperar mi energía de todos los días, mantener mi insulina en paz y disfrutar la comida mexicana con mi familia sin culpa."
-                        </div>
+                      <div style="background: rgba(255,255,255,0.08); border-left: 4px solid #FDE68A; border-radius: 12px; padding: 8px 12px;">
+                        <label for="prof-inp-motto" style="font-size: 0.66rem; font-weight: 800; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 3px;">💛 Mi Compromiso Personal (Editable):</label>
+                        <input type="text" id="prof-inp-motto" value="Recuperar mi energía, mantener mi insulina en paz y comer rico con mi familia sin culpa." style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(253,230,138,0.3); border-radius: 8px; padding: 6px 9px; color: #FFFFFF; font-family: inherit; font-size: 0.76rem; font-weight: 600;" />
                       </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.14);">
-                      <span style="font-size: 0.74rem; color: #C5F099; font-weight: 700;">🔥 18 días seguidos activa</span>
-                      <button type="button" class="btn-flip-trigger" style="padding: 6px 12px; font-size: 0.75rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
-                        📏 Actualizar Medidas
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.14); gap: 8px;">
+                      <button type="button" class="btn-flip-trigger" style="padding: 7px 11px; font-size: 0.74rem; flex: 1; justify-content: center;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                        🎯 Editar Objetivo y Medidas
+                      </button>
+                      <button type="button" class="btn-flip-trigger coral-flip" style="padding: 7px 11px; font-size: 0.74rem; flex: 1; justify-content: center;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
+                        📅 Ir a mi Plan Semanal
                       </button>
                     </div>
                   </div>
 
-                  <!-- CARA TRASERA: COLECCIÓN DE INSIGNIAS Y RECOMPENSAS DE MARIANA -->
+                  <!-- CARA TRASERA: COLECCIÓN DE INSIGNIAS Y RECOMPENSAS SINCRONIZADAS CON DASHBOARD -->
                   <div class="flip-face-3d back">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
@@ -2748,36 +2765,36 @@
                           <i class="fa-solid fa-rotate-left"></i> Volver
                         </button>
                       </div>
-                      <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">Medallas de Mariana (750 XP)</h3>
-                      <p style="font-size: 0.79rem; color: var(--text-muted); margin-bottom: 12px;">Te faltan solo <strong>250 XP</strong> para el rango <strong>Reina Saludable 👑</strong>:</p>
+                      <h3 id="prof-xp-heading" style="font-size: 1.25rem; color: var(--avo-dark); margin-bottom: 4px;">Medallas Ganadas (750 XP)</h3>
+                      <p id="prof-xp-remaining" style="font-size: 0.79rem; color: var(--text-muted); margin-bottom: 12px;">Te faltan <strong>250 XP</strong> para el rango <strong>Reina Saludable 👑</strong>:</p>
 
                       <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem;">
                         <div class="metric-well" style="padding: 10px 12px; display: flex; align-items: center; gap: 10px;">
                           <span style="font-size: 1.35rem;">🌱</span>
                           <div>
                             <strong style="color: var(--avo-dark); display: block;">1ra Semana Completada (+150 XP)</strong>
-                            <span style="font-size: 0.73rem; color: var(--text-muted);">Calibración inicial completada con éxito.</span>
+                            <span style="font-size: 0.73rem; color: var(--text-muted);">Calibración inicial completada en Módulo 1.</span>
                           </div>
                         </div>
                         <div class="metric-well" style="padding: 10px 12px; display: flex; align-items: center; gap: 10px;">
                           <span style="font-size: 1.35rem;">📏</span>
                           <div>
-                            <strong style="color: var(--avo-dark); display: block;">-4.0 cm de Cintura Logrados (+250 XP)</strong>
-                            <span style="font-size: 0.73rem; color: var(--text-muted);">Reducción real de inflamación abdominal.</span>
+                            <strong style="color: var(--avo-dark); display: block;">Reducción de Cintura Activa (+250 XP)</strong>
+                            <span style="font-size: 0.73rem; color: var(--text-muted);">Desinflamación abdominal registrada en tus medidas.</span>
                           </div>
                         </div>
                         <div class="metric-well" style="padding: 10px 12px; display: flex; align-items: center; gap: 10px;">
                           <span style="font-size: 1.35rem;">👩‍⚕️</span>
                           <div>
-                            <strong style="color: var(--avo-dark); display: block;">Cocina con Nutrióloga Arianna (+200 XP)</strong>
-                            <span style="font-size: 0.73rem; color: var(--text-muted);">Preparaste 3 video-recetas quincenales.</span>
+                            <strong style="color: var(--avo-dark); display: block;">Recetario de Nutrióloga Arianna (+200 XP)</strong>
+                            <span style="font-size: 0.73rem; color: var(--text-muted);">Porciones con la mano y platillos mexicanos.</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-profile-stats')">
-                      <i class="fa-solid fa-rotate-left"></i> Volver a mi Resumen de Transformación
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))">
+                      📈 Ver Gráfica Completa en Dashboard & Progreso
                     </button>
                   </div>
 
@@ -2811,19 +2828,19 @@
                       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
                         <div class="metric-well">
                           <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">PESO ACTUAL</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">68.4 kg <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.8 kg</span></div>
+                          <div id="dash-stat-weight" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">68.4 kg <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.8 kg</span></div>
                         </div>
                         <div class="metric-well" style="background: var(--coral-soft); border-color: #F5C2B8;">
                           <div style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">CINTURA (CM)</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">79 cm <span style="font-size: 0.75rem; color: var(--coral);">-4.0 cm</span></div>
+                          <div id="dash-stat-waist" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">79 cm <span style="font-size: 0.75rem; color: var(--coral);">-4.0 cm</span></div>
                         </div>
                         <div class="metric-well">
                           <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">CADERA (CM)</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">99 cm <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.5 cm</span></div>
+                          <div id="dash-stat-hip" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">99 cm <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.5 cm</span></div>
                         </div>
                         <div class="metric-well" style="background: var(--gold-soft); border-color: #F5DC9B;">
                           <div style="font-size: 0.68rem; color: #9A6700; font-weight: 800;">ÍNDICE CINT/CAD</div>
-                          <div style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">0.79 <span style="font-size: 0.72rem; color: var(--avo-primary);">Óptimo</span></div>
+                          <div id="dash-stat-icc" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">0.80 <span style="font-size: 0.72rem; color: var(--avo-primary);">Óptimo</span></div>
                         </div>
                       </div>
                     </div>
@@ -2840,7 +2857,7 @@
                       <text x="45" y="20" font-size="11" font-weight="bold" fill="#142B1F">Sem 1: 71.2kg (83cm)</text>
                       <text x="200" y="48" font-size="11" font-weight="bold" fill="#142B1F">Sem 2: 70.1kg (81.5cm)</text>
                       <text x="380" y="76" font-size="11" font-weight="bold" fill="#142B1F">Sem 3: 69.2kg (80cm)</text>
-                      <text x="495" y="100" font-size="11" font-weight="bold" fill="#E86F52">Hoy: 68.4kg (79cm)</text>
+                      <text id="dash-chart-today" x="495" y="100" font-size="11" font-weight="bold" fill="#E86F52">Hoy: 68.4kg (79cm)</text>
                     </svg>
                   </div>
 
@@ -2900,10 +2917,10 @@
                       </div>
                       <div style="text-align: center; margin: 10px 0;">
                         <div style="font-size: 3.1rem; line-height: 1; margin-bottom: 4px;">🥑</div>
-                        <h3 style="font-size: 1.35rem; color: #FFFFFF;">Rango: Aguacate Hass</h3>
-                        <p style="font-size: 0.79rem; color: #C5F099; margin-bottom: 10px;">A 250 XP de alcanzar <strong>Reina Saludable 👑</strong></p>
+                        <h3 id="dash-rank-title" style="font-size: 1.35rem; color: #FFFFFF;">Rango: Aguacate Hass</h3>
+                        <p id="dash-xp-sub" style="font-size: 0.79rem; color: #C5F099; margin-bottom: 10px;">A 250 XP de alcanzar <strong>Reina Saludable 👑</strong></p>
                         <div style="background: rgba(255,255,255,0.14); height: 11px; border-radius: 99px; overflow: hidden; margin-bottom: 14px;">
-                          <div style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold));"></div>
+                          <div id="dash-xp-bar" style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold)); transition: width 0.4s ease;"></div>
                         </div>
                       </div>
                     </div>
@@ -3029,21 +3046,21 @@
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                       <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 2px solid var(--avo-primary); cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
-                        <input type="radio" name="clin" checked style="margin-top: 3px; accent-color: var(--avo-primary);">
+                        <input type="radio" name="clin" value="🩸 Control Insulina" checked onchange="updateClinicalProtocol()" style="margin-top: 3px; accent-color: var(--avo-primary);">
                         <div>
                           <strong style="font-size: 0.82rem; display: block;">🩸 1. Insulina, Glucosa y SOP</strong>
                           <span style="font-size: 0.72rem; color: var(--text-muted);">Bajo índice glucémico + fibra y aguacate.</span>
                         </div>
                       </label>
                       <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 1px solid #CFE0BE; cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
-                        <input type="radio" name="clin" style="margin-top: 3px; accent-color: var(--avo-primary);">
+                        <input type="radio" name="clin" value="❤️ Presión Arterial" onchange="updateClinicalProtocol()" style="margin-top: 3px; accent-color: var(--avo-primary);">
                         <div>
                           <strong style="font-size: 0.82rem; display: block;">❤️ 2. Presión Arterial</strong>
                           <span style="font-size: 0.72rem; color: var(--text-muted);">Bajo en sodio oculto, rico en potasio.</span>
                         </div>
                       </label>
                       <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 1px solid #CFE0BE; cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
-                        <input type="radio" name="clin" style="margin-top: 3px; accent-color: var(--avo-primary);">
+                        <input type="radio" name="clin" value="🌿 Colitis y Gastritis" onchange="updateClinicalProtocol()" style="margin-top: 3px; accent-color: var(--avo-primary);">
                         <div>
                           <strong style="font-size: 0.82rem; display: block;">🌿 3. Colitis y Gastritis</strong>
                           <span style="font-size: 0.72rem; color: var(--text-muted);">Desinflamación abdominal sin irritantes.</span>
@@ -3053,8 +3070,8 @@
                     <div style="background: #FFFFFF; padding: 9px 14px; border-radius: 11px; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
                       <span style="font-weight: 800;">⚖️ ¿Combinar Control Clínico con pérdida de peso?</span>
                       <div style="display: flex; gap: 14px; font-weight: 700;">
-                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" checked style="accent-color: var(--coral);"> Sí, Control Clínico + Bajar de Peso</label>
-                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" style="accent-color: var(--coral);"> Solo Control Clínico + Mantener Peso</label>
+                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" value="+ Bajar Peso" checked onchange="updateClinicalProtocol()" style="accent-color: var(--coral);"> Sí, Control Clínico + Bajar de Peso</label>
+                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" value="+ Mantener Peso" onchange="updateClinicalProtocol()" style="accent-color: var(--coral);"> Solo Control Clínico + Mantener Peso</label>
                       </div>
                     </div>
                   </div>
@@ -3089,12 +3106,12 @@
               </div>
 
               <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 18px;">
-                <div class="modern-field" style="margin: 0;"><label>Edad</label><div class="modern-input-box"><input type="number" value="34" style="padding: 11px 12px;"></div></div>
-                <div class="modern-field" style="margin: 0;"><label>Estatura (cm)</label><div class="modern-input-box"><input type="number" value="162" style="padding: 11px 12px;"></div></div>
-                <div class="modern-field" style="margin: 0;"><label>Peso Actual (kg)</label><div class="modern-input-box"><input type="number" value="68.4" style="padding: 11px 12px;"></div></div>
-                <div class="modern-field" style="margin: 0;"><label>Peso Meta (kg)</label><div class="modern-input-box"><input type="number" value="62.0" style="padding: 11px 12px;"></div></div>
-                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cintura (cm)*</label><div class="modern-input-box"><input type="number" id="inp-waist" value="79" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
-                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cadera (cm)*</label><div class="modern-input-box"><input type="number" id="inp-hip" value="99" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Edad</label><div class="modern-input-box"><input type="number" id="inp-age" value="34" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Estatura (cm)</label><div class="modern-input-box"><input type="number" id="inp-height" value="162" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Peso Actual (kg)</label><div class="modern-input-box"><input type="number" step="0.1" id="inp-weight" value="68.4" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Peso Meta (kg)</label><div class="modern-input-box"><input type="number" step="0.1" id="inp-weight-goal" value="62.0" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cintura (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-waist" value="79" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
+                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cadera (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-hip" value="99" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
               </div>
 
               <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
@@ -3266,11 +3283,11 @@
 
                       <div class="modern-field" style="margin-bottom: 10px;">
                         <label>Nuevo Peso (kg)</label>
-                        <div class="modern-input-box"><input type="number" value="68.4" style="padding: 11px 14px;"></div>
+                        <div class="modern-input-box"><input type="number" step="0.1" id="checkin-weight" value="68.4" style="padding: 11px 14px;"></div>
                       </div>
                       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
-                        <div class="modern-field" style="margin: 0;"><label>Cintura (cm)</label><div class="modern-input-box"><input type="number" value="79" style="padding: 11px 14px;"></div></div>
-                        <div class="modern-field" style="margin: 0;"><label>Cadera (cm)</label><div class="modern-input-box"><input type="number" value="99" style="padding: 11px 14px;"></div></div>
+                        <div class="modern-field" style="margin: 0;"><label>Cintura (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-waist" value="79" style="padding: 11px 14px;"></div></div>
+                        <div class="modern-field" style="margin: 0;"><label>Cadera (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-hip" value="99" style="padding: 11px 14px;"></div></div>
                       </div>
 
                       <div class="modern-field" style="margin-bottom: 12px;">
@@ -3284,7 +3301,7 @@
                     </div>
 
                     <div>
-                      <button class="btn-enter-club" style="margin-top: 0;" onclick="this.innerHTML='<span>✅ ¡Semana Calibrada con IA!</span>'">
+                      <button class="btn-enter-club" style="margin-top: 0;" onclick="submitWeeklyCheckin(this)">
                         <span>🧠 Recalibrar Semana con IA</span>
                       </button>
                       <div style="text-align: center; margin-top: 10px;">
@@ -4311,15 +4328,200 @@
       }
     }, 11000);
 
-    // Entrar a la plataforma con 1 solo clic
+    // =========================================================================
+    // ESTADO CENTRALIZADO Y AUTOMÁTICO DE LA PLATAFORMA (TOP BAR, PERFIL, SIDEBAR, DASHBOARD)
+    // =========================================================================
+    const clubState = {
+      week: 3,
+      streakDays: 18,
+      xp: 750,
+      maxXp: 1000,
+      initialWeight: 71.2,
+      initialWaist: 83.0,
+      initialHip: 101.5,
+      activeProtocol: '🩸 Control Insulina + Bajar Peso',
+      seedPlanted: false,
+      checkinDone: false
+    };
+
+    const moduleGreetings = {
+      'mod-dashboard': '¡Tu cuerpo te agradece hoy!',
+      'mod-perfil': 'Este es tu expediente personal sincronizado ✨',
+      'mod-onboarding': 'Calibra tus objetivos y medidas reales 🎯',
+      'mod-plan': 'Tu menú semanal mexicano está listo 🥑',
+      'mod-porciones': 'Tus manos son tu guía de porciones 🖐️',
+      'mod-recetario': 'Recetas deliciosas avaladas por Arianna 👩‍⚕️',
+      'mod-ejercicios': 'Activa tu sensibilidad a la insulina hoy 🏃‍♀️',
+      'mod-foro': 'Comparte e inspírate con la comunidad 📸',
+      'mod-semilla': 'Respira profundo, esta semilla es para ti 🌱'
+    };
+
+    function getTimeOfDayGreeting() {
+      const hr = new Date().getHours();
+      if (hr < 12) return '¡Buenos días! Tu cuerpo te agradece hoy ✨';
+      if (hr < 19) return '¡Buenas tardes! Cada hábito suma a tu salud 🥑';
+      return '¡Buenas noches! Descansa y celebra tu constancia 🌙';
+    }
+
+    function syncPlatformState() {
+      // 1. Fecha real automática en español en el Top Banner
+      const dateEl = document.getElementById('top-date-label');
+      if (dateEl) {
+        try {
+          const now = new Date();
+          const fmt = now.toLocaleDateString('es-MX', { weekday: 'short', day: 'numeric', month: 'short' });
+          dateEl.innerText = fmt.charAt(0).toUpperCase() + fmt.slice(1);
+        } catch (e) {
+          dateEl.innerText = 'Hoy';
+        }
+      }
+
+      // 2. Semana y Protocolo en Top Banner, Sidebar y Perfil
+      const weekEl = document.getElementById('top-week-label');
+      if (weekEl) weekEl.innerText = `Semana ${clubState.week}`;
+
+      const cleanProto = clubState.activeProtocol.replace(/^[^\wÁÉÍÓÚáéíóúÑñ]+\s*/, '');
+      const topProtoEl = document.getElementById('top-protocol-label');
+      if (topProtoEl) topProtoEl.innerText = `Protocolo: ${cleanProto}`;
+
+      const sideGoalEl = document.getElementById('sidebar-goal-text');
+      if (sideGoalEl) sideGoalEl.innerText = clubState.activeProtocol;
+
+      const profProtoEl = document.getElementById('prof-stat-protocol');
+      if (profProtoEl) profProtoEl.innerText = clubState.activeProtocol;
+
+      // 3. Medidas en vivo (Peso, Meta, Cintura, Cadera e ICC)
+      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const weightGoal = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
+      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79);
+      const hip = parseFloat(document.getElementById('inp-hip')?.value || 99);
+
+      const weightDiff = (weight - clubState.initialWeight).toFixed(1);
+      const weightDiffStr = weightDiff <= 0 ? `${weightDiff} kg` : `+${weightDiff} kg`;
+
+      const waistDiff = (waist - clubState.initialWaist).toFixed(1);
+      const waistDiffStr = waistDiff <= 0 ? `${waistDiff} cm` : `+${waistDiff} cm`;
+
+      const hipDiff = (hip - clubState.initialHip).toFixed(1);
+      const hipDiffStr = hipDiff <= 0 ? `${hipDiff} cm` : `+${hipDiff} cm`;
+
+      const icc = (waist > 0 && hip > 0) ? (waist / hip).toFixed(2) : '0.80';
+      const iccHealthy = parseFloat(icc) < 0.85;
+
+      // Top Banner Cintura Pill
+      const topWaistEl = document.getElementById('top-waist-text');
+      if (topWaistEl) topWaistEl.innerText = `${waist} cm (${waistDiffStr})`;
+
+      // Módulo 1 Badge ICC
+      const badgeIcc = document.getElementById('live-icc-badge');
+      if (badgeIcc) {
+        badgeIcc.innerHTML = `📏 Índice Cintura/Cadera Calculado: <strong>${icc} (${iccHealthy ? 'Saludable ✅' : 'Prioridad Desinflamación 🩺'})</strong>`;
+      }
+
+      // Dashboard Métricas y Gráfica
+      const dashWeight = document.getElementById('dash-stat-weight');
+      if (dashWeight) dashWeight.innerHTML = `${weight.toFixed(1)} kg <span style="font-size: 0.75rem; color: var(--avo-primary);">${weightDiffStr}</span>`;
+      const dashWaist = document.getElementById('dash-stat-waist');
+      if (dashWaist) dashWaist.innerHTML = `${waist} cm <span style="font-size: 0.75rem; color: var(--coral);">${waistDiffStr}</span>`;
+      const dashHip = document.getElementById('dash-stat-hip');
+      if (dashHip) dashHip.innerHTML = `${hip} cm <span style="font-size: 0.75rem; color: var(--avo-primary);">${hipDiffStr}</span>`;
+      const dashIcc = document.getElementById('dash-stat-icc');
+      if (dashIcc) dashIcc.innerHTML = `${icc} <span style="font-size: 0.72rem; color: var(--avo-primary);">${iccHealthy ? 'Óptimo' : 'En ajuste'}</span>`;
+      const dashChartToday = document.getElementById('dash-chart-today');
+      if (dashChartToday) dashChartToday.textContent = `Hoy: ${weight.toFixed(1)}kg (${waist}cm)`;
+
+      // Perfil Métricas Sincronizadas
+      const profWeight = document.getElementById('prof-stat-weight');
+      if (profWeight) profWeight.innerHTML = `${weight.toFixed(1)} kg <span style="font-size: 0.76rem; color: #FDE68A;">(Meta: ${weightGoal.toFixed(0)} kg)</span>`;
+      const profWeightDiff = document.getElementById('prof-stat-weight-diff');
+      if (profWeightDiff) profWeightDiff.innerText = `${weightDiffStr} desde el inicio (${clubState.initialWeight} kg)`;
+      const profWaist = document.getElementById('prof-stat-waist');
+      if (profWaist) profWaist.innerText = `${waist} cm / ${hip} cm`;
+      const profWaistDiff = document.getElementById('prof-stat-waist-diff');
+      if (profWaistDiff) profWaistDiff.innerText = `${waistDiffStr} de cintura (Inicio: ${clubState.initialWaist} cm)`;
+      const profIcc = document.getElementById('prof-stat-icc');
+      if (profIcc) profIcc.innerText = icc;
+      const profIccStatus = document.getElementById('prof-stat-icc-status');
+      if (profIccStatus) profIccStatus.innerText = iccHealthy ? '✅ Rango Cardioprotector' : '🩺 En Desinflamación Activa';
+
+      // 4. Racha y XP sincronizados en Top Banner, Sidebar, Dashboard y Perfil
+      const topStreak = document.getElementById('top-streak-text');
+      if (topStreak) topStreak.innerText = `${clubState.streakDays} Días en Racha`;
+
+      const xpPct = Math.min(100, Math.round((clubState.xp / clubState.maxXp) * 100));
+      const xpRem = Math.max(0, clubState.maxXp - clubState.xp);
+      const isQueen = clubState.xp >= clubState.maxXp;
+      const rankLabel = isQueen ? '👑 Rango: Reina Saludable' : '🥑 Rango: Aguacate Hass';
+
+      const sideRank = document.getElementById('sidebar-rank-text');
+      if (sideRank) sideRank.innerText = rankLabel;
+      const sideXp = document.getElementById('sidebar-xp-text');
+      if (sideXp) sideXp.innerText = `${clubState.xp} / ${clubState.maxXp} XP`;
+      const sideBar = document.getElementById('sidebar-xp-bar');
+      if (sideBar) sideBar.style.width = `${xpPct}%`;
+
+      const profRank = document.getElementById('prof-header-rank');
+      if (profRank) profRank.innerText = isQueen ? '👑 Rango Reina Saludable' : '👑 Rango Aguacate Hass';
+      const profXpHead = document.getElementById('prof-xp-heading');
+      if (profXpHead) profXpHead.innerText = `Medallas Ganadas (${clubState.xp} XP)`;
+      const profXpRem = document.getElementById('prof-xp-remaining');
+      if (profXpRem) {
+        profXpRem.innerHTML = isQueen
+          ? '🎉 ¡Felicidades! Alcanzaste el rango <strong>Reina Saludable 👑</strong>'
+          : `Te faltan <strong>${xpRem} XP</strong> para el rango <strong>Reina Saludable 👑</strong>:`;
+      }
+
+      const dashRank = document.getElementById('dash-rank-title');
+      if (dashRank) dashRank.innerText = rankLabel.replace(/^[^\w]+\s*/, '');
+      const dashXpSub = document.getElementById('dash-xp-sub');
+      if (dashXpSub) {
+        dashXpSub.innerHTML = isQueen
+          ? '🎉 ¡Nivel máximo desbloqueado: <strong>Reina Saludable 👑</strong>!'
+          : `A ${xpRem} XP de alcanzar <strong>Reina Saludable 👑</strong>`;
+      }
+      const dashBar = document.getElementById('dash-xp-bar');
+      if (dashBar) dashBar.style.width = `${xpPct}%`;
+    }
+
+    // Rotación automática suave del mensaje superior cada 10 segundos
+    let topPhraseIdx = 0;
+    setInterval(() => {
+      const appView = document.getElementById('app-view');
+      if (!appView || appView.style.display === 'none') return;
+      const phraseEl = document.getElementById('top-dynamic-phrase');
+      const titleH1 = document.getElementById('top-greeting-title');
+      if (!phraseEl || !titleH1) return;
+
+      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79);
+      const waistDiff = (waist - clubState.initialWaist).toFixed(1);
+      const dynamicPhrases = [
+        getTimeOfDayGreeting(),
+        `Llevas ${waistDiff} cm de cintura y ${clubState.streakDays} días en racha 🔥`,
+        `Semana ${clubState.week} activa • Comer rico y sin culpa es tu superpoder 🥑`,
+        `¡Tu cuerpo te agradece cada hábito de hoy! 💚`
+      ];
+      topPhraseIdx = (topPhraseIdx + 1) % dynamicPhrases.length;
+      titleH1.style.opacity = '0.2';
+      setTimeout(() => {
+        phraseEl.innerText = dynamicPhrases[topPhraseIdx];
+        titleH1.style.opacity = '1';
+      }, 380);
+    }, 10000);
+
+    // Entrar a la plataforma con 1 solo clic: SIEMPRE aterriza en Dashboard & Progreso por defecto
     function enterPlatform(initialModule) {
+      const loginEmail = document.getElementById('login-email-inp')?.value;
+      const profEmail = document.getElementById('prof-inp-email');
+      if (loginEmail && profEmail) profEmail.value = loginEmail;
+
       document.getElementById('login-view').style.display = 'none';
       document.getElementById('app-view').style.display = 'block';
       window.scrollTo(0, 0);
+
+      const targetMod = initialModule || 'mod-dashboard';
+      openModule(targetMod, document.getElementById('nav-' + targetMod));
+      syncPlatformState();
       window.dispatchEvent(new Event('resize'));
-      if (initialModule) {
-        openModule(initialModule, document.getElementById('nav-' + initialModule));
-      }
     }
 
     function backToLogin() {
@@ -4342,9 +4544,94 @@
         if (profCard) profCard.classList.add('active-profile');
       } else if (navEl && navEl.classList.contains('nav-item')) {
         navEl.classList.add('active');
+      } else {
+        const fallbackNav = document.getElementById('nav-' + modId);
+        if (fallbackNav) fallbackNav.classList.add('active');
       }
+
+      // Actualizar saludo contextual en el Top Banner al cambiar de módulo
+      const phraseEl = document.getElementById('top-dynamic-phrase');
+      if (phraseEl && moduleGreetings[modId]) {
+        phraseEl.innerText = moduleGreetings[modId];
+      }
+
+      syncPlatformState();
       // Asegurar que el lienzo de frutitas cubra siempre el 100% de cualquier módulo/página activa
       setTimeout(() => window.dispatchEvent(new Event('resize')), 50);
+    }
+
+    // Guardar datos editables del Perfil Personal y actualizar Sidebar, Top Banner y Login en tiempo real
+    function saveUserProfile(btnEl) {
+      const rawName = (document.getElementById('prof-inp-name')?.value || 'Mariana Gómez').trim();
+      const rawCity = (document.getElementById('prof-inp-city')?.value || 'Guadalajara, Jalisco').trim();
+      const rawEmail = (document.getElementById('prof-inp-email')?.value || 'mariana.gomez@avocadoclub.mx').trim();
+
+      const firstName = rawName.split(' ')[0] || 'Mariana';
+      const shortCity = rawCity.split(',')[0] || 'México';
+
+      const sideName = document.getElementById('sidebar-user-name');
+      if (sideName) sideName.innerText = rawName;
+      const sideSub = document.getElementById('sidebar-user-sub');
+      if (sideSub) sideSub.innerText = `👑 Socia VIP • ${shortCity}`;
+
+      const topFirst = document.getElementById('top-user-firstname');
+      if (topFirst) topFirst.innerText = firstName;
+
+      const profHeadName = document.getElementById('prof-header-name');
+      if (profHeadName) profHeadName.innerText = rawName;
+      const profHeadCity = document.getElementById('prof-header-city');
+      if (profHeadCity) profHeadCity.innerText = `📍 ${rawCity} • Socia VIP Activa`;
+
+      const loginEmail = document.getElementById('login-email-inp');
+      if (loginEmail && rawEmail) loginEmail.value = rawEmail;
+
+      if (btnEl) {
+        const orig = btnEl.innerHTML;
+        btnEl.innerHTML = '<span>✅ ¡Perfil Actualizado!</span>';
+        setTimeout(() => { btnEl.innerHTML = orig; }, 2200);
+      }
+    }
+
+    // Cambiar contraseña de la socia desde su Perfil
+    function updateUserPassword(btnEl) {
+      const p1 = document.getElementById('prof-pass-new')?.value || '';
+      const p2 = document.getElementById('prof-pass-confirm')?.value || '';
+      const fb = document.getElementById('prof-pass-feedback');
+      if (p1.length < 6) {
+        if (fb) {
+          fb.style.color = 'var(--coral)';
+          fb.innerText = '⚠️ Ingresa una contraseña de al menos 6 caracteres.';
+        }
+        return;
+      }
+      if (p1 !== p2) {
+        if (fb) {
+          fb.style.color = 'var(--coral)';
+          fb.innerText = '⚠️ Las contraseñas no coinciden. Verifica ambos campos.';
+        }
+        return;
+      }
+      const loginPass = document.getElementById('login-pass-inp');
+      if (loginPass) loginPass.value = p1;
+      if (fb) {
+        fb.style.color = 'var(--avo-primary)';
+        fb.innerText = '✅ Contraseña actualizada correctamente para tu próximo inicio de sesión.';
+      }
+      if (btnEl) {
+        const orig = btnEl.innerHTML;
+        btnEl.innerHTML = '<span>✅ Contraseña Guardada</span>';
+        setTimeout(() => { btnEl.innerHTML = orig; }, 2400);
+      }
+    }
+
+    // Actualizar protocolo clínico desde los radio buttons de Módulo 1
+    function updateClinicalProtocol() {
+      const clinRadio = document.querySelector('input[name="clin"]:checked');
+      const weightRadio = document.querySelector('input[name="clin_weight"]:checked');
+      const clinVal = clinRadio ? clinRadio.value : '🩸 Control Insulina';
+      const weightVal = weightRadio ? weightRadio.value : '+ Bajar Peso';
+      clubState.activeProtocol = `${clinVal} ${weightVal}`;
+      syncPlatformState();
     }
 
     // Giro 3D de altura fija en el Módulo 1 al alternar entre Control Clínico y Objetivos Fitness
@@ -4355,22 +4642,54 @@
       if (!flipBox) return;
       if (isClinical) {
         flipBox.classList.remove('is-flipped');
+        updateClinicalProtocol();
       } else {
-        if (titleText) document.getElementById('fitness-obj-title').innerText = 'Objetivo: ' + titleText;
+        if (titleText) {
+          document.getElementById('fitness-obj-title').innerText = 'Objetivo: ' + titleText;
+          clubState.activeProtocol = '⚡ ' + titleText;
+        }
         if (descText) document.getElementById('fitness-obj-desc').innerText = descText;
         flipBox.classList.add('is-flipped');
+        syncPlatformState();
       }
     }
 
-    // Calculadora en vivo de Índice Cintura/Cadera en Módulo 1
+    // Calculadora en vivo de Índice Cintura/Cadera en Módulo 1 (sincroniza Top Bar, Perfil y Dashboard)
     function calcLiveICC() {
       const w = parseFloat(document.getElementById('inp-waist')?.value || 79);
       const h = parseFloat(document.getElementById('inp-hip')?.value || 99);
-      const badge = document.getElementById('live-icc-badge');
-      if (w > 0 && h > 0 && badge) {
-        const icc = (w / h).toFixed(2);
-        const status = icc < 0.85 ? 'Saludable ✅' : 'Prioridad Desinflamación 🩺';
-        badge.innerHTML = `📏 Índice Cintura/Cadera Calculado: <strong>${icc} (${status})</strong>`;
+      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const cw = document.getElementById('checkin-waist');
+      const ch = document.getElementById('checkin-hip');
+      const cWeight = document.getElementById('checkin-weight');
+      if (cw) cw.value = w;
+      if (ch) ch.value = h;
+      if (cWeight) cWeight.value = weight;
+      syncPlatformState();
+    }
+
+    // Cierre semanal en Módulo 2: actualiza medidas, avanza a Semana 4 y suma +100 XP
+    function submitWeeklyCheckin(btnEl) {
+      const cWeight = parseFloat(document.getElementById('checkin-weight')?.value || 68.4);
+      const cWaist = parseFloat(document.getElementById('checkin-waist')?.value || 79);
+      const cHip = parseFloat(document.getElementById('checkin-hip')?.value || 99);
+
+      const inpW = document.getElementById('inp-weight');
+      const inpWaist = document.getElementById('inp-waist');
+      const inpHip = document.getElementById('inp-hip');
+      if (inpW) inpW.value = cWeight;
+      if (inpWaist) inpWaist.value = cWaist;
+      if (inpHip) inpHip.value = cHip;
+
+      if (!clubState.checkinDone) {
+        clubState.checkinDone = true;
+        clubState.week = 4;
+        clubState.streakDays += 1;
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 100);
+      }
+      syncPlatformState();
+      if (btnEl) {
+        btnEl.innerHTML = '<span>✅ ¡Semana 4 Calibrada! (+100 XP)</span>';
       }
     }
 
@@ -4519,12 +4838,20 @@
       const slot = document.getElementById('today-seed-slot');
       const icon = document.getElementById('today-seed-icon');
       const streak = document.getElementById('seed-streak-badge');
+      const topSeedText = document.getElementById('top-semilla-text');
       if (slot) {
         slot.classList.remove('today');
         slot.classList.add('sprouted');
       }
       if (icon) icon.innerText = '🌱';
-      if (streak) streak.innerHTML = '🔥 19 Días en Racha (+25 XP)';
+      if (!clubState.seedPlanted) {
+        clubState.seedPlanted = true;
+        clubState.streakDays += 1;
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
+      }
+      if (streak) streak.innerHTML = `🔥 ${clubState.streakDays} Días en Racha (+25 XP)`;
+      if (topSeedText) topSeedText.innerText = '🌱 Semilla Sembrada ✓';
+      syncPlatformState();
       if (btnEl) {
         btnEl.innerText = '✅ ¡Semilla de hoy sembrada con éxito! (+25 XP)';
         btnEl.style.background = 'var(--avo-dark)';
