@@ -1665,96 +1665,320 @@
       }
 
       .sidebar {
-        padding: 18px 16px;
+        padding: 14px 14px 12px;
         width: 100%;
         max-width: 100vw;
         height: auto;
         position: relative;
         border-right: none;
         border-bottom: 2px solid rgba(143, 209, 79, 0.38);
+        gap: 8px;
       }
 
-      /* Menú de módulos en cuadrícula táctil de 2 columnas en móvil para acceso rápido */
+      .sidebar-brand {
+        gap: 11px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+
+      .sidebar-brand .logo-emblem-svg {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 14px !important;
+      }
+
+      .user-profile-widget {
+        padding: 11px 13px;
+        margin-bottom: 10px;
+        border-radius: 16px;
+      }
+
+      .profile-goal-bubble {
+        margin: 8px 0 7px;
+        padding: 5px 10px;
+        font-size: 0.72rem;
+      }
+
+      /* Menú de módulos como barra horizontal deslizable tipo App nativa en celular */
       .nav-menu {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 7px;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        gap: 8px;
+        padding: 2px 2px 6px;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .nav-menu::-webkit-scrollbar {
+        display: none;
       }
 
       .nav-item {
-        padding: 9px 10px;
+        flex: 0 0 auto;
+        width: auto;
+        white-space: nowrap;
+        padding: 8px 13px;
         font-size: 0.76rem;
         gap: 7px;
+        margin-bottom: 0 !important;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(197, 240, 153, 0.18);
+      }
+
+      .nav-item.active {
+        transform: none !important;
       }
 
       .nav-item i {
-        width: 24px;
-        height: 24px;
-        font-size: 0.78rem;
+        width: 22px;
+        height: 22px;
+        font-size: 0.75rem;
       }
 
       .nav-item .badge-nav {
         display: none;
       }
 
+      .sidebar-footer-box {
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 8px !important;
+        gap: 8px !important;
+      }
+
+      .sidebar-nutri-pill {
+        flex: 1;
+        min-width: 0;
+        padding: 6px 10px !important;
+      }
+
+      .btn-logout-sidebar {
+        width: auto !important;
+        padding: 8px 12px !important;
+        font-size: 0.74rem !important;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
       .main-area {
-        padding: 18px 14px 40px;
+        padding: 14px 12px 36px;
         width: 100%;
         max-width: 100vw;
+        overflow-x: hidden;
       }
 
       .top-bar {
-        padding: 16px 16px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 14px;
         border-radius: 20px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         gap: 12px;
       }
 
-      .top-bar h1 {
-        font-size: 1.35rem !important;
-        line-height: 1.2;
+      .top-bar-header {
+        align-items: flex-start !important;
+        gap: 11px !important;
       }
 
+      .top-bar-avo-icon {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 13px !important;
+        font-size: 1.25rem !important;
+      }
+
+      #top-protocol-subtitle {
+        font-size: 0.64rem !important;
+        line-height: 1.35;
+        gap: 4px !important;
+      }
+
+      .top-bar h1,
+      #top-greeting-title {
+        font-size: 1.16rem !important;
+        line-height: 1.22 !important;
+        margin-top: 2px;
+      }
+
+      /* Píldoras del Top Banner en cuadrícula simétrica de 2 columnas en móvil */
       .streak-banner {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
         width: 100%;
         gap: 7px;
       }
 
       .streak-pill {
-        font-size: 0.73rem;
-        padding: 7px 11px;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.72rem;
+        padding: 8px 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+      }
+
+      #top-btn-logout {
+        grid-column: span 2;
+        width: 100%;
+        justify-content: center;
+        padding: 8px 12px !important;
+        font-size: 0.76rem !important;
+      }
+
+      .modules-3d-viewport {
+        min-height: 0 !important;
+        perspective: none !important;
       }
 
       .bento-grid {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
       }
 
       .bento-card {
-        padding: 18px 16px;
-        border-radius: 22px;
+        padding: 16px 14px;
+        border-radius: 20px;
       }
 
-      /* En celular, las tarjetas 3D Flip conservan su giro 180° pero ajustan su altura automáticamente para nunca cortar contenido */
+      /* En celular, las tarjetas 3D muestran únicamente la cara activa con altura 100% natural y animación suave */
+      @keyframes mobileFlipCardIn {
+        0% {
+          opacity: 0;
+          transform: translateY(6px) scale(0.98);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
       .flip-stage-3d {
         height: auto !important;
         min-height: 0 !important;
+        perspective: none !important;
       }
 
       .flip-inner-3d {
-        display: grid;
+        position: relative !important;
+        display: block !important;
         height: auto !important;
+        transform: none !important;
+        transform-style: flat !important;
       }
 
-      .flip-face-3d {
-        grid-area: 1 / 1;
+      .flip-stage-3d:not(.is-flipped) > .flip-inner-3d > .flip-face-3d.front {
         position: relative !important;
         inset: auto !important;
         height: auto !important;
-        padding: 18px 16px !important;
-        border-radius: 22px;
+        transform: none !important;
+        display: flex !important;
+        padding: 16px 14px !important;
+        border-radius: 20px;
         gap: 14px;
+        animation: mobileFlipCardIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .flip-stage-3d:not(.is-flipped) > .flip-inner-3d > .flip-face-3d.back {
+        display: none !important;
+      }
+
+      .flip-stage-3d.is-flipped > .flip-inner-3d > .flip-face-3d.front {
+        display: none !important;
+      }
+
+      .flip-stage-3d.is-flipped > .flip-inner-3d > .flip-face-3d.back {
+        position: relative !important;
+        inset: auto !important;
+        height: auto !important;
+        transform: none !important;
+        display: flex !important;
+        padding: 16px 14px !important;
+        border-radius: 20px;
+        gap: 14px;
+        animation: mobileFlipCardIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* Ajustes de Perfil (#mod-perfil) en celular */
+      .prof-header-banner {
+        padding: 12px 13px !important;
+        gap: 12px !important;
+        border-radius: 16px !important;
+      }
+
+      .prof-header-banner img {
+        width: 54px !important;
+        height: 54px !important;
+        border-radius: 14px !important;
+      }
+
+      #prof-header-name {
+        font-size: 1.12rem !important;
+      }
+
+      .prof-inputs-grid,
+      .prof-pass-grid {
+        grid-template-columns: 1fr !important;
+        gap: 9px !important;
+      }
+
+      .prof-actions-footer {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+      }
+
+      .prof-actions-footer > button,
+      .prof-actions-sub {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      .prof-actions-sub > button {
+        flex: 1 !important;
+        justify-content: center !important;
+      }
+
+      .prof-stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+
+      #prof-stat-weight,
+      #prof-stat-waist,
+      #prof-stat-icc {
+        font-size: 0.96rem !important;
+      }
+
+      /* Ajustes de Dashboard (#mod-dashboard) en celular */
+      .dash-metrics-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      #dash-stat-weight,
+      #dash-stat-waist,
+      #dash-stat-hip,
+      #dash-stat-icc {
+        font-size: 1.12rem !important;
+      }
+
+      .dash-clinical-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+
+      #flip-dash-chart svg {
+        height: auto !important;
+        min-height: 115px;
       }
 
       .obj-grid,
@@ -2503,8 +2727,8 @@
         </div>
 
         <!-- PIE DEL SIDEBAR CON CONEXIÓN DE NUTRIÓLOGA ARIANNA + CERRAR SESIÓN -->
-        <div style="padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 9px;">
-          <div style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(197,240,153,0.2); border-radius: 13px; padding: 8px 11px;">
+        <div class="sidebar-footer-box" style="padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 9px;">
+          <div class="sidebar-nutri-pill" style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(197,240,153,0.2); border-radius: 13px; padding: 8px 11px;">
             <img src="nutriologa_arianna.jpg" alt="Nutrióloga Arianna" style="width: 34px; height: 34px; border-radius: 10px; object-fit: cover; object-position: center top; border: 1.5px solid var(--avo-bright); flex-shrink: 0;">
             <div style="min-width: 0;">
               <div style="font-size: 0.74rem; font-weight: 800; color: #FFFFFF; white-space: nowrap;">Nutrióloga Arianna</div>
@@ -2512,21 +2736,21 @@
             </div>
           </div>
           <button class="btn-logout-sidebar" onclick="backToLogin()">
-            <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+            <i class="fa-solid fa-right-from-bracket"></i> <span>Cerrar Sesión</span>
           </button>
         </div>
       </aside>
 
       <!-- ÁREA PRINCIPAL DE CONTENIDO (PANEL DERECHO CON GLOW UP Y FONDO DINÁMICO DE FRUTAS Y VERDURAS) -->
-      <main class="main-area">
+      <main class="main-area" id="app-main-area">
         <canvas id="veggie-canvas-app" class="floating-veggie-canvas"></canvas>
         
         <div class="top-bar">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))" title="Ir a Dashboard & Progreso" style="width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(135deg, var(--avo-pale), #D5ECC0); border: 1.5px solid #B5D99C; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 6px 14px rgba(104, 163, 50, 0.15); flex-shrink: 0; cursor: pointer;">
+          <div class="top-bar-header" style="display: flex; align-items: center; gap: 14px;">
+            <div class="top-bar-avo-icon" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))" title="Ir a Dashboard & Progreso" style="width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(135deg, var(--avo-pale), #D5ECC0); border: 1.5px solid #B5D99C; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 6px 14px rgba(104, 163, 50, 0.15); flex-shrink: 0; cursor: pointer;">
               🥑
             </div>
-            <div>
+            <div style="min-width: 0; flex: 1;">
               <div id="top-protocol-subtitle" style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.73rem; font-weight: 800; color: var(--avo-primary); text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap;">
                 <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--avo-primary); display: inline-block;"></span>
                 <span id="top-week-label">Semana 3</span> • <span id="top-protocol-label">Protocolo: Control Insulina + Bajar Peso</span> • <span id="top-date-label" style="color: var(--avo-forest);">Hoy</span>
@@ -2581,7 +2805,7 @@
                       </div>
 
                       <!-- Cabecera sincronizada en vivo -->
-                      <div style="display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #142B1F 0%, #214532 100%); padding: 14px 18px; border-radius: 18px; color: #FFFFFF; margin-bottom: 12px; border: 1.5px solid rgba(197,240,153,0.3);">
+                      <div class="prof-header-banner" style="display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #142B1F 0%, #214532 100%); padding: 14px 18px; border-radius: 18px; color: #FFFFFF; margin-bottom: 12px; border: 1.5px solid rgba(197,240,153,0.3);">
                         <div style="position: relative; flex-shrink: 0;">
                           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80" alt="Foto de Perfil" style="width: 66px; height: 66px; border-radius: 18px; object-fit: cover; border: 2.5px solid #FDE68A; box-shadow: 0 8px 20px rgba(0,0,0,0.35);">
                           <span style="position: absolute; bottom: -4px; right: -4px; background: var(--avo-primary); color: #fff; font-size: 0.65rem; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #142B1F;"><i class="fa-solid fa-check"></i></span>
@@ -2601,7 +2825,7 @@
                       </div>
 
                       <!-- Campos editables que actualizan toda la plataforma en tiempo real -->
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                      <div class="prof-inputs-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                         <div class="modern-field" style="margin: 0;">
                           <label style="font-size: 0.68rem; margin-bottom: 4px;">NOMBRE COMPLETO</label>
                           <div class="modern-input-box">
@@ -2629,11 +2853,11 @@
                       </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
+                    <div class="prof-actions-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
                       <button type="button" class="btn-flip-trigger" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))">
                         📊 Ir a Dashboard & Progreso
                       </button>
-                      <div style="display: flex; gap: 8px;">
+                      <div class="prof-actions-sub" style="display: flex; gap: 8px;">
                         <button type="button" class="btn-flip-trigger coral-flip" onclick="toggleCardFlip('flip-profile-main')">
                           🔒 Cambiar Contraseña
                         </button>
@@ -2647,7 +2871,7 @@
                   <!-- CARA TRASERA: SEGURIDAD DE ACCESO, CAMBIO DE CONTRASEÑA Y PORTAL HOTMART -->
                   <div class="flip-face-3d back">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
                         <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-shield-halved"></i> SEGURIDAD DE ACCESO Y CUENTA</span>
                         <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-profile-main')">
                           <i class="fa-solid fa-rotate-left"></i> Volver a Mis Datos
@@ -2658,7 +2882,7 @@
                         Actualiza tu contraseña de acceso al portal o administra tu suscripción directamente en Hotmart:
                       </p>
 
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                      <div class="prof-pass-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
                         <div class="modern-field" style="margin: 0;">
                           <label style="font-size: 0.68rem; margin-bottom: 4px;">NUEVA CONTRASEÑA</label>
                           <div class="modern-input-box">
@@ -2688,8 +2912,8 @@
                       </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
-                      <button type="button" onclick="backToLogin()" style="background: #FFF1EE; border: 1.5px solid #F5C2B8; color: var(--coral); padding: 9px 15px; border-radius: 11px; font-family: inherit; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                    <div class="prof-actions-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
+                      <button type="button" onclick="backToLogin()" style="background: #FFF1EE; border: 1.5px solid #F5C2B8; color: var(--coral); padding: 9px 15px; border-radius: 11px; font-family: inherit; font-weight: 800; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
                         <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
                       </button>
                       <button type="button" class="btn-enter-club" style="width: auto; padding: 10px 18px; font-size: 0.82rem; margin: 0;" onclick="updateUserPassword(this)">
@@ -2708,7 +2932,7 @@
                   <!-- CARA FRONTAL: RESUMEN DE MEDIDAS Y OBJETIVO SINCRONIZADO CON MÓDULOS 1 Y 2 -->
                   <div class="flip-face-3d front" style="background: linear-gradient(160deg, #142B1F 0%, #234733 100%); color: #FFFFFF;">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                         <span class="card-label gold" style="margin: 0;">📊 EXPEDIENTE SINCRONIZADO</span>
                         <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-profile-stats')">
                           Mis Medallas <i class="fa-solid fa-rotate"></i>
@@ -2717,7 +2941,7 @@
                       <h3 style="font-size: 1.24rem; color: #FFFFFF; margin-bottom: 3px;">Tus Medidas y Meta Actual</h3>
                       <p style="font-size: 0.76rem; color: #C5F099; margin-bottom: 10px;">Conectado automáticamente con <strong>1. Objetivos y Medidas</strong>:</p>
 
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+                      <div class="prof-stats-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
                         <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(197,240,153,0.25); border-radius: 13px; padding: 9px 11px;">
                           <div style="font-size: 0.65rem; color: #C5F099; font-weight: 800;">PROTOCOLO ACTIVO</div>
                           <div id="prof-stat-protocol" style="font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; color: #FFFFFF; margin-top: 2px;">🩸 Control Insulina + Bajar Peso</div>
@@ -2825,7 +3049,7 @@
                       </div>
                       <h3 style="font-size: 1.4rem; color: var(--avo-dark); margin-bottom: 12px;">Progreso Real: Báscula + Centímetros</h3>
 
-                      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
+                      <div class="dash-metrics-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
                         <div class="metric-well">
                           <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">PESO ACTUAL</div>
                           <div id="dash-stat-weight" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">68.4 kg <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.8 kg</span></div>
@@ -2875,7 +3099,7 @@
                         En mujeres con resistencia a la insulina o inflamación, el indicador más exacto es el <strong>Índice Cintura-Cadera (ICC)</strong>:
                       </p>
 
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                      <div class="dash-clinical-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
                         <div class="metric-well" style="background: #FFFFFF;">
                           <div style="font-weight: 800; color: var(--avo-primary); font-size: 0.85rem; margin-bottom: 4px;">✅ Zona Cardioprotectora (&lt; 0.85)</div>
                           <p style="font-size: 0.8rem; color: var(--text-main); line-height: 1.45;">
@@ -4547,6 +4771,13 @@
       } else {
         const fallbackNav = document.getElementById('nav-' + modId);
         if (fallbackNav) fallbackNav.classList.add('active');
+      }
+
+      const activeNav = document.querySelector('.nav-item.active');
+      if (activeNav && window.innerWidth <= 768) {
+        try {
+          activeNav.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } catch (e) {}
       }
 
       // Actualizar saludo contextual en el Top Banner al cambiar de módulo
