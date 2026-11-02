@@ -3228,8 +3228,8 @@
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                           <span class="card-label" style="margin: 0;"><i class="fa-solid fa-chart-line"></i> EVOLUCIÓN REAL SINCRONIZADA</span>
                           <div class="chart-metric-tabs">
-                            <button type="button" class="chart-tab-pill active" id="chart-tab-waist" onclick="switchChartMetric('waist', this)">📏 Cintura (cm)</button>
-                            <button type="button" class="chart-tab-pill" id="chart-tab-weight" onclick="switchChartMetric('weight', this)">⚖️ Peso (kg)</button>
+                            <button type="button" class="chart-tab-pill active" id="chart-tab-weight" onclick="switchChartMetric('weight', this)">⚖️ Peso (kg)</button>
+                            <button type="button" class="chart-tab-pill" id="chart-tab-waist" onclick="switchChartMetric('waist', this)">📏 Cintura (cm)</button>
                             <button type="button" class="chart-tab-pill" id="chart-tab-icc" onclick="switchChartMetric('icc', this)">🫀 Índice ICC</button>
                           </div>
                         </div>
@@ -3262,10 +3262,10 @@
                       <div style="background: linear-gradient(165deg, #11261B 0%, #1D3E2C 100%); border-radius: 18px; padding: 12px 14px 8px; border: 1.5px solid rgba(197, 240, 153, 0.32); box-shadow: inset 0 2px 12px rgba(0,0,0,0.28), 0 10px 22px rgba(20,43,31,0.12);">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 6px;">
                           <span id="evo-chart-subtitle" style="font-size: 0.74rem; font-weight: 800; color: #C5F099;">
-                            📉 Curva de Desinflamación de Cintura (Toca cualquier punto semanal para inspeccionar)
+                            ⚖️ Evolución de Peso Corporal (Sincronizada con tus registros semanales)
                           </span>
                           <span id="evo-chart-goal-pill" style="font-size: 0.69rem; font-weight: 800; color: #FDE68A; background: rgba(253, 230, 138, 0.14); border: 1px solid rgba(253, 230, 138, 0.4); padding: 2px 9px; border-radius: 99px;">
-                            🎯 Meta Saludable: 75.0 cm
+                            🎯 Peso Meta: 62.0 kg
                           </span>
                         </div>
 
@@ -5160,7 +5160,7 @@
       checkinDone: false,
       workoutDone: false,
       waterBonusAwarded: false,
-      selectedChartMetric: 'waist',
+      selectedChartMetric: 'weight',
       selectedChartWeekIdx: 3,
       selectedWaterDayIdx: 3,
       waterWeekData: [
