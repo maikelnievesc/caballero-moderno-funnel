@@ -5697,26 +5697,8 @@
     }
 
     // =========================================================================
-    // BIO-RADAR METABÓLICO DIARIO + MOTOR AUTOMÁTICO DE CICLOS QUINCENALES (14 DÍAS)
+    // BIO-RADAR METABÓLICO DIARIO + MOTOR EVERGREEN DE CICLOS QUINCENALES POR SOCIA (14 DÍAS)
     // =========================================================================
-    const biweeklyRewardCatalog = [
-      {
-        edition: 'Edición Quincenal #1',
-        shortTitle: '🍰 Postres Sin Azúcar de Arianna',
-        fullTitle: '🍰 Recetario Especial de Postres y Antojos Sin Azúcar (Avalado por Arianna)'
-      },
-      {
-        edition: 'Edición Quincenal #2',
-        shortTitle: '🍫 Antojos Dulces Cero Insulina',
-        fullTitle: '🍫 Colección Quincenal de Antojos Dulces y Chocolatería Fit Sin Azúcar'
-      },
-      {
-        edition: 'Edición Quincenal #3',
-        shortTitle: '🍮 Repostería Mexicana Fit de Arianna',
-        fullTitle: '🍮 Recetario Quincenal de Repostería Mexicana Tradicional Sin Azúcar'
-      }
-    ];
-
     function setBioSignal(key, val) {
       clubState.bioSignals[key] = val;
       if (!clubState.bioRadarBonusAwarded) {
@@ -5728,15 +5710,25 @@
       }
     }
 
-    // Motor automático de Ciclos Quincenales (14 días = 2 semanas) + Reinicio Diario (24h)
+    // Motor Evergreen Individual: Cada socia inicia su propio ciclo de 14 días desde su ingreso,
+    // manteniendo siempre los mismos rewards (Postres Sin Azúcar) sin importar en qué mes entre.
     function checkAndRenderDailyMissionsReset() {
       const now = new Date();
       const todayKey = now.toISOString().slice(0, 10);
-
-      // Cálculo matemático exacto del ciclo de 14 días (2 semanas)
-      const anchorMs = new Date('2026-01-05T00:00:00').getTime();
       const biweeklyMs = 14 * 24 * 60 * 60 * 1000;
-      const elapsedMs = Math.max(0, now.getTime() - anchorMs);
+
+      // Ancla individual por socia (Evergreen: quien entra hoy o en 1 mes vive exactamente el mismo ciclo y reward)
+      let memberAnchorMs = now.getTime() - (4 * 86400000); // Día 5/14 por defecto en su quincena activa
+      try {
+        const storedAnchor = localStorage.getItem('avocado_member_evergreen_anchor_ms');
+        if (storedAnchor) {
+          memberAnchorMs = parseInt(storedAnchor, 10);
+        } else {
+          localStorage.setItem('avocado_member_evergreen_anchor_ms', String(memberAnchorMs));
+        }
+      } catch (e) {}
+
+      const elapsedMs = Math.max(0, now.getTime() - memberAnchorMs);
       const currentCycleIndex = Math.floor(elapsedMs / biweeklyMs);
       const msIntoCycle = elapsedMs % biweeklyMs;
       const msLeftInCycle = biweeklyMs - msIntoCycle;
@@ -5744,19 +5736,18 @@
       const dayOfCycle = Math.min(14, Math.floor(msIntoCycle / 86400000) + 1);
       const daysLeftCycle = Math.max(1, Math.ceil(msLeftInCycle / 86400000));
 
-      // Verificar si cambió el ciclo de 2 semanas (auto-reset quincenal)
+      // Si la socia cumple sus 14 días sin haber completado la meta, su ciclo de 2 semanas se renueva automáticamente
+      // conservando el mismo Reward Evergreen (Postres Sin Azúcar de Arianna) para cero retrabajo.
       try {
-        const savedCycle = localStorage.getItem('avocado_biweekly_cycle_idx');
-        if (savedCycle !== null && parseInt(savedCycle, 10) !== currentCycleIndex) {
-          // Nuevo ciclo de 2 semanas detectado: reinicia progreso quincenal automáticamente
+        const savedCycle = localStorage.getItem('avocado_member_cycle_idx');
+        if (savedCycle !== null && parseInt(savedCycle, 10) !== currentCycleIndex && clubState.xp < clubState.maxXp) {
           clubState.xp = 500;
           clubState.waterBonusAwarded = false;
           clubState.seedPlanted = false;
           clubState.bioRadarBonusAwarded = false;
           clubState.workoutDone = false;
-          clubState.checkinDone = false;
         }
-        localStorage.setItem('avocado_biweekly_cycle_idx', String(currentCycleIndex));
+        localStorage.setItem('avocado_member_cycle_idx', String(currentCycleIndex));
       } catch (e) {}
 
       // Reinicio diario a medianoche de las 4 misiones diarias (+125 XP máx por día)
@@ -5780,13 +5771,12 @@
       }
       const cycleLbl = document.getElementById('dash-biweekly-cycle-label');
       if (cycleLbl) {
-        cycleLbl.innerText = `🗓️ CICLO 2 SEMANAS • DÍA ${dayOfCycle}/14 (QUEDAN ${daysLeftCycle}D)`;
+        cycleLbl.innerText = `🗓️ TU CICLO 14D • DÍA ${dayOfCycle}/14 (QUEDAN ${daysLeftCycle}D)`;
       }
 
-      const activeReward = biweeklyRewardCatalog[currentCycleIndex % biweeklyRewardCatalog.length];
       const dessertTitleEl = document.getElementById('vip-dessert-title');
-      if (dessertTitleEl && activeReward) {
-        dessertTitleEl.innerText = activeReward.shortTitle;
+      if (dessertTitleEl) {
+        dessertTitleEl.innerText = '🍰 Postres Sin Azúcar de Arianna';
       }
 
       return { hrs, mins, dayOfCycle, daysLeftCycle, currentCycleIndex };

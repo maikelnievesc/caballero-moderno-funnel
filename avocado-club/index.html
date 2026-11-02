@@ -4520,38 +4520,63 @@
               </div>
 
               <!-- =======================================================
-                   BÓVEDA DE RECOMPENSA DE NIVEL: RECETARIO ESPECIAL DE POSTRES SIN AZÚCAR DE ARIANNA
-                   BLOQUEADO HASTA ALCANZAR 1,000 XP (RANGO REINA SALUDABLE)
+                   ESCALERA PROGRESIVA EVERGREEN DE 4 RECOMPENSAS QUINCENALES (CADA 2 SEMANAS)
+                   CADA SOCIA AVANZA DEL REWARD #1 AL #4 SIN REPETIR RECOMPENSA Y SIN RETRABAJO MANUAL
                    ======================================================= -->
               <div class="bento-card col-12" id="vip-postres-section" style="background: linear-gradient(135deg, #2D1810 0%, #452417 55%, #1E3828 100%); color: #FFFFFF; padding: 20px 26px; border: 2px solid #FDE68A;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
                   <div>
-                    <span id="vip-postres-badge" class="card-label gold" style="margin-bottom: 6px;">🔒 RECOMPENSA DE NIVEL 1,000 XP • BÓVEDA BLOQUEADA (TIENES 750 / 1,000 XP)</span>
-                    <h3 style="font-size: 1.48rem; color: #FFFFFF; margin-bottom: 4px;">🍰 Recetario Especial de Postres y Antojos Sin Azúcar (Avalado por Arianna)</h3>
-                    <p id="vip-postres-desc" style="font-size: 0.84rem; color: #FDE68A; margin: 0;">
-                      Alcanza <strong>1,000 XP (Rango Reina Saludable 👑)</strong> completando tus Misiones Diarias para desbloquear estas 3 recetas exclusivas sin azúcar:
+                    <span id="vip-postres-badge" class="card-label gold" style="margin-bottom: 6px;">🔒 RUTA DE RECOMPENSAS QUINCENALES • QUINCENA 1 EN CURSO (750 / 1,000 XP)</span>
+                    <h3 id="vip-postres-main-heading" style="font-size: 1.44rem; color: #FFFFFF; margin-bottom: 4px;">🍰 Quincena 1: Recetario de Postres y Antojos Sin Azúcar (Avalado por Arianna)</h3>
+                    <p id="vip-postres-desc" style="font-size: 0.83rem; color: #FDE68A; margin: 0;">
+                      Cada 2 semanas desbloqueas una colección nueva al llegar a <strong>1,000 XP</strong>. Lo que desbloqueas se queda abierto para siempre en tu cuenta:
                     </p>
                   </div>
-                  <button type="button" class="btn-flip-trigger" style="background: rgba(255,255,255,0.12); color: #FDE68A; border-color: #FDE68A;" onclick="goToDailyMissionsFromVault()">
-                    <i class="fa-solid fa-bolt"></i> Ir a mis Misiones Diarias XP
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button type="button" id="btn-advance-next-biweekly" class="btn-flip-trigger" style="display: none; background: #8FD14F; color: #142B1F; border-color: #C5F099; font-weight: 900;" onclick="advanceToNextBiweeklyTier()">
+                      🚀 Iniciar Siguiente Quincena ➔
+                    </button>
+                    <button type="button" class="btn-flip-trigger" style="background: rgba(255,255,255,0.12); color: #FDE68A; border-color: #FDE68A;" onclick="goToDailyMissionsFromVault()">
+                      <i class="fa-solid fa-bolt"></i> Ir a mis Misiones XP
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Pestañas de la Escalera de 4 Quincenas (Evergreen por Socia) -->
+                <div id="vip-tier-tabs-bar" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                  <button type="button" id="tier-tab-0" onclick="selectVaultTier(0)" style="padding: 9px 11px; border-radius: 12px; border: 1.5px solid #FDE68A; background: rgba(253, 230, 138, 0.2); color: #FFFFFF; font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🍰 Q1: Postres Sin Azúcar</span>
+                    <span id="tier-tab-icon-0">🔒</span>
+                  </button>
+                  <button type="button" id="tier-tab-1" onclick="selectVaultTier(1)" style="padding: 9px 11px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.78); font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🌮 Q2: Antojitos Fit MX</span>
+                    <span id="tier-tab-icon-1">🔒</span>
+                  </button>
+                  <button type="button" id="tier-tab-2" onclick="selectVaultTier(2)" style="padding: 9px 11px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.78); font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🥤 Q3: Frappés Anti-Ansiedad</span>
+                    <span id="tier-tab-icon-2">🔒</span>
+                  </button>
+                  <button type="button" id="tier-tab-3" onclick="selectVaultTier(3)" style="padding: 9px 11px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.78); font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🥑 Q4: Cenas 5-Min & Salsas</span>
+                    <span id="tier-tab-icon-3">🔒</span>
                   </button>
                 </div>
               </div>
 
-              <!-- CONTENEDOR DE LAS 3 TARJETAS CON BLOQUEO REAL CUANDO XP < 1,000 -->
+              <!-- CONTENEDOR DE LAS 3 TARJETAS DE LA QUINCENA SELECCIONADA -->
               <div class="vip-desserts-stage">
                 <div id="vip-postres-cards-row" class="vip-desserts-cards-row is-locked-blur">
 
-                  <!-- POSTRE SIN AZÚCAR 1 CON GIRO 3D -->
+                  <!-- TARJETA RECOMPENSA 1 CON GIRO 3D -->
                   <div class="col-4 flip-stage-3d" id="flip-rec-dessert-1" style="height: 295px;">
                     <div class="flip-inner-3d">
                       <div class="flip-face-3d front">
                         <div>
-                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.9); color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍫 0g Azúcar • Sin Harina</span>
+                          <div id="vault-card-img-1" style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span id="vault-card-tag-1" style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.9); color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍫 0g Azúcar • Sin Harina</span>
                           </div>
-                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Brownie Húmedo de Cacao, Aguacate y Nuez</h4>
-                          <p style="font-size: 0.78rem; color: var(--text-muted);">165 kcal • Textura fudgy en 6 min • Rico en magnesio.</p>
+                          <h4 id="vault-card-title-1" style="font-size: 1.05rem; margin-bottom: 4px;">Brownie Húmedo de Cacao, Aguacate y Nuez</h4>
+                          <p id="vault-card-sub-1" style="font-size: 0.78rem; color: var(--text-muted);">165 kcal • Textura fudgy en 6 min • Rico en magnesio.</p>
                         </div>
                         <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
                           Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
@@ -4559,12 +4584,12 @@
                       </div>
                       <div class="flip-face-3d back">
                         <div>
-                          <span class="card-label gold">🍫 POSTRE 1 • CONTROL INSULINA</span>
-                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Brownie de Aguacate (~$22 MXN)</h4>
-                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                          <span id="vault-card-back-badge-1" class="card-label gold">🍫 RECETA 1 • CONTROL INSULINA</span>
+                          <h4 id="vault-card-back-title-1" style="font-size: 0.96rem; margin-bottom: 6px;">Brownie de Aguacate (~$22 MXN)</h4>
+                          <p id="vault-card-ing-1" style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
                             <strong>Ingredientes:</strong> 1/3 aguacate Hass maduro, 1 huevo, 2 cdas cacao 100% sin azúcar, 2 cdas harina de avena o almendra, fruto del monje y nuez picada.
                           </p>
-                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                          <p id="vault-card-prep-1" style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
                             <strong>Preparación:</strong> Mezcla todo con tenedor hasta integrar, vierte en ramekin y hornea 10 min en Airfryer (180°C) o 90 seg en microondas.
                           </p>
                         </div>
@@ -4575,16 +4600,16 @@
                     </div>
                   </div>
 
-                  <!-- POSTRE SIN AZÚCAR 2 CON GIRO 3D -->
+                  <!-- TARJETA RECOMPENSA 2 CON GIRO 3D -->
                   <div class="col-4 flip-stage-3d" id="flip-rec-dessert-2" style="height: 295px;">
                     <div class="flip-inner-3d">
                       <div class="flip-face-3d front">
                         <div>
-                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍮 12g Proteína • Clásico MX</span>
+                          <div id="vault-card-img-2" style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span id="vault-card-tag-2" style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍮 12g Proteína • Clásico MX</span>
                           </div>
-                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Flan Napolitano Fit de Vainilla sin Azúcar</h4>
-                          <p style="font-size: 0.78rem; color: var(--text-muted);">145 kcal • Sin leche condensada • Listo en 10 min.</p>
+                          <h4 id="vault-card-title-2" style="font-size: 1.05rem; margin-bottom: 4px;">Flan Napolitano Fit de Vainilla sin Azúcar</h4>
+                          <p id="vault-card-sub-2" style="font-size: 0.78rem; color: var(--text-muted);">145 kcal • Sin leche condensada • Listo en 10 min.</p>
                         </div>
                         <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
                           Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
@@ -4592,12 +4617,12 @@
                       </div>
                       <div class="flip-face-3d back">
                         <div>
-                          <span class="card-label gold">🍮 POSTRE 2 • ALTO EN PROTEÍNA</span>
-                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Flan Napolitano Fit (~$19 MXN)</h4>
-                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                          <span id="vault-card-back-badge-2" class="card-label gold">🍮 RECETA 2 • ALTO EN PROTEÍNA</span>
+                          <h4 id="vault-card-back-title-2" style="font-size: 0.96rem; margin-bottom: 6px;">Flan Napolitano Fit (~$19 MXN)</h4>
+                          <p id="vault-card-ing-2" style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
                             <strong>Ingredientes:</strong> 2 huevos, 1/2 taza leche de almendra o light, 30g queso crema ligero o panela, 1 cdita extracto de vainilla, canela y alulosa/monk fruit.
                           </p>
-                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                          <p id="vault-card-prep-2" style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
                             <strong>Preparación:</strong> Licúa los ingredientes, vierte en molde individual y cocina a baño maría en sartén tapado por 12 minutos.
                           </p>
                         </div>
@@ -4608,16 +4633,16 @@
                     </div>
                   </div>
 
-                  <!-- POSTRE SIN AZÚCAR 3 CON GIRO 3D -->
+                  <!-- TARJETA RECOMPENSA 3 CON GIRO 3D -->
                   <div class="col-4 flip-stage-3d" id="flip-rec-dessert-3" style="height: 295px;">
                     <div class="flip-inner-3d">
                       <div class="flip-face-3d front">
                         <div>
-                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍓 Probiótico • Sin Horno</span>
+                          <div id="vault-card-img-3" style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span id="vault-card-tag-3" style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍓 Probiótico • Sin Horno</span>
                           </div>
-                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cheesecake en Vaso de Fresas y Almendra</h4>
-                          <p style="font-size: 0.78rem; color: var(--text-muted);">175 kcal • Saciedad total • En 5 minutos sin horno.</p>
+                          <h4 id="vault-card-title-3" style="font-size: 1.05rem; margin-bottom: 4px;">Cheesecake en Vaso de Fresas y Almendra</h4>
+                          <p id="vault-card-sub-3" style="font-size: 0.78rem; color: var(--text-muted);">175 kcal • Saciedad total • En 5 minutos sin horno.</p>
                         </div>
                         <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
                           Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
@@ -4625,12 +4650,12 @@
                       </div>
                       <div class="flip-face-3d back">
                         <div>
-                          <span class="card-label gold">🍓 POSTRE 3 • CERO PICOS GLUCOSA</span>
-                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Cheesecake en Vaso (~$26 MXN)</h4>
-                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                          <span id="vault-card-back-badge-3" class="card-label gold">🍓 RECETA 3 • CERO PICOS GLUCOSA</span>
+                          <h4 id="vault-card-back-title-3" style="font-size: 0.96rem; margin-bottom: 6px;">Cheesecake en Vaso (~$26 MXN)</h4>
+                          <p id="vault-card-ing-3" style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
                             <strong>Ingredientes:</strong> 1/2 taza yogur griego sin azúcar, 2 cdas queso ricota o crema light, ralladura de limón, 5 fresas picadas y 8 almendras tostadas trituradas.
                           </p>
-                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                          <p id="vault-card-prep-3" style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
                             <strong>Preparación:</strong> Coloca base de almendra triturada, añade la crema batida de yogur con limón y corona con fresas frescas.
                           </p>
                         </div>
@@ -5697,26 +5722,8 @@
     }
 
     // =========================================================================
-    // BIO-RADAR METABÓLICO DIARIO + MOTOR AUTOMÁTICO DE CICLOS QUINCENALES (14 DÍAS)
+    // BIO-RADAR METABÓLICO DIARIO + MOTOR EVERGREEN DE CICLOS QUINCENALES POR SOCIA (14 DÍAS)
     // =========================================================================
-    const biweeklyRewardCatalog = [
-      {
-        edition: 'Edición Quincenal #1',
-        shortTitle: '🍰 Postres Sin Azúcar de Arianna',
-        fullTitle: '🍰 Recetario Especial de Postres y Antojos Sin Azúcar (Avalado por Arianna)'
-      },
-      {
-        edition: 'Edición Quincenal #2',
-        shortTitle: '🍫 Antojos Dulces Cero Insulina',
-        fullTitle: '🍫 Colección Quincenal de Antojos Dulces y Chocolatería Fit Sin Azúcar'
-      },
-      {
-        edition: 'Edición Quincenal #3',
-        shortTitle: '🍮 Repostería Mexicana Fit de Arianna',
-        fullTitle: '🍮 Recetario Quincenal de Repostería Mexicana Tradicional Sin Azúcar'
-      }
-    ];
-
     function setBioSignal(key, val) {
       clubState.bioSignals[key] = val;
       if (!clubState.bioRadarBonusAwarded) {
@@ -5728,15 +5735,25 @@
       }
     }
 
-    // Motor automático de Ciclos Quincenales (14 días = 2 semanas) + Reinicio Diario (24h)
+    // Motor Evergreen Individual: Cada socia inicia su propio ciclo de 14 días desde su ingreso,
+    // manteniendo siempre los mismos rewards (Postres Sin Azúcar) sin importar en qué mes entre.
     function checkAndRenderDailyMissionsReset() {
       const now = new Date();
       const todayKey = now.toISOString().slice(0, 10);
-
-      // Cálculo matemático exacto del ciclo de 14 días (2 semanas)
-      const anchorMs = new Date('2026-01-05T00:00:00').getTime();
       const biweeklyMs = 14 * 24 * 60 * 60 * 1000;
-      const elapsedMs = Math.max(0, now.getTime() - anchorMs);
+
+      // Ancla individual por socia (Evergreen: quien entra hoy o en 1 mes vive exactamente el mismo ciclo y reward)
+      let memberAnchorMs = now.getTime() - (4 * 86400000); // Día 5/14 por defecto en su quincena activa
+      try {
+        const storedAnchor = localStorage.getItem('avocado_member_evergreen_anchor_ms');
+        if (storedAnchor) {
+          memberAnchorMs = parseInt(storedAnchor, 10);
+        } else {
+          localStorage.setItem('avocado_member_evergreen_anchor_ms', String(memberAnchorMs));
+        }
+      } catch (e) {}
+
+      const elapsedMs = Math.max(0, now.getTime() - memberAnchorMs);
       const currentCycleIndex = Math.floor(elapsedMs / biweeklyMs);
       const msIntoCycle = elapsedMs % biweeklyMs;
       const msLeftInCycle = biweeklyMs - msIntoCycle;
@@ -5744,19 +5761,18 @@
       const dayOfCycle = Math.min(14, Math.floor(msIntoCycle / 86400000) + 1);
       const daysLeftCycle = Math.max(1, Math.ceil(msLeftInCycle / 86400000));
 
-      // Verificar si cambió el ciclo de 2 semanas (auto-reset quincenal)
+      // Si la socia cumple sus 14 días sin haber completado la meta, su ciclo de 2 semanas se renueva automáticamente
+      // conservando el mismo Reward Evergreen (Postres Sin Azúcar de Arianna) para cero retrabajo.
       try {
-        const savedCycle = localStorage.getItem('avocado_biweekly_cycle_idx');
-        if (savedCycle !== null && parseInt(savedCycle, 10) !== currentCycleIndex) {
-          // Nuevo ciclo de 2 semanas detectado: reinicia progreso quincenal automáticamente
+        const savedCycle = localStorage.getItem('avocado_member_cycle_idx');
+        if (savedCycle !== null && parseInt(savedCycle, 10) !== currentCycleIndex && clubState.xp < clubState.maxXp) {
           clubState.xp = 500;
           clubState.waterBonusAwarded = false;
           clubState.seedPlanted = false;
           clubState.bioRadarBonusAwarded = false;
           clubState.workoutDone = false;
-          clubState.checkinDone = false;
         }
-        localStorage.setItem('avocado_biweekly_cycle_idx', String(currentCycleIndex));
+        localStorage.setItem('avocado_member_cycle_idx', String(currentCycleIndex));
       } catch (e) {}
 
       // Reinicio diario a medianoche de las 4 misiones diarias (+125 XP máx por día)
@@ -5780,13 +5796,12 @@
       }
       const cycleLbl = document.getElementById('dash-biweekly-cycle-label');
       if (cycleLbl) {
-        cycleLbl.innerText = `🗓️ CICLO 2 SEMANAS • DÍA ${dayOfCycle}/14 (QUEDAN ${daysLeftCycle}D)`;
+        cycleLbl.innerText = `🗓️ TU CICLO 14D • DÍA ${dayOfCycle}/14 (QUEDAN ${daysLeftCycle}D)`;
       }
 
-      const activeReward = biweeklyRewardCatalog[currentCycleIndex % biweeklyRewardCatalog.length];
       const dessertTitleEl = document.getElementById('vip-dessert-title');
-      if (dessertTitleEl && activeReward) {
-        dessertTitleEl.innerText = activeReward.shortTitle;
+      if (dessertTitleEl) {
+        dessertTitleEl.innerText = '🍰 Postres Sin Azúcar de Arianna';
       }
 
       return { hrs, mins, dayOfCycle, daysLeftCycle, currentCycleIndex };
