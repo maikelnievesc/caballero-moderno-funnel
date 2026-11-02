@@ -1973,7 +1973,8 @@
 
       .dash-clinical-grid,
       #dash-icc-biomarkers-strip,
-      #water-retro-biomarkers {
+      #water-retro-biomarkers,
+      #bio-actions-grid {
         grid-template-columns: 1fr !important;
         gap: 8px !important;
       }
@@ -3922,56 +3923,80 @@
                   <!-- CARA FRONTAL: BIO-RADAR METABÓLICO DE HOY (EXCLUSIVO PREMIUM) -->
                   <div class="flip-face-3d front" style="background: linear-gradient(145deg, #FFFFFF 0%, #F6FBF2 100%);">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 6px;">
                         <span class="card-label coral" style="margin: 0;">⚡ BIO-RADAR METABÓLICO DE HOY</span>
                         <div style="display: flex; align-items: center; gap: 6px;">
-                          <span id="bio-score-badge" style="font-size: 0.72rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 4px 10px; border-radius: 99px; border: 1px solid #86EFAC;">
+                          <span id="bio-score-badge" style="font-size: 0.71rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 3px 9px; border-radius: 99px; border: 1px solid #86EFAC;">
                             🟢 Paz Glucémica: 96%
                           </span>
-                          <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-bioradar')">
+                          <button type="button" class="btn-flip-trigger" style="padding: 4px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-bioradar')">
                             Proyección Meta <i class="fa-solid fa-rotate"></i>
                           </button>
                         </div>
                       </div>
 
-                      <h3 style="font-size: 1.16rem; color: var(--avo-dark); margin-bottom: 2px;">¿Cómo responde tu cuerpo hoy?</h3>
-                      <p style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 8px;">
-                        Toca tus 3 bio-señales de hoy para recibir el ajuste inmediato de la <strong>Nutrióloga Arianna</strong>:
+                      <h3 style="font-size: 1.14rem; color: var(--avo-dark); margin-bottom: 1px;">¿Cómo responde tu cuerpo hoy?</h3>
+                      <p style="font-size: 0.74rem; color: var(--text-muted); margin-bottom: 6px;">
+                        Toca tus 3 bio-señales (o vuelve a pulsar para cambiar de pauta diaria con la <strong>Nutrióloga Arianna</strong>):
                       </p>
 
-                      <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px;">
-                        <div class="bio-signal-row">
-                          <span style="font-size: 0.77rem; font-weight: 800; color: var(--avo-dark);">🔋 1. Energía después de comer:</span>
+                      <div style="display: flex; flex-direction: column; gap: 5px; margin-bottom: 8px;">
+                        <div class="bio-signal-row" style="padding: 5px 10px;">
+                          <span style="font-size: 0.75rem; font-weight: 800; color: var(--avo-dark);">🔋 1. Energía después de comer:</span>
                           <div class="bio-opt-group">
                             <button type="button" class="bio-opt-btn active-good" id="bio-energy-good" onclick="setBioSignal('energy', 'good')">⚡ Estable y activa</button>
                             <button type="button" class="bio-opt-btn" id="bio-energy-alert" onclick="setBioSignal('energy', 'alert')">🥱 Me dio sueño</button>
                           </div>
                         </div>
-                        <div class="bio-signal-row">
-                          <span style="font-size: 0.77rem; font-weight: 800; color: var(--avo-dark);">🌿 2. Sensación abdominal hoy:</span>
+                        <div class="bio-signal-row" style="padding: 5px 10px;">
+                          <span style="font-size: 0.75rem; font-weight: 800; color: var(--avo-dark);">🌿 2. Sensación abdominal hoy:</span>
                           <div class="bio-opt-group">
                             <button type="button" class="bio-opt-btn active-good" id="bio-belly-good" onclick="setBioSignal('belly', 'good')">✨ Desinflamada</button>
                             <button type="button" class="bio-opt-btn" id="bio-belly-alert" onclick="setBioSignal('belly', 'alert')">🎈 Distensión / Gas</button>
                           </div>
                         </div>
-                        <div class="bio-signal-row">
-                          <span style="font-size: 0.77rem; font-weight: 800; color: var(--avo-dark);">🍫 3. Control de antojos dulces:</span>
+                        <div class="bio-signal-row" style="padding: 5px 10px;">
+                          <span style="font-size: 0.75rem; font-weight: 800; color: var(--avo-dark);">🍫 3. Control de antojos dulces:</span>
                           <div class="bio-opt-group">
                             <button type="button" class="bio-opt-btn active-good" id="bio-craving-good" onclick="setBioSignal('craving', 'good')">🥑 En paz total</button>
                             <button type="button" class="bio-opt-btn" id="bio-craving-alert" onclick="setBioSignal('craving', 'alert')">🍫 Ansiedad dulce</button>
                           </div>
                         </div>
                       </div>
+
+                      <!-- Prescripción clínica profunda colocada inmediatamente debajo de las 3 señales (sin desperdiciar espacio) -->
+                      <div id="bio-prescription-box" style="background: linear-gradient(135deg, #142B1F 0%, #1F4330 100%); color: #FFFFFF; border-radius: 15px; padding: 10px 13px; border: 1px solid rgba(197,240,153,0.38); box-shadow: 0 8px 20px rgba(20, 43, 31, 0.14);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 4px; flex-wrap: wrap;">
+                          <span id="bio-presc-header" style="font-size: 0.66rem; font-weight: 900; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.04em;">
+                            👩‍⚕️ DIAGNÓSTICO PROFUNDO DE ARIANNA • PAUTA #1/5
+                          </span>
+                          <button type="button" id="bio-rotate-btn" onclick="rotateBioPrescriptionVariant()" style="background: rgba(253, 230, 138, 0.16); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 99px; padding: 2px 8px; font-family: inherit; font-size: 0.64rem; font-weight: 800; cursor: pointer;">
+                            🔄 Otra pauta clínica (1/5)
+                          </button>
+                        </div>
+                        <div id="bio-prescription-text" style="font-size: 0.74rem; color: #E2F0D5; line-height: 1.38; margin-bottom: 7px;">
+                          "Tus 3 marcadores están en zona óptima. Hoy tu insulina trabaja sin picos y tu flexibilidad metabólica oxida grasa visceral de forma continua."
+                        </div>
+                        <div id="bio-actions-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding-top: 6px; border-top: 1px solid rgba(197, 240, 153, 0.2);">
+                          <div style="background: rgba(255, 255, 255, 0.07); border-radius: 9px; padding: 5px 8px; border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div style="font-size: 0.58rem; font-weight: 900; color: #8FD14F; text-transform: uppercase;">🍽️ En tu Plato Hoy</div>
+                            <div id="bio-action-plate" style="font-size: 0.69rem; font-weight: 700; color: #FFFFFF; line-height: 1.28; margin-top: 1px;">Proteína + 1/3 aguacate Hass + hojas verdes con limón</div>
+                          </div>
+                          <div style="background: rgba(255, 255, 255, 0.07); border-radius: 9px; padding: 5px 8px; border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div style="font-size: 0.58rem; font-weight: 900; color: #FDE68A; text-transform: uppercase;">⚡ Micro-Hábito / Bebida</div>
+                            <div id="bio-action-hack" style="font-size: 0.69rem; font-weight: 700; color: #FFFFFF; line-height: 1.28; margin-top: 1px;">Infusión tibia de canela Ceilán 30 min después de cenar</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <!-- Prescripción clínica en tiempo real según el Bio-Radar -->
-                    <div id="bio-prescription-box" style="background: linear-gradient(135deg, #142B1F 0%, #214532 100%); color: #FFFFFF; border-radius: 14px; padding: 10px 13px; border: 1px solid rgba(197,240,153,0.35);">
-                      <div style="font-size: 0.67rem; font-weight: 800; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.04em;">
-                        👩‍⚕️ RECETA METABÓLICA DE ARIANNA PARA TU SIGUIENTE COMIDA:
-                      </div>
-                      <div id="bio-prescription-text" style="font-size: 0.76rem; color: #E2F0D5; margin-top: 2px; line-height: 1.38;">
-                        "Tus 3 marcadores están en zona óptima. Hoy tu insulina está trabajando sin picos; mantén tu porción de aguacate Hass en la cena."
-                      </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 4px; font-size: 0.73rem; flex-wrap: wrap; gap: 6px;">
+                      <span id="bio-daily-rotation-note" style="font-weight: 800; color: var(--avo-dark);">
+                        🗓️ Pauta rotativa del día: <strong style="color: var(--avo-primary);">Cambia cada día automáticamente</strong>
+                      </span>
+                      <span style="color: var(--coral); font-weight: 800; cursor: pointer;" onclick="rotateBioPrescriptionVariant()">
+                        ✨ Siguiente recomendación ➔
+                      </span>
                     </div>
                   </div>
 
@@ -6188,13 +6213,29 @@
     ];
 
     function setBioSignal(key, val) {
-      clubState.bioSignals[key] = val;
+      // Si vuelve a tocar la misma opción o cambia de opción, avanza también la variante para que nunca vea la misma respuesta estática
+      if (clubState.bioSignals[key] === val) {
+        clubState.bioVariantOffset = ((clubState.bioVariantOffset || 0) + 1) % 5;
+      } else {
+        clubState.bioSignals[key] = val;
+        clubState.bioVariantOffset = 0;
+      }
       if (!clubState.bioRadarBonusAwarded) {
         clubState.bioRadarBonusAwarded = true;
         clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
         syncPlatformState();
       } else {
         renderBioRadar();
+      }
+    }
+
+    function rotateBioPrescriptionVariant() {
+      clubState.bioVariantOffset = ((clubState.bioVariantOffset || 0) + 1) % 5;
+      renderBioRadar();
+      const box = document.getElementById('bio-prescription-box');
+      if (box) {
+        box.style.transform = 'scale(0.985)';
+        setTimeout(() => { box.style.transform = 'scale(1)'; }, 160);
       }
     }
 
@@ -6387,15 +6428,78 @@
 
       const alerts = Object.values(s).filter(v => v === 'alert').length;
       const scoreBadge = document.getElementById('bio-score-badge');
+      const prescHeader = document.getElementById('bio-presc-header');
+      const rotateBtn = document.getElementById('bio-rotate-btn');
       const prescText = document.getElementById('bio-prescription-text');
+      const actionPlate = document.getElementById('bio-action-plate');
+      const actionHack = document.getElementById('bio-action-hack');
+      const dailyRotNote = document.getElementById('bio-daily-rotation-note');
       if (!scoreBadge || !prescText) return;
+
+      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
+      const waistDiff = (waist - clubState.initialWaist).toFixed(1);
+      const waistDiffStr = waistDiff <= 0 ? `${waistDiff} cm` : `+${waistDiff} cm`;
+
+      // Semilla diaria automática (cambia cada día de la semana aunque la socia responda exactamente igual) + rotación manual
+      const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const now = new Date();
+      const todayName = dayNames[now.getDay()];
+      const dayOfYearSeed = Math.floor(now.getTime() / 86400000);
+      const offset = clubState.bioVariantOffset || 0;
+      const variantIdx = (dayOfYearSeed + offset) % 5;
+      const variantNumber = variantIdx + 1;
+
+      if (rotateBtn) {
+        rotateBtn.innerText = `🔄 Otra pauta clínica (${variantNumber}/5)`;
+      }
+      if (dailyRotNote) {
+        dailyRotNote.innerHTML = `🗓️ Pauta activa de <strong>${todayName}</strong> (Opción ${variantNumber} de 5): <strong style="color: var(--avo-primary);">Cambia cada día automáticamente</strong>`;
+      }
 
       if (alerts === 0) {
         scoreBadge.style.background = '#DCFCE7';
         scoreBadge.style.color = '#166534';
         scoreBadge.style.borderColor = '#86EFAC';
         scoreBadge.innerText = '🟢 Paz Glucémica: 96%';
-        prescText.innerText = '"Tus 3 bio-marcadores están en zona óptima hoy. Tu insulina trabaja sin picos y tu microbiota está desinflamada; mantén tu porción de aguacate Hass en la cena."';
+
+        const optimalVariants = [
+          {
+            title: `👩‍⚕️ PAUTA ÓPTIMA #${variantNumber}/5 (${todayName.toUpperCase()}) • FLEXIBILIDAD METABÓLICA`,
+            text: `"Tus 3 marcadores están en zona óptima hoy. Tu curva de insulina post-comida se mantiene plana, permitiendo que tu hígado oxide ácidos grasos viscerales y consolide tus ${waistDiffStr} de cintura (${waist} cm)."`,
+            plate: 'Pechuga o pescado a la plancha + 1/3 aguacate Hass + nopales asados con orégano',
+            hack: 'Infusión tibia de canela Ceilán 30 min después de cenar para potenciar sensibilidad insulínica'
+          },
+          {
+            title: `👩‍⚕️ PAUTA ÓPTIMA #${variantNumber}/5 (${todayName.toUpperCase()}) • MICROBIOTA & LEPTINA EN PAZ`,
+            text: `"Al no presentar distensión ni sueño postprandial hoy, tu nervio vago envía señales de saciedad limpia al hipotálamo y evitas picos de cortisol nocturno que acumulan grasa abdominal."`,
+            plate: 'Omelette de claras y huevo entero con espinacas, 30g queso panela y guacamole natural',
+            hack: 'Cena 2.5 horas antes de dormir para activar autofagia y quema de grasa nocturna'
+          },
+          {
+            title: `👩‍⚕️ PAUTA ÓPTIMA #${variantNumber}/5 (${todayName.toUpperCase()}) • PROTECCIÓN MUSCULAR & METABÓLICA`,
+            text: `"Estabilidad glucémica del 96%: tus mitocondrias están utilizando grasa como combustible primario sin depender de glucosa rápida, protegiendo tu tono muscular mientras bajas medidas."`,
+            plate: 'Ensalada tibia de fajitas magras, calabacita salteada, semillas de hemp y aguacate Hass',
+            hack: 'Agrega 1 cdita de aceite de oliva extra virgen en crudo y jugo de limón a tus vegetales'
+          },
+          {
+            title: `👩‍⚕️ PAUTA ÓPTIMA #${variantNumber}/5 (${todayName.toUpperCase()}) • EQUILIBRIO HORMONAL DOPAMÍNICO`,
+            text: `"Cero ansiedad dulce hoy significa que tus receptores de dopamina y grelina están regulados por el aporte de grasas monoinsaturadas y fibra soluble de tu protocolo actual."`,
+            plate: 'Tostadas horneadas con tinga de pollo deshebrada, lechuga, panela y rebanadas de aguacate',
+            hack: 'Toma 1 vaso de agua mineral con rodajas de pepino y limón a media tarde'
+          },
+          {
+            title: `👩‍⚕️ PAUTA ÓPTIMA #${variantNumber}/5 (${todayName.toUpperCase()}) • OXIDACIÓN HEPÁTICA PROFUNDA`,
+            text: `"Tu digestión ligera y energía estable confirman cero inflamación intestinal de bajo grado hoy. Es el momento ideal para acelerar la reducción de cintura sin pasar hambre."`,
+            plate: 'Caldo tlalpeño limpio con pollo, verduras cocidas, garbanzos moderados y aguacate fresco',
+            hack: 'Realiza 10 respiraciones diafragmáticas antes de dormir para bajar cortisol basal'
+          }
+        ];
+
+        const chosen = optimalVariants[variantIdx];
+        if (prescHeader) prescHeader.innerText = chosen.title;
+        prescText.innerText = chosen.text;
+        if (actionPlate) actionPlate.innerText = chosen.plate;
+        if (actionHack) actionHack.innerText = chosen.hack;
       } else {
         scoreBadge.style.background = '#FEF3C7';
         scoreBadge.style.color = '#92400E';
@@ -6403,11 +6507,120 @@
         const scoreVal = alerts === 1 ? 82 : (alerts === 2 ? 68 : 55);
         scoreBadge.innerText = `🟡 Ajuste Metabólico: ${scoreVal}%`;
 
-        const tips = [];
-        if (s.energy === 'alert') tips.push('empieza tu próxima comida por las verduras y camina 10 min al terminar para evitar el pico de insulina');
-        if (s.belly === 'alert') tips.push('prefiere vegetales cocidos hoy y toma infusión tibia de manzanilla con jengibre');
-        if (s.craving === 'alert') tips.push('prepara hoy el Brownie o Mousse de Cacao con Aguacate del Recetario sin Azúcar para saciar dopamina sin elevar glucosa');
-        prescText.innerText = `"Ajuste inmediato de Arianna: ${tips.join('; además, ')}."`;
+        // Banco clínico profundo de 5 variantes para cada síntoma activo, combinándose dinámicamente según lo seleccionado
+        const energyAlertVariants = [
+          {
+            diag: 'El sueño post-comida indica un pico rápido de glucosa seguido de una caída reactiva de insulina.',
+            plate: 'Inicia tu plato por 1 taza de verduras fibrosas (nopales/brócoli) antes de tocar el carbohidrato',
+            hack: 'Camina 10 minutos a paso ligero justo al terminar de comer para activar transportadores GLUT-4'
+          },
+          {
+            diag: 'La fatiga después de comer refleja que el carbohidrato entró al torrente sanguíneo sin suficiente escudo de grasa y proteína.',
+            plate: 'Sustituye arroz/pasta hoy por calabacitas con queso panela y 1/3 de aguacate Hass',
+            hack: 'Toma 1 vaso de agua con 1 cda de vinagre de manzana orgánico 10 min antes de tu siguiente comida'
+          },
+          {
+            diag: 'Tu páncreas liberó insulina extra para procesar la última comida, desviando energía hacia almacenamiento.',
+            plate: 'Prioriza proteína limpia (pollo/pescado/huevo) + grasas buenas y reduce a 1 sola tortilla de maíz',
+            hack: 'Evita beber jugos o fruta sola; acompáñala siempre con 8 almendras o nueces'
+          },
+          {
+            diag: 'El bajón de energía vespertino ocurre cuando el pico glucémico frena temporalmente la oxigenación celular.',
+            plate: 'Arma tu cena con base verde cocida, proteína magra y aguacate para blindar tu glucosa nocturna',
+            hack: 'Toma té verde o infusión de romero con limón (sin endulzar) antes de las 5:00 PM'
+          },
+          {
+            diag: 'Tu sensibilidad a la insulina necesita desacelerar el vaciamiento gástrico en la próxima comida.',
+            plate: 'Mastica cada bocado 15 veces e incluye semillas de chía o ajonjolí sobre tus vegetales y aguacate',
+            hack: 'Haz 15 sentadillas suaves o sube escaleras 3 minutos después de tu comida principal'
+          }
+        ];
+
+        const bellyAlertVariants = [
+          {
+            diag: 'La distensión y gas hoy señalan fermentación rápida de fibras crudas o fructanos en tu microbiota.',
+            plate: 'Suspende vegetales crudos (lechuga/brócoli crudo) hoy; come calabacita, chayote o zanahoria cocidos',
+            hack: 'Toma infusión tibia de manzanilla, jengibre fresco y anís estrella 20 min después de comer'
+          },
+          {
+            diag: 'Tu intestino presenta retención de gas por tránsito lento o sensibilidad temporal a lácteos/leguminosas.',
+            plate: 'Prefiere proteína suave (pollo o pescado al vapor/plancha) con aguacate Hass y arroz blanco moderado',
+            hack: 'Prepara té tibio de hierbabuena con 3 rodajas de jengibre y evita bebidas con gas hoy'
+          },
+          {
+            diag: 'La inflamación abdominal de hoy activa retención hídrica protectora en la pared intestinal.',
+            plate: 'Cocina tus verduras al vapor con laurel y orégano; evita hoy frijoles, coliflor y salsas muy condimentadas',
+            hack: 'Aplica calor suave en el abdomen 10 min por la noche y toma agua tibia con limón al despertar'
+          },
+          {
+            diag: 'Cuando hay distensión, la digestión enzimática necesita platos sencillos de máximo 4 ingredientes.',
+            plate: 'Caldo de verduras colado con pechuga deshebrada, cubitos de calabaza cocida y 1/3 de aguacate',
+            hack: 'No tomes líquidos helados durante la comida; prefiere agua al tiempo o infusión de hinojo'
+          },
+          {
+            diag: 'Tu mucosa digestiva requiere reposo fermentativo hoy para recuperar tus centímetros de cintura mañana.',
+            plate: 'Rollitos de pechuga o claras con espinaca cocida y aguacate Hass (cero harinas ni lácteos pesados hoy)',
+            hack: 'Camina 8 minutos suaves después de cenar para estimular la motilidad intestinal natural'
+          }
+        ];
+
+        const cravingAlertVariants = [
+          {
+            diag: 'La ansiedad dulce de hoy es una búsqueda cerebral de dopamina rápida o un descenso brusco de glucosa.',
+            plate: 'Prepara hoy el Brownie o Mousse de Cacao 100% con Aguacate de tu Recetario para saciar sin insulina',
+            hack: 'Toma 1 taza de leche de almendra tibia con cacao puro, canela Ceilán y vainilla a media tarde'
+          },
+          {
+            diag: 'El antojo de azúcar vespertino suele esconder falta de magnesio celular o deshidratación leve.',
+            plate: 'Suma 1/2 taza de yogur griego sin azúcar con 5 fresas, canela en polvo y 6 nueces picadas',
+            hack: 'Bebe 1 vaso grande de agua mineral con limón y pizca de sal antes de decidir comer algo dulce'
+          },
+          {
+            diag: 'Cuando sube el cortisol del día, el cerebro pide azúcar rápida aunque tu cuerpo tenga reservas de energía.',
+            plate: 'Aumenta 30g extra de proteína en tu cena junto con tu porción de aguacate Hass para apagar la grelina',
+            hack: 'Prepara gelatina sin azúcar con cubitos de queso panela o yogur griego y extracto de vainilla'
+          },
+          {
+            diag: 'Tu curva glucémica tuvo una oscilación hoy que disparó la señal de hambre hedónica (antojo dulce).',
+            plate: 'Come 1 rebanada de queso panela asado con canela o 10 almendras tostadas antes de que crezca el antojo',
+            hack: 'Infusión de jamaica concentrada con canela y hielo (el toque ácido corta el deseo de azúcar en 5 min)'
+          },
+          {
+            diag: 'Para romper el ciclo de antojo dulce sin salirte del protocolo, necesitamos grasa saciante + polifenoles.',
+            plate: 'Flan Napolitano Fit o Cheesecake en Vaso sin azúcar (Módulo 4) o 2 cuadritos de chocolate 85% cacao',
+            hack: 'Cepilla tus dientes o toma té de menta tibia justo después de cenar para cerrar la ventana de apetito'
+          }
+        ];
+
+        const diagParts = [];
+        const plateParts = [];
+        const hackParts = [];
+
+        if (s.energy === 'alert') {
+          const v = energyAlertVariants[variantIdx];
+          diagParts.push(v.diag);
+          plateParts.push(v.plate);
+          hackParts.push(v.hack);
+        }
+        if (s.belly === 'alert') {
+          const v = bellyAlertVariants[variantIdx];
+          diagParts.push(v.diag);
+          plateParts.push(v.plate);
+          hackParts.push(v.hack);
+        }
+        if (s.craving === 'alert') {
+          const v = cravingAlertVariants[variantIdx];
+          diagParts.push(v.diag);
+          plateParts.push(v.plate);
+          hackParts.push(v.hack);
+        }
+
+        if (prescHeader) {
+          prescHeader.innerText = `👩‍⚕️ AJUSTE CLÍNICO DE ARIANNA • PAUTA #${variantNumber}/5 (${todayName.toUpperCase()})`;
+        }
+        prescText.innerText = `"${diagParts.join(' Además: ')}"`;
+        if (actionPlate) actionPlate.innerText = plateParts.join(' + ');
+        if (actionHack) actionHack.innerText = hackParts.join(' • ');
       }
     }
 
