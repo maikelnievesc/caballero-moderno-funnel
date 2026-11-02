@@ -2386,6 +2386,9 @@
     }
 
     @media (max-width: 768px) {
+      #vip-tier-tabs-bar {
+        grid-template-columns: 1fr 1fr !important;
+      }
       .vip-desserts-cards-row {
         grid-template-columns: 1fr;
       }
@@ -4520,38 +4523,63 @@
               </div>
 
               <!-- =======================================================
-                   BÓVEDA DE RECOMPENSA DE NIVEL: RECETARIO ESPECIAL DE POSTRES SIN AZÚCAR DE ARIANNA
-                   BLOQUEADO HASTA ALCANZAR 1,000 XP (RANGO REINA SALUDABLE)
+                   ESCALERA PROGRESIVA EVERGREEN DE 4 RECOMPENSAS QUINCENALES (CADA 2 SEMANAS)
+                   CADA SOCIA AVANZA DEL REWARD #1 AL #4 SIN REPETIR RECOMPENSA Y SIN RETRABAJO MANUAL
                    ======================================================= -->
               <div class="bento-card col-12" id="vip-postres-section" style="background: linear-gradient(135deg, #2D1810 0%, #452417 55%, #1E3828 100%); color: #FFFFFF; padding: 20px 26px; border: 2px solid #FDE68A;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
                   <div>
-                    <span id="vip-postres-badge" class="card-label gold" style="margin-bottom: 6px;">🔒 RECOMPENSA DE NIVEL 1,000 XP • BÓVEDA BLOQUEADA (TIENES 750 / 1,000 XP)</span>
-                    <h3 style="font-size: 1.48rem; color: #FFFFFF; margin-bottom: 4px;">🍰 Recetario Especial de Postres y Antojos Sin Azúcar (Avalado por Arianna)</h3>
-                    <p id="vip-postres-desc" style="font-size: 0.84rem; color: #FDE68A; margin: 0;">
-                      Alcanza <strong>1,000 XP (Rango Reina Saludable 👑)</strong> completando tus Misiones Diarias para desbloquear estas 3 recetas exclusivas sin azúcar:
+                    <span id="vip-postres-badge" class="card-label gold" style="margin-bottom: 6px;">🔒 RUTA DE RECOMPENSAS QUINCENALES • QUINCENA 1 EN CURSO (750 / 1,000 XP)</span>
+                    <h3 id="vip-postres-main-heading" style="font-size: 1.44rem; color: #FFFFFF; margin-bottom: 4px;">🍰 Quincena 1: Recetario de Postres y Antojos Sin Azúcar (Avalado por Arianna)</h3>
+                    <p id="vip-postres-desc" style="font-size: 0.83rem; color: #FDE68A; margin: 0;">
+                      Cada 2 semanas desbloqueas una colección nueva al llegar a <strong>1,000 XP</strong>. Lo que desbloqueas se queda abierto para siempre en tu cuenta:
                     </p>
                   </div>
-                  <button type="button" class="btn-flip-trigger" style="background: rgba(255,255,255,0.12); color: #FDE68A; border-color: #FDE68A;" onclick="goToDailyMissionsFromVault()">
-                    <i class="fa-solid fa-bolt"></i> Ir a mis Misiones Diarias XP
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button type="button" id="btn-advance-next-biweekly" class="btn-flip-trigger" style="display: none; background: #8FD14F; color: #142B1F; border-color: #C5F099; font-weight: 900;" onclick="advanceToNextBiweeklyTier()">
+                      🚀 Iniciar Siguiente Quincena ➔
+                    </button>
+                    <button type="button" class="btn-flip-trigger" style="background: rgba(255,255,255,0.12); color: #FDE68A; border-color: #FDE68A;" onclick="goToDailyMissionsFromVault()">
+                      <i class="fa-solid fa-bolt"></i> Ir a mis Misiones XP
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Pestañas de la Escalera de 4 Quincenas (Evergreen por Socia) -->
+                <div id="vip-tier-tabs-bar" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                  <button type="button" id="tier-tab-0" onclick="selectVaultTier(0)" style="padding: 9px 11px; border-radius: 12px; border: 1.5px solid #FDE68A; background: rgba(253, 230, 138, 0.2); color: #FFFFFF; font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🍰 Q1: Postres Sin Azúcar</span>
+                    <span id="tier-tab-icon-0">🔒</span>
+                  </button>
+                  <button type="button" id="tier-tab-1" onclick="selectVaultTier(1)" style="padding: 9px 11px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.78); font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🌮 Q2: Antojitos Fit MX</span>
+                    <span id="tier-tab-icon-1">🔒</span>
+                  </button>
+                  <button type="button" id="tier-tab-2" onclick="selectVaultTier(2)" style="padding: 9px 11px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.78); font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🥤 Q3: Frappés Anti-Ansiedad</span>
+                    <span id="tier-tab-icon-2">🔒</span>
+                  </button>
+                  <button type="button" id="tier-tab-3" onclick="selectVaultTier(3)" style="padding: 9px 11px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.78); font-family: inherit; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🥑 Q4: Cenas 5-Min & Salsas</span>
+                    <span id="tier-tab-icon-3">🔒</span>
                   </button>
                 </div>
               </div>
 
-              <!-- CONTENEDOR DE LAS 3 TARJETAS CON BLOQUEO REAL CUANDO XP < 1,000 -->
+              <!-- CONTENEDOR DE LAS 3 TARJETAS DE LA QUINCENA SELECCIONADA -->
               <div class="vip-desserts-stage">
                 <div id="vip-postres-cards-row" class="vip-desserts-cards-row is-locked-blur">
 
-                  <!-- POSTRE SIN AZÚCAR 1 CON GIRO 3D -->
+                  <!-- TARJETA RECOMPENSA 1 CON GIRO 3D -->
                   <div class="col-4 flip-stage-3d" id="flip-rec-dessert-1" style="height: 295px;">
                     <div class="flip-inner-3d">
                       <div class="flip-face-3d front">
                         <div>
-                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.9); color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍫 0g Azúcar • Sin Harina</span>
+                          <div id="vault-card-img-1" style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span id="vault-card-tag-1" style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.9); color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍫 0g Azúcar • Sin Harina</span>
                           </div>
-                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Brownie Húmedo de Cacao, Aguacate y Nuez</h4>
-                          <p style="font-size: 0.78rem; color: var(--text-muted);">165 kcal • Textura fudgy en 6 min • Rico en magnesio.</p>
+                          <h4 id="vault-card-title-1" style="font-size: 1.05rem; margin-bottom: 4px;">Brownie Húmedo de Cacao, Aguacate y Nuez</h4>
+                          <p id="vault-card-sub-1" style="font-size: 0.78rem; color: var(--text-muted);">165 kcal • Textura fudgy en 6 min • Rico en magnesio.</p>
                         </div>
                         <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
                           Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
@@ -4559,12 +4587,12 @@
                       </div>
                       <div class="flip-face-3d back">
                         <div>
-                          <span class="card-label gold">🍫 POSTRE 1 • CONTROL INSULINA</span>
-                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Brownie de Aguacate (~$22 MXN)</h4>
-                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                          <span id="vault-card-back-badge-1" class="card-label gold">🍫 RECETA 1 • CONTROL INSULINA</span>
+                          <h4 id="vault-card-back-title-1" style="font-size: 0.96rem; margin-bottom: 6px;">Brownie de Aguacate (~$22 MXN)</h4>
+                          <p id="vault-card-ing-1" style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
                             <strong>Ingredientes:</strong> 1/3 aguacate Hass maduro, 1 huevo, 2 cdas cacao 100% sin azúcar, 2 cdas harina de avena o almendra, fruto del monje y nuez picada.
                           </p>
-                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                          <p id="vault-card-prep-1" style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
                             <strong>Preparación:</strong> Mezcla todo con tenedor hasta integrar, vierte en ramekin y hornea 10 min en Airfryer (180°C) o 90 seg en microondas.
                           </p>
                         </div>
@@ -4575,16 +4603,16 @@
                     </div>
                   </div>
 
-                  <!-- POSTRE SIN AZÚCAR 2 CON GIRO 3D -->
+                  <!-- TARJETA RECOMPENSA 2 CON GIRO 3D -->
                   <div class="col-4 flip-stage-3d" id="flip-rec-dessert-2" style="height: 295px;">
                     <div class="flip-inner-3d">
                       <div class="flip-face-3d front">
                         <div>
-                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍮 12g Proteína • Clásico MX</span>
+                          <div id="vault-card-img-2" style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span id="vault-card-tag-2" style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍮 12g Proteína • Clásico MX</span>
                           </div>
-                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Flan Napolitano Fit de Vainilla sin Azúcar</h4>
-                          <p style="font-size: 0.78rem; color: var(--text-muted);">145 kcal • Sin leche condensada • Listo en 10 min.</p>
+                          <h4 id="vault-card-title-2" style="font-size: 1.05rem; margin-bottom: 4px;">Flan Napolitano Fit de Vainilla sin Azúcar</h4>
+                          <p id="vault-card-sub-2" style="font-size: 0.78rem; color: var(--text-muted);">145 kcal • Sin leche condensada • Listo en 10 min.</p>
                         </div>
                         <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
                           Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
@@ -4592,12 +4620,12 @@
                       </div>
                       <div class="flip-face-3d back">
                         <div>
-                          <span class="card-label gold">🍮 POSTRE 2 • ALTO EN PROTEÍNA</span>
-                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Flan Napolitano Fit (~$19 MXN)</h4>
-                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                          <span id="vault-card-back-badge-2" class="card-label gold">🍮 RECETA 2 • ALTO EN PROTEÍNA</span>
+                          <h4 id="vault-card-back-title-2" style="font-size: 0.96rem; margin-bottom: 6px;">Flan Napolitano Fit (~$19 MXN)</h4>
+                          <p id="vault-card-ing-2" style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
                             <strong>Ingredientes:</strong> 2 huevos, 1/2 taza leche de almendra o light, 30g queso crema ligero o panela, 1 cdita extracto de vainilla, canela y alulosa/monk fruit.
                           </p>
-                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                          <p id="vault-card-prep-2" style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
                             <strong>Preparación:</strong> Licúa los ingredientes, vierte en molde individual y cocina a baño maría en sartén tapado por 12 minutos.
                           </p>
                         </div>
@@ -4608,16 +4636,16 @@
                     </div>
                   </div>
 
-                  <!-- POSTRE SIN AZÚCAR 3 CON GIRO 3D -->
+                  <!-- TARJETA RECOMPENSA 3 CON GIRO 3D -->
                   <div class="col-4 flip-stage-3d" id="flip-rec-dessert-3" style="height: 295px;">
                     <div class="flip-inner-3d">
                       <div class="flip-face-3d front">
                         <div>
-                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍓 Probiótico • Sin Horno</span>
+                          <div id="vault-card-img-3" style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span id="vault-card-tag-3" style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍓 Probiótico • Sin Horno</span>
                           </div>
-                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cheesecake en Vaso de Fresas y Almendra</h4>
-                          <p style="font-size: 0.78rem; color: var(--text-muted);">175 kcal • Saciedad total • En 5 minutos sin horno.</p>
+                          <h4 id="vault-card-title-3" style="font-size: 1.05rem; margin-bottom: 4px;">Cheesecake en Vaso de Fresas y Almendra</h4>
+                          <p id="vault-card-sub-3" style="font-size: 0.78rem; color: var(--text-muted);">175 kcal • Saciedad total • En 5 minutos sin horno.</p>
                         </div>
                         <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
                           Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
@@ -4625,12 +4653,12 @@
                       </div>
                       <div class="flip-face-3d back">
                         <div>
-                          <span class="card-label gold">🍓 POSTRE 3 • CERO PICOS GLUCOSA</span>
-                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Cheesecake en Vaso (~$26 MXN)</h4>
-                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                          <span id="vault-card-back-badge-3" class="card-label gold">🍓 RECETA 3 • CERO PICOS GLUCOSA</span>
+                          <h4 id="vault-card-back-title-3" style="font-size: 0.96rem; margin-bottom: 6px;">Cheesecake en Vaso (~$26 MXN)</h4>
+                          <p id="vault-card-ing-3" style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
                             <strong>Ingredientes:</strong> 1/2 taza yogur griego sin azúcar, 2 cdas queso ricota o crema light, ralladura de limón, 5 fresas picadas y 8 almendras tostadas trituradas.
                           </p>
-                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                          <p id="vault-card-prep-3" style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
                             <strong>Preparación:</strong> Coloca base de almendra triturada, añade la crema batida de yogur con limón y corona con fresas frescas.
                           </p>
                         </div>
@@ -5387,6 +5415,9 @@
       workoutDone: false,
       waterBonusAwarded: false,
       bioRadarBonusAwarded: false,
+      activeBiweeklyTier: 0,
+      selectedVaultTier: 0,
+      unlockedTiers: [],
       selectedChartMetric: 'weight',
       selectedChartWeekIdx: 3,
       selectedWaterDayIdx: 3,
@@ -5697,8 +5728,167 @@
     }
 
     // =========================================================================
-    // BIO-RADAR METABÓLICO DIARIO + MOTOR EVERGREEN DE CICLOS QUINCENALES POR SOCIA (14 DÍAS)
+    // ESCALERA PROGRESIVA EVERGREEN DE 4 RECOMPENSAS QUINCENALES (12 RECETAS 3D)
     // =========================================================================
+    const biweeklyRewardCatalog = [
+      {
+        tier: 0,
+        code: 'Q1',
+        shortTitle: '🍰 Postres Sin Azúcar de Arianna',
+        heading: '🍰 Quincena 1: Recetario de Postres y Antojos Sin Azúcar (Avalado por Arianna)',
+        rankTitle: 'Reina Saludable I 👑',
+        recipes: [
+          {
+            img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
+            tag: '🍫 0g Azúcar • Sin Harina',
+            title: 'Brownie Húmedo de Cacao, Aguacate y Nuez',
+            sub: '165 kcal • Textura fudgy en 6 min • Rico en magnesio.',
+            backBadge: '🍫 Q1 RECETA 1 • CONTROL INSULINA',
+            backTitle: 'Brownie de Aguacate (~$22 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1/3 aguacate Hass maduro, 1 huevo, 2 cdas cacao 100% sin azúcar, 2 cdas harina de avena o almendra, fruto del monje y nuez picada.',
+            prep: '<strong>Preparación:</strong> Mezcla todo con tenedor hasta integrar, vierte en ramekin y hornea 10 min en Airfryer (180°C) o 90 seg en microondas.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80',
+            tag: '🍮 12g Proteína • Clásico MX',
+            title: 'Flan Napolitano Fit de Vainilla sin Azúcar',
+            sub: '145 kcal • Sin leche condensada • Listo en 10 min.',
+            backBadge: '🍮 Q1 RECETA 2 • ALTO EN PROTEÍNA',
+            backTitle: 'Flan Napolitano Fit (~$19 MXN)',
+            ing: '<strong>Ingredientes:</strong> 2 huevos, 1/2 taza leche de almendra o light, 30g queso crema ligero o panela, 1 cdita extracto de vainilla, canela y alulosa/monk fruit.',
+            prep: '<strong>Preparación:</strong> Licúa los ingredientes, vierte en molde individual y cocina a baño maría en sartén tapado por 12 minutos.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80',
+            tag: '🍓 Probiótico • Sin Horno',
+            title: 'Cheesecake en Vaso de Fresas y Almendra',
+            sub: '175 kcal • Saciedad total • En 5 minutos sin horno.',
+            backBadge: '🍓 Q1 RECETA 3 • CERO PICOS GLUCOSA',
+            backTitle: 'Cheesecake en Vaso (~$26 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1/2 taza yogur griego sin azúcar, 2 cdas queso ricota o crema light, ralladura de limón, 5 fresas picadas y 8 almendras tostadas trituradas.',
+            prep: '<strong>Preparación:</strong> Coloca base de almendra triturada, añade la crema batida de yogur con limón y corona con fresas frescas.'
+          }
+        ]
+      },
+      {
+        tier: 1,
+        code: 'Q2',
+        shortTitle: '🌮 Antojitos Mexicanos Nocturnos Fit',
+        heading: '🌮 Quincena 2: Antojitos Mexicanos Nocturnos Fit (Cero Culpa)',
+        rankTitle: 'Reina Saludable II 👑',
+        recipes: [
+          {
+            img: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80',
+            tag: '🌮 28g Proteína • Noche Fit',
+            title: 'Tacos al Pastor Fit en Sartén con Aguacate',
+            sub: '240 kcal • Adobo casero sin aceite • Listos en 12 min.',
+            backBadge: '🌮 Q2 RECETA 1 • CENA MEXICANA FIT',
+            backTitle: 'Tacos al Pastor Fit (~$34 MXN)',
+            ing: '<strong>Ingredientes:</strong> 120g pechuga o lomo magro en fajitas, achiote con jugo de naranja/vinagre, 2 tortillas de maíz o nopal, cilantro, cebolla y 1/3 aguacate Hass.',
+            prep: '<strong>Preparación:</strong> Dora la carne marinada en sartén antiadherente con cubitos de piña asada y sirve con aguacate fresco.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80',
+            tag: '🍕 Sin Harina • Alta Fibra',
+            title: 'Pizza Rápida en Sartén de Avena y Oaxaca',
+            sub: '255 kcal • Base crujiente en 8 min • Sin inflamación.',
+            backBadge: '🍕 Q2 RECETA 2 • ANTOJO DE VIERNES',
+            backTitle: 'Pizza Fit en Sartén (~$28 MXN)',
+            ing: '<strong>Ingredientes:</strong> 3 cdas avena molida, 1 huevo, orégano, salsa de jitomate natural, 40g queso Oaxaca light, champiñones, espinaca y aguacate al servir.',
+            prep: '<strong>Preparación:</strong> Forma la base en sartén caliente (3 min por lado), agrega salsa, queso y vegetales, y tapa 2 min hasta gratinar.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=600&q=80',
+            tag: '🌽 Sin Mayonesa • Desinflamatorio',
+            title: 'Esquites Cremosos Fit con Panela y Aguacate',
+            sub: '160 kcal • Aderezo de yogur griego y limón • 7 min.',
+            backBadge: '🌽 Q2 RECETA 3 • COLACIÓN / CENA',
+            backTitle: 'Esquites Cremosos Fit (~$21 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1/2 taza granos de elote tierno cocido con epazote, 1 cda yogur griego natural, 30g queso panela rallado, limón, chile del que no pica y aguacate.',
+            prep: '<strong>Preparación:</strong> Sirve el elote caliente en vaso, mezcla con el yogur griego, limón, queso panela y cubitos de aguacate Hass.'
+          }
+        ]
+      },
+      {
+        tier: 2,
+        code: 'Q3',
+        shortTitle: '🥤 Frappés y Bebidas Anti-Ansiedad',
+        heading: '🥤 Quincena 3: Frappés, Smoothies y Bebidas Hormonales Anti-Ansiedad',
+        rankTitle: 'Reina Esmeralda 💚',
+        recipes: [
+          {
+            img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80',
+            tag: '☕ 0g Azúcar • Energía Limpia',
+            title: 'Frappé Mocha Proteico Cero Insulina',
+            sub: '130 kcal • Apaga el antojo de café de cadena • 4 min.',
+            backBadge: '☕ Q3 RECETA 1 • ENERGÍA METABÓLICA',
+            backTitle: 'Frappé Mocha Fit (~$18 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1 shot de café expreso frío, 1 taza leche de almendra sin azúcar, 1 cda cacao puro, 1/2 scoop proteína o yogur griego, hielo, canela y monk fruit.',
+            prep: '<strong>Preparación:</strong> Licúa a máxima velocidad con bastante hielo hasta lograr punto frappé cremoso y espolvorea cacao encima.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80',
+            tag: '✨ Anti-Cortisol • Sueño Profundo',
+            title: 'Golden Milk Cremosa Desinflamatoria Nocturna',
+            sub: '95 kcal • Baja cortisol y distensión abdominal • 5 min.',
+            backBadge: '✨ Q3 RECETA 2 • DESINFLAMACIÓN NOCTURNA',
+            backTitle: 'Leche Dorada de Arianna (~$15 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1 taza bebida de almendra o coco sin azúcar, 1/2 cdita cúrcuma, 1 pizca pimienta negra, jengibre, canela Ceilán y vainilla.',
+            prep: '<strong>Preparación:</strong> Calienta sin hervir batiendo con espumador por 3 minutos (o sírvela en las rocas con hielo) 1 hora antes de dormir.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=600&q=80',
+            tag: '🍵 Antioxidante • Piel Luminosa',
+            title: 'Matcha & Vainilla Frappé con Aguacate',
+            sub: '140 kcal • Textura de helado sin lácteos pesados • 4 min.',
+            backBadge: '🍵 Q3 RECETA 3 • OXIDACIÓN DE GRASA',
+            backTitle: 'Matcha Frappé Cremoso (~$24 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1 cdita té verde Matcha sin azúcar, 1/4 aguacate Hass (le da cremosidad única sin sabor a aguacate), leche de almendra, vainilla y hielo.',
+            prep: '<strong>Preparación:</strong> Licúa todos los ingredientes durante 45 segundos hasta obtener una espuma verde aterciopelada.'
+          }
+        ]
+      },
+      {
+        tier: 3,
+        code: 'Q4',
+        shortTitle: '🥑 Cenas Express 5-Min y Aderezos Fit',
+        heading: '🥑 Quincena 4: Cenas Express en 5 Minutos y Salsas Cremosas con Aguacate',
+        rankTitle: 'Reina Diamante 💎',
+        recipes: [
+          {
+            img: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80',
+            tag: '🥑 Aderezo Estrella • 3 Min',
+            title: 'Aderezo Ranch & Chipotle Fit de Aguacate',
+            sub: '85 kcal • Transforma cualquier ensalada o pollo • 3 min.',
+            backBadge: '🥑 Q4 RECETA 1 • SALSAS SIN ACEITE',
+            backTitle: 'Aderezo Ranch-Aguacate (~$16 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1/3 aguacate Hass, 3 cdas yogur griego natural, jugo de 1 limón, ajo en polvo, eneldo/cilantro picado y 1/2 chile chipotle opcional.',
+            prep: '<strong>Preparación:</strong> Licúa con 2 cdas de agua fría hasta lograr consistencia de aderezo cremoso. Dura 4 días en refrigeración.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80',
+            tag: '🌯 Cena en 4 Min • 24g Proteína',
+            title: 'Wrap Tibio de Claras, Espinaca, Panela y Guacamole',
+            sub: '225 kcal • Cena completa cuando llegas cansada • 4 min.',
+            backBadge: '🌯 Q4 RECETA 2 • CENA EXPRESS',
+            backTitle: 'Wrap Tibio Anti-Inflamación (~$25 MXN)',
+            ing: '<strong>Ingredientes:</strong> 1 huevo + 2 claras en omelette delgado, 1 puño de espinacas, 30g queso panela en tiras y 1/3 aguacate Hass machacado con limón.',
+            prep: '<strong>Preparación:</strong> Usa el omelette delgado como tortilla o envuelve en 1 tortilla integral tibia, rellena con panela y guacamole.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80',
+            tag: '🥗 Sin Cocinar • 5 Minutos',
+            title: 'Tostadas Horneadas de Aguacate, Cottage y Semillas',
+            sub: '210 kcal • Cero estufa • Saciedad nocturna total.',
+            backBadge: '🥗 Q4 RECETA 3 • CENA SIN ESTUFA',
+            backTitle: 'Tostadas de Aguacate & Cottage (~$23 MXN)',
+            ing: '<strong>Ingredientes:</strong> 2 tostadas de maíz horneadas, 1/2 taza queso cottage o panela desmoronado, 1/3 aguacate Hass en láminas, jitomate cherry y semillas de hemp/ajonjolí.',
+            prep: '<strong>Preparación:</strong> Unta el aguacate sobre las tostadas, corona con el queso cottage, jitomate en mitades y toque de limón.'
+          }
+        ]
+      }
+    ];
+
     function setBioSignal(key, val) {
       clubState.bioSignals[key] = val;
       if (!clubState.bioRadarBonusAwarded) {
@@ -5710,15 +5900,71 @@
       }
     }
 
-    // Motor Evergreen Individual: Cada socia inicia su propio ciclo de 14 días desde su ingreso,
-    // manteniendo siempre los mismos rewards (Postres Sin Azúcar) sin importar en qué mes entre.
+    function selectVaultTier(tierIdx) {
+      clubState.selectedVaultTier = tierIdx;
+      syncPlatformState();
+    }
+
+    // Avanzar al siguiente escalón quincenal una vez desbloqueada la recompensa actual (o al cumplir los 14 días)
+    function advanceToNextBiweeklyTier() {
+      if (clubState.xp >= clubState.maxXp && !clubState.unlockedTiers.includes(clubState.activeBiweeklyTier)) {
+        clubState.unlockedTiers.push(clubState.activeBiweeklyTier);
+      }
+      if (clubState.activeBiweeklyTier < biweeklyRewardCatalog.length - 1) {
+        clubState.activeBiweeklyTier += 1;
+        clubState.selectedVaultTier = clubState.activeBiweeklyTier;
+        clubState.xp = 500;
+        clubState.waterBonusAwarded = false;
+        clubState.seedPlanted = false;
+        clubState.bioRadarBonusAwarded = false;
+        clubState.workoutDone = false;
+        try {
+          localStorage.setItem('avocado_member_evergreen_anchor_ms', String(Date.now()));
+        } catch (e) {}
+        syncPlatformState();
+      }
+    }
+
+    function renderVaultTierCards() {
+      const tierObj = biweeklyRewardCatalog[clubState.selectedVaultTier] || biweeklyRewardCatalog[0];
+      tierObj.recipes.forEach((r, i) => {
+        const n = i + 1;
+        const stage = document.getElementById(`flip-rec-dessert-${n}`);
+        if (stage) stage.classList.remove('is-flipped');
+        const imgEl = document.getElementById(`vault-card-img-${n}`);
+        if (imgEl) imgEl.style.backgroundImage = `url('${r.img}')`;
+        const tagEl = document.getElementById(`vault-card-tag-${n}`);
+        if (tagEl) tagEl.innerText = r.tag;
+        const titleEl = document.getElementById(`vault-card-title-${n}`);
+        if (titleEl) titleEl.innerText = r.title;
+        const subEl = document.getElementById(`vault-card-sub-${n}`);
+        if (subEl) subEl.innerText = r.sub;
+        const bBadgeEl = document.getElementById(`vault-card-back-badge-${n}`);
+        if (bBadgeEl) bBadgeEl.innerText = r.backBadge;
+        const bTitleEl = document.getElementById(`vault-card-back-title-${n}`);
+        if (bTitleEl) bTitleEl.innerText = r.backTitle;
+        const ingEl = document.getElementById(`vault-card-ing-${n}`);
+        if (ingEl) ingEl.innerHTML = r.ing;
+        const prepEl = document.getElementById(`vault-card-prep-${n}`);
+        if (prepEl) prepEl.innerHTML = r.prep;
+      });
+    }
+
+    // Motor Evergreen Individual Progresivo:
+    // 1. Quien entra hoy y quien entra en 1 mes comienzan siempre en Quincena 1 (Q1: Postres Sin Azúcar).
+    // 2. Cuando la socia llega a 1,000 XP, esa colección queda desbloqueada para siempre en su cuenta.
+    // 3. Al cumplirse las 2 semanas (o al avanzar de quincena), pasa automáticamente al siguiente Reward (Q2 -> Q3 -> Q4), sin repetir jamás el mismo premio.
     function checkAndRenderDailyMissionsReset() {
       const now = new Date();
       const todayKey = now.toISOString().slice(0, 10);
       const biweeklyMs = 14 * 24 * 60 * 60 * 1000;
 
-      // Ancla individual por socia (Evergreen: quien entra hoy o en 1 mes vive exactamente el mismo ciclo y reward)
-      let memberAnchorMs = now.getTime() - (4 * 86400000); // Día 5/14 por defecto en su quincena activa
+      // Si alcanzó 1,000 XP en su quincena activa, registrar ese escalón como desbloqueado permanentemente
+      if (clubState.xp >= clubState.maxXp && !clubState.unlockedTiers.includes(clubState.activeBiweeklyTier)) {
+        clubState.unlockedTiers.push(clubState.activeBiweeklyTier);
+      }
+
+      let memberAnchorMs = now.getTime() - (4 * 86400000);
       try {
         const storedAnchor = localStorage.getItem('avocado_member_evergreen_anchor_ms');
         if (storedAnchor) {
@@ -5736,11 +5982,16 @@
       const dayOfCycle = Math.min(14, Math.floor(msIntoCycle / 86400000) + 1);
       const daysLeftCycle = Math.max(1, Math.ceil(msLeftInCycle / 86400000));
 
-      // Si la socia cumple sus 14 días sin haber completado la meta, su ciclo de 2 semanas se renueva automáticamente
-      // conservando el mismo Reward Evergreen (Postres Sin Azúcar de Arianna) para cero retrabajo.
+      // Si se cumplen las 2 semanas automáticamente:
+      // - Si ya había llegado a 1,000 XP, avanza automáticamente al siguiente escalón (Q2, Q3, Q4) para un nuevo premio.
+      // - Si no llegó a 1,000 XP, renueva su ciclo de 14 días para que complete su escalón actual.
       try {
         const savedCycle = localStorage.getItem('avocado_member_cycle_idx');
-        if (savedCycle !== null && parseInt(savedCycle, 10) !== currentCycleIndex && clubState.xp < clubState.maxXp) {
+        if (savedCycle !== null && parseInt(savedCycle, 10) !== currentCycleIndex) {
+          if (clubState.unlockedTiers.includes(clubState.activeBiweeklyTier) && clubState.activeBiweeklyTier < biweeklyRewardCatalog.length - 1) {
+            clubState.activeBiweeklyTier += 1;
+            clubState.selectedVaultTier = clubState.activeBiweeklyTier;
+          }
           clubState.xp = 500;
           clubState.waterBonusAwarded = false;
           clubState.seedPlanted = false;
@@ -5765,21 +6016,23 @@
       const hrs = Math.floor(diffMs / 3600000);
       const mins = Math.floor((diffMs % 3600000) / 60000);
 
+      const activeReward = biweeklyRewardCatalog[clubState.activeBiweeklyTier] || biweeklyRewardCatalog[0];
+
       const timerEl = document.getElementById('daily-reset-timer');
       if (timerEl) {
-        timerEl.innerText = `🗓️ Quincena: ${daysLeftCycle}d • ⏳ Hoy: ${hrs}h ${mins}m`;
+        timerEl.innerText = `🗓️ ${activeReward.code}: ${daysLeftCycle}d • ⏳ Hoy: ${hrs}h ${mins}m`;
       }
       const cycleLbl = document.getElementById('dash-biweekly-cycle-label');
       if (cycleLbl) {
-        cycleLbl.innerText = `🗓️ TU CICLO 14D • DÍA ${dayOfCycle}/14 (QUEDAN ${daysLeftCycle}D)`;
+        cycleLbl.innerText = `🗓️ QUINCENA ${clubState.activeBiweeklyTier + 1}/4 • DÍA ${dayOfCycle}/14 (${daysLeftCycle}D REST.)`;
       }
 
       const dessertTitleEl = document.getElementById('vip-dessert-title');
       if (dessertTitleEl) {
-        dessertTitleEl.innerText = '🍰 Postres Sin Azúcar de Arianna';
+        dessertTitleEl.innerText = activeReward.shortTitle;
       }
 
-      return { hrs, mins, dayOfCycle, daysLeftCycle, currentCycleIndex };
+      return { hrs, mins, dayOfCycle, daysLeftCycle, currentCycleIndex, activeReward };
     }
 
     // Ir o completar misión diaria de XP (con XP a la mitad: +25, +25, +25, +50 = +125 XP/día)
@@ -6174,9 +6427,47 @@
       if (rWork) rWork.classList.toggle('done', !!clubState.workoutDone);
 
       // =======================================================================
-      // BLOQUEO / DESBLOQUEO DE LA RECOMPENSA QUINCENAL DE 1,000 XP
-      // TANTO EN EL DASHBOARD COMO EN EL MÓDULO 4 (RECETARIO)
+      // ESCALERA PROGRESIVA DE 4 RECOMPENSAS QUINCENALES (1,000 XP CADA QUINCENA)
+      // SIN REPETIR RECOMPENSAS Y SIN RETRABAJO MANUAL
       // =======================================================================
+      const activeTierObj = biweeklyRewardCatalog[clubState.activeBiweeklyTier] || biweeklyRewardCatalog[0];
+      const viewingTierObj = biweeklyRewardCatalog[clubState.selectedVaultTier] || activeTierObj;
+
+      if (isQueen && !clubState.unlockedTiers.includes(clubState.activeBiweeklyTier)) {
+        clubState.unlockedTiers.push(clubState.activeBiweeklyTier);
+      }
+
+      const isActiveTierUnlocked = clubState.unlockedTiers.includes(clubState.activeBiweeklyTier);
+      const isViewingTierUnlocked = clubState.unlockedTiers.includes(clubState.selectedVaultTier);
+
+      // Actualizar las 4 pestañas de la escalera en el Módulo 4
+      biweeklyRewardCatalog.forEach((t, idx) => {
+        const tabBtn = document.getElementById(`tier-tab-${idx}`);
+        const tabIcon = document.getElementById(`tier-tab-icon-${idx}`);
+        const unlocked = clubState.unlockedTiers.includes(idx);
+        const isSelected = idx === clubState.selectedVaultTier;
+        if (tabIcon) tabIcon.innerText = unlocked ? '🔓' : (idx === clubState.activeBiweeklyTier ? '⏳' : '🔒');
+        if (tabBtn) {
+          tabBtn.style.border = isSelected ? '1.5px solid #FDE68A' : '1px solid rgba(255,255,255,0.2)';
+          tabBtn.style.background = isSelected
+            ? 'rgba(253, 230, 138, 0.24)'
+            : (unlocked ? 'rgba(104, 163, 50, 0.28)' : 'rgba(0,0,0,0.25)');
+          tabBtn.style.color = (isSelected || unlocked) ? '#FFFFFF' : 'rgba(255,255,255,0.75)';
+        }
+      });
+
+      // Botón para iniciar el siguiente reto quincenal una vez desbloqueado el actual
+      const advBtn = document.getElementById('btn-advance-next-biweekly');
+      if (advBtn) {
+        if (isActiveTierUnlocked && clubState.activeBiweeklyTier < biweeklyRewardCatalog.length - 1) {
+          const nextObj = biweeklyRewardCatalog[clubState.activeBiweeklyTier + 1];
+          advBtn.style.display = 'inline-flex';
+          advBtn.innerHTML = `🚀 Pasar a Quincena ${clubState.activeBiweeklyTier + 2} (${nextObj.shortTitle}) ➔`;
+        } else {
+          advBtn.style.display = 'none';
+        }
+      }
+
       const vaultBox = document.getElementById('vip-dessert-vault-box');
       const vaultTag = document.getElementById('vip-dessert-status-tag');
       const vaultSub = document.getElementById('vip-dessert-sub');
@@ -6186,17 +6477,19 @@
       const vaultBackIcon = document.getElementById('vip-dessert-back-icon');
 
       if (vaultBox && vaultTag && vaultSub && vaultFrontBtn) {
-        if (isQueen) {
+        if (isActiveTierUnlocked) {
           vaultBox.className = 'rank-vault-box is-unlocked';
-          vaultTag.innerText = '🔓 ¡RECOMPENSA QUINCENAL DESBLOQUEADA! • 1,000 XP';
-          vaultSub.innerText = `Acceso activo (${cycleInfo.daysLeftCycle}d restantes del ciclo) 👑`;
+          vaultTag.innerText = `🔓 ¡RECOMPENSA ${activeTierObj.code} DESBLOQUEADA! • 1,000 XP`;
+          vaultSub.innerText = clubState.activeBiweeklyTier < biweeklyRewardCatalog.length - 1
+            ? `Guardada en tu cuenta • Próxima quincena: Recompensa Q${clubState.activeBiweeklyTier + 2}`
+            : `¡Desbloqueaste las 4 colecciones del Club! 👑`;
           vaultFrontBtn.style.background = '#FDE68A';
           vaultFrontBtn.style.color = '#142B1F';
           vaultFrontBtn.style.borderColor = '#F59E0B';
           vaultFrontBtn.innerHTML = 'Abrir Recetas <i class="fa-solid fa-arrow-right"></i>';
         } else {
           vaultBox.className = 'rank-vault-box is-locked';
-          vaultTag.innerText = '🔒 RECOMPENSA QUINCENAL (1,000 XP) • BLOQUEADA';
+          vaultTag.innerText = `🔒 RECOMPENSA QUINCENA ${clubState.activeBiweeklyTier + 1} (1,000 XP) • BLOQUEADA`;
           vaultSub.innerText = `Ciclo 2 semanas: Faltan ${xpRem} XP (${cycleInfo.daysLeftCycle}d restantes)`;
           vaultFrontBtn.style.background = 'rgba(255,255,255,0.12)';
           vaultFrontBtn.style.color = '#FDE68A';
@@ -6206,42 +6499,74 @@
       }
 
       if (vaultBackBtn && vaultBackText && vaultBackIcon) {
-        if (isQueen) {
+        if (isActiveTierUnlocked) {
           vaultBackBtn.style.background = 'linear-gradient(135deg, var(--avo-primary), #4E8220)';
           vaultBackBtn.style.border = 'none';
           vaultBackBtn.style.color = '#FFFFFF';
-          vaultBackText.innerText = '🍰 ¡Bóveda Desbloqueada! Abrir Postres Sin Azúcar';
+          vaultBackText.innerText = `🔓 ¡${activeTierObj.code} Desbloqueada! Abrir ${activeTierObj.shortTitle}`;
           vaultBackIcon.className = 'fa-solid fa-unlock';
         } else {
           vaultBackBtn.style.background = 'rgba(255,255,255,0.1)';
           vaultBackBtn.style.border = '1.5px dashed #FDE68A';
           vaultBackBtn.style.color = '#FDE68A';
-          vaultBackText.innerText = `🔒 Postres Sin Azúcar Bloqueados (Te faltan ${xpRem} XP)`;
+          vaultBackText.innerText = `🔒 ${activeTierObj.shortTitle} (Te faltan ${xpRem} XP)`;
           vaultBackIcon.className = 'fa-solid fa-lock';
         }
       }
 
-      // Estado de bloqueo en Módulo 4 (Recetario -> Sección Postres Sin Azúcar)
+      // Renderizar las 3 tarjetas de la Quincena que está viendo la socia en Módulo 4
+      renderVaultTierCards();
+
       const recBadge = document.getElementById('vip-postres-badge');
+      const recHeading = document.getElementById('vip-postres-main-heading');
       const recDesc = document.getElementById('vip-postres-desc');
       const recCardsRow = document.getElementById('vip-postres-cards-row');
       const recLockOverlay = document.getElementById('vip-postres-lock-overlay');
+      const recLockCycleTag = document.getElementById('vault-lock-cycle-tag');
       const recLockHeadline = document.getElementById('vault-lock-headline');
+      const recLockDesc = document.getElementById('vault-lock-desc');
       const recLockBar = document.getElementById('vault-lock-bar');
 
+      if (recHeading) recHeading.innerText = viewingTierObj.heading;
+
       if (recCardsRow && recLockOverlay) {
-        if (isQueen) {
+        if (isViewingTierUnlocked) {
           recCardsRow.classList.remove('is-locked-blur');
           recLockOverlay.style.display = 'none';
-          if (recBadge) recBadge.innerText = '🔓 ¡RECOMPENSA DESBLOQUEADA! • RANGO REINA SALUDABLE 👑 (1,000 XP)';
-          if (recDesc) recDesc.innerHTML = '¡Felicidades! Has desbloqueado las 3 recetas exclusivas de postres sin azúcar avaladas por la Nutrióloga Arianna:';
+          if (recBadge) {
+            recBadge.innerText = `🔓 COLECCIÓN ${viewingTierObj.code} DESBLOQUEADA PERMANENTEMENTE (${clubState.unlockedTiers.length}/4 COLECCIONES ABIERTAS)`;
+          }
+          if (recDesc) {
+            recDesc.innerHTML = clubState.activeBiweeklyTier < biweeklyRewardCatalog.length - 1
+              ? `Esta colección ya es tuya para siempre. Tu siguiente meta quincenal desbloqueará <strong>${biweeklyRewardCatalog[Math.min(3, clubState.activeBiweeklyTier + 1)].shortTitle}</strong>:`
+              : `¡Felicidades! Has desbloqueado todas las colecciones quincenales de la Nutrióloga Arianna:`;
+          }
         } else {
           recCardsRow.classList.add('is-locked-blur');
           recLockOverlay.style.display = 'flex';
-          if (recBadge) recBadge.innerText = `🔒 RECOMPENSA DE NIVEL 1,000 XP • BÓVEDA BLOQUEADA (TIENES ${clubState.xp} / 1,000 XP)`;
-          if (recDesc) recDesc.innerHTML = `Alcanza <strong>1,000 XP (Rango Reina Saludable 👑)</strong> con tus Misiones Diarias (te faltan <strong>${xpRem} XP</strong>) para abrir estas recetas:`;
-          if (recLockHeadline) recLockHeadline.innerText = `Tienes ${clubState.xp} / 1,000 XP — Te faltan ${xpRem} XP para desbloquear esta bóveda`;
-          if (recLockBar) recLockBar.style.width = `${xpPct}%`;
+          const isCurrentTarget = clubState.selectedVaultTier === clubState.activeBiweeklyTier;
+          if (recBadge) {
+            recBadge.innerText = isCurrentTarget
+              ? `🔒 QUINCENA ${viewingTierObj.tier + 1} EN CURSO • BÓVEDA BLOQUEADA (TIENES ${clubState.xp} / 1,000 XP)`
+              : `🔒 PRÓXIMA RECOMPENSA QUINCENA ${viewingTierObj.tier + 1} • BLOQUEADA`;
+          }
+          if (recDesc) {
+            recDesc.innerHTML = `Cada 2 semanas avanzas al siguiente recetario sin repetir premio. Completa tus <strong>1,000 XP</strong> para desbloquear <strong>${viewingTierObj.shortTitle}</strong>:`;
+          }
+          if (recLockCycleTag) {
+            recLockCycleTag.innerText = `RECOMPENSA DE QUINCENA ${viewingTierObj.tier + 1} • ${viewingTierObj.rankTitle} (1,000 XP)`;
+          }
+          if (recLockHeadline) {
+            recLockHeadline.innerText = isCurrentTarget
+              ? `Tienes ${clubState.xp} / 1,000 XP — Te faltan ${xpRem} XP en esta quincena para abrir ${viewingTierObj.shortTitle}`
+              : `Escalón de Quincena ${viewingTierObj.tier + 1}: Se habilita al completar la Quincena ${clubState.activeBiweeklyTier + 1}`;
+          }
+          if (recLockDesc) {
+            recLockDesc.innerHTML = `Tus misiones diarias te dan hasta <strong>+125 XP por día</strong>. Al llegar a <strong>1,000 XP</strong> desbloqueas para siempre <strong>${viewingTierObj.shortTitle}</strong> y en tu siguiente ciclo de 2 semanas pasarás automáticamente a la siguiente colección.`;
+          }
+          if (recLockBar) {
+            recLockBar.style.width = isCurrentTarget ? `${xpPct}%` : '12%';
+          }
         }
       }
 
