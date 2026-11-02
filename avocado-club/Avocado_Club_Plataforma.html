@@ -2242,6 +2242,162 @@
       box-shadow: 0 4px 10px rgba(232, 111, 82, 0.25);
     }
 
+    /* GLOW UP TARJETA TU NIVEL EN EL CLUB + BLOQUEO BÓVEDA DE POSTRES */
+    .rank-hero-box {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 100%);
+      border: 1px solid rgba(197, 240, 153, 0.24);
+      border-radius: 16px;
+      padding: 10px 13px;
+      margin: 8px 0 9px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .rank-medallion {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 25%, rgba(253, 230, 138, 0.32), rgba(104, 163, 50, 0.28) 65%, rgba(20, 43, 31, 0.95) 100%);
+      border: 2px solid rgba(253, 230, 138, 0.65);
+      box-shadow: 0 0 18px rgba(143, 209, 79, 0.32), inset 0 2px 6px rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .rank-medallion.is-queen {
+      border-color: #FDE68A;
+      background: radial-gradient(circle at 30% 25%, rgba(253, 230, 138, 0.55), rgba(245, 158, 11, 0.32) 65%, rgba(20, 43, 31, 0.95) 100%);
+      box-shadow: 0 0 22px rgba(253, 230, 138, 0.55), inset 0 2px 8px rgba(255, 255, 255, 0.4);
+    }
+
+    .rank-badge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+
+    .rank-badge-pill {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px 9px;
+      border-radius: 11px;
+      border: 1px solid rgba(197, 240, 153, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.71rem;
+      font-weight: 700;
+      color: #F1F8EC;
+    }
+
+    .rank-badge-pill.locked-badge {
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px dashed rgba(253, 230, 138, 0.35);
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .rank-vault-box {
+      border-radius: 14px;
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .rank-vault-box.is-locked {
+      background: linear-gradient(135deg, rgba(15, 31, 22, 0.78), rgba(36, 58, 45, 0.78));
+      border: 1.5px dashed rgba(253, 230, 138, 0.45);
+    }
+
+    .rank-vault-box.is-unlocked {
+      background: linear-gradient(135deg, rgba(253, 230, 138, 0.24), rgba(232, 111, 82, 0.26));
+      border: 1.5px solid #FDE68A;
+      box-shadow: 0 6px 18px rgba(245, 158, 11, 0.22);
+    }
+
+    .daily-mission-item {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 7px 10px;
+      border-radius: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .daily-mission-item:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(197, 240, 153, 0.4);
+      transform: translateX(2px);
+    }
+
+    .daily-mission-item.done {
+      background: rgba(104, 163, 50, 0.22);
+      border-color: rgba(143, 209, 79, 0.55);
+    }
+
+    /* CONTENEDOR DE BLOQUEO DE POSTRES EN MÓDULO 4 */
+    .vip-desserts-stage {
+      grid-column: span 12;
+      position: relative;
+    }
+
+    .vip-desserts-cards-row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      transition: filter 0.4s ease, opacity 0.4s ease;
+    }
+
+    .vip-desserts-cards-row.is-locked-blur {
+      filter: blur(5px) saturate(0.65);
+      opacity: 0.42;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .vip-desserts-lock-modal {
+      position: absolute;
+      inset: 12px 24px;
+      z-index: 20;
+      background: linear-gradient(155deg, rgba(20, 43, 31, 0.94) 0%, rgba(36, 73, 53, 0.95) 100%);
+      border: 2px solid #FDE68A;
+      border-radius: 24px;
+      box-shadow: 0 20px 45px rgba(15, 31, 22, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px 28px;
+      color: #FFFFFF;
+      backdrop-filter: blur(8px);
+    }
+
+    @media (max-width: 768px) {
+      .vip-desserts-cards-row {
+        grid-template-columns: 1fr;
+      }
+      .vip-desserts-lock-modal {
+        position: relative;
+        inset: auto;
+        margin-top: -180px;
+        margin-bottom: 12px;
+        padding: 20px 16px;
+      }
+    }
+
     /* DÍAS DE LA SEMANA EN POZO CÓNCAVO (RECESSED BAR) */
     .day-tabs {
       display: flex;
@@ -3390,88 +3546,127 @@
                 </div>
               </div>
 
-              <!-- TARJETA 3D GIRATORIA 2 (COL-4): TU NIVEL EN EL CLUB + MISIONES XP + BÓVEDA DE POSTRES SIN AZÚCAR (445px) -->
+              <!-- TARJETA 3D GIRATORIA 2 (COL-4): TU NIVEL EN EL CLUB + MISIONES DIARIAS XP + BÓVEDA DE POSTRES SIN AZÚCAR (445px) -->
               <div class="col-4 flip-stage-3d" id="flip-dash-rank" style="height: 445px;">
                 <div class="flip-inner-3d">
                   
-                  <!-- CARA FRONTAL: RANGO, BARRA XP EN VIVO Y ACCESO AL RECETARIO DE POSTRES -->
-                  <div class="flip-face-3d front" style="background: linear-gradient(160deg, #142B1F 0%, #244935 100%); color: #fff; border-color: rgba(197,240,153,0.3);">
+                  <!-- CARA FRONTAL: RANGO VIP, BARRA XP EN VIVO Y BÓVEDA DE POSTRES BLOQUEADA/DESBLOQUEADA -->
+                  <div class="flip-face-3d front" style="background: radial-gradient(circle at 85% 12%, rgba(143, 209, 79, 0.22), transparent 52%), linear-gradient(160deg, #12281D 0%, #1F4230 100%); color: #fff; border-color: rgba(197,240,153,0.34);">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center;">
                         <span class="card-label gold" style="margin: 0;">🏆 TU NIVEL EN EL CLUB</span>
-                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-rank')">
-                          Misiones XP <i class="fa-solid fa-rotate"></i>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.72rem; background: rgba(253, 230, 138, 0.16); color: #FDE68A; border-color: rgba(253, 230, 138, 0.45);" onclick="toggleCardFlip('flip-dash-rank')">
+                          ⚡ Misiones Diarias <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
-                      <div style="text-align: center; margin: 8px 0 10px;">
-                        <div id="dash-rank-emoji" style="font-size: 2.7rem; line-height: 1; margin-bottom: 3px;">🥑</div>
-                        <h3 id="dash-rank-title" style="font-size: 1.28rem; color: #FFFFFF; margin-bottom: 2px;">Rango: Aguacate Hass</h3>
-                        <p id="dash-xp-sub" style="font-size: 0.76rem; color: #C5F099; margin-bottom: 8px;">A 250 XP de alcanzar <strong>Reina Saludable 👑</strong></p>
-                        <div style="background: rgba(255,255,255,0.14); height: 10px; border-radius: 99px; overflow: hidden; margin-bottom: 6px;">
-                          <div id="dash-xp-bar" style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold)); transition: width 0.4s ease;"></div>
+
+                      <!-- Medallón de Nivel + Progreso XP -->
+                      <div class="rank-hero-box">
+                        <div class="rank-medallion" id="dash-rank-medallion">
+                          <span id="dash-rank-emoji">🥑</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 0.68rem; color: #FDE68A; font-weight: 800;">
-                          <span id="dash-xp-counter">750 / 1,000 XP</span>
-                          <span style="cursor: pointer; text-decoration: underline;" onclick="toggleCardFlip('flip-dash-rank')">¿Cómo ganar más XP hoy?</span>
+                        <div style="min-width: 0; flex: 1;">
+                          <div id="dash-rank-level-tag" style="font-size: 0.63rem; font-weight: 800; color: #FDE68A; letter-spacing: 0.06em; text-transform: uppercase;">NIVEL 3 • SOCIA EN ASCENSO</div>
+                          <h3 id="dash-rank-title" style="font-size: 1.22rem; color: #FFFFFF; margin: 1px 0 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rango: Aguacate Hass</h3>
+                          <p id="dash-xp-sub" style="font-size: 0.73rem; color: #C5F099; margin: 0; line-height: 1.3;">Te faltan <strong>250 XP</strong> para <strong>Reina Saludable 👑</strong></p>
                         </div>
                       </div>
 
-                      <div style="font-size: 0.69rem; font-weight: 800; color: #E2F0D5; margin-bottom: 6px; letter-spacing: 0.05em;">INSIGNIAS ACTIVAS EN TU CUENTA:</div>
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.72rem; margin-bottom: 10px;">
-                        <div style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">🌱 Calibración Lista</div>
-                        <div id="badge-water-top" style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">💧 Hidratación Activa</div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">📏 Cintura en Meta</div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">👩‍⚕️ Club Arianna</div>
+                      <!-- Barra de XP con destello y estado de misiones del ciclo quincenal -->
+                      <div style="margin-bottom: 10px;">
+                        <div style="background: rgba(0, 0, 0, 0.32); height: 11px; border-radius: 99px; overflow: hidden; margin-bottom: 5px; border: 1px solid rgba(255,255,255,0.14); padding: 1.5px;">
+                          <div id="dash-xp-bar" style="width: 75%; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #8FD14F 0%, #FDE68A 100%); box-shadow: 0 0 10px rgba(253, 230, 138, 0.5); transition: width 0.45s ease;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.68rem; font-weight: 800; gap: 4px; flex-wrap: wrap;">
+                          <span id="dash-xp-counter" style="color: #FDE68A;">750 / 1,000 XP (75%)</span>
+                          <span id="dash-daily-summary-link" style="color: #C5F099; cursor: pointer; text-decoration: underline;" onclick="toggleCardFlip('flip-dash-rank')">
+                            🔄 Hoy: 0/4 (+125 XP máx/día)
+                          </span>
+                        </div>
+                      </div>
+
+                      <!-- Insignias con estado visual + Contador de Ciclo Quincenal -->
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <span id="dash-biweekly-cycle-label" style="font-size: 0.64rem; font-weight: 800; color: #FDE68A; letter-spacing: 0.03em;">🗓️ CICLO QUINCENAL • DÍA 5 DE 14</span>
+                        <span id="dash-badges-count" style="font-size: 0.64rem; font-weight: 800; color: #8FD14F;">3 de 4 insignias</span>
+                      </div>
+                      <div class="rank-badge-grid">
+                        <div class="rank-badge-pill">
+                          <span>🌱 Calibración</span>
+                          <span style="color: #8FD14F; font-size: 0.66rem;">✓</span>
+                        </div>
+                        <div class="rank-badge-pill" id="badge-water-top">
+                          <span>💧 Hidratación</span>
+                          <span style="color: #8FD14F; font-size: 0.66rem;">✓</span>
+                        </div>
+                        <div class="rank-badge-pill">
+                          <span>👩‍⚕️ Club Arianna</span>
+                          <span style="color: #8FD14F; font-size: 0.66rem;">✓</span>
+                        </div>
+                        <div class="rank-badge-pill locked-badge" id="badge-queen-pill">
+                          <span id="badge-queen-text">👑 Reina 1000 XP</span>
+                          <span id="badge-queen-icon" style="color: #FDE68A; font-size: 0.66rem;">🔒</span>
+                        </div>
                       </div>
                     </div>
 
-                    <!-- Bóveda del Recetario Especial de Postres Sin Azúcar Conectada al Módulo 4 -->
-                    <div style="background: linear-gradient(135deg, rgba(253, 230, 138, 0.16), rgba(232, 111, 82, 0.18)); border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 14px; padding: 9px 11px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <!-- Bóveda del Recetario Especial Quincenal (BLOQUEADA hasta alcanzar 1,000 XP) -->
+                    <div id="vip-dessert-vault-box" class="rank-vault-box is-locked">
                       <div style="min-width: 0;">
-                        <div id="vip-dessert-status-tag" style="font-size: 0.64rem; font-weight: 800; color: #FDE68A; text-transform: uppercase;">🎁 RECOMPENSA DE NIVEL • INCLUIDA</div>
-                        <div style="font-size: 0.78rem; font-weight: 800; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">🍰 Postres Sin Azúcar de Arianna</div>
+                        <div id="vip-dessert-status-tag" style="font-size: 0.61rem; font-weight: 800; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.03em;">
+                          🔒 RECOMPENSA QUINCENAL (1,000 XP) • BLOQUEADA
+                        </div>
+                        <div id="vip-dessert-title" style="font-size: 0.78rem; font-weight: 800; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                          🍰 Postres Sin Azúcar de Arianna
+                        </div>
+                        <div id="vip-dessert-sub" style="font-size: 0.65rem; color: #C5F099; font-weight: 700;">
+                          Ciclo de 2 semanas (Faltan 250 XP)
+                        </div>
                       </div>
-                      <button type="button" class="btn-flip-trigger" style="padding: 6px 10px; font-size: 0.72rem; flex-shrink: 0; background: #FDE68A; color: #142B1F; border-color: #F59E0B;" onclick="openVipDesserts()">
-                        Abrir Recetas <i class="fa-solid fa-arrow-right"></i>
+                      <button type="button" id="vip-dessert-front-btn" class="btn-flip-trigger" style="padding: 7px 10px; font-size: 0.71rem; flex-shrink: 0; background: rgba(255,255,255,0.12); color: #FDE68A; border-color: rgba(253,230,138,0.45);" onclick="openVipDesserts()">
+                        🔒 Faltan 250 XP
                       </button>
                     </div>
                   </div>
 
-                  <!-- CARA TRASERA: MISIONES INTERACTIVAS DE XP + ACCESO A POSTRES SIN AZÚCAR -->
-                  <div class="flip-face-3d back" style="background: linear-gradient(160deg, #1C3A2A 0%, #142B1F 100%); color: #fff; border-color: rgba(253,230,138,0.35);">
+                  <!-- CARA TRASERA: MOTOR DE MISIONES QUINCENALES (CICLO DE 14 DÍAS CON XP A LA MITAD) -->
+                  <div class="flip-face-3d back" style="background: linear-gradient(160deg, #1B3929 0%, #12261B 100%); color: #fff; border-color: rgba(253,230,138,0.38);">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span class="card-label gold" style="margin: 0;">⚡ MISIONES ACTIVAS DE XP</span>
-                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-rank')">
-                          <i class="fa-solid fa-rotate-left"></i> Volver
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 5px;">
+                        <span class="card-label gold" style="margin: 0; font-size: 0.61rem;">⚡ CICLO QUINCENAL (14D)</span>
+                        <span id="daily-reset-timer" style="font-size: 0.62rem; font-weight: 800; color: #FDE68A; background: rgba(253, 230, 138, 0.14); padding: 3px 7px; border-radius: 99px; border: 1px solid rgba(253, 230, 138, 0.35);">
+                          🗓️ Quincena: 9d • ⏳ Hoy: 13h
+                        </span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 4px 8px; font-size: 0.7rem;" onclick="toggleCardFlip('flip-dash-rank')">
+                          <i class="fa-solid fa-rotate-left"></i> Nivel
                         </button>
                       </div>
-                      <h4 style="font-size: 1.08rem; color: #FDE68A; margin-bottom: 4px;">Completa acciones reales para subir de nivel:</h4>
-                      <p style="font-size: 0.74rem; color: #C5F099; margin-bottom: 8px;">Toca cualquier misión para ir a realizarla y sumar XP en vivo:</p>
+                      <h4 style="font-size: 0.94rem; color: #FFFFFF; margin-bottom: 2px;">Suma hasta <span style="color: #FDE68A;">+125 XP por día</span> durante la quincena:</h4>
+                      <p style="font-size: 0.69rem; color: #C5F099; margin-bottom: 8px;">Ciclo automático cada 2 semanas. Necesitas constancia de varios días para llegar a 1,000 XP:</p>
 
-                      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.76rem;">
-                        <div id="mission-row-water" onclick="document.getElementById('flip-dash-water').scrollIntoView({behavior:'smooth', block:'center'})" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                          <span>💧 Llenar mis 8 vasos de agua hoy</span>
-                          <strong id="mission-status-water" style="color: #8FD14F;">+50 XP ➔</strong>
+                      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.73rem;">
+                        <div class="daily-mission-item" id="mission-row-water" onclick="completeOrGoMission('water')">
+                          <span>💧 Tomar mis 8 vasos de agua hoy</span>
+                          <strong id="mission-status-water" style="color: #8FD14F; white-space: nowrap;">+25 XP ➔</strong>
                         </div>
-                        <div id="mission-row-seed" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                          <span>🌱 Sembrar "La Semilla de Hoy"</span>
-                          <strong id="mission-status-seed" style="color: #8FD14F;">+50 XP ➔</strong>
+                        <div class="daily-mission-item" id="mission-row-seed" onclick="completeOrGoMission('seed')">
+                          <span>🌱 Sembrar "La Semilla de Hoy" (Mód. 7)</span>
+                          <strong id="mission-status-seed" style="color: #8FD14F; white-space: nowrap;">+25 XP ➔</strong>
                         </div>
-                        <div id="mission-row-workout" onclick="openModule('mod-ejercicios', document.getElementById('nav-mod-ejercicios'))" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <div class="daily-mission-item" id="mission-row-bioradar" onclick="completeOrGoMission('bioradar')">
+                          <span>⚡ Registrar mi Bio-Radar Metabólico hoy</span>
+                          <strong id="mission-status-bioradar" style="color: #8FD14F; white-space: nowrap;">+25 XP ➔</strong>
+                        </div>
+                        <div class="daily-mission-item" id="mission-row-workout" onclick="completeOrGoMission('workout')">
                           <span>🏃‍♀️ Completar rutina en casa (Mód. 5)</span>
-                          <strong id="mission-status-workout" style="color: #8FD14F;">+100 XP ➔</strong>
-                        </div>
-                        <div id="mission-row-checkin" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                          <span>📏 Cierre semanal IA (Peso y Cintura)</span>
-                          <strong id="mission-status-checkin" style="color: #8FD14F;">+100 XP ➔</strong>
+                          <strong id="mission-status-workout" style="color: #8FD14F; white-space: nowrap;">+50 XP ➔</strong>
                         </div>
                       </div>
                     </div>
 
-                    <button type="button" class="btn-enter-club" style="margin: 0; padding: 10px 14px; font-size: 0.8rem;" onclick="openVipDesserts()">
-                      <span>🍰 Ir al Recetario de Postres Sin Azúcar</span>
-                      <i class="fa-solid fa-arrow-right"></i>
+                    <button type="button" id="vip-dessert-back-btn" class="btn-enter-club" style="margin: 0; padding: 9px 12px; font-size: 0.75rem; background: rgba(255,255,255,0.12); border: 1.5px dashed #FDE68A; color: #FDE68A; box-shadow: none;" onclick="openVipDesserts()">
+                      <span id="vip-dessert-back-text">🔒 Bóveda Quincenal Bloqueada (Faltan 250 XP)</span>
+                      <i class="fa-solid fa-lock" id="vip-dessert-back-icon"></i>
                     </button>
                   </div>
 
@@ -4326,119 +4521,149 @@
 
               <!-- =======================================================
                    BÓVEDA DE RECOMPENSA DE NIVEL: RECETARIO ESPECIAL DE POSTRES SIN AZÚCAR DE ARIANNA
-                   CONECTADO DIRECTAMENTE CON LA TARJETA "TU NIVEL EN EL CLUB" DEL DASHBOARD
+                   BLOQUEADO HASTA ALCANZAR 1,000 XP (RANGO REINA SALUDABLE)
                    ======================================================= -->
               <div class="bento-card col-12" id="vip-postres-section" style="background: linear-gradient(135deg, #2D1810 0%, #452417 55%, #1E3828 100%); color: #FFFFFF; padding: 20px 26px; border: 2px solid #FDE68A;">
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
                   <div>
-                    <span id="vip-postres-badge" class="card-label gold" style="margin-bottom: 6px;">👑 RECOMPENSA DEL CLUB • COLECCIÓN ESPECIAL SIN AZÚCAR</span>
+                    <span id="vip-postres-badge" class="card-label gold" style="margin-bottom: 6px;">🔒 RECOMPENSA DE NIVEL 1,000 XP • BÓVEDA BLOQUEADA (TIENES 750 / 1,000 XP)</span>
                     <h3 style="font-size: 1.48rem; color: #FFFFFF; margin-bottom: 4px;">🍰 Recetario Especial de Postres y Antojos Sin Azúcar (Avalado por Arianna)</h3>
-                    <p style="font-size: 0.84rem; color: #FDE68A; margin: 0;">
-                      Postres mexicanos de bajo índice glucémico diseñados para quitar el antojo dulce de la tarde sin elevar tu insulina ni usar harinas refinadas:
+                    <p id="vip-postres-desc" style="font-size: 0.84rem; color: #FDE68A; margin: 0;">
+                      Alcanza <strong>1,000 XP (Rango Reina Saludable 👑)</strong> completando tus Misiones Diarias para desbloquear estas 3 recetas exclusivas sin azúcar:
                     </p>
                   </div>
-                  <button type="button" class="btn-flip-trigger" style="background: rgba(255,255,255,0.12); color: #FDE68A; border-color: #FDE68A;" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))">
-                    <i class="fa-solid fa-trophy"></i> Volver a mi Nivel en Dashboard
+                  <button type="button" class="btn-flip-trigger" style="background: rgba(255,255,255,0.12); color: #FDE68A; border-color: #FDE68A;" onclick="goToDailyMissionsFromVault()">
+                    <i class="fa-solid fa-bolt"></i> Ir a mis Misiones Diarias XP
                   </button>
                 </div>
               </div>
 
-              <!-- POSTRE SIN AZÚCAR 1 CON GIRO 3D -->
-              <div class="col-4 flip-stage-3d" id="flip-rec-dessert-1" style="height: 295px;">
-                <div class="flip-inner-3d">
-                  <div class="flip-face-3d front">
-                    <div>
-                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.9); color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍫 0g Azúcar • Sin Harina</span>
-                      </div>
-                      <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Brownie Húmedo de Cacao, Aguacate y Nuez</h4>
-                      <p style="font-size: 0.78rem; color: var(--text-muted);">165 kcal • Textura fudgy en 6 min • Rico en magnesio.</p>
-                    </div>
-                    <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
-                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
-                    </button>
-                  </div>
-                  <div class="flip-face-3d back">
-                    <div>
-                      <span class="card-label gold">🍫 POSTRE 1 • CONTROL INSULINA</span>
-                      <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Brownie de Aguacate (~$22 MXN)</h4>
-                      <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
-                        <strong>Ingredientes:</strong> 1/3 aguacate Hass maduro, 1 huevo, 2 cdas cacao 100% sin azúcar, 2 cdas harina de avena o almendra, fruto del monje y nuez picada.
-                      </p>
-                      <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
-                        <strong>Preparación:</strong> Mezcla todo con tenedor hasta integrar, vierte en ramekin y hornea 10 min en Airfryer (180°C) o 90 seg en microondas.
-                      </p>
-                    </div>
-                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
-                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <!-- CONTENEDOR DE LAS 3 TARJETAS CON BLOQUEO REAL CUANDO XP < 1,000 -->
+              <div class="vip-desserts-stage">
+                <div id="vip-postres-cards-row" class="vip-desserts-cards-row is-locked-blur">
 
-              <!-- POSTRE SIN AZÚCAR 2 CON GIRO 3D -->
-              <div class="col-4 flip-stage-3d" id="flip-rec-dessert-2" style="height: 295px;">
-                <div class="flip-inner-3d">
-                  <div class="flip-face-3d front">
-                    <div>
-                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍮 12g Proteína • Clásico MX</span>
+                  <!-- POSTRE SIN AZÚCAR 1 CON GIRO 3D -->
+                  <div class="col-4 flip-stage-3d" id="flip-rec-dessert-1" style="height: 295px;">
+                    <div class="flip-inner-3d">
+                      <div class="flip-face-3d front">
+                        <div>
+                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.9); color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍫 0g Azúcar • Sin Harina</span>
+                          </div>
+                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Brownie Húmedo de Cacao, Aguacate y Nuez</h4>
+                          <p style="font-size: 0.78rem; color: var(--text-muted);">165 kcal • Textura fudgy en 6 min • Rico en magnesio.</p>
+                        </div>
+                        <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
+                          Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                        </button>
                       </div>
-                      <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Flan Napolitano Fit de Vainilla sin Azúcar</h4>
-                      <p style="font-size: 0.78rem; color: var(--text-muted);">145 kcal • Sin leche condensada • Listo en 10 min.</p>
+                      <div class="flip-face-3d back">
+                        <div>
+                          <span class="card-label gold">🍫 POSTRE 1 • CONTROL INSULINA</span>
+                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Brownie de Aguacate (~$22 MXN)</h4>
+                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                            <strong>Ingredientes:</strong> 1/3 aguacate Hass maduro, 1 huevo, 2 cdas cacao 100% sin azúcar, 2 cdas harina de avena o almendra, fruto del monje y nuez picada.
+                          </p>
+                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                            <strong>Preparación:</strong> Mezcla todo con tenedor hasta integrar, vierte en ramekin y hornea 10 min en Airfryer (180°C) o 90 seg en microondas.
+                          </p>
+                        </div>
+                        <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                        </button>
+                      </div>
                     </div>
-                    <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
-                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
-                    </button>
                   </div>
-                  <div class="flip-face-3d back">
-                    <div>
-                      <span class="card-label gold">🍮 POSTRE 2 • ALTO EN PROTEÍNA</span>
-                      <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Flan Napolitano Fit (~$19 MXN)</h4>
-                      <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
-                        <strong>Ingredientes:</strong> 2 huevos, 1/2 taza leche de almendra o light, 30g queso crema ligero o panela, 1 cdita extracto de vainilla, canela y alulosa/monk fruit.
-                      </p>
-                      <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
-                        <strong>Preparación:</strong> Licúa los ingredientes, vierte en molde individual y cocina a baño maría en sartén tapado por 12 minutos.
-                      </p>
-                    </div>
-                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
-                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
-                    </button>
-                  </div>
-                </div>
-              </div>
 
-              <!-- POSTRE SIN AZÚCAR 3 CON GIRO 3D -->
-              <div class="col-4 flip-stage-3d" id="flip-rec-dessert-3" style="height: 295px;">
-                <div class="flip-inner-3d">
-                  <div class="flip-face-3d front">
-                    <div>
-                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
-                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍓 Probiótico • Sin Horno</span>
+                  <!-- POSTRE SIN AZÚCAR 2 CON GIRO 3D -->
+                  <div class="col-4 flip-stage-3d" id="flip-rec-dessert-2" style="height: 295px;">
+                    <div class="flip-inner-3d">
+                      <div class="flip-face-3d front">
+                        <div>
+                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍮 12g Proteína • Clásico MX</span>
+                          </div>
+                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Flan Napolitano Fit de Vainilla sin Azúcar</h4>
+                          <p style="font-size: 0.78rem; color: var(--text-muted);">145 kcal • Sin leche condensada • Listo en 10 min.</p>
+                        </div>
+                        <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
+                          Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                        </button>
                       </div>
-                      <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cheesecake en Vaso de Fresas y Almendra</h4>
-                      <p style="font-size: 0.78rem; color: var(--text-muted);">175 kcal • Saciedad total • En 5 minutos sin horno.</p>
+                      <div class="flip-face-3d back">
+                        <div>
+                          <span class="card-label gold">🍮 POSTRE 2 • ALTO EN PROTEÍNA</span>
+                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Flan Napolitano Fit (~$19 MXN)</h4>
+                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                            <strong>Ingredientes:</strong> 2 huevos, 1/2 taza leche de almendra o light, 30g queso crema ligero o panela, 1 cdita extracto de vainilla, canela y alulosa/monk fruit.
+                          </p>
+                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                            <strong>Preparación:</strong> Licúa los ingredientes, vierte en molde individual y cocina a baño maría en sartén tapado por 12 minutos.
+                          </p>
+                        </div>
+                        <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                        </button>
+                      </div>
                     </div>
-                    <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
-                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
-                    </button>
                   </div>
-                  <div class="flip-face-3d back">
-                    <div>
-                      <span class="card-label gold">🍓 POSTRE 3 • CERO PICOS GLUCOSA</span>
-                      <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Cheesecake en Vaso (~$26 MXN)</h4>
-                      <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
-                        <strong>Ingredientes:</strong> 1/2 taza yogur griego sin azúcar, 2 cdas queso ricota o crema light, ralladura de limón, 5 fresas picadas y 8 almendras tostadas trituradas.
-                      </p>
-                      <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
-                        <strong>Preparación:</strong> Coloca base de almendra triturada, añade la crema batida de yogur con limón y corona con fresas frescas.
-                      </p>
+
+                  <!-- POSTRE SIN AZÚCAR 3 CON GIRO 3D -->
+                  <div class="col-4 flip-stage-3d" id="flip-rec-dessert-3" style="height: 295px;">
+                    <div class="flip-inner-3d">
+                      <div class="flip-face-3d front">
+                        <div>
+                          <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                            <span style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍓 Probiótico • Sin Horno</span>
+                          </div>
+                          <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cheesecake en Vaso de Fresas y Almendra</h4>
+                          <p style="font-size: 0.78rem; color: var(--text-muted);">175 kcal • Saciedad total • En 5 minutos sin horno.</p>
+                        </div>
+                        <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
+                          Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                        </button>
+                      </div>
+                      <div class="flip-face-3d back">
+                        <div>
+                          <span class="card-label gold">🍓 POSTRE 3 • CERO PICOS GLUCOSA</span>
+                          <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Cheesecake en Vaso (~$26 MXN)</h4>
+                          <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                            <strong>Ingredientes:</strong> 1/2 taza yogur griego sin azúcar, 2 cdas queso ricota o crema light, ralladura de limón, 5 fresas picadas y 8 almendras tostadas trituradas.
+                          </p>
+                          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                            <strong>Preparación:</strong> Coloca base de almendra triturada, añade la crema batida de yogur con limón y corona con fresas frescas.
+                          </p>
+                        </div>
+                        <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                        </button>
+                      </div>
                     </div>
-                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
-                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
-                    </button>
                   </div>
+
+                </div>
+
+                <!-- CAPA DE BLOQUEO DE CRISTAL CUANDO XP < 1,000 -->
+                <div id="vip-postres-lock-overlay" class="vip-desserts-lock-modal">
+                  <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(253, 230, 138, 0.18); border: 2px solid #FDE68A; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; margin-bottom: 8px; box-shadow: 0 0 20px rgba(253, 230, 138, 0.35);">
+                    🔒
+                  </div>
+                  <span id="vault-lock-cycle-tag" style="font-size: 0.7rem; font-weight: 800; color: #FDE68A; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px;">
+                    RECOMPENSA QUINCENAL DE RANGO REINA SALUDABLE 👑 (1,000 XP)
+                  </span>
+                  <h4 id="vault-lock-headline" style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 6px;">
+                    Tienes 750 / 1,000 XP — Te faltan 250 XP para desbloquear esta bóveda
+                  </h4>
+                  <p id="vault-lock-desc" style="font-size: 0.82rem; color: #E2F0D5; max-width: 620px; line-height: 1.45; margin-bottom: 12px;">
+                    Los ciclos de misiones y recompensas se actualizan automáticamente <strong>cada 2 semanas (14 días)</strong>. Tus misiones diarias te otorgan hasta <strong>+125 XP por día</strong>; mantén tu constancia durante la quincena para llegar a <strong>1,000 XP</strong> y abrir estas 3 recetas exclusivas.
+                  </p>
+                  <div style="width: 100%; max-width: 380px; background: rgba(0,0,0,0.35); height: 10px; border-radius: 99px; overflow: hidden; margin-bottom: 14px; border: 1px solid rgba(253,230,138,0.4);">
+                    <div id="vault-lock-bar" style="width: 75%; height: 100%; background: linear-gradient(90deg, #8FD14F, #FDE68A); transition: width 0.4s ease;"></div>
+                  </div>
+                  <button type="button" class="btn-enter-club" style="width: auto; padding: 11px 22px; font-size: 0.83rem; margin: 0;" onclick="goToDailyMissionsFromVault()">
+                    <span>⚡ Ir a completar mis Misiones Diarias XP</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -4478,7 +4703,7 @@
                     <div style="font-weight: 800;">💪 Lagartijas en Pared o Sillón (12 reps) + Plancha Abdominal (30s)</div>
                     <div style="font-size: 0.8rem; color: var(--text-muted);">Fortalece brazos y faja abdominal para reducir centímetros de cintura.</div>
                   </div>
-                  <button class="btn-enter-club" id="btn-complete-workout" style="width: auto; padding: 9px 18px; font-size: 0.82rem; margin: 0;" onclick="completeDailyWorkout(this)">🔥 Marcar Lista (+100 XP)</button>
+                  <button class="btn-enter-club" id="btn-complete-workout" style="width: auto; padding: 9px 18px; font-size: 0.82rem; margin: 0;" onclick="completeDailyWorkout(this)">🔥 Marcar Lista (+50 XP)</button>
                 </div>
               </div>
 
@@ -5156,10 +5381,12 @@
       initialWaist: 83.0,
       initialHip: 101.5,
       activeProtocol: '🩸 Control Insulina + Bajar Peso',
+      lastMissionDate: new Date().toISOString().slice(0, 10),
       seedPlanted: false,
       checkinDone: false,
       workoutDone: false,
       waterBonusAwarded: false,
+      bioRadarBonusAwarded: false,
       selectedChartMetric: 'weight',
       selectedChartWeekIdx: 3,
       selectedWaterDayIdx: 3,
@@ -5359,10 +5586,10 @@
         dayObj.glasses = cupIdx + 1;
       }
 
-      // Si hoy llega a 8 vasos por primera vez, otorgar +50 XP reales
+      // Si hoy llega a 8 vasos por primera vez, otorgar +25 XP reales (Ciclo Quincenal)
       if (dayObj.glasses === 8 && !clubState.waterBonusAwarded) {
         clubState.waterBonusAwarded = true;
-        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
       }
       syncPlatformState();
     }
@@ -5470,11 +5697,137 @@
     }
 
     // =========================================================================
-    // BIO-RADAR METABÓLICO DIARIO (DE NUESTRA COSECHA PREMIUM)
+    // BIO-RADAR METABÓLICO DIARIO + MOTOR AUTOMÁTICO DE CICLOS QUINCENALES (14 DÍAS)
     // =========================================================================
+    const biweeklyRewardCatalog = [
+      {
+        edition: 'Edición Quincenal #1',
+        shortTitle: '🍰 Postres Sin Azúcar de Arianna',
+        fullTitle: '🍰 Recetario Especial de Postres y Antojos Sin Azúcar (Avalado por Arianna)'
+      },
+      {
+        edition: 'Edición Quincenal #2',
+        shortTitle: '🍫 Antojos Dulces Cero Insulina',
+        fullTitle: '🍫 Colección Quincenal de Antojos Dulces y Chocolatería Fit Sin Azúcar'
+      },
+      {
+        edition: 'Edición Quincenal #3',
+        shortTitle: '🍮 Repostería Mexicana Fit de Arianna',
+        fullTitle: '🍮 Recetario Quincenal de Repostería Mexicana Tradicional Sin Azúcar'
+      }
+    ];
+
     function setBioSignal(key, val) {
       clubState.bioSignals[key] = val;
-      renderBioRadar();
+      if (!clubState.bioRadarBonusAwarded) {
+        clubState.bioRadarBonusAwarded = true;
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
+        syncPlatformState();
+      } else {
+        renderBioRadar();
+      }
+    }
+
+    // Motor automático de Ciclos Quincenales (14 días = 2 semanas) + Reinicio Diario (24h)
+    function checkAndRenderDailyMissionsReset() {
+      const now = new Date();
+      const todayKey = now.toISOString().slice(0, 10);
+
+      // Cálculo matemático exacto del ciclo de 14 días (2 semanas)
+      const anchorMs = new Date('2026-01-05T00:00:00').getTime();
+      const biweeklyMs = 14 * 24 * 60 * 60 * 1000;
+      const elapsedMs = Math.max(0, now.getTime() - anchorMs);
+      const currentCycleIndex = Math.floor(elapsedMs / biweeklyMs);
+      const msIntoCycle = elapsedMs % biweeklyMs;
+      const msLeftInCycle = biweeklyMs - msIntoCycle;
+
+      const dayOfCycle = Math.min(14, Math.floor(msIntoCycle / 86400000) + 1);
+      const daysLeftCycle = Math.max(1, Math.ceil(msLeftInCycle / 86400000));
+
+      // Verificar si cambió el ciclo de 2 semanas (auto-reset quincenal)
+      try {
+        const savedCycle = localStorage.getItem('avocado_biweekly_cycle_idx');
+        if (savedCycle !== null && parseInt(savedCycle, 10) !== currentCycleIndex) {
+          // Nuevo ciclo de 2 semanas detectado: reinicia progreso quincenal automáticamente
+          clubState.xp = 500;
+          clubState.waterBonusAwarded = false;
+          clubState.seedPlanted = false;
+          clubState.bioRadarBonusAwarded = false;
+          clubState.workoutDone = false;
+          clubState.checkinDone = false;
+        }
+        localStorage.setItem('avocado_biweekly_cycle_idx', String(currentCycleIndex));
+      } catch (e) {}
+
+      // Reinicio diario a medianoche de las 4 misiones diarias (+125 XP máx por día)
+      if (clubState.lastMissionDate !== todayKey) {
+        clubState.lastMissionDate = todayKey;
+        clubState.waterBonusAwarded = false;
+        clubState.seedPlanted = false;
+        clubState.bioRadarBonusAwarded = false;
+        clubState.workoutDone = false;
+      }
+
+      const midnight = new Date(now);
+      midnight.setHours(24, 0, 0, 0);
+      const diffMs = Math.max(0, midnight - now);
+      const hrs = Math.floor(diffMs / 3600000);
+      const mins = Math.floor((diffMs % 3600000) / 60000);
+
+      const timerEl = document.getElementById('daily-reset-timer');
+      if (timerEl) {
+        timerEl.innerText = `🗓️ Quincena: ${daysLeftCycle}d • ⏳ Hoy: ${hrs}h ${mins}m`;
+      }
+      const cycleLbl = document.getElementById('dash-biweekly-cycle-label');
+      if (cycleLbl) {
+        cycleLbl.innerText = `🗓️ CICLO 2 SEMANAS • DÍA ${dayOfCycle}/14 (QUEDAN ${daysLeftCycle}D)`;
+      }
+
+      const activeReward = biweeklyRewardCatalog[currentCycleIndex % biweeklyRewardCatalog.length];
+      const dessertTitleEl = document.getElementById('vip-dessert-title');
+      if (dessertTitleEl && activeReward) {
+        dessertTitleEl.innerText = activeReward.shortTitle;
+      }
+
+      return { hrs, mins, dayOfCycle, daysLeftCycle, currentCycleIndex };
+    }
+
+    // Ir o completar misión diaria de XP (con XP a la mitad: +25, +25, +25, +50 = +125 XP/día)
+    function completeOrGoMission(type) {
+      if (type === 'water') {
+        const todayObj = clubState.waterWeekData[clubState.selectedWaterDayIdx];
+        if (!clubState.waterBonusAwarded && todayObj) {
+          todayObj.glasses = 8;
+          clubState.waterBonusAwarded = true;
+          clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
+          syncPlatformState();
+        } else {
+          document.getElementById('flip-dash-water')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else if (type === 'seed') {
+        openModule('mod-semilla', document.getElementById('nav-mod-semilla'));
+      } else if (type === 'bioradar') {
+        if (!clubState.bioRadarBonusAwarded) {
+          clubState.bioRadarBonusAwarded = true;
+          clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
+          syncPlatformState();
+        }
+        document.getElementById('flip-dash-bioradar')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (type === 'workout') {
+        openModule('mod-ejercicios', document.getElementById('nav-mod-ejercicios'));
+      }
+    }
+
+    // Regresar desde la bóveda bloqueada en Módulo 4 directo al reverso de Misiones Diarias en Dashboard
+    function goToDailyMissionsFromVault() {
+      openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'));
+      setTimeout(() => {
+        const rankStage = document.getElementById('flip-dash-rank');
+        if (rankStage) {
+          rankStage.classList.add('is-flipped');
+          rankStage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
     }
 
     function renderBioRadar() {
@@ -5527,15 +5880,15 @@
       }, 120);
     }
 
-    // Completar rutina de ejercicios en Módulo 5 (+100 XP reales conectados al Nivel del Club)
+    // Completar rutina de ejercicios en Módulo 5 (+50 XP reales en el Ciclo Quincenal)
     function completeDailyWorkout(btnEl) {
       if (!clubState.workoutDone) {
         clubState.workoutDone = true;
-        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 100);
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
       }
       syncPlatformState();
       if (btnEl) {
-        btnEl.innerText = '🎉 ¡Rutina Registrada (+100 XP)!';
+        btnEl.innerText = '🎉 ¡Rutina Registrada (+50 XP)!';
         btnEl.style.background = 'var(--avo-dark)';
       }
     }
@@ -5750,6 +6103,15 @@
           : `Te faltan <strong>${xpRem} XP</strong> para el rango <strong>Reina Saludable 👑</strong>:`;
       }
 
+      const dashRankMedallion = document.getElementById('dash-rank-medallion');
+      if (dashRankMedallion) {
+        if (isQueen) dashRankMedallion.classList.add('is-queen');
+        else dashRankMedallion.classList.remove('is-queen');
+      }
+      const dashRankLevelTag = document.getElementById('dash-rank-level-tag');
+      if (dashRankLevelTag) {
+        dashRankLevelTag.innerText = isQueen ? 'NIVEL MÁXIMO • REINA DEL CLUB' : 'NIVEL 3 • SOCIA EN ASCENSO';
+      }
       const dashRankEmoji = document.getElementById('dash-rank-emoji');
       if (dashRankEmoji) dashRankEmoji.innerText = isQueen ? '👑' : '🥑';
       const dashRank = document.getElementById('dash-rank-title');
@@ -5759,21 +6121,139 @@
       const dashXpSub = document.getElementById('dash-xp-sub');
       if (dashXpSub) {
         dashXpSub.innerHTML = isQueen
-          ? '🎉 ¡Nivel máximo desbloqueado: <strong>Reina Saludable 👑</strong>!'
-          : `A <strong>${xpRem} XP</strong> de alcanzar <strong>Reina Saludable 👑</strong>`;
+          ? '🎉 ¡Nivel máximo alcanzado: <strong>Reina Saludable 👑</strong>!'
+          : `Te faltan <strong>${xpRem} XP</strong> para <strong>Reina Saludable 👑</strong>`;
       }
       const dashBar = document.getElementById('dash-xp-bar');
       if (dashBar) dashBar.style.width = `${xpPct}%`;
 
-      // Actualizar estado visual de las 4 misiones interactivas de XP
+      // Verificar reinicio diario y ciclo quincenal (XP a la mitad: +25, +25, +25, +50 = +125 XP/día)
+      const cycleInfo = checkAndRenderDailyMissionsReset();
+      const missionsDoneCount = [
+        clubState.waterBonusAwarded,
+        clubState.seedPlanted,
+        clubState.bioRadarBonusAwarded,
+        clubState.workoutDone
+      ].filter(Boolean).length;
+      const xpLeftToday = (clubState.waterBonusAwarded ? 0 : 25)
+        + (clubState.seedPlanted ? 0 : 25)
+        + (clubState.bioRadarBonusAwarded ? 0 : 25)
+        + (clubState.workoutDone ? 0 : 50);
+
+      const dailySummaryLink = document.getElementById('dash-daily-summary-link');
+      if (dailySummaryLink) {
+        dailySummaryLink.innerText = missionsDoneCount === 4
+          ? '✅ 4/4 hoy listas (Vuelve mañana)'
+          : `🔄 Hoy: ${missionsDoneCount}/4 (+${xpLeftToday} XP disp. hoy)`;
+      }
+
+      // Insignia #4 (Reina 1,000 XP) y contador de insignias
+      const badgesCountEl = document.getElementById('dash-badges-count');
+      if (badgesCountEl) badgesCountEl.innerText = isQueen ? '4 de 4 insignias ✨' : '3 de 4 insignias';
+      const queenBadgePill = document.getElementById('badge-queen-pill');
+      const queenBadgeIcon = document.getElementById('badge-queen-icon');
+      if (queenBadgePill && queenBadgeIcon) {
+        if (isQueen) {
+          queenBadgePill.classList.remove('locked-badge');
+          queenBadgeIcon.innerText = '👑';
+        } else {
+          queenBadgePill.classList.add('locked-badge');
+          queenBadgeIcon.innerText = '🔒';
+        }
+      }
+
+      // Actualizar estado visual de las 4 Misiones Diarias XP (Mitad de XP)
       const mWater = document.getElementById('mission-status-water');
-      if (mWater) mWater.innerHTML = clubState.waterBonusAwarded ? '✅ +50 XP Ganados' : '+50 XP ➔';
+      const rWater = document.getElementById('mission-row-water');
+      if (mWater) mWater.innerHTML = clubState.waterBonusAwarded ? '✅ +25 XP' : '+25 XP ➔';
+      if (rWater) rWater.classList.toggle('done', !!clubState.waterBonusAwarded);
+
       const mSeed = document.getElementById('mission-status-seed');
-      if (mSeed) mSeed.innerHTML = clubState.seedPlanted ? '✅ +50 XP Ganados' : '+50 XP ➔';
+      const rSeed = document.getElementById('mission-row-seed');
+      if (mSeed) mSeed.innerHTML = clubState.seedPlanted ? '✅ +25 XP' : '+25 XP ➔';
+      if (rSeed) rSeed.classList.toggle('done', !!clubState.seedPlanted);
+
+      const mBio = document.getElementById('mission-status-bioradar');
+      const rBio = document.getElementById('mission-row-bioradar');
+      if (mBio) mBio.innerHTML = clubState.bioRadarBonusAwarded ? '✅ +25 XP' : '+25 XP ➔';
+      if (rBio) rBio.classList.toggle('done', !!clubState.bioRadarBonusAwarded);
+
       const mWork = document.getElementById('mission-status-workout');
-      if (mWork) mWork.innerHTML = clubState.workoutDone ? '✅ +100 XP Ganados' : '+100 XP ➔';
-      const mCheck = document.getElementById('mission-status-checkin');
-      if (mCheck) mCheck.innerHTML = clubState.checkinDone ? '✅ +100 XP Ganados' : '+100 XP ➔';
+      const rWork = document.getElementById('mission-row-workout');
+      if (mWork) mWork.innerHTML = clubState.workoutDone ? '✅ +50 XP' : '+50 XP ➔';
+      if (rWork) rWork.classList.toggle('done', !!clubState.workoutDone);
+
+      // =======================================================================
+      // BLOQUEO / DESBLOQUEO DE LA RECOMPENSA QUINCENAL DE 1,000 XP
+      // TANTO EN EL DASHBOARD COMO EN EL MÓDULO 4 (RECETARIO)
+      // =======================================================================
+      const vaultBox = document.getElementById('vip-dessert-vault-box');
+      const vaultTag = document.getElementById('vip-dessert-status-tag');
+      const vaultSub = document.getElementById('vip-dessert-sub');
+      const vaultFrontBtn = document.getElementById('vip-dessert-front-btn');
+      const vaultBackBtn = document.getElementById('vip-dessert-back-btn');
+      const vaultBackText = document.getElementById('vip-dessert-back-text');
+      const vaultBackIcon = document.getElementById('vip-dessert-back-icon');
+
+      if (vaultBox && vaultTag && vaultSub && vaultFrontBtn) {
+        if (isQueen) {
+          vaultBox.className = 'rank-vault-box is-unlocked';
+          vaultTag.innerText = '🔓 ¡RECOMPENSA QUINCENAL DESBLOQUEADA! • 1,000 XP';
+          vaultSub.innerText = `Acceso activo (${cycleInfo.daysLeftCycle}d restantes del ciclo) 👑`;
+          vaultFrontBtn.style.background = '#FDE68A';
+          vaultFrontBtn.style.color = '#142B1F';
+          vaultFrontBtn.style.borderColor = '#F59E0B';
+          vaultFrontBtn.innerHTML = 'Abrir Recetas <i class="fa-solid fa-arrow-right"></i>';
+        } else {
+          vaultBox.className = 'rank-vault-box is-locked';
+          vaultTag.innerText = '🔒 RECOMPENSA QUINCENAL (1,000 XP) • BLOQUEADA';
+          vaultSub.innerText = `Ciclo 2 semanas: Faltan ${xpRem} XP (${cycleInfo.daysLeftCycle}d restantes)`;
+          vaultFrontBtn.style.background = 'rgba(255,255,255,0.12)';
+          vaultFrontBtn.style.color = '#FDE68A';
+          vaultFrontBtn.style.borderColor = 'rgba(253,230,138,0.45)';
+          vaultFrontBtn.innerHTML = `🔒 Faltan ${xpRem} XP`;
+        }
+      }
+
+      if (vaultBackBtn && vaultBackText && vaultBackIcon) {
+        if (isQueen) {
+          vaultBackBtn.style.background = 'linear-gradient(135deg, var(--avo-primary), #4E8220)';
+          vaultBackBtn.style.border = 'none';
+          vaultBackBtn.style.color = '#FFFFFF';
+          vaultBackText.innerText = '🍰 ¡Bóveda Desbloqueada! Abrir Postres Sin Azúcar';
+          vaultBackIcon.className = 'fa-solid fa-unlock';
+        } else {
+          vaultBackBtn.style.background = 'rgba(255,255,255,0.1)';
+          vaultBackBtn.style.border = '1.5px dashed #FDE68A';
+          vaultBackBtn.style.color = '#FDE68A';
+          vaultBackText.innerText = `🔒 Postres Sin Azúcar Bloqueados (Te faltan ${xpRem} XP)`;
+          vaultBackIcon.className = 'fa-solid fa-lock';
+        }
+      }
+
+      // Estado de bloqueo en Módulo 4 (Recetario -> Sección Postres Sin Azúcar)
+      const recBadge = document.getElementById('vip-postres-badge');
+      const recDesc = document.getElementById('vip-postres-desc');
+      const recCardsRow = document.getElementById('vip-postres-cards-row');
+      const recLockOverlay = document.getElementById('vip-postres-lock-overlay');
+      const recLockHeadline = document.getElementById('vault-lock-headline');
+      const recLockBar = document.getElementById('vault-lock-bar');
+
+      if (recCardsRow && recLockOverlay) {
+        if (isQueen) {
+          recCardsRow.classList.remove('is-locked-blur');
+          recLockOverlay.style.display = 'none';
+          if (recBadge) recBadge.innerText = '🔓 ¡RECOMPENSA DESBLOQUEADA! • RANGO REINA SALUDABLE 👑 (1,000 XP)';
+          if (recDesc) recDesc.innerHTML = '¡Felicidades! Has desbloqueado las 3 recetas exclusivas de postres sin azúcar avaladas por la Nutrióloga Arianna:';
+        } else {
+          recCardsRow.classList.add('is-locked-blur');
+          recLockOverlay.style.display = 'flex';
+          if (recBadge) recBadge.innerText = `🔒 RECOMPENSA DE NIVEL 1,000 XP • BÓVEDA BLOQUEADA (TIENES ${clubState.xp} / 1,000 XP)`;
+          if (recDesc) recDesc.innerHTML = `Alcanza <strong>1,000 XP (Rango Reina Saludable 👑)</strong> con tus Misiones Diarias (te faltan <strong>${xpRem} XP</strong>) para abrir estas recetas:`;
+          if (recLockHeadline) recLockHeadline.innerText = `Tienes ${clubState.xp} / 1,000 XP — Te faltan ${xpRem} XP para desbloquear esta bóveda`;
+          if (recLockBar) recLockBar.style.width = `${xpPct}%`;
+        }
+      }
 
       // Renderizar Gráfico Multimétrica, Hidratación Semanal y Bio-Radar
       renderEvolutionChart();
@@ -6005,11 +6485,11 @@
         clubState.checkinDone = true;
         clubState.week = 4;
         clubState.streakDays += 1;
-        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 100);
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
       }
       syncPlatformState();
       if (btnEl) {
-        btnEl.innerHTML = '<span>✅ ¡Semana 4 Calibrada! (+100 XP)</span>';
+        btnEl.innerHTML = '<span>✅ ¡Semana 4 Calibrada! (+50 XP)</span>';
       }
     }
 
@@ -6160,16 +6640,21 @@
       if (!clubState.seedPlanted) {
         clubState.seedPlanted = true;
         clubState.streakDays += 1;
-        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
       }
-      if (streak) streak.innerHTML = `🔥 ${clubState.streakDays} Días en Racha (+50 XP)`;
+      if (streak) streak.innerHTML = `🔥 ${clubState.streakDays} Días en Racha (+25 XP)`;
       if (topSeedText) topSeedText.innerText = '🌱 Semilla Sembrada ✓';
       syncPlatformState();
       if (btnEl) {
-        btnEl.innerText = '✅ ¡Semilla de hoy sembrada con éxito! (+50 XP)';
+        btnEl.innerText = '✅ ¡Semilla de hoy sembrada con éxito! (+25 XP)';
         btnEl.style.background = 'var(--avo-dark)';
       }
     }
+
+    // Reloj automático en segundo plano para actualizar el ciclo quincenal (cada 2 semanas) y el reinicio diario
+    setInterval(() => {
+      checkAndRenderDailyMissionsReset();
+    }, 60000);
 
     function saveSeedToVault(btnEl) {
       const quoteEl = document.getElementById('seed-quote-main');
