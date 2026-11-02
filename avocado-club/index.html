@@ -1972,9 +1972,10 @@
       }
 
       .dash-clinical-grid,
-      #dash-icc-biomarkers-strip {
+      #dash-icc-biomarkers-strip,
+      #water-retro-biomarkers {
         grid-template-columns: 1fr !important;
-        gap: 10px !important;
+        gap: 8px !important;
       }
 
       #flip-dash-chart svg {
@@ -2138,9 +2139,109 @@
       box-shadow: 0 4px 12px rgba(232, 111, 82, 0.18);
     }
 
+    .water-day-col.locked-day {
+      opacity: 0.82;
+      cursor: not-allowed;
+    }
+
+    .water-day-col.locked-day:hover {
+      background: rgba(254, 242, 242, 0.65);
+      border-color: #FCA5A5;
+    }
+
+    @keyframes waterLockShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      75% { transform: translateX(3px); }
+    }
+
+    .water-day-col.shake-lock {
+      animation: waterLockShake 0.28s ease-in-out 2;
+      border-color: var(--coral) !important;
+      background: #FFF3EF !important;
+    }
+
+    .water-day-tag {
+      font-size: 0.56rem;
+      font-weight: 900;
+      padding: 1px 5px;
+      border-radius: 99px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .water-day-tag.tag-today {
+      background: #DBEAFE;
+      color: #1D4ED8;
+      border: 1px solid #93C5FD;
+    }
+
+    .water-day-tag.tag-yesterday {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+    }
+
+    .water-day-tag.tag-locked {
+      background: #E2E8F0;
+      color: #64748B;
+      border: 1px solid #CBD5E1;
+    }
+
+    .water-edit-notice-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      padding: 7px 11px;
+      border-radius: 12px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      font-size: 0.72rem;
+      color: #1E3A8A;
+      transition: all 0.25s ease;
+    }
+
+    .water-edit-notice-bar.is-alert {
+      background: #FFF3EF;
+      border-color: #F5C2B8;
+      color: #9A3412;
+      box-shadow: 0 4px 12px rgba(232, 111, 82, 0.14);
+    }
+
+    .water-quick-switch {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .water-quick-btn {
+      border: 1px solid #93C5FD;
+      background: #FFFFFF;
+      color: #1E40AF;
+      font-family: inherit;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .water-quick-btn.active {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+    }
+
     .water-bar-track {
       width: 14px;
-      height: 44px;
+      height: 40px;
       background: #E2E8F0;
       border-radius: 99px;
       overflow: hidden;
@@ -3683,25 +3784,25 @@
                   <!-- CARA FRONTAL: VASOS INTERACTIVOS + HISTORIAL SEMANAL LUNES A DOMINGO -->
                   <div class="flip-face-3d front">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-wrap: wrap; gap: 6px;">
                         <span class="card-label" style="margin: 0;">💧 HIDRATACIÓN DIARIA + HISTORIAL SEMANAL</span>
-                        <button type="button" class="btn-flip-trigger coral-flip" style="padding: 5px 11px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-water')">
+                        <button type="button" id="btn-water-retro-top" class="btn-flip-trigger coral-flip" style="padding: 5px 11px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-water')">
                           📊 Retro Dominical <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
 
                       <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px;">
-                        <h3 id="water-title" style="font-size: 1.18rem; color: var(--avo-dark); margin: 0;">Jueves (Hoy): 6 de 8 vasos (1.80 L)</h3>
+                        <h3 id="water-title" style="font-size: 1.15rem; color: var(--avo-dark); margin: 0;">Jueves (Hoy): 6 de 8 vasos (1.80 L)</h3>
                         <span id="water-weight-target" style="font-size: 0.72rem; font-weight: 800; color: #2563EB; background: #EFF6FF; padding: 3px 9px; border-radius: 99px; border: 1px solid #BFDBFE;">
                           Meta para tus 68.4 kg: 2.4 L (8 vasos)
                         </span>
                       </div>
-                      <p style="font-size: 0.77rem; color: var(--text-muted); margin-top: 2px;">
-                        Toca un vaso para registrar tu agua hoy, o selecciona cualquier día de <strong>Lunes a Domingo</strong> abajo:
+                      <p id="water-subtitle-text" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
+                        Toca un vaso para actualizar <strong>Hoy (Jueves)</strong>, o toca <strong>Miércoles (Ayer)</strong> si olvidaste anotar lo del día anterior:
                       </p>
 
-                      <!-- 8 Vasos interactivos del día seleccionado -->
-                      <div class="water-glasses" id="water-container">
+                      <!-- 8 Vasos interactivos del día seleccionado (Solo Hoy o Día Anterior) -->
+                      <div class="water-glasses" id="water-container" style="margin: 8px 0 9px;">
                         <div class="glass-cup filled" onclick="toggleWater(0)">💧</div>
                         <div class="glass-cup filled" onclick="toggleWater(1)">💧</div>
                         <div class="glass-cup filled" onclick="toggleWater(2)">💧</div>
@@ -3714,14 +3815,29 @@
 
                       <!-- Historial Semanal Interactivo de Lunes a Domingo -->
                       <div class="water-week-strip" id="water-week-strip"></div>
+
+                      <!-- Barra de Control Clínico: Solo Hoy y el Día Anterior (Ayer) son editables -->
+                      <div class="water-edit-notice-bar" id="water-edit-notice-bar">
+                        <span id="water-edit-notice-text" style="font-weight: 700;">
+                          🛡️ <strong>Solo puedes actualizar Hoy y el Día Anterior:</strong> demás días bloqueados 🔒
+                        </span>
+                        <div class="water-quick-switch">
+                          <button type="button" id="btn-quick-water-yesterday" class="water-quick-btn" onclick="selectWaterDay(2)">
+                            ✏️ Día Anterior (Mié)
+                          </button>
+                          <button type="button" id="btn-quick-water-today" class="water-quick-btn active" onclick="selectWaterDay(3)">
+                            💧 Hoy (Jue)
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; font-size: 0.75rem; flex-wrap: wrap; gap: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 4px; font-size: 0.74rem; flex-wrap: wrap; gap: 6px;">
                       <span id="water-weekly-avg-label" style="font-weight: 800; color: var(--avo-dark);">
-                        📈 Promedio Semanal: <strong style="color: #2563EB;">7.3 vasos/día (91% cumplido)</strong>
+                        📈 Promedio Lun–Dom: <strong style="color: #2563EB;">7.3 vasos/día (91% cumplido)</strong>
                       </span>
-                      <span style="color: var(--coral); font-weight: 800; cursor: pointer;" onclick="toggleCardFlip('flip-dash-water')">
-                        ☀️ Ver diagnóstico de cierre dominical ➔
+                      <span id="link-water-retro-bottom" style="color: var(--coral); font-weight: 800; cursor: pointer;" onclick="toggleCardFlip('flip-dash-water')">
+                        ☀️ Ver diagnóstico dominical ➔
                       </span>
                     </div>
                   </div>
@@ -3729,47 +3845,68 @@
                   <!-- CARA TRASERA: RETROALIMENTACIÓN CLÍNICA DOMINICAL DE HIDRATACIÓN (NUTRIÓLOGA ARIANNA) -->
                   <div class="flip-face-3d back" style="background: linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%);">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-                        <span class="card-label" style="margin: 0; background: #EFF6FF; color: #1D4ED8; border-color: #93C5FD;">☀️ RETROALIMENTACIÓN DOMINICAL DE HIDRATACIÓN</span>
-                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-water')">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                        <span class="card-label" id="water-retro-top-label" style="margin: 0; background: #EFF6FF; color: #1D4ED8; border-color: #93C5FD;">☀️ RETRO DOMINICAL DE HIDRATACIÓN</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 4px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-water')">
                           <i class="fa-solid fa-rotate-left"></i> Volver a mis Vasos
                         </button>
                       </div>
 
-                      <h3 style="font-size: 1.24rem; color: var(--avo-dark); margin-bottom: 4px;">Balance Hídrico de tu Semana (Lun – Dom)</h3>
-                      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px;">
-                        Evaluación automática de la Nutrióloga Arianna según los vasos que registraste de lunes a domingo:
+                      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 2px;">
+                        <h3 style="font-size: 1.14rem; color: var(--avo-dark); margin: 0;">Balance Hídrico de tu Semana</h3>
+                        <span id="water-retro-sunday-pill" style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.71rem; font-weight: 800; background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; padding: 3px 10px; border-radius: 99px;">
+                          📅 Domingo 8 de Noviembre, 2026
+                        </span>
+                      </div>
+                      <p id="water-retro-period-sub" style="font-size: 0.73rem; color: var(--text-muted); margin-bottom: 8px;">
+                        📍 Corte del <strong>Lunes 2 al Domingo 8 de Noviembre</strong> • Evaluación clínica de la Nutrióloga Arianna:
                       </p>
 
-                      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px;">
-                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 9px 10px; text-align: center;">
-                          <div style="font-size: 0.64rem; font-weight: 800; color: #1D4ED8;">LITROS EN LA SEMANA</div>
-                          <div id="water-retro-liters" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: var(--avo-dark); margin-top: 2px;">15.3 L / 16.8 L</div>
+                      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-bottom: 8px;">
+                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 7px 8px; text-align: center;">
+                          <div style="font-size: 0.61rem; font-weight: 800; color: #1D4ED8;">LITROS ACUMULADOS</div>
+                          <div id="water-retro-liters" style="font-family: 'Outfit', sans-serif; font-size: 1.06rem; font-weight: 900; color: var(--avo-dark); margin-top: 1px;">15.3 L / 16.8 L</div>
                         </div>
-                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 9px 10px; text-align: center;">
-                          <div style="font-size: 0.64rem; font-weight: 800; color: #1D4ED8;">PROMEDIO DIARIO</div>
-                          <div id="water-retro-avg" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: var(--avo-primary); margin-top: 2px;">7.3 vasos (91%)</div>
+                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 7px 8px; text-align: center;">
+                          <div style="font-size: 0.61rem; font-weight: 800; color: #1D4ED8;">PROMEDIO DIARIO</div>
+                          <div id="water-retro-avg" style="font-family: 'Outfit', sans-serif; font-size: 1.06rem; font-weight: 900; color: var(--avo-primary); margin-top: 1px;">7.3 vasos (91%)</div>
                         </div>
-                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 9px 10px; text-align: center;">
-                          <div style="font-size: 0.64rem; font-weight: 800; color: #1D4ED8;">META DE 8 VASOS</div>
-                          <div id="water-retro-days" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: var(--coral); margin-top: 2px;">4 de 7 días</div>
+                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 7px 8px; text-align: center;">
+                          <div style="font-size: 0.61rem; font-weight: 800; color: #1D4ED8;">META DE 8 VASOS</div>
+                          <div id="water-retro-days" style="font-family: 'Outfit', sans-serif; font-size: 1.06rem; font-weight: 900; color: var(--coral); margin-top: 1px;">4 de 7 días</div>
+                        </div>
+                      </div>
+
+                      <!-- Micro-indicadores fisiológicos de la semana hídrica -->
+                      <div id="water-retro-biomarkers" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px;">
+                        <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 9px; padding: 5px 7px;">
+                          <div style="font-size: 0.58rem; font-weight: 800; color: #64748B; text-transform: uppercase;">🔥 Oxidación Hepática</div>
+                          <div id="water-bio-liver" style="font-size: 0.71rem; font-weight: 800; color: #15803D;">Óptima (96%)</div>
+                        </div>
+                        <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 9px; padding: 5px 7px;">
+                          <div style="font-size: 0.58rem; font-weight: 800; color: #64748B; text-transform: uppercase;">💧 Retención Abdominal</div>
+                          <div id="water-bio-retention" style="font-size: 0.71rem; font-weight: 800; color: #1D4ED8;">Cero retención ✅</div>
+                        </div>
+                        <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 9px; padding: 5px 7px;">
+                          <div style="font-size: 0.58rem; font-weight: 800; color: #64748B; text-transform: uppercase;">🔎 Día a Cuidar</div>
+                          <div id="water-bio-lowest" style="font-size: 0.71rem; font-weight: 800; color: var(--coral);">Jueves (6/8 vasos)</div>
                         </div>
                       </div>
 
                       <!-- Diagnóstico dinámico dominical -->
-                      <div id="water-retro-box" style="background: #FFFFFF; border-left: 4px solid #2563EB; border-radius: 14px; padding: 12px 14px; border: 1px solid #BFDBFE; border-left-width: 4px;">
-                        <div id="water-retro-badge" style="font-size: 0.72rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase; margin-bottom: 4px;">
+                      <div id="water-retro-box" style="background: #FFFFFF; border-left: 4px solid #2563EB; border-radius: 12px; padding: 9px 12px; border: 1px solid #BFDBFE; border-left-width: 4px;">
+                        <div id="water-retro-badge" style="font-size: 0.69rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase; margin-bottom: 3px;">
                           🌟 DIAGNÓSTICO DE ARIANNA: HIDRATACIÓN METABÓLICA SOBRESALIENTE
                         </div>
-                        <p id="water-retro-text" style="font-size: 0.79rem; color: var(--text-main); line-height: 1.45; margin: 0;">
+                        <p id="water-retro-text" style="font-size: 0.75rem; color: var(--text-main); line-height: 1.4; margin: 0;">
                           "¡Excelente semana! Con este nivel de hidratación tu hígado oxida grasas sin esfuerzo, evitas la retención de líquidos abdominal (clave en tus -4.0 cm de cintura) y apagas los falsos antojos dulces por sed."
                         </p>
                       </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid #DBEAFE; font-size: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid #DBEAFE; font-size: 0.73rem; gap: 8px;">
                       <span id="water-retro-tip" style="color: #1E3A8A; font-weight: 700;">💡 Reto del Domingo: Toma 1 vaso de agua mineral con limón antes de tu comida libre.</span>
-                      <button type="button" class="btn-flip-trigger" style="padding: 6px 12px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-dash-water')">
+                      <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-water')">
                         ✓ Entendido
                       </button>
                     </div>
@@ -5422,13 +5559,13 @@
       selectedChartWeekIdx: 3,
       selectedWaterDayIdx: 3,
       waterWeekData: [
-        { short: 'Lun', full: 'Lunes', glasses: 8 },
-        { short: 'Mar', full: 'Martes', glasses: 7 },
-        { short: 'Mié', full: 'Miércoles', glasses: 8 },
-        { short: 'Jue', full: 'Jueves (Hoy)', glasses: 6, isToday: true },
-        { short: 'Vie', full: 'Viernes', glasses: 7 },
-        { short: 'Sáb', full: 'Sábado', glasses: 8 },
-        { short: 'Dom ⭐', full: 'Domingo (Cierre)', glasses: 7, isSunday: true }
+        { short: 'Lun', full: 'Lunes', glasses: 8, canEdit: false },
+        { short: 'Mar', full: 'Martes', glasses: 7, canEdit: false },
+        { short: 'Mié', full: 'Miércoles (Día Anterior)', glasses: 7, isYesterday: true, canEdit: true },
+        { short: 'Jue', full: 'Jueves (Hoy)', glasses: 6, isToday: true, canEdit: true },
+        { short: 'Vie', full: 'Viernes', glasses: 7, canEdit: false },
+        { short: 'Sáb', full: 'Sábado', glasses: 8, canEdit: false },
+        { short: 'Dom ⭐', full: 'Domingo (Cierre)', glasses: 7, isSunday: true, canEdit: false }
       ],
       bioSignals: {
         energy: 'good',
@@ -5601,24 +5738,94 @@
     }
 
     // =========================================================================
-    // HIDRATACIÓN DIARIA + HISTORIAL LUNES A DOMINGO + RETRO DOMINICAL
+    // HIDRATACIÓN DIARIA + HISTORIAL LUNES A DOMINGO + RETRO DOMINICAL CON FECHA
+    // REGLA CLÍNICA: SOLO SE PUEDE ACTUALIZAR HOY Y EL DÍA ANTERIOR (NO MÁS)
     // =========================================================================
+    let waterLockAlertTimer = null;
+
+    function getSundayRetroDateInfo() {
+      const monthsFull = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      const monthsShort = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+      const now = new Date();
+      const dayOfWeek = now.getDay(); // 0 = Dom, 1 = Lun ... 6 = Sáb
+      const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+
+      const mondayDate = new Date(now);
+      mondayDate.setDate(now.getDate() + diffToMonday);
+
+      const sundayDate = new Date(mondayDate);
+      sundayDate.setDate(mondayDate.getDate() + 6);
+
+      const monDay = mondayDate.getDate();
+      const monMonth = monthsFull[mondayDate.getMonth()];
+      const sunDay = sundayDate.getDate();
+      const sunMonth = monthsFull[sundayDate.getMonth()];
+      const sunMonthShort = monthsShort[sundayDate.getMonth()];
+      const sunYear = sundayDate.getFullYear();
+
+      const weekRange = mondayDate.getMonth() === sundayDate.getMonth()
+        ? `Lunes ${monDay} al Domingo ${sunDay} de ${sunMonth}`
+        : `Lunes ${monDay} de ${monMonth} al Domingo ${sunDay} de ${sunMonth}`;
+
+      return {
+        sundayFull: `Domingo ${sunDay} de ${sunMonth}, ${sunYear}`,
+        sundayShort: `Dom ${sunDay} ${sunMonthShort}`,
+        weekRange
+      };
+    }
+
     function selectWaterDay(dayIdx) {
+      const targetDay = clubState.waterWeekData[dayIdx];
+      if (!targetDay) return;
+
+      // Bloquear cualquier día que no sea Hoy (idx 3) o el Día Anterior (idx 2)
+      if (!targetDay.canEdit) {
+        const colEl = document.getElementById(`water-col-${dayIdx}`);
+        if (colEl) {
+          colEl.classList.remove('shake-lock');
+          void colEl.offsetWidth;
+          colEl.classList.add('shake-lock');
+          setTimeout(() => colEl.classList.remove('shake-lock'), 650);
+        }
+
+        const noticeBar = document.getElementById('water-edit-notice-bar');
+        const noticeTxt = document.getElementById('water-edit-notice-text');
+        if (noticeBar && noticeTxt) {
+          const cleanName = targetDay.full.replace(' (Cierre)', '');
+          noticeBar.classList.add('is-alert');
+          noticeTxt.innerHTML = `🔒 <strong>${cleanName} bloqueado:</strong> Solo puedes actualizar lo que bebiste <strong>Hoy</strong> o el <strong>Día Anterior (Miércoles)</strong>.`;
+          if (waterLockAlertTimer) clearTimeout(waterLockAlertTimer);
+          waterLockAlertTimer = setTimeout(() => {
+            noticeBar.classList.remove('is-alert');
+            renderWaterTracker();
+          }, 3600);
+        }
+        return;
+      }
+
+      if (waterLockAlertTimer) {
+        clearTimeout(waterLockAlertTimer);
+        waterLockAlertTimer = null;
+      }
+      const noticeBar = document.getElementById('water-edit-notice-bar');
+      if (noticeBar) noticeBar.classList.remove('is-alert');
+
       clubState.selectedWaterDayIdx = dayIdx;
       renderWaterTracker();
     }
 
     function toggleWater(cupIdx) {
       const dayObj = clubState.waterWeekData[clubState.selectedWaterDayIdx];
-      if (!dayObj) return;
+      if (!dayObj || !dayObj.canEdit) return;
+
       if (cupIdx + 1 === dayObj.glasses) {
         dayObj.glasses = Math.max(0, cupIdx);
       } else {
         dayObj.glasses = cupIdx + 1;
       }
 
-      // Si hoy llega a 8 vasos por primera vez, otorgar +25 XP reales (Ciclo Quincenal)
-      if (dayObj.glasses === 8 && !clubState.waterBonusAwarded) {
+      // Solo si HOY llega a 8 vasos por primera vez, otorgar +25 XP reales (Ciclo Quincenal)
+      if (dayObj.isToday && dayObj.glasses === 8 && !clubState.waterBonusAwarded) {
         clubState.waterBonusAwarded = true;
         clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
       }
@@ -5636,11 +5843,39 @@
         targetEl.innerText = `Meta para tus ${weight.toFixed(1)} kg: ${recommendedLiters} L (8 vasos)`;
       }
 
+      // Asegurar que el día seleccionado siempre sea Hoy (3) o el Día Anterior (2)
+      if (!clubState.waterWeekData[clubState.selectedWaterDayIdx]?.canEdit) {
+        clubState.selectedWaterDayIdx = 3;
+      }
+
       const activeDay = clubState.waterWeekData[clubState.selectedWaterDayIdx] || clubState.waterWeekData[3];
       const dayLiters = (activeDay.glasses * 0.3).toFixed(2);
       const titleEl = document.getElementById('water-title');
       if (titleEl) {
         titleEl.innerText = `${activeDay.full}: ${activeDay.glasses} de 8 vasos (${dayLiters} L)`;
+      }
+
+      const subEl = document.getElementById('water-subtitle-text');
+      if (subEl) {
+        if (activeDay.isYesterday) {
+          subEl.innerHTML = `✏️ Editando <strong>Miércoles (Día Anterior)</strong>: toca los vasos para corregir lo que bebiste ayer.`;
+        } else {
+          subEl.innerHTML = `Toca un vaso para actualizar <strong>Hoy (Jueves)</strong>, o toca <strong>Miércoles (Ayer)</strong> si olvidaste anotar lo del día anterior:`;
+        }
+      }
+
+      // Actualizar botones rápidos y aviso de edición
+      const btnQuickYesterday = document.getElementById('btn-quick-water-yesterday');
+      const btnQuickToday = document.getElementById('btn-quick-water-today');
+      if (btnQuickYesterday) btnQuickYesterday.classList.toggle('active', !!activeDay.isYesterday);
+      if (btnQuickToday) btnQuickToday.classList.toggle('active', !!activeDay.isToday);
+
+      const noticeBar = document.getElementById('water-edit-notice-bar');
+      const noticeTxt = document.getElementById('water-edit-notice-text');
+      if (noticeBar && noticeTxt && !noticeBar.classList.contains('is-alert')) {
+        noticeTxt.innerHTML = activeDay.isYesterday
+          ? `✏️ <strong>Modo Día Anterior (Mié):</strong> único día pasado permitido para actualizar`
+          : `🛡️ <strong>Solo puedes actualizar Hoy y el Día Anterior:</strong> demás días bloqueados 🔒`;
       }
 
       // Renderizar los 8 vasos del día seleccionado
@@ -5653,7 +5888,7 @@
         });
       }
 
-      // Renderizar barra histórica Lunes a Domingo
+      // Renderizar barra histórica Lunes a Domingo con indicadores HOY / AYER / 🔒
       const stripEl = document.getElementById('water-week-strip');
       if (stripEl) {
         let stripHtml = '';
@@ -5663,29 +5898,69 @@
           const colClasses = ['water-day-col'];
           if (isSelected) colClasses.push('active-day');
           if (d.isSunday) colClasses.push('sunday-col');
+          if (!d.canEdit) colClasses.push('locked-day');
+
           const fillClasses = ['water-bar-fill'];
           if (d.glasses >= 8) fillClasses.push('goal-met');
 
+          let statusTag = `<span class="water-day-tag tag-locked">🔒</span>`;
+          let tooltipTxt = `${d.full}: Registro cerrado (solo Hoy y el Día Anterior son editables)`;
+          if (d.isToday) {
+            statusTag = `<span class="water-day-tag tag-today">HOY</span>`;
+            tooltipTxt = `Actualizar agua de ${d.full}`;
+          } else if (d.isYesterday) {
+            statusTag = `<span class="water-day-tag tag-yesterday">AYER ✏️</span>`;
+            tooltipTxt = `Actualizar agua del ${d.full}`;
+          }
+
           stripHtml += `
-            <div class="${colClasses.join(' ')}" onclick="selectWaterDay(${idx})" title="Ver/Editar ${d.full}">
+            <div id="water-col-${idx}" class="${colClasses.join(' ')}" onclick="selectWaterDay(${idx})" title="${tooltipTxt}">
               <div class="water-day-name">${d.short}</div>
               <div class="water-bar-track">
                 <div class="${fillClasses.join(' ')}" style="height: ${pct}%;"></div>
               </div>
               <div class="water-day-val">${d.glasses}/8</div>
+              ${statusTag}
             </div>
           `;
         });
         stripEl.innerHTML = stripHtml;
       }
 
+      // Fechas dinámicas del Domingo de Retro Dominical para que nadie se pierda
+      const retroDates = getSundayRetroDateInfo();
+      const btnRetroTop = document.getElementById('btn-water-retro-top');
+      if (btnRetroTop) {
+        btnRetroTop.innerHTML = `📊 Retro Dominical (${retroDates.sundayShort}) <i class="fa-solid fa-rotate"></i>`;
+      }
+      const linkRetroBot = document.getElementById('link-water-retro-bottom');
+      if (linkRetroBot) {
+        linkRetroBot.innerText = `☀️ Ver retro del ${retroDates.sundayShort} ➔`;
+      }
+      const sunPill = document.getElementById('water-retro-sunday-pill');
+      if (sunPill) {
+        sunPill.innerText = `📅 ${retroDates.sundayFull}`;
+      }
+      const periodSub = document.getElementById('water-retro-period-sub');
+      if (periodSub) {
+        periodSub.innerHTML = `📍 Corte del <strong>${retroDates.weekRange}</strong> • Evaluación clínica de la Nutrióloga Arianna:`;
+      }
+
       // Cálculos semanales y Retroalimentación Dominical de la Nutrióloga Arianna
       const totalGlasses = clubState.waterWeekData.reduce((acc, d) => acc + d.glasses, 0);
-      const avgGlasses = (totalGlasses / 7).toFixed(1);
+      const avgGlassesNum = totalGlasses / 7;
+      const avgGlasses = avgGlassesNum.toFixed(1);
       const pctWeek = Math.round((totalGlasses / 56) * 100);
       const totalLiters = (totalGlasses * 0.3).toFixed(1);
       const goalLitersWeek = (56 * 0.3).toFixed(1);
       const daysMetGoal = clubState.waterWeekData.filter(d => d.glasses >= 8).length;
+
+      // Identificar el día más bajo de la semana para retroalimentación personalizada
+      let lowestDay = clubState.waterWeekData[0];
+      clubState.waterWeekData.forEach(d => {
+        if (d.glasses < lowestDay.glasses) lowestDay = d;
+      });
+      const lowestDayName = lowestDay.full.replace(' (Hoy)', '').replace(' (Día Anterior)', '').replace(' (Cierre)', '');
 
       const avgLabel = document.getElementById('water-weekly-avg-label');
       if (avgLabel) {
@@ -5699,30 +5974,45 @@
       const retroDays = document.getElementById('water-retro-days');
       if (retroDays) retroDays.innerText = `${daysMetGoal} de 7 días`;
 
+      // Actualizar los 3 micro-indicadores fisiológicos en la Retro Dominical
+      const bioLiver = document.getElementById('water-bio-liver');
+      const bioRet = document.getElementById('water-bio-retention');
+      const bioLowest = document.getElementById('water-bio-lowest');
+      if (bioLowest) {
+        bioLowest.innerText = lowestDay.glasses >= 8 ? '¡7/7 días al 100%! 🌟' : `${lowestDayName} (${lowestDay.glasses}/8 vasos)`;
+        bioLowest.style.color = lowestDay.glasses >= 8 ? '#15803D' : 'var(--coral)';
+      }
+
       const retroBadge = document.getElementById('water-retro-badge');
       const retroText = document.getElementById('water-retro-text');
       const retroTip = document.getElementById('water-retro-tip');
       const retroBox = document.getElementById('water-retro-box');
 
       if (retroBadge && retroText && retroTip && retroBox) {
-        if (avgGlasses >= 7.0) {
+        if (avgGlassesNum >= 7.0) {
           retroBox.style.borderLeftColor = '#16A34A';
           retroBadge.style.color = '#15803D';
-          retroBadge.innerText = '🌟 RETRO DOMINICAL DE ARIANNA: HIDRATACIÓN METABÓLICA SOBRESALIENTE';
-          retroText.innerText = `"¡Cerraste la semana con ${totalLiters} litros acumulados! Con este nivel de agua tu hígado metaboliza grasa visceral sin esfuerzo, evitas la retención de líquidos abdominal (impulsando tus ${waistDiff} cm de cintura) y mantienes tu saciedad al máximo."`;
-          retroTip.innerText = '💡 Ritual de Domingo: Toma 1 vaso de agua mineral con limón antes de tu comida libre.';
-        } else if (avgGlasses >= 5.5) {
+          if (bioLiver) { bioLiver.innerText = `Óptima (${Math.min(100, pctWeek)}%)`; bioLiver.style.color = '#15803D'; }
+          if (bioRet) { bioRet.innerText = 'Cero retención ✅'; bioRet.style.color = '#1D4ED8'; }
+          retroBadge.innerText = `🌟 RETRO DEL ${retroDates.sundayShort.toUpperCase()}: HIDRATACIÓN METABÓLICA SOBRESALIENTE`;
+          retroText.innerText = `"¡Cerraste el corte del ${retroDates.sundayFull} con ${totalLiters} L acumulados (${daysMetGoal}/7 días en meta)! Tu hígado oxida grasa visceral al máximo, evitas la retención abdominal (impulsando tus ${waistDiff} cm de cintura) y sólo debes cuidar los días como el ${lowestDayName} (${lowestDay.glasses}/8)."`;
+          retroTip.innerText = '💡 Ritual de Domingo: Toma 1 vaso de agua mineral con limón 15 min antes de tu comida libre.';
+        } else if (avgGlassesNum >= 5.5) {
           retroBox.style.borderLeftColor = '#D97706';
           retroBadge.style.color = '#B45309';
-          retroBadge.innerText = '⚡ RETRO DOMINICAL DE ARIANNA: HIDRATACIÓN MODERADA (PUEDES SUBIR 15%)';
-          retroText.innerText = `"Promediaste ${avgGlasses} vasos al día (${totalLiters} L en la semana). Vas por buen camino, pero sumar solo 2 vasos más entre comidas acelerará tu desinflamación abdominal y evitará el cansancio de media tarde."`;
+          if (bioLiver) { bioLiver.innerText = `Moderada (${pctWeek}%)`; bioLiver.style.color = '#B45309'; }
+          if (bioRet) { bioRet.innerText = 'Leve retención ⚠️'; bioRet.style.color = '#B45309'; }
+          retroBadge.innerText = `⚡ RETRO DEL ${retroDates.sundayShort.toUpperCase()}: HIDRATACIÓN MODERADA (SUBE 2 VASOS/DÍA)`;
+          retroText.innerText = `"En este corte del ${retroDates.sundayFull} promediaste ${avgGlasses} vasos/día (${totalLiters} L), siendo el ${lowestDayName} tu día más bajo (${lowestDay.glasses}/8). Sumar 2 vasos extra entre comidas desinflamará tu abdomen mucho más rápido esta semana."`;
           retroTip.innerText = '💡 Ajuste Lunes: Deja 1 vaso lleno junto a tu cama al despertar y otro antes de comer.';
         } else {
           retroBox.style.borderLeftColor = '#E86F52';
           retroBadge.style.color = '#C2410C';
-          retroBadge.innerText = '🚨 RETRO DOMINICAL DE ARIANNA: ALERTA DE RETENCIÓN Y SED OCULTA';
-          retroText.innerText = `"Esta semana promediaste ${avgGlasses} vasos/día. Cuando tomas poca agua, tu cuerpo retiene líquidos en el abdomen por defensa y el cerebro confunde la deshidratación con antojos de azúcar."`;
-          retroTip.innerText = '💡 Prescripción: Inicia mañana con infusión de jamaica o agua con rodajas de pepino y limón.';
+          if (bioLiver) { bioLiver.innerText = `Lenta (${pctWeek}%)`; bioLiver.style.color = '#C2410C'; }
+          if (bioRet) { bioRet.innerText = 'Retención activa 🚨'; bioRet.style.color = '#C2410C'; }
+          retroBadge.innerText = `🚨 RETRO DEL ${retroDates.sundayShort.toUpperCase()}: ALERTA DE RETENCIÓN Y SED OCULTA`;
+          retroText.innerText = `"En el corte del ${retroDates.sundayFull} promediaste ${avgGlasses} vasos/día. Cuando tomas poca agua, tu cuerpo retiene líquidos en el abdomen por defensa y el cerebro confunde la deshidratación con antojos dulces."`;
+          retroTip.innerText = '💡 Prescripción: Inicia mañana con infusión de jamaica sin azúcar o agua con pepino y limón.';
         }
       }
     }
@@ -6038,7 +6328,10 @@
     // Ir o completar misión diaria de XP (con XP a la mitad: +25, +25, +25, +50 = +125 XP/día)
     function completeOrGoMission(type) {
       if (type === 'water') {
-        const todayObj = clubState.waterWeekData[clubState.selectedWaterDayIdx];
+        const todayIdx = clubState.waterWeekData.findIndex(d => d.isToday);
+        const targetIdx = todayIdx >= 0 ? todayIdx : 3;
+        clubState.selectedWaterDayIdx = targetIdx;
+        const todayObj = clubState.waterWeekData[targetIdx];
         if (!clubState.waterBonusAwarded && todayObj) {
           todayObj.glasses = 8;
           clubState.waterBonusAwarded = true;
