@@ -1978,7 +1978,44 @@
 
       #flip-dash-chart svg {
         height: auto !important;
-        min-height: 115px;
+        min-height: 135px;
+      }
+
+      .chart-metric-tabs {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .chart-tab-pill {
+        flex: 1;
+        text-align: center;
+        padding: 6px 6px;
+        font-size: 0.7rem;
+      }
+
+      .water-glasses {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+      }
+
+      .water-week-strip {
+        padding: 8px 6px;
+        gap: 4px;
+      }
+
+      .bio-signal-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .bio-opt-group {
+        width: 100%;
+      }
+
+      .bio-opt-btn {
+        flex: 1;
+        text-align: center;
       }
 
       .obj-grid,
@@ -2029,18 +2066,17 @@
     .card-label.coral { background: var(--coral-soft); color: var(--coral); border-color: #F5C2B8; }
     .card-label.gold { background: var(--gold-soft); color: #9A6700; border-color: #F5DC9B; }
 
-    /* VASOS DE AGUA INTERACTIVOS */
+    /* VASOS DE AGUA INTERACTIVOS + HISTORIAL SEMANAL LUNES A DOMINGO */
     .water-glasses {
-      display: flex;
-      gap: 9px;
-      margin-top: 12px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 7px;
+      margin: 10px 0 12px;
     }
 
     .glass-cup {
-      width: 42px;
-      height: 50px;
-      border-radius: 9px 9px 15px 15px;
+      height: 44px;
+      border-radius: 9px 9px 14px 14px;
       border: 2px solid #93C5FD;
       background: #EFF6FF;
       box-shadow: inset 0 2px 4px rgba(37, 99, 235, 0.1);
@@ -2048,16 +2084,161 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 0.98rem;
-      transition: all 0.22s;
+      font-size: 0.92rem;
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      user-select: none;
     }
 
     .glass-cup.filled {
       background: linear-gradient(180deg, #60A5FA, #2563EB);
       color: #FFFFFF;
       border-color: #1D4ED8;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.28);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.28);
+    }
+
+    .water-week-strip {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      background: #F4F9EE;
+      border: 1.5px solid #CFE0BE;
+      border-radius: 16px;
+      padding: 10px 10px 8px;
+      box-shadow: inset 0 2px 5px rgba(20, 43, 31, 0.05);
+    }
+
+    .water-day-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 4px;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .water-day-col:hover {
+      background: rgba(255, 255, 255, 0.75);
+      border-color: #93C5FD;
+    }
+
+    .water-day-col.active-day {
+      background: #FFFFFF;
+      border-color: #2563EB;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .water-day-col.sunday-col.active-day {
+      border-color: var(--coral);
+      box-shadow: 0 4px 12px rgba(232, 111, 82, 0.18);
+    }
+
+    .water-bar-track {
+      width: 14px;
+      height: 44px;
+      background: #E2E8F0;
+      border-radius: 99px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 2px;
+    }
+
+    .water-bar-fill {
+      width: 100%;
+      border-radius: 99px;
+      background: linear-gradient(180deg, #60A5FA 0%, #2563EB 100%);
+      transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .water-bar-fill.goal-met {
+      background: linear-gradient(180deg, #34D399 0%, #059669 100%);
+    }
+
+    /* SELECTOR DE MÉTRICAS DEL GRÁFICO PREMIUM */
+    .chart-metric-tabs {
+      display: inline-flex;
+      background: #EBF4E1;
+      border: 1px solid #CFE0BE;
+      border-radius: 12px;
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .chart-tab-pill {
+      border: none;
+      background: transparent;
+      padding: 5px 11px;
+      border-radius: 9px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chart-tab-pill.active {
+      background: var(--avo-dark);
+      color: #FFFFFF;
+      box-shadow: 0 3px 8px rgba(20, 43, 31, 0.18);
+    }
+
+    .chart-node-circle {
+      cursor: pointer;
+      transition: r 0.2s ease, stroke-width 0.2s ease;
+    }
+
+    .chart-node-circle:hover {
+      r: 8.5px;
+    }
+
+    /* BIO-RADAR METABÓLICO INTERACTIVO */
+    .bio-signal-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #F4F9EE;
+      border: 1.5px solid #CFE0BE;
+      border-radius: 13px;
+      padding: 7px 11px;
+    }
+
+    .bio-opt-group {
+      display: flex;
+      gap: 5px;
+    }
+
+    .bio-opt-btn {
+      border: 1.5px solid #CFE0BE;
+      background: #FFFFFF;
+      color: var(--text-muted);
+      padding: 5px 10px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .bio-opt-btn.active-good {
+      background: linear-gradient(135deg, var(--avo-primary), #4E8220);
+      color: #FFFFFF;
+      border-color: var(--avo-primary);
+      box-shadow: 0 4px 10px rgba(104, 163, 50, 0.25);
+    }
+
+    .bio-opt-btn.active-alert {
+      background: linear-gradient(135deg, var(--coral), #D95338);
+      color: #FFFFFF;
+      border-color: var(--coral);
+      box-shadow: 0 4px 10px rgba(232, 111, 82, 0.25);
     }
 
     /* DÍAS DE LA SEMANA EN POZO CÓNCAVO (RECESSED BAR) */
@@ -3029,96 +3210,157 @@
           </div>
 
           <!-- =========================================================
-               MÓDULO 7: DASHBOARD DE PROGRESO Y GAMIFICACIÓN (CON FLIP 3D)
+               DASHBOARD DE PROGRESO, BIO-RADAR, NIVEL Y HIDRATACIÓN SEMANAL
+               100% FUNCIONAL, INTERACTIVO Y SINCRONIZADO EN TIEMPO REAL
                ========================================================= -->
           <div id="mod-dashboard" class="module-section active">
             <div class="bento-grid">
               
-              <!-- TARJETA 3D GIRATORIA 1: GRÁFICA DE PESO vs ANÁLISIS CINTURA/CADERA (TAMAÑO FIJO 405px) -->
-              <div class="col-8 flip-stage-3d" id="flip-dash-chart" style="height: 405px;">
+              <!-- TARJETA 3D GIRATORIA 1 (COL-8): GRÁFICO INTERACTIVO MULTIMÉTRICA vs DIAGNÓSTICO CLÍNICO ICC (445px) -->
+              <div class="col-8 flip-stage-3d" id="flip-dash-chart" style="height: 445px;">
                 <div class="flip-inner-3d">
                   
-                  <!-- CARA FRONTAL: EVOLUCIÓN DE PESO Y MEDIDAS -->
+                  <!-- CARA FRONTAL: EVOLUCIÓN DE PESO, CINTURA E ICC CON GRÁFICO PREMIUM -->
                   <div class="flip-face-3d front">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span class="card-label" style="margin: 0;"><i class="fa-solid fa-chart-line"></i> MÓDULO 7 • EVOLUCIÓN SEMANAL DE PESO Y MEDIDAS</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                          <span class="card-label" style="margin: 0;"><i class="fa-solid fa-chart-line"></i> EVOLUCIÓN REAL SINCRONIZADA</span>
+                          <div class="chart-metric-tabs">
+                            <button type="button" class="chart-tab-pill active" id="chart-tab-waist" onclick="switchChartMetric('waist', this)">📏 Cintura (cm)</button>
+                            <button type="button" class="chart-tab-pill" id="chart-tab-weight" onclick="switchChartMetric('weight', this)">⚖️ Peso (kg)</button>
+                            <button type="button" class="chart-tab-pill" id="chart-tab-icc" onclick="switchChartMetric('icc', this)">🫀 Índice ICC</button>
+                          </div>
+                        </div>
                         <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-dash-chart')">
-                          <i class="fa-solid fa-rotate"></i> Ver Análisis Clínico Cintura/Cadera
+                          <i class="fa-solid fa-heart-pulse" style="color: var(--coral);"></i> Diagnóstico Clínico ICC <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
-                      <h3 style="font-size: 1.4rem; color: var(--avo-dark); margin-bottom: 12px;">Progreso Real: Báscula + Centímetros</h3>
 
-                      <div class="dash-metrics-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
-                        <div class="metric-well">
-                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">PESO ACTUAL</div>
-                          <div id="dash-stat-weight" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">68.4 kg <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.8 kg</span></div>
+                      <!-- 4 Métricas conectadas en tiempo real con Módulo 1 y Módulo 2 -->
+                      <div class="dash-metrics-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-bottom: 10px;">
+                        <div class="metric-well" style="padding: 9px 12px; cursor: pointer;" onclick="switchChartMetric('weight', document.getElementById('chart-tab-weight'))" title="Ver curva de Peso">
+                          <div style="font-size: 0.65rem; color: var(--text-muted); font-weight: 800;">PESO ACTUAL</div>
+                          <div id="dash-stat-weight" style="font-family: 'Outfit', sans-serif; font-size: 1.26rem; font-weight: 800; color: var(--avo-dark);">68.4 kg <span style="font-size: 0.72rem; color: var(--avo-primary);">-2.8 kg</span></div>
                         </div>
-                        <div class="metric-well" style="background: var(--coral-soft); border-color: #F5C2B8;">
-                          <div style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">CINTURA (CM)</div>
-                          <div id="dash-stat-waist" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">79 cm <span style="font-size: 0.75rem; color: var(--coral);">-4.0 cm</span></div>
+                        <div class="metric-well" style="padding: 9px 12px; background: var(--coral-soft); border-color: #F5C2B8; cursor: pointer;" onclick="switchChartMetric('waist', document.getElementById('chart-tab-waist'))" title="Ver curva de Cintura">
+                          <div style="font-size: 0.65rem; color: var(--coral); font-weight: 800;">CINTURA (CM)</div>
+                          <div id="dash-stat-waist" style="font-family: 'Outfit', sans-serif; font-size: 1.26rem; font-weight: 800; color: var(--avo-dark);">79 cm <span style="font-size: 0.72rem; color: var(--coral);">-4.0 cm</span></div>
                         </div>
-                        <div class="metric-well">
-                          <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 800;">CADERA (CM)</div>
-                          <div id="dash-stat-hip" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">99 cm <span style="font-size: 0.75rem; color: var(--avo-primary);">-2.5 cm</span></div>
+                        <div class="metric-well" style="padding: 9px 12px; cursor: pointer;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" title="Actualizar medida de Cadera">
+                          <div style="font-size: 0.65rem; color: var(--text-muted); font-weight: 800;">CADERA (CM)</div>
+                          <div id="dash-stat-hip" style="font-family: 'Outfit', sans-serif; font-size: 1.26rem; font-weight: 800; color: var(--avo-dark);">99 cm <span style="font-size: 0.72rem; color: var(--avo-primary);">-2.5 cm</span></div>
                         </div>
-                        <div class="metric-well" style="background: var(--gold-soft); border-color: #F5DC9B;">
-                          <div style="font-size: 0.68rem; color: #9A6700; font-weight: 800;">ÍNDICE CINT/CAD</div>
-                          <div id="dash-stat-icc" style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--avo-dark);">0.80 <span style="font-size: 0.72rem; color: var(--avo-primary);">Óptimo</span></div>
+                        <div class="metric-well" style="padding: 9px 12px; background: var(--gold-soft); border-color: #F5DC9B; cursor: pointer;" onclick="switchChartMetric('icc', document.getElementById('chart-tab-icc'))" title="Ver curva de Índice Cintura/Cadera">
+                          <div style="font-size: 0.65rem; color: #9A6700; font-weight: 800;">ÍNDICE CINT/CAD</div>
+                          <div id="dash-stat-icc" style="font-family: 'Outfit', sans-serif; font-size: 1.26rem; font-weight: 800; color: var(--avo-dark);">0.80 <span style="font-size: 0.7rem; color: var(--avo-primary);">Óptimo</span></div>
                         </div>
+                      </div>
+
+                      <!-- GRÁFICO INTERACTIVO DE ÁREA Y CURVA SUAVE (ESTÉTICA PREMIUM BOTÁNICA OSCURA) -->
+                      <div style="background: linear-gradient(165deg, #11261B 0%, #1D3E2C 100%); border-radius: 18px; padding: 12px 14px 8px; border: 1.5px solid rgba(197, 240, 153, 0.32); box-shadow: inset 0 2px 12px rgba(0,0,0,0.28), 0 10px 22px rgba(20,43,31,0.12);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 6px;">
+                          <span id="evo-chart-subtitle" style="font-size: 0.74rem; font-weight: 800; color: #C5F099;">
+                            📉 Curva de Desinflamación de Cintura (Toca cualquier punto semanal para inspeccionar)
+                          </span>
+                          <span id="evo-chart-goal-pill" style="font-size: 0.69rem; font-weight: 800; color: #FDE68A; background: rgba(253, 230, 138, 0.14); border: 1px solid rgba(253, 230, 138, 0.4); padding: 2px 9px; border-radius: 99px;">
+                            🎯 Meta Saludable: 75.0 cm
+                          </span>
+                        </div>
+
+                        <svg id="evo-luxury-svg" viewBox="0 0 660 152" style="width: 100%; height: 148px; overflow: visible; display: block;">
+                          <defs>
+                            <linearGradient id="evoAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stop-color="#8FD14F" stop-opacity="0.45"/>
+                              <stop offset="65%" stop-color="#68A332" stop-opacity="0.14"/>
+                              <stop offset="100%" stop-color="#142B1F" stop-opacity="0.0"/>
+                            </linearGradient>
+                            <linearGradient id="evoLineGrad" x1="0" y1="0" x2="1" y2="0">
+                              <stop offset="0%" stop-color="#8FD14F"/>
+                              <stop offset="65%" stop-color="#C5F099"/>
+                              <stop offset="100%" stop-color="#FDE68A"/>
+                            </linearGradient>
+                            <filter id="evoGlow" x="-20%" y="-20%" width="140%" height="140%">
+                              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#8FD14F" flood-opacity="0.38"/>
+                            </filter>
+                          </defs>
+
+                          <!-- Líneas guía horizontales -->
+                          <line x1="48" y1="26" x2="620" y2="26" stroke="rgba(255,255,255,0.09)" stroke-dasharray="4 4"/>
+                          <line x1="48" y1="68" x2="620" y2="68" stroke="rgba(255,255,255,0.09)" stroke-dasharray="4 4"/>
+                          <line x1="48" y1="110" x2="620" y2="110" stroke="rgba(255,255,255,0.09)" stroke-dasharray="4 4"/>
+
+                          <!-- Línea punteada de Meta -->
+                          <line id="evo-goal-line" x1="48" y1="124" x2="620" y2="124" stroke="#FDE68A" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.8"/>
+                          <text id="evo-goal-svg-label" x="52" y="138" font-size="9.5" font-weight="800" fill="#FDE68A">META RECOMENDADA</text>
+
+                          <!-- Área bajo la curva y Curva Bézier suave -->
+                          <path id="evo-area-path" d="M 85,28 C 160,32 200,56 265,64 C 330,72 385,84 445,92 C 505,100 545,108 590,112 L 590,132 L 85,132 Z" fill="url(#evoAreaGrad)"/>
+                          <path id="evo-curve-path" d="M 85,28 C 160,32 200,56 265,64 C 330,72 385,84 445,92 C 505,100 545,108 590,112" fill="none" stroke="url(#evoLineGrad)" stroke-width="4" stroke-linecap="round" filter="url(#evoGlow)"/>
+
+                          <!-- Nodos interactivos (Semana 1 a Hoy) -->
+                          <g id="evo-nodes-layer"></g>
+                        </svg>
                       </div>
                     </div>
 
-                    <svg viewBox="0 0 650 140" style="width: 100%; height: 145px; background: #F4F9EE; border-radius: 16px; border: 1.5px solid #CFE0BE; padding: 10px;">
-                      <line x1="40" y1="28" x2="610" y2="28" stroke="#DCE8CE" stroke-dasharray="4"/>
-                      <line x1="40" y1="74" x2="610" y2="74" stroke="#DCE8CE" stroke-dasharray="4"/>
-                      <line x1="40" y1="120" x2="610" y2="120" stroke="#DCE8CE" stroke-dasharray="4"/>
-                      <polyline fill="none" stroke="#68A332" stroke-width="4" points="60,32 230,60 410,88 580,114" />
-                      <circle cx="60" cy="32" r="6" fill="#68A332" />
-                      <circle cx="230" cy="60" r="6" fill="#68A332" />
-                      <circle cx="410" cy="88" r="6" fill="#68A332" />
-                      <circle cx="580" cy="114" r="7" fill="#E86F52" stroke="#FFFFFF" stroke-width="2" />
-                      <text x="45" y="20" font-size="11" font-weight="bold" fill="#142B1F">Sem 1: 71.2kg (83cm)</text>
-                      <text x="200" y="48" font-size="11" font-weight="bold" fill="#142B1F">Sem 2: 70.1kg (81.5cm)</text>
-                      <text x="380" y="76" font-size="11" font-weight="bold" fill="#142B1F">Sem 3: 69.2kg (80cm)</text>
-                      <text id="dash-chart-today" x="495" y="100" font-size="11" font-weight="bold" fill="#E86F52">Hoy: 68.4kg (79cm)</text>
-                    </svg>
+                    <!-- Barra inferior inspectora del punto seleccionado -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; font-size: 0.76rem; flex-wrap: wrap; gap: 8px;">
+                      <div id="evo-inspector-bar" style="color: var(--avo-dark); font-weight: 700;">
+                        📍 <strong>Viendo Hoy (Semana 3):</strong> 79.0 cm cintura • 68.4 kg peso • ICC 0.80 (<span style="color: var(--avo-primary); font-weight: 800;">-4.0 cm acumulados</span>)
+                      </div>
+                      <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.73rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                        📏 Actualizar mis Medidas
+                      </button>
+                    </div>
                   </div>
 
-                  <!-- CARA TRASERA: DIAGNÓSTICO METABÓLICO DE CINTURA Y CADERA DE ARIANNA -->
+                  <!-- CARA TRASERA: DIAGNÓSTICO METABÓLICO DE CINTURA/CADERA CON TERMÓMETRO VISUAL -->
                   <div class="flip-face-3d back">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
                         <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-heart-pulse"></i> INTERPRETACIÓN CLÍNICA • NUTRIÓLOGA ARIANNA</span>
                         <button type="button" class="btn-flip-trigger" onclick="toggleCardFlip('flip-dash-chart')">
-                          <i class="fa-solid fa-rotate-left"></i> Volver a la Gráfica
+                          <i class="fa-solid fa-rotate-left"></i> Volver al Gráfico Interactivo
                         </button>
                       </div>
-                      <h3 style="font-size: 1.38rem; color: var(--avo-dark); margin-bottom: 8px;">¿Por qué tus -4.0 cm de cintura valen oro?</h3>
-                      <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px;">
-                        En mujeres con resistencia a la insulina o inflamación, el indicador más exacto es el <strong>Índice Cintura-Cadera (ICC)</strong>:
+                      <h3 id="dash-clinical-headline" style="font-size: 1.32rem; color: var(--avo-dark); margin-bottom: 4px;">¿Por qué tus -4.0 cm de cintura valen más que la báscula?</h3>
+                      <p style="font-size: 0.81rem; color: var(--text-muted); margin-bottom: 10px;">
+                        El <strong>Índice Cintura-Cadera (ICC = Cintura ÷ Cadera)</strong> mide la grasa visceral e inflamación abdominal real:
                       </p>
 
-                      <div class="dash-clinical-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-                        <div class="metric-well" style="background: #FFFFFF;">
-                          <div style="font-weight: 800; color: var(--avo-primary); font-size: 0.85rem; margin-bottom: 4px;">✅ Zona Cardioprotectora (&lt; 0.85)</div>
-                          <p style="font-size: 0.8rem; color: var(--text-main); line-height: 1.45;">
-                            Bajaste de <strong>0.82 a 0.79</strong> en 3 semanas. Esto indica pérdida real de grasa visceral y mejor sensibilidad a la insulina.
+                      <!-- Termómetro Visual de ICC en Tiempo Real -->
+                      <div style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 15px; padding: 12px 16px; margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.72rem; font-weight: 800; margin-bottom: 6px;">
+                          <span style="color: var(--avo-primary);">🟢 Zona Cardioprotectora (&lt; 0.85)</span>
+                          <span id="dash-icc-gauge-label" style="color: var(--avo-dark);">Tu ICC Actual: <strong>0.80 (Saludable)</strong></span>
+                          <span style="color: var(--coral);">🔴 Riesgo Metabólico (&ge; 0.85)</span>
+                        </div>
+                        <div style="position: relative; height: 12px; border-radius: 99px; background: linear-gradient(90deg, #34D399 0%, #68A332 60%, #FBBF24 75%, #E86F52 100%);">
+                          <div id="dash-icc-pin" style="position: absolute; top: -4px; left: 50%; width: 20px; height: 20px; border-radius: 50%; background: #142B1F; border: 3px solid #FFFFFF; box-shadow: 0 3px 8px rgba(0,0,0,0.3); transform: translateX(-50%); transition: left 0.4s ease;"></div>
+                        </div>
+                      </div>
+
+                      <div class="dash-clinical-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="metric-well" style="background: #FFFFFF; padding: 11px 14px;">
+                          <div style="font-weight: 800; color: var(--avo-primary); font-size: 0.82rem; margin-bottom: 3px;">🩺 Diagnóstico de Grasa Visceral</div>
+                          <p id="dash-icc-clinical-text" style="font-size: 0.78rem; color: var(--text-main); line-height: 1.42;">
+                            Pasaste de <strong>0.82 a 0.80</strong>. Cada centímetro menos de cintura mejora directamente tu sensibilidad a la insulina.
                           </p>
                         </div>
-                        <div class="metric-well" style="background: #FFF9EB; border-color: #F5DC9B;">
-                          <div style="font-weight: 800; color: #9A6700; font-size: 0.85rem; margin-bottom: 4px;">👩‍⚕️ Nota de Arianna para tu Semana 4:</div>
-                          <p style="font-size: 0.8rem; color: var(--text-main); line-height: 1.45;">
-                            "Mariana, tu desinflamación abdominal va excelente. Mantendremos el aguacate y nopales en desayuno."
+                        <div class="metric-well" style="background: #FFF9EB; border-color: #F5DC9B; padding: 11px 14px;">
+                          <div style="font-weight: 800; color: #9A6700; font-size: 0.82rem; margin-bottom: 3px;">👩‍⚕️ Ajuste Clínico de Arianna:</div>
+                          <p id="dash-icc-arianna-note" style="font-size: 0.78rem; color: var(--text-main); line-height: 1.42;">
+                            "Tu desinflamación abdominal va excelente. Mantendremos el aguacate Hass y nopales en tus desayunos de esta semana."
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--border-soft);">
-                      <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Próxima toma de medidas: <strong>Domingo en la noche o Lunes AM</strong></span>
-                      <button class="btn-enter-club" style="width: auto; padding: 9px 18px; font-size: 0.82rem; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
-                        📝 Ir al Cierre Semanal
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
+                      <span style="font-size: 0.77rem; font-weight: 700; color: var(--text-muted);">Próxima calibración: <strong>Domingo en la noche o Lunes AM</strong></span>
+                      <button class="btn-enter-club" style="width: auto; padding: 9px 18px; font-size: 0.8rem; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
+                        📝 Ir al Cierre Semanal (Módulo 2)
                       </button>
                     </div>
                   </div>
@@ -3126,97 +3368,307 @@
                 </div>
               </div>
 
-              <!-- TARJETA 3D GIRATORIA 2: GAMIFICACIÓN Y RECOMPENSAS (TAMAÑO FIJO 405px) -->
-              <div class="col-4 flip-stage-3d" id="flip-dash-rank" style="height: 405px;">
+              <!-- TARJETA 3D GIRATORIA 2 (COL-4): TU NIVEL EN EL CLUB + MISIONES XP + BÓVEDA DE POSTRES SIN AZÚCAR (445px) -->
+              <div class="col-4 flip-stage-3d" id="flip-dash-rank" style="height: 445px;">
                 <div class="flip-inner-3d">
                   
-                  <!-- CARA FRONTAL: RANGO Y MEDALLAS -->
+                  <!-- CARA FRONTAL: RANGO, BARRA XP EN VIVO Y ACCESO AL RECETARIO DE POSTRES -->
                   <div class="flip-face-3d front" style="background: linear-gradient(160deg, #142B1F 0%, #244935 100%); color: #fff; border-color: rgba(197,240,153,0.3);">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center;">
                         <span class="card-label gold" style="margin: 0;">🏆 TU NIVEL EN EL CLUB</span>
                         <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-rank')">
-                          Premios <i class="fa-solid fa-rotate"></i>
+                          Misiones XP <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
-                      <div style="text-align: center; margin: 10px 0;">
-                        <div style="font-size: 3.1rem; line-height: 1; margin-bottom: 4px;">🥑</div>
-                        <h3 id="dash-rank-title" style="font-size: 1.35rem; color: #FFFFFF;">Rango: Aguacate Hass</h3>
-                        <p id="dash-xp-sub" style="font-size: 0.79rem; color: #C5F099; margin-bottom: 10px;">A 250 XP de alcanzar <strong>Reina Saludable 👑</strong></p>
-                        <div style="background: rgba(255,255,255,0.14); height: 11px; border-radius: 99px; overflow: hidden; margin-bottom: 14px;">
+                      <div style="text-align: center; margin: 8px 0 10px;">
+                        <div id="dash-rank-emoji" style="font-size: 2.7rem; line-height: 1; margin-bottom: 3px;">🥑</div>
+                        <h3 id="dash-rank-title" style="font-size: 1.28rem; color: #FFFFFF; margin-bottom: 2px;">Rango: Aguacate Hass</h3>
+                        <p id="dash-xp-sub" style="font-size: 0.76rem; color: #C5F099; margin-bottom: 8px;">A 250 XP de alcanzar <strong>Reina Saludable 👑</strong></p>
+                        <div style="background: rgba(255,255,255,0.14); height: 10px; border-radius: 99px; overflow: hidden; margin-bottom: 6px;">
                           <div id="dash-xp-bar" style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--avo-bright), var(--gold)); transition: width 0.4s ease;"></div>
                         </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.68rem; color: #FDE68A; font-weight: 800;">
+                          <span id="dash-xp-counter">750 / 1,000 XP</span>
+                          <span style="cursor: pointer; text-decoration: underline;" onclick="toggleCardFlip('flip-dash-rank')">¿Cómo ganar más XP hoy?</span>
+                        </div>
+                      </div>
+
+                      <div style="font-size: 0.69rem; font-weight: 800; color: #E2F0D5; margin-bottom: 6px; letter-spacing: 0.05em;">INSIGNIAS ACTIVAS EN TU CUENTA:</div>
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.72rem; margin-bottom: 10px;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">🌱 Calibración Lista</div>
+                        <div id="badge-water-top" style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">💧 Hidratación Activa</div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">📏 Cintura en Meta</div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 7px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);">👩‍⚕️ Club Arianna</div>
                       </div>
                     </div>
 
-                    <div>
-                      <div style="font-size: 0.72rem; font-weight: 800; color: #E2F0D5; margin-bottom: 7px; letter-spacing: 0.05em;">MEDALLAS DESBLOQUEADAS:</div>
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px; font-size: 0.74rem;">
-                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">🌱 1ra Semana Lista</div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">💧 Hidratación Top</div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">📏 -4 cm Cintura</div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 8px 9px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">🍲 Receta de Arianna</div>
+                    <!-- Bóveda del Recetario Especial de Postres Sin Azúcar Conectada al Módulo 4 -->
+                    <div style="background: linear-gradient(135deg, rgba(253, 230, 138, 0.16), rgba(232, 111, 82, 0.18)); border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 14px; padding: 9px 11px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                      <div style="min-width: 0;">
+                        <div id="vip-dessert-status-tag" style="font-size: 0.64rem; font-weight: 800; color: #FDE68A; text-transform: uppercase;">🎁 RECOMPENSA DE NIVEL • INCLUIDA</div>
+                        <div style="font-size: 0.78rem; font-weight: 800; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">🍰 Postres Sin Azúcar de Arianna</div>
                       </div>
+                      <button type="button" class="btn-flip-trigger" style="padding: 6px 10px; font-size: 0.72rem; flex-shrink: 0; background: #FDE68A; color: #142B1F; border-color: #F59E0B;" onclick="openVipDesserts()">
+                        Abrir Recetas <i class="fa-solid fa-arrow-right"></i>
+                      </button>
                     </div>
                   </div>
 
-                  <!-- CARA TRASERA: PRÓXIMAS RECOMPENSAS POR DESBLOQUEAR -->
+                  <!-- CARA TRASERA: MISIONES INTERACTIVAS DE XP + ACCESO A POSTRES SIN AZÚCAR -->
                   <div class="flip-face-3d back" style="background: linear-gradient(160deg, #1C3A2A 0%, #142B1F 100%); color: #fff; border-color: rgba(253,230,138,0.35);">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span class="card-label gold" style="margin: 0;">🎁 BENEFICIOS POR NIVEL</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label gold" style="margin: 0;">⚡ MISIONES ACTIVAS DE XP</span>
                         <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-rank')">
                           <i class="fa-solid fa-rotate-left"></i> Volver
                         </button>
                       </div>
-                      <h4 style="font-size: 1.15rem; color: #FDE68A; margin-bottom: 10px;">Cómo ganar XP esta semana:</h4>
-                      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.79rem;">
-                        <div style="background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 11px; display: flex; justify-content: space-between;">
-                          <span>📸 Subir foto al Plato del Día</span>
-                          <strong style="color: #8FD14F;">+50 XP</strong>
+                      <h4 style="font-size: 1.08rem; color: #FDE68A; margin-bottom: 4px;">Completa acciones reales para subir de nivel:</h4>
+                      <p style="font-size: 0.74rem; color: #C5F099; margin-bottom: 8px;">Toca cualquier misión para ir a realizarla y sumar XP en vivo:</p>
+
+                      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.76rem;">
+                        <div id="mission-row-water" onclick="document.getElementById('flip-dash-water').scrollIntoView({behavior:'smooth', block:'center'})" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                          <span>💧 Llenar mis 8 vasos de agua hoy</span>
+                          <strong id="mission-status-water" style="color: #8FD14F;">+50 XP ➔</strong>
                         </div>
-                        <div style="background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 11px; display: flex; justify-content: space-between;">
-                          <span>📏 Cierre semanal (Peso/Cintura)</span>
-                          <strong style="color: #8FD14F;">+100 XP</strong>
+                        <div id="mission-row-seed" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                          <span>🌱 Sembrar "La Semilla de Hoy"</span>
+                          <strong id="mission-status-seed" style="color: #8FD14F;">+50 XP ➔</strong>
                         </div>
-                        <div style="background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 11px; display: flex; justify-content: space-between;">
-                          <span>🏃‍♀️ Completar 3 rutinas en casa</span>
-                          <strong style="color: #8FD14F;">+100 XP</strong>
+                        <div id="mission-row-workout" onclick="openModule('mod-ejercicios', document.getElementById('nav-mod-ejercicios'))" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                          <span>🏃‍♀️ Completar rutina en casa (Mód. 5)</span>
+                          <strong id="mission-status-workout" style="color: #8FD14F;">+100 XP ➔</strong>
+                        </div>
+                        <div id="mission-row-checkin" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 8px 11px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                          <span>📏 Cierre semanal IA (Peso y Cintura)</span>
+                          <strong id="mission-status-checkin" style="color: #8FD14F;">+100 XP ➔</strong>
                         </div>
                       </div>
                     </div>
 
-                    <div style="background: rgba(217, 155, 38, 0.2); border: 1px solid #F59E0B; border-radius: 12px; padding: 10px 12px; font-size: 0.76rem; color: #FEF3C7;">
-                      👑 <strong>Al llegar a Reina Saludable (1,000 XP):</strong> Desbloqueas el Recetario Especial de Postres Sin Azúcar de Arianna.
+                    <button type="button" class="btn-enter-club" style="margin: 0; padding: 10px 14px; font-size: 0.8rem;" onclick="openVipDesserts()">
+                      <span>🍰 Ir al Recetario de Postres Sin Azúcar</span>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- TARJETA 3D GIRATORIA 3 (COL-6): HIDRATACIÓN DIARIA + HISTORIAL LUNES A DOMINGO + RETRO DOMINICAL (430px) -->
+              <div class="col-6 flip-stage-3d" id="flip-dash-water" style="height: 430px;">
+                <div class="flip-inner-3d">
+
+                  <!-- CARA FRONTAL: VASOS INTERACTIVOS + HISTORIAL SEMANAL LUNES A DOMINGO -->
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                        <span class="card-label" style="margin: 0;">💧 HIDRATACIÓN DIARIA + HISTORIAL SEMANAL</span>
+                        <button type="button" class="btn-flip-trigger coral-flip" style="padding: 5px 11px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-water')">
+                          📊 Retro Dominical <i class="fa-solid fa-rotate"></i>
+                        </button>
+                      </div>
+
+                      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px;">
+                        <h3 id="water-title" style="font-size: 1.18rem; color: var(--avo-dark); margin: 0;">Jueves (Hoy): 6 de 8 vasos (1.80 L)</h3>
+                        <span id="water-weight-target" style="font-size: 0.72rem; font-weight: 800; color: #2563EB; background: #EFF6FF; padding: 3px 9px; border-radius: 99px; border: 1px solid #BFDBFE;">
+                          Meta para tus 68.4 kg: 2.4 L (8 vasos)
+                        </span>
+                      </div>
+                      <p style="font-size: 0.77rem; color: var(--text-muted); margin-top: 2px;">
+                        Toca un vaso para registrar tu agua hoy, o selecciona cualquier día de <strong>Lunes a Domingo</strong> abajo:
+                      </p>
+
+                      <!-- 8 Vasos interactivos del día seleccionado -->
+                      <div class="water-glasses" id="water-container">
+                        <div class="glass-cup filled" onclick="toggleWater(0)">💧</div>
+                        <div class="glass-cup filled" onclick="toggleWater(1)">💧</div>
+                        <div class="glass-cup filled" onclick="toggleWater(2)">💧</div>
+                        <div class="glass-cup filled" onclick="toggleWater(3)">💧</div>
+                        <div class="glass-cup filled" onclick="toggleWater(4)">💧</div>
+                        <div class="glass-cup filled" onclick="toggleWater(5)">💧</div>
+                        <div class="glass-cup" onclick="toggleWater(6)">💧</div>
+                        <div class="glass-cup" onclick="toggleWater(7)">💧</div>
+                      </div>
+
+                      <!-- Historial Semanal Interactivo de Lunes a Domingo -->
+                      <div class="water-week-strip" id="water-week-strip"></div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; font-size: 0.75rem; flex-wrap: wrap; gap: 6px;">
+                      <span id="water-weekly-avg-label" style="font-weight: 800; color: var(--avo-dark);">
+                        📈 Promedio Semanal: <strong style="color: #2563EB;">7.3 vasos/día (91% cumplido)</strong>
+                      </span>
+                      <span style="color: var(--coral); font-weight: 800; cursor: pointer;" onclick="toggleCardFlip('flip-dash-water')">
+                        ☀️ Ver diagnóstico de cierre dominical ➔
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: RETROALIMENTACIÓN CLÍNICA DOMINICAL DE HIDRATACIÓN (NUTRIÓLOGA ARIANNA) -->
+                  <div class="flip-face-3d back" style="background: linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%);">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                        <span class="card-label" style="margin: 0; background: #EFF6FF; color: #1D4ED8; border-color: #93C5FD;">☀️ RETROALIMENTACIÓN DOMINICAL DE HIDRATACIÓN</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.73rem;" onclick="toggleCardFlip('flip-dash-water')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver a mis Vasos
+                        </button>
+                      </div>
+
+                      <h3 style="font-size: 1.24rem; color: var(--avo-dark); margin-bottom: 4px;">Balance Hídrico de tu Semana (Lun – Dom)</h3>
+                      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px;">
+                        Evaluación automática de la Nutrióloga Arianna según los vasos que registraste de lunes a domingo:
+                      </p>
+
+                      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px;">
+                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 9px 10px; text-align: center;">
+                          <div style="font-size: 0.64rem; font-weight: 800; color: #1D4ED8;">LITROS EN LA SEMANA</div>
+                          <div id="water-retro-liters" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: var(--avo-dark); margin-top: 2px;">15.3 L / 16.8 L</div>
+                        </div>
+                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 9px 10px; text-align: center;">
+                          <div style="font-size: 0.64rem; font-weight: 800; color: #1D4ED8;">PROMEDIO DIARIO</div>
+                          <div id="water-retro-avg" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: var(--avo-primary); margin-top: 2px;">7.3 vasos (91%)</div>
+                        </div>
+                        <div class="metric-well" style="background: #FFFFFF; border-color: #BFDBFE; padding: 9px 10px; text-align: center;">
+                          <div style="font-size: 0.64rem; font-weight: 800; color: #1D4ED8;">META DE 8 VASOS</div>
+                          <div id="water-retro-days" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: var(--coral); margin-top: 2px;">4 de 7 días</div>
+                        </div>
+                      </div>
+
+                      <!-- Diagnóstico dinámico dominical -->
+                      <div id="water-retro-box" style="background: #FFFFFF; border-left: 4px solid #2563EB; border-radius: 14px; padding: 12px 14px; border: 1px solid #BFDBFE; border-left-width: 4px;">
+                        <div id="water-retro-badge" style="font-size: 0.72rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase; margin-bottom: 4px;">
+                          🌟 DIAGNÓSTICO DE ARIANNA: HIDRATACIÓN METABÓLICA SOBRESALIENTE
+                        </div>
+                        <p id="water-retro-text" style="font-size: 0.79rem; color: var(--text-main); line-height: 1.45; margin: 0;">
+                          "¡Excelente semana! Con este nivel de hidratación tu hígado oxida grasas sin esfuerzo, evitas la retención de líquidos abdominal (clave en tus -4.0 cm de cintura) y apagas los falsos antojos dulces por sed."
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid #DBEAFE; font-size: 0.75rem;">
+                      <span id="water-retro-tip" style="color: #1E3A8A; font-weight: 700;">💡 Reto del Domingo: Toma 1 vaso de agua mineral con limón antes de tu comida libre.</span>
+                      <button type="button" class="btn-flip-trigger" style="padding: 6px 12px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-dash-water')">
+                        ✓ Entendido
+                      </button>
                     </div>
                   </div>
 
                 </div>
               </div>
 
-              <div class="bento-card col-6">
-                <span class="card-label">💧 HIDRATACIÓN INTERACTIVA (TOCA UN VASO PARA SUMAR)</span>
-                <h3 id="water-title" style="font-size: 1.25rem;">Llevas 6 de 8 vasos de agua hoy</h3>
-                <p style="font-size: 0.84rem; color: var(--text-muted);">Tomar agua natural ayuda a metabolizar grasas y evita confundir sed con antojo dulce.</p>
-                <div class="water-glasses" id="water-container">
-                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
-                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
-                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
-                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
-                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
-                  <div class="glass-cup filled" onclick="toggleWater(this)">💧</div>
-                  <div class="glass-cup" onclick="toggleWater(this)">💧</div>
-                  <div class="glass-cup" onclick="toggleWater(this)">💧</div>
-                </div>
-              </div>
+              <!-- TARJETA 3D GIRATORIA 4 (COL-6): BIO-RADAR METABÓLICO DIARIO + PROYECCIÓN REAL A TU META (430px) -->
+              <div class="col-6 flip-stage-3d" id="flip-dash-bioradar" style="height: 430px;">
+                <div class="flip-inner-3d">
 
-              <div class="bento-card col-6" style="background: linear-gradient(145deg, #FFFFFF 0%, #FFF2EE 100%);">
-                <span class="card-label coral">👩‍⚕️ CÁPSULA QUINCENAL DE LA NUTRIÓLOGA ARIANNA</span>
-                <h3 style="font-size: 1.25rem; color: var(--avo-dark);">"¡Ya está lista la nueva Video-Receta de Enchiladas Fit!"</h3>
-                <p style="font-size: 0.85rem; color: var(--text-main); margin: 6px 0 14px;">Con salsa cremosa de aguacate y queso panela, ideal para cuidar tu glucosa sin renunciar al sabor mexicano.</p>
-                <button class="btn-enter-club" style="width: auto; padding: 10px 18px; font-size: 0.85rem; margin: 0;" onclick="openModule('mod-recetario', document.getElementById('nav-mod-recetario'))">
-                  ▶️ Ver Video-Receta Quincenal
-                </button>
+                  <!-- CARA FRONTAL: BIO-RADAR METABÓLICO DE HOY (EXCLUSIVO PREMIUM) -->
+                  <div class="flip-face-3d front" style="background: linear-gradient(145deg, #FFFFFF 0%, #F6FBF2 100%);">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                        <span class="card-label coral" style="margin: 0;">⚡ BIO-RADAR METABÓLICO DE HOY</span>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                          <span id="bio-score-badge" style="font-size: 0.72rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 4px 10px; border-radius: 99px; border: 1px solid #86EFAC;">
+                            🟢 Paz Glucémica: 96%
+                          </span>
+                          <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-bioradar')">
+                            Proyección Meta <i class="fa-solid fa-rotate"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <h3 style="font-size: 1.16rem; color: var(--avo-dark); margin-bottom: 2px;">¿Cómo responde tu cuerpo hoy?</h3>
+                      <p style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 8px;">
+                        Toca tus 3 bio-señales de hoy para recibir el ajuste inmediato de la <strong>Nutrióloga Arianna</strong>:
+                      </p>
+
+                      <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px;">
+                        <div class="bio-signal-row">
+                          <span style="font-size: 0.77rem; font-weight: 800; color: var(--avo-dark);">🔋 1. Energía después de comer:</span>
+                          <div class="bio-opt-group">
+                            <button type="button" class="bio-opt-btn active-good" id="bio-energy-good" onclick="setBioSignal('energy', 'good')">⚡ Estable y activa</button>
+                            <button type="button" class="bio-opt-btn" id="bio-energy-alert" onclick="setBioSignal('energy', 'alert')">🥱 Me dio sueño</button>
+                          </div>
+                        </div>
+                        <div class="bio-signal-row">
+                          <span style="font-size: 0.77rem; font-weight: 800; color: var(--avo-dark);">🌿 2. Sensación abdominal hoy:</span>
+                          <div class="bio-opt-group">
+                            <button type="button" class="bio-opt-btn active-good" id="bio-belly-good" onclick="setBioSignal('belly', 'good')">✨ Desinflamada</button>
+                            <button type="button" class="bio-opt-btn" id="bio-belly-alert" onclick="setBioSignal('belly', 'alert')">🎈 Distensión / Gas</button>
+                          </div>
+                        </div>
+                        <div class="bio-signal-row">
+                          <span style="font-size: 0.77rem; font-weight: 800; color: var(--avo-dark);">🍫 3. Control de antojos dulces:</span>
+                          <div class="bio-opt-group">
+                            <button type="button" class="bio-opt-btn active-good" id="bio-craving-good" onclick="setBioSignal('craving', 'good')">🥑 En paz total</button>
+                            <button type="button" class="bio-opt-btn" id="bio-craving-alert" onclick="setBioSignal('craving', 'alert')">🍫 Ansiedad dulce</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Prescripción clínica en tiempo real según el Bio-Radar -->
+                    <div id="bio-prescription-box" style="background: linear-gradient(135deg, #142B1F 0%, #214532 100%); color: #FFFFFF; border-radius: 14px; padding: 10px 13px; border: 1px solid rgba(197,240,153,0.35);">
+                      <div style="font-size: 0.67rem; font-weight: 800; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.04em;">
+                        👩‍⚕️ RECETA METABÓLICA DE ARIANNA PARA TU SIGUIENTE COMIDA:
+                      </div>
+                      <div id="bio-prescription-text" style="font-size: 0.76rem; color: #E2F0D5; margin-top: 2px; line-height: 1.38;">
+                        "Tus 3 marcadores están en zona óptima. Hoy tu insulina está trabajando sin picos; mantén tu porción de aguacate Hass en la cena."
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CARA TRASERA: PROYECCIÓN MATEMÁTICA A TU META + CÁPSULA QUINCENAL DE ARIANNA -->
+                  <div class="flip-face-3d back" style="background: linear-gradient(145deg, #FFFFFF 0%, #FFF5F0 100%);">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span class="card-label gold" style="margin: 0;">🎯 PROYECCIÓN REAL A TU META</span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-bioradar')">
+                          <i class="fa-solid fa-rotate-left"></i> Volver al Bio-Radar
+                        </button>
+                      </div>
+
+                      <h3 id="goal-proj-headline" style="font-size: 1.22rem; color: var(--avo-dark); margin-bottom: 4px;">Llevas el 30% del camino hacia tus 62.0 kg</h3>
+                      <p id="goal-proj-sub" style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px;">
+                        Cálculo sincronizado con tu Peso Inicial (71.2 kg), Peso Actual (68.4 kg) y Peso Meta (62.0 kg):
+                      </p>
+
+                      <!-- Barra de progreso hacia el Peso Meta -->
+                      <div style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 11px 14px; margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.73rem; font-weight: 800; color: var(--avo-dark); margin-bottom: 6px;">
+                          <span id="goal-proj-start">Inicio: 71.2 kg</span>
+                          <span id="goal-proj-current" style="color: var(--avo-primary);">Hoy: 68.4 kg (-2.8 kg)</span>
+                          <span id="goal-proj-target" style="color: var(--coral);">Meta: 62.0 kg</span>
+                        </div>
+                        <div style="background: #DCE8CE; height: 10px; border-radius: 99px; overflow: hidden;">
+                          <div id="goal-proj-bar" style="width: 30%; height: 100%; background: linear-gradient(90deg, var(--avo-primary), var(--coral)); border-radius: 99px; transition: width 0.4s ease;"></div>
+                        </div>
+                        <div id="goal-proj-eta" style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; margin-top: 6px;">
+                          ⏱️ Al ritmo clínico saludable (-0.7 a -0.9 kg/semana), alcanzarás tu meta en <strong>~8 semanas sin efecto rebote</strong>.
+                        </div>
+                      </div>
+
+                      <!-- Cápsula Quincenal de la Nutrióloga Arianna integrada -->
+                      <div style="background: #FFF9EB; border: 1.5px solid #F5DC9B; border-radius: 14px; padding: 10px 13px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                        <div>
+                          <div style="font-size: 0.66rem; font-weight: 800; color: #9A6700; text-transform: uppercase;">👩‍⚕️ ESTRENO QUINCENAL DE ARIANNA</div>
+                          <div style="font-size: 0.82rem; font-weight: 800; color: var(--avo-dark);">Video-Receta: Enchiladas Verdes Fit con Aguacate</div>
+                        </div>
+                        <button type="button" class="btn-enter-club" style="width: auto; padding: 8px 14px; font-size: 0.76rem; margin: 0; flex-shrink: 0;" onclick="openModule('mod-recetario', document.getElementById('nav-mod-recetario'))">
+                          ▶️ Ver Video
+                        </button>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--border-soft); font-size: 0.75rem;">
+                      <span style="color: var(--text-muted); font-weight: 700;">¿Quieres ajustar tu Peso Meta?</span>
+                      <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.73rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                        🎯 Editar Meta en Módulo 1
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
               </div>
 
             </div>
@@ -3849,6 +4301,124 @@
                   </div>
                 </div>
               </div>
+
+              <!-- =======================================================
+                   BÓVEDA DE RECOMPENSA DE NIVEL: RECETARIO ESPECIAL DE POSTRES SIN AZÚCAR DE ARIANNA
+                   CONECTADO DIRECTAMENTE CON LA TARJETA "TU NIVEL EN EL CLUB" DEL DASHBOARD
+                   ======================================================= -->
+              <div class="bento-card col-12" id="vip-postres-section" style="background: linear-gradient(135deg, #2D1810 0%, #452417 55%, #1E3828 100%); color: #FFFFFF; padding: 20px 26px; border: 2px solid #FDE68A;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                  <div>
+                    <span id="vip-postres-badge" class="card-label gold" style="margin-bottom: 6px;">👑 RECOMPENSA DEL CLUB • COLECCIÓN ESPECIAL SIN AZÚCAR</span>
+                    <h3 style="font-size: 1.48rem; color: #FFFFFF; margin-bottom: 4px;">🍰 Recetario Especial de Postres y Antojos Sin Azúcar (Avalado por Arianna)</h3>
+                    <p style="font-size: 0.84rem; color: #FDE68A; margin: 0;">
+                      Postres mexicanos de bajo índice glucémico diseñados para quitar el antojo dulce de la tarde sin elevar tu insulina ni usar harinas refinadas:
+                    </p>
+                  </div>
+                  <button type="button" class="btn-flip-trigger" style="background: rgba(255,255,255,0.12); color: #FDE68A; border-color: #FDE68A;" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))">
+                    <i class="fa-solid fa-trophy"></i> Volver a mi Nivel en Dashboard
+                  </button>
+                </div>
+              </div>
+
+              <!-- POSTRE SIN AZÚCAR 1 CON GIRO 3D -->
+              <div class="col-4 flip-stage-3d" id="flip-rec-dessert-1" style="height: 295px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(20,43,31,0.9); color: #FDE68A; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍫 0g Azúcar • Sin Harina</span>
+                      </div>
+                      <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Brownie Húmedo de Cacao, Aguacate y Nuez</h4>
+                      <p style="font-size: 0.78rem; color: var(--text-muted);">165 kcal • Textura fudgy en 6 min • Rico en magnesio.</p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
+                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                    </button>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label gold">🍫 POSTRE 1 • CONTROL INSULINA</span>
+                      <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Brownie de Aguacate (~$22 MXN)</h4>
+                      <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                        <strong>Ingredientes:</strong> 1/3 aguacate Hass maduro, 1 huevo, 2 cdas cacao 100% sin azúcar, 2 cdas harina de avena o almendra, fruto del monje y nuez picada.
+                      </p>
+                      <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                        <strong>Preparación:</strong> Mezcla todo con tenedor hasta integrar, vierte en ramekin y hornea 10 min en Airfryer (180°C) o 90 seg en microondas.
+                      </p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-1')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- POSTRE SIN AZÚCAR 2 CON GIRO 3D -->
+              <div class="col-4 flip-stage-3d" id="flip-rec-dessert-2" style="height: 295px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(232,111,82,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍮 12g Proteína • Clásico MX</span>
+                      </div>
+                      <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Flan Napolitano Fit de Vainilla sin Azúcar</h4>
+                      <p style="font-size: 0.78rem; color: var(--text-muted);">145 kcal • Sin leche condensada • Listo en 10 min.</p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
+                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                    </button>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label gold">🍮 POSTRE 2 • ALTO EN PROTEÍNA</span>
+                      <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Flan Napolitano Fit (~$19 MXN)</h4>
+                      <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                        <strong>Ingredientes:</strong> 2 huevos, 1/2 taza leche de almendra o light, 30g queso crema ligero o panela, 1 cdita extracto de vainilla, canela y alulosa/monk fruit.
+                      </p>
+                      <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                        <strong>Preparación:</strong> Licúa los ingredientes, vierte en molde individual y cocina a baño maría en sartén tapado por 12 minutos.
+                      </p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-2')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- POSTRE SIN AZÚCAR 3 CON GIRO 3D -->
+              <div class="col-4 flip-stage-3d" id="flip-rec-dessert-3" style="height: 295px;">
+                <div class="flip-inner-3d">
+                  <div class="flip-face-3d front">
+                    <div>
+                      <div style="height: 110px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80') center/cover; margin-bottom: 12px; position: relative;">
+                        <span style="position: absolute; top: 8px; left: 8px; background: rgba(104,163,50,0.92); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 9px; border-radius: 99px;">🍓 Probiótico • Sin Horno</span>
+                      </div>
+                      <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cheesecake en Vaso de Fresas y Almendra</h4>
+                      <p style="font-size: 0.78rem; color: var(--text-muted);">175 kcal • Saciedad total • En 5 minutos sin horno.</p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger coral-flip" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
+                      Ver Ingredientes y Pasos <i class="fa-solid fa-rotate"></i>
+                    </button>
+                  </div>
+                  <div class="flip-face-3d back">
+                    <div>
+                      <span class="card-label gold">🍓 POSTRE 3 • CERO PICOS GLUCOSA</span>
+                      <h4 style="font-size: 0.96rem; margin-bottom: 6px;">Cheesecake en Vaso (~$26 MXN)</h4>
+                      <p style="font-size: 0.75rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px;">
+                        <strong>Ingredientes:</strong> 1/2 taza yogur griego sin azúcar, 2 cdas queso ricota o crema light, ralladura de limón, 5 fresas picadas y 8 almendras tostadas trituradas.
+                      </p>
+                      <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.45;">
+                        <strong>Preparación:</strong> Coloca base de almendra triturada, añade la crema batida de yogur con limón y corona con fresas frescas.
+                      </p>
+                    </div>
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center;" onclick="toggleCardFlip('flip-rec-dessert-3')">
+                      <i class="fa-solid fa-rotate-left"></i> Volver a Foto
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -3886,7 +4456,7 @@
                     <div style="font-weight: 800;">💪 Lagartijas en Pared o Sillón (12 reps) + Plancha Abdominal (30s)</div>
                     <div style="font-size: 0.8rem; color: var(--text-muted);">Fortalece brazos y faja abdominal para reducir centímetros de cintura.</div>
                   </div>
-                  <button class="btn-enter-club" style="width: auto; padding: 9px 18px; font-size: 0.82rem; margin: 0;" onclick="this.innerText='🎉 ¡Rutina Registrada (+50 XP)!' ">🔥 Marcar Lista</button>
+                  <button class="btn-enter-club" id="btn-complete-workout" style="width: auto; padding: 9px 18px; font-size: 0.82rem; margin: 0;" onclick="completeDailyWorkout(this)">🔥 Marcar Lista (+100 XP)</button>
                 </div>
               </div>
 
@@ -4565,7 +5135,26 @@
       initialHip: 101.5,
       activeProtocol: '🩸 Control Insulina + Bajar Peso',
       seedPlanted: false,
-      checkinDone: false
+      checkinDone: false,
+      workoutDone: false,
+      waterBonusAwarded: false,
+      selectedChartMetric: 'waist',
+      selectedChartWeekIdx: 3,
+      selectedWaterDayIdx: 3,
+      waterWeekData: [
+        { short: 'Lun', full: 'Lunes', glasses: 8 },
+        { short: 'Mar', full: 'Martes', glasses: 7 },
+        { short: 'Mié', full: 'Miércoles', glasses: 8 },
+        { short: 'Jue', full: 'Jueves (Hoy)', glasses: 6, isToday: true },
+        { short: 'Vie', full: 'Viernes', glasses: 7 },
+        { short: 'Sáb', full: 'Sábado', glasses: 8 },
+        { short: 'Dom ⭐', full: 'Domingo (Cierre)', glasses: 7, isSunday: true }
+      ],
+      bioSignals: {
+        energy: 'good',
+        belly: 'good',
+        craving: 'good'
+      }
     };
 
     const moduleGreetings = {
@@ -4585,6 +5174,348 @@
       if (hr < 12) return '¡Buenos días! Tu cuerpo te agradece hoy ✨';
       if (hr < 19) return '¡Buenas tardes! Cada hábito suma a tu salud 🥑';
       return '¡Buenas noches! Descansa y celebra tu constancia 🌙';
+    }
+
+    // =========================================================================
+    // GRÁFICO INTERACTIVO MULTIMÉTRICA (CINTURA, PESO, ÍNDICE ICC)
+    // =========================================================================
+    function getEvolutionSeries() {
+      const currWeight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const goalWeight = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
+      const currWaist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
+      const currHip = parseFloat(document.getElementById('inp-hip')?.value || 99.0);
+      const currIcc = (currWaist > 0 && currHip > 0) ? parseFloat((currWaist / currHip).toFixed(2)) : 0.80;
+
+      return {
+        labels: ['Semana 1', 'Semana 2', 'Semana 3', `Hoy (Sem. ${clubState.week})`],
+        waist: {
+          unit: 'cm',
+          goal: 75.0,
+          subtitle: '📉 Curva de Desinflamación de Cintura (Toca cualquier punto semanal para inspeccionar)',
+          goalLabel: '🎯 Meta Cintura: 75.0 cm',
+          values: [clubState.initialWaist, 81.4, 80.1, currWaist]
+        },
+        weight: {
+          unit: 'kg',
+          goal: goalWeight,
+          subtitle: '⚖️ Evolución de Peso Corporal (Sincronizada con tus registros semanales)',
+          goalLabel: `🎯 Peso Meta: ${goalWeight.toFixed(1)} kg`,
+          values: [clubState.initialWeight, 70.1, 69.2, currWeight]
+        },
+        icc: {
+          unit: '',
+          goal: 0.78,
+          subtitle: '🫀 Evolución de Índice Cintura-Cadera (Salud metabólica y grasa visceral)',
+          goalLabel: '🎯 Zona Óptima: < 0.85',
+          values: [0.82, 0.81, 0.80, currIcc]
+        },
+        allPoints: [
+          { label: 'Semana 1 (Inicio)', waist: clubState.initialWaist, weight: clubState.initialWeight, icc: 0.82 },
+          { label: 'Semana 2', waist: 81.4, weight: 70.1, icc: 0.81 },
+          { label: 'Semana 3', waist: 80.1, weight: 69.2, icc: 0.80 },
+          { label: `Hoy (Semana ${clubState.week})`, waist: currWaist, weight: currWeight, icc: currIcc }
+        ]
+      };
+    }
+
+    function switchChartMetric(metric, tabEl) {
+      clubState.selectedChartMetric = metric;
+      document.querySelectorAll('#flip-dash-chart .chart-tab-pill').forEach(btn => btn.classList.remove('active'));
+      if (tabEl) tabEl.classList.add('active');
+      renderEvolutionChart();
+    }
+
+    function selectChartWeek(idx) {
+      clubState.selectedChartWeekIdx = idx;
+      renderEvolutionChart();
+    }
+
+    function renderEvolutionChart() {
+      const svg = document.getElementById('evo-luxury-svg');
+      const nodesLayer = document.getElementById('evo-nodes-layer');
+      const areaPath = document.getElementById('evo-area-path');
+      const curvePath = document.getElementById('evo-curve-path');
+      if (!svg || !nodesLayer || !areaPath || !curvePath) return;
+
+      const seriesData = getEvolutionSeries();
+      const activeMetric = seriesData[clubState.selectedChartMetric] || seriesData.waist;
+      const vals = activeMetric.values;
+
+      const subEl = document.getElementById('evo-chart-subtitle');
+      if (subEl) subEl.innerText = activeMetric.subtitle;
+      const goalPillEl = document.getElementById('evo-chart-goal-pill');
+      if (goalPillEl) goalPillEl.innerText = activeMetric.goalLabel;
+
+      const allVals = [...vals, activeMetric.goal];
+      const maxVal = Math.max(...allVals);
+      const minVal = Math.min(...allVals);
+      const span = (maxVal - minVal) || 1;
+
+      const xCoords = [92, 258, 424, 584];
+      const topY = 28;
+      const botY = 112;
+      const yForVal = (v) => {
+        const ratio = (maxVal - v) / span;
+        return Math.round(topY + ratio * (botY - topY));
+      };
+
+      const pts = vals.map((v, i) => ({ x: xCoords[i], y: yForVal(v), val: v, label: seriesData.labels[i] }));
+
+      // Curva cúbica suave entre los 4 nodos
+      let dCurve = `M ${pts[0].x},${pts[0].y}`;
+      for (let i = 0; i < pts.length - 1; i++) {
+        const p0 = pts[i];
+        const p1 = pts[i + 1];
+        const midX = Math.round((p0.x + p1.x) / 2);
+        dCurve += ` C ${midX},${p0.y} ${midX},${p1.y} ${p1.x},${p1.y}`;
+      }
+      const dArea = `${dCurve} L ${pts[pts.length - 1].x},134 L ${pts[0].x},134 Z`;
+      curvePath.setAttribute('d', dCurve);
+      areaPath.setAttribute('d', dArea);
+
+      // Línea punteada de Meta
+      const goalY = Math.min(126, Math.max(22, yForVal(activeMetric.goal)));
+      const goalLine = document.getElementById('evo-goal-line');
+      const goalTxt = document.getElementById('evo-goal-svg-label');
+      if (goalLine) {
+        goalLine.setAttribute('y1', goalY);
+        goalLine.setAttribute('y2', goalY);
+      }
+      if (goalTxt) {
+        goalTxt.setAttribute('y', Math.min(144, goalY + 12));
+        goalTxt.textContent = activeMetric.goalLabel.toUpperCase();
+      }
+
+      // Dibujar nodos interactivos y etiquetas
+      let nodesHtml = '';
+      pts.forEach((p, idx) => {
+        const isSelected = idx === clubState.selectedChartWeekIdx;
+        const isLast = idx === pts.length - 1;
+        const valFormatted = clubState.selectedChartMetric === 'icc' ? p.val.toFixed(2) : `${p.val.toFixed(1)}${activeMetric.unit ? ' ' + activeMetric.unit : ''}`;
+        const pillFill = isSelected ? '#FDE68A' : (isLast ? '#8FD14F' : 'rgba(20,43,31,0.88)');
+        const pillText = (isSelected || isLast) ? '#142B1F' : '#E2F0D5';
+        const rOuter = isSelected ? 9 : 6.5;
+
+        nodesHtml += `
+          <g style="cursor: pointer;" onclick="selectChartWeek(${idx})">
+            ${isSelected ? `<circle cx="${p.x}" cy="${p.y}" r="15" fill="rgba(253, 230, 138, 0.22)"/>` : ''}
+            <circle class="chart-node-circle" cx="${p.x}" cy="${p.y}" r="${rOuter}" fill="${isSelected ? '#FDE68A' : '#8FD14F'}" stroke="#142B1F" stroke-width="2.5"/>
+            <rect x="${p.x - 36}" y="${p.y - 27}" width="72" height="18" rx="6" fill="${pillFill}" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <text x="${p.x}" y="${p.y - 15}" text-anchor="middle" font-size="9.5" font-weight="800" fill="${pillText}">${valFormatted}</text>
+            <text x="${p.x}" y="147" text-anchor="middle" font-size="10" font-weight="${isSelected ? '900' : '700'}" fill="${isSelected ? '#FDE68A' : '#C5F099'}">${p.label}</text>
+          </g>
+        `;
+      });
+      nodesLayer.innerHTML = nodesHtml;
+
+      // Actualizar barra inspectora inferior con datos reales de la semana seleccionada
+      const selPt = seriesData.allPoints[clubState.selectedChartWeekIdx] || seriesData.allPoints[3];
+      const wLoss = (selPt.waist - clubState.initialWaist).toFixed(1);
+      const kgLoss = (selPt.weight - clubState.initialWeight).toFixed(1);
+      const wLossTxt = wLoss <= 0 ? `${wLoss} cm` : `+${wLoss} cm`;
+      const kgLossTxt = kgLoss <= 0 ? `${kgLoss} kg` : `+${kgLoss} kg`;
+      const inspectorEl = document.getElementById('evo-inspector-bar');
+      if (inspectorEl) {
+        inspectorEl.innerHTML = `📍 <strong>Viendo ${selPt.label}:</strong> ${selPt.waist.toFixed(1)} cm cintura (${wLossTxt}) • ${selPt.weight.toFixed(1)} kg peso (${kgLossTxt}) • ICC <strong>${selPt.icc.toFixed(2)}</strong>`;
+      }
+    }
+
+    // =========================================================================
+    // HIDRATACIÓN DIARIA + HISTORIAL LUNES A DOMINGO + RETRO DOMINICAL
+    // =========================================================================
+    function selectWaterDay(dayIdx) {
+      clubState.selectedWaterDayIdx = dayIdx;
+      renderWaterTracker();
+    }
+
+    function toggleWater(cupIdx) {
+      const dayObj = clubState.waterWeekData[clubState.selectedWaterDayIdx];
+      if (!dayObj) return;
+      if (cupIdx + 1 === dayObj.glasses) {
+        dayObj.glasses = Math.max(0, cupIdx);
+      } else {
+        dayObj.glasses = cupIdx + 1;
+      }
+
+      // Si hoy llega a 8 vasos por primera vez, otorgar +50 XP reales
+      if (dayObj.glasses === 8 && !clubState.waterBonusAwarded) {
+        clubState.waterBonusAwarded = true;
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
+      }
+      syncPlatformState();
+    }
+
+    function renderWaterTracker() {
+      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
+      const waistDiff = (waist - clubState.initialWaist).toFixed(1);
+      const recommendedLiters = ((weight * 35) / 1000).toFixed(1);
+
+      const targetEl = document.getElementById('water-weight-target');
+      if (targetEl) {
+        targetEl.innerText = `Meta para tus ${weight.toFixed(1)} kg: ${recommendedLiters} L (8 vasos)`;
+      }
+
+      const activeDay = clubState.waterWeekData[clubState.selectedWaterDayIdx] || clubState.waterWeekData[3];
+      const dayLiters = (activeDay.glasses * 0.3).toFixed(2);
+      const titleEl = document.getElementById('water-title');
+      if (titleEl) {
+        titleEl.innerText = `${activeDay.full}: ${activeDay.glasses} de 8 vasos (${dayLiters} L)`;
+      }
+
+      // Renderizar los 8 vasos del día seleccionado
+      const cupsContainer = document.getElementById('water-container');
+      if (cupsContainer) {
+        const cups = cupsContainer.querySelectorAll('.glass-cup');
+        cups.forEach((cup, idx) => {
+          if (idx < activeDay.glasses) cup.classList.add('filled');
+          else cup.classList.remove('filled');
+        });
+      }
+
+      // Renderizar barra histórica Lunes a Domingo
+      const stripEl = document.getElementById('water-week-strip');
+      if (stripEl) {
+        let stripHtml = '';
+        clubState.waterWeekData.forEach((d, idx) => {
+          const pct = Math.min(100, Math.round((d.glasses / 8) * 100));
+          const isSelected = idx === clubState.selectedWaterDayIdx;
+          const colClasses = ['water-day-col'];
+          if (isSelected) colClasses.push('active-day');
+          if (d.isSunday) colClasses.push('sunday-col');
+          const fillClasses = ['water-bar-fill'];
+          if (d.glasses >= 8) fillClasses.push('goal-met');
+
+          stripHtml += `
+            <div class="${colClasses.join(' ')}" onclick="selectWaterDay(${idx})" title="Ver/Editar ${d.full}">
+              <div class="water-day-name">${d.short}</div>
+              <div class="water-bar-track">
+                <div class="${fillClasses.join(' ')}" style="height: ${pct}%;"></div>
+              </div>
+              <div class="water-day-val">${d.glasses}/8</div>
+            </div>
+          `;
+        });
+        stripEl.innerHTML = stripHtml;
+      }
+
+      // Cálculos semanales y Retroalimentación Dominical de la Nutrióloga Arianna
+      const totalGlasses = clubState.waterWeekData.reduce((acc, d) => acc + d.glasses, 0);
+      const avgGlasses = (totalGlasses / 7).toFixed(1);
+      const pctWeek = Math.round((totalGlasses / 56) * 100);
+      const totalLiters = (totalGlasses * 0.3).toFixed(1);
+      const goalLitersWeek = (56 * 0.3).toFixed(1);
+      const daysMetGoal = clubState.waterWeekData.filter(d => d.glasses >= 8).length;
+
+      const avgLabel = document.getElementById('water-weekly-avg-label');
+      if (avgLabel) {
+        avgLabel.innerHTML = `📈 Promedio Lun–Dom: <strong style="color: #2563EB;">${avgGlasses} vasos/día (${pctWeek}% cumplido)</strong>`;
+      }
+
+      const retroLiters = document.getElementById('water-retro-liters');
+      if (retroLiters) retroLiters.innerText = `${totalLiters} L / ${goalLitersWeek} L`;
+      const retroAvg = document.getElementById('water-retro-avg');
+      if (retroAvg) retroAvg.innerText = `${avgGlasses} vasos (${pctWeek}%)`;
+      const retroDays = document.getElementById('water-retro-days');
+      if (retroDays) retroDays.innerText = `${daysMetGoal} de 7 días`;
+
+      const retroBadge = document.getElementById('water-retro-badge');
+      const retroText = document.getElementById('water-retro-text');
+      const retroTip = document.getElementById('water-retro-tip');
+      const retroBox = document.getElementById('water-retro-box');
+
+      if (retroBadge && retroText && retroTip && retroBox) {
+        if (avgGlasses >= 7.0) {
+          retroBox.style.borderLeftColor = '#16A34A';
+          retroBadge.style.color = '#15803D';
+          retroBadge.innerText = '🌟 RETRO DOMINICAL DE ARIANNA: HIDRATACIÓN METABÓLICA SOBRESALIENTE';
+          retroText.innerText = `"¡Cerraste la semana con ${totalLiters} litros acumulados! Con este nivel de agua tu hígado metaboliza grasa visceral sin esfuerzo, evitas la retención de líquidos abdominal (impulsando tus ${waistDiff} cm de cintura) y mantienes tu saciedad al máximo."`;
+          retroTip.innerText = '💡 Ritual de Domingo: Toma 1 vaso de agua mineral con limón antes de tu comida libre.';
+        } else if (avgGlasses >= 5.5) {
+          retroBox.style.borderLeftColor = '#D97706';
+          retroBadge.style.color = '#B45309';
+          retroBadge.innerText = '⚡ RETRO DOMINICAL DE ARIANNA: HIDRATACIÓN MODERADA (PUEDES SUBIR 15%)';
+          retroText.innerText = `"Promediaste ${avgGlasses} vasos al día (${totalLiters} L en la semana). Vas por buen camino, pero sumar solo 2 vasos más entre comidas acelerará tu desinflamación abdominal y evitará el cansancio de media tarde."`;
+          retroTip.innerText = '💡 Ajuste Lunes: Deja 1 vaso lleno junto a tu cama al despertar y otro antes de comer.';
+        } else {
+          retroBox.style.borderLeftColor = '#E86F52';
+          retroBadge.style.color = '#C2410C';
+          retroBadge.innerText = '🚨 RETRO DOMINICAL DE ARIANNA: ALERTA DE RETENCIÓN Y SED OCULTA';
+          retroText.innerText = `"Esta semana promediaste ${avgGlasses} vasos/día. Cuando tomas poca agua, tu cuerpo retiene líquidos en el abdomen por defensa y el cerebro confunde la deshidratación con antojos de azúcar."`;
+          retroTip.innerText = '💡 Prescripción: Inicia mañana con infusión de jamaica o agua con rodajas de pepino y limón.';
+        }
+      }
+    }
+
+    // =========================================================================
+    // BIO-RADAR METABÓLICO DIARIO (DE NUESTRA COSECHA PREMIUM)
+    // =========================================================================
+    function setBioSignal(key, val) {
+      clubState.bioSignals[key] = val;
+      renderBioRadar();
+    }
+
+    function renderBioRadar() {
+      const s = clubState.bioSignals;
+      ['energy', 'belly', 'craving'].forEach(k => {
+        const gBtn = document.getElementById(`bio-${k}-good`);
+        const aBtn = document.getElementById(`bio-${k}-alert`);
+        if (gBtn && aBtn) {
+          gBtn.className = 'bio-opt-btn' + (s[k] === 'good' ? ' active-good' : '');
+          aBtn.className = 'bio-opt-btn' + (s[k] === 'alert' ? ' active-alert' : '');
+        }
+      });
+
+      const alerts = Object.values(s).filter(v => v === 'alert').length;
+      const scoreBadge = document.getElementById('bio-score-badge');
+      const prescText = document.getElementById('bio-prescription-text');
+      if (!scoreBadge || !prescText) return;
+
+      if (alerts === 0) {
+        scoreBadge.style.background = '#DCFCE7';
+        scoreBadge.style.color = '#166534';
+        scoreBadge.style.borderColor = '#86EFAC';
+        scoreBadge.innerText = '🟢 Paz Glucémica: 96%';
+        prescText.innerText = '"Tus 3 bio-marcadores están en zona óptima hoy. Tu insulina trabaja sin picos y tu microbiota está desinflamada; mantén tu porción de aguacate Hass en la cena."';
+      } else {
+        scoreBadge.style.background = '#FEF3C7';
+        scoreBadge.style.color = '#92400E';
+        scoreBadge.style.borderColor = '#FCD34D';
+        const scoreVal = alerts === 1 ? 82 : (alerts === 2 ? 68 : 55);
+        scoreBadge.innerText = `🟡 Ajuste Metabólico: ${scoreVal}%`;
+
+        const tips = [];
+        if (s.energy === 'alert') tips.push('empieza tu próxima comida por las verduras y camina 10 min al terminar para evitar el pico de insulina');
+        if (s.belly === 'alert') tips.push('prefiere vegetales cocidos hoy y toma infusión tibia de manzanilla con jengibre');
+        if (s.craving === 'alert') tips.push('prepara hoy el Brownie o Mousse de Cacao con Aguacate del Recetario sin Azúcar para saciar dopamina sin elevar glucosa');
+        prescText.innerText = `"Ajuste inmediato de Arianna: ${tips.join('; además, ')}."`;
+      }
+    }
+
+    // Abrir directamente el Recetario Especial de Postres Sin Azúcar desde el Dashboard
+    function openVipDesserts() {
+      openModule('mod-recetario', document.getElementById('nav-mod-recetario'));
+      setTimeout(() => {
+        const sec = document.getElementById('vip-postres-section');
+        if (sec) {
+          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          sec.style.boxShadow = '0 0 0 4px rgba(232, 111, 82, 0.35)';
+          setTimeout(() => { sec.style.boxShadow = ''; }, 2000);
+        }
+      }, 120);
+    }
+
+    // Completar rutina de ejercicios en Módulo 5 (+100 XP reales conectados al Nivel del Club)
+    function completeDailyWorkout(btnEl) {
+      if (!clubState.workoutDone) {
+        clubState.workoutDone = true;
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 100);
+      }
+      syncPlatformState();
+      if (btnEl) {
+        btnEl.innerText = '🎉 ¡Rutina Registrada (+100 XP)!';
+        btnEl.style.background = 'var(--avo-dark)';
+      }
     }
 
     function syncPlatformState() {
@@ -4629,8 +5560,9 @@
       const hipDiff = (hip - clubState.initialHip).toFixed(1);
       const hipDiffStr = hipDiff <= 0 ? `${hipDiff} cm` : `+${hipDiff} cm`;
 
-      const icc = (waist > 0 && hip > 0) ? (waist / hip).toFixed(2) : '0.80';
-      const iccHealthy = parseFloat(icc) < 0.85;
+      const iccNum = (waist > 0 && hip > 0) ? (waist / hip) : 0.80;
+      const icc = iccNum.toFixed(2);
+      const iccHealthy = iccNum < 0.85;
 
       // Top Banner Cintura Pill
       const topWaistEl = document.getElementById('top-waist-text');
@@ -4642,17 +5574,55 @@
         badgeIcc.innerHTML = `📏 Índice Cintura/Cadera Calculado: <strong>${icc} (${iccHealthy ? 'Saludable ✅' : 'Prioridad Desinflamación 🩺'})</strong>`;
       }
 
-      // Dashboard Métricas y Gráfica
+      // Dashboard Métricas y Termómetro Clínico ICC
       const dashWeight = document.getElementById('dash-stat-weight');
-      if (dashWeight) dashWeight.innerHTML = `${weight.toFixed(1)} kg <span style="font-size: 0.75rem; color: var(--avo-primary);">${weightDiffStr}</span>`;
+      if (dashWeight) dashWeight.innerHTML = `${weight.toFixed(1)} kg <span style="font-size: 0.72rem; color: var(--avo-primary);">${weightDiffStr}</span>`;
       const dashWaist = document.getElementById('dash-stat-waist');
-      if (dashWaist) dashWaist.innerHTML = `${waist} cm <span style="font-size: 0.75rem; color: var(--coral);">${waistDiffStr}</span>`;
+      if (dashWaist) dashWaist.innerHTML = `${waist} cm <span style="font-size: 0.72rem; color: var(--coral);">${waistDiffStr}</span>`;
       const dashHip = document.getElementById('dash-stat-hip');
-      if (dashHip) dashHip.innerHTML = `${hip} cm <span style="font-size: 0.75rem; color: var(--avo-primary);">${hipDiffStr}</span>`;
+      if (dashHip) dashHip.innerHTML = `${hip} cm <span style="font-size: 0.72rem; color: var(--avo-primary);">${hipDiffStr}</span>`;
       const dashIcc = document.getElementById('dash-stat-icc');
-      if (dashIcc) dashIcc.innerHTML = `${icc} <span style="font-size: 0.72rem; color: var(--avo-primary);">${iccHealthy ? 'Óptimo' : 'En ajuste'}</span>`;
-      const dashChartToday = document.getElementById('dash-chart-today');
-      if (dashChartToday) dashChartToday.textContent = `Hoy: ${weight.toFixed(1)}kg (${waist}cm)`;
+      if (dashIcc) dashIcc.innerHTML = `${icc} <span style="font-size: 0.7rem; color: var(--avo-primary);">${iccHealthy ? 'Óptimo' : 'En ajuste'}</span>`;
+
+      const dashClinHeadline = document.getElementById('dash-clinical-headline');
+      if (dashClinHeadline) dashClinHeadline.innerText = `¿Por qué tus ${waistDiffStr} de cintura valen más que la báscula?`;
+      const dashIccGaugeLbl = document.getElementById('dash-icc-gauge-label');
+      if (dashIccGaugeLbl) dashIccGaugeLbl.innerHTML = `Tu ICC Actual: <strong>${icc} (${iccHealthy ? 'Zona Cardioprotectora ✅' : 'Prioridad Desinflamación 🩺'})</strong>`;
+      const dashIccPin = document.getElementById('dash-icc-pin');
+      if (dashIccPin) {
+        const pinPct = Math.min(95, Math.max(8, Math.round(((iccNum - 0.70) / 0.22) * 100)));
+        dashIccPin.style.left = `${pinPct}%`;
+      }
+      const dashIccClinTxt = document.getElementById('dash-icc-clinical-text');
+      if (dashIccClinTxt) {
+        dashIccClinTxt.innerHTML = `Pasaste de <strong>0.82 a ${icc}</strong> (${waistDiffStr} de cintura). Cada centímetro menos en el abdomen reduce la resistencia a la insulina.`;
+      }
+
+      // Proyección Real a la Meta en Tarjeta 4 (Cara Trasera)
+      const totalToLose = Math.max(0.5, clubState.initialWeight - weightGoal);
+      const lostSoFar = Math.max(0, clubState.initialWeight - weight);
+      const goalPct = Math.min(100, Math.max(5, Math.round((lostSoFar / totalToLose) * 100)));
+      const kgRemaining = Math.max(0, weight - weightGoal);
+      const weeksEta = Math.max(1, Math.round(kgRemaining / 0.8));
+
+      const gpHead = document.getElementById('goal-proj-headline');
+      if (gpHead) gpHead.innerText = `Llevas el ${goalPct}% del camino hacia tus ${weightGoal.toFixed(1)} kg`;
+      const gpSub = document.getElementById('goal-proj-sub');
+      if (gpSub) gpSub.innerText = `Cálculo sincronizado con tu Peso Inicial (${clubState.initialWeight} kg), Peso Actual (${weight.toFixed(1)} kg) y Meta (${weightGoal.toFixed(1)} kg):`;
+      const gpStart = document.getElementById('goal-proj-start');
+      if (gpStart) gpStart.innerText = `Inicio: ${clubState.initialWeight} kg`;
+      const gpCurr = document.getElementById('goal-proj-current');
+      if (gpCurr) gpCurr.innerText = `Hoy: ${weight.toFixed(1)} kg (${weightDiffStr})`;
+      const gpTarg = document.getElementById('goal-proj-target');
+      if (gpTarg) gpTarg.innerText = `Meta: ${weightGoal.toFixed(1)} kg`;
+      const gpBar = document.getElementById('goal-proj-bar');
+      if (gpBar) gpBar.style.width = `${goalPct}%`;
+      const gpEta = document.getElementById('goal-proj-eta');
+      if (gpEta) {
+        gpEta.innerHTML = kgRemaining <= 0.1
+          ? `🎉 <strong>¡Meta alcanzada!</strong> Estás en tu peso objetivo saludable.`
+          : `⏱️ Te faltan <strong>${kgRemaining.toFixed(1)} kg</strong>. Al ritmo clínico saludable (-0.8 kg/sem), llegarás en <strong>~${weeksEta} semanas sin efecto rebote</strong>.`;
+      }
 
       // Perfil Métricas Sincronizadas
       const profWeight = document.getElementById('prof-stat-weight');
@@ -4668,7 +5638,7 @@
       const profIccStatus = document.getElementById('prof-stat-icc-status');
       if (profIccStatus) profIccStatus.innerText = iccHealthy ? '✅ Rango Cardioprotector' : '🩺 En Desinflamación Activa';
 
-      // 4. Racha y XP sincronizados en Top Banner, Sidebar, Dashboard y Perfil
+      // 4. Racha, Nivel, Misiones XP y Bóveda de Postres en Top Banner, Sidebar, Dashboard y Perfil
       const topStreak = document.getElementById('top-streak-text');
       if (topStreak) topStreak.innerText = `${clubState.streakDays} Días en Racha`;
 
@@ -4695,16 +5665,35 @@
           : `Te faltan <strong>${xpRem} XP</strong> para el rango <strong>Reina Saludable 👑</strong>:`;
       }
 
+      const dashRankEmoji = document.getElementById('dash-rank-emoji');
+      if (dashRankEmoji) dashRankEmoji.innerText = isQueen ? '👑' : '🥑';
       const dashRank = document.getElementById('dash-rank-title');
       if (dashRank) dashRank.innerText = rankLabel.replace(/^[^\w]+\s*/, '');
+      const dashXpCounter = document.getElementById('dash-xp-counter');
+      if (dashXpCounter) dashXpCounter.innerText = `${clubState.xp} / ${clubState.maxXp} XP (${xpPct}%)`;
       const dashXpSub = document.getElementById('dash-xp-sub');
       if (dashXpSub) {
         dashXpSub.innerHTML = isQueen
           ? '🎉 ¡Nivel máximo desbloqueado: <strong>Reina Saludable 👑</strong>!'
-          : `A ${xpRem} XP de alcanzar <strong>Reina Saludable 👑</strong>`;
+          : `A <strong>${xpRem} XP</strong> de alcanzar <strong>Reina Saludable 👑</strong>`;
       }
       const dashBar = document.getElementById('dash-xp-bar');
       if (dashBar) dashBar.style.width = `${xpPct}%`;
+
+      // Actualizar estado visual de las 4 misiones interactivas de XP
+      const mWater = document.getElementById('mission-status-water');
+      if (mWater) mWater.innerHTML = clubState.waterBonusAwarded ? '✅ +50 XP Ganados' : '+50 XP ➔';
+      const mSeed = document.getElementById('mission-status-seed');
+      if (mSeed) mSeed.innerHTML = clubState.seedPlanted ? '✅ +50 XP Ganados' : '+50 XP ➔';
+      const mWork = document.getElementById('mission-status-workout');
+      if (mWork) mWork.innerHTML = clubState.workoutDone ? '✅ +100 XP Ganados' : '+100 XP ➔';
+      const mCheck = document.getElementById('mission-status-checkin');
+      if (mCheck) mCheck.innerHTML = clubState.checkinDone ? '✅ +100 XP Ganados' : '+100 XP ➔';
+
+      // Renderizar Gráfico Multimétrica, Hidratación Semanal y Bio-Radar
+      renderEvolutionChart();
+      renderWaterTracker();
+      renderBioRadar();
     }
 
     // Rotación automática suave del mensaje superior cada 10 segundos
@@ -4956,13 +5945,6 @@
       }
     }
 
-    // Interacción real: Vasos de agua
-    function toggleWater(cupEl) {
-      cupEl.classList.toggle('filled');
-      const count = document.querySelectorAll('#water-container .glass-cup.filled').length;
-      document.getElementById('water-title').innerText = `Llevas ${count} de 8 vasos de agua hoy`;
-    }
-
     // Interacción real: Intercambiar platillo (Swap)
     const swapOptions = {
       1: ["Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate", "🔄 Molletes en Bolillo sin Migajón con Frijoles, Queso Panela y Aguacate"],
@@ -5078,13 +6060,13 @@
       if (!clubState.seedPlanted) {
         clubState.seedPlanted = true;
         clubState.streakDays += 1;
-        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 25);
+        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
       }
-      if (streak) streak.innerHTML = `🔥 ${clubState.streakDays} Días en Racha (+25 XP)`;
+      if (streak) streak.innerHTML = `🔥 ${clubState.streakDays} Días en Racha (+50 XP)`;
       if (topSeedText) topSeedText.innerText = '🌱 Semilla Sembrada ✓';
       syncPlatformState();
       if (btnEl) {
-        btnEl.innerText = '✅ ¡Semilla de hoy sembrada con éxito! (+25 XP)';
+        btnEl.innerText = '✅ ¡Semilla de hoy sembrada con éxito! (+50 XP)';
         btnEl.style.background = 'var(--avo-dark)';
       }
     }
@@ -5211,6 +6193,7 @@
     // Mayor densidad y presencia de frutitas en Login y en todas las páginas/módulos interiores
     createVeggieField('veggie-canvas-login', 54);
     createVeggieField('veggie-canvas-app', 92);
+    syncPlatformState();
   </script>
 </body>
 </html>
