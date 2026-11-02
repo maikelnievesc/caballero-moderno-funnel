@@ -3853,13 +3853,13 @@
                       </div>
 
                       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 2px;">
-                        <h3 style="font-size: 1.14rem; color: var(--avo-dark); margin: 0;">Balance Hídrico de tu Semana</h3>
+                        <h3 style="font-size: 1.14rem; color: var(--avo-dark); margin: 0;">Balance Hídrico de tu Semana Anterior</h3>
                         <span id="water-retro-sunday-pill" style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.71rem; font-weight: 800; background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; padding: 3px 10px; border-radius: 99px;">
-                          📅 Domingo 8 de Noviembre, 2026
+                          📅 Domingo 1 de Noviembre, 2026
                         </span>
                       </div>
                       <p id="water-retro-period-sub" style="font-size: 0.73rem; color: var(--text-muted); margin-bottom: 8px;">
-                        📍 Corte del <strong>Lunes 2 al Domingo 8 de Noviembre</strong> • Evaluación clínica de la Nutrióloga Arianna:
+                        📍 Corte cerrado: <strong>Lunes 26 de Octubre al Domingo 1 de Noviembre</strong> • Evaluación de la Nutrióloga Arianna:
                       </p>
 
                       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-bottom: 8px;">
@@ -5748,28 +5748,36 @@
       const monthsShort = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
       const now = new Date();
       const dayOfWeek = now.getDay(); // 0 = Dom, 1 = Lun ... 6 = Sáb
-      const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
 
-      const mondayDate = new Date(now);
-      mondayDate.setDate(now.getDate() + diffToMonday);
+      // El corte de Retro Dominical SIEMPRE corresponde al último domingo que ya pasó (semana anterior cerrada)
+      const daysSinceLastSunday = dayOfWeek === 0 ? 0 : dayOfWeek;
+      const lastSundayDate = new Date(now);
+      lastSundayDate.setDate(now.getDate() - daysSinceLastSunday);
 
-      const sundayDate = new Date(mondayDate);
-      sundayDate.setDate(mondayDate.getDate() + 6);
+      const prevMondayDate = new Date(lastSundayDate);
+      prevMondayDate.setDate(lastSundayDate.getDate() - 6);
 
-      const monDay = mondayDate.getDate();
-      const monMonth = monthsFull[mondayDate.getMonth()];
-      const sunDay = sundayDate.getDate();
-      const sunMonth = monthsFull[sundayDate.getMonth()];
-      const sunMonthShort = monthsShort[sundayDate.getMonth()];
-      const sunYear = sundayDate.getFullYear();
+      const nextSundayDate = new Date(lastSundayDate);
+      nextSundayDate.setDate(lastSundayDate.getDate() + 7);
 
-      const weekRange = mondayDate.getMonth() === sundayDate.getMonth()
+      const monDay = prevMondayDate.getDate();
+      const monMonth = monthsFull[prevMondayDate.getMonth()];
+      const sunDay = lastSundayDate.getDate();
+      const sunMonth = monthsFull[lastSundayDate.getMonth()];
+      const sunMonthShort = monthsShort[lastSundayDate.getMonth()];
+      const sunYear = lastSundayDate.getFullYear();
+
+      const nextSunDay = nextSundayDate.getDate();
+      const nextSunMonthShort = monthsShort[nextSundayDate.getMonth()];
+
+      const weekRange = prevMondayDate.getMonth() === lastSundayDate.getMonth()
         ? `Lunes ${monDay} al Domingo ${sunDay} de ${sunMonth}`
         : `Lunes ${monDay} de ${monMonth} al Domingo ${sunDay} de ${sunMonth}`;
 
       return {
         sundayFull: `Domingo ${sunDay} de ${sunMonth}, ${sunYear}`,
         sundayShort: `Dom ${sunDay} ${sunMonthShort}`,
+        nextSundayShort: `Dom ${nextSunDay} ${nextSunMonthShort}`,
         weekRange
       };
     }
@@ -5943,7 +5951,7 @@
       }
       const periodSub = document.getElementById('water-retro-period-sub');
       if (periodSub) {
-        periodSub.innerHTML = `📍 Corte del <strong>${retroDates.weekRange}</strong> • Evaluación clínica de la Nutrióloga Arianna:`;
+        periodSub.innerHTML = `📍 Corte cerrado: <strong>${retroDates.weekRange}</strong> • Próxima retro: <strong>${retroDates.nextSundayShort}</strong>`;
       }
 
       // Cálculos semanales y Retroalimentación Dominical de la Nutrióloga Arianna
