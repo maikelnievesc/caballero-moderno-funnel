@@ -1971,7 +1971,8 @@
         font-size: 1.12rem !important;
       }
 
-      .dash-clinical-grid {
+      .dash-clinical-grid,
+      #dash-icc-biomarkers-strip {
         grid-template-columns: 1fr !important;
         gap: 10px !important;
       }
@@ -3341,27 +3342,48 @@
                         </div>
                       </div>
 
-                      <div class="dash-clinical-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                        <div class="metric-well" style="background: #FFFFFF; padding: 11px 14px;">
-                          <div style="font-weight: 800; color: var(--avo-primary); font-size: 0.82rem; margin-bottom: 3px;">🩺 Diagnóstico de Grasa Visceral</div>
+                      <div class="dash-clinical-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px;">
+                        <div class="metric-well" id="dash-icc-clinical-box" style="background: #FFFFFF; padding: 11px 14px;">
+                          <div id="dash-icc-clinical-title" style="font-weight: 800; color: var(--avo-primary); font-size: 0.82rem; margin-bottom: 3px;">🩺 Diagnóstico de Grasa Visceral</div>
                           <p id="dash-icc-clinical-text" style="font-size: 0.78rem; color: var(--text-main); line-height: 1.42;">
                             Pasaste de <strong>0.82 a 0.80</strong>. Cada centímetro menos de cintura mejora directamente tu sensibilidad a la insulina.
                           </p>
                         </div>
-                        <div class="metric-well" style="background: #FFF9EB; border-color: #F5DC9B; padding: 11px 14px;">
+                        <div class="metric-well" id="dash-icc-arianna-box" style="background: #FFF9EB; border-color: #F5DC9B; padding: 11px 14px;">
                           <div style="font-weight: 800; color: #9A6700; font-size: 0.82rem; margin-bottom: 3px;">👩‍⚕️ Ajuste Clínico de Arianna:</div>
                           <p id="dash-icc-arianna-note" style="font-size: 0.78rem; color: var(--text-main); line-height: 1.42;">
                             "Tu desinflamación abdominal va excelente. Mantendremos el aguacate Hass y nopales en tus desayunos de esta semana."
                           </p>
                         </div>
                       </div>
+
+                      <!-- Barra de 3 Biomarcadores Calculados en Vivo a partir de tus Medidas -->
+                      <div id="dash-icc-biomarkers-strip" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                        <div style="background: #F4F9EE; border: 1px solid #CFE0BE; border-radius: 11px; padding: 7px 10px; display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem;">
+                          <span style="color: var(--text-muted); font-weight: 700;">🩸 Sensibilidad Insulina:</span>
+                          <strong id="bio-marker-insulin" style="color: var(--avo-primary);">+24% Mejora</strong>
+                        </div>
+                        <div style="background: #F4F9EE; border: 1px solid #CFE0BE; border-radius: 11px; padding: 7px 10px; display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem;">
+                          <span style="color: var(--text-muted); font-weight: 700;">🔥 Grasa Visceral Est.:</span>
+                          <strong id="bio-marker-visceral" style="color: var(--coral);">-1.0 kg abdomen</strong>
+                        </div>
+                        <div style="background: #F4F9EE; border: 1px solid #CFE0BE; border-radius: 11px; padding: 7px 10px; display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem;">
+                          <span style="color: var(--text-muted); font-weight: 700;">🫀 Riesgo Metabólico:</span>
+                          <strong id="bio-marker-risk" style="color: var(--avo-primary);">Bajo (Protegida)</strong>
+                        </div>
+                      </div>
                     </div>
 
                     <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
-                      <span style="font-size: 0.77rem; font-weight: 700; color: var(--text-muted);">Próxima calibración: <strong>Domingo en la noche o Lunes AM</strong></span>
-                      <button class="btn-enter-club" style="width: auto; padding: 9px 18px; font-size: 0.8rem; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
-                        📝 Ir al Cierre Semanal (Módulo 2)
-                      </button>
+                      <span id="dash-next-calibration-label" style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted);">Sincronizado en vivo con <strong>Módulo 1 (Medidas)</strong> y <strong>Módulo 2 (Cierre Semanal)</strong></span>
+                      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button type="button" class="btn-flip-trigger" style="padding: 8px 13px; font-size: 0.76rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                          📏 Editar en Módulo 1
+                        </button>
+                        <button class="btn-enter-club" style="width: auto; padding: 9px 16px; font-size: 0.79rem; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
+                          📝 Ir al Cierre Semanal (Mód. 2)
+                        </button>
+                      </div>
                     </div>
                   </div>
 
@@ -3959,11 +3981,11 @@
 
                       <div class="modern-field" style="margin-bottom: 10px;">
                         <label>Nuevo Peso (kg)</label>
-                        <div class="modern-input-box"><input type="number" step="0.1" id="checkin-weight" value="68.4" style="padding: 11px 14px;"></div>
+                        <div class="modern-input-box"><input type="number" step="0.1" id="checkin-weight" value="68.4" oninput="syncFromCheckinInputs()" style="padding: 11px 14px;"></div>
                       </div>
                       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
-                        <div class="modern-field" style="margin: 0;"><label>Cintura (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-waist" value="79" style="padding: 11px 14px;"></div></div>
-                        <div class="modern-field" style="margin: 0;"><label>Cadera (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-hip" value="99" style="padding: 11px 14px;"></div></div>
+                        <div class="modern-field" style="margin: 0;"><label>Cintura (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-waist" value="79" oninput="syncFromCheckinInputs()" style="padding: 11px 14px;"></div></div>
+                        <div class="modern-field" style="margin: 0;"><label>Cadera (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-hip" value="99" oninput="syncFromCheckinInputs()" style="padding: 11px 14px;"></div></div>
                       </div>
 
                       <div class="modern-field" style="margin-bottom: 12px;">
@@ -5574,7 +5596,7 @@
         badgeIcc.innerHTML = `📏 Índice Cintura/Cadera Calculado: <strong>${icc} (${iccHealthy ? 'Saludable ✅' : 'Prioridad Desinflamación 🩺'})</strong>`;
       }
 
-      // Dashboard Métricas y Termómetro Clínico ICC
+      // Dashboard Métricas y Termómetro Clínico ICC Completo
       const dashWeight = document.getElementById('dash-stat-weight');
       if (dashWeight) dashWeight.innerHTML = `${weight.toFixed(1)} kg <span style="font-size: 0.72rem; color: var(--avo-primary);">${weightDiffStr}</span>`;
       const dashWaist = document.getElementById('dash-stat-waist');
@@ -5582,20 +5604,83 @@
       const dashHip = document.getElementById('dash-stat-hip');
       if (dashHip) dashHip.innerHTML = `${hip} cm <span style="font-size: 0.72rem; color: var(--avo-primary);">${hipDiffStr}</span>`;
       const dashIcc = document.getElementById('dash-stat-icc');
-      if (dashIcc) dashIcc.innerHTML = `${icc} <span style="font-size: 0.7rem; color: var(--avo-primary);">${iccHealthy ? 'Óptimo' : 'En ajuste'}</span>`;
+      if (dashIcc) dashIcc.innerHTML = `${icc} <span style="font-size: 0.7rem; color: ${iccHealthy ? 'var(--avo-primary)' : 'var(--coral)'};">${iccHealthy ? 'Óptimo' : 'En ajuste'}</span>`;
 
+      const waistDiffNum = parseFloat(waistDiff);
       const dashClinHeadline = document.getElementById('dash-clinical-headline');
-      if (dashClinHeadline) dashClinHeadline.innerText = `¿Por qué tus ${waistDiffStr} de cintura valen más que la báscula?`;
+      if (dashClinHeadline) {
+        if (waistDiffNum < 0) {
+          dashClinHeadline.innerText = `¿Por qué tus ${waistDiffStr} de cintura (${waist} cm hoy) valen más que la báscula?`;
+        } else if (waistDiffNum === 0) {
+          dashClinHeadline.innerText = `Tu cintura actual es ${waist} cm (ICC ${icc}): cómo acelerar tu desinflamación`;
+        } else {
+          dashClinHeadline.innerText = `Cintura en ${waist} cm (${waistDiffStr}): protocolo activo contra retención abdominal`;
+        }
+      }
+
       const dashIccGaugeLbl = document.getElementById('dash-icc-gauge-label');
-      if (dashIccGaugeLbl) dashIccGaugeLbl.innerHTML = `Tu ICC Actual: <strong>${icc} (${iccHealthy ? 'Zona Cardioprotectora ✅' : 'Prioridad Desinflamación 🩺'})</strong>`;
+      if (dashIccGaugeLbl) {
+        let zoneLabel = 'Zona Cardioprotectora ✅';
+        if (iccNum < 0.78) zoneLabel = 'Óptimo Metabólico Élite 🌟';
+        else if (iccNum >= 0.85 && iccNum < 0.90) zoneLabel = 'Alerta Grasa Visceral ⚠️';
+        else if (iccNum >= 0.90) zoneLabel = 'Prioridad Desinflamación 🩺';
+        dashIccGaugeLbl.innerHTML = `Tu ICC Actual: <strong>${icc} (${zoneLabel})</strong>`;
+      }
+
       const dashIccPin = document.getElementById('dash-icc-pin');
       if (dashIccPin) {
-        const pinPct = Math.min(95, Math.max(8, Math.round(((iccNum - 0.70) / 0.22) * 100)));
+        const pinPct = Math.min(96, Math.max(6, Math.round(((iccNum - 0.70) / 0.22) * 100)));
         dashIccPin.style.left = `${pinPct}%`;
+        dashIccPin.style.background = iccHealthy ? '#142B1F' : '#E86F52';
       }
+
+      // Retroalimentación Clínica Valiosa en Tiempo Real (Diagnóstico Visceral + Ajuste de Arianna + Biomarcadores)
+      const dashIccClinTitle = document.getElementById('dash-icc-clinical-title');
       const dashIccClinTxt = document.getElementById('dash-icc-clinical-text');
-      if (dashIccClinTxt) {
-        dashIccClinTxt.innerHTML = `Pasaste de <strong>0.82 a ${icc}</strong> (${waistDiffStr} de cintura). Cada centímetro menos en el abdomen reduce la resistencia a la insulina.`;
+      const dashIccAriannaNote = document.getElementById('dash-icc-arianna-note');
+      const bioInsulin = document.getElementById('bio-marker-insulin');
+      const bioVisceral = document.getElementById('bio-marker-visceral');
+      const bioRisk = document.getElementById('bio-marker-risk');
+
+      const cmLostAbs = Math.max(0, clubState.initialWaist - waist);
+      const visceralKgEst = (cmLostAbs * 0.25).toFixed(2);
+      const insulinImprovePct = Math.min(45, Math.max(6, Math.round(cmLostAbs * 6)));
+
+      if (dashIccClinTxt && dashIccAriannaNote) {
+        if (iccNum < 0.78) {
+          if (dashIccClinTitle) dashIccClinTitle.innerText = '🌟 Diagnóstico: Salud Visceral y Hormonal Élite';
+          dashIccClinTxt.innerHTML = `Tu ICC bajó de <strong>0.82 a ${icc}</strong> (${waist} cm cintura / ${hip} cm cadera). A este nivel tu tejido adiposo visceral es mínimo, tus receptores de insulina responden al 100% y la oxidación de grasa nocturna fluye sin bloqueos.`;
+          dashIccAriannaNote.innerHTML = `"Con ${waist} cm de cintura e ICC de ${icc}, tu abdomen está totalmente desinflamado. Mantendremos tu porción de aguacate Hass y sumaremos 1 porción extra de proteína en la cena para tonificar glúteo y pierna."`;
+        } else if (iccNum < 0.85 && waistDiffNum < 0) {
+          if (dashIccClinTitle) dashIccClinTitle.innerText = '🩺 Diagnóstico de Grasa Visceral Activa';
+          dashIccClinTxt.innerHTML = `Pasaste de <strong>0.82 a ${icc}</strong> (${waistDiffStr} de abdomen). Cada centímetro menos de cintura equivale a <strong>~250 g menos de grasa visceral</strong> rodeando hígado y páncreas, mejorando tu sensibilidad a la insulina un <strong>+${insulinImprovePct}%</strong>.`;
+          dashIccAriannaNote.innerHTML = `"Tu relación cintura-cadera (${icc}) ya está en zona cardioprotectora (<0.85). Para llegar a tu meta de 75 cm sin estancarte, conserva los nopales y 1/3 de aguacate Hass en el desayuno y cena 3 h antes de dormir."`;
+        } else if (iccNum < 0.85 && waistDiffNum >= 0) {
+          if (dashIccClinTitle) dashIccClinTitle.innerText = '💧 Diagnóstico: ICC Protegido con Retención Transitoria';
+          dashIccClinTxt.innerHTML = `Tu ICC actual (<strong>${icc}</strong>) se mantiene en rango cardioprotector (&lt;0.85), pero tu cintura registra <strong>${waist} cm (${waistDiffStr})</strong>. Esto refleja distensión digestiva o retención hídrica hormonal, no aumento real de grasa.`;
+          dashIccAriannaNote.innerHTML = `"No recortes calorías por impulso. Durante los próximos 4 días prioriza verduras cocidas (calabacita y chayote), toma 2 L de agua con jamaica sin azúcar y camina 12 minutos después de tu comida principal."`;
+        } else if (iccNum >= 0.85 && iccNum < 0.90) {
+          if (dashIccClinTitle) dashIccClinTitle.innerText = '⚠️ Diagnóstico: Resistencia a la Insulina Abdominal';
+          dashIccClinTxt.innerHTML = `Con <strong>${waist} cm de cintura</strong> y <strong>${hip} cm de cadera</strong>, tu ICC es <strong>${icc} (≥0.85)</strong>. Esto indica que picos de glucosa o cortisol están dirigiendo energía hacia la faja abdominal en lugar de oxidarla como combustible.`;
+          dashIccAriannaNote.innerHTML = `"Activamos regla de oro en tu protocolo (${cleanProto}): nunca comas carbohidrato solo. Inicia cada comida con ensalada verde o nopales + proteína, usa el aguacate Hass como grasa saciante y evita fruta en la noche."`;
+        } else {
+          if (dashIccClinTitle) dashIccClinTitle.innerText = '🚨 Diagnóstico: Prioridad Desinflamación Visceral';
+          dashIccClinTxt.innerHTML = `Tu ICC actual es <strong>${icc}</strong> (${waist} cm cintura / ${hip} cm cadera). La inflamación visceral libera adipocinas que frenan la quema de grasa; por eso nuestra meta #1 antes que la báscula es bajar tu cintura debajo de 80 cm.`;
+          dashIccAriannaNote.innerHTML = `"Reajuste clínico inmediato: 0 azúcares líquidos, desayuno 100% salado (huevo con nopales y aguacate), 8 vasos de agua al día y activar tus 25 min de fuerza en casa después de comer para drenar glucosa muscular."`;
+        }
+      }
+
+      if (bioInsulin) {
+        bioInsulin.style.color = iccHealthy ? 'var(--avo-primary)' : 'var(--coral)';
+        bioInsulin.innerText = waistDiffNum < 0 ? `+${insulinImprovePct}% Mejora` : (iccHealthy ? 'Estable ✅' : 'Prioridad Control');
+      }
+      if (bioVisceral) {
+        bioVisceral.style.color = waistDiffNum < 0 ? 'var(--coral)' : 'var(--avo-dark)';
+        bioVisceral.innerText = waistDiffNum < 0 ? `-${visceralKgEst} kg visceral` : `${waist} cm actual`;
+      }
+      if (bioRisk) {
+        bioRisk.style.color = iccHealthy ? 'var(--avo-primary)' : 'var(--coral)';
+        bioRisk.innerText = iccNum < 0.78 ? 'Óptimo Élite 🌟' : (iccHealthy ? 'Bajo (<0.85) ✅' : 'En Desinflamación 🩺');
       }
 
       // Proyección Real a la Meta en Tarjeta 4 (Cara Trasera)
@@ -5885,6 +5970,21 @@
       if (cw) cw.value = w;
       if (ch) ch.value = h;
       if (cWeight) cWeight.value = weight;
+      syncPlatformState();
+    }
+
+    // Sincronización en vivo cuando la socia escribe nuevas medidas en el Cierre Semanal (Módulo 2)
+    function syncFromCheckinInputs() {
+      const cWeight = parseFloat(document.getElementById('checkin-weight')?.value || 68.4);
+      const cWaist = parseFloat(document.getElementById('checkin-waist')?.value || 79);
+      const cHip = parseFloat(document.getElementById('checkin-hip')?.value || 99);
+
+      const inpW = document.getElementById('inp-weight');
+      const inpWaist = document.getElementById('inp-waist');
+      const inpHip = document.getElementById('inp-hip');
+      if (inpW) inpW.value = cWeight;
+      if (inpWaist) inpWaist.value = cWaist;
+      if (inpHip) inpHip.value = cHip;
       syncPlatformState();
     }
 
