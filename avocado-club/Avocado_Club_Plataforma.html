@@ -4013,13 +4013,13 @@
                       </div>
 
                       <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px;">
-                        <h3 id="water-title" style="font-size: 1.15rem; color: var(--avo-dark); margin: 0;">Jueves (Hoy): 6 de 8 vasos (1.80 L)</h3>
+                        <h3 id="water-title" style="font-size: 1.15rem; color: var(--avo-dark); margin: 0;">Lunes (Hoy): 6 de 8 vasos (1.80 L)</h3>
                         <span id="water-weight-target" style="font-size: 0.72rem; font-weight: 800; color: #2563EB; background: #EFF6FF; padding: 3px 9px; border-radius: 99px; border: 1px solid #BFDBFE;">
                           Meta para tus 68.4 kg: 2.4 L (8 vasos)
                         </span>
                       </div>
                       <p id="water-subtitle-text" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
-                        Toca un vaso para actualizar <strong>Hoy (Jueves)</strong>, o toca <strong>Miércoles (Ayer)</strong> si olvidaste anotar lo del día anterior:
+                        Toca un vaso para actualizar <strong>Hoy (Lunes)</strong>, o toca <strong>Domingo (Ayer)</strong> si olvidaste anotar lo del día anterior:
                       </p>
 
                       <!-- 8 Vasos interactivos del día seleccionado (Solo Hoy o Día Anterior) -->
@@ -4043,11 +4043,11 @@
                           🛡️ <strong>Solo puedes actualizar Hoy y el Día Anterior:</strong> demás días bloqueados 🔒
                         </span>
                         <div class="water-quick-switch">
-                          <button type="button" id="btn-quick-water-yesterday" class="water-quick-btn" onclick="selectWaterDay(2)">
-                            ✏️ Día Anterior (Mié)
+                          <button type="button" id="btn-quick-water-yesterday" class="water-quick-btn" onclick="selectWaterYesterday()">
+                            ✏️ Día Anterior (Dom)
                           </button>
-                          <button type="button" id="btn-quick-water-today" class="water-quick-btn active" onclick="selectWaterDay(3)">
-                            💧 Hoy (Jue)
+                          <button type="button" id="btn-quick-water-today" class="water-quick-btn active" onclick="selectWaterToday()">
+                            💧 Hoy (Lun)
                           </button>
                         </div>
                       </div>
@@ -5782,6 +5782,48 @@
     // =========================================================================
     // ESTADO CENTRALIZADO Y AUTOMÁTICO DE LA PLATAFORMA (TOP BAR, PERFIL, SIDEBAR, DASHBOARD)
     // =========================================================================
+    function buildDynamicWaterWeekData() {
+      const jsDay = new Date().getDay(); // 0 = Domingo, 1 = Lunes ... 6 = Sábado
+      const todayIdx = jsDay === 0 ? 6 : jsDay - 1; // 0 = Lun, 1 = Mar, 2 = Mié, 3 = Jue, 4 = Vie, 5 = Sáb, 6 = Dom
+      const yesterdayIdx = (todayIdx + 6) % 7;
+
+      const baseDays = [
+        { short: 'Lun', shortClean: 'Lun', cleanName: 'Lunes', baseGlasses: 8 },
+        { short: 'Mar', shortClean: 'Mar', cleanName: 'Martes', baseGlasses: 7 },
+        { short: 'Mié', shortClean: 'Mié', cleanName: 'Miércoles', baseGlasses: 7 },
+        { short: 'Jue', shortClean: 'Jue', cleanName: 'Jueves', baseGlasses: 8 },
+        { short: 'Vie', shortClean: 'Vie', cleanName: 'Viernes', baseGlasses: 7 },
+        { short: 'Sáb', shortClean: 'Sáb', cleanName: 'Sábado', baseGlasses: 8 },
+        { short: 'Dom ⭐', shortClean: 'Dom', cleanName: 'Domingo', baseGlasses: 7, isSunday: true }
+      ];
+
+      const list = baseDays.map((d, idx) => {
+        const isToday = idx === todayIdx;
+        const isYesterday = idx === yesterdayIdx;
+        const canEdit = isToday || isYesterday;
+        let fullLabel = d.cleanName;
+        if (isToday) fullLabel = `${d.cleanName} (Hoy)`;
+        else if (isYesterday) fullLabel = `${d.cleanName} (Día Anterior)`;
+        else if (d.isSunday) fullLabel = 'Domingo (Cierre)';
+
+        return {
+          short: d.short,
+          shortClean: d.shortClean,
+          cleanName: d.cleanName,
+          full: fullLabel,
+          glasses: isToday ? 6 : (isYesterday ? 7 : d.baseGlasses),
+          isToday,
+          isYesterday,
+          isSunday: !!d.isSunday,
+          canEdit
+        };
+      });
+
+      return { todayIdx, yesterdayIdx, list };
+    }
+
+    const initialWaterSetup = buildDynamicWaterWeekData();
+
     const clubState = {
       week: 3,
       streakDays: 18,
@@ -5802,16 +5844,8 @@
       unlockedTiers: [],
       selectedChartMetric: 'weight',
       selectedChartWeekIdx: 3,
-      selectedWaterDayIdx: 3,
-      waterWeekData: [
-        { short: 'Lun', full: 'Lunes', glasses: 8, canEdit: false },
-        { short: 'Mar', full: 'Martes', glasses: 7, canEdit: false },
-        { short: 'Mié', full: 'Miércoles (Día Anterior)', glasses: 7, isYesterday: true, canEdit: true },
-        { short: 'Jue', full: 'Jueves (Hoy)', glasses: 6, isToday: true, canEdit: true },
-        { short: 'Vie', full: 'Viernes', glasses: 7, canEdit: false },
-        { short: 'Sáb', full: 'Sábado', glasses: 8, canEdit: false },
-        { short: 'Dom ⭐', full: 'Domingo (Cierre)', glasses: 7, isSunday: true, canEdit: false }
-      ],
+      selectedWaterDayIdx: initialWaterSetup.todayIdx,
+      waterWeekData: initialWaterSetup.list,
       bioSignals: {
         energy: 'good',
         belly: 'good',
@@ -6027,11 +6061,34 @@
       };
     }
 
+    function getTodayWaterDayIdx() {
+      const idx = clubState.waterWeekData.findIndex(d => d.isToday);
+      return idx >= 0 ? idx : 0;
+    }
+
+    function getYesterdayWaterDayIdx() {
+      const idx = clubState.waterWeekData.findIndex(d => d.isYesterday);
+      return idx >= 0 ? idx : 6;
+    }
+
+    function selectWaterToday() {
+      selectWaterDay(getTodayWaterDayIdx());
+    }
+
+    function selectWaterYesterday() {
+      selectWaterDay(getYesterdayWaterDayIdx());
+    }
+
     function selectWaterDay(dayIdx) {
       const targetDay = clubState.waterWeekData[dayIdx];
       if (!targetDay) return;
 
-      // Bloquear cualquier día que no sea Hoy (idx 3) o el Día Anterior (idx 2)
+      const todayObj = clubState.waterWeekData[getTodayWaterDayIdx()];
+      const yesterdayObj = clubState.waterWeekData[getYesterdayWaterDayIdx()];
+      const todayName = todayObj ? todayObj.cleanName : 'Hoy';
+      const yesterdayName = yesterdayObj ? yesterdayObj.cleanName : 'Ayer';
+
+      // Bloquear cualquier día que no sea Hoy o el Día Anterior
       if (!targetDay.canEdit) {
         const colEl = document.getElementById(`water-col-${dayIdx}`);
         if (colEl) {
@@ -6044,9 +6101,9 @@
         const noticeBar = document.getElementById('water-edit-notice-bar');
         const noticeTxt = document.getElementById('water-edit-notice-text');
         if (noticeBar && noticeTxt) {
-          const cleanName = targetDay.full.replace(' (Cierre)', '');
+          const cleanName = targetDay.cleanName || targetDay.full.replace(' (Cierre)', '');
           noticeBar.classList.add('is-alert');
-          noticeTxt.innerHTML = `🔒 <strong>${cleanName} bloqueado:</strong> Solo puedes actualizar lo que bebiste <strong>Hoy</strong> o el <strong>Día Anterior (Miércoles)</strong>.`;
+          noticeTxt.innerHTML = `🔒 <strong>${cleanName} bloqueado:</strong> Solo puedes actualizar lo que bebiste <strong>Hoy (${todayName})</strong> o el <strong>Día Anterior (${yesterdayName})</strong>.`;
           if (waterLockAlertTimer) clearTimeout(waterLockAlertTimer);
           waterLockAlertTimer = setTimeout(() => {
             noticeBar.classList.remove('is-alert');
@@ -6096,12 +6153,21 @@
         targetEl.innerText = `Meta para tus ${weight.toFixed(1)} kg: ${recommendedLiters} L (8 vasos)`;
       }
 
-      // Asegurar que el día seleccionado siempre sea Hoy (3) o el Día Anterior (2)
+      const todayIdx = getTodayWaterDayIdx();
+      const yesterdayIdx = getYesterdayWaterDayIdx();
+      const todayObj = clubState.waterWeekData[todayIdx];
+      const yesterdayObj = clubState.waterWeekData[yesterdayIdx];
+      const todayName = todayObj ? todayObj.cleanName : 'Hoy';
+      const yesterdayName = yesterdayObj ? yesterdayObj.cleanName : 'Ayer';
+      const todayShort = todayObj ? todayObj.shortClean : 'Hoy';
+      const yesterdayShort = yesterdayObj ? yesterdayObj.shortClean : 'Ayer';
+
+      // Asegurar que el día seleccionado siempre sea Hoy o el Día Anterior
       if (!clubState.waterWeekData[clubState.selectedWaterDayIdx]?.canEdit) {
-        clubState.selectedWaterDayIdx = 3;
+        clubState.selectedWaterDayIdx = todayIdx;
       }
 
-      const activeDay = clubState.waterWeekData[clubState.selectedWaterDayIdx] || clubState.waterWeekData[3];
+      const activeDay = clubState.waterWeekData[clubState.selectedWaterDayIdx] || todayObj;
       const dayLiters = (activeDay.glasses * 0.3).toFixed(2);
       const titleEl = document.getElementById('water-title');
       if (titleEl) {
@@ -6111,24 +6177,30 @@
       const subEl = document.getElementById('water-subtitle-text');
       if (subEl) {
         if (activeDay.isYesterday) {
-          subEl.innerHTML = `✏️ Editando <strong>Miércoles (Día Anterior)</strong>: toca los vasos para corregir lo que bebiste ayer.`;
+          subEl.innerHTML = `✏️ Editando <strong>${yesterdayName} (Día Anterior)</strong>: toca los vasos para corregir lo que bebiste ayer.`;
         } else {
-          subEl.innerHTML = `Toca un vaso para actualizar <strong>Hoy (Jueves)</strong>, o toca <strong>Miércoles (Ayer)</strong> si olvidaste anotar lo del día anterior:`;
+          subEl.innerHTML = `Toca un vaso para actualizar <strong>Hoy (${todayName})</strong>, o toca <strong>${yesterdayName} (Ayer)</strong> si olvidaste anotar lo del día anterior:`;
         }
       }
 
-      // Actualizar botones rápidos y aviso de edición
+      // Actualizar botones rápidos y aviso de edición con el nombre real del día de hoy y ayer
       const btnQuickYesterday = document.getElementById('btn-quick-water-yesterday');
       const btnQuickToday = document.getElementById('btn-quick-water-today');
-      if (btnQuickYesterday) btnQuickYesterday.classList.toggle('active', !!activeDay.isYesterday);
-      if (btnQuickToday) btnQuickToday.classList.toggle('active', !!activeDay.isToday);
+      if (btnQuickYesterday) {
+        btnQuickYesterday.innerText = `✏️ Día Anterior (${yesterdayShort})`;
+        btnQuickYesterday.classList.toggle('active', !!activeDay.isYesterday);
+      }
+      if (btnQuickToday) {
+        btnQuickToday.innerText = `💧 Hoy (${todayShort})`;
+        btnQuickToday.classList.toggle('active', !!activeDay.isToday);
+      }
 
       const noticeBar = document.getElementById('water-edit-notice-bar');
       const noticeTxt = document.getElementById('water-edit-notice-text');
       if (noticeBar && noticeTxt && !noticeBar.classList.contains('is-alert')) {
         noticeTxt.innerHTML = activeDay.isYesterday
-          ? `✏️ <strong>Modo Día Anterior (Mié):</strong> único día pasado permitido para actualizar`
-          : `🛡️ <strong>Solo puedes actualizar Hoy y el Día Anterior:</strong> demás días bloqueados 🔒`;
+          ? `✏️ <strong>Modo Día Anterior (${yesterdayShort}):</strong> único día pasado permitido para actualizar`
+          : `🛡️ <strong>Solo puedes actualizar Hoy (${todayShort}) y el Día Anterior (${yesterdayShort}):</strong> demás días bloqueados 🔒`;
       }
 
       // Renderizar los 8 vasos del día seleccionado
@@ -6560,13 +6632,16 @@
         localStorage.setItem('avocado_member_cycle_idx', String(currentCycleIndex));
       } catch (e) {}
 
-      // Reinicio diario a medianoche de las 4 misiones diarias (+125 XP máx por día)
+      // Reinicio diario a medianoche de las 4 misiones diarias (+125 XP máx por día) y rotación del día activo de agua
       if (clubState.lastMissionDate !== todayKey) {
         clubState.lastMissionDate = todayKey;
         clubState.waterBonusAwarded = false;
         clubState.seedPlanted = false;
         clubState.bioRadarBonusAwarded = false;
         clubState.workoutDone = false;
+        const freshWater = buildDynamicWaterWeekData();
+        clubState.waterWeekData = freshWater.list;
+        clubState.selectedWaterDayIdx = freshWater.todayIdx;
       }
 
       const midnight = new Date(now);
