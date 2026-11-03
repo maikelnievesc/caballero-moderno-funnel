@@ -2378,10 +2378,18 @@
         font-size: 0.79rem !important;
         line-height: 1.4 !important;
       }
-      .dash-chart-head {
+      .dash-chart-head,
+      .dash-icc-head,
+      .dash-rank-head,
+      .dash-water-head,
+      .dash-water-retro-head,
+      .dash-bio-head,
+      .dash-proj-head {
+        display: flex !important;
         flex-direction: column !important;
         align-items: stretch !important;
         gap: 8px !important;
+        margin-bottom: 8px !important;
       }
 
       .dash-chart-head-left {
@@ -2391,13 +2399,31 @@
         gap: 8px !important;
       }
 
+      .dash-chart-head .card-label,
+      .dash-icc-head .card-label,
+      .dash-rank-head .card-label,
+      .dash-water-head .card-label,
+      .dash-water-retro-head .card-label,
+      .dash-bio-head .card-label,
+      .dash-proj-head .card-label {
+        align-self: flex-start !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+        white-space: normal !important;
+      }
+
       .dash-chart-head > .btn-flip-trigger,
       .dash-icc-head > .btn-flip-trigger,
+      .dash-rank-head > .btn-flip-trigger,
       .dash-water-head > .btn-flip-trigger,
-      .dash-water-retro-head > .btn-flip-trigger {
+      .dash-water-retro-head > .btn-flip-trigger,
+      .dash-proj-head > .btn-flip-trigger {
         width: 100% !important;
         justify-content: center !important;
         padding: 8px 12px !important;
+        box-sizing: border-box !important;
       }
 
       .dash-metrics-grid {
@@ -2616,8 +2642,30 @@
 
       /* Bio-Radar Metabólico y Proyección a la Meta en celular */
       .dash-bio-head-right {
-        width: 100%;
-        justify-content: space-between;
+        display: flex !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 6px !important;
+        box-sizing: border-box !important;
+        flex-wrap: wrap !important;
+      }
+
+      #bio-score-badge {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+      }
+
+      .dash-bio-head-right > .btn-flip-trigger {
+        flex: 1 !important;
+        min-width: 110px !important;
+        justify-content: center !important;
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
       }
 
       .bio-signal-row {
@@ -2683,6 +2731,19 @@
       }
       .dash-icc-footer-btns {
         grid-template-columns: 1fr !important;
+      }
+      .dash-bio-head-right {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+      }
+      #bio-score-badge {
+        text-align: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+      }
+      .dash-bio-head-right > .btn-flip-trigger {
+        width: 100% !important;
       }
       .rank-badge-grid {
         grid-template-columns: 1fr !important;
@@ -4297,7 +4358,7 @@
                   <!-- CARA FRONTAL: RANGO VIP, BARRA XP EN VIVO Y BÓVEDA DE POSTRES BLOQUEADA/DESBLOQUEADA -->
                   <div class="flip-face-3d front" style="background: radial-gradient(circle at 85% 12%, rgba(143, 209, 79, 0.22), transparent 52%), linear-gradient(160deg, #12281D 0%, #1F4230 100%); color: #fff; border-color: rgba(197,240,153,0.34);">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <div class="dash-rank-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
                         <span class="card-label gold" style="margin: 0;">🏆 TU NIVEL EN EL CLUB</span>
                         <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.72rem; background: rgba(253, 230, 138, 0.16); color: #FDE68A; border-color: rgba(253, 230, 138, 0.45);" onclick="toggleCardFlip('flip-dash-rank')">
                           ⚡ Misiones Diarias <i class="fa-solid fa-rotate"></i>
@@ -4495,8 +4556,8 @@
                   <!-- CARA FRONTAL: VASOS INTERACTIVOS + HISTORIAL SEMANAL LUNES A DOMINGO -->
                   <div class="flip-face-3d front">
                     <div>
-                      <div class="dash-water-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-wrap: nowrap; gap: 6px;">
-                        <span class="card-label" style="margin: 0; white-space: nowrap;">💧 HIDRATACIÓN DIARIA + HISTORIAL</span>
+                      <div class="dash-water-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                        <span class="card-label" style="margin: 0;">💧 HIDRATACIÓN DIARIA + HISTORIAL</span>
                         <button type="button" id="btn-water-retro-top" class="btn-flip-trigger coral-flip" style="padding: 5px 11px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-water')">
                           📊 Retro Dominical <i class="fa-solid fa-rotate"></i>
                         </button>
@@ -4633,9 +4694,9 @@
                   <!-- CARA FRONTAL: BIO-RADAR METABÓLICO DE HOY (EXCLUSIVO PREMIUM) -->
                   <div class="flip-face-3d front" style="background: linear-gradient(145deg, #FFFFFF 0%, #F6FBF2 100%);">
                     <div>
-                      <div class="dash-bio-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: nowrap; gap: 6px;">
-                        <span class="card-label coral" style="margin: 0; white-space: nowrap;">⚡ BIO-RADAR METABÓLICO</span>
-                        <div class="dash-bio-head-right" style="display: flex; align-items: center; gap: 5px; flex-shrink: 0;">
+                      <div class="dash-bio-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                        <span class="card-label coral" style="margin: 0;">⚡ BIO-RADAR METABÓLICO</span>
+                        <div class="dash-bio-head-right" style="display: flex; align-items: center; gap: 5px;">
                           <span id="bio-score-badge" style="font-size: 0.71rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 3px 8px; border-radius: 99px; border: 1px solid #86EFAC; white-space: nowrap;">
                             🟢 Paz Glucémica: 96%
                           </span>
@@ -4713,7 +4774,7 @@
                   <!-- CARA TRASERA: PROYECCIÓN MATEMÁTICA A TU META + CÁPSULA QUINCENAL DE ARIANNA -->
                   <div class="flip-face-3d back" style="background: linear-gradient(145deg, #FFFFFF 0%, #FFF5F0 100%);">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                      <div class="dash-proj-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                         <span class="card-label gold" style="margin: 0;">🎯 PROYECCIÓN REAL A TU META</span>
                         <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-bioradar')">
                           <i class="fa-solid fa-rotate-left"></i> Volver al Bio-Radar
@@ -4918,7 +4979,7 @@
                   <!-- CARA FRONTAL: MENÚ GUIADO LUNES A SÁBADO -->
                   <div class="flip-face-3d front">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
                         <span class="card-label" style="margin: 0;">📅 MÓDULO 2 • PLAN SEMANAL (1,550 KCAL • CONTROL INSULINA)</span>
                         <span style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary);" id="active-day-indicator">📍 Viendo: Lunes</span>
                       </div>
