@@ -1389,6 +1389,390 @@
     .col-3 { grid-column: span 3; }
     .col-12 { grid-column: span 12; }
 
+    /* =========================================================
+       OPTIMIZACIÓN RESPONSIVA EXCLUSIVA PARA LAPTOPS Y PANTALLAS MEDIANAS
+       (769px a 1440px: resoluciones 1366x768, 1280x800, 1440x900
+        o monitores de escritorio con escalado de Windows al 125% - 150%)
+       ========================================================= */
+    @media (min-width: 769px) and (max-width: 1440px) {
+      .app-layout {
+        grid-template-columns: 280px 1fr !important;
+      }
+
+      .sidebar {
+        padding: 16px 14px 14px !important;
+      }
+
+      .sidebar-brand {
+        padding-bottom: 8px !important;
+        margin-bottom: 8px !important;
+        gap: 10px !important;
+      }
+
+      .sidebar-brand .logo-emblem-svg {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 13px !important;
+      }
+
+      .sidebar-brand div[style*="font-size: 1.62rem"] {
+        font-size: 1.38rem !important;
+      }
+
+      .user-profile-widget {
+        padding: 10px 11px !important;
+        margin: 8px 0 10px !important;
+        border-radius: 16px !important;
+      }
+
+      .profile-goal-bubble {
+        margin: 6px 0 !important;
+        padding: 4px 8px !important;
+        font-size: 0.69rem !important;
+      }
+
+      .nav-menu {
+        gap: 3px !important;
+      }
+
+      .nav-item {
+        padding: 6px 9px !important;
+        font-size: 0.78rem !important;
+        gap: 8px !important;
+        border-radius: 10px !important;
+      }
+
+      .nav-item i {
+        width: 24px !important;
+        height: 24px !important;
+        font-size: 0.78rem !important;
+        border-radius: 7px !important;
+      }
+
+      .sidebar-footer-box {
+        padding-top: 8px !important;
+        gap: 7px !important;
+      }
+
+      .sidebar-nutri-pill {
+        padding: 6px 9px !important;
+      }
+
+      .btn-logout-sidebar {
+        padding: 7px 10px !important;
+        font-size: 0.76rem !important;
+      }
+
+      .main-area {
+        padding: 18px 20px 32px !important;
+      }
+
+      .top-bar {
+        padding: 14px 18px !important;
+        margin-bottom: 16px !important;
+        border-radius: 20px !important;
+        gap: 10px !important;
+      }
+
+      .top-bar h1,
+      #top-greeting-title {
+        font-size: 1.38rem !important;
+      }
+
+      .streak-banner {
+        gap: 6px !important;
+      }
+
+      .streak-pill {
+        padding: 6px 10px !important;
+        font-size: 0.74rem !important;
+      }
+
+      .bento-grid {
+        gap: 16px !important;
+      }
+
+      .bento-card,
+      .flip-face-3d {
+        padding: 18px 18px !important;
+        border-radius: 22px !important;
+      }
+
+      /* Rebalanceo del 1er renglón del Dashboard en Laptops: 7 cols para el Gráfico y 5 cols para el Nivel */
+      #flip-dash-chart {
+        grid-column: span 7 !important;
+        height: 455px !important;
+      }
+
+      #flip-dash-rank {
+        grid-column: span 5 !important;
+        height: 455px !important;
+      }
+
+      .dash-chart-head {
+        margin-bottom: 6px !important;
+        gap: 6px !important;
+      }
+
+      .chart-metric-tabs {
+        padding: 2px !important;
+        gap: 2px !important;
+      }
+
+      .chart-tab-pill {
+        padding: 4px 8px !important;
+        font-size: 0.71rem !important;
+      }
+
+      .dash-metrics-grid {
+        gap: 6px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .dash-metrics-grid .metric-well {
+        padding: 6px 9px !important;
+      }
+
+      #dash-stat-weight,
+      #dash-stat-waist,
+      #dash-stat-hip,
+      #dash-stat-icc {
+        font-size: 1.12rem !important;
+      }
+
+      #dash-rank-title {
+        font-size: 1.05rem !important;
+        white-space: normal !important; /* Evita que el título del rango se trunque con ellipsis */
+      }
+
+      .rank-hero-box {
+        padding: 8px 11px !important;
+        margin: 6px 0 8px !important;
+        gap: 10px !important;
+      }
+
+      .rank-medallion {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.65rem !important;
+      }
+
+      .rank-badge-grid {
+        gap: 5px !important;
+        margin-bottom: 7px !important;
+      }
+
+      .rank-badge-pill {
+        padding: 5px 7px !important;
+        font-size: 0.67rem !important;
+      }
+
+      .rank-vault-box {
+        padding: 7px 10px !important;
+      }
+
+      /* 2do Renglón del Dashboard: Hidratación y Bio-Radar con altura y proporciones perfectas */
+      #flip-dash-water,
+      #flip-dash-bioradar {
+        height: 480px !important;
+      }
+
+      /* Bio-Radar: Mantener header en 1 línea limpia y evitar cualquier corte inferior */
+      .dash-bio-head {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+        margin-bottom: 3px !important;
+      }
+
+      .dash-bio-head .card-label {
+        font-size: 0.66rem !important;
+        padding: 3px 8px !important;
+        white-space: nowrap !important;
+        flex-shrink: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .dash-bio-head-right {
+        display: flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        flex-shrink: 0 !important;
+      }
+
+      #bio-score-badge {
+        font-size: 0.66rem !important;
+        padding: 3px 7px !important;
+        white-space: nowrap !important;
+      }
+
+      .dash-bio-head .btn-flip-trigger {
+        font-size: 0.68rem !important;
+        padding: 3px 8px !important;
+        white-space: nowrap !important;
+      }
+
+      .bio-signal-row {
+        padding: 4px 8px !important;
+        margin-bottom: 3px !important;
+        border-radius: 11px !important;
+      }
+
+      .bio-signal-row > span {
+        font-size: 0.71rem !important;
+      }
+
+      .bio-opt-btn {
+        padding: 4px 7px !important;
+        font-size: 0.68rem !important;
+        border-radius: 8px !important;
+      }
+
+      #bio-prescription-box {
+        padding: 8px 10px !important;
+        margin-top: 4px !important;
+        border-radius: 13px !important;
+      }
+
+      #bio-presc-header {
+        font-size: 0.63rem !important;
+      }
+
+      #bio-rotate-btn {
+        font-size: 0.61rem !important;
+        padding: 2px 6px !important;
+      }
+
+      #bio-prescription-text {
+        font-size: 0.7rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 5px !important;
+      }
+
+      #bio-actions-grid {
+        gap: 5px !important;
+        padding-top: 5px !important;
+      }
+
+      #bio-actions-grid > div {
+        padding: 4px 6px !important;
+      }
+
+      .dash-bio-footer {
+        padding-top: 4px !important;
+        font-size: 0.69rem !important;
+      }
+
+      /* Hidratación: Evitar cortes en la barra de aviso y botones inferiores */
+      .dash-water-head {
+        margin-bottom: 3px !important;
+        gap: 6px !important;
+      }
+
+      .dash-water-head .card-label {
+        font-size: 0.66rem !important;
+        padding: 3px 8px !important;
+      }
+
+      .dash-water-head .btn-flip-trigger {
+        font-size: 0.68rem !important;
+        padding: 3px 8px !important;
+      }
+
+      #water-title {
+        font-size: 1.04rem !important;
+      }
+
+      #water-weight-target {
+        font-size: 0.67rem !important;
+        padding: 2px 7px !important;
+      }
+
+      #water-subtitle-text {
+        font-size: 0.71rem !important;
+        margin-top: 1px !important;
+        margin-bottom: 4px !important;
+        line-height: 1.25 !important;
+      }
+
+      .water-glasses {
+        margin: 4px 0 6px !important;
+        gap: 5px !important;
+      }
+
+      .glass-cup {
+        height: 38px !important;
+        font-size: 0.85rem !important;
+        border-radius: 8px 8px 12px 12px !important;
+      }
+
+      .water-week-strip {
+        padding: 6px 7px 5px !important;
+        gap: 4px !important;
+        border-radius: 13px !important;
+      }
+
+      .water-day-name {
+        font-size: 0.67rem !important;
+      }
+
+      .water-bar-track {
+        height: 38px !important;
+        width: 12px !important;
+      }
+
+      .water-day-val {
+        font-size: 0.64rem !important;
+      }
+
+      .water-day-tag {
+        font-size: 0.52rem !important;
+        padding: 1px 4px !important;
+      }
+
+      .water-edit-notice-bar {
+        padding: 6px 9px !important;
+        margin-top: 5px !important;
+        font-size: 0.7rem !important;
+        gap: 6px !important;
+      }
+
+      .water-quick-btn {
+        padding: 3px 7px !important;
+        font-size: 0.66rem !important;
+      }
+
+      .dash-water-footer {
+        padding-top: 4px !important;
+        font-size: 0.69rem !important;
+      }
+
+      /* Tarjetas de Perfil Personal (#mod-perfil) en Laptop */
+      #flip-profile-main,
+      #flip-profile-stats {
+        height: 485px !important;
+      }
+    }
+
+    /* Breakpoint para pantallas medianas angostas / tablets (769px a 1120px) */
+    @media (min-width: 769px) and (max-width: 1120px) {
+      .col-8, .col-7, .col-6, .col-5, .col-4, .col-3 {
+        grid-column: span 12 !important;
+      }
+
+      #flip-dash-chart,
+      #flip-dash-rank,
+      #flip-dash-water,
+      #flip-dash-bioradar,
+      #flip-profile-main,
+      #flip-profile-stats {
+        height: 460px !important;
+      }
+    }
+
     @media (max-width: 1080px) {
       #login-view { grid-template-columns: 100%; max-width: 100vw; overflow-x: hidden; }
       .app-layout { grid-template-columns: 100%; max-width: 100vw; overflow-x: hidden; }
@@ -3698,8 +4082,8 @@
           <div id="mod-dashboard" class="module-section active">
             <div class="bento-grid">
               
-              <!-- TARJETA 3D GIRATORIA 1 (COL-8): GRÁFICO INTERACTIVO MULTIMÉTRICA vs DIAGNÓSTICO CLÍNICO ICC (445px) -->
-              <div class="col-8 flip-stage-3d" id="flip-dash-chart" style="height: 445px;">
+              <!-- TARJETA 3D GIRATORIA 1 (COL-8): GRÁFICO INTERACTIVO MULTIMÉTRICA vs DIAGNÓSTICO CLÍNICO ICC (465px) -->
+              <div class="col-8 flip-stage-3d" id="flip-dash-chart" style="height: 465px;">
                 <div class="flip-inner-3d">
                   
                   <!-- CARA FRONTAL: EVOLUCIÓN DE PESO, CINTURA E ICC CON GRÁFICO PREMIUM -->
@@ -3871,8 +4255,8 @@
                 </div>
               </div>
 
-              <!-- TARJETA 3D GIRATORIA 2 (COL-4): TU NIVEL EN EL CLUB + MISIONES DIARIAS XP + BÓVEDA DE POSTRES SIN AZÚCAR (445px) -->
-              <div class="col-4 flip-stage-3d" id="flip-dash-rank" style="height: 445px;">
+              <!-- TARJETA 3D GIRATORIA 2 (COL-4): TU NIVEL EN EL CLUB + MISIONES DIARIAS XP + BÓVEDA DE POSTRES SIN AZÚCAR (465px) -->
+              <div class="col-4 flip-stage-3d" id="flip-dash-rank" style="height: 465px;">
                 <div class="flip-inner-3d">
                   
                   <!-- CARA FRONTAL: RANGO VIP, BARRA XP EN VIVO Y BÓVEDA DE POSTRES BLOQUEADA/DESBLOQUEADA -->
@@ -3998,16 +4382,16 @@
                 </div>
               </div>
 
-              <!-- TARJETA 3D GIRATORIA 3 (COL-6): HIDRATACIÓN DIARIA + HISTORIAL LUNES A DOMINGO + RETRO DOMINICAL (430px) -->
-              <div class="col-6 flip-stage-3d" id="flip-dash-water" style="height: 430px;">
+              <!-- TARJETA 3D GIRATORIA 3 (COL-6): HIDRATACIÓN DIARIA + HISTORIAL LUNES A DOMINGO + RETRO DOMINICAL (480px) -->
+              <div class="col-6 flip-stage-3d" id="flip-dash-water" style="height: 480px;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: VASOS INTERACTIVOS + HISTORIAL SEMANAL LUNES A DOMINGO -->
                   <div class="flip-face-3d front">
                     <div>
-                      <div class="dash-water-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-wrap: wrap; gap: 6px;">
-                        <span class="card-label" style="margin: 0;">💧 HIDRATACIÓN DIARIA + HISTORIAL SEMANAL</span>
-                        <button type="button" id="btn-water-retro-top" class="btn-flip-trigger coral-flip" style="padding: 5px 11px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-water')">
+                      <div class="dash-water-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; flex-wrap: nowrap; gap: 6px;">
+                        <span class="card-label" style="margin: 0; white-space: nowrap;">💧 HIDRATACIÓN DIARIA + HISTORIAL</span>
+                        <button type="button" id="btn-water-retro-top" class="btn-flip-trigger coral-flip" style="padding: 5px 11px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-water')">
                           📊 Retro Dominical <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
@@ -4136,20 +4520,20 @@
                 </div>
               </div>
 
-              <!-- TARJETA 3D GIRATORIA 4 (COL-6): BIO-RADAR METABÓLICO DIARIO + PROYECCIÓN REAL A TU META (430px) -->
-              <div class="col-6 flip-stage-3d" id="flip-dash-bioradar" style="height: 430px;">
+              <!-- TARJETA 3D GIRATORIA 4 (COL-6): BIO-RADAR METABÓLICO DIARIO + PROYECCIÓN REAL A TU META (480px) -->
+              <div class="col-6 flip-stage-3d" id="flip-dash-bioradar" style="height: 480px;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: BIO-RADAR METABÓLICO DE HOY (EXCLUSIVO PREMIUM) -->
                   <div class="flip-face-3d front" style="background: linear-gradient(145deg, #FFFFFF 0%, #F6FBF2 100%);">
                     <div>
-                      <div class="dash-bio-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 6px;">
-                        <span class="card-label coral" style="margin: 0;">⚡ BIO-RADAR METABÓLICO DE HOY</span>
-                        <div class="dash-bio-head-right" style="display: flex; align-items: center; gap: 6px;">
-                          <span id="bio-score-badge" style="font-size: 0.71rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 3px 9px; border-radius: 99px; border: 1px solid #86EFAC;">
+                      <div class="dash-bio-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: nowrap; gap: 6px;">
+                        <span class="card-label coral" style="margin: 0; white-space: nowrap;">⚡ BIO-RADAR METABÓLICO</span>
+                        <div class="dash-bio-head-right" style="display: flex; align-items: center; gap: 5px; flex-shrink: 0;">
+                          <span id="bio-score-badge" style="font-size: 0.71rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 3px 8px; border-radius: 99px; border: 1px solid #86EFAC; white-space: nowrap;">
                             🟢 Paz Glucémica: 96%
                           </span>
-                          <button type="button" class="btn-flip-trigger" style="padding: 4px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-dash-bioradar')">
+                          <button type="button" class="btn-flip-trigger" style="padding: 4px 9px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-bioradar')">
                             Proyección Meta <i class="fa-solid fa-rotate"></i>
                           </button>
                         </div>
