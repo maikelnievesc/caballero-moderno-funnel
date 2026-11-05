@@ -4095,7 +4095,7 @@
             </li>
             <li class="nav-item" id="nav-mod-buzon" onclick="openModule('mod-buzon', this)">
               <i class="fa-solid fa-inbox"></i>
-              <span>8. Buz&oacute;n &amp; Expediente</span>
+              <span>8. Buz&oacute;n</span>
               <span class="badge-nav" id="sidebar-buzon-badge" style="background: linear-gradient(135deg, var(--coral), #E04836); font-weight: 800;">2 Nuevos</span>
             </li>
           </ul>
@@ -4140,8 +4140,8 @@
             <button type="button" id="top-pill-semilla" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" title="Abrir Módulo 7: La Semilla de Hoy" class="streak-pill clickable-pill" style="cursor: pointer; background: linear-gradient(135deg, #F1F9E8, #E2F2D1); border-color: var(--avo-primary); color: var(--avo-forest); font-family: inherit;">
               <span id="top-semilla-text">🌱 La Semilla de Hoy</span>
             </button>
-            <button type="button" id="top-pill-buzon" onclick="openModule('mod-buzon', document.getElementById('nav-mod-buzon'))" title="Abrir mi Buz&oacute;n Cl&iacute;nico y Expediente Oficial" class="streak-pill clickable-pill" style="cursor: pointer; background: #EEF8F1; border-color: #8FD14F; color: var(--avo-forest); font-family: inherit;">
-              <i class="fa-solid fa-inbox" style="color: var(--avo-primary);"></i> <span id="top-buzon-text">Buz&oacute;n Cl&iacute;nico</span> <span id="top-buzon-count-badge" style="background: var(--coral); color: #fff; font-size: 0.65rem; padding: 1px 7px; border-radius: 99px; font-weight: 800;">2</span>
+            <button type="button" id="top-pill-buzon" onclick="openModule('mod-buzon', document.getElementById('nav-mod-buzon'))" title="Abrir mi Buz&oacute;n de Mensajes" class="streak-pill clickable-pill" style="cursor: pointer; background: #EEF8F1; border-color: #8FD14F; color: var(--avo-forest); font-family: inherit;">
+              <i class="fa-solid fa-inbox" style="color: var(--avo-primary);"></i> <span id="top-buzon-text">Buz&oacute;n</span> <span id="top-buzon-count-badge" style="background: var(--coral); color: #fff; font-size: 0.65rem; padding: 1px 7px; border-radius: 99px; font-weight: 800;">2</span>
             </button>
             <button type="button" id="top-pill-perfil" onclick="openModule('mod-perfil', document.getElementById('sidebar-profile-card'))" title="Abrir mi Tarjeta de Perfil Personal" class="streak-pill clickable-pill" style="cursor: pointer; background: var(--gold-soft); border-color: #F5DC9B; color: #9A6700; font-family: inherit;">
               <i class="fa-solid fa-user-check"></i> Mi Perfil VIP
@@ -6306,13 +6306,13 @@
             </div>
           </div>
 
-          <!-- =========================================================
-               MODULO 8: BUZON & EXPEDIENTE CLINICO DE ARIANNA (#mod-buzon)
-               EXPEDIENTE NUTRICIONAL OFICIAL, NOTAS CLINICAS Y GUIAS DE SALUD
+                    <!-- =========================================================
+               MODULO 8: BUZON DE ARIANNA (#mod-buzon)
+               NOTAS CLINICAS, EVOLUCION, GUIAS Y MENSAJES DIRECTOS
                ========================================================= -->
           <div id="mod-buzon" class="module-section">
             
-            <!-- ENCABEZADO Bento DEL BUZON CLINICO -->
+            <!-- ENCABEZADO Bento DEL BUZON -->
             <div class="buzon-header-card">
               <div class="buzon-top-accent"></div>
 
@@ -6320,24 +6320,24 @@
                 <div>
                   <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
                     <span class="card-label gold" style="margin: 0;">
-                      <i class="fa-solid fa-inbox"></i> M&Oacute;DULO 8 &bull; BUZ&Oacute;N M&Eacute;DICO &amp; EXPEDIENTE NUTRICIONAL
+                      <i class="fa-solid fa-inbox"></i> M&Oacute;DULO 8 &bull; BUZ&Oacute;N
                     </span>
-                    <span style="background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; font-size: 0.69rem; font-weight: 800; padding: 2px 10px; border-radius: 99px; display: inline-flex; align-items: center; gap: 5px;">
+                    <span style="background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; font-size: 0.69rem; font-weight: 800; padding: 3px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
                       <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; display: inline-block;"></span>
-                      Expediente M&eacute;dico Encriptado &amp; Auditado
+                      Canal Directo con Arianna
                     </span>
                   </div>
                   <h2 style="font-size: 1.48rem; color: var(--avo-dark); margin: 0; line-height: 1.2;">
-                    Tu Historial Cl&iacute;nico y Comunicaciones con Arianna
+                    Tu Buz&oacute;n y Comunicaciones con Arianna
                   </h2>
                   <p style="font-size: 0.82rem; color: var(--text-muted); margin: 4px 0 0 0; line-height: 1.4;">
-                    Aqu&iacute; recibes directamente tus expedientes oficiales, observaciones cl&iacute;nicas de evoluci&oacute;n, prescripci&oacute;n de suplementaci&oacute;n y gu&iacute;as descargables del club.
+                    Aqu&iacute; recibes las notas cl&iacute;nicas de evoluci&oacute;n de Arianna, respuestas a tus dudas y gu&iacute;as oficiales. Tu expediente cl&iacute;nico oficial llegar&aacute; autom&aacute;ticamente a este buz&oacute;n cuando guardes tus datos en Objetivos y Medidas.
                   </p>
                 </div>
 
                 <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                  <button type="button" class="btn-flip-trigger" onclick="printBuzonRecord()" title="Imprimir o Guardar en PDF el Expediente Seleccionado" style="background: #FFFFFF;">
-                    <i class="fa-solid fa-print"></i> Imprimir Expediente
+                  <button type="button" class="btn-flip-trigger" onclick="printBuzonRecord()" title="Imprimir mensaje seleccionado" style="background: #FFFFFF;">
+                    <i class="fa-solid fa-print"></i> Imprimir
                   </button>
                   <button type="button" class="btn-flip-trigger gold-flip" onclick="markAllBuzonRead()" title="Marcar todas las comunicaciones como le&iacute;das">
                     <i class="fa-solid fa-check-double"></i> Marcar Todo Le&iacute;do
@@ -6352,40 +6352,39 @@
                   <button type="button" class="buzon-filter-btn active" onclick="filterBuzon('all', this)">
                     <i class="fa-solid fa-folder-open"></i> Todos (<span id="buzon-count-all">4</span>)
                   </button>
-                  <button type="button" class="buzon-filter-btn" onclick="filterBuzon('clinica', this)">
-                    <i class="fa-solid fa-stethoscope"></i> Expediente &amp; Cl&iacute;nica (1)
-                  </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('mensajes', this)">
-                    <i class="fa-solid fa-comment-medical"></i> Mensajes de Arianna (1)
+                    <i class="fa-solid fa-comment-medical"></i> Mensajes de Arianna (2)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('guias', this)">
-                    <i class="fa-solid fa-file-pdf"></i> Gu&iacute;as &amp; Protocolos (2)
+                    <i class="fa-solid fa-file-pdf"></i> Gu&iacute;as &amp; Pautas (2)
                   </button>
                 </div>
 
                 <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 280px; min-width: 180px;">
                   <div style="position: relative; width: 100%;">
                     <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--text-muted);"></i>
-                    <input type="text" id="buzon-search-input" oninput="searchBuzon(this.value)" placeholder="Buscar en mi expediente..." style="width: 100%; font-family: inherit; font-size: 0.78rem; padding: 6px 10px 6px 30px; border: 1.5px solid #D5E5C4; border-radius: 999px; outline: none; background: #FFFFFF; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--avo-primary)'" onblur="this.style.borderColor='#D5E5C4'">
+                    <input type="text" id="buzon-search-input" oninput="searchBuzon(this.value)" placeholder="Buscar en mi buz&oacute;n..." style="width: 100%; font-family: inherit; font-size: 0.78rem; padding: 6px 10px 6px 30px; border: 1.5px solid #D5E5C4; border-radius: 999px; outline: none; background: #FFFFFF; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--avo-primary)'" onblur="this.style.borderColor='#D5E5C4'">
                   </div>
                 </div>
               </div>
 
             </div>
 
-            <!-- BENTO GRID PRINCIPAL: BANDEJA IZQUIERDA (5 COLUMNAS) + VISOR DE EXPEDIENTE (7 COLUMNAS) -->
+            <!-- BENTO GRID PRINCIPAL: BANDEJA IZQUIERDA (5 COLUMNAS) + VISOR (7 COLUMNAS) -->
             <div class="bento-grid">
 
-              <!-- COLUMNA IZQUIERDA: FEED DE DOCUMENTOS Y NOTAS (5 COLUMNAS) -->
+              <!-- COLUMNA IZQUIERDA: BANDEJA DE ENTRADA (5 COLUMNAS) -->
               <div class="col-5">
                 <div class="card" style="padding: 18px 20px; height: 100%;">
                   
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1.5px solid var(--border-soft);">
-                    <div>
-                      <span class="card-label forest" style="margin: 0;">BANDEJA DE ENTRADA</span>
-                      <h3 style="font-size: 1.05rem; color: var(--avo-dark); margin: 2px 0 0 0;">Documentos Cl&iacute;nicos</h3>
+                  <!-- ENCABEZADO DE LA BANDEJA (BOTON BANDEJA DE ENTRADA DESTACADO SIN TEXTOS REDUNDANTES) -->
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1.5px solid var(--border-soft);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span style="background: linear-gradient(135deg, #E8F5E9 0%, #DCFCE7 100%); color: #166534; border: 1.5px solid #86EFAC; font-size: 0.92rem; font-weight: 800; padding: 6px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(22, 101, 52, 0.08);">
+                        <i class="fa-solid fa-inbox" style="color: var(--avo-primary); font-size: 1rem;"></i> BANDEJA DE ENTRADA
+                      </span>
                     </div>
-                    <span id="buzon-unread-indicator" style="background: var(--coral-soft); color: var(--coral); border: 1px solid #F5C2B8; font-size: 0.68rem; font-weight: 800; padding: 2px 8px; border-radius: 99px;">
+                    <span id="buzon-unread-indicator" style="background: var(--coral-soft); color: var(--coral); border: 1px solid #F5C2B8; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">
                       2 pendientes
                     </span>
                   </div>
@@ -6393,36 +6392,15 @@
                   <!-- LISTADO INTERACTIVO DE ITEMS DEL BUZON -->
                   <div class="buzon-feed-list" id="buzon-feed-items">
 
-                    <!-- ITEM 0: EXPEDIENTE OFICIAL INICIAL (ACTIVO POR DEFECTO) -->
-                    <div class="buzon-item-card active-buzon-item" data-category="clinica" onclick="selectBuzonItem(0)">
-                      <div style="display: flex; gap: 12px; align-items: flex-start;">
-                        <div class="buzon-item-icon-box" style="background: #E8F5E9; color: #2E7D32;">
-                          <i class="fa-solid fa-file-medical"></i>
-                        </div>
-                        <div style="flex: 1; min-width: 0;">
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <span style="font-size: 0.67rem; font-weight: 800; color: #2E7D32; text-transform: uppercase;">Expediente Cl&iacute;nico</span>
-                            <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">12 Oct</span>
-                          </div>
-                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                            Expediente Nutricional Inicial &bull; Mariana G&oacute;mez
-                          </h4>
-                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                            Auditor&iacute;a metab&oacute;lica inicial: Protocolo de Control de Insulina, meta 62.0 kg y pautas de calibraci&oacute;n...
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- ITEM 1: OBSERVACION CLINICA SEMANA 3 (NUEVO/NO LEIDO) -->
-                    <div class="buzon-item-card is-unread" data-category="mensajes" onclick="selectBuzonItem(1)">
+                    <!-- ITEM 0: NOTA DE EVOLUCION SEMANA 3 (ACTIVO POR DEFECTO) -->
+                    <div class="buzon-item-card active-buzon-item" data-category="mensajes" onclick="selectBuzonItem(0)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #FFF7ED; color: #C2410C;">
                           <i class="fa-solid fa-user-doctor"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
                           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <span style="font-size: 0.67rem; font-weight: 800; color: #C2410C; text-transform: uppercase;">Mensaje Directo</span>
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #C2410C; text-transform: uppercase;">Nota de Evoluci&oacute;n</span>
                             <span style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">Ayer (4 Nov)</span>
                           </div>
                           <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
@@ -6435,7 +6413,28 @@
                       </div>
                     </div>
 
-                    <!-- ITEM 2: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (NUEVO/NO LEIDO) -->
+                    <!-- ITEM 1: PROXIMO EXPEDIENTE CLINICO (AVISO OFICIAL / NO LEIDO) -->
+                    <div class="buzon-item-card is-unread" data-category="mensajes" onclick="selectBuzonItem(1)">
+                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div class="buzon-item-icon-box" style="background: #E8F5E9; color: #2E7D32;">
+                          <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #2E7D32; text-transform: uppercase;">Aviso Oficial</span>
+                            <span style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">Pr&oacute;ximamente</span>
+                          </div>
+                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Tu Expediente Cl&iacute;nico Oficial (En Preparaci&oacute;n)
+                          </h4>
+                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Se emitir&aacute; autom&aacute;ticamente al guardar tus datos en el M&oacute;dulo 1 (Objetivos y Medidas) para tu consulta con Arianna...
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ITEM 2: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (NO LEIDO) -->
                     <div class="buzon-item-card is-unread" data-category="guias" onclick="selectBuzonItem(2)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #FEF3C7; color: #B45309;">
@@ -6443,7 +6442,7 @@
                         </div>
                         <div style="flex: 1; min-width: 0;">
                           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <span style="font-size: 0.67rem; font-weight: 800; color: #B45309; text-transform: uppercase;">Prescripci&oacute;n Sugerida</span>
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #B45309; text-transform: uppercase;">Pauta Sugerida</span>
                             <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">1 Nov</span>
                           </div>
                           <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
@@ -6482,94 +6481,15 @@
                 </div>
               </div>
 
-              <!-- COLUMNA DERECHA: VISOR OFICIAL DE EXPEDIENTE / NOTA SELECCIONADA (7 COLUMNAS) -->
+              <!-- COLUMNA DERECHA: VISOR OFICIAL DEL MENSAJE O NOTA SELECCIONADA (7 COLUMNAS) -->
               <div class="col-7">
                 <div class="buzon-viewer-card" id="buzon-viewer-card">
                   
-                  <!-- CONTENEDOR MULTI-VISTA (CAMBIA SEGUN EL ITEM SELECCIONADO) -->
+                  <!-- CONTENEDOR MULTI-VISTA -->
                   <div id="buzon-viewer-content">
 
-                    <!-- VISTA 0: EXPEDIENTE OFICIAL NUTRICIONAL (DETALLE) -->
+                    <!-- VISTA 0: OBSERVACION CLINICA DE ARIANNA (VISTA PRINCIPAL ACTIVA) -->
                     <div id="buzon-view-0" class="buzon-detail-view" style="display: block;">
-                      
-                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
-                        <div>
-                          <span class="card-label forest" style="margin-bottom: 4px;">EXPEDIENTE AUDITADO</span>
-                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Historial Cl&iacute;nico y Diagn&oacute;stico Oficial</h3>
-                          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
-                            Paciente: <strong>Mariana G&oacute;mez</strong> &bull; Folio: <strong>AVC-2026-0842</strong> &bull; Nutri&oacute;loga: <strong>Lic. Arianna Hern&aacute;ndez</strong>
-                          </div>
-                        </div>
-                        <span style="background: #DCFCE7; color: #166534; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #86EFAC;">
-                          <i class="fa-solid fa-shield-halved"></i> Auditor&iacute;a Activa
-                        </span>
-                      </div>
-
-                      <!-- BIO-METRICAS OFICIALES SINCRONIZADAS -->
-                      <div class="buzon-metric-pill-grid">
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">Peso Inicial &rarr; Hoy</div>
-                          <div class="val" style="color: var(--avo-forest);">71.2 &rarr; 68.4 kg</div>
-                          <div class="sub" style="color: var(--avo-primary);">&minus;2.8 kg en grasa</div>
-                        </div>
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">Cintura Umbilical</div>
-                          <div class="val" style="color: var(--coral);">83.0 &rarr; 79.0 cm</div>
-                          <div class="sub" style="color: var(--coral);">&minus;4.0 cm visceral</div>
-                        </div>
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">&Iacute;ndice Cint/Cad (ICC)</div>
-                          <div class="val" style="color: #9A6700;">0.88 &rarr; 0.80</div>
-                          <div class="sub" style="color: #166534;">Nivel &Oacute;ptimo Bajo Riesgo</div>
-                        </div>
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">Presi&oacute;n Arterial</div>
-                          <div class="val" style="color: var(--avo-dark);">118/76 mmHg</div>
-                          <div class="sub" style="color: var(--text-muted);">Normotensa</div>
-                        </div>
-                      </div>
-
-                      <!-- NOTA METABOLICA Y DIAGNOSTICO -->
-                      <div style="background: #F9FCF5; border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 16px 18px; margin-bottom: 16px;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                          <i class="fa-solid fa-stethoscope" style="color: var(--avo-primary);"></i>
-                          <strong style="font-size: 0.85rem; color: var(--avo-dark);">Diagn&oacute;stico Cl&iacute;nico &bull; Lic. Arianna Hern&aacute;ndez:</strong>
-                        </div>
-                        <p style="font-size: 0.8rem; color: var(--text-main); margin: 0; line-height: 1.5;">
-                          "Paciente femenina con antecedente de resistencia a la insulina y dificultad para oxidar grasa en zona media. Protocolo de intervenci&oacute;n basado en control de picos gluc&eacute;micos mediante fibra soluble previa (nopales/ensalada), prote&iacute;na sin b&aacute;scula al 25% del plato y caminatas de 15 min post-cena. Su evoluci&oacute;n en 18 d&iacute;as muestra una respuesta excepcional de flexibilidad metab&oacute;lica."
-                        </p>
-                      </div>
-
-                      <!-- PROTOCOLO ACTIVO VIGENTE -->
-                      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 14px;">
-                        <div style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 12px; padding: 12px 14px;">
-                          <div style="font-size: 0.7rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase;">
-                            <i class="fa-solid fa-utensils"></i> Plan Nutricional Asignado
-                          </div>
-                          <div style="font-size: 0.88rem; font-weight: 800; color: var(--avo-dark); margin-top: 3px;">
-                            Protocolo Control Insulina (Fase 1)
-                          </div>
-                          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">
-                            3 comidas completas + 1 snack opcional con prote&iacute;na
-                          </div>
-                        </div>
-                        <div style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 12px; padding: 12px 14px;">
-                          <div style="font-size: 0.7rem; font-weight: 800; color: var(--coral); text-transform: uppercase;">
-                            <i class="fa-solid fa-droplet"></i> Meta de Hidrataci&oacute;n Cl&iacute;nica
-                          </div>
-                          <div style="font-size: 0.88rem; font-weight: 800; color: var(--avo-dark); margin-top: 3px;">
-                            2.40 Litros / d&iacute;a (8 Vasos)
-                          </div>
-                          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">
-                            Calculada sobre tu peso actual de 68.4 kg
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <!-- VISTA 1: OBSERVACION CLINICA DE ARIANNA (DETALLE) -->
-                    <div id="buzon-view-1" class="buzon-detail-view" style="display: none;">
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
                           <span class="card-label gold" style="margin-bottom: 4px;">OBSERVACI&Oacute;N DIRECTA</span>
@@ -6583,10 +6503,10 @@
                         </span>
                       </div>
 
-                      <!-- MENSAJE CLINICO DESTACADO -->
+                      <!-- MENSAJE CLINICO DESTACADO CON FOTO DE ARIANNA -->
                       <div style="background: linear-gradient(135deg, #142B1F 0%, #1F4230 100%); border-radius: 18px; padding: 22px 24px; color: #FFFFFF; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(20, 43, 31, 0.18);">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-                          <div style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0;">
+                          <div style="width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0;">
                             <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAEEAQQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDqnBL9B09KfIp8sHA/KnBfn/CpJFxEK8A9hCWX4flTrvO08D8qSz+9Ul2PloGUIc7+35Vr2mTjp+VZUC/vK2LQYAoBizD6flTefL7flUswpuP3dLqHQqKD5p4HT0rQtvu9vyqog/eGrcFAnsWHPy9B+VUZyd/b8qvuPkqlP96qZMSW2J44H5UXJ9h+VFuMCm3Jp9A6lrQW/wBI7flXZQMfKHT8q4LTr+0tHaSaZVCH5vb60/WfiVoOmWhkhuoLkjtG+4/kK7MPOMYas5a1OVSdoq5328+35UxnPt+Qrwi9+OupJKTbeH4pIu2+Qqf0qzYfHyy3KNY8Pz2iN/HFJkfqMfrWixVLuDy+ulex7HOx56flWTesfb8qyfD/AI+8LeIlX+z9UjEjdIpvkY/TPB/A1p3h605TUldMw9nKErSVjPlJ3dvyrV8OyrGxLEDn0rJfrXO+Jtek0iFpFz8vPFc6moO7Nai9w9fk1S3hiyXTgegrO/4Siy87y/Njz+FfM+rfFHUL0MluTH2BJrmW1zVZJvtA1GcSA5BDcflU1M0jF+7qeZKp2PsW+123W1LLIucegrA0Iy6nftcOPlB44rxLwr4o1HUXgtrmU8kbmz2r3jwteWVtaIAy9OTmuijW+sO62FzczOshHlxBQB+QqnqlzHFESxUfgKztT8SWdvAzeYvA9a8w1jxnLrOovZaa5YIcMw6V1ymojbsY/wAZrqOaCRUKk14/pVvJ5ROByfSu7+IMF5GjTXBPSuR0G5iMWG65rJ1ZQXMkObaRNpKt9tIIxyO1fSPwkUjR4uB09K8F0+GEzliB14Ir6A+FzxRaNDlhnFbU60akbozi7s9htv8Aj2j/AN2iucPiS1gVY3YAgetFHPHudCqJHiYH7z8KlkXMIph4f8BUj/6sV4R7hHZjDVNdj5ajtfvfjVi6X5aBlC2X561bUYAqhAAGNaNsKAY+Rc9qaw/d1JKcU0nKUuoivGvzmrNuOajiX5jUkXD4o6gWpB8lZ8/360GPyVn3H36pkxJYmAQknAHU1x3jnxhBpCm3gUS3brlUP8I/vN6D+dWPHPiSHQtNxvTz5ARGpPf1PsK8D1/WUu5ZZLm6kdnJaRwpw59z3/lQld2R0UqStzy2L2qeJpr28LXGqTPk7nRW2x8c9B1/GsS78R2/nBYioQDqe3vUfhnQpdX1DNnbSmFsj/VgdR2x+NX7r4a6o7s5idMMQ3y4z9K2dOPVjjVmtYooReIrKSfy1+b1HOfrWxayw3MZMLtC57Z4asO6+HWtRQF7VZFxyTg5rPtI9f0R9l/aTTQZ+8BnFDoxa91mkcRK/vo6F7pbS4PmRGMDrLGm3PuQOD+VeheBvife6aY7TVJGvdPY4SQnLJ9Cf5GvNZbqOeGKZGLwtxkjlT/dYVFGv2Y+bEN1u3+sTsB6j2/lXPZxemjOmUY1FaWqPrLT7+01K0S7sp1lhcZDD+R9DUGp6FFq0RVgGBrw/wCH3iK40idYTO72M528n7h7A/0P+R69omq3kcgIYlTyPSt6MlUdpHj47DuivJnN6x8I7Rt00KsjHng1594i8I6lorsyK0kY7V9FHW5PL/eKDx6Vl6ktlqULiWIZI9K6KuDpTVkrHhOC6HztpGrSWsg2kqydQe1btx8QdUSLyYJin+13o+JHh63tZWubFtrZ5HrXn9qk97eR2sIJkdtorlgpYb3UTax1V74w1y7XyRdSys3GFGSa9S+DGg3cNh9ovYiJJCXOfeofhr4MsLMRtOqyT9WZuea9TlvdN0mxyGjTaOld9GjK/PNkrVnmXxqxHZ+WBjArxyyuhbpkdK7v4seKba/uHiikVh7GvOPK8y2yK15r3savY9O8BwxXtl52Q3PIz0rpz4kn8PSBI2JjPRc9K8T8M+JLnRL3ywxEbthh2rrNV1qK/hyW+YDIPvXn1ai9m5U9Gc7TTujrNR8batc3JlEgQEcDrRXCw3EksSsAx+lFfMyjipPmu9TNpnuLLmT8KkcDyxSY/eH6VJIP3Yr3j6zqQW3+s/GrVz/q6rW4/e/jVucfJQNlKL79adqPlrLHDfjWnaN8tAMW6OKYrgxcVFqkhVTiq8EhMQzQldivoX4XUHBPOKkX7+ax45m+0kdsVqQHKjNFhXLbH5Kzb6RYIpJnICopJq+x+WvP/jHrX9meGpIo2CyTnYDn8T+lMdOPM7Hi/wAV/Ek2qa4wjf5SdqeyZ/mTW/8ACz4fza4keo6mJEtjzGmOW9zXn/w/tZPFPjdYG+ZNxLHsP/1D+dfX3hzT4bW0jjiQKigKAPQUVpuklFbnoUoRqavZEGg+G7DSYBFaWyIPXHNXpNNhcMrRq2fUVvQwAoTTXiCkcVyuEnqzdTS0RzdzpduISoiAyMdK5PXvDcU6MViUHt8telzQhlOeKzrm1RlIPalaUXdFcye581eLtDTTJZHEW2N/vgD9frXMabI0V2bWR+Dko2OCPX/EV7x8RtDS4sZSqDcRXgl1A8Nw1qzFJoWJhbv9P8+tdUH7SOpl8MrI2rBVsbkBg32aX5GX+6f/AK3avafhjqsXkyadqLKzRrviY/xLXjWnPHqGnGSQbVC7Zh/d5xn8D+hrr/Clw8caBz/pFk2117sh/oR/nioTdOSkty6lJVoOm9nseq6nrukxyeX5iqfrVNtSgaMyQSI3HrXinjT7bb6zIj3LmHO6JgcZB5FUotXv0ULFdyDHoa6JZil0PiqydObi1sdj8Q7hbxH8lGWTuV5rzbRbn7BrCSt95T19K6+PUGubMb3DyfxHvXM6mkS3bOmCx61o/fSqIjdHer44mt7Eizf98wwCD096xtV1nxBqdt5QuHUN1OeTXLaTJ5upx26LuBPOBXpum2sSwBpYwCvQVNSvNrUwqS5TyvUbC7gkzMzOc8k1o6cymDDHtXU+L7WHyWZF5IrhrZ2jyh5wa1w1WEEXGomhurQpksOtdH8MtHbxDeNFcTERRnBweTWBdI0sWSK6z4T6Zr8OqGfT4lMDff3dKyk1KrfoDd0ex2Xw90+O1jWN/lx3orYgXXXgjKw4G3HBorqTproRyjCPn/AVKVzHVQ3ERk++Ogqys8XlfeFefbQ+n6kcS4l/GrE33KqCePzfvd6sSzxFPvUkNlI/f/GtG1+7WW0qb/vVetJ48csKYDNW+5VWBx5Yq5fNFIuNwqoojVPvChMT1RFGQLjn0rZtcMorJj8rzt27tWjbzxKMbxRfSwW1LkxwhPoK+df2itcA1QWAk4hgbI/2mPJ/KvoG6uohA7bxwM18Y/GDWTq3ia9uEbIeQqv0Hy/0rSlHmkkXCXInLsd9+zFpobUJr5lyxjz/AN9H/wDVX1FpYxGEx0r55/ZteK3sr6Sd1RbdUDsT90bSf5V6q+q+N5m+3aXpLx2AGYo3Vd7r/eIJzz6VnXi51mddCShRR6bCuI6jlHJrzAfGCbS5Vtdf8PTws3AlX5P0PH611vhzxbpniCIyWcjKwGTG4wwFE4ciCE1Nm26lgcVXkiPoaka8SEPkjkDFee+Jvivo+lTPBbQyXkwyMA7VyP1NZqHO7I0c1BXZ0OvWPmQPle1fNnxW057HUBeQqV2tk16nD418YeIyBY6VHaRN3Zgn6tzXI/FHTdetNIM2r26TW8h5miYOY8+uO1aU6fI9zCWIUkct4Zuogiz8GKdT5g68YIb9P5Cuj0Z2gv45pWO+D9xcf7cZ+4/v6V5p4IvDHfzafK4wv7yPJ9Dg/h0rv7W6CjevzPbYimUdWiPQ+/GP++aqpCzOqlVU43NL4lWu6winUDMbbMj0PK/hnj8a4C1uBsLHtXqrwR6hoj2Urb/k2g/3hj5T+WK8h1K3lskkVj8wJz9e9cM6d9EeFnNDlqKoupJLqexgqOM1Xub4MDtPzGuOlvJReSZJ4PFXbK6ZpV3Z68mvTpUZQiovY8i/Kj3/AODng2KbTPtt1tM0jbue3tW941tU0t0jTqQc4rifBHxAi0rTBBKSGUcehqLVfGo1u8D+ZlRxWmMhFUtDkraq5S1/VPlZS3QYrlll8xsjuaua7vldvLGd3SqVhaTlgCpA+lcManLTHSVlqatmBINrHtXtfw+urOy0mFpZFiG0ZAFeLxWk6jcB0rY0/WpoYVspoJJWHCbDz9K1wtaEbuTNHZnv8fxB0SJPK8zO3jIor5w1OO/ku2doZYy3O0A0Vo6rvoL20key7LrIOD0FSg3YGMGumNiufujtThZL3Wur2SPW9qzlgt1uzzUhN0RjBrpRZL/dp32Jf7tL2SH7ZnKFLjOcGnobpegNdMbJf7tIbNP7v6UeyQe2ZzMkl2R0NRF7rGMGuoayT+6KY1knpS9kh+1Zy2+7U5waTzbzORmumayT0phsl9KPZIPas5XVLy6h0y4kckBY2P6V8kaxKG1cvIC0aNuf3AOT+dfXXxTVbLwJqcq4DmIqPxr471Y4/d/xsNzH+Qp04WmbqXNRbPqDwdqOktMbjw/ZR6dot1awStHHGgZpDkl8gZ5wQQc4IxXS+LviboVnA1rBZ3F3fbc7BcM56Z+6vtz6VxX7OFsLjwtDDKA3lb4AxPY4kA/As/511dv8O9Ph1ufVIra785iQXhYZIPUEHjFed+7VWSnqdFDDSVFW3OJPjiLUL54prGYBhnaw3qARu5IY449Rx3rufA97p9swutPQMrgeaqjBH5cGoE+HlvDcmTTNG+yuVKb5nC4B69Oa1ofDZ0tNP02w8tbmacMxjGxQB3x3AznnrioxUqaj+70ZcaE4Lme5u+JNbjjhDQwzAkDAYgZyK801C60m2gE6YLyueAuBuz0VV+ZyewJ/KvUfFvhuygsY2tB5SRurTEk/MBxuPuM/zri4PCUc10l9bRwu6crkYZD7MKyw8km1UHOE6k3GWrRxL+NxpGotbzaVcgxn5lZULLyRyqsSDnt1rcm8U2utWIa2iK4cLKgPI7EYI7Grl14HgfWP7RutOuTdF95kQhyW7HPf8aZdeC47Zpr6CKZJCpZy5wXPv712S+rtXSsZOhU2kk0eY+PfFFlpmgWumLoNpPfrO5fUXOZTGHIyPQ4yABxgc0mmX6wS2uoBg8ci+TKR0I6qfxGaq/FbR2t4fMdMMq4/Ec/zJrl/A2o+fbixuGGxhsGex6r/AJ+tbRSnTuisJH2EuXvqe3aBOqERs/yA/u29VIzj+o+hFcP8QrWd9XnSCIsHJbgd88/rmtDwvqLSAWMrFZYxmJyfvLn+h5HuCK6bUGtZI/PkVVkwNxJzz0P61gqd5muZJVKF+x4VPoc0TmS4Upk+laul6UpXGAfpW34tvrchowQxB4xWFpepeTJ8/ArsV+azPmpx7E9zYzw5VVJU9KrW9vdW77sHGc11FhdQXuMkGtubSY/sgfYPmHpVVLS90527PU46HUsSAT8ADvW9aapaCEFShrMvdHDlyFyBXKaislnOYwzAfWuF0ENtPY7q516BFKhxWx8Krm11TxgUnxhYiy59a8lUu7dDXQ+Fr650zUorqEkMOD7g1lGkqMrk7H1BNounSFWZUzt9qK80j8YXDxISWztx1orZ4qAadj6AMHPTsKUQY7VoGPkfQUCOvXsegUPI9qDB7VoCMelBjpWAzTAPSmNBWkY6jdBSsO5mtD7VG0PtWiyioZAqgk4ApWC5QMPtTfJqyZYM/wCsX86QzQD/AJaLRYDzX4+sbfwDMASPNlAPPYKT/PFfIWqoWuZOOQtfWX7R9zE3hC2iDAh7jB9hgc/rXy1q0eLtwcZZW/U8VknaoelRjfD/ADPpT9mCz83wCZ2+QzXfmRNj+6qj+eRXt1q5tLUi8sZ3YkkPCu8H+teV/AuBdK+G+iKGBDwCUkHu3J/nXe6t4mi03TpJZJhGqjJOa8WdvbSZ7cad6UbaOxW1zxVpenqQ0F4Jm+VFaAjcfQVqWFtaw6oL+7vIHu2iEflowIhXqffPqa5Lw1FNr93/AG7qKOE6Wkbdl/vEe9ac/hyxa9kvI4I4ruRTl1OGJ9aSir2ZPI273udPqdzptzBLF9qQgqRz0P1rh7i5HhCCC6knj1HTpHEWYmBeMnpn1HHWq83hW8SQGa6lmg/ijlxtbPr60r+EIIrR4raBUjZt5VT8ufUDoKHGLMpwbd0dHBq0N3GskOmX7BgCD5Yx+eatx2Ut1A3nQeQuOFJyx+vpXG6drM3h91s7osIScRueg9jXTW+vGWPIfKnuKnls9TZx5lueOftA6aItGnmxyvB4r5w0WV4bxhGcEAMv1HNfUvx3JuPCF6+Mk7cficV8qNJ5V6zDjGAQPavVwL5qbR5uOfJVjI9Q0+9+22yT2rKt7EPMUY+8D1H0z1+tbOpX32nwrNeW7lWwS6dSh7j8xXDafcGxe0uVxjeVI9QR0/z6V2WhRpPLcQs5ENyjPGc4BOP54pVFZXNJrnhKPdHBvuB3nnvzUZl38YrZubeJd6kjg44rFZY1mIBPWinJ2ufMXZd0u9eyuAXzsJ59q9Js/ENtJYoCQVC15p5YdVxzmp0jkii+VmApqRM4qR10mrQjzFyvJrB1G1iv23L19awZvNeQje3FdD4RSWefy35ApQaehnZIyxYvbvgjj6V2Hh/Q2urVLhbeR8nqF4Fa0+hRSyQqyj5mAP0r6S+H3g+wh8OwokSH5euK0hQcmwj7zMXwT4J0P/hG7UvZxM5XLFlySaKuaveXOjXrWMEiiNeQCPeitVSgtLC9olpY7Irz07CgJU5XkfQUu2uk7yDbSFasbKQpSAqsvFQuKusnrUMiYFJsaRRk4rB8V3htNLklQ8gGty9YKK4vx/OV0WXnsazc0i402zxS8+JWpLq9xbqOEfA+apR8QNXYcY/OvLNRnI126bP/AC0Na+n3isAGNdMUrGTTNr4h+Ir7VtGjFy2NkgOAc+n+Fed6sF+3FyMDaPoQTmus8UMr6DIUPAIJNcVqkhkjEqcqUQ/oAf5VxzX71nrUJfuEe4/sueIbu7sdR8MXtwrxWZzZK33tuTuAPcCvWdd0W31OzaOYkhedmeGwa+SvBHid/COtNrlsYzNFiRYnb/W7sAp+Iz9K+t/Duu2HiHRrTWNOlElpdxh0buPVT7g5BHqK87G0nCfOtmduX1/aRdOW6/I47xlB440bSreXRNWRrRionjeH94oPXDg8cdPpW9pPgnR9StVnj+IpW5fb8twiggluepB4H612cCRy2RhkRXUgqwIyCK5TUPDMUHmnT7gxI/WKSMOB9CeRV0a0UrM9Ola1lNx/FEM3w7jZrt7z4lWkkduuI+h7ZwQXOPwrJ1yxsPDKyyaP431LUZlJEcVvECp+UH5j0xk9fY1HJ4f1FpMpNboAfveVXW+GNDtLNBLcFrqUcguoCqfYVtKtTtuFZJLWq5eSSRw2i6Z4t1W1S48WXNuxm5EMUGwqCeCx7nFdxZWUNmPIiyVwBya1L6IP19cmqnnRoWkZkREBLFugH1rzas+ZnNTSimzy79p3Vl0rwRDbROBc3l0iIO+1fmY/yH418wxb5DJI4yW6n8c13Hxs8Yf8Jp41ke0fdpljmC09H5+Z/wDgR/QCuXtrUMpGMIqkscdu9ezhqfsaST3PFxE/b1W1sjUtWaTQVdjgxuMMe3GR+td74GcajdW2ngYaSZVjxxgnqPpg1wc2630PYRw8qlh7d/6V3nwaG7xxpkJwdlzGy++R/wDXrKpqdcNn6G545+HlzYWzyWQYkcgHvXk1xb3MM5WeNo2B5DDFfZ/i3TZNRh8uMBWPtXEXvwuguYWmuYBK3XkVrKh/KfMPTY+ftJtrmZQ0cEjr6heK2rjS7kW+TGQccjuK9H1DTrXRSIwqRiM8jpxWBc6lZSai7K6ncOAO9Z+y0s2NannVxA8T4ZCM+orovCACS5xirus20Jsi4C7s8VUsz9nKOBjHJ+lTyxo2Y3BJHeLNjy3PRSK98+Gfii1n0JYmkUOi4YZr51tb6GS1x1BWsy21rVNJvfNsLp1XdgoTwwrariY0Y87MIvlZ7v41vLa41x5RNj5AP1NFeMz+Jrq4cSOcMRzmiuf+0qL6mbjd3PpjTvElpeOFR1JwOhrdjYOoYdDXzf4Bg1yy1hfPlYxEDOc175pF6htE3nnFd/PHoz1uSXY16Q1WF5D/AHqDew+tJzj3GoS7Ez1XmPBpr3kXrVeW7QjrUOce5ahLsZ+oNya4P4jy7dFk57Gu4vHDg4riPHthNe6Y8UeckHpXPKcbnRGLsfI+oy51a5Of+Whqa0uCCBmuvuPhhfyXcsheb5nJ6VND8LL7+9PXWq9NdTm9hPsc7PKbnSLmPPATj3Ncq+5bcpxtKAEe4r1PUvBF1omjT3MolIVcHd9a88S13yMmAFI4z24rnlNSm2tj0qNNqkk9znLpCyhvQV6L8DPHl14X1W20a4DT6XqVwEdM8wyMQquv6ZHcc9q4m+jWL90ePMU49iK9a/Z2+GMfiGCTx14lR4fDmlOWhDDH2ycdAP8AYXgn1PHrW8oqcLPY5runUvHc+kdHu43zC5G5Tg/St+CC3ZCJFB9K4a8trgwrdWzbJlAOezVAfF89rGI7yJ4XHGcZU/Q14cUt0e830Z28sVmrnESgj0FIyW6rkYx6CuD/AOEyhLH9+PXk1Bf+NlMTJZ/vZO7AcClysmUlbc6XxBqEMC7N6g9T7V4T8dPG8v8AY8ujaVKyxzArPMpwWX+6Pb1Peun1G7vr9HkkJweSuev1NeJ/FOULMsIbcSxJPvW+Hpp1Fc5cRNqmzjLCLcQccdvrW7aR7rHA5MrKPfBOB/WsqNGjgRB1bA/E9f6CuitVVXt15wzDGPQcAfpXqVGcNCBZ1m0LwxsgCkliAeh+7/jXZ/BKEf8ACZw3Mgx5bIyADt0zXOD99bw78fMZ9vPoRgfpXo/wVsIpdVtEVgrmKTn1Knp+f9K4qkmonoxgm232PfVvbKVgxPzVofa4WtGRCCcd6xY9JdMZINWFtmTgVccTM8iWFgzy/wCI/hWbV73zkZgQf4eK89u/AmqQSl4sn6ivpX7IG+8oP4Uh0iCXrGKzcnJ3I+qwR8u3mg6yi7GhYjvip7fTZ1XbLbv09K+kLjw1aSHBQflVWXwjaYzsFOo3NWM6mG5tmeF6do80ilYwQPTFS6h4U1aGP7QtpLLGOTtUk17ha+H7a2mVhEuAc11emWFrKyJhcHtWMsJCrDlb1OOWDnE+Vf7LviB/oVx/37NFfakPhTTmhRjbx8j0orn/ALEl/MY+xl3PM4NNgwrLEAcCppTJEMKxAq8gCxL/ALo/lVW4Xc1b2PpL3JLbzZBksaSfzF/iP51PbLhaZcdadhX1IYt7D7x/OlgDNLtLGnwDGafCuJc07A2TtbjZVaW1jdcEAg1oOQEq/YeH7+7iWVtsCNyN+ckeuK0VNydkjP2nLq2cwNMtgM+Wv5UfY7VFOVX8q76z8M2kOGuGe4I7HhfyrRhsYI/lht4ox/soBW0cFJ76GbxK6Hz38UTJqWgXWjaZoGq3VxIBtkW0YRKAc53nivGLD4TeK9R1JJJYEs7dDhQwZi598DFfdVwgZhEq+a57HkClTSIlYSyqry/TgV2UsLGC1IeLeyPk/wAL/s3PqGtQ3mtXDTx7gPJ2FEAznkV2/wC0PfWPh3w74e+GWgKlst/cxQBI+DHCrBpG/HBH4mvoONIrO1mu5isaopOSeAB1Oa+E/E3ieXxf8e7DX9xazlvHW0BPCwoGRD/wIlm/EVVdctN2M4VearFPds+howpiBxxjisjWdHS7jYx7cnqprQ0yYSQhDjcOCKmniYDCAn+dfLqTTPqGjzq48JTByfJXA+lSW+hlF2sVAHZBXZSwyyEIFdueeMU+4shBbHe3OOAO1W6jMuRI4LXFFvZtGi4OOleCeOLWS91yRkUlIEMj/wAh+pFe8eNr60sLGSWeRY1XP1P0968sj06e58Kt4huYjH/a9xPFaqRz5UIXJ/FmI/Cu/Bwk3z9DixMoNqnfVnm8m0TwJn5QVzz7/wD6q1oSwmt16EL6dOvH1rFvFxPwOAePptFaK3O2OK4XGQQRx/tc/pXbPZGdFau51GnTRmztjn7k7bc+53fyyK9D+BV15fiuG2k2KJHYKffGGH5bT+FeSLMRFEqfNl/kA7MP8/mPevQfAF3DBqIuiHeQYuYjGwDDH3xz7Bv0rknBtHbGS1PrAdOR24qsQPMqzYWV7PbpNYsdStnUMpC7JlBGRlejcY5U/hVeQMsxR1ZGBwVYYYfUUShKO6PLTTehKcelWYMbelVutWoR8tNEMjlI30SjKUyb79S/8s/woAzZOJKsxzG3UTAZKc8VXuBiStDS4lmuY425BNTHcqex0em65JJYxN5bdO9FbdppUK20YCgcelFemoyseQ73PMf+WS/7o/lVdh81WBzEn+6KiI+evKPbRZiHy1XuT81WF+7Va4HNARCHpmpU+/UEDC1JASz4Ayc8CkgaOp8Jacl5ctdTruht+cEcM3auvC5OW61U0Oz+w6MkB++xBf6k1fkIVcmvZoU+SCXU82pPmkR7QTg1WvpfKAjjXdI5wqjqatx8IXb6mqdpG094bliRtyEI7VvYzLVlaCCLL/NM33m9PYVLsLHafzpu+YMF2bwf4gcEfhU6DFJgeT/tY69deH/glrsthMIZ54hbK/ceYQhx74Jr4w0tVtk0xh8klmF2nvx2r6Y/bn1VIvCWiaDuBkv9QEhGf4IxnP5stfNcbKdoIB4z+FNwU4uLPNxOIlSqxcN0fRvhK6Gp2FvdwsDlQHHvXRXCzg8RnHsK4H4BRXDaa80gPkjCjPrXrfygdAfwr5KrHlm0ffUpuVOLa3Rz9jbzGUyS/KMcA1yPxL8YWeiReUW3ysCEjU/Mf8PrXc+JLv7BpF1deXkxQvIV9Qqk/wBK+Sta1C51W/lv72UvPMdzc8L/ALI9AK68BhPrEm5bI8rN8yeCglFe9LbyK3i3Wr7WJzc3TZG7bDEOgJ4GPU+9fQHxa8IR6F4L8L6HGo36LpXlucdZZFJYn6vXM/speAo/F/jx/EOo2/maR4fKuqsPllujzGvvtHzn/gPrXtHxdsje+Jb+yk5E2khlHXDhyNw9McGvdnGMYcsVoeLlrnObq1Hds+C9ViNvePE4Ksjd/cVDbSAwhWHzLuH48/4Ctnx3CIvE9xEoztdQ31xzWJEh8wgD7w3frXKtj23dSNHTz5sLQhsShtyn3HIrrPAU0lxrthFCxOTOHOedu3JFcRph2X8e1iAWIyO56j+grufhxFNbeJZXSMsYo5DGg6ln+RR+JNZuNmaKbkrH3B8FQx8G6dKcsGto1ZXOeQoHFd1cWFlfptvLaOb0Zh8w+h61ieBtIGieFtP098ebFAofH97HNbyE9N2AOprvjH3UmeNUlebaOd1Pwe3+s0ucMOvlSnn8G/xrDntbmzfyrqB4X9GHX6etej2uSoY8A/dHt61X16xGoac8IAMgBaI+jD/HpWFTDR3iVGs1pI8zm+/Up4Sopf8AWehzUrH5K4GdZQueXrS0L/j/AIvrWdLy9WrOYW8iyngLUw3KmvdPU7Y/6PH9KK5S38VWSwIrXCAgf3qK9ZPQ8ltXOMUfuk/3R/KoG+/Vlf8AUp/uiqsv3q8dnsxLKHIqG5qSH7tNuvuGkC3IV6Vr+DrL7XrcW4ZSL9434dP1rGiOa7vwJaCCw+0sMPOxI/3RwP61thoc9REV58sGdPHzHg/3qjuGJYKKkjGHb0xmoo/nuCfSvZR5ozUJPLgWIdW4qzaw+VAFPH86rKnn3vmH7qdK0QMnNDAQLgUdqUnJql4g1G20fQr7VbtwlvZ27zyknoqKWP6CkJux8W/tca9/bnxiNjG+6DRoUthzx5jfO/8ANR+FeaGMkKwJBxjik1K/udZ1S41m9JNxqE8t3KT/AHpGLY/AED8KmThQMc1oj56tPnm2fQvwKuxceDFRVAeJ9pPrXoK9SRtI9Qa84+AUJTwWZ9pIeZv0rv7udYIXkldY4kUs7HoqgZJP4V8hiHarJLufpuEvKhCT7L8jhvjT4qt9F8OSafEEfUNRjaKMHkRxkYZz+eB7/Svm+G2nnu4NN0+F7m7upVhiUcszMcKo+pIre8da9J4j8UXmqnd5LNst1P8ABEvCj+p9ya9Z/Y48ELrXiy68bX8O600c+VZ7hw1yw5Yf7in82FfR4Oh7Ckk93ufEY/EvH4rT4VovTv8AM+ivhT4NtfAPgLT/AA5bbHmhTzLyZR/rrhuZG/PgewFcz8WrWcXT39tdLbT/ANj3QMjJuUhMMQR7gsM9q9QuDiNgOOK8Y/aa1GTTfBvnQvtaRZIOOp8xdp/TNa1HaLZ6WFj76ij4X1GZrq7vb24ySZTKxJz1yQP5VRtY2bcwB+UYyff/APVVzUnAt1Uj/XStI2OwHT9amtIHisEZlwWOWJ7Aj/D+dcN/dPUavO3YNBskuNVaWTIitQ00jegA4A9Sa9//AGRvCT65r0uuahBiG0kEgVh1ccgH17H8K8T0S1W2spACxRmElzIRwcHhFH1/X6V90fADw4PD3w2sBLD5d1dp9plBHIL8gH6DFa0Y88/JGOIn7On5s9BiJK4PbpVgLudIB3+Z/pUcCZfnsKfpx3I9y3/LU5X/AHRwP8fxruPK2LjtjAqSM8Cqqku27t2qdG+YD0pWJPOPF1sbTxFcIowjsJF+jc/zzVL+Cup+JFsC9neAdcxMf1H9a5bPy815NaPLNo76UrwTKsg+ei5WR7V0i++RxSSH560dFRZL2NWGQayitTWTsrnlGu+HvGD6gzWsCNERkHJ9TRX0rFp1sYUzGOnpRXqJNI8eULu55gv+pT/dFVJzg1bXiJP90fyqpKNz4ryJHuRLFucpSXX+rp8KgJUd59yhgiCyVpZliQZZ2Cj6k16paQrbwQ268KigL+FcB4ItfP1hZCMrAC5+vQV6G/zIQDhlOVr0MFD3XI5MVK8ki1CwKv8ATFRQAiFm7scCmW53LnJG8k/T2qyFAUL2Fd5yhbpsFWaiUcD61KxxUgNHLV4v+2P4kOj/AAmfRoJNt1r1ylioB58v70p/75XH/Aq9pT1r40/a68Q/258YYdHjfdaeHrIKwB4+0S4ZvxChB+dOJz4qpyU2zx4geYyjoq4FWcfKOoqrAdwZ/wC8SauHOAOSK0PAPpH4Ewj/AIVtYsBy0kpP/fRrn/2h/Eg03S4vDlo+Lm/XfcbTykIPT/gR4+gPrWz8GtRttO+EyXt3JsgtBLLK3ooJNeBeLtdn8Q69e61dDEly5YKTxGg4VB9BgV4OGwyq4mU3sn+J9nmGOdDAwpRfvSSXytr/AJGVBb3F7dQafZRNLc3MixRIvJZ2OAPzNfoF8LfCNt4F8BaX4at9pe1izcSD/lpO3MjfnwPYCvmr9jnwV/bHjK48X30Ra10dQLfcOGuHHy/98rlvqVr66cnFe02eLgqXLHmfUrXbZDKO4r54/a5v1fQtPsFJGZGfd24BH+frX0FeOI4mdjgfqa+SP2rtVa61JdPhk3GBMT7Tny2Y5SP/AHjtJP0Fc+Jdqdj3MBG9W/Y+dkg+36oznKwWo59wOn4k1JqM7SS+VDnkHd7Y6fqf0q3iO3gOnxHbs+ed/fvj6dBU/hbSp7+/t4Su6a6kACgZ2qOg/wAa5Ud71du+51vw08MnXfFHh/8A9k=" alt="Nutri&oacute;loga Arianna" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
                           </div>
                           <div>
@@ -6612,9 +6532,69 @@
                         </div>
                       </div>
 
-                      <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(0)" style="font-size: 0.76rem;">
-                        <i class="fa-solid fa-arrow-left"></i> Volver a mi Expediente Oficial
-                      </button>
+                      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(1)" style="font-size: 0.76rem;">
+                          <span>Ver Aviso de Expediente</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- VISTA 1: PROXIMO EXPEDIENTE CLINICO (EN PREPARACION) -->
+                    <div id="buzon-view-1" class="buzon-detail-view" style="display: none;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
+                        <div>
+                          <span class="card-label forest" style="margin-bottom: 4px;">ESTADO DEL EXPEDIENTE</span>
+                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Tu Expediente Cl&iacute;nico Oficial</h3>
+                          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
+                            Paciente: <strong>Mariana G&oacute;mez</strong> &bull; Nutri&oacute;loga Asignada: <strong>Lic. Arianna Hern&aacute;ndez</strong>
+                          </div>
+                        </div>
+                        <span style="background: #FEF3C7; color: #B45309; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #FDE68A;">
+                          <i class="fa-solid fa-clock"></i> Pendiente de Calibraci&oacute;n
+                        </span>
+                      </div>
+
+                      <div style="background: linear-gradient(135deg, #F9FCF5 0%, #FFFFFF 100%); border: 1.5px solid #CFE0BE; border-radius: 18px; padding: 22px 24px; margin-bottom: 16px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                          <div style="width: 44px; height: 44px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-file-signature"></i>
+                          </div>
+                          <div>
+                            <h4 style="font-size: 1.05rem; color: var(--avo-dark); margin: 0;">
+                              El Expediente Cl&iacute;nico se genera con tus medidas
+                            </h4>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
+                              Se activar&aacute; autom&aacute;ticamente al guardar tus datos en el M&oacute;dulo 1
+                            </div>
+                          </div>
+                        </div>
+
+                        <p style="font-size: 0.83rem; color: var(--text-main); line-height: 1.6; margin: 0 0 16px 0;">
+                          En cuanto completes y guardes tu formulario de diagn&oacute;stico en la secci&oacute;n de <strong>1. Objetivos y Medidas</strong>, la Nutri&oacute;loga Arianna emitir&aacute; tu <strong>Expediente Nutricional Auditado</strong> con tu folio cl&iacute;nico oficial, tu bio-radar basal y tus pautas personalizadas, el cual quedar&aacute; archivado permanentemente aqu&iacute; en tu buz&oacute;n.
+                        </p>
+
+                        <div style="background: #FFFFFF; border: 1px dashed #86EFAC; border-radius: 12px; padding: 14px 16px; margin-bottom: 18px;">
+                          <div style="font-size: 0.74rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase; margin-bottom: 6px;">
+                            <i class="fa-solid fa-list-check"></i> Lo que incluir&aacute; tu Expediente:
+                          </div>
+                          <ul style="margin: 0; padding-left: 20px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+                            <li>Historial de peso inicial vs peso meta sincronizado</li>
+                            <li>Medida umbilical de cintura y ratio cintura/cadera (ICC)</li>
+                            <li>Diagn&oacute;stico cl&iacute;nico de resistencia insul&iacute;nica y bio-se&ntilde;ales</li>
+                            <li>Hoja oficial de prescripci&oacute;n descargable en PDF</li>
+                          </ul>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                          <button type="button" class="btn-flip-trigger gold-flip" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" style="font-size: 0.8rem; padding: 9px 18px;">
+                            <i class="fa-solid fa-ruler-combined"></i> <span>Completar Objetivos y Medidas</span>
+                          </button>
+                          <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(0)" style="font-size: 0.78rem;">
+                            <i class="fa-solid fa-arrow-left"></i> Volver a Nota de Arianna
+                          </button>
+                        </div>
+                      </div>
+
                     </div>
 
                     <!-- VISTA 2: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (DETALLE) -->
@@ -6671,7 +6651,7 @@
                       </div>
 
                       <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(0)" style="font-size: 0.76rem;">
-                        <i class="fa-solid fa-arrow-left"></i> Volver a mi Expediente Oficial
+                        <i class="fa-solid fa-arrow-left"></i> Volver a mi Buz&oacute;n
                       </button>
                     </div>
 
@@ -6704,7 +6684,7 @@
                       </div>
 
                       <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(0)" style="font-size: 0.76rem;">
-                        <i class="fa-solid fa-arrow-left"></i> Volver a mi Expediente Oficial
+                        <i class="fa-solid fa-arrow-left"></i> Volver a mi Buz&oacute;n
                       </button>
                     </div>
 
@@ -6714,10 +6694,10 @@
                   <div class="buzon-ask-container">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                       <span style="font-size: 0.76rem; font-weight: 800; color: var(--avo-forest);">
-                        <i class="fa-solid fa-paper-plane" style="color: var(--avo-primary);"></i> &iquest;Tienes alguna duda sobre tu expediente o prescripci&oacute;n?
+                        <i class="fa-solid fa-paper-plane" style="color: var(--avo-primary);"></i> &iquest;Tienes alguna duda o pregunta para Arianna?
                       </span>
                       <span style="font-size: 0.67rem; color: var(--text-muted); font-weight: 700;">
-                        Llega al expediente privado de Arianna
+                        Llega al consultorio privado de Arianna
                       </span>
                     </div>
                     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -6736,6 +6716,7 @@
 
             </div>
           </div>
+
 
 
         </div>
@@ -7081,7 +7062,7 @@
       'mod-ejercicios': 'Activa tu sensibilidad a la insulina hoy 🏃‍♀️',
       'mod-foro': 'Comparte e inspírate con la comunidad 📸',
       'mod-semilla': 'Respira profundo, esta semilla es para ti 🌱',
-      'mod-buzon': 'Revisa tus mensajes cl\u00ednicos y tu expediente oficial \ud83d\udce5'
+      'mod-buzon': 'Revisa tus mensajes y recomendaciones en tu buz\u00f3n \ud83d\udce5'
     };
 
     function getTimeOfDayGreeting() {
