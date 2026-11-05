@@ -7622,6 +7622,9 @@
           if (bioRet) { bioRet.innerText = 'Retención activa 🚨'; bioRet.style.color = '#C2410C'; }
           retroBadge.innerText = `🚨 RETRO DEL ${retroDates.sundayShort.toUpperCase()}: ALERTA DE RETENCIÓN Y SED OCULTA`;
           retroText.innerText = `"En el corte del ${retroDates.sundayFull} promediaste ${avgGlasses} vasos/día. Cuando tomas poca agua, tu cuerpo retiene líquidos en el abdomen por defensa y el cerebro confunde la deshidratación con antojos dulces."`;
+          retroTip.innerText = '\uD83D\uDCA1 Prescripci\u00f3n: Inicia ma\u00f1ana con infusi\u00f3n de jamaica sin az\u00facar o agua con pepino y lim\u00f3n.';
+        }
+      }
 
       // Sincronizar automaticamente la Retro Dominical con el Buzon
       autoSyncWaterRetroToBuzon();
