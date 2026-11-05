@@ -4732,14 +4732,11 @@
                       Observación Médica Activa
                     </span>
                   </div>
-                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                                      <div style="display: flex; align-items: center; gap: 8px;">
                     <span id="dash-note-date-pill" style="font-size: 0.73rem; font-weight: 800; color: var(--avo-forest); background: var(--avo-pale); border: 1.5px solid #CFE0BE; padding: 4px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
                       <i class="fa-regular fa-calendar-check" style="color: var(--avo-primary);"></i>
-                      <span id="dash-note-date-text">Lunes 2 de Noviembre, 2026 â€¢ 10:30 AM</span>
+                      <span id="dash-note-date-text">Lunes 2 de Noviembre, 2026 &bull; 10:30 AM</span>
                     </span>
-                    <button type="button" onclick="sendCurveEvalToBuzon()" id="btn-sync-curve-buzon" style="background: linear-gradient(135deg, var(--avo-primary), var(--avo-forest)); color: #FFFFFF; border: none; font-size: 0.72rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(45, 106, 79, 0.2); transition: all 0.2s ease;">
-                      <i class="fa-solid fa-inbox"></i> Enviar al Buz&oacute;n
-                    </button>
                   </div>
                 </div>
 
@@ -4914,16 +4911,11 @@
                       </div>
                     </div>
 
-                                        <div class="dash-water-retro-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid #DBEAFE; font-size: 0.73rem; gap: 8px; flex-wrap: wrap;">
-                      <span id="water-retro-tip" style="color: #1E3A8A; font-weight: 700;">ðŸ’¡ Reto del Domingo: Toma 1 vaso de agua mineral con limÃ³n antes de tu comida libre.</span>
-                      <div style="display: flex; align-items: center; gap: 6px;">
-                        <button type="button" onclick="sendWaterRetroToBuzon()" id="btn-sync-water-buzon" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: #FFFFFF; border: none; font-size: 0.72rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25); white-space: nowrap; transition: all 0.2s ease;">
-                          <i class="fa-solid fa-inbox"></i> Enviar al Buz&oacute;n
-                        </button>
-                        <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-water')">
-                          âœ“ Entendido
-                        </button>
-                      </div>
+                                                            <div class="dash-water-retro-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid #DBEAFE; font-size: 0.73rem; gap: 8px;">
+                      <span id="water-retro-tip" style="color: #1E3A8A; font-weight: 700;">&#128161; Reto del Domingo: Toma 1 vaso de agua mineral con lim&oacute;n antes de tu comida libre.</span>
+                      <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-water')">
+                        &check; Entendido
+                      </button>
                     </div>
                   </div>
 
@@ -4980,18 +4972,13 @@
 
                       <!-- Prescripción clínica profunda colocada inmediatamente debajo de las 3 señales (sin desperdiciar espacio) -->
                       <div id="bio-prescription-box" style="background: linear-gradient(135deg, #142B1F 0%, #1F4330 100%); color: #FFFFFF; border-radius: 15px; padding: 10px 13px; border: 1px solid rgba(197,240,153,0.38); box-shadow: 0 8px 20px rgba(20, 43, 31, 0.14);">
-                                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 4px; flex-wrap: wrap;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 4px; flex-wrap: wrap;">
                           <span id="bio-presc-header" style="font-size: 0.66rem; font-weight: 900; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.04em;">
-                            ðŸ‘©â€âš•ï¸ DIAGNÃ“STICO PROFUNDO DE ARIANNA â€¢ PAUTA #1/5
+                            &#128105;&#8205;&#9877;&#65039; DIAGN&Oacute;STICO PROFUNDO DE ARIANNA &bull; PAUTA #1/5
                           </span>
-                          <div style="display: flex; align-items: center; gap: 5px;">
-                            <button type="button" onclick="sendBioPrescriptionToBuzon()" id="btn-sync-bio-buzon" style="background: rgba(253, 230, 138, 0.16); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 99px; padding: 2px 8px; font-family: inherit; font-size: 0.64rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;" title="Guardar pauta de bio-radar en Buz&oacute;n">
-                              <i class="fa-solid fa-inbox"></i> Guardar en Buz&oacute;n
-                            </button>
-                            <button type="button" id="bio-rotate-btn" onclick="rotateBioPrescriptionVariant()" style="background: rgba(253, 230, 138, 0.16); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 99px; padding: 2px 8px; font-family: inherit; font-size: 0.64rem; font-weight: 800; cursor: pointer;">
-                              ðŸ”„ Otra pauta clÃ­nica (1/5)
-                            </button>
-                          </div>
+                          <button type="button" id="bio-rotate-btn" onclick="rotateBioPrescriptionVariant()" style="background: rgba(253, 230, 138, 0.16); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 99px; padding: 2px 8px; font-family: inherit; font-size: 0.64rem; font-weight: 800; cursor: pointer;">
+                            &#128260; Otra pauta cl&iacute;nica (1/5)
+                          </button>
                         </div>
                         <div id="bio-prescription-text" style="font-size: 0.74rem; color: #E2F0D5; line-height: 1.38; margin-bottom: 7px;">
                           "Tus 3 marcadores están en zona óptima. Hoy tu insulina trabaja sin picos y tu flexibilidad metabólica oxida grasa visceral de forma continua."
@@ -7635,9 +7622,9 @@
           if (bioRet) { bioRet.innerText = 'Retención activa 🚨'; bioRet.style.color = '#C2410C'; }
           retroBadge.innerText = `🚨 RETRO DEL ${retroDates.sundayShort.toUpperCase()}: ALERTA DE RETENCIÓN Y SED OCULTA`;
           retroText.innerText = `"En el corte del ${retroDates.sundayFull} promediaste ${avgGlasses} vasos/día. Cuando tomas poca agua, tu cuerpo retiene líquidos en el abdomen por defensa y el cerebro confunde la deshidratación con antojos dulces."`;
-          retroTip.innerText = '💡 Prescripción: Inicia mañana con infusión de jamaica sin azúcar o agua con pepino y limón.';
-        }
-      }
+
+      // Sincronizar automaticamente la Retro Dominical con el Buzon
+      autoSyncWaterRetroToBuzon();
     }
 
     // =========================================================================
@@ -7816,12 +7803,18 @@
         syncPlatformState();
       } else {
         renderBioRadar();
+
+      // Sincronizar automaticamente la Evaluacion de la Curva con el Buzon
+      autoSyncCurveEvalToBuzon();
       }
     }
 
     function rotateBioPrescriptionVariant() {
       clubState.bioVariantOffset = ((clubState.bioVariantOffset || 0) + 1) % 5;
       renderBioRadar();
+
+      // Sincronizar automaticamente la Evaluacion de la Curva con el Buzon
+      autoSyncCurveEvalToBuzon();
       const box = document.getElementById('bio-prescription-box');
       if (box) {
         box.style.transform = 'scale(0.985)';
@@ -8681,6 +8674,9 @@
       renderEvolutionChart();
       renderWaterTracker();
       renderBioRadar();
+
+      // Sincronizar automaticamente la Evaluacion de la Curva con el Buzon
+      autoSyncCurveEvalToBuzon();
     }
 
     // Rotación automática suave del mensaje superior cada 10 segundos
@@ -8843,26 +8839,36 @@
     }
 
 
-        // =========================================================
-    // INTEGRACION DIRECTA: DASHBOARD -> BUZON DE ARIANNA
+                // =========================================================
+    // SINCRONIZACION AUTOMATICA CON EL BUZON DE ARIANNA (MODULO 8)
+    // Se ejecuta de manera 100% automatica al actualizarse medidas o hidratacion
     // =========================================================
-    function sendCurveEvalToBuzon() {
-      if (typeof showToast === 'function') {
-        showToast('Enviado al Buz\u00f3n \u2705', 'La evaluaci\u00f3n de tu curva semanal de Arianna se ha sincronizado en tu Buz\u00f3n.');
-      }
-      openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
-      if (typeof selectBuzonItem === 'function') {
-        selectBuzonItem(0);
-      }
-    }
-
-    function sendWaterRetroToBuzon() {
-      // Sincronizar datos vivos de hidratacion al visor del buzon si existen
+    function autoSyncWaterRetroToBuzon() {
       const wLiters = document.getElementById('water-retro-liters');
       const wAvg = document.getElementById('water-retro-avg');
       const wDays = document.getElementById('water-retro-days');
       const wText = document.getElementById('water-retro-text');
+      const bioLiver = document.getElementById('water-bio-liver');
+      const bioRet = document.getElementById('water-bio-retention');
 
+      // Sincronizar tarjeta en feed del Buzon (Item 1)
+      const feedItem1 = document.querySelector('.buzon-item-card[onclick="selectBuzonItem(1)"]');
+      if (feedItem1 && wAvg) {
+        const titleEl = feedItem1.querySelector('h4');
+        const descEl = feedItem1.querySelector('p');
+        const matchPct = wAvg.innerText.match(/\d+%/);
+        const pctTxt = matchPct ? matchPct[0] : '91%';
+        if (titleEl) {
+          titleEl.innerHTML = 'Reporte Dominical: Hidrataci&oacute;n Semanal (' + pctTxt + ')';
+        }
+        if (descEl && wLiters) {
+          const liverTxt = bioLiver ? bioLiver.innerText.replace(/[\u2705\u2714\u2713]/g, '').trim() : '&oacute;ptima';
+          const retTxt = bioRet ? bioRet.innerText.replace(/[\u2705\u2714\u2713]/g, '').trim() : 'cero retenci&oacute;n';
+          descEl.innerHTML = 'Balance h&iacute;drico cerrado: ' + wLiters.innerText + ' acumulados, oxidaci&oacute;n ' + liverTxt.toLowerCase() + ' y ' + retTxt.toLowerCase() + '...';
+        }
+      }
+
+      // Sincronizar visor detallado del Buzon (View 1)
       const bLiters = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(1) .val');
       const bAvg = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(2) .val');
       const bDays = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(3) .val');
@@ -8871,24 +8877,41 @@
       if (wLiters && bLiters) bLiters.innerText = wLiters.innerText;
       if (wAvg && bAvg) bAvg.innerText = wAvg.innerText;
       if (wDays && bDays) bDays.innerText = wDays.innerText;
-      if (wText && bText) bText.innerHTML = wText.innerHTML;
-
-      if (typeof showToast === 'function') {
-        showToast('Enviado al Buz\u00f3n \u2705', 'Tu reporte dominical de hidrataci\u00f3n ha sido archivado en tu Buz\u00f3n.');
-      }
-      openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
-      if (typeof selectBuzonItem === 'function') {
-        selectBuzonItem(1);
+      if (wText && bText && wText.innerText) {
+        bText.innerHTML = wText.innerHTML || ('&ldquo;' + wText.innerText.replace(/^"|"$/g, '') + '&rdquo;');
       }
     }
 
-    function sendBioPrescriptionToBuzon() {
-      if (typeof showToast === 'function') {
-        showToast('Enviado al Buz\u00f3n \u2705', 'La pauta diaria de tu Bio-Radar ha sido registrada en tu Buz\u00f3n.');
+    function autoSyncCurveEvalToBuzon() {
+      const noteDate = document.getElementById('dash-note-date-text');
+      const noteMsg = document.getElementById('dash-note-message-text');
+      const waistEl = document.getElementById('inp-waist');
+      const waistVal = waistEl ? parseFloat(waistEl.value || 79) : 79;
+      const waistDiff = (waistVal - (clubState.initialWaist || 83)).toFixed(1);
+      const waistDiffStr = waistDiff <= 0 ? (waistDiff + ' cm') : ('+' + waistDiff + ' cm');
+
+      // Sincronizar tarjeta en feed del Buzon (Item 0)
+      const feedItem0 = document.querySelector('.buzon-item-card[onclick="selectBuzonItem(0)"]');
+      if (feedItem0) {
+        const titleEl = feedItem0.querySelector('h4');
+        if (titleEl) {
+          titleEl.innerHTML = 'Evaluaci&oacute;n de Curva: Cintura ' + waistDiffStr;
+        }
       }
-      openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
-      if (typeof selectBuzonItem === 'function') {
-        selectBuzonItem(0);
+
+      // Sincronizar visor detallado del Buzon (View 0)
+      const v0Headline = document.querySelector('#buzon-view-0 div[style*="font-size: 0.95rem"]');
+      if (v0Headline) {
+        v0Headline.innerHTML = '&ldquo;&iexcl;Mariana, ' + Math.abs(parseFloat(waistDiff)) + ' cm menos de cintura es una victoria metab&oacute;lica brutal!&rdquo;';
+      }
+      const v0Date = document.querySelector('#buzon-view-0 div[style*="font-size: 0.7rem; color: var(--text-muted)"]');
+      if (v0Date && noteDate) {
+        const dateClean = noteDate.innerText.split(/[\u2022\u00b7&]/)[0].trim();
+        v0Date.innerHTML = 'Fecha de emisi&oacute;n: <strong>' + dateClean + ' (Semana ' + (clubState.week || 3) + ')</strong> &bull; Reevaluaci&oacute;n de Gr&aacute;fica';
+      }
+      const v0Msg = document.querySelector('#buzon-view-0 p[style*="line-height: 1.6"]');
+      if (v0Msg && noteMsg && noteMsg.innerText) {
+        v0Msg.innerHTML = '&ldquo;' + noteMsg.innerText.replace(/^"|"$/g, '').trim() + '&rdquo;';
       }
     }
 
