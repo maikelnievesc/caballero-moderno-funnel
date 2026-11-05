@@ -4732,11 +4732,14 @@
                       Observación Médica Activa
                     </span>
                   </div>
-                  <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <span id="dash-note-date-pill" style="font-size: 0.73rem; font-weight: 800; color: var(--avo-forest); background: var(--avo-pale); border: 1.5px solid #CFE0BE; padding: 4px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
                       <i class="fa-regular fa-calendar-check" style="color: var(--avo-primary);"></i>
-                      <span id="dash-note-date-text">Lunes 2 de Noviembre, 2026 • 10:30 AM</span>
+                      <span id="dash-note-date-text">Lunes 2 de Noviembre, 2026 â€¢ 10:30 AM</span>
                     </span>
+                    <button type="button" onclick="sendCurveEvalToBuzon()" id="btn-sync-curve-buzon" style="background: linear-gradient(135deg, var(--avo-primary), var(--avo-forest)); color: #FFFFFF; border: none; font-size: 0.72rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(45, 106, 79, 0.2); transition: all 0.2s ease;">
+                      <i class="fa-solid fa-inbox"></i> Enviar al Buz&oacute;n
+                    </button>
                   </div>
                 </div>
 
@@ -4911,11 +4914,16 @@
                       </div>
                     </div>
 
-                    <div class="dash-water-retro-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid #DBEAFE; font-size: 0.73rem; gap: 8px;">
-                      <span id="water-retro-tip" style="color: #1E3A8A; font-weight: 700;">💡 Reto del Domingo: Toma 1 vaso de agua mineral con limón antes de tu comida libre.</span>
-                      <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-water')">
-                        ✓ Entendido
-                      </button>
+                                        <div class="dash-water-retro-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid #DBEAFE; font-size: 0.73rem; gap: 8px; flex-wrap: wrap;">
+                      <span id="water-retro-tip" style="color: #1E3A8A; font-weight: 700;">ðŸ’¡ Reto del Domingo: Toma 1 vaso de agua mineral con limÃ³n antes de tu comida libre.</span>
+                      <div style="display: flex; align-items: center; gap: 6px;">
+                        <button type="button" onclick="sendWaterRetroToBuzon()" id="btn-sync-water-buzon" style="background: linear-gradient(135deg, #2563EB, #1D4ED8); color: #FFFFFF; border: none; font-size: 0.72rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25); white-space: nowrap; transition: all 0.2s ease;">
+                          <i class="fa-solid fa-inbox"></i> Enviar al Buz&oacute;n
+                        </button>
+                        <button type="button" class="btn-flip-trigger" style="padding: 5px 11px; font-size: 0.72rem; white-space: nowrap;" onclick="toggleCardFlip('flip-dash-water')">
+                          âœ“ Entendido
+                        </button>
+                      </div>
                     </div>
                   </div>
 
@@ -4972,13 +4980,18 @@
 
                       <!-- Prescripción clínica profunda colocada inmediatamente debajo de las 3 señales (sin desperdiciar espacio) -->
                       <div id="bio-prescription-box" style="background: linear-gradient(135deg, #142B1F 0%, #1F4330 100%); color: #FFFFFF; border-radius: 15px; padding: 10px 13px; border: 1px solid rgba(197,240,153,0.38); box-shadow: 0 8px 20px rgba(20, 43, 31, 0.14);">
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 4px; flex-wrap: wrap;">
+                                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 4px; flex-wrap: wrap;">
                           <span id="bio-presc-header" style="font-size: 0.66rem; font-weight: 900; color: #FDE68A; text-transform: uppercase; letter-spacing: 0.04em;">
-                            👩‍⚕️ DIAGNÓSTICO PROFUNDO DE ARIANNA • PAUTA #1/5
+                            ðŸ‘©â€âš•ï¸ DIAGNÃ“STICO PROFUNDO DE ARIANNA â€¢ PAUTA #1/5
                           </span>
-                          <button type="button" id="bio-rotate-btn" onclick="rotateBioPrescriptionVariant()" style="background: rgba(253, 230, 138, 0.16); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 99px; padding: 2px 8px; font-family: inherit; font-size: 0.64rem; font-weight: 800; cursor: pointer;">
-                            🔄 Otra pauta clínica (1/5)
-                          </button>
+                          <div style="display: flex; align-items: center; gap: 5px;">
+                            <button type="button" onclick="sendBioPrescriptionToBuzon()" id="btn-sync-bio-buzon" style="background: rgba(253, 230, 138, 0.16); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 99px; padding: 2px 8px; font-family: inherit; font-size: 0.64rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;" title="Guardar pauta de bio-radar en Buz&oacute;n">
+                              <i class="fa-solid fa-inbox"></i> Guardar en Buz&oacute;n
+                            </button>
+                            <button type="button" id="bio-rotate-btn" onclick="rotateBioPrescriptionVariant()" style="background: rgba(253, 230, 138, 0.16); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); border-radius: 99px; padding: 2px 8px; font-family: inherit; font-size: 0.64rem; font-weight: 800; cursor: pointer;">
+                              ðŸ”„ Otra pauta clÃ­nica (1/5)
+                            </button>
+                          </div>
                         </div>
                         <div id="bio-prescription-text" style="font-size: 0.74rem; color: #E2F0D5; line-height: 1.38; margin-bottom: 7px;">
                           "Tus 3 marcadores están en zona óptima. Hoy tu insulina trabaja sin picos y tu flexibilidad metabólica oxida grasa visceral de forma continua."
@@ -6308,7 +6321,7 @@
 
                     <!-- =========================================================
                MODULO 8: BUZON DE ARIANNA (#mod-buzon)
-               NOTAS CLINICAS, EVOLUCION, GUIAS Y MENSAJES DIRECTOS
+               NOTAS CLINICAS, EVOLUCION, RETROALIMENTACION Y GUIAS
                ========================================================= -->
           <div id="mod-buzon" class="module-section">
             
@@ -6331,7 +6344,7 @@
                     Tu Buz&oacute;n y Comunicaciones con Arianna
                   </h2>
                   <p style="font-size: 0.82rem; color: var(--text-muted); margin: 4px 0 0 0; line-height: 1.4;">
-                    Aqu&iacute; recibes las notas cl&iacute;nicas de evoluci&oacute;n de Arianna, respuestas a tus dudas y gu&iacute;as oficiales. Tu expediente cl&iacute;nico oficial llegar&aacute; autom&aacute;ticamente a este buz&oacute;n cuando guardes tus datos en Objetivos y Medidas.
+                    Aqu&iacute; recibes las evaluaciones semanales de tu curva, tus reportes dominicales de hidrataci&oacute;n, notas de Arianna y gu&iacute;as del club. Tu expediente cl&iacute;nico oficial llegar&aacute; autom&aacute;ticamente cuando guardes tus datos en Objetivos y Medidas.
                   </p>
                 </div>
 
@@ -6347,10 +6360,10 @@
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                   <span style="font-size: 0.73rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase;">Filtrar:</span>
                   <button type="button" class="buzon-filter-btn active" onclick="filterBuzon('all', this)">
-                    <i class="fa-solid fa-folder-open"></i> Todos (<span id="buzon-count-all">4</span>)
+                    <i class="fa-solid fa-folder-open"></i> Todos (<span id="buzon-count-all">5</span>)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('mensajes', this)">
-                    <i class="fa-solid fa-comment-medical"></i> Mensajes de Arianna (2)
+                    <i class="fa-solid fa-comment-medical"></i> Evaluaciones &amp; Notas (3)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('guias', this)">
                     <i class="fa-solid fa-file-pdf"></i> Gu&iacute;as &amp; Pautas (2)
@@ -6389,29 +6402,50 @@
                   <!-- LISTADO INTERACTIVO DE ITEMS DEL BUZON -->
                   <div class="buzon-feed-list" id="buzon-feed-items">
 
-                    <!-- ITEM 0: NOTA DE EVOLUCION SEMANA 3 (ACTIVO POR DEFECTO) -->
+                    <!-- ITEM 0: EVALUACION DE CURVA SEMANAL (ACTIVO POR DEFECTO) -->
                     <div class="buzon-item-card active-buzon-item" data-category="mensajes" onclick="selectBuzonItem(0)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #FFF7ED; color: #C2410C;">
-                          <i class="fa-solid fa-user-doctor"></i>
+                          <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
                           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <span style="font-size: 0.67rem; font-weight: 800; color: #C2410C; text-transform: uppercase;">Nota de Evoluci&oacute;n</span>
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #C2410C; text-transform: uppercase;">Curva Semanal</span>
                             <span style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">Ayer (4 Nov)</span>
                           </div>
                           <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                            Observaci&oacute;n Cl&iacute;nica: Cintura -4.0 cm
+                            Evaluaci&oacute;n de Curva: Cintura -4.0 cm
                           </h4>
                           <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                            Arianna revis&oacute; tus medidas de Semana 3: "Vas excelente oxidando grasa visceral. Mant&eacute;n el nopal en tu comida..."
+                            Arianna evalu&oacute; tu curva de peso y cintura: "Vas excelente oxidando grasa visceral. Mant&eacute;n el nopal en tu comida..."
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    <!-- ITEM 1: PROXIMO EXPEDIENTE CLINICO (AVISO OFICIAL / NO LEIDO) -->
+                    <!-- ITEM 1: RETRO DOMINICAL DE HIDRATACION (ENVIADO DESDE DASHBOARD) -->
                     <div class="buzon-item-card is-unread" data-category="mensajes" onclick="selectBuzonItem(1)">
+                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div class="buzon-item-icon-box" style="background: #EFF6FF; color: #1D4ED8;">
+                          <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase;">Retro Dominical</span>
+                            <span style="font-size: 0.68rem; color: #1D4ED8; font-weight: 800;">Dom 1 Nov</span>
+                          </div>
+                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Reporte Dominical: Hidrataci&oacute;n Semanal (91%)
+                          </h4>
+                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Balance h&iacute;drico cerrado: 15.3 L acumulados, oxidaci&oacute;n hep&aacute;tica &oacute;ptima (96%) y cero retenci&oacute;n abdominal...
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ITEM 2: PROXIMO EXPEDIENTE CLINICO (AVISO OFICIAL) -->
+                    <div class="buzon-item-card" data-category="mensajes" onclick="selectBuzonItem(2)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #E8F5E9; color: #2E7D32;">
                           <i class="fa-solid fa-clipboard-check"></i>
@@ -6431,8 +6465,8 @@
                       </div>
                     </div>
 
-                    <!-- ITEM 2: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (NO LEIDO) -->
-                    <div class="buzon-item-card is-unread" data-category="guias" onclick="selectBuzonItem(2)">
+                    <!-- ITEM 3: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (NO LEIDO) -->
+                    <div class="buzon-item-card is-unread" data-category="guias" onclick="selectBuzonItem(3)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #FEF3C7; color: #B45309;">
                           <i class="fa-solid fa-capsules"></i>
@@ -6452,8 +6486,8 @@
                       </div>
                     </div>
 
-                    <!-- ITEM 3: GUIA DESCARGABLE DOMINGO LIBRE (LEIDO) -->
-                    <div class="buzon-item-card" data-category="guias" onclick="selectBuzonItem(3)">
+                    <!-- ITEM 4: GUIA DESCARGABLE DOMINGO LIBRE (LEIDO) -->
+                    <div class="buzon-item-card" data-category="guias" onclick="selectBuzonItem(4)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #EFF6FF; color: #1D4ED8;">
                           <i class="fa-solid fa-file-pdf"></i>
@@ -6485,14 +6519,14 @@
                   <!-- CONTENEDOR MULTI-VISTA -->
                   <div id="buzon-viewer-content">
 
-                    <!-- VISTA 0: OBSERVACION CLINICA DE ARIANNA (VISTA PRINCIPAL ACTIVA) -->
+                    <!-- VISTA 0: EVALUACION DE CURVA SEMANAL POR ARIANNA (VISTA PRINCIPAL ACTIVA) -->
                     <div id="buzon-view-0" class="buzon-detail-view" style="display: block;">
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
-                          <span class="card-label gold" style="margin-bottom: 4px;">OBSERVACI&Oacute;N DIRECTA</span>
+                          <span class="card-label gold" style="margin-bottom: 4px;">EVALUACI&Oacute;N DE CURVA SEMANAL</span>
                           <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Nota de Evoluci&oacute;n &bull; Nutri&oacute;loga Arianna</h3>
                           <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
-                            Fecha de emisi&oacute;n: <strong>Mi&eacute;rcoles 4 de Noviembre (Semana 3)</strong> &bull; Reevaluaci&oacute;n Semanal
+                            Fecha de emisi&oacute;n: <strong>Mi&eacute;rcoles 4 de Noviembre (Semana 3)</strong> &bull; Reevaluaci&oacute;n de Gr&aacute;fica
                           </div>
                         </div>
                         <span style="background: var(--coral-soft); color: var(--coral); font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #F5C2B8;">
@@ -6504,7 +6538,7 @@
                       <div style="background: linear-gradient(135deg, #142B1F 0%, #1F4230 100%); border-radius: 18px; padding: 22px 24px; color: #FFFFFF; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(20, 43, 31, 0.18);">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
                           <div style="width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0;">
-                            <img src="data:image/jpeg;base64,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" alt="Nutri&oacute;loga Arianna" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
+                            <img src="data:image/jpeg;base64,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" alt="Nutri&oacute;loga Arianna" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
                           </div>
                           <div>
                             <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF;">
@@ -6531,13 +6565,83 @@
 
                       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                         <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(1)" style="font-size: 0.76rem;">
-                          <span>Ver Aviso de Expediente</span> <i class="fa-solid fa-arrow-right"></i>
+                          <span>Ver Reporte de Hidrataci&oacute;n</span> <i class="fa-solid fa-arrow-right"></i>
                         </button>
                       </div>
                     </div>
 
-                    <!-- VISTA 1: PROXIMO EXPEDIENTE CLINICO (EN PREPARACION) -->
+                    <!-- VISTA 1: REPORTE DOMINICAL DE HIDRATACION (VINCULADO AL DASHBOARD) -->
                     <div id="buzon-view-1" class="buzon-detail-view" style="display: none;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
+                        <div>
+                          <span class="card-label forest" style="margin-bottom: 4px;">BALANCE SEMANAL SINCRONIZADO</span>
+                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Reporte Dominical: Hidrataci&oacute;n Metab&oacute;lica</h3>
+                          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
+                            Corte cerrado: <strong>Domingo 1 de Noviembre, 2026</strong> &bull; Evaluado por la <strong>Nutri&oacute;loga Arianna</strong>
+                          </div>
+                        </div>
+                        <span style="background: #EFF6FF; color: #1D4ED8; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #93C5FD;">
+                          <i class="fa-solid fa-droplet"></i> 91% Cumplido
+                        </span>
+                      </div>
+
+                      <!-- 3 TARJETAS KPIS DE HIDRATACION -->
+                      <div class="buzon-metric-pill-grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Litros Acumulados</div>
+                          <div class="val" style="color: #1D4ED8;">15.3 L / 16.8 L</div>
+                          <div class="sub" style="color: var(--avo-primary);">&plusmn;0.8 L meta semanal</div>
+                        </div>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Promedio Diario</div>
+                          <div class="val" style="color: var(--avo-forest);">7.3 vasos/d&iacute;a</div>
+                          <div class="sub" style="color: var(--avo-forest);">91% de cumplimiento</div>
+                        </div>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">D&iacute;as en Meta (8 vasos)</div>
+                          <div class="val" style="color: var(--coral);">4 de 7 d&iacute;as</div>
+                          <div class="sub" style="color: var(--text-muted);">Consistencia &oacute;ptima</div>
+                        </div>
+                      </div>
+
+                      <!-- MICRO-INDICADORES FISIOLOGICOS -->
+                      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px;">
+                        <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 12px; padding: 8px 10px;">
+                          <div style="font-size: 0.65rem; font-weight: 800; color: #64748B; text-transform: uppercase;">&bull; Oxidaci&oacute;n Hep&aacute;tica</div>
+                          <div style="font-size: 0.8rem; font-weight: 800; color: #15803D; margin-top: 2px;">&Oacute;ptima (96%)</div>
+                        </div>
+                        <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 12px; padding: 8px 10px;">
+                          <div style="font-size: 0.65rem; font-weight: 800; color: #64748B; text-transform: uppercase;">&bull; Retenci&oacute;n Abdominal</div>
+                          <div style="font-size: 0.8rem; font-weight: 800; color: #1D4ED8; margin-top: 2px;">Cero retenci&oacute;n &check;</div>
+                        </div>
+                        <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 12px; padding: 8px 10px;">
+                          <div style="font-size: 0.65rem; font-weight: 800; color: #64748B; text-transform: uppercase;">&bull; D&iacute;a a Cuidar</div>
+                          <div style="font-size: 0.8rem; font-weight: 800; color: var(--coral); margin-top: 2px;">Jueves (6/8 vasos)</div>
+                        </div>
+                      </div>
+
+                      <!-- MENSAJE DE RETROALIMENTACION CLINICA DE ARIANNA -->
+                      <div style="background: #FFFFFF; border-left: 4px solid #2563EB; border: 1.5px solid #BFDBFE; border-left-width: 4px; border-radius: 14px; padding: 14px 18px; margin-bottom: 16px;">
+                        <div style="font-size: 0.74rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase; margin-bottom: 4px;">
+                          <i class="fa-solid fa-comment-dots"></i> Diagn&oacute;stico de Arianna:
+                        </div>
+                        <p style="font-size: 0.82rem; color: var(--text-main); line-height: 1.5; margin: 0;">
+                          "¡Excelente semana Mariana! Con este nivel de hidrataci&oacute;n tu h&iacute;gado oxida grasas sin esfuerzo, evitas la retenci&oacute;n de l&iacute;quidos abdominal (clave en tus -4.0 cm de cintura) y apagas los falsos antojos dulces por sed."
+                        </p>
+                      </div>
+
+                      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button type="button" class="btn-flip-trigger" onclick="openModule('mod-dashboard', document.getElementById('nav-mod-dashboard'))" style="font-size: 0.78rem;">
+                          <i class="fa-solid fa-chart-line"></i> Ir a Dashboard &amp; Progreso
+                        </button>
+                        <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(0)" style="font-size: 0.78rem;">
+                          <i class="fa-solid fa-arrow-left"></i> Volver a Nota de Arianna
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- VISTA 2: PROXIMO EXPEDIENTE CLINICO (EN PREPARACION) -->
+                    <div id="buzon-view-2" class="buzon-detail-view" style="display: none;">
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
                           <span class="card-label forest" style="margin-bottom: 4px;">ESTADO DEL EXPEDIENTE</span>
@@ -6594,8 +6698,8 @@
 
                     </div>
 
-                    <!-- VISTA 2: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (DETALLE) -->
-                    <div id="buzon-view-2" class="buzon-detail-view" style="display: none;">
+                    <!-- VISTA 3: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (DETALLE) -->
+                    <div id="buzon-view-3" class="buzon-detail-view" style="display: none;">
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
                           <span class="card-label gold" style="margin-bottom: 4px;">PAUTA DE SUPLEMENTACI&Oacute;N</span>
@@ -6652,8 +6756,8 @@
                       </button>
                     </div>
 
-                    <!-- VISTA 3: PROTOCOLO DOMINGO LIBRE (DETALLE) -->
-                    <div id="buzon-view-3" class="buzon-detail-view" style="display: none;">
+                    <!-- VISTA 4: PROTOCOLO DOMINGO LIBRE (DETALLE) -->
+                    <div id="buzon-view-4" class="buzon-detail-view" style="display: none;">
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
                           <span class="card-label forest" style="margin-bottom: 4px;">GU&Iacute;A CL&Iacute;NICA DESCARGABLE</span>
@@ -6713,9 +6817,6 @@
 
             </div>
           </div>
-
-
-
         </div>
       </main>
     </div>
@@ -8631,7 +8732,7 @@
       });
 
       // Ocultar todas las vistas del visor y mostrar la seleccionada
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 5; i++) {
         const v = document.getElementById('buzon-view-' + i);
         if (v) v.style.display = (i === idx) ? 'block' : 'none';
       }
@@ -8741,6 +8842,55 @@
       showToast('Mensaje Enviado', 'Tu duda cl\u00ednica est\u00e1 en la bandeja de Arianna.');
     }
 
+
+        // =========================================================
+    // INTEGRACION DIRECTA: DASHBOARD -> BUZON DE ARIANNA
+    // =========================================================
+    function sendCurveEvalToBuzon() {
+      if (typeof showToast === 'function') {
+        showToast('Enviado al Buz\u00f3n \u2705', 'La evaluaci\u00f3n de tu curva semanal de Arianna se ha sincronizado en tu Buz\u00f3n.');
+      }
+      openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
+      if (typeof selectBuzonItem === 'function') {
+        selectBuzonItem(0);
+      }
+    }
+
+    function sendWaterRetroToBuzon() {
+      // Sincronizar datos vivos de hidratacion al visor del buzon si existen
+      const wLiters = document.getElementById('water-retro-liters');
+      const wAvg = document.getElementById('water-retro-avg');
+      const wDays = document.getElementById('water-retro-days');
+      const wText = document.getElementById('water-retro-text');
+
+      const bLiters = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(1) .val');
+      const bAvg = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(2) .val');
+      const bDays = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(3) .val');
+      const bText = document.querySelector('#buzon-view-1 p');
+
+      if (wLiters && bLiters) bLiters.innerText = wLiters.innerText;
+      if (wAvg && bAvg) bAvg.innerText = wAvg.innerText;
+      if (wDays && bDays) bDays.innerText = wDays.innerText;
+      if (wText && bText) bText.innerHTML = wText.innerHTML;
+
+      if (typeof showToast === 'function') {
+        showToast('Enviado al Buz\u00f3n \u2705', 'Tu reporte dominical de hidrataci\u00f3n ha sido archivado en tu Buz\u00f3n.');
+      }
+      openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
+      if (typeof selectBuzonItem === 'function') {
+        selectBuzonItem(1);
+      }
+    }
+
+    function sendBioPrescriptionToBuzon() {
+      if (typeof showToast === 'function') {
+        showToast('Enviado al Buz\u00f3n \u2705', 'La pauta diaria de tu Bio-Radar ha sido registrada en tu Buz\u00f3n.');
+      }
+      openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
+      if (typeof selectBuzonItem === 'function') {
+        selectBuzonItem(0);
+      }
+    }
 
     function enterPlatform(initialModule) {
       const loginEmail = document.getElementById('login-email-inp')?.value;
