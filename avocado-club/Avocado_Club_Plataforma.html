@@ -854,7 +854,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 1;
+      z-index: 0 !important;
     }
 
     /* =========================================================
@@ -1812,29 +1812,30 @@
     }
 
         /* =========================================================
-       MÓDULO 8: BUZÓN & EXPEDIENTE CLÍNICO CONFIDENCIAL
-       ESTILOS DEL CENTRO DE MENSAJES Y DOCUMENTACIÓN MÉDICA
+       MODULO 8: BUZON & EXPEDIENTE CLINICO CONFIDENCIAL
+       ESTRUCTURA BENTO, VISOR MULTI-DOCUMENTO Y FEED INTERACTIVO
        ========================================================= */
     #mod-buzon {
-      width: 100%;
+      position: relative;
+      z-index: 2;
     }
     .buzon-header-card {
-      background: linear-gradient(135deg, #FFFFFF 0%, #FAFCF7 60%, #F3F8ED 100%);
-      border: 2px solid #FFFFFF;
-      outline: 1.5px solid #CFE0BE;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F9FCF5 100%);
+      border: 1.5px solid #CFE0BE;
       border-radius: 24px;
-      padding: 22px 28px;
+      padding: 24px 28px;
       margin-bottom: 20px;
-      box-shadow: 0 16px 36px -10px rgba(20, 43, 31, 0.12), inset 0 2px 4px rgba(255, 255, 255, 1);
+      box-shadow: 0 10px 28px rgba(20, 43, 31, 0.05);
       position: relative;
       overflow: hidden;
+      z-index: 2;
     }
     .buzon-top-accent {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 5px;
+      height: 4px;
       background: linear-gradient(90deg, var(--avo-primary), var(--gold), var(--coral));
     }
     .buzon-filters-row {
@@ -1842,45 +1843,45 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-      padding-top: 14px;
+      margin-top: 18px;
+      padding-top: 16px;
       border-top: 1px dashed #CFE0BE;
+      flex-wrap: wrap;
     }
     .buzon-filter-btn {
-      background: #FFFFFF;
-      border: 1.5px solid #CFE0BE;
+      background: #F1F6EA;
+      border: 1px solid #D5E5C4;
       color: var(--text-main);
       padding: 6px 14px;
-      border-radius: 99px;
+      border-radius: 999px;
       font-size: 0.78rem;
       font-weight: 700;
       cursor: pointer;
-      font-family: inherit;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.22s ease;
+      transition: all 0.2s ease;
+      font-family: inherit;
     }
     .buzon-filter-btn:hover {
+      background: #E5F0D8;
       border-color: var(--avo-primary);
-      background: var(--avo-pale);
-      color: var(--avo-forest);
+      color: var(--avo-dark);
       transform: translateY(-1px);
     }
     .buzon-filter-btn.active {
-      background: var(--avo-primary);
+      background: var(--avo-forest);
       color: #FFFFFF;
-      border-color: var(--avo-primary);
-      box-shadow: 0 4px 12px rgba(71, 118, 34, 0.28);
+      border-color: var(--avo-forest);
+      box-shadow: 0 4px 12px rgba(20, 43, 31, 0.2);
     }
     .buzon-feed-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      max-height: 720px;
+      max-height: 620px;
       overflow-y: auto;
-      padding-right: 6px;
+      padding-right: 4px;
     }
     .buzon-feed-list::-webkit-scrollbar {
       width: 6px;
@@ -1891,31 +1892,27 @@
     }
     .buzon-item-card {
       background: #FFFFFF;
-      border: 1.5px solid #E2EBD8;
+      border: 1.5px solid #E2ECD8;
       border-radius: 18px;
-      padding: 15px 16px;
+      padding: 16px 18px;
       cursor: pointer;
-      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.24s cubic-bezier(0.22, 1, 0.36, 1);
       position: relative;
-      box-shadow: 0 4px 12px rgba(20, 43, 31, 0.04);
-      display: flex;
-      gap: 13px;
-      align-items: flex-start;
+      box-shadow: 0 4px 14px rgba(20, 43, 31, 0.03);
+      user-select: none;
     }
     .buzon-item-card:hover {
       border-color: var(--avo-primary);
-      background: #F9FCF5;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(71, 118, 34, 0.12);
+      box-shadow: 0 8px 20px rgba(104, 163, 50, 0.12);
     }
     .buzon-item-card.active-buzon-item {
-      background: linear-gradient(135deg, #F0F9E8 0%, #FFFFFF 100%);
-      border-color: var(--avo-primary);
-      outline: 2px solid var(--avo-primary);
-      box-shadow: 0 10px 24px rgba(71, 118, 34, 0.16);
+      border-color: var(--avo-forest);
+      background: linear-gradient(135deg, #FFFFFF 0%, #F5FAED 100%);
+      box-shadow: 0 8px 24px rgba(20, 43, 31, 0.12);
     }
     .buzon-item-card.is-unread::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 14px;
       right: 14px;
@@ -1923,67 +1920,71 @@
       height: 9px;
       border-radius: 50%;
       background: var(--coral);
-      box-shadow: 0 0 0 3px rgba(224, 72, 54, 0.25);
+      box-shadow: 0 0 0 3px rgba(232, 111, 82, 0.22);
+      animation: pulseBuzonDot 2s infinite;
+    }
+    @keyframes pulseBuzonDot {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(232, 111, 82, 0.5); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(232, 111, 82, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(232, 111, 82, 0); }
     }
     .buzon-item-icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       flex-shrink: 0;
     }
     .buzon-viewer-card {
       background: #FFFFFF;
-      border: 2px solid #FFFFFF;
-      outline: 1.5px solid #CFE0BE;
+      border: 1.5px solid #CFE0BE;
       border-radius: 24px;
       padding: 26px 30px;
-      box-shadow: 0 16px 36px -10px rgba(20, 43, 31, 0.12);
-      min-height: 600px;
+      min-height: 620px;
+      box-shadow: 0 10px 28px rgba(20, 43, 31, 0.05);
       position: relative;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 2;
     }
     .buzon-metric-pill-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
-      margin: 16px 0;
+      margin: 14px 0;
     }
     .buzon-metric-mini {
-      background: var(--avo-pale);
-      border: 1px solid #CFE0BE;
+      background: #F8FAF4;
+      border: 1px solid #DCE8D0;
       border-radius: 14px;
       padding: 10px 12px;
       text-align: center;
     }
     .buzon-metric-mini .lbl {
       font-size: 0.68rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
     .buzon-metric-mini .val {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.08rem;
       font-weight: 800;
       color: var(--avo-dark);
-      margin-top: 2px;
+      margin: 2px 0;
     }
     .buzon-metric-mini .sub {
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: var(--avo-primary);
+      font-size: 0.69rem;
+      font-weight: 700;
     }
     .buzon-ask-container {
       margin-top: 20px;
-      background: linear-gradient(135deg, #F9FCF5 0%, #FFFFFF 100%);
-      border: 1.5px dashed #CFE0BE;
-      border-radius: 18px;
-      padding: 16px 20px;
+      padding-top: 16px;
+      border-top: 1.5px dashed #CFE0BE;
     }
 
 
@@ -4094,7 +4095,7 @@
             </li>
             <li class="nav-item" id="nav-mod-buzon" onclick="openModule('mod-buzon', this)">
               <i class="fa-solid fa-inbox"></i>
-              <span>8. Buzón & Expediente</span>
+              <span>8. Buz&oacute;n &amp; Expediente</span>
               <span class="badge-nav" id="sidebar-buzon-badge" style="background: linear-gradient(135deg, var(--coral), #E04836); font-weight: 800;">2 Nuevos</span>
             </li>
           </ul>
@@ -4139,8 +4140,8 @@
             <button type="button" id="top-pill-semilla" onclick="openModule('mod-semilla', document.getElementById('nav-mod-semilla'))" title="Abrir Módulo 7: La Semilla de Hoy" class="streak-pill clickable-pill" style="cursor: pointer; background: linear-gradient(135deg, #F1F9E8, #E2F2D1); border-color: var(--avo-primary); color: var(--avo-forest); font-family: inherit;">
               <span id="top-semilla-text">🌱 La Semilla de Hoy</span>
             </button>
-            <button type="button" id="top-pill-buzon" onclick="openModule('mod-buzon', document.getElementById('nav-mod-buzon'))" title="Abrir mi Buzón Clínico y Expediente Oficial" class="streak-pill clickable-pill" style="cursor: pointer; background: #EEF8F1; border-color: #8FD14F; color: var(--avo-forest); font-family: inherit;">
-              <i class="fa-solid fa-inbox" style="color: var(--avo-primary);"></i> <span id="top-buzon-text">Buzón Clínico</span> <span id="top-buzon-count-badge" style="background: var(--coral); color: #fff; font-size: 0.65rem; padding: 1px 7px; border-radius: 99px; font-weight: 800;">2</span>
+            <button type="button" id="top-pill-buzon" onclick="openModule('mod-buzon', document.getElementById('nav-mod-buzon'))" title="Abrir mi Buz&oacute;n Cl&iacute;nico y Expediente Oficial" class="streak-pill clickable-pill" style="cursor: pointer; background: #EEF8F1; border-color: #8FD14F; color: var(--avo-forest); font-family: inherit;">
+              <i class="fa-solid fa-inbox" style="color: var(--avo-primary);"></i> <span id="top-buzon-text">Buz&oacute;n Cl&iacute;nico</span> <span id="top-buzon-count-badge" style="background: var(--coral); color: #fff; font-size: 0.65rem; padding: 1px 7px; border-radius: 99px; font-weight: 800;">2</span>
             </button>
             <button type="button" id="top-pill-perfil" onclick="openModule('mod-perfil', document.getElementById('sidebar-profile-card'))" title="Abrir mi Tarjeta de Perfil Personal" class="streak-pill clickable-pill" style="cursor: pointer; background: var(--gold-soft); border-color: #F5DC9B; color: #9A6700; font-family: inherit;">
               <i class="fa-solid fa-user-check"></i> Mi Perfil VIP
@@ -6305,15 +6306,13 @@
             </div>
           </div>
 
-        </div>
-
           <!-- =========================================================
-               MÃ“DULO 8: BUZÃ“N & EXPEDIENTE CLÃNICO DE ARIANNA (#mod-buzon)
-               EXPEDIENTE NUTRICIONAL OFICIAL, NOTAS CLÃNICAS Y GUÃAS DE SALUD
+               MODULO 8: BUZON & EXPEDIENTE CLINICO DE ARIANNA (#mod-buzon)
+               EXPEDIENTE NUTRICIONAL OFICIAL, NOTAS CLINICAS Y GUIAS DE SALUD
                ========================================================= -->
           <div id="mod-buzon" class="module-section">
             
-            <!-- ENCABEZADO Bento DEL BUZÃ“N CLÃNICO -->
+            <!-- ENCABEZADO Bento DEL BUZON CLINICO -->
             <div class="buzon-header-card">
               <div class="buzon-top-accent"></div>
 
@@ -6321,18 +6320,18 @@
                 <div>
                   <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
                     <span class="card-label gold" style="margin: 0;">
-                      <i class="fa-solid fa-inbox"></i> MÃ“DULO 8 â€¢ BUZÃ“N MÃ‰DICO & EXPEDIENTE NUTRICIONAL
+                      <i class="fa-solid fa-inbox"></i> M&Oacute;DULO 8 &bull; BUZ&Oacute;N M&Eacute;DICO &amp; EXPEDIENTE NUTRICIONAL
                     </span>
                     <span style="background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; font-size: 0.69rem; font-weight: 800; padding: 2px 10px; border-radius: 99px; display: inline-flex; align-items: center; gap: 5px;">
                       <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; display: inline-block;"></span>
-                      Expediente MÃ©dico Encriptado & Auditado
+                      Expediente M&eacute;dico Encriptado &amp; Auditado
                     </span>
                   </div>
                   <h2 style="font-size: 1.48rem; color: var(--avo-dark); margin: 0; line-height: 1.2;">
-                    Tu Historial ClÃ­nico y Comunicaciones con Arianna
+                    Tu Historial Cl&iacute;nico y Comunicaciones con Arianna
                   </h2>
                   <p style="font-size: 0.82rem; color: var(--text-muted); margin: 4px 0 0 0; line-height: 1.4;">
-                    AquÃ­ recibes directamente tus expedientes oficiales, observaciones clÃ­nicas de evoluciÃ³n, prescripciÃ³n de suplementaciÃ³n y guÃ­as descargables del club.
+                    Aqu&iacute; recibes directamente tus expedientes oficiales, observaciones cl&iacute;nicas de evoluci&oacute;n, prescripci&oacute;n de suplementaci&oacute;n y gu&iacute;as descargables del club.
                   </p>
                 </div>
 
@@ -6340,13 +6339,13 @@
                   <button type="button" class="btn-flip-trigger" onclick="printBuzonRecord()" title="Imprimir o Guardar en PDF el Expediente Seleccionado" style="background: #FFFFFF;">
                     <i class="fa-solid fa-print"></i> Imprimir Expediente
                   </button>
-                  <button type="button" class="btn-flip-trigger gold-flip" onclick="markAllBuzonRead()" title="Marcar todas las comunicaciones como leÃ­das">
-                    <i class="fa-solid fa-check-double"></i> Marcar Todo LeÃ­do
+                  <button type="button" class="btn-flip-trigger gold-flip" onclick="markAllBuzonRead()" title="Marcar todas las comunicaciones como le&iacute;das">
+                    <i class="fa-solid fa-check-double"></i> Marcar Todo Le&iacute;do
                   </button>
                 </div>
               </div>
 
-              <!-- BARRA DE FILTROS POR CATEGORÃA + BUSCADOR -->
+              <!-- BARRA DE FILTROS POR CATEGORIA + BUSCADOR -->
               <div class="buzon-filters-row">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                   <span style="font-size: 0.73rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase;">Filtrar:</span>
@@ -6354,325 +6353,262 @@
                     <i class="fa-solid fa-folder-open"></i> Todos (<span id="buzon-count-all">4</span>)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('clinica', this)">
-                    <i class="fa-solid fa-stethoscope"></i> Expediente & ClÃ­nica (1)
+                    <i class="fa-solid fa-stethoscope"></i> Expediente &amp; Cl&iacute;nica (1)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('mensajes', this)">
-                    <i class="fa-regular fa-comment-dots"></i> Mensajes de Arianna (1)
+                    <i class="fa-solid fa-comment-medical"></i> Mensajes de Arianna (1)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('guias', this)">
-                    <i class="fa-solid fa-capsules"></i> PrescripciÃ³n & GuÃ­as (2)
+                    <i class="fa-solid fa-file-pdf"></i> Gu&iacute;as &amp; Protocolos (2)
                   </button>
                 </div>
 
-                <div style="position: relative; min-width: 220px; flex-grow: 0.3;">
-                  <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--text-muted);"></i>
-                  <input type="text" id="buzon-search-inp" onkeyup="searchBuzon(this.value)" placeholder="Buscar en mi buzÃ³n..." style="width: 100%; font-family: inherit; font-size: 0.78rem; padding: 7px 12px 7px 32px; border: 1.5px solid #CFE0BE; border-radius: 99px; background: #FFFFFF; color: var(--text-main); outline: none;">
+                <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 280px; min-width: 180px;">
+                  <div style="position: relative; width: 100%;">
+                    <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--text-muted);"></i>
+                    <input type="text" id="buzon-search-input" oninput="searchBuzon(this.value)" placeholder="Buscar en mi expediente..." style="width: 100%; font-family: inherit; font-size: 0.78rem; padding: 6px 10px 6px 30px; border: 1.5px solid #D5E5C4; border-radius: 999px; outline: none; background: #FFFFFF; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--avo-primary)'" onblur="this.style.borderColor='#D5E5C4'">
+                  </div>
                 </div>
               </div>
+
             </div>
 
-            <!-- GRID PRINCIPAL DEL BUZÃ“N (2 COLUMNAS: FEED IZQUIERDO Y VISOR DERECHO) -->
+            <!-- BENTO GRID PRINCIPAL: BANDEJA IZQUIERDA (5 COLUMNAS) + VISOR DE EXPEDIENTE (7 COLUMNAS) -->
             <div class="bento-grid">
 
-              <!-- COLUMNA IZQUIERDA (COL-5): LISTA DE COMUNICACIONES Y DOCUMENTOS -->
+              <!-- COLUMNA IZQUIERDA: FEED DE DOCUMENTOS Y NOTAS (5 COLUMNAS) -->
               <div class="col-5">
-                <div class="bento-card" style="padding: 18px 18px;">
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                      <span class="card-label gold" style="margin: 0; font-size: 0.72rem;">DOCUMENTOS & MENSAJES</span>
-                      <span id="buzon-unread-indicator" style="font-size: 0.68rem; font-weight: 800; background: var(--coral-soft); color: var(--coral); border: 1px solid #F5C2B8; padding: 2px 8px; border-radius: 99px;">
-                        2 pendientes
-                      </span>
+                <div class="card" style="padding: 18px 20px; height: 100%;">
+                  
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1.5px solid var(--border-soft);">
+                    <div>
+                      <span class="card-label forest" style="margin: 0;">BANDEJA DE ENTRADA</span>
+                      <h3 style="font-size: 1.05rem; color: var(--avo-dark); margin: 2px 0 0 0;">Documentos Cl&iacute;nicos</h3>
                     </div>
-                    <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">Sincronizado hoy</span>
+                    <span id="buzon-unread-indicator" style="background: var(--coral-soft); color: var(--coral); border: 1px solid #F5C2B8; font-size: 0.68rem; font-weight: 800; padding: 2px 8px; border-radius: 99px;">
+                      2 pendientes
+                    </span>
                   </div>
 
-                  <!-- Lista interactiva de elementos del buzÃ³n -->
-                  <div class="buzon-feed-list" id="buzon-feed-container">
+                  <!-- LISTADO INTERACTIVO DE ITEMS DEL BUZON -->
+                  <div class="buzon-feed-list" id="buzon-feed-items">
 
-                    <!-- ITEM 0: HISTORIA CLÃNICA OFICIAL (ACTIVO POR DEFECTO) -->
-                    <div class="buzon-item-card active-buzon-item" data-category="clinica" id="buzon-item-0" onclick="selectBuzonItem(0)">
-                      <div class="buzon-item-icon-box" style="background: linear-gradient(135deg, #DCFCE7, #BBF7D0); color: #166534; border: 1px solid #86EFAC;">
-                        <i class="fa-solid fa-file-waveform"></i>
-                      </div>
-                      <div style="flex: 1; min-width: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 2px;">
-                          <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: var(--avo-forest); letter-spacing: 0.03em;">
-                            ðŸ©º Expediente Oficial
-                          </span>
-                          <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: 700;">24 Oct 2026</span>
+                    <!-- ITEM 0: EXPEDIENTE OFICIAL INICIAL (ACTIVO POR DEFECTO) -->
+                    <div class="buzon-item-card active-buzon-item" data-category="clinica" onclick="selectBuzonItem(0)">
+                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div class="buzon-item-icon-box" style="background: #E8F5E9; color: #2E7D32;">
+                          <i class="fa-solid fa-file-medical"></i>
                         </div>
-                        <div style="font-size: 0.84rem; font-weight: 800; color: var(--avo-dark); line-height: 1.25; margin-bottom: 4px;">
-                          Historia ClÃ­nica & Anamnesis Nutricional Oficial
-                        </div>
-                        <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                          DiagnÃ³stico inicial de sensibilidad a insulina, medidas antropomÃ©tricas y metas terapÃ©uticas.
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 6px; margin-top: 6px;">
-                          <span style="font-size: 0.64rem; font-weight: 800; background: var(--avo-pale); color: var(--avo-forest); border: 1px solid #CFE0BE; padding: 2px 7px; border-radius: 99px;">
-                            NutriÃ³loga Arianna
-                          </span>
-                          <span style="font-size: 0.64rem; font-weight: 800; color: #166534;">
-                            <i class="fa-solid fa-circle-check"></i> Auditado
-                          </span>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #2E7D32; text-transform: uppercase;">Expediente Cl&iacute;nico</span>
+                            <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">12 Oct</span>
+                          </div>
+                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Expediente Nutricional Inicial &bull; Mariana G&oacute;mez
+                          </h4>
+                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Auditor&iacute;a metab&oacute;lica inicial: Protocolo de Control de Insulina, meta 62.0 kg y pautas de calibraci&oacute;n...
+                          </p>
                         </div>
                       </div>
                     </div>
 
-                    <!-- ITEM 1: NOTA CLÃNICA SEMANAL (NUEVO) -->
-                    <div class="buzon-item-card is-unread" data-category="mensajes" id="buzon-item-1" onclick="selectBuzonItem(1)">
-                      <div class="buzon-item-icon-box" style="background: linear-gradient(135deg, #FEE2E2, #FECACA); color: #991B1B; border: 1px solid #FCA5A5;">
-                        <i class="fa-solid fa-stethoscope"></i>
-                      </div>
-                      <div style="flex: 1; min-width: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 2px;">
-                          <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: var(--coral); letter-spacing: 0.03em;">
-                            ðŸ’¬ Nota de EvoluciÃ³n â€¢ Nueva
-                          </span>
-                          <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: 700;">2 Nov 2026</span>
+                    <!-- ITEM 1: OBSERVACION CLINICA SEMANA 3 (NUEVO/NO LEIDO) -->
+                    <div class="buzon-item-card is-unread" data-category="mensajes" onclick="selectBuzonItem(1)">
+                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div class="buzon-item-icon-box" style="background: #FFF7ED; color: #C2410C;">
+                          <i class="fa-solid fa-user-doctor"></i>
                         </div>
-                        <div style="font-size: 0.84rem; font-weight: 800; color: var(--avo-dark); line-height: 1.25; margin-bottom: 4px;">
-                          EvaluaciÃ³n de Curva: RetenciÃ³n de Agua vs Cintura
-                        </div>
-                        <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                          ExplicaciÃ³n del rebote de 300g por glucÃ³geno y plan de choque para drenar lÃ­quidos con 8 vasos.
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 6px; margin-top: 6px;">
-                          <span style="font-size: 0.64rem; font-weight: 800; background: var(--coral-soft); color: var(--coral); border: 1px solid #F5C2B8; padding: 2px 7px; border-radius: 99px;">
-                            ObservaciÃ³n Activa
-                          </span>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #C2410C; text-transform: uppercase;">Mensaje Directo</span>
+                            <span style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">Ayer (4 Nov)</span>
+                          </div>
+                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Observaci&oacute;n Cl&iacute;nica: Cintura -4.0 cm
+                          </h4>
+                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Arianna revis&oacute; tus medidas de Semana 3: "Vas excelente oxidando grasa visceral. Mant&eacute;n el nopal en tu comida..."
+                          </p>
                         </div>
                       </div>
                     </div>
 
-                    <!-- ITEM 2: PRESCRIPCIÃ“N DE SUPLEMENTACIÃ“N (NUEVO) -->
-                    <div class="buzon-item-card is-unread" data-category="guias" id="buzon-item-2" onclick="selectBuzonItem(2)">
-                      <div class="buzon-item-icon-box" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #92400E; border: 1px solid #FCD34D;">
-                        <i class="fa-solid fa-capsules"></i>
-                      </div>
-                      <div style="flex: 1; min-width: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 2px;">
-                          <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: #9A6700; letter-spacing: 0.03em;">
-                            ðŸ“‹ PrescripciÃ³n TerapÃ©utica
-                          </span>
-                          <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: 700;">28 Oct 2026</span>
+                    <!-- ITEM 2: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (NUEVO/NO LEIDO) -->
+                    <div class="buzon-item-card is-unread" data-category="guias" onclick="selectBuzonItem(2)">
+                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div class="buzon-item-icon-box" style="background: #FEF3C7; color: #B45309;">
+                          <i class="fa-solid fa-capsules"></i>
                         </div>
-                        <div style="font-size: 0.84rem; font-weight: 800; color: var(--avo-dark); line-height: 1.25; margin-bottom: 4px;">
-                          Protocolo de Micronutrientes & Apoyo InsulÃ­nico
-                        </div>
-                        <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                          Dosis y horarios exactos: Citrato de Magnesio 400mg, Canela CeilÃ¡n y Vinagre con "la madre".
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 6px; margin-top: 6px;">
-                          <span style="font-size: 0.64rem; font-weight: 800; background: var(--gold-soft); color: #9A6700; border: 1px solid #F5DC9B; padding: 2px 7px; border-radius: 99px;">
-                            Grado TerapÃ©utico
-                          </span>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #B45309; text-transform: uppercase;">Prescripci&oacute;n Sugerida</span>
+                            <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">1 Nov</span>
+                          </div>
+                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Pauta de Suplementaci&oacute;n: Citrato de Magnesio
+                          </h4>
+                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Dosis nocturna recomendada para optimizar sensibilidad a la insulina y relajaci&oacute;n muscular profunda...
+                          </p>
                         </div>
                       </div>
                     </div>
 
-                    <!-- ITEM 3: GUÃA DOMINGO LIBRE (LEÃDO) -->
-                    <div class="buzon-item-card" data-category="guias" id="buzon-item-3" onclick="selectBuzonItem(3)">
-                      <div class="buzon-item-icon-box" style="background: linear-gradient(135deg, #E0E7FF, #C7D2FE); color: #3730A3; border: 1px solid #A5B4FC;">
-                        <i class="fa-solid fa-book-open-reader"></i>
-                      </div>
-                      <div style="flex: 1; min-width: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 2px;">
-                          <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: #3730A3; letter-spacing: 0.03em;">
-                            ðŸ“„ GuÃ­a ClÃ­nica Descargable
-                          </span>
-                          <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: 700;">31 Oct 2026</span>
+                    <!-- ITEM 3: GUIA DESCARGABLE DOMINGO LIBRE (LEIDO) -->
+                    <div class="buzon-item-card" data-category="guias" onclick="selectBuzonItem(3)">
+                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div class="buzon-item-icon-box" style="background: #EFF6FF; color: #1D4ED8;">
+                          <i class="fa-solid fa-file-pdf"></i>
                         </div>
-                        <div style="font-size: 0.84rem; font-weight: 800; color: var(--avo-dark); line-height: 1.25; margin-bottom: 4px;">
-                          Protocolo Domingo Libre: 5 Reglas Anti-Picos de Insulina
-                        </div>
-                        <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                          Estrategia paso a paso para comidas sociales sin almacenar grasa visceral ni culpas.
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 6px; margin-top: 6px;">
-                          <span style="font-size: 0.64rem; font-weight: 800; background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; padding: 2px 7px; border-radius: 99px;">
-                            PDF Disponible
-                          </span>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase;">Gu&iacute;a Oficial PDF</span>
+                            <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">28 Oct</span>
+                          </div>
+                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Protocolo Domingo Libre: 5 Reglas Anti-Picos
+                          </h4>
+                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            C&oacute;mo disfrutar de tus comidas sociales sin frenar tu cetosis nocturna ni acumular grasa visceral...
+                          </p>
                         </div>
                       </div>
                     </div>
 
                   </div>
+
                 </div>
               </div>
 
-              <!-- COLUMNA DERECHA (COL-7): VISOR DE EXPEDIENTE / COMUNICACIÃ“N SELECCIONADA -->
+              <!-- COLUMNA DERECHA: VISOR OFICIAL DE EXPEDIENTE / NOTA SELECCIONADA (7 COLUMNAS) -->
               <div class="col-7">
                 <div class="buzon-viewer-card" id="buzon-viewer-card">
-                  <!-- Contenedor dinÃ¡mico del visor -->
+                  
+                  <!-- CONTENEDOR MULTI-VISTA (CAMBIA SEGUN EL ITEM SELECCIONADO) -->
                   <div id="buzon-viewer-content">
-                    
-                    <!-- VISTA 0: EXPEDIENTE CLÃNICO E HISTORIA NUTRICIONAL OFICIAL (CARGADO POR DEFECTO) -->
+
+                    <!-- VISTA 0: EXPEDIENTE OFICIAL NUTRICIONAL (DETALLE) -->
                     <div id="buzon-view-0" class="buzon-detail-view" style="display: block;">
-                      <!-- Membrete MÃ©dico Oficial -->
-                      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 14px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-                        <div style="display: flex; align-items: center; gap: 12px;">
-                          <div style="width: 48px; height: 48px; border-radius: 14px; background: #142B1F; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <i class="fa-solid fa-shield-heart" style="font-size: 1.5rem; color: var(--gold);"></i>
-                          </div>
-                          <div>
-                            <div style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--avo-primary); letter-spacing: 0.08em;">
-                              EXPEDIENTE CLÃNICO AUDITADO â€¢ AVOCADO CLUB
-                            </div>
-                            <div style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--avo-dark); line-height: 1.15;">
-                              Historia ClÃ­nica & Anamnesis Nutricional
-                            </div>
-                            <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">
-                              Folio Oficial: <strong style="color: var(--avo-dark);">#AC-2026-MG084</strong> â€¢ Fecha de Apertura: <strong>24 de Octubre, 2026</strong>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div style="text-align: right;">
-                          <span style="background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; font-size: 0.68rem; font-weight: 800; padding: 3px 10px; border-radius: 99px; display: inline-flex; align-items: center; gap: 5px;">
-                            <i class="fa-solid fa-lock"></i> Expediente Activo
-                          </span>
-                          <div style="font-size: 0.64rem; color: var(--text-muted); margin-top: 4px;">
-                            CÃ©d. Profesional Arianna: <strong>849201</strong>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Ficha Resumen de la Paciente -->
-                      <div style="background: linear-gradient(135deg, #F9FCF5 0%, #F1F8EB 100%); border: 1px solid #CFE0BE; border-radius: 16px; padding: 12px 16px; margin-bottom: 16px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                        <div>
-                          <span style="font-size: 0.66rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Paciente:</span>
-                          <div style="font-size: 0.88rem; font-weight: 800; color: var(--avo-dark);">Mariana GÃ³mez</div>
-                          <span style="font-size: 0.64rem; color: var(--avo-primary); font-weight: 700;">Socia VIP Activa</span>
-                        </div>
-                        <div>
-                          <span style="font-size: 0.66rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Edad / Estatura:</span>
-                          <div style="font-size: 0.88rem; font-weight: 800; color: var(--avo-dark);">31 aÃ±os â€¢ 1.65 m</div>
-                          <span style="font-size: 0.64rem; color: var(--text-muted); font-weight: 600;">Metabolismo basal estimado</span>
-                        </div>
-                        <div>
-                          <span style="font-size: 0.66rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Objetivo Primario:</span>
-                          <div style="font-size: 0.85rem; font-weight: 800; color: var(--coral);">Control Insulina + Bajar Peso</div>
-                          <span style="font-size: 0.64rem; color: var(--text-muted); font-weight: 600;">Flexibilidad 80/20</span>
-                        </div>
-                      </div>
-
-                      <!-- Matriz AntropomÃ©trica de Apertura vs Actual -->
-                      <div style="font-size: 0.72rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;">
-                        ðŸ“Š EvoluciÃ³n AntropomÃ©trica Certificada:
-                      </div>
-                      <div class="buzon-metric-pill-grid">
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">Peso Corporal</div>
-                          <div class="val">68.4 kg</div>
-                          <div class="sub">Inicial: 71.2 kg (-2.8 kg)</div>
-                        </div>
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">Cintura Umbilical</div>
-                          <div class="val" style="color: var(--avo-primary);">79 cm</div>
-                          <div class="sub">Inicial: 83 cm (-4.0 cm)</div>
-                        </div>
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">Cadera / GlÃºteo</div>
-                          <div class="val">99 cm</div>
-                          <div class="sub">Inicial: 101.5 cm (-2.5 cm)</div>
-                        </div>
-                        <div class="buzon-metric-mini">
-                          <div class="lbl">Ãndice ICC (Cint/Cad)</div>
-                          <div class="val" style="color: #166534;">0.80</div>
-                          <div class="sub">ðŸŸ¢ Riesgo Bajo / Ã“ptimo</div>
-                        </div>
-                      </div>
-
-                      <!-- DiagnÃ³stico ClÃ­nico Nutricional Detallado -->
-                      <div style="background: #FFFFFF; border-left: 4px solid var(--avo-primary); border-top: 1px solid #E6EFE0; border-right: 1px solid #E6EFE0; border-bottom: 1px solid #E6EFE0; border-radius: 14px; padding: 14px 18px; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(20, 43, 31, 0.04);">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                          <span style="font-size: 0.74rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase;">
-                            ðŸ©º DiagnÃ³stico ClÃ­nico & EvaluaciÃ³n Bio-MetabÃ³lica:
-                          </span>
-                          <span style="font-size: 0.67rem; font-weight: 800; background: var(--avo-pale); color: var(--avo-forest); border: 1px solid #CFE0BE; padding: 2px 8px; border-radius: 99px;">
-                            Dictamen NutriÃ³loga Arianna
-                          </span>
-                        </div>
-                        <p style="font-size: 0.82rem; color: var(--text-main); line-height: 1.55; margin: 0;">
-                          "Mariana presenta un perfil clÃ¡sico de <strong>sensibilidad a la insulina disminuida</strong> con predominio de acumulaciÃ³n adiposa a nivel peri-umbilical y episodios frecuentes de hipoglucemia reactiva (somnolencia severa 45-60 min post-comida y ansiedad dulce por las tardes). <strong>EvoluciÃ³n favorable:</strong> en sus primeras semanas ha logrado una reducciÃ³n de <strong>4.0 cm de cintura</strong>, lo que confirma movilizaciÃ³n efectiva de grasa visceral profunda a pesar de fluctuaciones transitorias de lÃ­quidos en bÃ¡scula. El Ã­ndice ICC de 0.80 la sitÃºa en zona de seguridad cardiovascular."
-                        </p>
-                      </div>
-
-                      <!-- Protocolo Asignado & Metas -->
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
-                        <div style="background: var(--avo-pale); border: 1px solid #CFE0BE; border-radius: 14px; padding: 12px 14px;">
-                          <div style="font-size: 0.7rem; font-weight: 800; color: var(--avo-dark); text-transform: uppercase; margin-bottom: 4px;">
-                            ðŸ¥‘ Estrategia Nutricional en Curso:
-                          </div>
-                          <ul style="margin: 0; padding-left: 16px; font-size: 0.76rem; color: var(--text-main); line-height: 1.45;">
-                            <li>Aporte obligatorio de <strong>1/3 a 1/2 de aguacate Hass</strong> en comidas para estabilizar saciedad y GLUT4.</li>
-                            <li>Meta hÃ­drica de <strong>2.4 L diarios (8 vasos)</strong> para eliminar retenciÃ³n de sodio.</li>
-                            <li>Estructura 80/20: 6 dÃ­as de apego estricto + Domingo Libre como recarga de leptina.</li>
-                          </ul>
-                        </div>
-                        <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 14px; padding: 12px 14px;">
-                          <div style="font-size: 0.7rem; font-weight: 800; color: #92400E; text-transform: uppercase; margin-bottom: 4px;">
-                            ðŸ§ª AnalÃ­ticas Sugeridas (Mes 2):
-                          </div>
-                          <ul style="margin: 0; padding-left: 16px; font-size: 0.76rem; color: #92400E; line-height: 1.45;">
-                            <li>Glucosa e Insulina basal en ayuno (cÃ¡lculo de HOMA-IR).</li>
-                            <li>Hemoglobina Glucosilada (HbA1c).</li>
-                            <li>Perfil LipÃ­dico completo (foco en relaciÃ³n TriglicÃ©ridos/HDL &lt; 2.0).</li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <!-- Firma Digital y Sello MÃ©dico -->
-                      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px dashed #CFE0BE; flex-wrap: wrap; gap: 10px;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADwAPADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD69YnPboO3tSbj6D8hQ3X8B/KkrIYu4+35CjcfQfkKSigYu4+35CjcfQfkKSigQu4+35CjcfQfkKSigBdx9B+Qo3H0H5CkooAXcfb8hRuPt+QpKKBi7j6D8hRuPoPyFJRQAu4+g/IUbj7fkKSigQu4+g/IUbj7fkKSigBdx9B+Qo3H2/IUlFAxdx9B+Qo3H2/IUlFAhdx9B+Qo3H0H5CkooGLuPoPyFG4+g/IUlFAC7j6D8hRuPoPyFJRQIXcfQfkKVScnp0Pb2ptKvX8D/KgYN1H0H8qSlbr+A/lSUCCiiigYUUVFc3ENtbyXFzNHBBGN0kkjBVQepJ6UN23ES0ZryHxt8efDGis9vo8L6vOvHmbvLhB9j95vyFeU63+0N4yu3YWT2mnoegggBI/Fsmo9pfZXMp16cN2fWeaX8D+VfE1x8ZPH8zEnxLfr7LJt/lVY/Fvx2evibU//AAIb/Gjmn2MfrtI+4ufQ/lRz6H8q+HP+FteO/wDoZdT/APAlv8aT/hbnjsf8zNqX/gQ3+NLmn2H9dpH3Jz6H8qMH0P5V8Nf8Lf8AHg/5mXUv/Ahv8aQ/GDx5/wBDLqX/AIEN/jRzT7B9cpH3Ng+h/Kjn0P5V8LN8YPHn/Qzal/4EN/jUTfF/x7/0M+p/+BLf40c0+w/rlI+7ufQ/lSfnXwc3xe8e/wDQ0ap/4Et/jUL/ABb8eH/maNV/8Cm/xovU7B9bpH3xmivgF/iz48P/ADNOrf8AgU/+NQP8VfHh/wCZp1f/AMC3/wAaL1O34j+t0vM/QTI9RRkeor89j8U/HgOR4q1gf9vb/wCNSQ/GD4iQsDH4t1X/AIFPu/nmi9TsvvD63S8z9Bu1FfDug/tFfEPTnX7TqEGoRjqtzAuT+K4NeveAv2m9C1OSO18TWDaXK3HnxkyRfjxuX8j9aOdr4kawq056RZ9CUVS0fVNP1exjvdNu4bqCRdyvG4YEfhV3NWmmro0atowooopgFKnX8D/KkpU6/gaAB+o+g/lSUrdR9B/KkoEFFFV725htbaW4uJVihiQvJIx4VQMkn6ChuyuwM7xd4j0vwvok2ratP5UEfCqPvyt2VR3J/TrXyL8V/irrXjG9aMyG105G/c2sbfIvuf7ze5/DFQ/G/wCIl14z8SSNE7x6bbkx2kOfup/eP+03U/gO1ebM5NZRi56s8zFYp35IE0kzOxZmJNRlqjJpc1secxd1NJoJphNMQpNNJNIaaTQMCaaxNBNNJpDEJppNK1Iql2wBmgZGcmmNXf8AgX4Y+JfFafaLK0EVmDh7q4bZED6Z/iPsATXY3PwNs7aP/TfFI8zuLa0yB+LMP5VxV8xw1B2nKxsqM2r2PCyaYTXrGo/CjTIiRb+KZQf+mtmCP0euU8YeAdT8PaWdUkvbO4sw4QON0bEnoArDn8CeBRRzLDV3ywlr8yXFo49jTCaUmmGu0AJNIHKnIODSGmE0DR3/AMK/if4g8C6qk1hctJaM2ZrR2PlyD1H91vcfjmvuH4ZeOtH8d+H49U0uYbsYmhP3427gj/PqK/N7Nd78FviDf+A/FcF/FI7WcjBLuEHh0z1x6jqPxHespR5XzRPRw2I+xPb8j9ERRWfoOqWur6Vb6jZyrJBcRh0ZTkEEZrQq001dHa1Z2ClXr+B/lSUq9fwP8qYA/X8B/KkpW6j6D+VJQIaxwK8Z/am8VPo/gpNIt5ds+qOVfB5EKYLfmSo/A17HO2FJr5B/ax1drv4hrYhsx2VrHGB6Mw3t/wChD8qzqatR7mdefJTcjx6SQsxYnk0zNRk0qmtTwGSZozTM0UyR+aaTSZpM5oADXbfCHwjonjPWrjStS1e5srtY/NtoIkUfaFH3wHbOGAwcY5GfSuIJqxpOpXuj6taarpsxhvLSVZoX9GHr7HoR6E1nVjKUGouzLhZNX2Pf5vg14Etv3N62uxSkcObtcH6YTFcZ41+EMNjbvceGdYe9IGfst2FV2HorjAJ9iB9a9L07x3Z+K/DaajZsqkqFuYDgm3k7qfb0PcfjXH6tqTi4CxymId933D/h/L6V8lLHYyjUa5r26M6anJbRHitvpWqXNrf3UOn3LQadj7bJ5ZC2+TtAYnoSe3Xr6V1Hwg8NQ+IfE4F+WXTbNRPdsDgsucLGD2LHj2AJ7Vt3c2/WZLY7lXV4Gjmiz8rTohMcmOhJXeufpTfhS92nh+awsoy1zc3rGVugCoAq5PYZLfnXq1cylPDylFWelvnp+DTMlZWaPa9e8Y2dnpyWliIre3hURQxRDaqL2AH4frWBY2XiLxAwnYGxsmbJlmB3Edtq9T3qbw9oNjo5W81Fhf3gO5SRlIzjsP8AJrWvNTe9BjDEbhgbGKkfSvn1gW3z1nr2NnNy+JkVvo2j2QBhRrm5HymWbk59h2r54+OPiwa34tfTbabfYaWTCuDw8v8AG34fdH0PrXonxl+IY8M2c2mWl4s/iK4iEQChf9CjwfmbHAfk4HXJya+bQzE5JJPcnqa+gyrC2/eNWXT/ADB6o0N4NIahizipCa9syaEamGnE8UxjQAhoVtrAikJ5puaZaPsn9jLxg+peFrnw5dS7pdPcGHJ58tskD8DuH5V9EKcivhH9kvWn034qWtvvxHeRPEwz1I+YfyP5191wHIrGno3E9inLnpxl/WhLSr1/A/ypKVev4H+VaFA3X8B/KkpW6j6D+VIaAKd82ImPtXw7+0Bcm4+K+vknO27ZB/wEBf6V9vakcRNXwj8an3fFDxCc/wDMRm/9CNZP+Ijmxv8AB+Zx+aXNR5pQa2PFJM0Z96jzS5oEPzRkUzNGaYWHE0h5FJmnICxpDsFhfalpd59r0u7ltZsYLRnhh6MOhHsa6O18XeJdVf7LFo1vf3OOsMTg/UhTgfpWt8PPA82vTR3VzDO1mZREkUI/e3Uh/wCWceePdmPCivorw58O9Js7WOG4s4JmAH+iW+VtY/8Aexhpm9WY49BXk42pQcrSimzso0JTWp806PJ4jj12yl1nRmgt47hHDIvMTA9ep4IJBHvT7LWvG2mFRoWlC3sVyQkkCt5jEks5yQ2SfyGBX1lP4E0a5jCT6HpZQdFFsi4/ICoW8CaPDA0VvoemIp6gWyEn8SM1wKuoy5uT/I3+pvofLF18X/ENkxt73QLDzx13GRP0zXPa58WvGN9C0FrcW+kxsME2Ue2Qj/fYlh+GK+gviB8JdKv7WQWlqttPgkRnPln6d0PuOPavl3xh4cu9A1OS1uY3VQ5UbhypHY+/8678LUw9eVnG0jGVNwepz8jvLI0juzu5JZmOSx7knuafGtPWLFSKmK9YhscgwBTqAKRqCGIxpjUpNMY0wSENIaCaSgs7j4F3Bt/il4fkBx/pir+YI/rX6JWL7olb1Ga/OD4QsR8SPD5H/QQh/wDQhX6M6Wc28f8Auisf+Xr9D08N/B+Zo0qdfwP8qQUq9fwP8q0Ngbr+A/lSHpSt1/AfypD0oAzdT/1Rr4O+NfHxP8Qj/qIzf+hmvvHU/wDVmvg744/L8U/EQ/6iM3/oZrJ/xUc2M/g/M44GlzUO6l3VseOSg0ZpgajNArEgNGaj3UoagLEgPNbfhPSJ9a1m2sIOGmfBY9FXqzfgMmsSMbiK9b+Ceim6cZBWTUpvscbjqkQG6Zx/wEEVzYqr7Km2aUoc8rHunwt0S3ttJgu7aEossXk2Ct1itc/e/wB6UjcT/d2+9em2NmkMQUD6n1qhoFsgHmJGI41AWNAOFUDAA+gwK2WcAYFeFBfaZ9BShZDHVRUTqD2pxfJ60maHJM25TN1SySeEqwHsfSvAPj34Mi1LSpb1YgLiAYkIHVex/D+RNfRsoBXBrj/GenpPbyK6BkkUqw9QRWEm4NTW6OXEU+aJ+fMqNDO8EgwyMVI+lKOa6f4saDJofiWYEHaXK5x19D+Iwfxrk45MivqKFVVaamjyJRsSk0w9KCaaxrYgRjTTQ1IaCkIaQ0E00n86Yzrvg8N3xK8PD/qIw/8AoYr9F9I/490+lfnX8FRu+KHhweupQf8AoYr9E9J/1K1z/wDL1+h6mF/g/M0x0pydfwP8qaOlOXr+B/lWpqDdfwH8qaelObr+A/lTT0oAztT/ANX+Ir4O+PPy/FfxGP8AqIzf+hGvvHUvufiK+Dfj+cfFvxH/ANhGb/0I1k/4qOfGfwfmcMDTs1FmlzW545JmlzUW6lzQBJmlBqLNPjyTQFjR0e1mvLyC1gQvNNIscajuxOBX1X8ItBht5HuIRugsohp1sxH324ad/wA9q/8AfQrwz4S6NLM82sRwebcI62mnoRkPcycD/vkHOe2favrLwJo8Wl6baafCd8dpGEL/APPR+rOfdmLH8a8PMKvPPkR6GDpa3OrtVEFsq+gqVI3k+ZjtX17miMB5QD91eTU7Esa5VG57C0IGijAwAT75qJ1K8g8VPM8UQzLLHGP9pgP51GssMo/dSxyf7rA/ypOK2HqQlves3WIBNbsMdq0JRg8dKrzfMpFYy7MU1dHy1+0h4bNxAt9HHyflcgdCOQfyyPyr5vTcjFW4ZTg193/EjRE1HTrm2cYEinBx909j+Bwa+KfG+mSaXrUitH5Y3FWX0YH/APWPwr0sqrWvSZ41aFpWMwNkUhqJGzTya9s5rA1NNGaQmhDEJppNKTTTQM7f4GjPxU8ND/qJwf8AoYr9EdK/1Qr88PgPz8WPDP8A2E4P/QxX6H6X/q/xNYf8vX6HqYb+D8zSHSnL1/A/ypo6U5Ov4H+VamgP1H0H8qQ9KVuv4D+VNPSgDO1L7o+or4L/AGgyP+FueI/+wjN/6Ea+89S+7+Ir4H/aAbPxc8SH/qJT/wDoZrJ/xUYYv+CcMDS7qi3Uua2PIsSZpc1Huo3UCsShqsWiPJMkcal3dgqqOrEnAFUwa6r4bQwv4iF5cDMNhC1yf94cL+pB/CoqT5IuXYcVdnv/AMHdBjtriExhTBpMPkoQOJLuQZkf/gKkgf749K970uIQWi8YJGTXnHwo0prDw/p1tMP3zJ9ouM95JPnb8shfwr0qM73SMdO9fMc7lJyPcw0LIvQlY7cySMEXG5mPAArAuNTvdVUtp8xsdNHH2nbmWf8A3Aeg9+p7VU8Zaokt8mj7sWsaiW9P94H7sf0OCT7DHeuh8JxRvAl/cAfMMwoeka9vxNaU06s+RPQ9iFJUqXtZK/Y5LVPDrvEZodPaRyOZLqXLt/31n+lcDqMt5pdyz28bRSoeRGdrD8sV7jrtzH5biMAmvHPGCeZcSyDG4nnFceLhTpytBnu5ZL28bVI6Gn4P+Iizstrqsodc7RN0ZD/tDuPevQGIZQykEEZBHQivlbXZLiw1IXsOQwPzgfxf/Xr1/wCEfi4ahaDTbiTOE325J7D7y/hnI9vpShNtWZyZtlSw69pT+FnZa9bC4tW45Ar5W/aF8NbZzexR4EoO446MO/5YP/ATX1tcYdD7ivIPjJpK3Wh3ahAzKpkUfTn+WRWtOo6VRTR8jiodT4vjYqSrcEHBHvUwOadr1ubPVZEJ6nP64/pn8agRsivrYyUkmjz5IlJppNGaQ1RIhppNKTTaBne/AIZ+LXhkf9ROD/0MV+h2mfc/E1+ePwBP/F3PDH/YTg/9DFfodpn3PxP86w/5ev0R6eH/AIXzNIdKcvX8D/KmjpTl6/gf5VqaA/X8B/KmnpTm6/gP5U1ulAGZqn3PxFfAXx8fPxZ8SH/qJT/+hmvv3Vv9Wa/Pv45Pv+KniM/9RKf/ANDNYv8Air0f6GOK/g/M4sGlzTM0ZroPKsSbqAajzS5pCsSZrvfhlarcWcsecPe38Fr9UBGf/Q68/Dc16N8KZgp0QEjb/bO5vXP7sD8K5Mc7UWVD4j6/8L4JkcDAzx7V09gR5jOewxXKeFHH2dvwrpbI5jb34r5qk9Ue7Q+E8h1vWzNqkzls/a7qRm/3Q20D8lH516XZ6/AlinkyqVICrg9OK8D8UTPp+oxo5IMU0kbfUO1behazuVRu61j7WVON11PvaeBhXoQPVtS1cNEQrZJrkNT/AHxYnnNJb3RlUc5qysRk7Zrz6lZs66GGjROF1zRzchiFrD8NzT6FqsE2Sq290h/4CTtI/JjXsEWkiSMkr2rzjx/YfZmIRcGWZFGP94f4GtaFR7MMZUhWpSpntVjdrPahgc1zHjqJZLdgQCGUg0vhC8L6WCx5wKZ4wlBtRz613N6H5tiNmfFHxJtvI1ZsZ+STb+hH/stc3E1dl8V8NqF4y9BMvf1aSuIibivrMI70YnkvYtjpQaYp4pxNdBAhppNKTTc0DO++AB/4u74Y/wCwnB/6GK/RDTPufif51+dfwFbb8WvDJ9NSg/8AQxX6KaXzGD7msP8Al6/RHp4f+D8zSHSnL1/A/wAqaOlOXr+B/lWpYN1/Afypp6U5+v4D+VNPQ0AZerf6lq/PT40vu+J3iE/9RGf/ANDNfoXrHFu59q/Oz4wNu+JOvk/9BGb/ANDNZf8AL1en+Rjiv4PzOVBpc0yjNbnlj80uaZmjNADia7PwBdmLTlcE/wCiagsvX1UHp9Uris1p+Frl0vZbNMZuUHl5Gf3incv9awxMOek0VHc+4/B96k0SvG2UlQMp9R2rsLCThl/GvCvgt4gW50K3i8zMlsAmCeSv8P6cfUV7LY3AYLIp4Ir5Je5KzPXwtS8Tyb436E9vrT3UaEW99+8jYdFlA+ZfxwCPxrz/AEC+khuPJlyrDqK+mvEWlWeu6PLYXqbo5BkEcFW7MD2Ir5+8WeG7/Qb9hfwNLbA/u72JeMf7QH3T+lE46WPs8mzRQXsqh2/ht/PVcc13mk6dv2kivJvBmqwRsgS7jkX1zn+VetaRr1ksS/v1LY6CvJqR5Zanq4ypUlH92bj2kcNueADivKfHtss139oIxHCdsf8AtOf8Bk/iK9I1C/DWpluHNtBjPP33+g/qeK8y8Sah/aWoKsahIIuEUHgD+p9TTp3lJJbHie2dGnJyerL3hlzFbJH+NQeOdQWGwldmAEcZY07T3WGEyHgAV538WvEKW1g8RbLOC7DP8I7ficD8a9SnFzkoo+RxVTTQ8C+INyZC4f7z3IHX+6uT+rVysJ4rU8Y3HmalHbkhnhQmRh3djuP9Kyoq+xox5KaRwWsiypp2ajWnVoZCmmmlJptMDt/gc234p+G29NRh/wDQxX6M6RzApr83/g62z4leH29L+H/0MV+j2jf8e0Z9hXP/AMvX6I9PD/wfmaq9KcnX8D/KmjpTl6/gf5VqWDdfwH8qaelOfqPoP5U09KAMrWf+PaT/AHTX50/FzI+I2vA/9BCb/wBCNfovq4zA49q/PH43wmD4n66hGM3jN+YB/rWX/L1ej/QyxP8AB+ZxYNGaaKXNbnli5pQabRmgBxNNWSSGVJ4m2yRsGU+hFGaR+RQCPS/AHix9M1aC+hYm2uDh0z0b+JD+PI/+vX1D4R8QW95ZxSxSq8bjIINfC+mX/wBhlZJFZ7aX/WKOoPZh7j9a9L8C+ObzQLiNXn86zkwVfd8rj1J7H379/WvCx2Bd+eB005uDuj7QtLpWXBOVqtqtkl1EwwHUivOPCPjmz1CFTDcDdjmNjhh+Fdpa63byL/rNp+teTe2jPRp4iMkcdrXhCzSdpobOFXJznyxVexk1TS/ltFji90jAP59a72a8jlXl0b64rIvXh5JaNfyrCdKEt0d0cwqwjyqehzFzcaldEtcSuc9STSW9vjluF6knvV29urSLJ3byPSuS8SeKrWzRlMgdwMiJCM49T6D3PFOFPW0UclfGuXxM0vEWtwWFozM2EXhQOrnsAO9eA+PfEIvbqe7lcNHActhuHk6Ki+oXJ59ST2FTeMPF0urNJ5dwEiUEPOCQqL0IT1PYt+A9T5lq9+byRUjGy3i4jT+p969/AYLkfNLc8yUnN3ZUeSSaZ5pW3SOxZj6k0+Oo1FTRivb6CZKvSnZpo6UtBkFJRmkJoEdZ8JMn4iaFj/n+i/8AQhX6SaL/AMekX+6P5V+cXwWiM/xL0JAP+XtT+QJ/pX6P6SNsCD0GKw/5ev0PTw/8H5mmOlOXr+B/lTR0py9fwP8AKtCwbr+A/lSHoaVuo+g/lSUAZ2pLmJvpXwd+1Jpb2HxOuZtuEuokkB9SPlP/AKCK+9rxcoRXzB+1/wCFXvdHg123j3PZMRLgc+W2AfyIB/Osp6SUhVI89OUV/Vj5PzSg0hBBIPUUZrc8gXNFJQTQAuaDSCg0ARyrkUWV9NYsU2iWBvvRN0+o9DTjzUMiZpWT0ZcXY6XRddlgdG0y8KOORbynBX/dPH6H8K7rR/ilqtkqx3gmGOPmUSD8xg/zrxaRMVLFf3sICpcOVH8LfMP1rkq4KnU6Gll0PoOL4x25AEhjz7h1/wDZaivPi3Ayny3hz7B2/wDZRXg41i6A+aKBv+AkfyNIdYus8RwD/gJP9a5f7Lp32HZ9z1TVviTf3oaOBZmzxx+6X+p/lXF61rksuRqFzkE5+zQcAn/a9fqxNcvNfXcoKtOwU/wp8o/SoAK6qWDhT2Q+VdS1qF/NeMAQI4l+7GvQfX1NVgM0oFOArsUUgbBRUq01RTxTZDY4UE0maKVyAozSUqjJAoGesfstaS2pfFGyl2kpao0rH0/hH8zX3/pwxGtfLn7G3hN7TSp/ENxEVe8YCHI/gGQD+Jyfyr6nslwgrCm+aTkepGPJTjH5lsU5ev4H+VJSp1/A/wAq1AG6/gP5UlK3X8B/KkoGQXC5U1x3jXSINU02e0uI1kilQqysMggjFdrIMiszUIA6kYqZx5lYcXZ3Pzr+K/gu78HeI5bSRHNq5LW8pH3lz0PuOh/PvXGZr72+KXgXTvFOky2V9DnPKSD7yN2YH1r45+IngDWvCF+yXULS2pbEdyi/I3sf7p9j+GainUt7sjjxOGt78NvyOOzSg0hBBwaStziHZozTc0ZoAWmtzS5pKLARutQsnpVk0xloLTsVdp9KaV9qslabtouXchApQKl2+1G2ncLkYWnKKfiilcTYAUUUUEhRRSqCegoASuz+E/gq88Z+JobGKNxaoQ9zKBwiemfU9B+J7UfDn4e654yv1SzgaK0VsS3Tr8i+w/vH2H44r7L+FPgPTfCekRWNhDjvJIw+aRu7E+tYTqX92J24fD/bnt+Z2PgfRrfSdLt7K2iWOKFAqqowAAMV2VuuFFUNPgCKBitNBgVcI8qsdMpczuPpV6/gf5UlKvX8D/KqJBuo+g/lSUrdR9B/KkoAQ9KhmTIqekYZoAw7+0EgPFcd4j8O219BJDcW8c0TjDI6ggj0INejSxZ7Vn3NqGzxUTgmi4yaPljxp8BtGvZHm0maXTZT/wAs9u+L8jyPwNeZat8DvF9q7fZVs71B0Mc20n8GxX29d6YrE5WsyfRkJ4Wskpx+Fkyp0p7o+F5/hV47iOD4cvH/ANza38jUP/CsvHecf8Itqp+kBNfcraGp/g/Smf2Iv92nz1e6+7/gkfVaPn/XyPh4fC/x6enhTV//AAGanr8KviC3TwlrJ/7dWr7e/sUeho/sX2P50c9Xug+q0fM+JR8JPiI3TwfrX/gI1OHwf+I7Djwbrf8A4CN/hX2x/Yx/2vzpf7HPq35mlzVe6D6rR8z4n/4U18ST08Ga3/4CN/hQfgz8S/8AoS9c/wDARv8ACvtn+yG9X/76NH9kt/ef/vo0c1Xuh/VqR8SH4NfEsf8AMla5/wCAbf4Uxvg78Sh/zJWuf+Ab/wCFfbp0lv7z/wDfRo/sg/3n/M0c1Xug+r0j4fPwh+JA6+C9c/8AAN/8KjPwl+Iw6+DNc/8AAN/8K+5DpB9W/M0n9jn/AGvzo5qvkH1aj5nw4PhN8RT/AMybrQ+tqwqWH4P/ABFkOD4U1GP3kCoP1Ir7f/sb6/nTl0RT/Dmjmq9193/BD6tS8z480j4CeM7p1+2nT9PQ9TLcB2H/AAFM16d4K+AGgafKk+sXE2rzLz5e3yoc/QHc34kfSvfoNGQH7v6Vp2mmouMLS5Zy+JmkYU4bI5/w94etrKCOC3to4IUGESNAqqPQAdK7DT7NY1GBU1taBccVoQxAVrCCQSk5Cwx4AqftSKMUtaEBSr1/A/ypKVOv4H+VAwbr+A/lSU5geOnQd/ak2n1H5igBKKXafUfmKNp9R+YoAaQDUbx57VNtPt+Yo2n1H5igRSkgB7VA9oD2rUKfT8xTTHnuPzFFgMk2Y9KabMelbHlfT8xSeV9PzFKyGZH2MelH2Mela/lf7v50eV/u/nRZBcx/sY9BS/Yx6Ctfyv8Ad/Ojyv8Ad/MUWQGP9jHpR9jHpWx5X+7+dHlf7v50cqC5j/Yh6Cj7EPStjyv938xR5X+7+dHKguY/2L2o+xj0rY8r/d/MUeV/u/nRyoVzI+xj0pRZj0rW8r/d/MUvlf7v5iiyGZqWgHap47cDtVsR/T8xTgmPT8xTsIhSMCpAMU7afUfmKNp9R+YoASil2n1H5ijafUfmKAEpV6/gf5UbT6j8xSqDk9Oh7+1AH//Z" alt="NutriÃ³loga Arianna" style="width: 42px; height: 42px; border-radius: 12px; object-fit: cover; border: 2px solid var(--avo-bright);">
-                          <div>
-                            <div style="font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 800; color: var(--avo-dark);">Lic. NutriÃ³loga Arianna</div>
-                            <div style="font-size: 0.65rem; color: var(--avo-primary); font-weight: 700;">DirecciÃ³n MÃ©dica y Nutricional â€¢ CÃ©d. 849201</div>
-                          </div>
-                        </div>
-
-                        <div style="display: flex; gap: 8px;">
-                          <button type="button" class="btn-flip-trigger" onclick="downloadBuzonPdf('Historia_Clinica_Mariana_Gomez.pdf')" style="font-size: 0.75rem; padding: 6px 12px;">
-                            <i class="fa-solid fa-download"></i> Descargar Ficha PDF
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- VISTA 1: NOTA CLÃNICA SEMANAL (DETALLE) -->
-                    <div id="buzon-view-1" class="buzon-detail-view" style="display: none;">
+                      
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
-                          <span class="card-label coral" style="margin-bottom: 4px;">ðŸ’¬ COMUNICACIÃ“N CLÃNICA PERSONALIZADA</span>
-                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">EvaluaciÃ³n Semanal: RetenciÃ³n de Agua vs Grasa Real</h3>
+                          <span class="card-label forest" style="margin-bottom: 4px;">EXPEDIENTE AUDITADO</span>
+                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Historial Cl&iacute;nico y Diagn&oacute;stico Oficial</h3>
                           <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
-                            ðŸ“… <strong>Lunes 2 de Noviembre, 2026 â€¢ 10:30 AM</strong> â€¢ Por NutriÃ³loga Arianna
+                            Paciente: <strong>Mariana G&oacute;mez</strong> &bull; Folio: <strong>AVC-2026-0842</strong> &bull; Nutri&oacute;loga: <strong>Lic. Arianna Hern&aacute;ndez</strong>
                           </div>
                         </div>
-                        <span style="background: var(--coral-soft); color: var(--coral); border: 1px solid #F5C2B8; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
-                          ObservaciÃ³n Directa
+                        <span style="background: #DCFCE7; color: #166534; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #86EFAC;">
+                          <i class="fa-solid fa-shield-halved"></i> Auditor&iacute;a Activa
                         </span>
                       </div>
 
-                      <div style="background: #FFFFFF; border-left: 4px solid var(--coral); border-radius: 14px; padding: 18px 20px; border-top: 1px solid #FBEBE8; border-right: 1px solid #FBEBE8; border-bottom: 1px solid #FBEBE8; box-shadow: 0 6px 18px rgba(224, 72, 54, 0.06); margin-bottom: 16px;">
-                        <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.6; margin: 0;">
-                          "Â¡Hola Mariana! Estuve revisando a detalle tus registros de pesaje y medidas de este Ãºltimo corte. NotÃ© que la bÃ¡scula marcÃ³ <strong>+300g</strong> respecto a la calibraciÃ³n del jueves, pero quiero darte total tranquilidad mÃ©dica:<br><br>
-                          El dato verdaderamente trascendente es que <strong>tu cintura redujo a 79 cm (-4.0 cm acumulados)</strong>. Cuando disfrutas tu comida del Domingo Libre o tus mÃºsculos se reparan tras tu rutina, el cuerpo repone glucÃ³geno celular. Cada gramo de glucÃ³geno retiene entre 3 y 4 gramos de agua en los tejidos. <strong>No es grasa, es agua de hidrataciÃ³n intracelular</strong>.<br><br>
-                          Tu inflamaciÃ³n visceral continÃºa a la baja. Para los prÃ³ximos 3 dÃ­as te indico: mantÃ©n tus <strong>8 vasos de agua</strong> rigurosos para drenar lÃ­quidos retenidos, no reduzcas porciones por miedo y cena con tu <strong>1/3 de aguacate Hass</strong> para mantener la insulina en reposo."
+                      <!-- BIO-METRICAS OFICIALES SINCRONIZADAS -->
+                      <div class="buzon-metric-pill-grid">
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Peso Inicial &rarr; Hoy</div>
+                          <div class="val" style="color: var(--avo-forest);">71.2 &rarr; 68.4 kg</div>
+                          <div class="sub" style="color: var(--avo-primary);">&minus;2.8 kg en grasa</div>
+                        </div>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Cintura Umbilical</div>
+                          <div class="val" style="color: var(--coral);">83.0 &rarr; 79.0 cm</div>
+                          <div class="sub" style="color: var(--coral);">&minus;4.0 cm visceral</div>
+                        </div>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">&Iacute;ndice Cint/Cad (ICC)</div>
+                          <div class="val" style="color: #9A6700;">0.88 &rarr; 0.80</div>
+                          <div class="sub" style="color: #166534;">Nivel &Oacute;ptimo Bajo Riesgo</div>
+                        </div>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Presi&oacute;n Arterial</div>
+                          <div class="val" style="color: var(--avo-dark);">118/76 mmHg</div>
+                          <div class="sub" style="color: var(--text-muted);">Normotensa</div>
+                        </div>
+                      </div>
+
+                      <!-- NOTA METABOLICA Y DIAGNOSTICO -->
+                      <div style="background: #F9FCF5; border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 16px 18px; margin-bottom: 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                          <i class="fa-solid fa-stethoscope" style="color: var(--avo-primary);"></i>
+                          <strong style="font-size: 0.85rem; color: var(--avo-dark);">Diagn&oacute;stico Cl&iacute;nico &bull; Lic. Arianna Hern&aacute;ndez:</strong>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-main); margin: 0; line-height: 1.5;">
+                          "Paciente femenina con antecedente de resistencia a la insulina y dificultad para oxidar grasa en zona media. Protocolo de intervenci&oacute;n basado en control de picos gluc&eacute;micos mediante fibra soluble previa (nopales/ensalada), prote&iacute;na sin b&aacute;scula al 25% del plato y caminatas de 15 min post-cena. Su evoluci&oacute;n en 18 d&iacute;as muestra una respuesta excepcional de flexibilidad metab&oacute;lica."
                         </p>
                       </div>
 
-                      <div style="background: var(--avo-pale); border: 1.5px dashed #CFE0BE; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
-                        <div style="font-size: 0.75rem; font-weight: 800; color: var(--avo-dark); margin-bottom: 6px;">
-                          ðŸŽ¯ Tareas ClÃ­nicas para los PrÃ³ximos 3 DÃ­as:
+                      <!-- PROTOCOLO ACTIVO VIGENTE -->
+                      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 14px;">
+                        <div style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 12px; padding: 12px 14px;">
+                          <div style="font-size: 0.7rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase;">
+                            <i class="fa-solid fa-utensils"></i> Plan Nutricional Asignado
+                          </div>
+                          <div style="font-size: 0.88rem; font-weight: 800; color: var(--avo-dark); margin-top: 3px;">
+                            Protocolo Control Insulina (Fase 1)
+                          </div>
+                          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">
+                            3 comidas completas + 1 snack opcional con prote&iacute;na
+                          </div>
                         </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.76rem; color: var(--text-main);">
-                          <div>ðŸ’§ <strong>1. HidrataciÃ³n:</strong> 8 vasos (2.4 L) de agua simple o infusiÃ³n tibia.</div>
-                          <div>ðŸ¥‘ <strong>2. Grasa Protectora:</strong> 1/3 de aguacate diario sin falta.</div>
-                          <div>ðŸš¶â€â™€ï¸ <strong>3. Movilidad:</strong> 15 min de caminata ligera tras cenar.</div>
-                          <div>ðŸ˜´ <strong>4. Descanso:</strong> MÃ­nimo 7 horas para regular cortisol y grelina.</div>
+                        <div style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 12px; padding: 12px 14px;">
+                          <div style="font-size: 0.7rem; font-weight: 800; color: var(--coral); text-transform: uppercase;">
+                            <i class="fa-solid fa-droplet"></i> Meta de Hidrataci&oacute;n Cl&iacute;nica
+                          </div>
+                          <div style="font-size: 0.88rem; font-weight: 800; color: var(--avo-dark); margin-top: 3px;">
+                            2.40 Litros / d&iacute;a (8 Vasos)
+                          </div>
+                          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">
+                            Calculada sobre tu peso actual de 68.4 kg
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- VISTA 1: OBSERVACION CLINICA DE ARIANNA (DETALLE) -->
+                    <div id="buzon-view-1" class="buzon-detail-view" style="display: none;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
+                        <div>
+                          <span class="card-label gold" style="margin-bottom: 4px;">OBSERVACI&Oacute;N DIRECTA</span>
+                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Nota de Evoluci&oacute;n &bull; Nutri&oacute;loga Arianna</h3>
+                          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
+                            Fecha de emisi&oacute;n: <strong>Mi&eacute;rcoles 4 de Noviembre (Semana 3)</strong> &bull; Reevaluaci&oacute;n Semanal
+                          </div>
+                        </div>
+                        <span style="background: var(--coral-soft); color: var(--coral); font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #F5C2B8;">
+                          <i class="fa-solid fa-heart-pulse"></i> Feedback M&eacute;dico
+                        </span>
+                      </div>
+
+                      <!-- MENSAJE CLINICO DESTACADO -->
+                      <div style="background: linear-gradient(135deg, #142B1F 0%, #1F4230 100%); border-radius: 18px; padding: 22px 24px; color: #FFFFFF; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(20, 43, 31, 0.18);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+                          <div style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0;">
+                            <img src="data:image/jpeg;base64,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" alt="Nutri&oacute;loga Arianna" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
+                          </div>
+                          <div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF;">
+                              "¡Mariana, 4 cm menos de cintura en 18 d&iacute;as es una victoria metab&oacute;lica brutal!"
+                            </div>
+                            <div style="font-size: 0.72rem; color: #A7F3D0; font-weight: 700;">
+                              Pauta personalizada de adaptaci&oacute;n &bull; Evaluada ayer 4 de Noviembre
+                            </div>
+                          </div>
+                        </div>
+
+                        <p style="font-size: 0.84rem; line-height: 1.6; color: #E2E8F0; margin: 0 0 14px 0;">
+                          "Revis&eacute; detalladamente tu evoluci&oacute;n en la gr&aacute;fica semanal. Aunque el peso en la b&aacute;scula se detuvo un par de d&iacute;as en 68.4 kg, tu cintura descendi&oacute; a 79 cm. Eso confirma exactamente lo que buscamos: <strong>est&aacute;s desinflamando el h&iacute;gado y quemando grasa profunda visceral</strong>, no perdiendo agua ni m&uacute;sculo.<br><br>
+                          Para esta segunda mitad de quincena, te pido dos ajustes muy puntuales:<br>
+                          1. <strong>No te saltes la fibra previa:</strong> Contin&uacute;a abriendo tu comida con nopal asado o ensalada verde antes de probar el arroz o los frijoles.<br>
+                          2. <strong>Tu agua en d&iacute;as fr&iacute;os:</strong> Mant&eacute;n tus 8 vasos (2.4 L) aunque baje la temperatura; si te cuesta, t&oacute;mala tibia con una rodajita de lim&oacute;n."
+                        </p>
+
+                        <div style="display: flex; gap: 10px; align-items: center; background: rgba(255, 255, 255, 0.08); padding: 10px 14px; border-radius: 12px; font-size: 0.74rem;">
+                          <i class="fa-solid fa-bell" style="color: var(--gold);"></i>
+                          <span>Tu pr&oacute;xima calibraci&oacute;n de medidas ser&aacute; este domingo 8 de Noviembre.</span>
                         </div>
                       </div>
 
@@ -6681,76 +6617,53 @@
                       </button>
                     </div>
 
-                    <!-- VISTA 2: PRESCRIPCIÃ“N DE SUPLEMENTACIÃ“N (DETALLE) -->
+                    <!-- VISTA 2: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (DETALLE) -->
                     <div id="buzon-view-2" class="buzon-detail-view" style="display: none;">
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
-                          <span class="card-label gold" style="margin-bottom: 4px;">ðŸ“‹ PRESCRIPCIÃ“N DE GRADO TERAPÃ‰UTICO</span>
-                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">PrescripciÃ³n de Micronutrientes & Apoyo InsulÃ­nico</h3>
+                          <span class="card-label gold" style="margin-bottom: 4px;">PAUTA DE SUPLEMENTACI&Oacute;N</span>
+                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Prescripci&oacute;n Sugerida: Sensibilidad Insul&iacute;nica</h3>
                           <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
-                            Fecha de EmisiÃ³n: <strong>28 de Octubre, 2026</strong> â€¢ Vigencia: <strong>Fase 1 (Semanas 1 a 6)</strong>
+                            Prescrito por: <strong>Nutri&oacute;loga Arianna Hern&aacute;ndez</strong> &bull; Protocolo Seguro y Sin F&aacute;rmacos
                           </div>
                         </div>
-                        <span style="background: var(--gold-soft); color: #9A6700; border: 1px solid #F5DC9B; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
-                          Receta Activa
+                        <span style="background: #FEF3C7; color: #B45309; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #FDE68A;">
+                          <i class="fa-solid fa-check"></i> Activo en tu Plan
                         </span>
                       </div>
 
-                      <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px;">
+                      <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
                         
-                        <!-- Suplemento 1 -->
-                        <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;">
-                          <div style="width: 38px; height: 38px; border-radius: 10px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">
-                            1
+                        <!-- SUPLEMENTO 1 -->
+                        <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 14px 16px;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                              <span style="background: #E8F5E9; color: #2E7D32; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 6px;">1</span>
+                              <strong style="font-size: 0.92rem; color: var(--avo-dark);">Citrato o Glicinato de Magnesio (400 mg)</strong>
+                            </div>
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--avo-forest);">Todas las noches</span>
                           </div>
-                          <div style="flex: 1;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
-                              <strong style="font-size: 0.86rem; color: var(--avo-dark);">Citrato o Bisglicinato de Magnesio</strong>
-                              <span style="font-size: 0.68rem; font-weight: 800; color: #9A6700; background: var(--gold-soft); padding: 2px 8px; border-radius: 99px;">Dosis: 400 mg diarios</span>
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
-                              <strong>Horario:</strong> 30 a 45 minutos antes de dormir en medio vaso de agua.
-                            </div>
+                          <div style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;">
+                            <div><strong>Dosis:</strong> 1 c&aacute;psula o cucharadita disuelta en 100ml de agua tibia 45 min antes de dormir.</div>
                             <div style="font-size: 0.72rem; color: var(--text-main); margin-top: 4px; line-height: 1.35;">
-                              <em>Mecanismo clÃ­nico:</em> Cofactor en mÃ¡s de 300 enzimas metabÃ³licas. Facilita la translocaciÃ³n de transportadores GLUT4 para que la glucosa entre al mÃºsculo en vez de almacenarse como grasa visceral.
+                              <em>Mecanismo cl&iacute;nico:</em> El magnesio interviene en m&aacute;s de 300 v&iacute;as enzim&aacute;ticas; ayuda a que los receptores GLUT-4 de tus c&eacute;lulas capten la glucosa circulante sin forzar al p&aacute;ncreas a bombear insulina extra.
                             </div>
                           </div>
                         </div>
 
-                        <!-- Suplemento 2 -->
-                        <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;">
-                          <div style="width: 38px; height: 38px; border-radius: 10px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">
-                            2
+                        <!-- SUPLEMENTO 2 -->
+                        <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 14px 16px;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                              <span style="background: #FEF3C7; color: #B45309; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 6px;">2</span>
+                              <strong style="font-size: 0.92rem; color: var(--avo-dark);">Vinagre de Manzana Org&aacute;nico (con la "madre")</strong>
+                            </div>
+                            <span style="font-size: 0.7rem; font-weight: 800; color: #B45309;">1 cda (15ml)</span>
                           </div>
-                          <div style="flex: 1;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
-                              <strong style="font-size: 0.86rem; color: var(--avo-dark);">InfusiÃ³n o Extracto de Canela CeilÃ¡n</strong>
-                              <span style="font-size: 0.68rem; font-weight: 800; color: #166534; background: #DCFCE7; padding: 2px 8px; border-radius: 99px;">Dosis: 1g a 1.5g diarios</span>
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
-                              <strong>Horario:</strong> InfusiÃ³n tibia 20 a 30 minutos despuÃ©s de comer o cenar.
-                            </div>
+                          <div style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;">
+                            <div><strong>Horario:</strong> Disuelto en 150ml de agua antes de comidas con almidones o Domingo Libre.</div>
                             <div style="font-size: 0.72rem; color: var(--text-main); margin-top: 4px; line-height: 1.35;">
-                              <em>Mecanismo clÃ­nico:</em> Contiene polifenoles hidroxi-chalconas que imitan la acciÃ³n de la insulina a nivel celular, aplanando los picos postprandiales hasta un 24%.
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Suplemento 3 -->
-                        <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;">
-                          <div style="width: 38px; height: 38px; border-radius: 10px; background: #E0E7FF; color: #3730A3; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">
-                            3
-                          </div>
-                          <div style="flex: 1;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
-                              <strong style="font-size: 0.86rem; color: var(--avo-dark);">Vinagre de Manzana Crudo con "La Madre"</strong>
-                              <span style="font-size: 0.68rem; font-weight: 800; color: #3730A3; background: #EEF2FF; padding: 2px 8px; border-radius: 99px;">Dosis: 1 cucharada sopera</span>
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
-                              <strong>Horario:</strong> Disuelto en 150ml de agua antes de comidas con almidones o Domingo Libre.
-                            </div>
-                            <div style="font-size: 0.72rem; color: var(--text-main); margin-top: 4px; line-height: 1.35;">
-                              <em>Mecanismo clÃ­nico:</em> El Ã¡cido acÃ©tico inhibe temporalmente la amilasa gÃ¡strica, ralentizando la absorciÃ³n de glucosa y aumentando la saciedad.
+                              <em>Mecanismo cl&iacute;nico:</em> El &aacute;cido ac&eacute;tico inhibe temporalmente la amilasa g&aacute;strica, ralentizando la absorci&oacute;n de glucosa y aumentando la saciedad.
                             </div>
                           </div>
                         </div>
@@ -6766,10 +6679,10 @@
                     <div id="buzon-view-3" class="buzon-detail-view" style="display: none;">
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
-                          <span class="card-label forest" style="margin-bottom: 4px;">ðŸ“„ GUÃA CLÃNICA DESCARGABLE</span>
+                          <span class="card-label forest" style="margin-bottom: 4px;">GU&Iacute;A CL&Iacute;NICA DESCARGABLE</span>
                           <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Protocolo Domingo Libre: 5 Reglas Anti-Picos de Glucosa</h3>
                           <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
-                            GuÃ­a de campo elaborada por NutriÃ³loga Arianna â€¢ <strong>Uso permitido para comidas sociales</strong>
+                            Gu&iacute;a de campo elaborada por Nutri&oacute;loga Arianna &bull; <strong>Uso permitido para comidas sociales</strong>
                           </div>
                         </div>
                         <button type="button" class="btn-flip-trigger" onclick="downloadBuzonPdf('Guia_Domingo_Libre_Arianna.pdf')" style="font-size: 0.74rem;">
@@ -6779,14 +6692,14 @@
 
                       <div style="background: linear-gradient(135deg, #F9FCF5 0%, #FFFFFF 100%); border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;">
                         <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0 0 10px 0;">
-                          ðŸ¥‘ Las 5 Leyes MetabÃ³licas del Domingo Libre:
+                          <i class="fa-solid fa-shield-heart" style="color: var(--avo-primary);"></i> Las 5 Leyes Metab&oacute;licas del Domingo Libre:
                         </h4>
                         <ol style="margin: 0; padding-left: 20px; font-size: 0.8rem; color: var(--text-main); line-height: 1.6;">
-                          <li><strong>El orden sagrado del bocado:</strong> Comienza siempre con fibra o ensalada verde, sigue con la proteÃ­na y deja el carbohidrato o postre para el final. Esto reduce el pico de glucosa hasta un 50%.</li>
-                          <li><strong>HidrataciÃ³n previa de amortiguaciÃ³n:</strong> Bebe 2 vasos de agua 20 minutos antes de sentarte a la mesa. Previene la ingesta compulsiva por deshidrataciÃ³n oculta.</li>
-                          <li><strong>Cero culpas, 100% disfrute:</strong> La culpa eleva cortisol y adrenalina, lo que bloquea la lipÃ³lisis y fuerza al cuerpo a almacenar grasa. Si decidiste comer pastel o pizza, disfrÃºtalo sin remordimiento.</li>
-                          <li><strong>Caminata digestiva de 15 minutos:</strong> DespuÃ©s de tu comida social, da un paseo suave. Tus mÃºsculos usarÃ¡n la glucosa circulante de inmediato sin requerir un disparo violento de insulina.</li>
-                          <li><strong>Lunes de regreso con amor, no de castigo:</strong> Nunca compenses aguantando hambre el lunes. Retoma tu menÃº normal de Avocado Club con tus 8 vasos de agua.</li>
+                          <li><strong>El orden sagrado del bocado:</strong> Comienza siempre con fibra o ensalada verde, sigue con la prote&iacute;na y deja el carbohidrato o postre para el final. Esto reduce el pico de glucosa hasta un 50%.</li>
+                          <li><strong>Hidrataci&oacute;n previa de amortiguaci&oacute;n:</strong> Bebe 2 vasos de agua 20 minutos antes de sentarte a la mesa. Previene la ingesta compulsiva por deshidrataci&oacute;n oculta.</li>
+                          <li><strong>Cero culpas, 100% disfrute:</strong> La culpa eleva cortisol y adrenalina, lo que bloquea la lip&oacute;lisis y fuerza al cuerpo a almacenar grasa. Si decidiste comer pastel o pizza, disfr&uacute;talo sin remordimiento.</li>
+                          <li><strong>Caminata digestiva de 15 minutos:</strong> Despu&eacute;s de tu comida social, da un paseo suave. Tus m&uacute;sculos usar&aacute;n la glucosa circulante de inmediato sin requerir un disparo violento de insulina.</li>
+                          <li><strong>Lunes de regreso con amor, no de castigo:</strong> Nunca compenses aguantando hambre el lunes. Retoma tu men&uacute; normal de Avocado Club con tus 8 vasos de agua.</li>
                         </ol>
                       </div>
 
@@ -6801,20 +6714,20 @@
                   <div class="buzon-ask-container">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                       <span style="font-size: 0.76rem; font-weight: 800; color: var(--avo-forest);">
-                        <i class="fa-solid fa-paper-plane" style="color: var(--avo-primary);"></i> Â¿Tienes alguna duda sobre tu expediente o prescripciÃ³n?
+                        <i class="fa-solid fa-paper-plane" style="color: var(--avo-primary);"></i> &iquest;Tienes alguna duda sobre tu expediente o prescripci&oacute;n?
                       </span>
                       <span style="font-size: 0.67rem; color: var(--text-muted); font-weight: 700;">
                         Llega al expediente privado de Arianna
                       </span>
                     </div>
                     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                      <input type="text" id="buzon-ask-input" placeholder="Escribe tu duda breve a la NutriÃ³loga Arianna..." style="flex: 1; min-width: 240px; font-family: inherit; font-size: 0.8rem; padding: 9px 14px; border: 1.5px solid #CFE0BE; border-radius: 12px; outline: none; background: #FFFFFF;">
+                      <input type="text" id="buzon-ask-input" placeholder="Escribe tu duda breve a la Nutri&oacute;loga Arianna..." style="flex: 1; min-width: 240px; font-family: inherit; font-size: 0.8rem; padding: 9px 14px; border: 1.5px solid #CFE0BE; border-radius: 12px; outline: none; background: #FFFFFF;">
                       <button type="button" class="btn-flip-trigger gold-flip" onclick="sendBuzonQuestion()" style="font-size: 0.78rem; padding: 9px 16px;">
                         <span>Enviar Consulta</span> <i class="fa-solid fa-arrow-right"></i>
                       </button>
                     </div>
                     <div id="buzon-ask-feedback" style="display: none; font-size: 0.72rem; color: #166534; font-weight: 800; margin-top: 8px; background: #DCFCE7; border: 1px solid #86EFAC; padding: 6px 12px; border-radius: 8px;">
-                      âœ… Tu consulta fue enviada con Ã©xito al consultorio de Arianna. RecibirÃ¡s tu respuesta mÃ©dica directamente en este buzÃ³n.
+                      <i class="fa-solid fa-check"></i> Tu consulta fue enviada con &eacute;xito al consultorio de Arianna. Recibir&aacute;s tu respuesta m&eacute;dica directamente en este buz&oacute;n.
                     </div>
                   </div>
 
@@ -6823,6 +6736,9 @@
 
             </div>
           </div>
+
+
+        </div>
       </main>
     </div>
   </section>
@@ -7165,7 +7081,7 @@
       'mod-ejercicios': 'Activa tu sensibilidad a la insulina hoy 🏃‍♀️',
       'mod-foro': 'Comparte e inspírate con la comunidad 📸',
       'mod-semilla': 'Respira profundo, esta semilla es para ti 🌱',
-      'mod-buzon': 'Revisa tus mensajes clínicos y tu expediente oficial 📥'
+      'mod-buzon': 'Revisa tus mensajes cl\u00ednicos y tu expediente oficial \ud83d\udce5'
     };
 
     function getTimeOfDayGreeting() {
@@ -8715,8 +8631,8 @@
 
     // Entrar a la plataforma con 1 solo clic: SIEMPRE aterriza en Dashboard & Progreso por defecto
         // =========================================================
-    // MOTOR INTERACTIVO DEL MÓDULO 8: BUZÓN & EXPEDIENTE CLÍNICO
-    // GESTIÓN DE EXPEDIENTE, NOTAS CLÍNICAS, PRESCRIPCIONES Y FILTROS
+    // MOTOR INTERACTIVO DEL MODULO 8: BUZON & EXPEDIENTE CLINICO
+    // GESTION DE EXPEDIENTE, NOTAS CLINICAS, PRESCRIPCIONES Y FILTROS
     // =========================================================
     let buzonActiveItem = 0;
     let buzonUnreadCount = 2;
@@ -8742,7 +8658,7 @@
         if (v) v.style.display = (i === idx) ? 'block' : 'none';
       }
 
-      // Scroll suave hacia el visor en móviles
+      // Scroll suave hacia el visor en moviles
       if (window.innerWidth <= 768) {
         const viewer = document.getElementById('buzon-viewer-card');
         if (viewer) viewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -8762,7 +8678,7 @@
       });
       buzonUnreadCount = 0;
       updateBuzonBadges();
-      showToast('Buzón al día', 'Todas tus comunicaciones han sido marcadas como leídas.');
+      showToast('Buz\u00f3n al d\u00eda', 'Todas tus comunicaciones han sido marcadas como le\u00eddas.');
     }
 
     function updateBuzonBadges() {
@@ -8775,7 +8691,6 @@
           sideBadge.style.display = 'none';
         }
       }
-
       const topBadge = document.getElementById('top-buzon-count-badge');
       if (topBadge) {
         if (buzonUnreadCount > 0) {
@@ -8785,10 +8700,9 @@
           topBadge.style.display = 'none';
         }
       }
-
       const feedInd = document.getElementById('buzon-unread-indicator');
       if (feedInd) {
-        feedInd.innerText = buzonUnreadCount > 0 ? (buzonUnreadCount + ' pendientes') : 'Al día';
+        feedInd.innerText = buzonUnreadCount > 0 ? (buzonUnreadCount + ' pendientes') : 'Al d\u00eda';
         feedInd.style.background = buzonUnreadCount > 0 ? 'var(--coral-soft)' : '#DCFCE7';
         feedInd.style.color = buzonUnreadCount > 0 ? 'var(--coral)' : '#166534';
         feedInd.style.borderColor = buzonUnreadCount > 0 ? '#F5C2B8' : '#86EFAC';
@@ -8800,12 +8714,10 @@
       if (btnEl) btnEl.classList.add('active');
 
       const cards = document.querySelectorAll('.buzon-item-card');
-      let visibleCount = 0;
       cards.forEach(card => {
         const cat = card.getAttribute('data-category');
         if (category === 'all' || cat === category) {
           card.style.display = 'flex';
-          visibleCount++;
         } else {
           card.style.display = 'none';
         }
@@ -8813,11 +8725,11 @@
     }
 
     function searchBuzon(term) {
-      const q = term.toLowerCase().trim();
+      const clean = (term || '').toLowerCase().trim();
       const cards = document.querySelectorAll('.buzon-item-card');
       cards.forEach(card => {
         const text = card.innerText.toLowerCase();
-        if (!q || text.includes(q)) {
+        if (!clean || text.includes(clean)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -8830,22 +8742,25 @@
     }
 
     function downloadBuzonPdf(fileName) {
-      showToast('Descarga Generada', 'Generando copia digital de: ' + fileName);
+      showToast('Descarga iniciada', 'Generando copia cl\u00ednica en PDF: ' + fileName);
     }
 
     function sendBuzonQuestion() {
       const inp = document.getElementById('buzon-ask-input');
-      const val = inp ? inp.value.trim() : '';
-      if (!val) {
-        alert('Por favor redacta tu duda o consulta para Arianna antes de enviar.');
+      if (!inp || !inp.value.trim()) {
+        showToast('Consulta vac\u00eda', 'Por favor escribe tu duda a la Nutri\u00f3loga Arianna.');
         return;
       }
+      const val = inp.value.trim();
+      inp.value = '';
       const fb = document.getElementById('buzon-ask-feedback');
       if (fb) {
         fb.style.display = 'block';
-        if (inp) inp.value = '';
-        setTimeout(() => { fb.style.display = 'none'; }, 5000);
+        setTimeout(() => {
+          fb.style.display = 'none';
+        }, 6000);
       }
+      showToast('Mensaje Enviado', 'Tu duda cl\u00ednica est\u00e1 en la bandeja de Arianna.');
     }
 
 
