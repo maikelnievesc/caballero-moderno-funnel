@@ -3959,6 +3959,148 @@
       color: #FFFFFF;
       box-shadow: 0 4px 12px rgba(104, 163, 50, 0.25);
     }
+
+    /* =========================================================================
+       CANDADO CLINICO DE PLAN SEMANAL ACTIVO + MODAL DE SEGURIDAD (MODULO 1)
+       ========================================================================= */
+    .onboarding-guard-banner {
+      border-radius: 18px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      transition: all 0.28s ease;
+    }
+
+    .onboarding-guard-banner.state-ready {
+      background: linear-gradient(135deg, #F4F9EE 0%, #ECFDF5 100%);
+      border: 1.5px solid #86EFAC;
+      color: var(--avo-dark);
+    }
+
+    .onboarding-guard-banner.state-locked {
+      background: linear-gradient(135deg, #142B1F 0%, #1F4230 100%);
+      border: 2px solid #FDE68A;
+      color: #FFFFFF;
+      box-shadow: 0 12px 28px -8px rgba(20, 43, 31, 0.28);
+    }
+
+    .onboarding-guard-banner.state-unlocked-edit {
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+      border: 2px solid #F59E0B;
+      color: #78350F;
+      box-shadow: 0 10px 24px -8px rgba(245, 158, 11, 0.22);
+    }
+
+    @keyframes guardBannerShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    .onboarding-guard-banner.shake-guard {
+      animation: guardBannerShake 0.48s ease;
+    }
+
+    .onboarding-shielded-wrap {
+      position: relative;
+      transition: opacity 0.25s ease;
+    }
+
+    .onboarding-shielded-wrap.is-locked-shield {
+      opacity: 0.86;
+    }
+
+    .onboarding-shield-overlay {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 25;
+      background: rgba(20, 43, 31, 0.04);
+      border-radius: 18px;
+      cursor: not-allowed;
+    }
+
+    .onboarding-shielded-wrap.is-locked-shield .onboarding-shield-overlay {
+      display: block;
+    }
+
+    .onboarding-unsaved-bar {
+      display: none;
+      background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+      border: 1.5px solid #FDBA74;
+      border-radius: 14px;
+      padding: 10px 15px;
+      margin-bottom: 14px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 0.79rem;
+      color: #9A3412;
+      font-weight: 700;
+    }
+
+    .onboarding-unsaved-bar.is-visible {
+      display: flex;
+    }
+
+    .plan-guard-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(15, 31, 22, 0.72);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .plan-guard-modal-backdrop.is-open {
+      display: flex;
+    }
+
+    .plan-guard-modal-card {
+      background: #FFFFFF;
+      border: 2px solid #CFE0BE;
+      border-radius: 24px;
+      max-width: 610px;
+      width: 100%;
+      padding: 24px 26px;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+      animation: modalPopIn 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalPopIn {
+      0% { opacity: 0; transform: scale(0.95) translateY(8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .guard-action-option {
+      width: 100%;
+      text-align: left;
+      border-radius: 15px;
+      padding: 13px 16px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .guard-action-option:hover {
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -5332,7 +5474,37 @@
                ========================================================= -->
           <div id="mod-onboarding" class="module-section">
             <div class="bento-card">
-              <span class="card-label">🎯 MÓDULO 1 • CONFIGURACIÓN DE OBJETIVOS, CONTROL CLÍNICO Y MEDIDAS</span>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+                <span class="card-label" style="margin: 0;">&#127919; M&Oacute;DULO 1 &bull; CONFIGURACI&Oacute;N DE OBJETIVOS, CONTROL CL&Iacute;NICO Y MEDIDAS</span>
+                <span id="onboarding-guard-top-pill" style="font-size: 0.72rem; font-weight: 800; background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; padding: 4px 11px; border-radius: 99px;">
+                  &#128737;&#65039; Seguro Anti-Cambios Accidentales: Los datos solo se aplican al presionar Guardar
+                </span>
+              </div>
+
+              <!-- BANNER DE SEGURO CLINICO SEMANAL (CANDADO DE PLAN ACTIVO) -->
+              <div id="onboarding-guard-banner" class="onboarding-guard-banner state-ready">
+                <div style="flex: 1; min-width: 250px;">
+                  <div id="onboarding-guard-kicker" style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #166534; margin-bottom: 3px;">
+                    &#128197; CALIBRACI&Oacute;N SEMANAL OFICIAL (FIN DE SEMANA)
+                  </div>
+                  <div id="onboarding-guard-title" style="font-family: 'Outfit', sans-serif; font-size: 1.02rem; font-weight: 800;">
+                    Configura tus medidas y objetivo: nada se mover&aacute; en tu plataforma hasta que presiones &ldquo;Guardar&rdquo;
+                  </div>
+                  <div id="onboarding-guard-desc" style="font-size: 0.77rem; opacity: 0.9; margin-top: 2px; line-height: 1.38;">
+                    Puedes explorar u observar esta secci&oacute;n con tranquilidad. Al guardar tu Plan Semanal por primera vez, se activar&aacute; el <strong>Candado Semanal</strong> para que no se altere tu progreso si entras varias veces al d&iacute;a.
+                  </div>
+                </div>
+                <div id="onboarding-guard-actions" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <button type="button" id="btn-toggle-onboarding-lock" onclick="toggleOnboardingShieldLock()" style="display: none; background: #FDE68A; color: #142B1F; border: 1.5px solid #F59E0B; border-radius: 12px; padding: 8px 14px; font-family: inherit; font-size: 0.76rem; font-weight: 800; cursor: pointer; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-lock-open"></i> <span>Desbloquear para corregir un dato</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- CONTENEDOR PROTEGIDO POR EL CANDADO SEMANAL -->
+              <div id="onboarding-shielded-wrap" class="onboarding-shielded-wrap">
+                <div id="onboarding-shield-overlay" class="onboarding-shield-overlay" onclick="handleShieldedOverlayClick()" title="Plan Semanal protegido por el seguro cl&iacute;nico. Haz clic para desbloquear o ver opciones."></div>
+
               <h2 style="font-size: 1.55rem; margin-bottom: 4px;">1. Selecciona tu Objetivo Principal (5 Caminos)</h2>
               <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px;">Haz clic en cualquier objetivo: la tarjeta inferior <strong>gira en 3D manteniendo el mismo tamaño</strong> para no mover la página:</p>
 
@@ -5694,8 +5866,101 @@
                     <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127851; Cacao Puro / Chocolate</span>
                   </div>
                 </div>
+              </div>
+              </div><!-- /#onboarding-shielded-wrap -->
+
+              <!-- AVISO DE CAMBIOS EN BORRADOR (NO APLICADOS AUN AL DASHBOARD NI AL BUZON) -->
+              <div id="onboarding-unsaved-bar" class="onboarding-unsaved-bar" style="margin-top: 14px;">
+                <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+                  <i class="fa-solid fa-pen-to-square" style="font-size: 0.95rem; color: var(--coral);"></i>
+                  <span id="onboarding-unsaved-text">
+                    Tienes cambios en borrador en esta p&aacute;gina. Tu Dashboard, Barra Superior, Plan y Buz&oacute;n <strong>NO se han movido</strong> hasta que confirmes abajo.
+                  </span>
+                </div>
+                <button type="button" onclick="discardOnboardingDraftChanges()" style="background: #FFFFFF; border: 1.5px solid #FDBA74; color: #9A3412; padding: 6px 12px; border-radius: 10px; font-family: inherit; font-size: 0.74rem; font-weight: 800; cursor: pointer;">
+                  &#8617;&#65039; Descartar cambios y restaurar
+                </button>
+              </div>
+
+              <!-- PIE DE ACCION CON SEGURO DE GUARDADO -->
+              <div style="margin-top: 16px; padding-top: 14px; border-top: 1.5px solid #E2ECD8; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap;">
+                <div id="onboarding-footer-status-note" style="font-size: 0.77rem; color: var(--text-muted); font-weight: 700;">
+                  &#128161; Recuerda: La calibraci&oacute;n oficial de peso, medidas y nuevo plan se realiza <strong>1 vez por semana (en fin de semana)</strong>.
+                </div>
                 <button type="button" id="btn-save-generate-plan" class="btn-enter-club" style="width: auto; padding: 15px 26px; margin: 0;" onclick="saveAndGenerateClinicalPlan(this)">
                   &#10024; Guardar y Generar Plan Semanal <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- MODAL DE SEGURIDAD CLINICA PARA 2da+ VEZ QUE SE INTENTA GUARDAR / GENERAR PLAN -->
+            <div id="onboarding-security-modal" class="plan-guard-modal-backdrop" onclick="if(event.target === this) closePlanGuardModal()">
+              <div class="plan-guard-modal-card">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--avo-primary), var(--gold), var(--coral));"></div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px;">
+                  <span class="card-label coral" style="margin: 0;">
+                    <i class="fa-solid fa-shield-halved"></i> SEGURO CL&Iacute;NICO SEMANAL &bull; EVITA CAMBIOS REPETIDOS
+                  </span>
+                  <button type="button" onclick="closePlanGuardModal()" style="background: #F1F5F9; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-weight: 800; color: #475569;">&#10005;</button>
+                </div>
+
+                <h3 style="font-size: 1.28rem; color: var(--avo-dark); margin: 0 0 6px 0;">
+                  &#128274; Ya generaste tu Plan Semanal de esta semana
+                </h3>
+                <p style="font-size: 0.82rem; color: var(--text-main); line-height: 1.48; margin: 0 0 12px 0;">
+                  &iexcl;Hola! Tu plan actual e Historia Cl&iacute;nica ya fueron guardados (<strong id="guard-modal-last-saved-lbl">Hoy</strong>). En el protocolo de la <strong>Nutri&oacute;loga Arianna</strong>, el peso y el plan se actualizan oficialmente <strong>los fines de semana</strong>; hacerlo 2 o 3 veces el mismo d&iacute;a mover&iacute;a tus curvas y duplicar&iacute;a correos en tu Buz&oacute;n.
+                </p>
+
+                <!-- RESUMEN DE CAMBIOS DETECTADOS EN EL BORRADOR -->
+                <div id="guard-modal-diff-box" style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 13px; padding: 10px 14px; margin-bottom: 14px; font-size: 0.77rem; color: var(--text-main);">
+                  <div style="font-weight: 800; color: var(--avo-dark); margin-bottom: 3px;">&#128269; Revisi&oacute;n de tus datos:</div>
+                  <div id="guard-modal-diff-text" style="color: var(--text-muted); line-height: 1.4;">
+                    Sin cambios pendientes respecto a tu Plan Semanal activo.
+                  </div>
+                </div>
+
+                <div style="font-size: 0.76rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;">
+                  &iquest;Qu&eacute; deseas hacer ahora?
+                </div>
+
+                <!-- OPCION 1 (RECOMENDADA): SOLO CORREGIR DATO POR ERROR SIN MOVER CORTE NI DUPLICAR CORREOS -->
+                <button type="button" class="guard-action-option" style="background: #F4F9EE; border: 2px solid var(--avo-primary);" onclick="confirmPlanGuardAction('correct_only')">
+                  <span style="font-size: 1.25rem; line-height: 1;">&#9999;&#65039;</span>
+                  <div style="flex: 1;">
+                    <div style="font-weight: 800; font-size: 0.86rem; color: var(--avo-dark);">
+                      Solo corregir un dato capturado por error <span style="background: #DCFCE7; color: #166534; font-size: 0.67rem; padding: 2px 7px; border-radius: 99px; margin-left: 4px;">Recomendado</span>
+                    </div>
+                    <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px; line-height: 1.35;">
+                      Actualiza el dato corregido en tu ficha actual <strong>sin alterar tu corte semanal</strong> y <strong>sin enviar correos repetidos al Buz&oacute;n</strong>.
+                    </div>
+                  </div>
+                </button>
+
+                <!-- OPCION 2: FORZAR NUEVA GENERACION COMPLETA -->
+                <button type="button" class="guard-action-option" style="background: #FFF7ED; border: 1.5px solid #FDBA74;" onclick="confirmPlanGuardAction('force_regenerate')">
+                  <span style="font-size: 1.25rem; line-height: 1;">&#128260;</span>
+                  <div style="flex: 1;">
+                    <div style="font-weight: 800; font-size: 0.86rem; color: #9A3412;">
+                      Forzar nueva generaci&oacute;n de Plan Semanal (Adelantar corte)
+                    </div>
+                    <div style="font-size: 0.74rem; color: #7C2D12; margin-top: 2px; line-height: 1.35;">
+                      Recalibra todo el men&uacute; semanal desde cero y vuelve a emitir un nuevo Plan e Historia Cl&iacute;nica al tope de tu Buz&oacute;n.
+                    </div>
+                  </div>
+                </button>
+
+                <!-- OPCION 3: CANCELAR Y MANTENER EL PLAN ACTUAL -->
+                <button type="button" class="guard-action-option" style="background: #F8FAFC; border: 1.5px solid #CBD5E1; margin-bottom: 0;" onclick="confirmPlanGuardAction('cancel_revert')">
+                  <span style="font-size: 1.2rem; line-height: 1;">&#128274;</span>
+                  <div style="flex: 1;">
+                    <div style="font-weight: 800; font-size: 0.84rem; color: #334155;">
+                      Cancelar y conservar mi Plan Semanal actual intacto
+                    </div>
+                    <div style="font-size: 0.73rem; color: #64748B; margin-top: 2px;">
+                      Descarta cualquier movimiento accidental y mantiene el candado activo hasta el fin de semana.
+                    </div>
+                  </div>
                 </button>
               </div>
             </div>
@@ -7822,6 +8087,43 @@
         estres: true,
         cafe_tiempo: false
       },
+      savedMetrics: {
+        age: 34,
+        height: 162,
+        weight: 68.4,
+        weightGoal: 62.0,
+        waist: 79.0,
+        hip: 99.0,
+        likedFoods: [
+          'Aguacate Hass', 'Huevo', 'Pollo', 'Queso Panela/Oaxaca',
+          'Tortilla de Ma\u00edz', 'Bolillo', 'Frijoles', 'Nopales',
+          'Bistec de Res', 'Pescado Blanco', 'Avena y Amaranto', 'Yogur Griego',
+          'Calabacita y Chayote', 'Jitomate y Pico de Gallo', 'Arroz Casero',
+          'Fresas y Frutos Rojos', 'Almendras, Nueces y Ch\u00eda', 'Cacao Puro / Chocolate'
+        ]
+      },
+      draftOnboarding: {
+        activeProtocol: '\uD83E\uDE78 Control Insulina + Bajar Peso',
+        isClinical: true,
+        fitnessTitle: 'Perder Peso y Grasa Corporal',
+        fitnessDesc: 'D\u00e9ficit cal\u00f3rico de 400 kcal con alta saciedad (1,500 kcal/d\u00eda) priorizando prote\u00edna magra y fibra.',
+        antecedentesAPP: {
+          insulina: true,
+          hipertension: false,
+          colitis: false
+        },
+        antecedentesAPNP: {
+          sedentarismo: true,
+          estres: true,
+          cafe_tiempo: false
+        }
+      },
+      planGuard: {
+        saveCountThisWeek: 0,
+        isLocked: false,
+        lastSavedTimeLabel: '',
+        correctionsCount: 0
+      },
       activeWeekdayIdx: 0,
       calculatedDailyKcal: 1480,
       deletedBuzonItems: {}
@@ -7851,10 +8153,11 @@
     // GRÁFICO INTERACTIVO MULTIMÉTRICA (CINTURA, PESO, ÍNDICE ICC)
     // =========================================================================
     function getEvolutionSeries() {
-      const currWeight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
-      const goalWeight = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
-      const currWaist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
-      const currHip = parseFloat(document.getElementById('inp-hip')?.value || 99.0);
+      const sm = clubState.savedMetrics || {};
+      const currWeight = parseFloat(sm.weight ?? 68.4);
+      const goalWeight = parseFloat(sm.weightGoal ?? 62.0);
+      const currWaist = parseFloat(sm.waist ?? 79.0);
+      const currHip = parseFloat(sm.hip ?? 99.0);
       const currIcc = (currWaist > 0 && currHip > 0) ? parseFloat((currWaist / currHip).toFixed(2)) : 0.80;
 
       return {
@@ -8118,8 +8421,9 @@
     }
 
     function renderWaterTracker() {
-      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
-      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
+      const sm = clubState.savedMetrics || {};
+      const weight = parseFloat(sm.weight ?? 68.4);
+      const waist = parseFloat(sm.waist ?? 79.0);
       const waistDiff = (waist - clubState.initialWaist).toFixed(1);
       const recommendedLiters = ((weight * 35) / 1000).toFixed(1);
 
@@ -8715,7 +9019,7 @@
       const dailyRotNote = document.getElementById('bio-daily-rotation-note');
       if (!scoreBadge || !prescText) return;
 
-      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
+      const waist = parseFloat(clubState.savedMetrics?.waist ?? 79.0);
       const waistDiff = (waist - clubState.initialWaist).toFixed(1);
       const waistDiffStr = waistDiff <= 0 ? `${waistDiff} cm` : `+${waistDiff} cm`;
 
@@ -8956,11 +9260,12 @@
       const profProtoEl = document.getElementById('prof-stat-protocol');
       if (profProtoEl) profProtoEl.innerText = clubState.activeProtocol;
 
-      // 3. Medidas en vivo (Peso, Meta, Cintura, Cadera e ICC)
-      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
-      const weightGoal = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
-      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79);
-      const hip = parseFloat(document.getElementById('inp-hip')?.value || 99);
+      // 3. Medidas Oficiales Confirmadas (Solo cambian cuando la socia confirma en Guardar, nunca mientras escribe)
+      const sm = clubState.savedMetrics || {};
+      const weight = parseFloat(sm.weight ?? 68.4);
+      const weightGoal = parseFloat(sm.weightGoal ?? 62.0);
+      const waist = parseFloat(sm.waist ?? 79);
+      const hip = parseFloat(sm.hip ?? 99);
 
       const weightDiff = (weight - clubState.initialWeight).toFixed(1);
       const weightDiffStr = weightDiff <= 0 ? `${weightDiff} kg` : `+${weightDiff} kg`;
@@ -8980,9 +9285,9 @@
       if (topWaistEl) topWaistEl.innerText = `${waist} cm (${waistDiffStr})`;
 
       // Módulo 1 Badge ICC
-      const badgeIcc = document.getElementById('live-icc-badge');
-      if (badgeIcc) {
-        badgeIcc.innerHTML = `📏 Índice Cintura/Cadera Calculado: <strong>${icc} (${iccHealthy ? 'Saludable ✅' : 'Prioridad Desinflamación 🩺'})</strong>`;
+      // Modulo 1 Badge ICC (calculado sobre los campos de Modulo 1 sin mover el resto de la plataforma)
+      if (typeof updateOnboardingLivePreview === 'function') {
+        updateOnboardingLivePreview();
       }
 
       // Dashboard Métricas y Termómetro Clínico ICC Completo
@@ -9385,7 +9690,7 @@
       const titleH1 = document.getElementById('top-greeting-title');
       if (!phraseEl || !titleH1) return;
 
-      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79);
+      const waist = parseFloat(clubState.savedMetrics?.waist ?? 79);
       const waistDiff = (waist - clubState.initialWaist).toFixed(1);
       const dynamicPhrases = [
         getTimeOfDayGreeting(),
@@ -9762,10 +10067,11 @@
     }
 
     function autoSyncCurveEvalToBuzon() {
-      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
-      const weightGoal = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
-      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
-      const hip = parseFloat(document.getElementById('inp-hip')?.value || 99.0);
+      const sm = clubState.savedMetrics || {};
+      const weight = parseFloat(sm.weight ?? 68.4);
+      const weightGoal = parseFloat(sm.weightGoal ?? 62.0);
+      const waist = parseFloat(sm.waist ?? 79.0);
+      const hip = parseFloat(sm.hip ?? 99.0);
       const icc = (waist > 0 && hip > 0) ? (waist / hip).toFixed(2) : '0.80';
 
       const waistDiff = (waist - (clubState.initialWaist || 83)).toFixed(1);
@@ -9983,11 +10289,290 @@
       }, 1100);
     }
 
+    // =========================================================================
+    // SISTEMA DE BORRADOR AISLADO + CANDADO DE PLAN ACTIVO + MODAL DE SEGURIDAD
+    // Nada en Dashboard, Barra Superior, Plan ni Buzon se mueve mientras la socia
+    // escribe o toca opciones en Modulo 1; solo se aplica al confirmar Guardar.
+    // =========================================================================
+
+    function getDraftInputsSnapshot() {
+      const age = parseFloat(document.getElementById('inp-age')?.value || clubState.savedMetrics.age || 34);
+      const height = parseFloat(document.getElementById('inp-height')?.value || clubState.savedMetrics.height || 162);
+      const weight = parseFloat(document.getElementById('inp-weight')?.value || clubState.savedMetrics.weight || 68.4);
+      const weightGoal = parseFloat(document.getElementById('inp-weight-goal')?.value || clubState.savedMetrics.weightGoal || 62.0);
+      const waist = parseFloat(document.getElementById('inp-waist')?.value || clubState.savedMetrics.waist || 79.0);
+      const hip = parseFloat(document.getElementById('inp-hip')?.value || clubState.savedMetrics.hip || 99.0);
+
+      const chips = document.querySelectorAll('#onboarding-food-chips .food-chip.liked');
+      const likedFoods = [];
+      chips.forEach(c => {
+        const clean = c.innerText.replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '').trim();
+        if (clean) likedFoods.push(clean);
+      });
+
+      return {
+        age,
+        height,
+        weight,
+        weightGoal,
+        waist,
+        hip,
+        likedFoods: likedFoods.length > 0 ? likedFoods : ['Aguacate Hass', 'Huevo', 'Pollo', 'Queso Panela/Oaxaca', 'Tortilla de Ma\u00edz', 'Nopales']
+      };
+    }
+
+    function computeOnboardingDiffs() {
+      const snap = getDraftInputsSnapshot();
+      const sm = clubState.savedMetrics;
+      const draft = clubState.draftOnboarding;
+      const diffs = [];
+
+      const cleanDraftProto = (draft.activeProtocol || '').replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '');
+      const cleanSavedProto = (clubState.activeProtocol || '').replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '');
+      if (cleanDraftProto !== cleanSavedProto) {
+        diffs.push(`Objetivo: <strong>${cleanSavedProto}</strong> &rarr; <strong>${cleanDraftProto}</strong>`);
+      }
+
+      if (Math.abs(snap.weight - sm.weight) >= 0.05) {
+        diffs.push(`Peso Actual: <strong>${sm.weight.toFixed(1)} kg</strong> &rarr; <strong>${snap.weight.toFixed(1)} kg</strong>`);
+      }
+      if (Math.abs(snap.weightGoal - sm.weightGoal) >= 0.05) {
+        diffs.push(`Peso Meta: <strong>${sm.weightGoal.toFixed(1)} kg</strong> &rarr; <strong>${snap.weightGoal.toFixed(1)} kg</strong>`);
+      }
+      if (Math.abs(snap.waist - sm.waist) >= 0.05) {
+        diffs.push(`Cintura: <strong>${sm.waist} cm</strong> &rarr; <strong>${snap.waist} cm</strong>`);
+      }
+      if (Math.abs(snap.hip - sm.hip) >= 0.05) {
+        diffs.push(`Cadera: <strong>${sm.hip} cm</strong> &rarr; <strong>${snap.hip} cm</strong>`);
+      }
+      if (Math.abs(snap.age - sm.age) >= 1) {
+        diffs.push(`Edad: <strong>${sm.age}</strong> &rarr; <strong>${snap.age} a\u00f1os</strong>`);
+      }
+      if (Math.abs(snap.height - sm.height) >= 1) {
+        diffs.push(`Estatura: <strong>${sm.height} cm</strong> &rarr; <strong>${snap.height} cm</strong>`);
+      }
+
+      const appSaved = Object.keys(clubState.antecedentesAPP).filter(k => clubState.antecedentesAPP[k]).join(',');
+      const appDraft = Object.keys(draft.antecedentesAPP).filter(k => draft.antecedentesAPP[k]).join(',');
+      if (appSaved !== appDraft) {
+        diffs.push(`Antecedentes Patol\u00f3gicos (APP) modificados`);
+      }
+
+      const apnpSaved = Object.keys(clubState.antecedentesAPNP).filter(k => clubState.antecedentesAPNP[k]).join(',');
+      const apnpDraft = Object.keys(draft.antecedentesAPNP).filter(k => draft.antecedentesAPNP[k]).join(',');
+      if (apnpSaved !== apnpDraft) {
+        diffs.push(`Antecedentes No Patol\u00f3gicos (APNP) modificados`);
+      }
+
+      if (snap.likedFoods.join('|') !== (sm.likedFoods || []).join('|')) {
+        diffs.push(`Preferencias de alimentos mexicanos (${snap.likedFoods.length} seleccionados)`);
+      }
+
+      return diffs;
+    }
+
+    function updateOnboardingLivePreview() {
+      const snap = getDraftInputsSnapshot();
+      const iccNum = (snap.waist > 0 && snap.hip > 0) ? (snap.waist / snap.hip) : 0.80;
+      const icc = iccNum.toFixed(2);
+      const iccHealthy = iccNum < 0.85;
+      const diffs = computeOnboardingDiffs();
+      const hasChanges = diffs.length > 0;
+
+      const badgeIcc = document.getElementById('live-icc-badge');
+      if (badgeIcc) {
+        const previewSuffix = hasChanges ? ' <span style="color: var(--coral); font-weight: 800;">(En borrador)</span>' : '';
+        badgeIcc.innerHTML = `\uD83D\uDCCF \u00cdndice Cintura/Cadera Calculado: <strong>${icc} (${iccHealthy ? 'Saludable \u2705' : 'Prioridad Desinflamaci\u00f3n \uD83E\uDE7A'})</strong>${previewSuffix}`;
+      }
+
+      const unsavedBar = document.getElementById('onboarding-unsaved-bar');
+      const unsavedTxt = document.getElementById('onboarding-unsaved-text');
+      if (unsavedBar) {
+        if (hasChanges) {
+          unsavedBar.classList.add('is-visible');
+          if (unsavedTxt) {
+            unsavedTxt.innerHTML = `\u270F\uFE0F <strong>Cambios en borrador (${diffs.length}):</strong> ${diffs.slice(0, 3).join(' &bull; ')}. Tu Dashboard, Plan y Buz\u00f3n <strong>no se mover\u00e1n</strong> hasta que confirmes en Guardar.`;
+          }
+        } else {
+          unsavedBar.classList.remove('is-visible');
+        }
+      }
+
+      renderOnboardingGuardUI();
+    }
+
+    function renderOnboardingGuardUI() {
+      const guard = clubState.planGuard || { saveCountThisWeek: 0, isLocked: false };
+      const banner = document.getElementById('onboarding-guard-banner');
+      const kicker = document.getElementById('onboarding-guard-kicker');
+      const title = document.getElementById('onboarding-guard-title');
+      const desc = document.getElementById('onboarding-guard-desc');
+      const lockBtn = document.getElementById('btn-toggle-onboarding-lock');
+      const topPill = document.getElementById('onboarding-guard-top-pill');
+      const shieldWrap = document.getElementById('onboarding-shielded-wrap');
+      const saveBtn = document.getElementById('btn-save-generate-plan');
+
+      if (!banner) return;
+
+      if (guard.saveCountThisWeek === 0) {
+        banner.className = 'onboarding-guard-banner state-ready';
+        if (kicker) {
+          kicker.style.color = '#166534';
+          kicker.innerHTML = '&#128197; CALIBRACI&Oacute;N SEMANAL OFICIAL (FIN DE SEMANA)';
+        }
+        if (title) {
+          title.innerHTML = 'Configura tus medidas y objetivo: nada se mover&aacute; en tu plataforma hasta que presiones &ldquo;Guardar&rdquo;';
+        }
+        if (desc) {
+          desc.innerHTML = 'Al generar tu Plan Semanal por primera vez, se activar&aacute; el <strong>Candado de Plan Activo</strong> para evitar que tus medidas, gr&aacute;ficas o correos se muevan si vuelves a entrar el mismo d&iacute;a.';
+        }
+        if (lockBtn) lockBtn.style.display = 'none';
+        if (shieldWrap) shieldWrap.classList.remove('is-locked-shield');
+        if (topPill) {
+          topPill.style.background = '#DCFCE7';
+          topPill.style.color = '#166534';
+          topPill.style.borderColor = '#86EFAC';
+          topPill.innerHTML = '&#128737;&#65039; Seguro Activo: Los cambios solo se aplican al presionar Guardar';
+        }
+        if (saveBtn) {
+          saveBtn.innerHTML = '&#10024; Guardar y Generar Plan Semanal <i class="fa-solid fa-arrow-right"></i>';
+        }
+      } else if (guard.isLocked) {
+        banner.className = 'onboarding-guard-banner state-locked';
+        if (kicker) {
+          kicker.style.color = '#FDE68A';
+          kicker.innerHTML = `&#128274; PLAN SEMANAL ACTIVO Y PROTEGIDO &bull; GUARDADO (${guard.lastSavedTimeLabel || 'HOY'})`;
+        }
+        if (title) {
+          title.innerHTML = 'Tu Plan e Historia Cl&iacute;nica de esta semana ya est&aacute;n blindados';
+        }
+        if (desc) {
+          desc.innerHTML = 'El seguro est&aacute; puesto para que no se mueva todo tu historial por accidente. Recuerda que tu nuevo peso y plan se actualizan en el <strong>corte de fin de semana</strong>. Si te equivocaste en un dato, desbloquea abajo:';
+        }
+        if (lockBtn) {
+          lockBtn.style.display = 'inline-flex';
+          lockBtn.style.background = '#FDE68A';
+          lockBtn.style.color = '#142B1F';
+          lockBtn.style.borderColor = '#F59E0B';
+          lockBtn.innerHTML = '<i class="fa-solid fa-lock-open"></i> <span>Desbloquear para corregir un dato</span>';
+        }
+        if (shieldWrap) shieldWrap.classList.add('is-locked-shield');
+        if (topPill) {
+          topPill.style.background = '#FEF3C7';
+          topPill.style.color = '#92400E';
+          topPill.style.borderColor = '#F59E0B';
+          topPill.innerHTML = '&#128274; Candado Semanal Activo (Pr&oacute;xima calibraci&oacute;n: Fin de Semana)';
+        }
+        if (saveBtn) {
+          saveBtn.innerHTML = '&#128274; Plan Semanal Protegido (Opciones de Guardado) <i class="fa-solid fa-shield-halved"></i>';
+        }
+      } else {
+        banner.className = 'onboarding-guard-banner state-unlocked-edit';
+        if (kicker) {
+          kicker.style.color = '#B45309';
+          kicker.innerHTML = '&#128275; MODO CORRECCI&Oacute;N / RECALIBRACI&Oacute;N ABIERTO (2.&ordf; VEZ EN LA SEMANA)';
+        }
+        if (title) {
+          title.innerHTML = 'Campos desbloqueados en borrador: edita el dato que necesites corregir';
+        }
+        if (desc) {
+          desc.innerHTML = 'Nada se mover&aacute; en tu Dashboard ni en tu Buz&oacute;n mientras escribes. Cuando termines, presiona el bot&oacute;n inferior para elegir entre <strong>Solo corregir dato por error</strong> o <strong>Forzar nueva generaci&oacute;n</strong>.';
+        }
+        if (lockBtn) {
+          lockBtn.style.display = 'inline-flex';
+          lockBtn.style.background = '#142B1F';
+          lockBtn.style.color = '#FFFFFF';
+          lockBtn.style.borderColor = '#142B1F';
+          lockBtn.innerHTML = '<i class="fa-solid fa-lock"></i> <span>Volver a activar candado sin cambios</span>';
+        }
+        if (shieldWrap) shieldWrap.classList.remove('is-locked-shield');
+        if (topPill) {
+          topPill.style.background = '#FFEDD5';
+          topPill.style.color = '#9A3412';
+          topPill.style.borderColor = '#FDBA74';
+          topPill.innerHTML = '&#9999;&#65039; Modo Edici&oacute;n con Seguro de Confirmaci&oacute;n';
+        }
+        if (saveBtn) {
+          saveBtn.innerHTML = '&#128737;&#65039; Confirmar Cambio / Generar Plan (Con Seguro) <i class="fa-solid fa-arrow-right"></i>';
+        }
+      }
+    }
+
+    function handleShieldedOverlayClick() {
+      const banner = document.getElementById('onboarding-guard-banner');
+      if (banner) {
+        banner.classList.remove('shake-guard');
+        void banner.offsetWidth;
+        banner.classList.add('shake-guard');
+        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      showToast(
+        '\uD83D\uDD12 Plan Semanal Protegido',
+        'Haz clic en "Desbloquear para corregir un dato" arriba si necesitas editar un valor antes del fin de semana.'
+      );
+    }
+
+    function toggleOnboardingShieldLock() {
+      if (!clubState.planGuard || clubState.planGuard.saveCountThisWeek === 0) return;
+      if (clubState.planGuard.isLocked) {
+        clubState.planGuard.isLocked = false;
+        renderOnboardingGuardUI();
+        showToast(
+          '\uD83D\uDD13 Modo Correcci\u00f3n Habilitado',
+          'Edita el dato que necesites. Tu plataforma no se mover\u00e1 hasta que confirmes en el bot\u00f3n Guardar.'
+        );
+      } else {
+        discardOnboardingDraftChanges();
+        clubState.planGuard.isLocked = true;
+        renderOnboardingGuardUI();
+        showToast(
+          '\uD83D\uDD12 Candado Semanal Reactivado',
+          'Tu Plan Semanal activo qued\u00f3 protegido sin cambios.'
+        );
+      }
+    }
+
+    function discardOnboardingDraftChanges() {
+      const sm = clubState.savedMetrics;
+      const inpAge = document.getElementById('inp-age');
+      const inpHeight = document.getElementById('inp-height');
+      const inpWeight = document.getElementById('inp-weight');
+      const inpGoal = document.getElementById('inp-weight-goal');
+      const inpWaist = document.getElementById('inp-waist');
+      const inpHip = document.getElementById('inp-hip');
+
+      if (inpAge) inpAge.value = sm.age;
+      if (inpHeight) inpHeight.value = sm.height;
+      if (inpWeight) inpWeight.value = sm.weight;
+      if (inpGoal) inpGoal.value = sm.weightGoal;
+      if (inpWaist) inpWaist.value = sm.waist;
+      if (inpHip) inpHip.value = sm.hip;
+
+      // Restaurar protocolo y antecedentes en borrador desde el estado confirmado
+      clubState.draftOnboarding.activeProtocol = clubState.activeProtocol;
+      clubState.draftOnboarding.antecedentesAPP = { ...clubState.antecedentesAPP };
+      clubState.draftOnboarding.antecedentesAPNP = { ...clubState.antecedentesAPNP };
+
+      // Restaurar chips de alimentos
+      const savedSet = new Set(sm.likedFoods || []);
+      document.querySelectorAll('#onboarding-food-chips .food-chip').forEach(c => {
+        const clean = c.innerText.replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '').trim();
+        c.classList.toggle('liked', savedSet.has(clean));
+      });
+
+      renderAntecedentesUI();
+      updateOnboardingLivePreview();
+    }
+
     function toggleAntecedente(group, key) {
+      if (clubState.planGuard?.isLocked) {
+        handleShieldedOverlayClick();
+        return;
+      }
+      const draft = clubState.draftOnboarding;
       if (group === 'app') {
-        clubState.antecedentesAPP[key] = !clubState.antecedentesAPP[key];
-        // Si el objetivo activo es Control Clinico y activo este antecedente, sincronizar el radio principal
-        if (clubState.antecedentesAPP[key]) {
+        draft.antecedentesAPP[key] = !draft.antecedentesAPP[key];
+        if (draft.antecedentesAPP[key]) {
           const mapRadioVal = {
             insulina: '\uD83E\uDE78 Control Insulina',
             hipertension: '\u2764\uFE0F Presi\u00f3n Arterial',
@@ -9999,41 +10584,49 @@
             r.checked = true;
             const weightRadio = document.querySelector('input[name="clin_weight"]:checked');
             const weightVal = weightRadio ? weightRadio.value : '+ Bajar Peso';
-            clubState.activeProtocol = `${r.value} ${weightVal}`;
+            draft.activeProtocol = `${r.value} ${weightVal}`;
           }
         }
       } else if (group === 'apnp') {
-        clubState.antecedentesAPNP[key] = !clubState.antecedentesAPNP[key];
+        draft.antecedentesAPNP[key] = !draft.antecedentesAPNP[key];
       }
       renderAntecedentesUI();
-      syncPlatformState();
+      updateOnboardingLivePreview();
     }
 
     function clearAntecedentesGroup(group) {
+      if (clubState.planGuard?.isLocked) {
+        handleShieldedOverlayClick();
+        return;
+      }
+      const draft = clubState.draftOnboarding;
       if (group === 'app') {
-        Object.keys(clubState.antecedentesAPP).forEach(k => { clubState.antecedentesAPP[k] = false; });
+        Object.keys(draft.antecedentesAPP).forEach(k => { draft.antecedentesAPP[k] = false; });
       } else if (group === 'apnp') {
-        Object.keys(clubState.antecedentesAPNP).forEach(k => { clubState.antecedentesAPNP[k] = false; });
+        Object.keys(draft.antecedentesAPNP).forEach(k => { draft.antecedentesAPNP[k] = false; });
       }
       renderAntecedentesUI();
-      syncPlatformState();
+      updateOnboardingLivePreview();
     }
 
     function renderAntecedentesUI() {
-      const appKeys = Object.keys(clubState.antecedentesAPP);
-      const apnpKeys = Object.keys(clubState.antecedentesAPNP);
+      const draft = clubState.draftOnboarding || clubState;
+      const appObj = draft.antecedentesAPP || clubState.antecedentesAPP;
+      const apnpObj = draft.antecedentesAPNP || clubState.antecedentesAPNP;
+      const appKeys = Object.keys(appObj);
+      const apnpKeys = Object.keys(apnpObj);
       let appCount = 0;
       let apnpCount = 0;
 
       appKeys.forEach(k => {
-        const active = !!clubState.antecedentesAPP[k];
+        const active = !!appObj[k];
         if (active) appCount++;
         const card = document.getElementById('app-card-' + k);
         if (card) card.classList.toggle('active-app', active);
       });
 
       apnpKeys.forEach(k => {
-        const active = !!clubState.antecedentesAPNP[k];
+        const active = !!apnpObj[k];
         if (active) apnpCount++;
         const card = document.getElementById('apnp-card-' + k);
         if (card) card.classList.toggle('active-apnp', active);
@@ -10054,19 +10647,20 @@
 
       const linkedTag = document.getElementById('antecedentes-obj-linked-tag');
       if (linkedTag) {
-        const cleanProto = (clubState.activeProtocol || 'Control Insulina + Bajar Peso').replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '');
+        const protoSource = draft.activeProtocol || clubState.activeProtocol || 'Control Insulina + Bajar Peso';
+        const cleanProto = protoSource.replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '');
         linkedTag.innerHTML = `\uD83E\uDE7A Vinculado a: ${cleanProto}`;
       }
 
       const impactTxt = document.getElementById('antecedentes-live-impact-text');
       if (impactTxt) {
         const parts = [];
-        if (clubState.antecedentesAPP.insulina) parts.push('fibra soluble previa y bajo IG (Insulina/SOP)');
-        if (clubState.antecedentesAPP.hipertension) parts.push('bajo en sodio oculto y alto en potasio (Presi\u00f3n/Colesterol)');
-        if (clubState.antecedentesAPP.colitis) parts.push('verduras cocidas anti-distensi\u00f3n sin irritantes (Colitis/Gastritis)');
-        if (clubState.antecedentesAPNP.sedentarismo) parts.push('reducci\u00f3n de almid\u00f3n nocturno por oficina (+6h sentada)');
-        if (clubState.antecedentesAPNP.estres) parts.push('colaci\u00f3n anti-cortisol y cena rica en magnesio (Estr\u00e9s/Sue\u00f1o)');
-        if (clubState.antecedentesAPNP.cafe_tiempo) parts.push('desayuno express \u22647 min protector antes del caf\u00e9');
+        if (appObj.insulina) parts.push('fibra soluble previa y bajo IG (Insulina/SOP)');
+        if (appObj.hipertension) parts.push('bajo en sodio oculto y alto en potasio (Presi\u00f3n/Colesterol)');
+        if (appObj.colitis) parts.push('verduras cocidas anti-distensi\u00f3n sin irritantes (Colitis/Gastritis)');
+        if (apnpObj.sedentarismo) parts.push('reducci\u00f3n de almid\u00f3n nocturno por oficina (+6h sentada)');
+        if (apnpObj.estres) parts.push('colaci\u00f3n anti-cortisol y cena rica en magnesio (Estr\u00e9s/Sue\u00f1o)');
+        if (apnpObj.cafe_tiempo) parts.push('desayuno express \u22647 min protector antes del caf\u00e9');
 
         if (parts.length === 0) {
           impactTxt.innerText = 'Men\u00fa metab\u00f3lico est\u00e1ndar sin restricciones patol\u00f3gicas activas, calibrado a tus medidas corporales.';
@@ -10077,42 +10671,49 @@
     }
 
     function toggleOnboardingFoodChip(el) {
+      if (clubState.planGuard?.isLocked) {
+        handleShieldedOverlayClick();
+        return;
+      }
       if (el) el.classList.toggle('liked');
-      syncPlatformState();
+      updateOnboardingLivePreview();
     }
 
     function getLikedFoodsList() {
-      const chips = document.querySelectorAll('#onboarding-food-chips .food-chip.liked');
-      const list = [];
-      chips.forEach(c => {
-        const clean = c.innerText.replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '').trim();
-        if (clean) list.push(clean);
-      });
-      return list.length > 0 ? list : ['Aguacate Hass', 'Huevo', 'Pollo', 'Queso Panela/Oaxaca', 'Tortilla de Ma\u00edz', 'Nopales'];
+      const saved = clubState.savedMetrics?.likedFoods;
+      if (Array.isArray(saved) && saved.length > 0) return saved;
+      return ['Aguacate Hass', 'Huevo', 'Pollo', 'Queso Panela/Oaxaca', 'Tortilla de Ma\u00edz', 'Nopales'];
     }
 
-    // Actualizar protocolo clinico desde los radio buttons de Modulo 1
+    // Actualizar protocolo clinico en borrador desde los radio buttons de Modulo 1 (sin mover la plataforma hasta Guardar)
     function updateClinicalProtocol() {
+      if (clubState.planGuard?.isLocked) {
+        handleShieldedOverlayClick();
+        return;
+      }
       const clinRadio = document.querySelector('input[name="clin"]:checked');
       const weightRadio = document.querySelector('input[name="clin_weight"]:checked');
       const clinVal = clinRadio ? clinRadio.value : '\uD83E\uDE78 Control Insulina';
       const weightVal = weightRadio ? weightRadio.value : '+ Bajar Peso';
-      clubState.activeProtocol = `${clinVal} ${weightVal}`;
+      clubState.draftOnboarding.activeProtocol = `${clinVal} ${weightVal}`;
 
-      // Sincronizar automaticamente el antecedente patologico principal seleccionado en el radio
       if (clinVal.includes('Insulina')) {
-        clubState.antecedentesAPP.insulina = true;
+        clubState.draftOnboarding.antecedentesAPP.insulina = true;
       } else if (clinVal.includes('Presi')) {
-        clubState.antecedentesAPP.hipertension = true;
+        clubState.draftOnboarding.antecedentesAPP.hipertension = true;
       } else if (clinVal.includes('Colitis')) {
-        clubState.antecedentesAPP.colitis = true;
+        clubState.draftOnboarding.antecedentesAPP.colitis = true;
       }
       renderAntecedentesUI();
-      syncPlatformState();
+      updateOnboardingLivePreview();
     }
 
-    // Giro 3D de altura fija en el Modulo 1 al alternar entre Control Clinico y Objetivos Fitness + despliegue de Antecedentes
+    // Giro 3D de altura fija en el Modulo 1 en borrador (solo mueve la vista previa de Modulo 1)
     function selectObj(cardEl, isClinical, titleText, descText) {
+      if (clubState.planGuard?.isLocked) {
+        handleShieldedOverlayClick();
+        return;
+      }
       document.querySelectorAll('.obj-card').forEach(c => c.classList.remove('selected'));
       if (cardEl) cardEl.classList.add('selected');
       const flipBox = document.getElementById('flip-onboarding-protocol');
@@ -10123,76 +10724,78 @@
         } else {
           if (titleText) {
             document.getElementById('fitness-obj-title').innerText = 'Objetivo: ' + titleText;
-            clubState.activeProtocol = '\u26A1 ' + titleText;
+            clubState.draftOnboarding.activeProtocol = '\u26A1 ' + titleText;
           }
           if (descText) document.getElementById('fitness-obj-desc').innerText = descText;
           flipBox.classList.add('is-flipped');
           renderAntecedentesUI();
-          syncPlatformState();
+          updateOnboardingLivePreview();
         }
       }
       pulseAntecedentesPanel();
     }
 
-    // Calculadora en vivo de Indice Cintura/Cadera en Modulo 1 (sincroniza Top Bar, Perfil, Plan y Buzon)
+    // Vista previa local de Indice Cintura/Cadera en Modulo 1 (NO mueve Dashboard, Top Bar, Plan ni Buzon hasta Guardar)
     function calcLiveICC() {
-      const w = parseFloat(document.getElementById('inp-waist')?.value || 79);
-      const h = parseFloat(document.getElementById('inp-hip')?.value || 99);
-      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
-      const cw = document.getElementById('checkin-waist');
-      const ch = document.getElementById('checkin-hip');
-      const cWeight = document.getElementById('checkin-weight');
-      if (cw) cw.value = w;
-      if (ch) ch.value = h;
-      if (cWeight) cWeight.value = weight;
-      syncPlatformState();
-    }
-
-    // Sincronizacion en vivo cuando la socia escribe nuevas medidas en el Cierre Semanal (Modulo 2)
-    function syncFromCheckinInputs() {
-      const cWeight = parseFloat(document.getElementById('checkin-weight')?.value || 68.4);
-      const cWaist = parseFloat(document.getElementById('checkin-waist')?.value || 79);
-      const cHip = parseFloat(document.getElementById('checkin-hip')?.value || 99);
-
-      const inpW = document.getElementById('inp-weight');
-      const inpWaist = document.getElementById('inp-waist');
-      const inpHip = document.getElementById('inp-hip');
-      if (inpW) inpW.value = cWeight;
-      if (inpWaist) inpWaist.value = cWaist;
-      if (inpHip) inpHip.value = cHip;
-      syncPlatformState();
-    }
-
-    // Cierre semanal en Modulo 2: actualiza medidas, avanza a Semana 4 y suma +50 XP
-    function submitWeeklyCheckin(btnEl) {
-      const cWeight = parseFloat(document.getElementById('checkin-weight')?.value || 68.4);
-      const cWaist = parseFloat(document.getElementById('checkin-waist')?.value || 79);
-      const cHip = parseFloat(document.getElementById('checkin-hip')?.value || 99);
-
-      const inpW = document.getElementById('inp-weight');
-      const inpWaist = document.getElementById('inp-waist');
-      const inpHip = document.getElementById('inp-hip');
-      if (inpW) inpW.value = cWeight;
-      if (inpWaist) inpWaist.value = cWaist;
-      if (inpHip) inpHip.value = cHip;
-
-      if (!clubState.checkinDone) {
-        clubState.checkinDone = true;
-        clubState.week = 4;
-        clubState.streakDays += 1;
-        clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
+      if (clubState.planGuard?.isLocked) {
+        handleShieldedOverlayClick();
+        return;
       }
+      updateOnboardingLivePreview();
+    }
+
+    // En Cierre Semanal (Modulo 2), escribir en los inputs tampoco mueve toda la plataforma hasta presionar el boton de Recalibrar
+    function syncFromCheckinInputs() {
+      // Mantiene los valores en el formulario de Check-in hasta que la socia confirme con el boton "Recalibrar Semana con IA"
+    }
+
+    // Cierre semanal oficial en Modulo 2: actualiza medidas confirmadas, avanza a Semana 4 y suma +50 XP
+    function submitWeeklyCheckin(btnEl) {
+      const cWeight = parseFloat(document.getElementById('checkin-weight')?.value || clubState.savedMetrics.weight || 68.4);
+      const cWaist = parseFloat(document.getElementById('checkin-waist')?.value || clubState.savedMetrics.waist || 79);
+      const cHip = parseFloat(document.getElementById('checkin-hip')?.value || clubState.savedMetrics.hip || 99);
+
+      if (clubState.checkinDone) {
+        showToast(
+          '\uD83D\uDD12 Corte Semanal Ya Registrado',
+          'Ya realizaste tu calibraci\u00f3n de esta semana. El pr\u00f3ximo cierre estar\u00e1 disponible el fin de semana.'
+        );
+        return;
+      }
+
+      clubState.savedMetrics.weight = cWeight;
+      clubState.savedMetrics.waist = cWaist;
+      clubState.savedMetrics.hip = cHip;
+
+      const inpW = document.getElementById('inp-weight');
+      const inpWaist = document.getElementById('inp-waist');
+      const inpHip = document.getElementById('inp-hip');
+      if (inpW) inpW.value = cWeight;
+      if (inpWaist) inpWaist.value = cWaist;
+      if (inpHip) inpHip.value = cHip;
+
+      clubState.checkinDone = true;
+      clubState.week = 4;
+      clubState.streakDays += 1;
+      clubState.xp = Math.min(clubState.maxXp, clubState.xp + 50);
+
       syncPlatformState();
+      updateOnboardingLivePreview();
       if (btnEl) {
         btnEl.innerHTML = '<span>\u2705 \u00A1Semana 4 Calibrada! (+50 XP)</span>';
       }
+      showToast(
+        '\u2705 Cierre Semanal Completado',
+        'Tus medidas de fin de semana actualizaron tu curva, tu Plan Semanal y tu Buz\u00f3n.'
+      );
     }
 
-    // Construye los men\u00fas personalizados Lunes-S\u00e1bado seg\u00fan Objetivo + Antecedentes Patol\u00f3gicos y No Patol\u00f3gicos
+    // Construye los men\u00fas personalizados Lunes-S\u00e1bado seg\u00fan el Estado Oficial Confirmado (savedMetrics + activeProtocol + antecedentes)
     function buildPersonalizedWeeklyPlan() {
-      const age = parseFloat(document.getElementById('inp-age')?.value || 34);
-      const height = parseFloat(document.getElementById('inp-height')?.value || 162);
-      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const sm = clubState.savedMetrics || {};
+      const age = parseFloat(sm.age ?? 34);
+      const height = parseFloat(sm.height ?? 162);
+      const weight = parseFloat(sm.weight ?? 68.4);
       const proto = clubState.activeProtocol || '\uD83E\uDE78 Control Insulina + Bajar Peso';
       const app = clubState.antecedentesAPP || {};
       const apnp = clubState.antecedentesAPNP || {};
@@ -10422,16 +11025,17 @@
       }
     }
 
-    // Sincroniza en tiempo real (y al hacer clic en Guardar y Generar Plan) la Historia Clinica y el Plan hacia el Modulo 2 y el Buzon (Modulo 8)
+    // Sincroniza la Historia Clinica y el Plan hacia el Modulo 2 y el Buzon (Modulo 8) usando UNICAMENTE el estado confirmado (savedMetrics)
     function syncClinicalHistoryAndPlanToBuzon(isManualSave) {
       const plan = buildPersonalizedWeeklyPlan();
       const rawName = (document.getElementById('prof-inp-name')?.value || 'Mariana G\u00f3mez').trim();
-      const age = parseFloat(document.getElementById('inp-age')?.value || 34);
-      const height = parseFloat(document.getElementById('inp-height')?.value || 162);
-      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
-      const weightGoal = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
-      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79);
-      const hip = parseFloat(document.getElementById('inp-hip')?.value || 99);
+      const sm = clubState.savedMetrics || {};
+      const age = parseFloat(sm.age ?? 34);
+      const height = parseFloat(sm.height ?? 162);
+      const weight = parseFloat(sm.weight ?? 68.4);
+      const weightGoal = parseFloat(sm.weightGoal ?? 62.0);
+      const waist = parseFloat(sm.waist ?? 79);
+      const hip = parseFloat(sm.hip ?? 99);
 
       const iccNum = (waist > 0 && hip > 0) ? (waist / hip) : 0.80;
       const icc = iccNum.toFixed(2);
@@ -10561,7 +11165,7 @@
         `).join('');
       }
 
-      // Si el usuario presiono "Guardar y Generar Plan Semanal", enviarlos como nuevos al tope del Buzon
+      // Solo cuando es generacion oficial (1ra vez o Forzar Nueva Generacion), emitirlos como nuevos al tope del Buzon
       if (isManualSave) {
         if (clubState.deletedBuzonItems) {
           delete clubState.deletedBuzonItems[2];
@@ -10599,21 +11203,153 @@
       }
     }
 
-    // Accion principal del boton "Guardar y Generar Plan Semanal" en Modulo 1
-    function saveAndGenerateClinicalPlan(btnEl) {
-      syncClinicalHistoryAndPlanToBuzon(true);
-      if (btnEl) {
-        const orig = btnEl.innerHTML;
-        btnEl.innerHTML = '\u2705 \u00A1Plan e Historia Cl\u00ednica Enviados al Buz\u00f3n!';
-        setTimeout(() => { btnEl.innerHTML = orig; }, 2600);
-      }
-      openModule('mod-plan', document.getElementById('nav-mod-plan'));
-      showToast(
-        'Historia Cl\u00ednica y Plan Generados',
-        'Tu men\u00fa fue calibrado con tus antecedentes y enviado autom\u00e1ticamente a tu Buz\u00f3n.'
-      );
+    function applyDraftToConfirmedState() {
+      const snap = getDraftInputsSnapshot();
+      clubState.savedMetrics = {
+        age: snap.age,
+        height: snap.height,
+        weight: snap.weight,
+        weightGoal: snap.weightGoal,
+        waist: snap.waist,
+        hip: snap.hip,
+        likedFoods: [...snap.likedFoods]
+      };
+      clubState.activeProtocol = clubState.draftOnboarding.activeProtocol;
+      clubState.antecedentesAPP = { ...clubState.draftOnboarding.antecedentesAPP };
+      clubState.antecedentesAPNP = { ...clubState.draftOnboarding.antecedentesAPNP };
+
+      // Sincronizar los inputs de Check-in del Modulo 2 con el estado confirmado
+      const cw = document.getElementById('checkin-waist');
+      const ch = document.getElementById('checkin-hip');
+      const cWeight = document.getElementById('checkin-weight');
+      if (cw) cw.value = snap.waist;
+      if (ch) ch.value = snap.hip;
+      if (cWeight) cWeight.value = snap.weight;
     }
 
+    function getFormattedNowTime() {
+      try {
+        const now = new Date();
+        return 'Hoy ' + now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+      } catch (e) {
+        return 'Hoy';
+      }
+    }
+
+    function openPlanGuardModal() {
+      const modal = document.getElementById('onboarding-security-modal');
+      if (!modal) return;
+
+      const lastLbl = document.getElementById('guard-modal-last-saved-lbl');
+      if (lastLbl) {
+        lastLbl.innerText = clubState.planGuard?.lastSavedTimeLabel || 'Hoy';
+      }
+
+      const diffs = computeOnboardingDiffs();
+      const diffTxt = document.getElementById('guard-modal-diff-text');
+      if (diffTxt) {
+        if (diffs.length > 0) {
+          diffTxt.innerHTML = diffs.map(d => `&bull; ${d}`).join('<br>');
+        } else {
+          diffTxt.innerHTML = 'No has modificado ning\u00fan valor todav\u00eda (tus datos actuales son id\u00e9nticos al Plan Semanal activo). Si deseas corregir un dato primero, desbloquea los campos.';
+        }
+      }
+
+      modal.classList.add('is-open');
+    }
+
+    function closePlanGuardModal() {
+      const modal = document.getElementById('onboarding-security-modal');
+      if (modal) modal.classList.remove('is-open');
+    }
+
+    function confirmPlanGuardAction(actionType) {
+      closePlanGuardModal();
+
+      if (actionType === 'cancel_revert') {
+        discardOnboardingDraftChanges();
+        clubState.planGuard.isLocked = true;
+        renderOnboardingGuardUI();
+        showToast(
+          '\uD83D\uDD12 Plan Actual Conservado',
+          'No se realiz\u00f3 ning\u00fan cambio. Tu Plan Semanal e historial siguen protegidos.'
+        );
+        return;
+      }
+
+      if (actionType === 'correct_only') {
+        const diffs = computeOnboardingDiffs();
+        if (diffs.length === 0 && clubState.planGuard.isLocked) {
+          // Si estaba bloqueado y aun no habia editado el dato, desbloquearle los campos para que lo corrija comodamente
+          clubState.planGuard.isLocked = false;
+          renderOnboardingGuardUI();
+          showToast(
+            '\u270F\uFE0F Campos Desbloqueados para Correcci\u00f3n',
+            'Corrige el dato que necesites y vuelve a presionar el bot\u00f3n para guardarlo.'
+          );
+          return;
+        }
+
+        applyDraftToConfirmedState();
+        clubState.planGuard.isLocked = true;
+        clubState.planGuard.correctionsCount = (clubState.planGuard.correctionsCount || 0) + 1;
+        syncPlatformState();
+        syncClinicalHistoryAndPlanToBuzon(false);
+        updateOnboardingLivePreview();
+
+        showToast(
+          '\u2705 Dato Corregido (Sin Mover Corte Semanal)',
+          'Se actualiz\u00f3 tu correcci\u00f3n sin alterar tu semana ni duplicar correos en el Buz\u00f3n.'
+        );
+        return;
+      }
+
+      if (actionType === 'force_regenerate') {
+        applyDraftToConfirmedState();
+        clubState.planGuard.saveCountThisWeek = (clubState.planGuard.saveCountThisWeek || 1) + 1;
+        clubState.planGuard.isLocked = true;
+        clubState.planGuard.lastSavedTimeLabel = getFormattedNowTime();
+
+        syncPlatformState();
+        syncClinicalHistoryAndPlanToBuzon(true);
+        updateOnboardingLivePreview();
+
+        openModule('mod-plan', document.getElementById('nav-mod-plan'));
+        showToast(
+          '\uD83D\uDD04 Nueva Generaci\u00f3n Aplicada',
+          'Se recalibr\u00f3 tu Plan Semanal completo y se envi\u00f3 nuevamente a tu Buz\u00f3n.'
+        );
+      }
+    }
+
+    // Accion principal del boton "Guardar y Generar Plan Semanal" en Modulo 1 (con Seguro Clinico a partir de la 2da vez)
+    function saveAndGenerateClinicalPlan(btnEl) {
+      if (!clubState.planGuard) {
+        clubState.planGuard = { saveCountThisWeek: 0, isLocked: false, lastSavedTimeLabel: '', correctionsCount: 0 };
+      }
+
+      // Si ya genero su plan 1 vez en esta semana/dia, abrir el Modal de Seguridad Clinica
+      if (clubState.planGuard.saveCountThisWeek >= 1) {
+        openPlanGuardModal();
+        return;
+      }
+
+      // Primera vez que guarda y genera su Plan Semanal
+      applyDraftToConfirmedState();
+      clubState.planGuard.saveCountThisWeek = 1;
+      clubState.planGuard.isLocked = true;
+      clubState.planGuard.lastSavedTimeLabel = getFormattedNowTime();
+
+      syncPlatformState();
+      syncClinicalHistoryAndPlanToBuzon(true);
+      updateOnboardingLivePreview();
+
+      openModule('mod-plan', document.getElementById('nav-mod-plan'));
+      showToast(
+        '\uD83D\uDD12 Plan Generado y Seguro Activado',
+        'Tu Plan e Historia Cl\u00ednica fueron enviados al Buz\u00f3n y tu ficha qued\u00f3 protegida con el Candado Semanal.'
+      );
+    }
     // Cronómetro real de descanso en Módulo 5
     let restTimer = null;
     function startRestTimer() {
