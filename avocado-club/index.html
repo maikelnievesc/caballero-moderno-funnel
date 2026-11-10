@@ -3578,6 +3578,161 @@
       box-shadow: 0 5px 12px rgba(104, 163, 50, 0.28);
     }
 
+    /* PANEL DESPLEGABLE DE ANTECEDENTES PERSONALES PATOLOGICOS Y NO PATOLOGICOS (MODULO 1) */
+    .antecedentes-deploy-panel {
+      background: linear-gradient(145deg, #F9FCF5 0%, #FFFFFF 100%);
+      border: 1.5px solid #CFE0BE;
+      border-radius: 20px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(20, 43, 31, 0.06);
+      transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .antecedentes-deploy-panel.pulse-highlight {
+      border-color: var(--coral);
+      box-shadow: 0 0 0 4px rgba(232, 111, 82, 0.22), 0 12px 28px rgba(20, 43, 31, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .antecedentes-cols-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .antecedentes-cols-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .antecedentes-col-box {
+      background: #FFFFFF;
+      border: 1.5px solid #DCE8CE;
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ant-option-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 13px;
+      border: 1.5px solid #E2ECD8;
+      background: #FAFCF8;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+
+    .ant-option-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .ant-option-card:hover {
+      border-color: var(--avo-primary);
+      background: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .ant-option-card.active-app {
+      border-color: var(--coral);
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF4F0 100%);
+      box-shadow: 0 5px 14px rgba(232, 111, 82, 0.14);
+    }
+
+    .ant-option-card.active-apnp {
+      border-color: var(--avo-primary);
+      background: linear-gradient(135deg, #FFFFFF 0%, #F1F8E9 100%);
+      box-shadow: 0 5px 14px rgba(104, 163, 50, 0.14);
+    }
+
+    .ant-check-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 2px solid #B8CFA4;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 900;
+      color: transparent;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all 0.18s ease;
+    }
+
+    .ant-option-card.active-app .ant-check-box {
+      background: var(--coral);
+      border-color: var(--coral);
+      color: #FFFFFF;
+    }
+
+    .ant-option-card.active-apnp .ant-check-box {
+      background: var(--avo-primary);
+      border-color: var(--avo-primary);
+      color: #FFFFFF;
+    }
+
+    .ant-none-pill {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 99px;
+      border: 1px solid #CFE0BE;
+      background: #F4F9EE;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .ant-none-pill.active-none {
+      background: var(--avo-dark);
+      color: #FFFFFF;
+      border-color: var(--avo-dark);
+    }
+
+    /* BANNER DE CALIBRACION CLINICA EN MODULO 2 (PLAN SEMANAL) */
+    .plan-calibration-banner {
+      background: linear-gradient(135deg, #142B1F 0%, #1F4230 100%);
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 16px 22px;
+      margin-bottom: 16px;
+      border: 1.5px solid rgba(197, 240, 153, 0.28);
+      box-shadow: 0 10px 26px rgba(20, 43, 31, 0.14);
+    }
+
+    /* TOAST GLOBAL FLOTANTE */
+    .avo-toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99999;
+      background: linear-gradient(135deg, #142B1F 0%, #1F4230 100%);
+      color: #FFFFFF;
+      border: 1.5px solid #8FD14F;
+      border-radius: 16px;
+      padding: 14px 18px;
+      box-shadow: 0 14px 34px rgba(20, 43, 31, 0.35);
+      max-width: 400px;
+      display: none;
+      align-items: flex-start;
+      gap: 12px;
+      animation: fadeSlideUp 0.28s ease;
+    }
+
     /* =========================================================
        MÓDULO "LA SEMILLA DE HOY": RITUAL EMOCIONAL & METABÓLICO
        ========================================================= */
@@ -5162,40 +5317,201 @@
                 </div>
               </div>
 
+              <!-- =========================================================
+                   SUB-SECCION DESPLEGABLE: ANTECEDENTES PERSONALES PATOLOGICOS Y NO PATOLOGICOS
+                   Se despliega debajo de la seleccion de objetivo y calibra el Plan y la Historia Clinica
+                   ========================================================= -->
+              <div id="onboarding-antecedentes-panel" class="antecedentes-deploy-panel">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; padding-bottom: 10px; border-bottom: 1.5px solid #E2ECD8;">
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">
+                      <span class="card-label coral" style="margin: 0;">
+                        <i class="fa-solid fa-file-medical"></i> PASO 1.B &bull; HISTORIA CL&Iacute;NICA DEL OBJETIVO
+                      </span>
+                      <span id="antecedentes-obj-linked-tag" style="background: #E8F5E9; color: #166534; border: 1px solid #86EFAC; font-size: 0.7rem; font-weight: 800; padding: 3px 10px; border-radius: 99px;">
+                        &#129658; Vinculado a: Control Insulina + Bajar Peso
+                      </span>
+                    </div>
+                    <h3 style="font-size: 1.15rem; color: var(--avo-dark); margin: 0;">
+                      Antecedentes Personales Patol&oacute;gicos y No Patol&oacute;gicos
+                    </h3>
+                    <p style="font-size: 0.79rem; color: var(--text-muted); margin: 3px 0 0 0;">
+                      Selecciona las opciones m&aacute;s comunes que apliquen a ti. Se tomar&aacute;n en cuenta autom&aacute;ticamente al generar tu <strong>Plan Semanal</strong> y se enviar&aacute;n en tu <strong>Historia Cl&iacute;nica al Buz&oacute;n</strong>:
+                    </p>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span id="antecedentes-summary-pill" style="background: var(--coral-soft); color: var(--coral); border: 1px solid #F5C2B8; font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px;">
+                      1 Patol&oacute;gico &bull; 2 No Patol&oacute;gicos
+                    </span>
+                  </div>
+                </div>
+
+                <div class="antecedentes-cols-grid">
+                  
+                  <!-- COLUMNA 1: ANTECEDENTES PERSONALES PATOLOGICOS (3 OPCIONES MAS COMUNES) -->
+                  <div class="antecedentes-col-box">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 6px;">
+                        <div>
+                          <div style="font-weight: 800; font-size: 0.9rem; color: var(--avo-dark);">
+                            &#129658; Antecedentes Personales Patol&oacute;gicos
+                          </div>
+                          <div style="font-size: 0.72rem; color: var(--text-muted);">
+                            Las 3 condiciones cl&iacute;nicas m&aacute;s frecuentes (toca para activar):
+                          </div>
+                        </div>
+                        <button type="button" id="btn-app-none" class="ant-none-pill" onclick="clearAntecedentesGroup('app')">
+                          Sin patol&oacute;gicos
+                        </button>
+                      </div>
+
+                      <!-- OPCION PATOLOGICA 1: INSULINA / PREDIABETES / SOP -->
+                      <div class="ant-option-card active-app" id="app-card-insulina" data-key="insulina" onclick="toggleAntecedente('app', 'insulina')">
+                        <div class="ant-check-box">&#10003;</div>
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 0.83rem; color: var(--avo-dark);">
+                            &#129656; 1. Resistencia a la Insulina, Prediabetes o SOP
+                          </div>
+                          <div style="font-size: 0.73rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px;">
+                            Ajusta el plan con fibra soluble previa (nopales/verdes), carbohidratos de bajo &iacute;ndice gluc&eacute;mico y 1/3 de aguacate Hass por comida.
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- OPCION PATOLOGICA 2: HIPERTENSION / DISLIPIDEMIA -->
+                      <div class="ant-option-card" id="app-card-hipertension" data-key="hipertension" onclick="toggleAntecedente('app', 'hipertension')">
+                        <div class="ant-check-box">&#10003;</div>
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 0.83rem; color: var(--avo-dark);">
+                            &#10084;&#65039; 2. Hipertensi&oacute;n Arterial o Colesterol / Triglic&eacute;ridos
+                          </div>
+                          <div style="font-size: 0.73rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px;">
+                            Elimina sodio oculto y embutidos, priorizando potasio natural (aguacate, jitomate, chayote), ch&iacute;a y prote&iacute;nas cardioprotectoras.
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- OPCION PATOLOGICA 3: COLITIS / GASTRITIS / HIPOTIROIDISMO -->
+                      <div class="ant-option-card" id="app-card-colitis" data-key="colitis" onclick="toggleAntecedente('app', 'colitis')">
+                        <div class="ant-check-box">&#10003;</div>
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 0.83rem; color: var(--avo-dark);">
+                            &#127807; 3. Colitis Nerviosa, Gastritis Cr&oacute;nica o Hipotiroidismo
+                          </div>
+                          <div style="font-size: 0.73rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px;">
+                            Adapta el men&uacute; a vegetales cocidos/asados anti-distensi&oacute;n, cero irritantes picantes y l&aacute;cteos ligeros de f&aacute;cil digesti&oacute;n.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- COLUMNA 2: ANTECEDENTES PERSONALES NO PATOLOGICOS (3 OPCIONES MAS COMUNES) -->
+                  <div class="antecedentes-col-box">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 6px;">
+                        <div>
+                          <div style="font-weight: 800; font-size: 0.9rem; color: var(--avo-dark);">
+                            &#127939;&#8205;&#9792;&#65039; Antecedentes Personales No Patol&oacute;gicos
+                          </div>
+                          <div style="font-size: 0.72rem; color: var(--text-muted);">
+                            Los 3 h&aacute;bitos de estilo de vida m&aacute;s comunes (toca para activar):
+                          </div>
+                        </div>
+                        <button type="button" id="btn-apnp-none" class="ant-none-pill" onclick="clearAntecedentesGroup('apnp')">
+                          H&aacute;bitos &oacute;ptimos
+                        </button>
+                      </div>
+
+                      <!-- OPCION NO PATOLOGICA 1: SEDENTARISMO / TRABAJO DE OFICINA -->
+                      <div class="ant-option-card active-apnp" id="apnp-card-sedentarismo" data-key="sedentarismo" onclick="toggleAntecedente('apnp', 'sedentarismo')">
+                        <div class="ant-check-box">&#10003;</div>
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 0.83rem; color: var(--avo-dark);">
+                            &#128186; 1. Trabajo de Oficina / Sedentarismo (+6 hrs sentada)
+                          </div>
+                          <div style="font-size: 0.73rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px;">
+                            Calibra el gasto cal&oacute;rico diario, reduce almidones densos por la noche y eleva la saciedad proteica para evitar letargo.
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- OPCION NO PATOLOGICA 2: ESTRES ELEVADO / SUENO LIGERO (<7H) -->
+                      <div class="ant-option-card active-apnp" id="apnp-card-estres" data-key="estres" onclick="toggleAntecedente('apnp', 'estres')">
+                        <div class="ant-check-box">&#10003;</div>
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 0.83rem; color: var(--avo-dark);">
+                            &#127769; 2. Estr&eacute;s Alto, Cortisol o Sue&ntilde;o Ligero (&lt;6-7 hrs)
+                          </div>
+                          <div style="font-size: 0.73rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px;">
+                            Integra colaci&oacute;n vespertina anti-ansiedad dulce (cacao/frutos rojos) y cena rica en magnesio y tript&oacute;fano para dormir mejor.
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- OPCION NO PATOLOGICA 3: CAFE EN AYUNAS / POCA AGUA / HORARIOS RAPIDOS -->
+                      <div class="ant-option-card" id="apnp-card-cafe_tiempo" data-key="cafe_tiempo" onclick="toggleAntecedente('apnp', 'cafe_tiempo')">
+                        <div class="ant-check-box">&#10003;</div>
+                        <div style="flex: 1;">
+                          <div style="font-weight: 800; font-size: 0.83rem; color: var(--avo-dark);">
+                            &#9749; 3. Caf&eacute; en Ayunas, Poca Agua o Poco Tiempo para Cocinar
+                          </div>
+                          <div style="font-size: 0.73rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px;">
+                            Prioriza desayunos express (&le;7 min) que protegen la mucosa antes del caf&eacute; y refuerza tu meta de hidrataci&oacute;n metab&oacute;lica.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- BARRA INFERIOR DE IMPACTO CLINICO EN TIEMPO REAL -->
+                <div id="antecedentes-live-impact-box" style="margin-top: 12px; background: #FFFFFF; border: 1.5px dashed #86EFAC; border-radius: 13px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                  <div style="font-size: 0.78rem; color: var(--text-main); line-height: 1.4; flex: 1;">
+                    <strong style="color: var(--avo-forest);">&#129504; Impacto directo al generar tu Plan:</strong>
+                    <span id="antecedentes-live-impact-text">Men&uacute; calibrado con escudo de fibra previa + bajo IG (Insulina), porci&oacute;n nocturna ajustada por oficina y colaci&oacute;n anti-cortisol vespertina.</span>
+                  </div>
+                  <span style="font-size: 0.7rem; font-weight: 800; color: #166534; background: #DCFCE7; padding: 4px 10px; border-radius: 99px; white-space: nowrap;">
+                    &#10003; Se incluir&aacute; en tu Historia Cl&iacute;nica
+                  </span>
+                </div>
+              </div>
+
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                 <h3 style="font-size: 1.2rem;">2. Tus Medidas Corporales (Cintura y Cadera Obligatorias)</h3>
                 <span id="live-icc-badge" style="background: var(--avo-pale); color: var(--avo-forest); font-weight: 800; font-size: 0.78rem; padding: 5px 12px; border-radius: 99px; border: 1px solid #CFE0BE;">
-                  📏 Índice Cintura/Cadera Calculado: <strong>0.80 (Saludable)</strong>
+                  &#128207; &Iacute;ndice Cintura/Cadera Calculado: <strong>0.80 (Saludable)</strong>
                 </span>
               </div>
 
               <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 18px;">
-                <div class="modern-field" style="margin: 0;"><label>Edad</label><div class="modern-input-box"><input type="number" id="inp-age" value="34" style="padding: 11px 12px;"></div></div>
-                <div class="modern-field" style="margin: 0;"><label>Estatura (cm)</label><div class="modern-input-box"><input type="number" id="inp-height" value="162" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Edad</label><div class="modern-input-box"><input type="number" id="inp-age" value="34" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
+                <div class="modern-field" style="margin: 0;"><label>Estatura (cm)</label><div class="modern-input-box"><input type="number" id="inp-height" value="162" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
                 <div class="modern-field" style="margin: 0;"><label>Peso Actual (kg)</label><div class="modern-input-box"><input type="number" step="0.1" id="inp-weight" value="68.4" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
                 <div class="modern-field" style="margin: 0;"><label>Peso Meta (kg)</label><div class="modern-input-box"><input type="number" step="0.1" id="inp-weight-goal" value="62.0" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
-                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cintura (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-waist" value="79" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
-                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">📏 Cadera (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-hip" value="99" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
+                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">&#128207; Cintura (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-waist" value="79" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
+                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">&#128207; Cadera (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-hip" value="99" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
               </div>
 
               <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
                 <div style="flex: 1;">
-                  <h3 style="font-size: 1.15rem; margin-bottom: 6px;">3. Alimentos de México que SÍ te gustan (Toca para activar/quitar):</h3>
-                  <div>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥑 Aguacate Hass</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥚 Huevo</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🍗 Pollo</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🧀 Queso Panela/Oaxaca</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🌮 Tortilla de Maíz</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥖 Bolillo</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🫘 Frijoles</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🌵 Nopales</span>
-                    <span class="food-chip" onclick="this.classList.toggle('liked')">🐟 Atún</span>
-                    <span class="food-chip liked" onclick="this.classList.toggle('liked')">🥩 Bistec de Res</span>
+                  <h3 style="font-size: 1.15rem; margin-bottom: 6px;">3. Alimentos de M&eacute;xico que S&Iacute; te gustan (Toca para activar/quitar):</h3>
+                  <div id="onboarding-food-chips">
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129361; Aguacate Hass</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129370; Huevo</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127831; Pollo</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129472; Queso Panela/Oaxaca</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127790; Tortilla de Ma&iacute;z</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129366; Bolillo</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129752; Frijoles</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127797; Nopales</span>
+                    <span class="food-chip" onclick="toggleOnboardingFoodChip(this)">&#128031; At&uacute;n</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129385; Bistec de Res</span>
                   </div>
                 </div>
-                <button class="btn-enter-club" style="width: auto; padding: 15px 26px; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
-                  ✨ Guardar y Generar Plan Semanal <i class="fa-solid fa-arrow-right"></i>
+                <button type="button" id="btn-save-generate-plan" class="btn-enter-club" style="width: auto; padding: 15px 26px; margin: 0;" onclick="saveAndGenerateClinicalPlan(this)">
+                  &#10024; Guardar y Generar Plan Semanal <i class="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
             </div>
@@ -5205,17 +5521,48 @@
                MÓDULO 2: PLAN SEMANAL + DOMINGO LIBRE EN TARJETA 3D GIRATORIA
                ========================================================= -->
           <div id="mod-plan" class="module-section">
+
+            <!-- BANNER DE CALIBRACION CLINICA DEL PLAN (MUESTRA OBJETIVO + ANTECEDENTES PATOLOGICOS Y NO PATOLOGICOS + ENLACE AL BUZON) -->
+            <div class="plan-calibration-banner" id="plan-calibration-banner">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div style="flex: 1; min-width: 260px;">
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">
+                    <span style="background: rgba(253, 230, 138, 0.2); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); font-size: 0.68rem; font-weight: 800; padding: 3px 10px; border-radius: 99px; text-transform: uppercase;">
+                      <i class="fa-solid fa-wand-magic-sparkles"></i> Plan Calibrado con tu Historia Cl&iacute;nica
+                    </span>
+                    <span id="plan-banner-buzon-status" style="background: rgba(134, 239, 172, 0.18); color: #A7F3D0; border: 1px solid rgba(134, 239, 172, 0.4); font-size: 0.68rem; font-weight: 800; padding: 3px 10px; border-radius: 99px;">
+                      <i class="fa-solid fa-check-double"></i> Historia Cl&iacute;nica y Plan enviados a tu Buz&oacute;n
+                    </span>
+                  </div>
+                  <div id="plan-banner-headline" style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF;">
+                    Protocolo: Control Insulina + Bajar Peso (1,480 kcal/d&iacute;a)
+                  </div>
+                  <div id="plan-banner-antecedentes-sub" style="font-size: 0.77rem; color: #D1FAE5; margin-top: 3px; line-height: 1.35;">
+                    <strong>Patol&oacute;gicos:</strong> Resistencia a la Insulina / SOP &bull; <strong>No Patol&oacute;gicos:</strong> Oficina (+6h sentada) + Estr&eacute;s/Sue&ntilde;o &bull; <strong>Pauta:</strong> Fibra previa + colaci&oacute;n anti-cortisol.
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <button type="button" class="btn-flip-trigger" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" style="font-size: 0.75rem; padding: 8px 13px; background: rgba(255,255,255,0.12); color: #FFFFFF; border-color: rgba(255,255,255,0.28);">
+                    <i class="fa-solid fa-sliders"></i> Ajustar Antecedentes
+                  </button>
+                  <button type="button" class="btn-flip-trigger gold-flip" onclick="openBuzonOnClinicalHistory()" style="font-size: 0.76rem; padding: 8px 14px;">
+                    <i class="fa-solid fa-inbox"></i> Ver Historia Cl&iacute;nica y Plan en Buz&oacute;n
+                  </button>
+                </div>
+              </div>
+            </div>
+
             <div class="bento-grid">
               
-              <!-- TARJETA IZQUIERDA (COL-8): GIRO 3D ENTRE LUNES-SÁBADO Y DOMINGO MENÚ ABIERTO (ALTURA FIJA 555px) -->
+              <!-- TARJETA IZQUIERDA (COL-8): GIRO 3D ENTRE LUNES-SABADO Y DOMINGO MENU ABIERTO (ALTURA FIJA 555px) -->
               <div class="col-8 flip-stage-3d" id="flip-plan-card" style="height: 555px;">
                 <div class="flip-inner-3d">
 
-                  <!-- CARA FRONTAL: MENÚ GUIADO LUNES A SÁBADO -->
+                  <!-- CARA FRONTAL: MENU GUIADO LUNES A SABADO -->
                   <div class="flip-face-3d front">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
-                        <span class="card-label" style="margin: 0;">📅 MÓDULO 2 • PLAN SEMANAL (1,550 KCAL • CONTROL INSULINA)</span>
+                        <span class="card-label" id="plan-card-top-label" style="margin: 0;">&#128197; M&Oacute;DULO 2 &bull; PLAN SEMANAL (1,480 KCAL &bull; CONTROL INSULINA)</span>
                         <span style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary);" id="active-day-indicator">📍 Viendo: Lunes</span>
                       </div>
                       <h2 style="font-size: 1.48rem; margin: 6px 0 10px;">Tu Menú Diario (Haz clic en Domingo para girar la tarjeta)</h2>
@@ -5232,18 +5579,18 @@
                         </button>
                       </div>
 
-                      <div id="weekday-meals-list">
+                                            <div id="weekday-meals-list">
                         <div class="meal-row">
-                          <div class="meal-time-badge">☀️ Desayuno<br>~380 kcal</div>
+                          <div class="meal-time-badge" id="meal-badge-1">&#9728;&#65039; Desayuno<br>~370 kcal</div>
                           <div id="meal-desc-1">
                             <div style="font-weight: 800; font-size: 0.94rem;">Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate</div>
-                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 huevos + 1/2 taza nopales + 40g queso panela + 1/3 aguacate + 1 tortilla de maíz.</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 huevos + 1/2 taza nopales + 40g queso panela + 1/3 aguacate + 1 tortilla de ma&iacute;z.</div>
                           </div>
                           <button class="swap-btn" onclick="swapMeal(1)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
                         </div>
 
                         <div class="meal-row">
-                          <div class="meal-time-badge">🍲 Comida<br>~540 kcal</div>
+                          <div class="meal-time-badge" id="meal-badge-2">&#127858; Comida<br>~520 kcal</div>
                           <div id="meal-desc-2">
                             <div style="font-weight: 800; font-size: 0.94rem;">Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz</div>
                             <div style="font-size: 0.8rem; color: var(--text-muted);">1 palma de pechuga + pimientos y cebolla + 1/2 taza frijoles + 1/3 aguacate.</div>
@@ -5252,19 +5599,19 @@
                         </div>
 
                         <div class="meal-row">
-                          <div class="meal-time-badge">🍎 Colación<br>~210 kcal</div>
+                          <div class="meal-time-badge" id="meal-badge-3">&#127822; Colaci&oacute;n<br>~205 kcal</div>
                           <div id="meal-desc-3">
-                            <div style="font-weight: 800; font-size: 0.94rem;">Yogur Griego Natural sin Azúcar con Fresas y Almendras</div>
+                            <div style="font-weight: 800; font-size: 0.94rem;">Yogur Griego Natural sin Az&uacute;car con Fresas, Cacao y Almendras</div>
                             <div style="font-size: 0.8rem; color: var(--text-muted);">1/2 taza yogur griego + 1/2 taza fresas picadas + 10 almendras fileteadas.</div>
                           </div>
                           <button class="swap-btn" onclick="swapMeal(3)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
                         </div>
 
                         <div class="meal-row" style="margin-bottom: 0;">
-                          <div class="meal-time-badge">🌙 Cena<br>~420 kcal</div>
+                          <div class="meal-time-badge" id="meal-badge-4">&#127769; Cena<br>~385 kcal</div>
                           <div id="meal-desc-4">
                             <div style="font-weight: 800; font-size: 0.94rem;">Tostadas Horneadas de Pollo o Queso Panela con Aguacate</div>
-                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 tostadas Susalia/horneadas + lechuga, salsa casera + proteína y 1/3 de aguacate.</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 tostadas Susalia/horneadas + lechuga, salsa casera + prote&iacute;na y 1/3 de aguacate.</div>
                           </div>
                           <button class="swap-btn" onclick="swapMeal(4)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
                         </div>
@@ -6347,13 +6694,13 @@
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                   <span style="font-size: 0.73rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase;">Filtrar:</span>
                   <button type="button" class="buzon-filter-btn active" onclick="filterBuzon('all', this)">
-                    <i class="fa-solid fa-folder-open"></i> Todos (<span id="buzon-count-all">5</span>)
+                    <i class="fa-solid fa-folder-open"></i> Todos (<span id="buzon-count-all">6</span>)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('mensajes', this)">
-                    <i class="fa-solid fa-comment-medical"></i> Evaluaciones &amp; Notas (3)
+                    <i class="fa-solid fa-comment-medical"></i> Historia Cl&iacute;nica &amp; Evaluaciones (3)
                   </button>
                   <button type="button" class="buzon-filter-btn" onclick="filterBuzon('guias', this)">
-                    <i class="fa-solid fa-file-pdf"></i> Gu&iacute;as &amp; Pautas (2)
+                    <i class="fa-solid fa-calendar-check"></i> Plan Semanal &amp; Gu&iacute;as (3)
                   </button>
                 </div>
 
@@ -6390,7 +6737,7 @@
                   <div class="buzon-feed-list" id="buzon-feed-items">
 
                     <!-- ITEM 0: EVALUACION DE CURVA SEMANAL (ACTIVO POR DEFECTO) -->
-                    <div class="buzon-item-card active-buzon-item" data-category="mensajes" onclick="selectBuzonItem(0)">
+                    <div class="buzon-item-card active-buzon-item" id="buzon-feed-card-0" data-buzon-idx="0" data-category="mensajes" onclick="selectBuzonItem(0)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #FFF7ED; color: #C2410C;">
                           <i class="fa-solid fa-chart-line"></i>
@@ -6411,7 +6758,7 @@
                     </div>
 
                     <!-- ITEM 1: RETRO DOMINICAL DE HIDRATACION (ENVIADO DESDE DASHBOARD) -->
-                    <div class="buzon-item-card is-unread" data-category="mensajes" onclick="selectBuzonItem(1)">
+                    <div class="buzon-item-card is-unread" id="buzon-feed-card-1" data-buzon-idx="1" data-category="mensajes" onclick="selectBuzonItem(1)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #EFF6FF; color: #1D4ED8;">
                           <i class="fa-solid fa-droplet"></i>
@@ -6431,29 +6778,50 @@
                       </div>
                     </div>
 
-                    <!-- ITEM 2: PROXIMO EXPEDIENTE CLINICO (AVISO OFICIAL) -->
-                    <div class="buzon-item-card" data-category="mensajes" onclick="selectBuzonItem(2)">
+                    <!-- ITEM 2: HISTORIA CLINICA OFICIAL Y EXPEDIENTE NUTRICIONAL (ENVIADO AL GENERAR PLAN EN MODULO 1) -->
+                    <div class="buzon-item-card" id="buzon-feed-card-2" data-buzon-idx="2" data-category="mensajes" onclick="selectBuzonItem(2)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
-                        <div class="buzon-item-icon-box" style="background: #E8F5E9; color: #2E7D32;">
-                          <i class="fa-solid fa-clipboard-check"></i>
+                        <div class="buzon-item-icon-box" style="background: #DCFCE7; color: #166534;">
+                          <i class="fa-solid fa-file-medical"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
                           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <span style="font-size: 0.67rem; font-weight: 800; color: #2E7D32; text-transform: uppercase;">Aviso Oficial</span>
-                            <span style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">Pr&oacute;ximamente</span>
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #166534; text-transform: uppercase;">Historia Cl&iacute;nica Oficial</span>
+                            <span id="buzon-item-2-date" style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">Sincronizada</span>
                           </div>
-                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                            Tu Expediente Cl&iacute;nico Oficial (En Preparaci&oacute;n)
+                          <h4 id="buzon-item-2-title" style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Historia Cl&iacute;nica y Antecedentes &bull; Mariana G&oacute;mez
                           </h4>
-                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                            Se emitir&aacute; autom&aacute;ticamente al guardar tus datos en el M&oacute;dulo 1 (Objetivos y Medidas) para tu consulta con Arianna...
+                          <p id="buzon-item-2-desc" style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Expediente con Objetivo, Antecedentes Patol&oacute;gicos (Insulina/SOP), No Patol&oacute;gicos (Oficina, Estr&eacute;s) y Medidas (ICC 0.80)...
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ITEM 5: PLAN NUTRICIONAL SEMANAL PERSONALIZADO (ENVIADO AL GENERAR PLAN EN MODULO 1) -->
+                    <div class="buzon-item-card" id="buzon-feed-card-5" data-buzon-idx="5" data-category="guias" onclick="selectBuzonItem(5)">
+                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div class="buzon-item-icon-box" style="background: #FEF3C7; color: #92400E;">
+                          <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div style="flex: 1; min-width: 0;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #92400E; text-transform: uppercase;">Plan Nutricional</span>
+                            <span id="buzon-item-5-date" style="font-size: 0.68rem; color: #B45309; font-weight: 800;">Sincronizado</span>
+                          </div>
+                          <h4 id="buzon-item-5-title" style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Plan Semanal Personalizado (1,480 kcal &bull; Control Insulina)
+                          </h4>
+                          <p id="buzon-item-5-desc" style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Men&uacute; Lunes a Domingo calibrado seg&uacute;n tu Historia Cl&iacute;nica, Antecedentes Patol&oacute;gicos y No Patol&oacute;gicos...
                           </p>
                         </div>
                       </div>
                     </div>
 
                     <!-- ITEM 3: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (NO LEIDO) -->
-                    <div class="buzon-item-card is-unread" data-category="guias" onclick="selectBuzonItem(3)">
+                    <div class="buzon-item-card is-unread" id="buzon-feed-card-3" data-buzon-idx="3" data-category="guias" onclick="selectBuzonItem(3)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #FEF3C7; color: #B45309;">
                           <i class="fa-solid fa-capsules"></i>
@@ -6474,7 +6842,7 @@
                     </div>
 
                     <!-- ITEM 4: GUIA DESCARGABLE DOMINGO LIBRE (LEIDO) -->
-                    <div class="buzon-item-card" data-category="guias" onclick="selectBuzonItem(4)">
+                    <div class="buzon-item-card" id="buzon-feed-card-4" data-buzon-idx="4" data-category="guias" onclick="selectBuzonItem(4)">
                       <div style="display: flex; gap: 12px; align-items: flex-start;">
                         <div class="buzon-item-icon-box" style="background: #EFF6FF; color: #1D4ED8;">
                           <i class="fa-solid fa-file-pdf"></i>
@@ -6627,62 +6995,138 @@
                       </div>
                     </div>
 
-                    <!-- VISTA 2: PROXIMO EXPEDIENTE CLINICO (EN PREPARACION) -->
+                    <!-- VISTA 2: HISTORIA CLINICA OFICIAL Y EXPEDIENTE NUTRICIONAL COMPLETO (SINCRONIZADO CON MODULO 1) -->
                     <div id="buzon-view-2" class="buzon-detail-view" style="display: none;">
-                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
                         <div>
-                          <span class="card-label forest" style="margin-bottom: 4px;">ESTADO DEL EXPEDIENTE</span>
-                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Tu Expediente Cl&iacute;nico Oficial</h3>
-                          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
-                            Paciente: <strong>Mariana G&oacute;mez</strong> &bull; Nutri&oacute;loga Asignada: <strong>Lic. Arianna Hern&aacute;ndez</strong>
+                          <span class="card-label forest" style="margin-bottom: 4px;">EXPEDIENTE CL&Iacute;NICO AUDITADO &bull; FOLIO AVC-2026-0842</span>
+                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Historia Cl&iacute;nica y Diagn&oacute;stico Nutricional Oficial</h3>
+                          <div id="hc-buzon-patient-line" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">
+                            Paciente: <strong>Mariana G&oacute;mez (34 a&ntilde;os &bull; 162 cm)</strong> &bull; Nutri&oacute;loga: <strong>Lic. Arianna Hern&aacute;ndez (C&eacute;d. 849201)</strong>
                           </div>
                         </div>
-                        <span style="background: #FEF3C7; color: #B45309; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #FDE68A;">
-                          <i class="fa-solid fa-clock"></i> Pendiente de Calibraci&oacute;n
+                        <span id="hc-buzon-status-badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem; font-weight: 800; padding: 4px 11px; border-radius: 99px; border: 1px solid #86EFAC;">
+                          <i class="fa-solid fa-shield-heart"></i> Expediente Activo
                         </span>
                       </div>
 
-                      <div style="background: linear-gradient(135deg, #F9FCF5 0%, #FFFFFF 100%); border: 1.5px solid #CFE0BE; border-radius: 18px; padding: 22px 24px; margin-bottom: 16px;">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                          <div style="width: 44px; height: 44px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
-                            <i class="fa-solid fa-file-signature"></i>
-                          </div>
-                          <div>
-                            <h4 style="font-size: 1.05rem; color: var(--avo-dark); margin: 0;">
-                              El Expediente Cl&iacute;nico se genera con tus medidas
-                            </h4>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
-                              Se activar&aacute; autom&aacute;ticamente al guardar tus datos en el M&oacute;dulo 1
-                            </div>
-                          </div>
+                      <!-- 4 TARJETAS KPI ANTROPOMETRICAS EN LA HISTORIA CLINICA -->
+                      <div class="buzon-metric-pill-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 14px;">
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Peso Inicial &rarr; Hoy</div>
+                          <div class="val" id="hc-kpi-weight" style="color: var(--avo-dark);">71.2 &rarr; 68.4 kg</div>
+                          <div class="sub" id="hc-kpi-weight-sub" style="color: var(--avo-primary);">Meta: 62.0 kg (-2.8 kg)</div>
                         </div>
-
-                        <p style="font-size: 0.83rem; color: var(--text-main); line-height: 1.6; margin: 0 0 16px 0;">
-                          En cuanto completes y guardes tu formulario de diagn&oacute;stico en la secci&oacute;n de <strong>1. Objetivos y Medidas</strong>, la Nutri&oacute;loga Arianna emitir&aacute; tu <strong>Expediente Nutricional Auditado</strong> con tu folio cl&iacute;nico oficial, tu bio-radar basal y tus pautas personalizadas, el cual quedar&aacute; archivado permanentemente aqu&iacute; en tu buz&oacute;n.
-                        </p>
-
-                        <div style="background: #FFFFFF; border: 1px dashed #86EFAC; border-radius: 12px; padding: 14px 16px; margin-bottom: 18px;">
-                          <div style="font-size: 0.74rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase; margin-bottom: 6px;">
-                            <i class="fa-solid fa-list-check"></i> Lo que incluir&aacute; tu Expediente:
-                          </div>
-                          <ul style="margin: 0; padding-left: 20px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
-                            <li>Historial de peso inicial vs peso meta sincronizado</li>
-                            <li>Medida umbilical de cintura y ratio cintura/cadera (ICC)</li>
-                            <li>Diagn&oacute;stico cl&iacute;nico de resistencia insul&iacute;nica y bio-se&ntilde;ales</li>
-                            <li>Hoja oficial de prescripci&oacute;n descargable en PDF</li>
-                          </ul>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Cintura / Cadera</div>
+                          <div class="val" id="hc-kpi-waist" style="color: var(--coral);">79.0 / 99.0 cm</div>
+                          <div class="sub" id="hc-kpi-waist-sub" style="color: var(--coral);">-4.0 cm abdomen</div>
                         </div>
-
-                        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                          <button type="button" class="btn-flip-trigger gold-flip" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" style="font-size: 0.8rem; padding: 9px 18px;">
-                            <i class="fa-solid fa-ruler-combined"></i> <span>Completar Objetivos y Medidas</span>
-                          </button>
-                          <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(0)" style="font-size: 0.78rem;">
-                            <i class="fa-solid fa-arrow-left"></i> Volver a Nota de Arianna
-                          </button>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">&Iacute;ndice ICC &amp; IMC</div>
+                          <div class="val" id="hc-kpi-icc" style="color: #B45309;">0.80 &bull; IMC 26.1</div>
+                          <div class="sub" id="hc-kpi-icc-sub" style="color: #166534;">Cardioprotector &#10003;</div>
+                        </div>
+                        <div class="buzon-metric-mini">
+                          <div class="lbl">Prescripci&oacute;n Diaria</div>
+                          <div class="val" id="hc-kpi-kcal" style="color: #1D4ED8;">1,480 kcal/d&iacute;a</div>
+                          <div class="sub" id="hc-kpi-water-sub" style="color: #1D4ED8;">Agua: 2.4 L (8 vasos)</div>
                         </div>
                       </div>
 
+                      <!-- SECCION DE ANTECEDENTES PERSONALES PATOLOGICOS Y NO PATOLOGICOS REGISTRADOS -->
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                        <div style="background: #FFF9F7; border: 1.5px solid #F5C2B8; border-radius: 14px; padding: 12px 14px;">
+                          <div style="font-size: 0.72rem; font-weight: 800; color: var(--coral); text-transform: uppercase; margin-bottom: 6px;">
+                            <i class="fa-solid fa-notes-medical"></i> Antecedentes Personales Patol&oacute;gicos (APP):
+                          </div>
+                          <div id="hc-buzon-app-list" style="font-size: 0.78rem; color: var(--text-main); line-height: 1.45;">
+                            &bull; <strong>Resistencia a la Insulina, Prediabetes o SOP:</strong> Control de curva gluc&eacute;mica con fibra soluble previa y grasas monoinsaturadas.
+                          </div>
+                        </div>
+                        <div style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 12px 14px;">
+                          <div style="font-size: 0.72rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase; margin-bottom: 6px;">
+                            <i class="fa-solid fa-person-walking"></i> Antecedentes No Patol&oacute;gicos (APNP):
+                          </div>
+                          <div id="hc-buzon-apnp-list" style="font-size: 0.78rem; color: var(--text-main); line-height: 1.45;">
+                            &bull; <strong>Trabajo de Oficina / Sedentarismo (+6h)</strong><br>
+                            &bull; <strong>Estr&eacute;s Elevado / Sue&ntilde;o Ligero (&lt;7h)</strong>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- DIAGNOSTICO CLINICO INTEGRAL DE ARIANNA -->
+                      <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-left: 4px solid var(--avo-primary); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
+                        <div style="font-size: 0.75rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase; margin-bottom: 4px;">
+                          <i class="fa-solid fa-stethoscope"></i> Diagn&oacute;stico Cl&iacute;nico Integral &bull; Lic. Arianna Hern&aacute;ndez:
+                        </div>
+                        <p id="hc-buzon-diagnostico" style="font-size: 0.81rem; color: var(--text-main); line-height: 1.55; margin: 0;">
+                          &ldquo;Paciente femenina de 34 a&ntilde;os en protocolo de Control Insulina + Bajar Peso. Con base en sus Antecedentes Personales Patol&oacute;gicos (Resistencia a la Insulina / SOP) y No Patol&oacute;gicos (Jornada de oficina +6h y estr&eacute;s/sue&ntilde;o ligero), se estructura un plan de 1,480 kcal/d&iacute;a con escudo de fibra soluble previa, control de almid&oacute;n nocturno y colaci&oacute;n rica en magnesio.&rdquo;
+                        </p>
+                      </div>
+
+                      <!-- ALIMENTOS BASE PREFERIDOS EN SU HISTORIA CLINICA -->
+                      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.76rem; color: var(--text-main);">
+                        <strong style="color: var(--avo-dark);">&#127790; Alimentos Mexicanos Base en su Expediente:</strong>
+                        <span id="hc-buzon-foods">Aguacate Hass, Huevo, Pollo, Queso Panela/Oaxaca, Tortilla de Ma&iacute;z, Bolillo, Frijoles, Nopales, Bistec de Res.</span>
+                      </div>
+
+                      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button type="button" class="btn-flip-trigger gold-flip" onclick="selectBuzonItem(5)" style="font-size: 0.78rem; padding: 9px 16px;">
+                          <i class="fa-solid fa-calendar-check"></i> <span>Ver Plan Semanal Generado en Buz&oacute;n</span>
+                        </button>
+                        <button type="button" class="btn-flip-trigger" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" style="font-size: 0.76rem;">
+                          <i class="fa-solid fa-sliders"></i> Editar Objetivos y Antecedentes
+                        </button>
+                        <button type="button" class="btn-flip-trigger" onclick="printBuzonRecord()" style="font-size: 0.76rem;">
+                          <i class="fa-solid fa-print"></i> Imprimir Expediente
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- VISTA 5: PLAN NUTRICIONAL SEMANAL PERSONALIZADO EN EL BUZON (SINCRONIZADO CON MODULO 1 Y 2) -->
+                    <div id="buzon-view-5" class="buzon-detail-view" style="display: none;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                          <span class="card-label gold" style="margin-bottom: 4px;">PRESCRIPCI&Oacute;N DIET&Eacute;TICA SEMANAL &bull; SINCRONIZADA</span>
+                          <h3 id="buzon-plan-view-title" style="font-size: 1.24rem; color: var(--avo-dark); margin: 0;">Plan Semanal Personalizado + Pauta por Antecedentes</h3>
+                          <div id="buzon-plan-view-sub" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">
+                            Calibrado para: <strong>Mariana G&oacute;mez</strong> &bull; Emitido al guardar Objetivos, Antecedentes y Medidas
+                          </div>
+                        </div>
+                        <span id="buzon-plan-kcal-badge" style="background: #FEF3C7; color: #92400E; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; border: 1px solid #FDE68A;">
+                          <i class="fa-solid fa-fire-flame-curved"></i> 1,480 kcal / d&iacute;a
+                        </span>
+                      </div>
+
+                      <!-- RESUMEN DE REGLAS CLINICAS APLICADAS AL PLAN POR SUS ANTECEDENTES -->
+                      <div style="background: linear-gradient(135deg, #142B1F 0%, #1F4230 100%); color: #FFFFFF; border-radius: 15px; padding: 14px 16px; margin-bottom: 14px;">
+                        <div style="font-size: 0.72rem; font-weight: 800; color: #FDE68A; text-transform: uppercase; margin-bottom: 6px;">
+                          <i class="fa-solid fa-wand-magic-sparkles"></i> C&oacute;mo tus Antecedentes Calibraron este Men&uacute;:
+                        </div>
+                        <div id="buzon-plan-rules-summary" style="font-size: 0.78rem; color: #E2E8F0; line-height: 1.48;">
+                          &bull; <strong>Objetivo Activo:</strong> Control Insulina + Bajar Peso (1,480 kcal/d&iacute;a)<br>
+                          &bull; <strong>Ajuste por Patol&oacute;gicos (APP):</strong> Fibra soluble previa (nopales/ensalada) antes del carbohidrato y 1/3 aguacate Hass para aplanar curva gluc&eacute;mica.<br>
+                          &bull; <strong>Ajuste por No Patol&oacute;gicos (APNP):</strong> Reducci&oacute;n de almid&oacute;n nocturno por trabajo de oficina (+6h) + colaci&oacute;n vespertina anti-cortisol para mejorar descanso.
+                        </div>
+                      </div>
+
+                      <!-- GRID DE LOS 6 DIAS (LUNES A SABADO) + DOMINGO LIBRE EN EL BUZON -->
+                      <div id="buzon-plan-days-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+                        <!-- Poblado dinamicamente por syncClinicalHistoryAndPlanToBuzon() -->
+                      </div>
+
+                      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button type="button" class="btn-flip-trigger gold-flip" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))" style="font-size: 0.78rem; padding: 9px 16px;">
+                          <i class="fa-solid fa-utensils"></i> <span>Abrir Men&uacute; Interactivo (M&oacute;dulo 2)</span>
+                        </button>
+                        <button type="button" class="btn-flip-trigger" onclick="selectBuzonItem(2)" style="font-size: 0.76rem;">
+                          <i class="fa-solid fa-file-medical"></i> Ver Historia Cl&iacute;nica Oficial
+                        </button>
+                        <button type="button" class="btn-flip-trigger" onclick="printBuzonRecord()" style="font-size: 0.76rem;">
+                          <i class="fa-solid fa-print"></i> Imprimir Plan Semanal
+                        </button>
+                      </div>
                     </div>
 
                     <!-- VISTA 3: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (DETALLE) -->
@@ -6808,6 +7252,17 @@
       </main>
     </div>
   </section>
+
+  <!-- NOTIFICACION FLOTANTE DE GUARDADO Y ENVIO AL BUZON -->
+  <div id="avo-toast-popup" class="avo-toast-notification">
+    <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(143, 209, 79, 0.2); color: #8FD14F; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">
+      <i class="fa-solid fa-inbox"></i>
+    </div>
+    <div style="flex: 1;">
+      <div id="avo-toast-title" style="font-weight: 800; font-size: 0.86rem; color: #FDE68A; margin-bottom: 2px;">Historia Cl&iacute;nica y Plan Enviados</div>
+      <div id="avo-toast-msg" style="font-size: 0.76rem; color: #E2E8F0; line-height: 1.35;">Se actualizaron en tu Buz&oacute;n correctamente.</div>
+    </div>
+  </div>
 
   <script>
     // Carrusel automático de las 3 fotos de fondo + rotación sincronizada del Título y Subtítulo
@@ -7134,7 +7589,19 @@
         energy: 'good',
         belly: 'good',
         craving: 'good'
-      }
+      },
+      antecedentesAPP: {
+        insulina: true,
+        hipertension: false,
+        colitis: false
+      },
+      antecedentesAPNP: {
+        sedentarismo: true,
+        estres: true,
+        cafe_tiempo: false
+      },
+      activeWeekdayIdx: 0,
+      calculatedDailyKcal: 1480
     };
 
     const moduleGreetings = {
@@ -8680,6 +9147,10 @@
 
       // Sincronizar automaticamente la Evaluacion de la Curva con el Buzon
       autoSyncCurveEvalToBuzon();
+      // Sincronizar automaticamente el Plan Semanal y la Historia Clinica con los Antecedentes
+      if (typeof syncClinicalHistoryAndPlanToBuzon === 'function') {
+        syncClinicalHistoryAndPlanToBuzon(false);
+      }
     }
 
     // Rotación automática suave del mensaje superior cada 10 segundos
@@ -8715,11 +9186,27 @@
     let buzonActiveItem = 0;
     let buzonUnreadCount = 2;
 
+    let avoToastTimer = null;
+    function showToast(title, msg) {
+      const box = document.getElementById('avo-toast-popup');
+      const tEl = document.getElementById('avo-toast-title');
+      const mEl = document.getElementById('avo-toast-msg');
+      if (!box) return;
+      if (tEl) tEl.innerText = title || 'Notificaci\u00f3n';
+      if (mEl) mEl.innerText = msg || '';
+      box.style.display = 'flex';
+      if (avoToastTimer) clearTimeout(avoToastTimer);
+      avoToastTimer = setTimeout(() => {
+        box.style.display = 'none';
+      }, 4500);
+    }
+
     function selectBuzonItem(idx) {
       buzonActiveItem = idx;
-      // Actualizar tarjeta activa en el feed
+      // Actualizar tarjeta activa en el feed usando data-buzon-idx
       document.querySelectorAll('.buzon-item-card').forEach((card, i) => {
-        if (i === idx) {
+        const cardIdx = parseInt(card.getAttribute('data-buzon-idx') ?? i, 10);
+        if (cardIdx === idx) {
           card.classList.add('active-buzon-item');
           if (card.classList.contains('is-unread')) {
             card.classList.remove('is-unread');
@@ -8730,8 +9217,8 @@
         }
       });
 
-      // Ocultar todas las vistas del visor y mostrar la seleccionada
-      for (let i = 0; i < 5; i++) {
+      // Ocultar todas las vistas del visor (0 a 5) y mostrar la seleccionada
+      for (let i = 0; i < 6; i++) {
         const v = document.getElementById('buzon-view-' + i);
         if (v) v.style.display = (i === idx) ? 'block' : 'none';
       }
@@ -8741,6 +9228,11 @@
         const viewer = document.getElementById('buzon-viewer-card');
         if (viewer) viewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
+    }
+
+    function openBuzonOnClinicalHistory() {
+      openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
+      selectBuzonItem(2);
     }
 
     function decrementBuzonUnread() {
@@ -9040,37 +9532,211 @@
       }
     }
 
-    // Actualizar protocolo clínico desde los radio buttons de Módulo 1
-    function updateClinicalProtocol() {
-      const clinRadio = document.querySelector('input[name="clin"]:checked');
-      const weightRadio = document.querySelector('input[name="clin_weight"]:checked');
-      const clinVal = clinRadio ? clinRadio.value : '🩸 Control Insulina';
-      const weightVal = weightRadio ? weightRadio.value : '+ Bajar Peso';
-      clubState.activeProtocol = `${clinVal} ${weightVal}`;
+    // =========================================================================
+    // MOTOR CLINICO DEL MODULO 1 (OBJETIVOS + ANTECEDENTES PATOLOGICOS Y NO PATOLOGICOS)
+    // Y GENERADOR INTELIGENTE DEL PLAN SEMANAL (MODULO 2) + ENVIO AL BUZON (MODULO 8)
+    // =========================================================================
+
+    const appCatalog = {
+      insulina: {
+        short: 'Resistencia a la Insulina / SOP',
+        full: 'Resistencia a la Insulina, Prediabetes o SOP',
+        rule: 'Escudo de fibra soluble previa (nopales/verdes), bajo \u00edndice gluc\u00e9mico y 1/3 aguacate Hass por comida.'
+      },
+      hipertension: {
+        short: 'Hipertensi\u00f3n / Colesterol',
+        full: 'Hipertensi\u00f3n Arterial o Colesterol / Triglic\u00e9ridos',
+        rule: 'Protocolo cardioprotector bajo en sodio oculto, rico en potasio natural (aguacate, chayote, jitomate) y ch\u00eda.'
+      },
+      colitis: {
+        short: 'Colitis / Gastritis / Tiroides',
+        full: 'Colitis Nerviosa, Gastritis Cr\u00f3nica o Hipotiroidismo',
+        rule: 'Cocci\u00f3n antiinflamatoria suave (vegetales cocidos/asados), cero irritantes picantes y l\u00e1cteos desinflamatorios.'
+      }
+    };
+
+    const apnpCatalog = {
+      sedentarismo: {
+        short: 'Oficina / Sedentarismo (+6h)',
+        full: 'Trabajo de Oficina / Sedentarismo (+6 hrs sentada)',
+        rule: 'Ajuste cal\u00f3rico (-100 kcal de almid\u00f3n nocturno) y mayor densidad de prote\u00edna saciante.'
+      },
+      estres: {
+        short: 'Estr\u00e9s Alto / Sue\u00f1o Ligero',
+        full: 'Estr\u00e9s Elevado, Cortisol o Sue\u00f1o Ligero (<6-7 hrs)',
+        rule: 'Colaci\u00f3n vespertina anti-ansiedad (cacao/almendras) y cena rica en magnesio/tript\u00f3fano para descanso profundo.'
+      },
+      cafe_tiempo: {
+        short: 'Caf\u00e9 en Ayunas / Poco Tiempo',
+        full: 'Caf\u00e9 en Ayunas, Poca Agua o Poco Tiempo para Cocinar',
+        rule: 'Desayunos express (\u22647 min) que protegen la mucosa g\u00e1strica antes del caf\u00e9 + meta h\u00eddrica reforzada.'
+      }
+    };
+
+    function pulseAntecedentesPanel() {
+      const panel = document.getElementById('onboarding-antecedentes-panel');
+      if (!panel) return;
+      panel.style.display = 'block';
+      panel.classList.remove('pulse-highlight');
+      void panel.offsetWidth;
+      panel.classList.add('pulse-highlight');
+      setTimeout(() => {
+        panel.classList.remove('pulse-highlight');
+      }, 1100);
+    }
+
+    function toggleAntecedente(group, key) {
+      if (group === 'app') {
+        clubState.antecedentesAPP[key] = !clubState.antecedentesAPP[key];
+        // Si el objetivo activo es Control Clinico y activo este antecedente, sincronizar el radio principal
+        if (clubState.antecedentesAPP[key]) {
+          const mapRadioVal = {
+            insulina: '\uD83E\uDE78 Control Insulina',
+            hipertension: '\u2764\uFE0F Presi\u00f3n Arterial',
+            colitis: '\uD83C\uDF3F Colitis y Gastritis'
+          };
+          const r = document.querySelector(`input[name="clin"][value="${mapRadioVal[key]}"]`);
+          const clinCard = document.querySelectorAll('.obj-card')[4];
+          if (r && clinCard && clinCard.classList.contains('selected')) {
+            r.checked = true;
+            const weightRadio = document.querySelector('input[name="clin_weight"]:checked');
+            const weightVal = weightRadio ? weightRadio.value : '+ Bajar Peso';
+            clubState.activeProtocol = `${r.value} ${weightVal}`;
+          }
+        }
+      } else if (group === 'apnp') {
+        clubState.antecedentesAPNP[key] = !clubState.antecedentesAPNP[key];
+      }
+      renderAntecedentesUI();
       syncPlatformState();
     }
 
-    // Giro 3D de altura fija en el Módulo 1 al alternar entre Control Clínico y Objetivos Fitness
+    function clearAntecedentesGroup(group) {
+      if (group === 'app') {
+        Object.keys(clubState.antecedentesAPP).forEach(k => { clubState.antecedentesAPP[k] = false; });
+      } else if (group === 'apnp') {
+        Object.keys(clubState.antecedentesAPNP).forEach(k => { clubState.antecedentesAPNP[k] = false; });
+      }
+      renderAntecedentesUI();
+      syncPlatformState();
+    }
+
+    function renderAntecedentesUI() {
+      const appKeys = Object.keys(clubState.antecedentesAPP);
+      const apnpKeys = Object.keys(clubState.antecedentesAPNP);
+      let appCount = 0;
+      let apnpCount = 0;
+
+      appKeys.forEach(k => {
+        const active = !!clubState.antecedentesAPP[k];
+        if (active) appCount++;
+        const card = document.getElementById('app-card-' + k);
+        if (card) card.classList.toggle('active-app', active);
+      });
+
+      apnpKeys.forEach(k => {
+        const active = !!clubState.antecedentesAPNP[k];
+        if (active) apnpCount++;
+        const card = document.getElementById('apnp-card-' + k);
+        if (card) card.classList.toggle('active-apnp', active);
+      });
+
+      const btnAppNone = document.getElementById('btn-app-none');
+      if (btnAppNone) btnAppNone.classList.toggle('active-none', appCount === 0);
+
+      const btnApnpNone = document.getElementById('btn-apnp-none');
+      if (btnApnpNone) btnApnpNone.classList.toggle('active-none', apnpCount === 0);
+
+      const sumPill = document.getElementById('antecedentes-summary-pill');
+      if (sumPill) {
+        const appLbl = appCount === 1 ? '1 Patol\u00f3gico' : `${appCount} Patol\u00f3gicos`;
+        const apnpLbl = apnpCount === 1 ? '1 No Patol\u00f3gico' : `${apnpCount} No Patol\u00f3gicos`;
+        sumPill.innerHTML = `${appLbl} &bull; ${apnpLbl}`;
+      }
+
+      const linkedTag = document.getElementById('antecedentes-obj-linked-tag');
+      if (linkedTag) {
+        const cleanProto = (clubState.activeProtocol || 'Control Insulina + Bajar Peso').replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '');
+        linkedTag.innerHTML = `\uD83E\uDE7A Vinculado a: ${cleanProto}`;
+      }
+
+      const impactTxt = document.getElementById('antecedentes-live-impact-text');
+      if (impactTxt) {
+        const parts = [];
+        if (clubState.antecedentesAPP.insulina) parts.push('fibra soluble previa y bajo IG (Insulina/SOP)');
+        if (clubState.antecedentesAPP.hipertension) parts.push('bajo en sodio oculto y alto en potasio (Presi\u00f3n/Colesterol)');
+        if (clubState.antecedentesAPP.colitis) parts.push('verduras cocidas anti-distensi\u00f3n sin irritantes (Colitis/Gastritis)');
+        if (clubState.antecedentesAPNP.sedentarismo) parts.push('reducci\u00f3n de almid\u00f3n nocturno por oficina (+6h sentada)');
+        if (clubState.antecedentesAPNP.estres) parts.push('colaci\u00f3n anti-cortisol y cena rica en magnesio (Estr\u00e9s/Sue\u00f1o)');
+        if (clubState.antecedentesAPNP.cafe_tiempo) parts.push('desayuno express \u22647 min protector antes del caf\u00e9');
+
+        if (parts.length === 0) {
+          impactTxt.innerText = 'Men\u00fa metab\u00f3lico est\u00e1ndar sin restricciones patol\u00f3gicas activas, calibrado a tus medidas corporales.';
+        } else {
+          impactTxt.innerText = 'Men\u00fa calibrado con ' + parts.join(' + ') + '.';
+        }
+      }
+    }
+
+    function toggleOnboardingFoodChip(el) {
+      if (el) el.classList.toggle('liked');
+      syncPlatformState();
+    }
+
+    function getLikedFoodsList() {
+      const chips = document.querySelectorAll('#onboarding-food-chips .food-chip.liked');
+      const list = [];
+      chips.forEach(c => {
+        const clean = c.innerText.replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '').trim();
+        if (clean) list.push(clean);
+      });
+      return list.length > 0 ? list : ['Aguacate Hass', 'Huevo', 'Pollo', 'Queso Panela/Oaxaca', 'Tortilla de Ma\u00edz', 'Nopales'];
+    }
+
+    // Actualizar protocolo clinico desde los radio buttons de Modulo 1
+    function updateClinicalProtocol() {
+      const clinRadio = document.querySelector('input[name="clin"]:checked');
+      const weightRadio = document.querySelector('input[name="clin_weight"]:checked');
+      const clinVal = clinRadio ? clinRadio.value : '\uD83E\uDE78 Control Insulina';
+      const weightVal = weightRadio ? weightRadio.value : '+ Bajar Peso';
+      clubState.activeProtocol = `${clinVal} ${weightVal}`;
+
+      // Sincronizar automaticamente el antecedente patologico principal seleccionado en el radio
+      if (clinVal.includes('Insulina')) {
+        clubState.antecedentesAPP.insulina = true;
+      } else if (clinVal.includes('Presi')) {
+        clubState.antecedentesAPP.hipertension = true;
+      } else if (clinVal.includes('Colitis')) {
+        clubState.antecedentesAPP.colitis = true;
+      }
+      renderAntecedentesUI();
+      syncPlatformState();
+    }
+
+    // Giro 3D de altura fija en el Modulo 1 al alternar entre Control Clinico y Objetivos Fitness + despliegue de Antecedentes
     function selectObj(cardEl, isClinical, titleText, descText) {
       document.querySelectorAll('.obj-card').forEach(c => c.classList.remove('selected'));
       if (cardEl) cardEl.classList.add('selected');
       const flipBox = document.getElementById('flip-onboarding-protocol');
-      if (!flipBox) return;
-      if (isClinical) {
-        flipBox.classList.remove('is-flipped');
-        updateClinicalProtocol();
-      } else {
-        if (titleText) {
-          document.getElementById('fitness-obj-title').innerText = 'Objetivo: ' + titleText;
-          clubState.activeProtocol = '⚡ ' + titleText;
+      if (flipBox) {
+        if (isClinical) {
+          flipBox.classList.remove('is-flipped');
+          updateClinicalProtocol();
+        } else {
+          if (titleText) {
+            document.getElementById('fitness-obj-title').innerText = 'Objetivo: ' + titleText;
+            clubState.activeProtocol = '\u26A1 ' + titleText;
+          }
+          if (descText) document.getElementById('fitness-obj-desc').innerText = descText;
+          flipBox.classList.add('is-flipped');
+          renderAntecedentesUI();
+          syncPlatformState();
         }
-        if (descText) document.getElementById('fitness-obj-desc').innerText = descText;
-        flipBox.classList.add('is-flipped');
-        syncPlatformState();
       }
+      pulseAntecedentesPanel();
     }
 
-    // Calculadora en vivo de Índice Cintura/Cadera en Módulo 1 (sincroniza Top Bar, Perfil y Dashboard)
+    // Calculadora en vivo de Indice Cintura/Cadera en Modulo 1 (sincroniza Top Bar, Perfil, Plan y Buzon)
     function calcLiveICC() {
       const w = parseFloat(document.getElementById('inp-waist')?.value || 79);
       const h = parseFloat(document.getElementById('inp-hip')?.value || 99);
@@ -9084,7 +9750,7 @@
       syncPlatformState();
     }
 
-    // Sincronización en vivo cuando la socia escribe nuevas medidas en el Cierre Semanal (Módulo 2)
+    // Sincronizacion en vivo cuando la socia escribe nuevas medidas en el Cierre Semanal (Modulo 2)
     function syncFromCheckinInputs() {
       const cWeight = parseFloat(document.getElementById('checkin-weight')?.value || 68.4);
       const cWaist = parseFloat(document.getElementById('checkin-waist')?.value || 79);
@@ -9099,7 +9765,7 @@
       syncPlatformState();
     }
 
-    // Cierre semanal en Módulo 2: actualiza medidas, avanza a Semana 4 y suma +100 XP
+    // Cierre semanal en Modulo 2: actualiza medidas, avanza a Semana 4 y suma +50 XP
     function submitWeeklyCheckin(btnEl) {
       const cWeight = parseFloat(document.getElementById('checkin-weight')?.value || 68.4);
       const cWaist = parseFloat(document.getElementById('checkin-waist')?.value || 79);
@@ -9120,30 +9786,203 @@
       }
       syncPlatformState();
       if (btnEl) {
-        btnEl.innerHTML = '<span>✅ ¡Semana 4 Calibrada! (+50 XP)</span>';
+        btnEl.innerHTML = '<span>\u2705 \u00A1Semana 4 Calibrada! (+50 XP)</span>';
       }
     }
 
-    // Módulo 2: Cambiar entre días Lunes-Sábado y girar tarjeta 3D al elegir Domingo Libre
-    const weekdayMealsData = [
-      { day: "Lunes", b: "Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate", l: "Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz", s: "Yogur Griego Natural sin Azúcar con Fresas y Almendras", d: "Tostadas Horneadas de Pollo o Queso Panela con Aguacate" },
-      { day: "Martes", b: "Huevos a la Mexicana con Ejotes, 1/3 Aguacate y 1 Tortilla", l: "Bistec de Res Asado con Nopales, Queso Oaxaca y Frijoles", s: "Jícama y Pepino con Limón + 10 Almendras", d: "Molletes en 1/2 Bolillo sin Migajón con Queso Panela y Pico de Gallo" },
-      { day: "Miércoles", b: "Avena Cocida con Canela, Proteína/Claras y Fresas Picadas", l: "Bowl Azteca de Pechuga Asada, Elote, Aguacate y Lechuga", s: "Mousse Cremoso de Cacao y Aguacate", d: "Quesadillas en Tortilla de Maíz (2 pzas) con Champiñones y Aguacate" },
-      { day: "Jueves", b: "Chilaquiles Horneados Verdes con Pollo Deshebrado y Aguacate", l: "Filete de Pescado al Mojo de Ajo con Ensalada Fresca y Arroz", s: "Yogur Griego con Semillas de Chía y Papaya", d: "Sincronizadas en Tortilla de Maíz con Pechuga de Pavo, Panela y Aguacate" },
-      { day: "Viernes", b: "Omelette de Espinacas con Queso Oaxaca y 1/3 de Aguacate Hass", l: "Tacos de Lechuga y Tortilla con Fajitas de Res y Guacamole", s: "Manzana Verde Picada con 1 Cda de Crema de Cacahuate Natural", d: "Ensalada Templada de Pollo, Queso Panela y Tostada Horneada" },
-      { day: "Sábado", b: "Machaca o Huevo con Nopales en Salsa Verde + 1/3 Aguacate", l: "Ceviche Mexicano de Pescado o Atún con Aguacate y Tostadas", s: "Fresas con Yogur Griego y Canela", d: "Tacos Dorados en Airfryer de Pollo con Lechuga, Queso y Aguacate" }
-    ];
+    // Construye los men\u00fas personalizados Lunes-S\u00e1bado seg\u00fan Objetivo + Antecedentes Patol\u00f3gicos y No Patol\u00f3gicos
+    function buildPersonalizedWeeklyPlan() {
+      const age = parseFloat(document.getElementById('inp-age')?.value || 34);
+      const height = parseFloat(document.getElementById('inp-height')?.value || 162);
+      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const proto = clubState.activeProtocol || '\uD83E\uDE78 Control Insulina + Bajar Peso';
+      const app = clubState.antecedentesAPP || {};
+      const apnp = clubState.antecedentesAPNP || {};
+
+      // Calculo calorico personalizado Mifflin-St Jeor + ajuste por Objetivo y APNP
+      const bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+      const actFactor = apnp.sedentarismo ? 1.24 : 1.36;
+      let tdee = Math.round(bmr * actFactor);
+
+      if (proto.includes('Perder Peso') || proto.includes('Bajar Peso')) {
+        tdee -= 340;
+      } else if (proto.includes('Ganar M\u00fasculo')) {
+        tdee += 140;
+      } else if (proto.includes('Subir de Peso')) {
+        tdee += 280;
+      }
+      const dailyKcal = Math.max(1320, Math.min(2150, Math.round(tdee / 10) * 10));
+      clubState.calculatedDailyKcal = dailyKcal;
+
+      const kB = Math.round((dailyKcal * 0.25) / 5) * 5;
+      const kL = Math.round((dailyKcal * 0.35) / 5) * 5;
+      const kS = Math.round((dailyKcal * 0.14) / 5) * 5;
+      const kD = dailyKcal - kB - kL - kS;
+
+      // Etiquetas de adaptacion clinica por comida
+      const bNotes = [];
+      if (app.insulina) bNotes.push('Fibra soluble previa + bajo IG');
+      if (app.colitis) bNotes.push('Cocci\u00f3n suave sin irritantes');
+      if (app.hipertension) bNotes.push('Bajo en sodio, rico en potasio');
+      if (apnp.cafe_tiempo) bNotes.push('\u26A1 Express 7 min (escudo g\u00e1strico antes del caf\u00e9)');
+      const bSub = bNotes.length > 0
+        ? `\uD83E\uDE7A Adaptado: ${bNotes.join(' \u2022 ')} + 1/3 aguacate Hass.`
+        : 'Porci\u00f3n calibrada con el m\u00e9todo de la mano + 1/3 aguacate Hass.';
+
+      const lNotes = [];
+      if (app.insulina) lNotes.push('Inicia por verduras verdes antes del carbohidrato');
+      if (app.hipertension) lNotes.push('Sazonado natural sin sal oculta');
+      if (app.colitis) lNotes.push('Vegetales al vapor anti-distensi\u00f3n');
+      if (apnp.sedentarismo) lNotes.push('\uD83D\uDCBA Ajuste oficina: 1/2 pu\u00f1o carbohidrato complejo');
+      const lSub = lNotes.length > 0
+        ? `\uD83E\uDE7A Adaptado: ${lNotes.join(' \u2022 ')}.`
+        : '1 palma de prote\u00edna + 2 manos de verdura + 1/2 pu\u00f1o de carbohidrato.';
+
+      const sNotes = [];
+      if (apnp.estres) sNotes.push('\uD83C\uDF19 Colaci\u00f3n anti-cortisol rica en magnesio y polifenoles');
+      if (app.insulina) sNotes.push('Estabiliza curva gluc\u00e9mica vespertina');
+      const sSub = sNotes.length > 0
+        ? `\uD83E\uDE7A Adaptado: ${sNotes.join(' \u2022 ')}.`
+        : 'Colaci\u00f3n saciante para mantener glucosa estable por la tarde.';
+
+      const dNotes = [];
+      if (apnp.sedentarismo) dNotes.push('\uD83D\uDCBA Almid\u00f3n nocturno reducido por jornada sentada');
+      if (apnp.estres) dNotes.push('\uD83C\uDF19 Tript\u00f3fano y magnesio para sue\u00f1o reparador');
+      if (app.colitis) dNotes.push('Cena tibia antiinflamatoria cero gas');
+      const dSub = dNotes.length > 0
+        ? `\uD83E\uDE7A Adaptado: ${dNotes.join(' \u2022 ')}.`
+        : 'Cena ligera y desinflamatoria lista en menos de 10 minutos.';
+
+      // Platillos adaptados segun antecedentes activos
+      const isColitis = !!app.colitis;
+      const isHiper = !!app.hipertension;
+      const isEstres = !!apnp.estres;
+      const isCafeFast = !!apnp.cafe_tiempo;
+
+      const days = [
+        {
+          day: 'Lunes',
+          b: isColitis
+            ? 'Omelette Suave de Claras y Huevo con Calabacitas al Vapor, Panela y Aguacate'
+            : (isCafeFast ? 'Omelette Express (6 min) de Huevo con Espinaca, Panela y 1/3 Aguacate (Antes del Caf\u00e9)' : 'Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate'),
+          l: isColitis
+            ? 'Pechuga de Pollo a las Finas Hierbas con Chayote Cocido, Arroz Blanco y Aguacate'
+            : (isHiper ? 'Fajitas de Pollo al Lim\u00f3n y Or\u00e9gano (Bajo Sodio) con Nopales, Frijoles y Aguacate' : 'Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz'),
+          s: isEstres
+            ? 'Yogur Griego sin Az\u00facar con Fresas, 1 Cdita Cacao Puro y 10 Almendras (Anti-Cortisol)'
+            : 'Yogur Griego Natural sin Az\u00facar con Fresas y Almendras',
+          d: isColitis
+            ? 'Rollitos Tibios de Pechuga y Queso Panela con Calabacita Asada y 1/3 Aguacate'
+            : 'Tostadas Horneadas de Pollo o Queso Panela con Aguacate Hass'
+        },
+        {
+          day: 'Martes',
+          b: isColitis
+            ? 'Huevos Revueltos Suaves con Ejotes Tiernos al Vapor, 1/3 Aguacate y 1 Tortilla'
+            : 'Huevos a la Mexicana con Ejotes, 1/3 Aguacate y 1 Tortilla de Ma\u00edz',
+          l: isHiper
+            ? 'Filete de Pescado o Pollo a la Plancha con Ensalada de Aguacate, Jitomate y Quinoa/Arroz'
+            : (isColitis ? 'Bistec Magro Asado al Laurel con Zanahoria/Calabaza al Vapor y 1/3 Aguacate' : 'Bistec de Res Asado con Nopales, Queso Oaxaca y Frijoles'),
+          s: isEstres
+            ? 'Mousse Cremoso de Aguacate, Cacao Puro y Canela Ceil\u00e1n (Rico en Magnesio)'
+            : 'J\u00edcama y Pepino con Lim\u00f3n + 10 Almendras Fileteadas',
+          d: isColitis
+            ? 'Crema Casera de Calabacita (Sin L\u00e1cteo Pesado) con Cubitos de Panela, Pollo y Aguacate'
+            : 'Molletes en 1/2 Bolillo sin Migaj\u00f3n con Queso Panela y Pico de Gallo'
+        },
+        {
+          day: 'Mi\u00e9rcoles',
+          b: isCafeFast
+            ? 'Batido Tibio/Fr\u00edo Proteico de Avena, Canela, Claras Cocidas y Almendras (Listo en 5 min)'
+            : 'Avena Cocida con Canela Ceil\u00e1n, Prote\u00edna/Claras y Fresas Picadas',
+          l: isColitis
+            ? 'Bowl Tibio de Pechuga Asada, Chayote al Vapor, Arroz y 1/3 Aguacate Hass'
+            : 'Bowl Azteca de Pechuga Asada, Elote Tierno, Aguacate y Lechuga Fresca',
+          s: 'Mousse Cremoso de Cacao 100%, Yogur Griego y Aguacate',
+          d: isHiper
+            ? 'Ensalada Templada de At\u00fan/Pollo al Agua con Aguacate Hass, Semillas de Ch\u00eda y 1 Tostada'
+            : 'Quesadillas en Tortilla de Ma\u00edz (2 pzas) con Champi\u00f1ones y Aguacate'
+        },
+        {
+          day: 'Jueves',
+          b: isColitis
+            ? 'Tostadas Horneadas Suaves con Huevo Pochado, Queso Panela y 1/3 Aguacate (Sin Picante)'
+            : 'Chilaquiles Horneados Verdes Suaves con Pollo Deshebrado y Aguacate',
+          l: 'Filete de Pescado al Mojo de Ajo Suave con Verduras al Vapor, Arroz y Aguacate',
+          s: isEstres
+            ? 'Yogur Griego con Semillas de Ch\u00eda, Canela y 6 Nueces (Calma Vespertina)'
+            : 'Yogur Griego con Semillas de Ch\u00eda y Papaya Picada',
+          d: 'Sincronizadas en Tortilla de Ma\u00edz con Pechuga, Queso Panela y Aguacate Hass'
+        },
+        {
+          day: 'Viernes',
+          b: 'Omelette de Espinacas Cocidas con Queso Panela/Oaxaca y 1/3 de Aguacate Hass',
+          l: isColitis
+            ? 'Tacos Suaves en Tortilla de Ma\u00edz con Fajitas Magras de Res, Calabacita y Guacamole sin Chile'
+            : 'Tacos de Lechuga y Tortilla con Fajitas de Res y Guacamole Natural',
+          s: 'Manzana Cocida o Fresca con Canela y 1 Cda de Crema de Almendra/Cacahuate',
+          d: 'Ensalada Templada de Pollo Asado, Queso Panela, Aguacate y Tostada Horneada'
+        },
+        {
+          day: 'S\u00e1bado',
+          b: isColitis
+            ? 'Huevo con Ejotes y Calabacitas en Salsa de Jitomate Dulce + 1/3 Aguacate'
+            : 'Huevo con Nopales en Salsa Verde Casera + 1/3 Aguacate Hass',
+          l: 'Ceviche Mexicano de Pescado Blanco con Aguacate, Pepino y Tostadas Horneadas',
+          s: 'Fresas Naturales con Yogur Griego, Vainilla y Canela',
+          d: 'Tacos Dorados al Horno/Airfryer de Pollo con Queso Panela y Guacamole'
+        }
+      ];
+
+      return {
+        dailyKcal,
+        kB,
+        kL,
+        kS,
+        kD,
+        bSub,
+        lSub,
+        sSub,
+        dSub,
+        days
+      };
+    }
 
     function selectWeekday(dayIdx, tabEl) {
+      if (typeof dayIdx === 'number') {
+        clubState.activeWeekdayIdx = dayIdx;
+      }
       document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
-      if (tabEl) tabEl.classList.add('active');
-      const data = weekdayMealsData[dayIdx] || weekdayMealsData[0];
+      if (tabEl) {
+        tabEl.classList.add('active');
+      } else {
+        const tabs = document.querySelectorAll('.day-tab');
+        if (tabs[clubState.activeWeekdayIdx]) tabs[clubState.activeWeekdayIdx].classList.add('active');
+      }
+
+      const plan = buildPersonalizedWeeklyPlan();
+      const data = plan.days[clubState.activeWeekdayIdx] || plan.days[0];
+
       const ind = document.getElementById('active-day-indicator');
-      if (ind) ind.innerText = `📍 Viendo: ${data.day}`;
-      document.getElementById('meal-desc-1').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.b}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Porción calibrada con el método de la mano + 1/3 aguacate Hass.</div>`;
-      document.getElementById('meal-desc-2').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.l}</div><div style="font-size: 0.8rem; color: var(--text-muted);">1 palma de proteína + 2 manos de verdura + 1/2 puño de carbohidrato.</div>`;
-      document.getElementById('meal-desc-3').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.s}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Colación saciante para mantener glucosa estable por la tarde.</div>`;
-      document.getElementById('meal-desc-4').innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.d}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Cena ligera y desinflamatoria lista en menos de 10 minutos.</div>`;
+      if (ind) ind.innerText = `\uD83D\uDCCD Viendo: ${data.day}`;
+
+      const b1 = document.getElementById('meal-badge-1');
+      if (b1) b1.innerHTML = `\u2600\uFE0F Desayuno<br>~${plan.kB} kcal`;
+      const b2 = document.getElementById('meal-badge-2');
+      if (b2) b2.innerHTML = `\uD83C\uDF72 Comida<br>~${plan.kL} kcal`;
+      const b3 = document.getElementById('meal-badge-3');
+      if (b3) b3.innerHTML = `\uD83C\uDF4E Colaci\u00f3n<br>~${plan.kS} kcal`;
+      const b4 = document.getElementById('meal-badge-4');
+      if (b4) b4.innerHTML = `\uD83C\uDF19 Cena<br>~${plan.kD} kcal`;
+
+      const m1 = document.getElementById('meal-desc-1');
+      if (m1) m1.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.b}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.bSub}</div>`;
+      const m2 = document.getElementById('meal-desc-2');
+      if (m2) m2.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.l}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.lSub}</div>`;
+      const m3 = document.getElementById('meal-desc-3');
+      if (m3) m3.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.s}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.sSub}</div>`;
+      const m4 = document.getElementById('meal-desc-4');
+      if (m4) m4.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.d}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.dSub}</div>`;
     }
 
     function flipToSunday(isSunday) {
@@ -9156,22 +9995,221 @@
       }
     }
 
-    // Interacción real: Intercambiar platillo (Swap)
-    const swapOptions = {
-      1: ["Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate", "🔄 Molletes en Bolillo sin Migajón con Frijoles, Queso Panela y Aguacate"],
-      2: ["Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz", "🔄 Bistec de Res Asado con Nopales, Queso Oaxaca y Tortilla"],
-      3: ["Yogur Griego Natural sin Azúcar con Fresas y Almendras", "🔄 Mousse Rápido de Cacao, Aguacate y Yogur Griego"],
-      4: ["Tostadas Horneadas de Pollo o Queso Panela con Aguacate", "🔄 Quesadillas en Tortilla de Maíz con Queso Oaxaca, Flor de Calabaza y Aguacate"]
-    };
+    // Interaccion real: Intercambiar platillo (Swap) respetando Antecedentes
     const swapState = { 1: false, 2: false, 3: false, 4: false };
 
     function swapMeal(num) {
       swapState[num] = !swapState[num];
-      const title = swapOptions[num][swapState[num] ? 1 : 0];
+      const plan = buildPersonalizedWeeklyPlan();
+      const dayData = plan.days[clubState.activeWeekdayIdx || 0] || plan.days[0];
+      const isColitis = !!clubState.antecedentesAPP.colitis;
+      const altOptions = {
+        1: isColitis
+          ? '\uD83D\uDD04 Claras al Vapor con Espinaca Tierna, Queso Panela Asado y 1/3 Aguacate Hass'
+          : '\uD83D\uDD04 Molletes en Bolillo sin Migaj\u00f3n con Frijoles, Queso Panela y Aguacate',
+        2: isColitis
+          ? '\uD83D\uDD04 Filete de Pescado o Pechuga al Or\u00e9gano con Calabacitas, Arroz y Aguacate'
+          : '\uD83D\uDD04 Bistec de Res Magro Asado con Nopales, Queso Oaxaca y Tortilla',
+        3: '\uD83D\uDD04 Mousse R\u00e1pido de Cacao Puro, Aguacate Hass y Yogur Griego (Anti-Ansiedad)',
+        4: isColitis
+          ? '\uD83D\uDD04 Quesadillas Suaves en Tortilla de Ma\u00edz con Panela, Flor de Calabaza Cocida y Aguacate'
+          : '\uD83D\uDD04 Quesadillas en Tortilla de Ma\u00edz con Queso Oaxaca, Flor de Calabaza y Aguacate'
+      };
+      const origMap = { 1: dayData.b, 2: dayData.l, 3: dayData.s, 4: dayData.d };
+      const subMap = { 1: plan.bSub, 2: plan.lSub, 3: plan.sSub, 4: plan.dSub };
+      const chosenTitle = swapState[num] ? altOptions[num] : origMap[num];
       const el = document.getElementById('meal-desc-' + num);
       if (el) {
-        el.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem; color: ${swapState[num] ? 'var(--avo-primary)' : 'var(--text-main)'};">${title}</div><div style="font-size: 0.8rem; color: var(--text-muted);">Equivalencia exacta SMAE avalada por la Nutrióloga Arianna.</div>`;
+        el.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem; color: ${swapState[num] ? 'var(--avo-primary)' : 'var(--text-main)'};">${chosenTitle}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${subMap[num]}</div>`;
       }
+    }
+
+    // Sincroniza en tiempo real (y al hacer clic en Guardar y Generar Plan) la Historia Clinica y el Plan hacia el Modulo 2 y el Buzon (Modulo 8)
+    function syncClinicalHistoryAndPlanToBuzon(isManualSave) {
+      const plan = buildPersonalizedWeeklyPlan();
+      const rawName = (document.getElementById('prof-inp-name')?.value || 'Mariana G\u00f3mez').trim();
+      const age = parseFloat(document.getElementById('inp-age')?.value || 34);
+      const height = parseFloat(document.getElementById('inp-height')?.value || 162);
+      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const weightGoal = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
+      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79);
+      const hip = parseFloat(document.getElementById('inp-hip')?.value || 99);
+
+      const iccNum = (waist > 0 && hip > 0) ? (waist / hip) : 0.80;
+      const icc = iccNum.toFixed(2);
+      const bmi = (height > 0) ? (weight / Math.pow(height / 100, 2)).toFixed(1) : '26.1';
+      const waterLiters = Math.max(2.0, (weight * 0.035)).toFixed(1);
+      const waterGlasses = Math.round(( parseFloat(waterLiters) * 1000 ) / 300);
+
+      const cleanProto = (clubState.activeProtocol || 'Control Insulina + Bajar Peso').replace(/^[^\w\u00C1\u00C9\u00CD\u00D3\u00DA\u00e1\u00e9\u00ed\u00f3\u00fa\u00d1\u00f1]+\s*/, '');
+
+      const activeAppKeys = Object.keys(clubState.antecedentesAPP).filter(k => clubState.antecedentesAPP[k]);
+      const activeApnpKeys = Object.keys(clubState.antecedentesAPNP).filter(k => clubState.antecedentesAPNP[k]);
+
+      const appShortList = activeAppKeys.length > 0
+        ? activeAppKeys.map(k => appCatalog[k].short).join(' + ')
+        : 'Sin antecedentes patol\u00f3gicos';
+      const apnpShortList = activeApnpKeys.length > 0
+        ? activeApnpKeys.map(k => apnpCatalog[k].short).join(' + ')
+        : 'H\u00e1bitos de estilo de vida \u00f3ptimos';
+
+      // 1. Actualizar Modulo 2 (Banner superior + etiqueta de tarjeta + comidas del dia activo)
+      const topPlanLbl = document.getElementById('plan-card-top-label');
+      if (topPlanLbl) {
+        topPlanLbl.innerHTML = `\uD83D\uDCC5 M\u00d3DULO 2 \u2022 PLAN SEMANAL (${plan.dailyKcal.toLocaleString('es-MX')} KCAL \u2022 ${cleanProto.toUpperCase()})`;
+      }
+      const bannerHeadline = document.getElementById('plan-banner-headline');
+      if (bannerHeadline) {
+        bannerHeadline.innerText = `Protocolo: ${cleanProto} (${plan.dailyKcal.toLocaleString('es-MX')} kcal/d\u00eda)`;
+      }
+      const bannerSub = document.getElementById('plan-banner-antecedentes-sub');
+      if (bannerSub) {
+        bannerSub.innerHTML = `<strong>Patol\u00f3gicos (APP):</strong> ${appShortList} &bull; <strong>No Patol\u00f3gicos (APNP):</strong> ${apnpShortList}`;
+      }
+      selectWeekday(clubState.activeWeekdayIdx || 0);
+
+      // 2. Actualizar Tarjeta 2 del Feed del Buzon (Historia Clinica Oficial) y Vista 2
+      const item2Title = document.getElementById('buzon-item-2-title');
+      if (item2Title) item2Title.innerHTML = `Historia Cl\u00ednica Oficial &bull; ${rawName}`;
+      const item2Desc = document.getElementById('buzon-item-2-desc');
+      if (item2Desc) {
+        item2Desc.innerHTML = `Objetivo: ${cleanProto} &bull; APP: ${appShortList} &bull; APNP: ${apnpShortList} &bull; Cintura ${waist} cm (ICC ${icc}).`;
+      }
+
+      const hcPatientLine = document.getElementById('hc-buzon-patient-line');
+      if (hcPatientLine) {
+        hcPatientLine.innerHTML = `Paciente: <strong>${rawName} (${age} a\u00f1os &bull; ${height} cm)</strong> &bull; Nutri\u00f3loga: <strong>Lic. Arianna Hern\u00e1ndez (C\u00e9d. 849201)</strong>`;
+      }
+      const hcW = document.getElementById('hc-kpi-weight');
+      if (hcW) hcW.innerHTML = `${clubState.initialWeight.toFixed(1)} &rarr; ${weight.toFixed(1)} kg`;
+      const hcWSub = document.getElementById('hc-kpi-weight-sub');
+      const wDiff = (weight - clubState.initialWeight).toFixed(1);
+      if (hcWSub) hcWSub.innerText = `Meta: ${weightGoal.toFixed(1)} kg (${wDiff <= 0 ? wDiff : '+' + wDiff} kg)`;
+
+      const hcWaist = document.getElementById('hc-kpi-waist');
+      if (hcWaist) hcWaist.innerText = `${waist} / ${hip} cm`;
+      const hcWaistSub = document.getElementById('hc-kpi-waist-sub');
+      const waistDiff = (waist - clubState.initialWaist).toFixed(1);
+      if (hcWaistSub) hcWaistSub.innerText = `${waistDiff <= 0 ? waistDiff : '+' + waistDiff} cm abdomen`;
+
+      const hcIcc = document.getElementById('hc-kpi-icc');
+      if (hcIcc) hcIcc.innerHTML = `${icc} &bull; IMC ${bmi}`;
+      const hcIccSub = document.getElementById('hc-kpi-icc-sub');
+      if (hcIccSub) hcIccSub.innerHTML = iccNum < 0.85 ? 'Cardioprotector &#10003;' : 'En desinflamaci\u00f3n';
+
+      const hcKcal = document.getElementById('hc-kpi-kcal');
+      if (hcKcal) hcKcal.innerText = `${plan.dailyKcal.toLocaleString('es-MX')} kcal/d\u00eda`;
+      const hcWater = document.getElementById('hc-kpi-water-sub');
+      if (hcWater) hcWater.innerText = `Agua: ${waterLiters} L (${waterGlasses} vasos)`;
+
+      const hcAppList = document.getElementById('hc-buzon-app-list');
+      if (hcAppList) {
+        if (activeAppKeys.length === 0) {
+          hcAppList.innerHTML = '&bull; <strong>Sin antecedentes patol\u00f3gicos reportados:</strong> Perfil metab\u00f3lico preventivo.';
+        } else {
+          hcAppList.innerHTML = activeAppKeys.map(k => `&bull; <strong>${appCatalog[k].full}:</strong> ${appCatalog[k].rule}`).join('<br>');
+        }
+      }
+
+      const hcApnpList = document.getElementById('hc-buzon-apnp-list');
+      if (hcApnpList) {
+        if (activeApnpKeys.length === 0) {
+          hcApnpList.innerHTML = '&bull; <strong>H\u00e1bitos de estilo de vida \u00f3ptimos:</strong> Buena actividad basal y descanso regular.';
+        } else {
+          hcApnpList.innerHTML = activeApnpKeys.map(k => `&bull; <strong>${apnpCatalog[k].full}:</strong> ${apnpCatalog[k].rule}`).join('<br>');
+        }
+      }
+
+      const likedFoods = getLikedFoodsList();
+      const hcFoods = document.getElementById('hc-buzon-foods');
+      if (hcFoods) hcFoods.innerText = likedFoods.join(', ') + '.';
+
+      const hcDiag = document.getElementById('hc-buzon-diagnostico');
+      if (hcDiag) {
+        hcDiag.innerHTML = `&ldquo;Paciente femenina (${age} a\u00f1os, ${height} cm, peso actual ${weight.toFixed(1)} kg, cintura ${waist} cm, ICC ${icc}) en protocolo <strong>${cleanProto}</strong>. Considerando sus Antecedentes Personales Patol\u00f3gicos (<strong>${appShortList}</strong>) y No Patol\u00f3gicos (<strong>${apnpShortList}</strong>), se prescribe pauta nutricional de <strong>${plan.dailyKcal.toLocaleString('es-MX')} kcal/d\u00eda</strong> e hidrataci\u00f3n de <strong>${waterLiters} L/d\u00eda</strong>, priorizando sus alimentos mexicanos favoritos para garantizar adherencia sostenible sin rebote.&rdquo;`;
+      }
+
+      // 3. Actualizar Tarjeta 5 del Feed del Buzon (Plan Semanal Personalizado) y Vista 5
+      const item5Title = document.getElementById('buzon-item-5-title');
+      if (item5Title) item5Title.innerHTML = `Plan Semanal (${plan.dailyKcal.toLocaleString('es-MX')} kcal &bull; ${cleanProto})`;
+      const item5Desc = document.getElementById('buzon-item-5-desc');
+      if (item5Desc) {
+        item5Desc.innerHTML = `Men\u00fa Lunes a Domingo adaptado a APP (${appShortList}) y APNP (${apnpShortList})...`;
+      }
+
+      const bPlanKcalBadge = document.getElementById('buzon-plan-kcal-badge');
+      if (bPlanKcalBadge) bPlanKcalBadge.innerHTML = `<i class="fa-solid fa-fire-flame-curved"></i> ${plan.dailyKcal.toLocaleString('es-MX')} kcal / d\u00eda`;
+
+      const bPlanRules = document.getElementById('buzon-plan-rules-summary');
+      if (bPlanRules) {
+        bPlanRules.innerHTML = `&bull; <strong>Objetivo y Meta:</strong> ${cleanProto} (${plan.dailyKcal.toLocaleString('es-MX')} kcal/d\u00eda &bull; Meta: ${weightGoal.toFixed(1)} kg)<br>` +
+          `&bull; <strong>Antecedentes Patol\u00f3gicos (APP):</strong> ${appShortList}<br>` +
+          `&bull; <strong>Antecedentes No Patol\u00f3gicos (APNP):</strong> ${apnpShortList}<br>` +
+          `&bull; <strong>Distribuci\u00f3n Cal\u00f3rica:</strong> Desayuno ~${plan.kB} kcal &bull; Comida ~${plan.kL} kcal &bull; Colaci\u00f3n ~${plan.kS} kcal &bull; Cena ~${plan.kD} kcal`;
+      }
+
+      const daysContainer = document.getElementById('buzon-plan-days-container');
+      if (daysContainer) {
+        daysContainer.innerHTML = plan.days.map(d => `
+          <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 13px; padding: 10px 12px; font-size: 0.74rem; line-height: 1.4;">
+            <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.8rem; margin-bottom: 4px; border-bottom: 1px solid #E2ECD8; padding-bottom: 3px;">
+              \uD83D\uDCC5 ${d.day} (${plan.dailyKcal} kcal)
+            </div>
+            <div><strong>\u2600\uFE0F Des:</strong> ${d.b}</div>
+            <div><strong>\uD83C\uDF72 Com:</strong> ${d.l}</div>
+            <div><strong>\uD83C\uDF4E Col:</strong> ${d.s}</div>
+            <div><strong>\uD83C\uDF19 Cen:</strong> ${d.d}</div>
+          </div>
+        `).join('');
+      }
+
+      // Si el usuario presiono "Guardar y Generar Plan Semanal", enviarlos como nuevos al tope del Buzon
+      if (isManualSave) {
+        const feedContainer = document.getElementById('buzon-feed-items');
+        const card2 = document.getElementById('buzon-feed-card-2');
+        const card5 = document.getElementById('buzon-feed-card-5');
+        const date2 = document.getElementById('buzon-item-2-date');
+        const date5 = document.getElementById('buzon-item-5-date');
+
+        if (date2) {
+          date2.innerText = 'Reci\u00e9n enviado';
+          date2.style.color = 'var(--coral)';
+        }
+        if (date5) {
+          date5.innerText = 'Reci\u00e9n enviado';
+          date5.style.color = 'var(--coral)';
+        }
+
+        if (card5 && !card5.classList.contains('is-unread')) {
+          card5.classList.add('is-unread');
+          buzonUnreadCount++;
+        }
+        if (card2 && !card2.classList.contains('is-unread')) {
+          card2.classList.add('is-unread');
+          buzonUnreadCount++;
+        }
+
+        if (feedContainer && card2 && card5) {
+          feedContainer.insertBefore(card5, feedContainer.firstChild);
+          feedContainer.insertBefore(card2, feedContainer.firstChild);
+        }
+        updateBuzonBadges();
+      }
+    }
+
+    // Accion principal del boton "Guardar y Generar Plan Semanal" en Modulo 1
+    function saveAndGenerateClinicalPlan(btnEl) {
+      syncClinicalHistoryAndPlanToBuzon(true);
+      if (btnEl) {
+        const orig = btnEl.innerHTML;
+        btnEl.innerHTML = '\u2705 \u00A1Plan e Historia Cl\u00ednica Enviados al Buz\u00f3n!';
+        setTimeout(() => { btnEl.innerHTML = orig; }, 2600);
+      }
+      openModule('mod-plan', document.getElementById('nav-mod-plan'));
+      showToast(
+        'Historia Cl\u00ednica y Plan Generados',
+        'Tu men\u00fa fue calibrado con tus antecedentes y enviado autom\u00e1ticamente a tu Buz\u00f3n.'
+      );
     }
 
     // Cronómetro real de descanso en Módulo 5
@@ -9409,6 +10447,7 @@
     // Mayor densidad y presencia de frutitas en Login y en todas las páginas/módulos interiores
     createVeggieField('veggie-canvas-login', 54);
     createVeggieField('veggie-canvas-app', 92);
+    renderAntecedentesUI();
     syncPlatformState();
   </script>
 </body>
