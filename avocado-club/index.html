@@ -3714,6 +3714,116 @@
       box-shadow: 0 10px 26px rgba(20, 43, 31, 0.14);
     }
 
+    /* SIGNITO DE INTERROGACION (?) PARA COMO MEDIR CINTURA Y CADERA + TOOLTIP Y GUIA */
+    .measure-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      margin-bottom: 5px;
+    }
+
+    .measure-help-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .measure-help-btn {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 6px rgba(232, 111, 82, 0.35);
+      transition: all 0.18s ease;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .measure-help-btn:hover {
+      background: var(--avo-dark);
+      transform: scale(1.12);
+    }
+
+    .measure-tooltip-pop {
+      position: absolute;
+      bottom: calc(100% + 9px);
+      right: -12px;
+      width: 265px;
+      background: #142B1F;
+      color: #FFFFFF;
+      font-size: 0.73rem;
+      font-weight: 600;
+      line-height: 1.42;
+      padding: 11px 13px;
+      border-radius: 13px;
+      border: 1.5px solid #8FD14F;
+      box-shadow: 0 12px 28px rgba(20, 43, 31, 0.32);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      text-align: left;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .measure-help-wrap:hover .measure-tooltip-pop {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .medidas-guide-panel {
+      display: none;
+      background: linear-gradient(135deg, #FFF9F6 0%, #FFFFFF 100%);
+      border: 1.5px solid #F5C2B8;
+      border-radius: 16px;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(232, 111, 82, 0.1);
+      animation: fadeSlideUp 0.22s ease;
+    }
+
+    .medidas-guide-panel.is-open {
+      display: block;
+    }
+
+    /* BOTON DE BORRAR CORREO EN CADA ITEM DEL BUZON */
+    .buzon-delete-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: rgba(232, 111, 82, 0.08);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .buzon-delete-btn:hover {
+      background: #FEE2E2;
+      color: #DC2626;
+      border-color: #FCA5A5;
+      transform: scale(1.08);
+    }
+
     /* TOAST GLOBAL FLOTANTE */
     .avo-toast-notification {
       position: fixed;
@@ -5478,25 +5588,89 @@
                 </div>
               </div>
 
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <h3 style="font-size: 1.2rem;">2. Tus Medidas Corporales (Cintura y Cadera Obligatorias)</h3>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                  <h3 style="font-size: 1.2rem; margin: 0;">2. Tus Medidas Corporales (Cintura y Cadera Obligatorias)</h3>
+                  <button type="button" onclick="toggleMeasureGuide('both')" style="background: #FFF3EF; color: var(--coral); border: 1px solid #F5C2B8; border-radius: 99px; padding: 3px 10px; font-size: 0.72rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                    <i class="fa-solid fa-circle-question"></i> &iquest;C&oacute;mo medir cintura y cadera?
+                  </button>
+                </div>
                 <span id="live-icc-badge" style="background: var(--avo-pale); color: var(--avo-forest); font-weight: 800; font-size: 0.78rem; padding: 5px 12px; border-radius: 99px; border: 1px solid #CFE0BE;">
                   &#128207; &Iacute;ndice Cintura/Cadera Calculado: <strong>0.80 (Saludable)</strong>
                 </span>
               </div>
 
-              <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 18px;">
+              <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 14px;">
                 <div class="modern-field" style="margin: 0;"><label>Edad</label><div class="modern-input-box"><input type="number" id="inp-age" value="34" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
                 <div class="modern-field" style="margin: 0;"><label>Estatura (cm)</label><div class="modern-input-box"><input type="number" id="inp-height" value="162" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
                 <div class="modern-field" style="margin: 0;"><label>Peso Actual (kg)</label><div class="modern-input-box"><input type="number" step="0.1" id="inp-weight" value="68.4" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
                 <div class="modern-field" style="margin: 0;"><label>Peso Meta (kg)</label><div class="modern-input-box"><input type="number" step="0.1" id="inp-weight-goal" value="62.0" oninput="calcLiveICC()" style="padding: 11px 12px;"></div></div>
-                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">&#128207; Cintura (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-waist" value="79" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
-                <div class="modern-field" style="margin: 0;"><label style="color: var(--coral);">&#128207; Cadera (cm)*</label><div class="modern-input-box"><input type="number" step="0.5" id="inp-hip" value="99" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div></div>
+                <div class="modern-field" style="margin: 0;">
+                  <div class="measure-label-row">
+                    <label style="color: var(--coral); margin: 0;">&#128207; Cintura (cm)*</label>
+                    <span class="measure-help-wrap">
+                      <button type="button" class="measure-help-btn" onclick="toggleMeasureGuide('waist')" aria-label="C&oacute;mo medir la cintura">?</button>
+                      <span class="measure-tooltip-pop">
+                        <strong style="color: #FDE68A; display: block; margin-bottom: 3px;">&#128207; &iquest;C&oacute;mo medir tu Cintura?</strong>
+                        1. Rodea tu abdomen desnudo justo <strong>a la altura del ombligo</strong> (entre la &uacute;ltima costilla y el hueso de la cadera).<br>
+                        2. Inhala normal y <strong>mide al terminar de exhalar</strong>, sin sumir ni apretar el abdomen.<br>
+                        3. Hazlo en la ma&ntilde;ana en ayunas con la cinta paralela al piso.
+                      </span>
+                    </span>
+                  </div>
+                  <div class="modern-input-box"><input type="number" step="0.5" id="inp-waist" value="79" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div>
+                </div>
+                <div class="modern-field" style="margin: 0;">
+                  <div class="measure-label-row">
+                    <label style="color: var(--coral); margin: 0;">&#128207; Cadera (cm)*</label>
+                    <span class="measure-help-wrap">
+                      <button type="button" class="measure-help-btn" onclick="toggleMeasureGuide('hip')" aria-label="C&oacute;mo medir la cadera">?</button>
+                      <span class="measure-tooltip-pop">
+                        <strong style="color: #FDE68A; display: block; margin-bottom: 3px;">&#128208; &iquest;C&oacute;mo medir tu Cadera?</strong>
+                        1. Pasa la cinta por la <strong>parte m&aacute;s prominente (m&aacute;s ancha) de los gl&uacute;teos</strong>.<br>
+                        2. P&aacute;rate derecha con los <strong>pies juntos</strong> y los gl&uacute;teos relajados.<br>
+                        3. Verifica frente a un espejo que la cinta quede horizontal sin comprimir la piel.
+                      </span>
+                    </span>
+                  </div>
+                  <div class="modern-input-box"><input type="number" step="0.5" id="inp-hip" value="99" oninput="calcLiveICC()" style="padding: 11px 12px; border-color: var(--coral); background: var(--coral-soft);"></div>
+                </div>
+              </div>
+
+              <!-- PANEL EXPLICATIVO DESPLEGABLE AL TOCAR EL SIGNO (?) DE CINTURA O CADERA -->
+              <div id="medidas-clinical-guide-box" class="medidas-guide-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 8px;">
+                  <div style="font-weight: 800; font-size: 0.88rem; color: var(--avo-dark); display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-ruler-combined" style="color: var(--coral);"></i>
+                    <span>Gu&iacute;a Cl&iacute;nica R&aacute;pida: C&oacute;mo tomar tus medidas de forma eficiente y sin errores</span>
+                  </div>
+                  <button type="button" onclick="toggleMeasureGuide('close')" style="background: #FFFFFF; border: 1px solid #F5C2B8; color: var(--coral); border-radius: 99px; padding: 3px 10px; font-size: 0.72rem; font-weight: 800; cursor: pointer;">
+                    &#10005; Cerrar gu&iacute;a
+                  </button>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <div id="guide-box-waist" style="background: #FFFFFF; border: 1.5px solid #F5C2B8; border-radius: 13px; padding: 11px 14px; font-size: 0.77rem; line-height: 1.45; color: var(--text-main);">
+                    <div style="font-weight: 800; color: var(--coral); font-size: 0.82rem; margin-bottom: 4px;">
+                      &#128207; 1. C&oacute;mo medir tu Cintura Umbilical:
+                    </div>
+                    <div>&bull; <strong>Ubicaci&oacute;n exacta:</strong> Coloca la cinta m&eacute;trica directamente sobre la piel justo <strong>a la altura del ombligo</strong> (punto medio entre la &uacute;ltima costilla y el borde superior de la cadera).</div>
+                    <div>&bull; <strong>Respiraci&oacute;n:</strong> De pie, inhala normal y <strong>toma la lectura al final de una exhalaci&oacute;n relajada</strong> (sin meter el abdomen).</div>
+                    <div>&bull; <strong>Hora ideal:</strong> En ayunas por la ma&ntilde;ana despu&eacute;s de ir al ba&ntilde;o.</div>
+                  </div>
+                  <div id="guide-box-hip" style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 13px; padding: 11px 14px; font-size: 0.77rem; line-height: 1.45; color: var(--text-main);">
+                    <div style="font-weight: 800; color: var(--avo-forest); font-size: 0.82rem; margin-bottom: 4px;">
+                      &#128208; 2. C&oacute;mo medir tu Cadera:
+                    </div>
+                    <div>&bull; <strong>Ubicaci&oacute;n exacta:</strong> Rodea con la cinta la <strong>zona m&aacute;s prominente (m&aacute;s ancha) de los gl&uacute;teos</strong>.</div>
+                    <div>&bull; <strong>Postura:</strong> Mant&eacute;n los <strong>pies juntos</strong>, piernas rectas y gl&uacute;teos relajados sin contraer.</div>
+                    <div>&bull; <strong>Verificaci&oacute;n:</strong> Revisa de lado en un espejo que la cinta est&eacute; 100% horizontal y sin apretar la piel.</div>
+                  </div>
+                </div>
               </div>
 
               <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
                 <div style="flex: 1;">
-                  <h3 style="font-size: 1.15rem; margin-bottom: 6px;">3. Alimentos de M&eacute;xico que S&Iacute; te gustan (Toca para activar/quitar):</h3>
+                  <h3 style="font-size: 1.15rem; margin-bottom: 8px;">3. Alimentos de M&eacute;xico que s&iacute; te gustan (Toca para activar/quitar):</h3>
                   <div id="onboarding-food-chips">
                     <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129361; Aguacate Hass</span>
                     <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129370; Huevo</span>
@@ -5508,6 +5682,16 @@
                     <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127797; Nopales</span>
                     <span class="food-chip" onclick="toggleOnboardingFoodChip(this)">&#128031; At&uacute;n</span>
                     <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129385; Bistec de Res</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#128032; Pescado Blanco</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129379; Avena y Amaranto</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129371; Yogur Griego</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129362; Calabacita y Chayote</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127813; Jitomate y Pico de Gallo</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127834; Arroz Casero</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127827; Fresas y Frutos Rojos</span>
+                    <span class="food-chip" onclick="toggleOnboardingFoodChip(this)">&#127822; Manzana y Papaya</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#129372; Almendras, Nueces y Ch&iacute;a</span>
+                    <span class="food-chip liked" onclick="toggleOnboardingFoodChip(this)">&#127851; Cacao Puro / Chocolate</span>
                   </div>
                 </div>
                 <button type="button" id="btn-save-generate-plan" class="btn-enter-club" style="width: auto; padding: 15px 26px; margin: 0;" onclick="saveAndGenerateClinicalPlan(this)">
@@ -6736,42 +6920,52 @@
                   <!-- LISTADO INTERACTIVO DE ITEMS DEL BUZON -->
                   <div class="buzon-feed-list" id="buzon-feed-items">
 
-                    <!-- ITEM 0: EVALUACION DE CURVA SEMANAL (ACTIVO POR DEFECTO) -->
+                    <!-- ITEM 0: EVALUACION DE CURVA SEMANAL (ENVIADO AUTOMATICAMENTE DESDE DASHBOARD) -->
                     <div class="buzon-item-card active-buzon-item" id="buzon-feed-card-0" data-buzon-idx="0" data-category="mensajes" onclick="selectBuzonItem(0)">
-                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                      <div style="display: flex; gap: 12px; align-items: flex-start; width: 100%;">
                         <div class="buzon-item-icon-box" style="background: #FFF7ED; color: #C2410C;">
                           <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <span style="font-size: 0.67rem; font-weight: 800; color: #C2410C; text-transform: uppercase;">Curva Semanal</span>
-                            <span style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">Ayer (4 Nov)</span>
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; gap: 6px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #C2410C; text-transform: uppercase;">Curva Semanal &bull; Auto</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                              <span id="buzon-item-0-date" style="font-size: 0.68rem; color: var(--coral); font-weight: 800;">Sincronizado</span>
+                              <button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(0, event)" title="Borrar este correo">
+                                <i class="fa-regular fa-trash-can"></i>
+                              </button>
+                            </div>
                           </div>
-                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                          <h4 id="buzon-item-0-title" style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                             Evaluaci&oacute;n de Curva: Cintura -4.0 cm
                           </h4>
-                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                          <p id="buzon-item-0-desc" style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                             Arianna evalu&oacute; tu curva de peso y cintura: "Vas excelente oxidando grasa visceral. Mant&eacute;n el nopal en tu comida..."
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    <!-- ITEM 1: RETRO DOMINICAL DE HIDRATACION (ENVIADO DESDE DASHBOARD) -->
+                    <!-- ITEM 1: RETRO DOMINICAL DE HIDRATACION (ENVIADO AUTOMATICAMENTE DESDE DASHBOARD) -->
                     <div class="buzon-item-card is-unread" id="buzon-feed-card-1" data-buzon-idx="1" data-category="mensajes" onclick="selectBuzonItem(1)">
-                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                      <div style="display: flex; gap: 12px; align-items: flex-start; width: 100%;">
                         <div class="buzon-item-icon-box" style="background: #EFF6FF; color: #1D4ED8;">
                           <i class="fa-solid fa-droplet"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <span style="font-size: 0.67rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase;">Retro Dominical</span>
-                            <span style="font-size: 0.68rem; color: #1D4ED8; font-weight: 800;">Dom 1 Nov</span>
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; gap: 6px;">
+                            <span style="font-size: 0.67rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase;">Retro Dominical &bull; Auto</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                              <span id="buzon-item-1-date" style="font-size: 0.68rem; color: #1D4ED8; font-weight: 800;">Dom 1 Nov</span>
+                              <button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(1, event)" title="Borrar este correo">
+                                <i class="fa-regular fa-trash-can"></i>
+                              </button>
+                            </div>
                           </div>
-                          <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                          <h4 id="buzon-item-1-title" style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                             Reporte Dominical: Hidrataci&oacute;n Semanal (91%)
                           </h4>
-                          <p style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                          <p id="buzon-item-1-desc" style="font-size: 0.74rem; color: var(--text-muted); margin: 3px 0 0 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                             Balance h&iacute;drico cerrado: 15.3 L acumulados, oxidaci&oacute;n hep&aacute;tica &oacute;ptima (96%) y cero retenci&oacute;n abdominal...
                           </p>
                         </div>
@@ -6780,14 +6974,19 @@
 
                     <!-- ITEM 2: HISTORIA CLINICA OFICIAL Y EXPEDIENTE NUTRICIONAL (ENVIADO AL GENERAR PLAN EN MODULO 1) -->
                     <div class="buzon-item-card" id="buzon-feed-card-2" data-buzon-idx="2" data-category="mensajes" onclick="selectBuzonItem(2)">
-                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                      <div style="display: flex; gap: 12px; align-items: flex-start; width: 100%;">
                         <div class="buzon-item-icon-box" style="background: #DCFCE7; color: #166534;">
                           <i class="fa-solid fa-file-medical"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; gap: 6px;">
                             <span style="font-size: 0.67rem; font-weight: 800; color: #166534; text-transform: uppercase;">Historia Cl&iacute;nica Oficial</span>
-                            <span id="buzon-item-2-date" style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">Sincronizada</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                              <span id="buzon-item-2-date" style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">Sincronizada</span>
+                              <button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(2, event)" title="Borrar este correo">
+                                <i class="fa-regular fa-trash-can"></i>
+                              </button>
+                            </div>
                           </div>
                           <h4 id="buzon-item-2-title" style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                             Historia Cl&iacute;nica y Antecedentes &bull; Mariana G&oacute;mez
@@ -6801,14 +7000,19 @@
 
                     <!-- ITEM 5: PLAN NUTRICIONAL SEMANAL PERSONALIZADO (ENVIADO AL GENERAR PLAN EN MODULO 1) -->
                     <div class="buzon-item-card" id="buzon-feed-card-5" data-buzon-idx="5" data-category="guias" onclick="selectBuzonItem(5)">
-                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                      <div style="display: flex; gap: 12px; align-items: flex-start; width: 100%;">
                         <div class="buzon-item-icon-box" style="background: #FEF3C7; color: #92400E;">
                           <i class="fa-solid fa-calendar-check"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; gap: 6px;">
                             <span style="font-size: 0.67rem; font-weight: 800; color: #92400E; text-transform: uppercase;">Plan Nutricional</span>
-                            <span id="buzon-item-5-date" style="font-size: 0.68rem; color: #B45309; font-weight: 800;">Sincronizado</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                              <span id="buzon-item-5-date" style="font-size: 0.68rem; color: #B45309; font-weight: 800;">Sincronizado</span>
+                              <button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(5, event)" title="Borrar este correo">
+                                <i class="fa-regular fa-trash-can"></i>
+                              </button>
+                            </div>
                           </div>
                           <h4 id="buzon-item-5-title" style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                             Plan Semanal Personalizado (1,480 kcal &bull; Control Insulina)
@@ -6822,14 +7026,19 @@
 
                     <!-- ITEM 3: PRESCRIPCION DE SUPLEMENTACION SUGERIDA (NO LEIDO) -->
                     <div class="buzon-item-card is-unread" id="buzon-feed-card-3" data-buzon-idx="3" data-category="guias" onclick="selectBuzonItem(3)">
-                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                      <div style="display: flex; gap: 12px; align-items: flex-start; width: 100%;">
                         <div class="buzon-item-icon-box" style="background: #FEF3C7; color: #B45309;">
                           <i class="fa-solid fa-capsules"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; gap: 6px;">
                             <span style="font-size: 0.67rem; font-weight: 800; color: #B45309; text-transform: uppercase;">Pauta Sugerida</span>
-                            <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">1 Nov</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                              <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">1 Nov</span>
+                              <button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(3, event)" title="Borrar este correo">
+                                <i class="fa-regular fa-trash-can"></i>
+                              </button>
+                            </div>
                           </div>
                           <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                             Pauta de Suplementaci&oacute;n: Citrato de Magnesio
@@ -6843,14 +7052,19 @@
 
                     <!-- ITEM 4: GUIA DESCARGABLE DOMINGO LIBRE (LEIDO) -->
                     <div class="buzon-item-card" id="buzon-feed-card-4" data-buzon-idx="4" data-category="guias" onclick="selectBuzonItem(4)">
-                      <div style="display: flex; gap: 12px; align-items: flex-start;">
+                      <div style="display: flex; gap: 12px; align-items: flex-start; width: 100%;">
                         <div class="buzon-item-icon-box" style="background: #EFF6FF; color: #1D4ED8;">
                           <i class="fa-solid fa-file-pdf"></i>
                         </div>
                         <div style="flex: 1; min-width: 0;">
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; gap: 6px;">
                             <span style="font-size: 0.67rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase;">Gu&iacute;a Oficial PDF</span>
-                            <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">28 Oct</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                              <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 600;">28 Oct</span>
+                              <button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(4, event)" title="Borrar este correo">
+                                <i class="fa-regular fa-trash-can"></i>
+                              </button>
+                            </div>
                           </div>
                           <h4 style="font-size: 0.88rem; color: var(--avo-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                             Protocolo Domingo Libre: 5 Reglas Anti-Picos
@@ -6860,6 +7074,16 @@
                           </p>
                         </div>
                       </div>
+                    </div>
+
+                    <!-- ESTADO VACIO CUANDO SE BORRAN TODOS LOS CORREOS -->
+                    <div id="buzon-empty-feed-notice" style="display: none; text-align: center; padding: 28px 16px; background: #F9FCF5; border: 1.5px dashed #CFE0BE; border-radius: 16px;">
+                      <div style="font-size: 1.6rem; color: var(--avo-primary); margin-bottom: 6px;"><i class="fa-regular fa-envelope-open"></i></div>
+                      <div style="font-weight: 800; font-size: 0.9rem; color: var(--avo-dark); margin-bottom: 4px;">No hay correos en esta vista</div>
+                      <div style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 12px;">Puedes restaurar tus comunicaciones oficiales cuando gustes:</div>
+                      <button type="button" class="btn-flip-trigger" onclick="restoreAllDeletedBuzonItems()" style="font-size: 0.75rem; margin: 0 auto;">
+                        <i class="fa-solid fa-rotate-left"></i> Restaurar Correos del Buz&oacute;n
+                      </button>
                     </div>
 
                   </div>
@@ -6879,14 +7103,12 @@
                       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
                         <div>
                           <span class="card-label gold" style="margin-bottom: 4px;">EVALUACI&Oacute;N DE CURVA SEMANAL</span>
-                          <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Nota de Evoluci&oacute;n &bull; Nutri&oacute;loga Arianna</h3>
-                          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
+                          <h3 id="buzon-v0-heading" style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Nota de Evoluci&oacute;n &bull; Nutri&oacute;loga Arianna</h3>
+                          <div id="buzon-v0-meta" style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
                             Fecha de emisi&oacute;n: <strong>Mi&eacute;rcoles 4 de Noviembre (Semana 3)</strong> &bull; Reevaluaci&oacute;n de Gr&aacute;fica
                           </div>
                         </div>
-                        <span style="background: var(--coral-soft); color: var(--coral); font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #F5C2B8;">
-                          <i class="fa-solid fa-heart-pulse"></i> Feedback M&eacute;dico
-                        </span>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span style="background: var(--coral-soft); color: var(--coral); font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #F5C2B8;"><i class="fa-solid fa-heart-pulse"></i> Feedback M&eacute;dico</span><button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(0, event)" title="Borrar este correo"><i class="fa-regular fa-trash-can"></i></button></div>
                       </div>
 
                       <!-- MENSAJE CLINICO DESTACADO CON FOTO DE ARIANNA -->
@@ -6896,16 +7118,16 @@
                             <img src="data:image/jpeg;base64,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" alt="Nutri&oacute;loga Arianna" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
                           </div>
                           <div>
-                            <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF;">
-                              "¡Mariana, 4 cm menos de cintura en 18 d&iacute;as es una victoria metab&oacute;lica brutal!"
+                            <div id="buzon-v0-quote-title" style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF;">
+                              "&iexcl;Mariana, 4 cm menos de cintura en 18 d&iacute;as es una victoria metab&oacute;lica brutal!"
                             </div>
-                            <div style="font-size: 0.72rem; color: #A7F3D0; font-weight: 700;">
+                            <div id="buzon-v0-quote-sub" style="font-size: 0.72rem; color: #A7F3D0; font-weight: 700;">
                               Pauta personalizada de adaptaci&oacute;n &bull; Evaluada ayer 4 de Noviembre
                             </div>
                           </div>
                         </div>
 
-                        <p style="font-size: 0.84rem; line-height: 1.6; color: #E2E8F0; margin: 0 0 14px 0;">
+                        <p id="buzon-v0-body-p1" style="font-size: 0.84rem; line-height: 1.6; color: #E2E8F0; margin: 0 0 14px 0;">
                           "Revis&eacute; detalladamente tu evoluci&oacute;n en la gr&aacute;fica semanal. Aunque el peso en la b&aacute;scula se detuvo un par de d&iacute;as en 68.4 kg, tu cintura descendi&oacute; a 79 cm. Eso confirma exactamente lo que buscamos: <strong>est&aacute;s desinflamando el h&iacute;gado y quemando grasa profunda visceral</strong>, no perdiendo agua ni m&uacute;sculo.<br><br>
                           Para esta segunda mitad de quincena, te pido dos ajustes muy puntuales:<br>
                           1. <strong>No te saltes la fibra previa:</strong> Contin&uacute;a abriendo tu comida con nopal asado o ensalada verde antes de probar el arroz o los frijoles.<br>
@@ -6914,7 +7136,7 @@
 
                         <div style="display: flex; gap: 10px; align-items: center; background: rgba(255, 255, 255, 0.08); padding: 10px 14px; border-radius: 12px; font-size: 0.74rem;">
                           <i class="fa-solid fa-bell" style="color: var(--gold);"></i>
-                          <span>Tu pr&oacute;xima calibraci&oacute;n de medidas ser&aacute; este domingo 8 de Noviembre.</span>
+                          <span id="buzon-v0-next-rev">Tu pr&oacute;xima calibraci&oacute;n de medidas ser&aacute; este domingo 8 de Noviembre.</span>
                         </div>
                       </div>
 
@@ -6925,64 +7147,72 @@
                       </div>
                     </div>
 
-                    <!-- VISTA 1: REPORTE DOMINICAL DE HIDRATACION (VINCULADO AL DASHBOARD) -->
+                    <!-- VISTA 1: REPORTE DOMINICAL DE HIDRATACION (VINCULADO AUTOMATICAMENTE AL DASHBOARD) -->
                     <div id="buzon-view-1" class="buzon-detail-view" style="display: none;">
-                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid var(--border-soft); margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
                         <div>
-                          <span class="card-label forest" style="margin-bottom: 4px;">BALANCE SEMANAL SINCRONIZADO</span>
+                          <span class="card-label forest" style="margin-bottom: 4px;">BALANCE SEMANAL SINCRONIZADO AUTOM&Aacute;TICAMENTE</span>
                           <h3 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0;">Reporte Dominical: Hidrataci&oacute;n Metab&oacute;lica</h3>
-                          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
+                          <div id="buzon-view-1-date-sub" style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
                             Corte cerrado: <strong>Domingo 1 de Noviembre, 2026</strong> &bull; Evaluado por la <strong>Nutri&oacute;loga Arianna</strong>
                           </div>
                         </div>
-                        <span style="background: #EFF6FF; color: #1D4ED8; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #93C5FD;">
-                          <i class="fa-solid fa-droplet"></i> 91% Cumplido
-                        </span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span id="buzon-view-1-pct-badge" style="background: #EFF6FF; color: #1D4ED8; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #93C5FD;">
+                            <i class="fa-solid fa-droplet"></i> 91% Cumplido
+                          </span>
+                          <button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(1, event)" title="Borrar este correo">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </button>
+                        </div>
                       </div>
 
                       <!-- 3 TARJETAS KPIS DE HIDRATACION -->
                       <div class="buzon-metric-pill-grid" style="grid-template-columns: repeat(3, 1fr);">
                         <div class="buzon-metric-mini">
                           <div class="lbl">Litros Acumulados</div>
-                          <div class="val" style="color: #1D4ED8;">15.3 L / 16.8 L</div>
-                          <div class="sub" style="color: var(--avo-primary);">&plusmn;0.8 L meta semanal</div>
+                          <div class="val" id="buzon-v1-liters" style="color: #1D4ED8;">15.3 L / 16.8 L</div>
+                          <div class="sub" style="color: var(--avo-primary);">Meta semanal de hidrataci&oacute;n</div>
                         </div>
                         <div class="buzon-metric-mini">
                           <div class="lbl">Promedio Diario</div>
-                          <div class="val" style="color: var(--avo-forest);">7.3 vasos/d&iacute;a</div>
-                          <div class="sub" style="color: var(--avo-forest);">91% de cumplimiento</div>
+                          <div class="val" id="buzon-v1-avg" style="color: var(--avo-forest);">7.3 vasos/d&iacute;a</div>
+                          <div class="sub" id="buzon-v1-avg-sub" style="color: var(--avo-forest);">91% de cumplimiento</div>
                         </div>
                         <div class="buzon-metric-mini">
                           <div class="lbl">D&iacute;as en Meta (8 vasos)</div>
-                          <div class="val" style="color: var(--coral);">4 de 7 d&iacute;as</div>
-                          <div class="sub" style="color: var(--text-muted);">Consistencia &oacute;ptima</div>
+                          <div class="val" id="buzon-v1-days" style="color: var(--coral);">4 de 7 d&iacute;as</div>
+                          <div class="sub" style="color: var(--text-muted);">Consistencia semanal</div>
                         </div>
                       </div>
 
-                      <!-- MICRO-INDICADORES FISIOLOGICOS -->
+                      <!-- MICRO-INDICADORES FISIOLOGICOS SINCRONIZADOS -->
                       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px;">
                         <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 12px; padding: 8px 10px;">
                           <div style="font-size: 0.65rem; font-weight: 800; color: #64748B; text-transform: uppercase;">&bull; Oxidaci&oacute;n Hep&aacute;tica</div>
-                          <div style="font-size: 0.8rem; font-weight: 800; color: #15803D; margin-top: 2px;">&Oacute;ptima (96%)</div>
+                          <div id="buzon-v1-bio-liver" style="font-size: 0.8rem; font-weight: 800; color: #15803D; margin-top: 2px;">&Oacute;ptima (96%)</div>
                         </div>
                         <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 12px; padding: 8px 10px;">
                           <div style="font-size: 0.65rem; font-weight: 800; color: #64748B; text-transform: uppercase;">&bull; Retenci&oacute;n Abdominal</div>
-                          <div style="font-size: 0.8rem; font-weight: 800; color: #1D4ED8; margin-top: 2px;">Cero retenci&oacute;n &#10003;</div>
+                          <div id="buzon-v1-bio-ret" style="font-size: 0.8rem; font-weight: 800; color: #1D4ED8; margin-top: 2px;">Cero retenci&oacute;n &#10003;</div>
                         </div>
                         <div style="background: #F8FAFC; border: 1px solid #DBEAFE; border-radius: 12px; padding: 8px 10px;">
                           <div style="font-size: 0.65rem; font-weight: 800; color: #64748B; text-transform: uppercase;">&bull; D&iacute;a a Cuidar</div>
-                          <div style="font-size: 0.8rem; font-weight: 800; color: var(--coral); margin-top: 2px;">Jueves (6/8 vasos)</div>
+                          <div id="buzon-v1-bio-lowest" style="font-size: 0.8rem; font-weight: 800; color: var(--coral); margin-top: 2px;">Jueves (6/8 vasos)</div>
                         </div>
                       </div>
 
                       <!-- MENSAJE DE RETROALIMENTACION CLINICA DE ARIANNA -->
                       <div style="background: #FFFFFF; border-left: 4px solid #2563EB; border: 1.5px solid #BFDBFE; border-left-width: 4px; border-radius: 14px; padding: 14px 18px; margin-bottom: 16px;">
-                        <div style="font-size: 0.74rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase; margin-bottom: 4px;">
-                          <i class="fa-solid fa-comment-dots"></i> Diagn&oacute;stico de Arianna:
+                        <div id="buzon-v1-diag-badge" style="font-size: 0.74rem; font-weight: 800; color: #1D4ED8; text-transform: uppercase; margin-bottom: 4px;">
+                          <i class="fa-solid fa-comment-dots"></i> Diagn&oacute;stico Dominical de Arianna:
                         </div>
-                        <p style="font-size: 0.82rem; color: var(--text-main); line-height: 1.5; margin: 0;">
-                          "¡Excelente semana Mariana! Con este nivel de hidrataci&oacute;n tu h&iacute;gado oxida grasas sin esfuerzo, evitas la retenci&oacute;n de l&iacute;quidos abdominal (clave en tus -4.0 cm de cintura) y apagas los falsos antojos dulces por sed."
+                        <p id="buzon-v1-diag-text" style="font-size: 0.82rem; color: var(--text-main); line-height: 1.5; margin: 0 0 8px 0;">
+                          "&iexcl;Excelente semana Mariana! Con este nivel de hidrataci&oacute;n tu h&iacute;gado oxida grasas sin esfuerzo, evitas la retenci&oacute;n de l&iacute;quidos abdominal (clave en tus -4.0 cm de cintura) y apagas los falsos antojos dulces por sed."
                         </p>
+                        <div id="buzon-v1-diag-tip" style="font-size: 0.76rem; font-weight: 700; color: #1E40AF; background: #EFF6FF; padding: 7px 11px; border-radius: 9px;">
+                          &#128161; Ritual de Domingo: Toma 1 vaso de agua mineral con lim&oacute;n 15 min antes de tu comida libre.
+                        </div>
                       </div>
 
                       <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
@@ -7005,9 +7235,7 @@
                             Paciente: <strong>Mariana G&oacute;mez (34 a&ntilde;os &bull; 162 cm)</strong> &bull; Nutri&oacute;loga: <strong>Lic. Arianna Hern&aacute;ndez (C&eacute;d. 849201)</strong>
                           </div>
                         </div>
-                        <span id="hc-buzon-status-badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem; font-weight: 800; padding: 4px 11px; border-radius: 99px; border: 1px solid #86EFAC;">
-                          <i class="fa-solid fa-shield-heart"></i> Expediente Activo
-                        </span>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span id="hc-buzon-status-badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem; font-weight: 800; padding: 4px 11px; border-radius: 99px; border: 1px solid #86EFAC;"><i class="fa-solid fa-shield-heart"></i> Expediente Activo</span><button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(2, event)" title="Borrar este correo"><i class="fa-regular fa-trash-can"></i></button></div>
                       </div>
 
                       <!-- 4 TARJETAS KPI ANTROPOMETRICAS EN LA HISTORIA CLINICA -->
@@ -7094,9 +7322,7 @@
                             Calibrado para: <strong>Mariana G&oacute;mez</strong> &bull; Emitido al guardar Objetivos, Antecedentes y Medidas
                           </div>
                         </div>
-                        <span id="buzon-plan-kcal-badge" style="background: #FEF3C7; color: #92400E; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; border: 1px solid #FDE68A;">
-                          <i class="fa-solid fa-fire-flame-curved"></i> 1,480 kcal / d&iacute;a
-                        </span>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span id="buzon-plan-kcal-badge" style="background: #FEF3C7; color: #92400E; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; border: 1px solid #FDE68A;"><i class="fa-solid fa-fire-flame-curved"></i> 1,480 kcal / d&iacute;a</span><button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(5, event)" title="Borrar este correo"><i class="fa-regular fa-trash-can"></i></button></div>
                       </div>
 
                       <!-- RESUMEN DE REGLAS CLINICAS APLICADAS AL PLAN POR SUS ANTECEDENTES -->
@@ -7139,9 +7365,7 @@
                             Prescrito por: <strong>Nutri&oacute;loga Arianna Hern&aacute;ndez</strong> &bull; Protocolo Seguro y Sin F&aacute;rmacos
                           </div>
                         </div>
-                        <span style="background: #FEF3C7; color: #B45309; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #FDE68A;">
-                          <i class="fa-solid fa-check"></i> Activo en tu Plan
-                        </span>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span style="background: #FEF3C7; color: #B45309; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid #FDE68A;"><i class="fa-solid fa-check"></i> Activo en tu Plan</span><button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(3, event)" title="Borrar este correo"><i class="fa-regular fa-trash-can"></i></button></div>
                       </div>
 
                       <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
@@ -7197,9 +7421,7 @@
                             Gu&iacute;a de campo elaborada por Nutri&oacute;loga Arianna &bull; <strong>Uso permitido para comidas sociales</strong>
                           </div>
                         </div>
-                        <button type="button" class="btn-flip-trigger" onclick="downloadBuzonPdf('Guia_Domingo_Libre_Arianna.pdf')" style="font-size: 0.74rem;">
-                          <i class="fa-solid fa-file-pdf" style="color: var(--coral);"></i> Descargar PDF
-                        </button>
+                        <div style="display: flex; align-items: center; gap: 8px;"><button type="button" class="btn-flip-trigger" onclick="downloadBuzonPdf('Guia_Domingo_Libre_Arianna.pdf')" style="font-size: 0.74rem;"><i class="fa-solid fa-file-pdf" style="color: var(--coral);"></i> Descargar PDF</button><button type="button" class="buzon-delete-btn" onclick="deleteBuzonItem(4, event)" title="Borrar este correo"><i class="fa-regular fa-trash-can"></i></button></div>
                       </div>
 
                       <div style="background: linear-gradient(135deg, #F9FCF5 0%, #FFFFFF 100%); border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;">
@@ -7601,7 +7823,8 @@
         cafe_tiempo: false
       },
       activeWeekdayIdx: 0,
-      calculatedDailyKcal: 1480
+      calculatedDailyKcal: 1480,
+      deletedBuzonItems: {}
     };
 
     const moduleGreetings = {
@@ -9201,37 +9424,144 @@
       }, 4500);
     }
 
+    function toggleMeasureGuide(focusZone) {
+      const panel = document.getElementById('medidas-clinical-guide-box');
+      const wBox = document.getElementById('guide-box-waist');
+      const hBox = document.getElementById('guide-box-hip');
+      if (!panel) return;
+
+      if (focusZone === 'close') {
+        panel.classList.remove('is-open');
+        return;
+      }
+
+      const isAlreadyOpen = panel.classList.contains('is-open');
+      if (isAlreadyOpen && focusZone === 'both') {
+        panel.classList.remove('is-open');
+        return;
+      }
+
+      panel.classList.add('is-open');
+      if (wBox && hBox) {
+        wBox.style.boxShadow = focusZone === 'waist' ? '0 0 0 3px rgba(232, 111, 82, 0.28)' : 'none';
+        hBox.style.boxShadow = focusZone === 'hip' ? '0 0 0 3px rgba(104, 163, 50, 0.28)' : 'none';
+      }
+    }
+
+    let currentBuzonCategory = 'all';
+
+    function updateBuzonFilterCounts() {
+      const deleted = clubState.deletedBuzonItems || {};
+      const cards = document.querySelectorAll('.buzon-item-card');
+      let allCount = 0;
+      let msgCount = 0;
+      let guiasCount = 0;
+      let unreadCount = 0;
+
+      cards.forEach((card, i) => {
+        const idx = parseInt(card.getAttribute('data-buzon-idx') ?? i, 10);
+        if (!deleted[idx]) {
+          allCount++;
+          const cat = card.getAttribute('data-category');
+          if (cat === 'mensajes') msgCount++;
+          if (cat === 'guias') guiasCount++;
+          if (card.classList.contains('is-unread')) unreadCount++;
+        }
+      });
+
+      buzonUnreadCount = unreadCount;
+      updateBuzonBadges();
+
+      const btns = document.querySelectorAll('.buzon-filter-btn');
+      if (btns[0]) btns[0].innerHTML = `<i class="fa-solid fa-folder-open"></i> Todos (<span id="buzon-count-all">${allCount}</span>)`;
+      if (btns[1]) btns[1].innerHTML = `<i class="fa-solid fa-comment-medical"></i> Historia Cl&iacute;nica &amp; Evaluaciones (${msgCount})`;
+      if (btns[2]) btns[2].innerHTML = `<i class="fa-solid fa-calendar-check"></i> Plan Semanal &amp; Gu&iacute;as (${guiasCount})`;
+
+      const emptyNotice = document.getElementById('buzon-empty-feed-notice');
+      if (emptyNotice) {
+        const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
+        emptyNotice.style.display = visibleCards.length === 0 ? 'block' : 'none';
+      }
+    }
+
     function selectBuzonItem(idx) {
+      const deleted = clubState.deletedBuzonItems || {};
+      if (deleted[idx]) return;
       buzonActiveItem = idx;
-      // Actualizar tarjeta activa en el feed usando data-buzon-idx
+
       document.querySelectorAll('.buzon-item-card').forEach((card, i) => {
         const cardIdx = parseInt(card.getAttribute('data-buzon-idx') ?? i, 10);
         if (cardIdx === idx) {
           card.classList.add('active-buzon-item');
           if (card.classList.contains('is-unread')) {
             card.classList.remove('is-unread');
-            decrementBuzonUnread();
           }
         } else {
           card.classList.remove('active-buzon-item');
         }
       });
 
-      // Ocultar todas las vistas del visor (0 a 5) y mostrar la seleccionada
       for (let i = 0; i < 6; i++) {
         const v = document.getElementById('buzon-view-' + i);
-        if (v) v.style.display = (i === idx) ? 'block' : 'none';
+        if (v) v.style.display = (i === idx && !deleted[i]) ? 'block' : 'none';
       }
 
-      // Scroll suave hacia el visor en moviles
+      updateBuzonFilterCounts();
+
       if (window.innerWidth <= 768) {
         const viewer = document.getElementById('buzon-viewer-card');
         if (viewer) viewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }
 
+    function deleteBuzonItem(idx, ev) {
+      if (ev) {
+        ev.stopPropagation();
+        ev.preventDefault();
+      }
+      if (!clubState.deletedBuzonItems) clubState.deletedBuzonItems = {};
+      clubState.deletedBuzonItems[idx] = true;
+
+      const card = document.getElementById('buzon-feed-card-' + idx);
+      if (card) {
+        card.classList.remove('is-unread', 'active-buzon-item');
+        card.style.display = 'none';
+      }
+      const view = document.getElementById('buzon-view-' + idx);
+      if (view) {
+        view.style.display = 'none';
+      }
+
+      // Seleccionar automaticamente el siguiente correo disponible no borrado
+      const remainingCards = Array.from(document.querySelectorAll('.buzon-item-card')).filter(c => {
+        const cIdx = parseInt(c.getAttribute('data-buzon-idx'), 10);
+        return !clubState.deletedBuzonItems[cIdx];
+      });
+
+      if (remainingCards.length > 0) {
+        const nextIdx = parseInt(remainingCards[0].getAttribute('data-buzon-idx'), 10);
+        selectBuzonItem(nextIdx);
+      } else {
+        updateBuzonFilterCounts();
+      }
+
+      showToast('Correo eliminado', 'El mensaje fue borrado de tu Bandeja de Entrada.');
+    }
+
+    function restoreAllDeletedBuzonItems() {
+      clubState.deletedBuzonItems = {};
+      filterBuzon(currentBuzonCategory || 'all', document.querySelector('.buzon-filter-btn.active'));
+      selectBuzonItem(0);
+      showToast('Buz\u00f3n restaurado', 'Se recuperaron todas tus comunicaciones cl\u00ednicas.');
+    }
+
     function openBuzonOnClinicalHistory() {
+      if (clubState.deletedBuzonItems) {
+        delete clubState.deletedBuzonItems[2];
+        delete clubState.deletedBuzonItems[5];
+      }
       openModule('mod-buzon', document.getElementById('nav-mod-buzon'));
+      filterBuzon('all', document.querySelector('.buzon-filter-btn'));
       selectBuzonItem(2);
     }
 
@@ -9247,7 +9577,7 @@
         card.classList.remove('is-unread');
       });
       buzonUnreadCount = 0;
-      updateBuzonBadges();
+      updateBuzonFilterCounts();
       showToast('Buz\u00f3n al d\u00eda', 'Todas tus comunicaciones han sido marcadas como le\u00eddas.');
     }
 
@@ -9280,11 +9610,18 @@
     }
 
     function filterBuzon(category, btnEl) {
+      currentBuzonCategory = category || 'all';
       document.querySelectorAll('.buzon-filter-btn').forEach(btn => btn.classList.remove('active'));
       if (btnEl) btnEl.classList.add('active');
 
+      const deleted = clubState.deletedBuzonItems || {};
       const cards = document.querySelectorAll('.buzon-item-card');
-      cards.forEach(card => {
+      cards.forEach((card, i) => {
+        const idx = parseInt(card.getAttribute('data-buzon-idx') ?? i, 10);
+        if (deleted[idx]) {
+          card.style.display = 'none';
+          return;
+        }
         const cat = card.getAttribute('data-category');
         if (category === 'all' || cat === category) {
           card.style.display = 'flex';
@@ -9292,12 +9629,19 @@
           card.style.display = 'none';
         }
       });
+      updateBuzonFilterCounts();
     }
 
     function searchBuzon(term) {
       const clean = (term || '').toLowerCase().trim();
+      const deleted = clubState.deletedBuzonItems || {};
       const cards = document.querySelectorAll('.buzon-item-card');
-      cards.forEach(card => {
+      cards.forEach((card, i) => {
+        const idx = parseInt(card.getAttribute('data-buzon-idx') ?? i, 10);
+        if (deleted[idx]) {
+          card.style.display = 'none';
+          return;
+        }
         const text = card.innerText.toLowerCase();
         if (!clean || text.includes(clean)) {
           card.style.display = 'flex';
@@ -9305,6 +9649,7 @@
           card.style.display = 'none';
         }
       });
+      updateBuzonFilterCounts();
     }
 
     function printBuzonRecord() {
@@ -9321,7 +9666,6 @@
         showToast('Consulta vac\u00eda', 'Por favor escribe tu duda a la Nutri\u00f3loga Arianna.');
         return;
       }
-      const val = inp.value.trim();
       inp.value = '';
       const fb = document.getElementById('buzon-ask-feedback');
       if (fb) {
@@ -9333,80 +9677,134 @@
       showToast('Mensaje Enviado', 'Tu duda cl\u00ednica est\u00e1 en la bandeja de Arianna.');
     }
 
-
-                // =========================================================
-    // SINCRONIZACION AUTOMATICA CON EL BUZON DE ARIANNA (MODULO 8)
-    // Se ejecuta de manera 100% automatica al actualizarse medidas o hidratacion
+    // =========================================================
+    // SINCRONIZACION 100% AUTOMATICA DE RETRO DOMINICAL Y CURVA SEMANAL CON EL BUZON
     // =========================================================
     function autoSyncWaterRetroToBuzon() {
       const wLiters = document.getElementById('water-retro-liters');
       const wAvg = document.getElementById('water-retro-avg');
       const wDays = document.getElementById('water-retro-days');
+      const wBadge = document.getElementById('water-retro-badge');
       const wText = document.getElementById('water-retro-text');
+      const wTip = document.getElementById('water-retro-tip');
       const bioLiver = document.getElementById('water-bio-liver');
       const bioRet = document.getElementById('water-bio-retention');
+      const bioLowest = document.getElementById('water-bio-lowest');
+      const retroDates = typeof getSundayRetroDateInfo === 'function'
+        ? getSundayRetroDateInfo()
+        : { sundayShort: 'Dom 1 Nov', sundayFull: 'Domingo 1 de Noviembre, 2026' };
 
-      // Sincronizar tarjeta en feed del Buzon (Item 1)
-      const feedItem1 = document.querySelector('.buzon-item-card[onclick="selectBuzonItem(1)"]');
-      if (feedItem1 && wAvg) {
-        const titleEl = feedItem1.querySelector('h4');
-        const descEl = feedItem1.querySelector('p');
-        const matchPct = wAvg.innerText.match(/\d+%/);
-        const pctTxt = matchPct ? matchPct[0] : '91%';
-        if (titleEl) {
-          titleEl.innerHTML = 'Reporte Dominical: Hidrataci&oacute;n Semanal (' + pctTxt + ')';
-        }
-        if (descEl && wLiters) {
-          const liverTxt = bioLiver ? bioLiver.innerText.replace(/[\u2705\u2714\u2713]/g, '').trim() : '&oacute;ptima';
-          const retTxt = bioRet ? bioRet.innerText.replace(/[\u2705\u2714\u2713]/g, '').trim() : 'cero retenci&oacute;n';
-          descEl.innerHTML = 'Balance h&iacute;drico cerrado: ' + wLiters.innerText + ' acumulados, oxidaci&oacute;n ' + liverTxt.toLowerCase() + ' y ' + retTxt.toLowerCase() + '...';
-        }
+      const matchPct = wAvg ? wAvg.innerText.match(/\d+%/) : null;
+      const pctTxt = matchPct ? matchPct[0] : '91%';
+
+      // 1. Sincronizar tarjeta en el feed del Buzon (Item 1)
+      const date1El = document.getElementById('buzon-item-1-date');
+      if (date1El) date1El.innerText = retroDates.sundayShort;
+
+      const title1El = document.getElementById('buzon-item-1-title');
+      if (title1El) {
+        title1El.innerHTML = 'Reporte Dominical: Hidrataci&oacute;n Semanal (' + pctTxt + ')';
+      }
+      const desc1El = document.getElementById('buzon-item-1-desc');
+      if (desc1El && wLiters) {
+        const liverClean = bioLiver ? bioLiver.innerText.replace(/[\u2705\u2714\u2713]/g, '').trim() : '\u00f3ptima';
+        const retClean = bioRet ? bioRet.innerText.replace(/[\u2705\u2714\u2713]/g, '').trim() : 'cero retenci\u00f3n';
+        desc1El.innerHTML = 'Corte ' + retroDates.sundayShort + ': ' + wLiters.innerText + ' acumulados, oxidaci&oacute;n ' + liverClean.toLowerCase() + ' y ' + retClean.toLowerCase() + '...';
       }
 
-      // Sincronizar visor detallado del Buzon (View 1)
-      const bLiters = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(1) .val');
-      const bAvg = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(2) .val');
-      const bDays = document.querySelector('#buzon-view-1 .buzon-metric-mini:nth-child(3) .val');
-      const bText = document.querySelector('#buzon-view-1 p');
+      // 2. Sincronizar visor completo en el Buzon (View 1)
+      const v1DateSub = document.getElementById('buzon-view-1-date-sub');
+      if (v1DateSub) {
+        v1DateSub.innerHTML = 'Corte cerrado: <strong>' + retroDates.sundayFull + '</strong> &bull; Enviado autom&aacute;ticamente al Buz&oacute;n por <strong>Nutri&oacute;loga Arianna</strong>';
+      }
+      const v1PctBadge = document.getElementById('buzon-view-1-pct-badge');
+      if (v1PctBadge) {
+        v1PctBadge.innerHTML = '<i class="fa-solid fa-droplet"></i> ' + pctTxt + ' Cumplido';
+      }
+
+      const bLiters = document.getElementById('buzon-v1-liters');
+      const bAvg = document.getElementById('buzon-v1-avg');
+      const bAvgSub = document.getElementById('buzon-v1-avg-sub');
+      const bDays = document.getElementById('buzon-v1-days');
 
       if (wLiters && bLiters) bLiters.innerText = wLiters.innerText;
       if (wAvg && bAvg) bAvg.innerText = wAvg.innerText;
+      if (bAvgSub) bAvgSub.innerText = pctTxt + ' de cumplimiento';
       if (wDays && bDays) bDays.innerText = wDays.innerText;
-      if (wText && bText && wText.innerText) {
-        bText.innerHTML = wText.innerHTML || ('&ldquo;' + wText.innerText.replace(/^"|"$/g, '') + '&rdquo;');
+
+      const bBioLiver = document.getElementById('buzon-v1-bio-liver');
+      const bBioRet = document.getElementById('buzon-v1-bio-ret');
+      const bBioLowest = document.getElementById('buzon-v1-bio-lowest');
+      if (bioLiver && bBioLiver) {
+        bBioLiver.innerText = bioLiver.innerText;
+        bBioLiver.style.color = bioLiver.style.color || '#15803D';
+      }
+      if (bioRet && bBioRet) {
+        bBioRet.innerText = bioRet.innerText;
+        bBioRet.style.color = bioRet.style.color || '#1D4ED8';
+      }
+      if (bioLowest && bBioLowest) {
+        bBioLowest.innerText = bioLowest.innerText;
+        bBioLowest.style.color = bioLowest.style.color || 'var(--coral)';
+      }
+
+      const bDiagBadge = document.getElementById('buzon-v1-diag-badge');
+      if (wBadge && bDiagBadge) bDiagBadge.innerText = wBadge.innerText;
+
+      const bDiagText = document.getElementById('buzon-v1-diag-text');
+      if (wText && bDiagText && wText.innerText) {
+        bDiagText.innerText = wText.innerText;
+      }
+      const bDiagTip = document.getElementById('buzon-v1-diag-tip');
+      if (wTip && bDiagTip && wTip.innerText) {
+        bDiagTip.innerText = wTip.innerText;
       }
     }
 
     function autoSyncCurveEvalToBuzon() {
+      const weight = parseFloat(document.getElementById('inp-weight')?.value || 68.4);
+      const weightGoal = parseFloat(document.getElementById('inp-weight-goal')?.value || 62.0);
+      const waist = parseFloat(document.getElementById('inp-waist')?.value || 79.0);
+      const hip = parseFloat(document.getElementById('inp-hip')?.value || 99.0);
+      const icc = (waist > 0 && hip > 0) ? (waist / hip).toFixed(2) : '0.80';
+
+      const waistDiff = (waist - (clubState.initialWaist || 83)).toFixed(1);
+      const waistDiffStr = waistDiff <= 0 ? (waistDiff + ' cm') : ('+' + waistDiff + ' cm');
+      const weightDiff = (weight - (clubState.initialWeight || 71.2)).toFixed(1);
+      const weightDiffStr = weightDiff <= 0 ? (weightDiff + ' kg') : ('+' + weightDiff + ' kg');
+      const rawName = (document.getElementById('prof-inp-name')?.value || 'Mariana G\u00f3mez').trim();
+      const firstName = rawName.split(' ')[0] || 'Mariana';
+
+      // Actualizar tambien la Nota de Evolucion en el Dashboard (#dash-note-message-text) para que refleje los cambios en tiempo real
       const noteDate = document.getElementById('dash-note-date-text');
       const noteMsg = document.getElementById('dash-note-message-text');
-      const waistEl = document.getElementById('inp-waist');
-      const waistVal = waistEl ? parseFloat(waistEl.value || 79) : 79;
-      const waistDiff = (waistVal - (clubState.initialWaist || 83)).toFixed(1);
-      const waistDiffStr = waistDiff <= 0 ? (waistDiff + ' cm') : ('+' + waistDiff + ' cm');
-
-      // Sincronizar tarjeta en feed del Buzon (Item 0)
-      const feedItem0 = document.querySelector('.buzon-item-card[onclick="selectBuzonItem(0)"]');
-      if (feedItem0) {
-        const titleEl = feedItem0.querySelector('h4');
-        if (titleEl) {
-          titleEl.innerHTML = 'Evaluaci&oacute;n de Curva: Cintura ' + waistDiffStr;
-        }
+      if (noteMsg) {
+        noteMsg.innerHTML = `&ldquo;\u00A1Hola ${firstName}! Revis\u00e9 tu curva semanal actualizada: registras <strong>${weight.toFixed(1)} kg (${weightDiffStr} vs inicio)</strong> hacia tu meta de ${weightGoal.toFixed(1)} kg, mientras que <strong>tu cintura est\u00e1 en ${waist} cm (${waistDiffStr} en total)</strong> con un \u00edndice ICC de <strong>${icc}</strong>. Esto confirma que tu protocolo est\u00e1 desinflamando tejido visceral de forma sostenida. Para los pr\u00f3ximos 3 d\u00edas: mant\u00e9n tus <strong>8 vasos de agua</strong> para drenar retenci\u00f3n h\u00eddrica, inicia tus comidas con fibra verde/nopales y conserva tu <strong>1/3 de aguacate Hass</strong> en la cena para blindar tu insulina nocturna.&rdquo;`;
       }
 
-      // Sincronizar visor detallado del Buzon (View 0)
+      // 1. Sincronizar tarjeta en el feed del Buzon (Item 0)
+      const title0El = document.getElementById('buzon-item-0-title');
+      if (title0El) {
+        title0El.innerHTML = `Evaluaci&oacute;n de Curva: Cintura ${waist} cm (${waistDiffStr})`;
+      }
+      const desc0El = document.getElementById('buzon-item-0-desc');
+      if (desc0El) {
+        desc0El.innerHTML = `Arianna evalu&oacute; tu curva (Peso ${weight.toFixed(1)} kg &bull; Cintura ${waist} cm &bull; ICC ${icc}): "Vas excelente oxidando grasa visceral..."`;
+      }
+
+      // 2. Sincronizar visor detallado del Buzon (View 0)
       const v0Headline = document.querySelector('#buzon-view-0 div[style*="font-size: 0.95rem"]');
       if (v0Headline) {
-        v0Headline.innerHTML = '&ldquo;&iexcl;Mariana, ' + Math.abs(parseFloat(waistDiff)) + ' cm menos de cintura es una victoria metab&oacute;lica brutal!&rdquo;';
+        v0Headline.innerHTML = `&ldquo;\u00A1${firstName}, llevar tu cintura a ${waist} cm (${waistDiffStr}) e ICC en ${icc} es una gran victoria metab\u00f3lica!&rdquo;`;
       }
       const v0Date = document.querySelector('#buzon-view-0 div[style*="font-size: 0.7rem; color: var(--text-muted)"]');
       if (v0Date && noteDate) {
         const dateClean = noteDate.innerText.split(/[\u2022\u00b7&]/)[0].trim();
-        v0Date.innerHTML = 'Fecha de emisi&oacute;n: <strong>' + dateClean + ' (Semana ' + (clubState.week || 3) + ')</strong> &bull; Reevaluaci&oacute;n de Gr&aacute;fica';
+        v0Date.innerHTML = `Fecha de emisi&oacute;n: <strong>${dateClean} (Semana ${clubState.week || 3})</strong> &bull; Enviada autom&aacute;ticamente desde tu Curva Semanal`;
       }
       const v0Msg = document.querySelector('#buzon-view-0 p[style*="line-height: 1.6"]');
-      if (v0Msg && noteMsg && noteMsg.innerText) {
-        v0Msg.innerHTML = '&ldquo;' + noteMsg.innerText.replace(/^"|"$/g, '').trim() + '&rdquo;';
+      if (v0Msg && noteMsg) {
+        v0Msg.innerHTML = noteMsg.innerHTML;
       }
     }
 
@@ -10165,6 +10563,10 @@
 
       // Si el usuario presiono "Guardar y Generar Plan Semanal", enviarlos como nuevos al tope del Buzon
       if (isManualSave) {
+        if (clubState.deletedBuzonItems) {
+          delete clubState.deletedBuzonItems[2];
+          delete clubState.deletedBuzonItems[5];
+        }
         const feedContainer = document.getElementById('buzon-feed-items');
         const card2 = document.getElementById('buzon-feed-card-2');
         const card5 = document.getElementById('buzon-feed-card-5');
@@ -10449,6 +10851,7 @@
     createVeggieField('veggie-canvas-app', 92);
     renderAntecedentesUI();
     syncPlatformState();
+    updateBuzonFilterCounts();
   </script>
 </body>
 </html>
