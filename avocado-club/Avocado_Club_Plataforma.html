@@ -871,8 +871,9 @@
 
     .app-layout {
       display: grid;
-      grid-template-columns: 356px 1fr;
+      grid-template-columns: 290px 1fr;
       min-height: 100vh;
+      width: 100%;
     }
 
     /* SIDEBAR VERTICAL CON GLOW UP 3D BOTÁNICO Y BORDE LUMINOSO */
@@ -1134,9 +1135,13 @@
     /* CONTENIDO PRINCIPAL INTERIOR (PANEL DERECHO) CON GLOW UP Y ESCENARIO 3D */
     .main-area {
       position: relative;
-      overflow: hidden;
-      padding: 26px 34px 48px;
+      overflow-x: hidden;
+      padding: 24px 30px 40px;
       width: 100%;
+      min-width: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       perspective: 1600px;
     }
 
@@ -1203,7 +1208,10 @@
     .modules-3d-viewport {
       position: relative;
       z-index: 2;
-      min-height: 635px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 600px;
       perspective: 1800px;
     }
 
@@ -1214,7 +1222,9 @@
     }
 
     .module-section.active {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
       animation: moduleFlip3D 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
@@ -1233,8 +1243,9 @@
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 22px;
+      gap: 20px;
       align-items: stretch;
+      flex: 1;
     }
 
     .bento-card {
@@ -1281,6 +1292,9 @@
     .flip-stage-3d {
       position: relative;
       width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       perspective: 1600px;
     }
 
@@ -1288,6 +1302,8 @@
       position: relative;
       width: 100%;
       height: 100%;
+      flex: 1;
+      display: flex;
       transform-style: preserve-3d;
       transition: transform 0.75s cubic-bezier(0.34, 1.3, 0.64, 1);
     }
@@ -1309,7 +1325,7 @@
       border: 2px solid #FFFFFF;
       outline: 1px solid #CFE0BE;
       border-radius: 28px;
-      padding: 26px 28px;
+      padding: 24px 26px;
       box-shadow:
         0 24px 48px -12px rgba(20, 43, 31, 0.14),
         0 10px 20px -6px rgba(20, 43, 31, 0.08),
@@ -1318,7 +1334,20 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(143, 209, 79, 0.35) transparent;
+    }
+    .flip-face-3d::-webkit-scrollbar {
+      width: 6px;
+    }
+    .flip-face-3d::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .flip-face-3d::-webkit-scrollbar-thumb {
+      background: rgba(143, 209, 79, 0.35);
+      border-radius: 99px;
     }
 
     .flip-face-3d::before {
@@ -1396,7 +1425,7 @@
        ========================================================= */
     @media (min-width: 769px) and (max-width: 1440px) {
       .app-layout {
-        grid-template-columns: 280px 1fr !important;
+        grid-template-columns: 260px 1fr !important;
       }
 
       .sidebar {
@@ -1501,12 +1530,14 @@
       /* Rebalanceo del 1er renglón del Dashboard en Laptops: 7 cols para el Gráfico y 5 cols para el Nivel */
       #flip-dash-chart {
         grid-column: span 7 !important;
-        height: 455px !important;
+        min-height: 460px !important;
+        height: 100% !important;
       }
 
       #flip-dash-rank {
         grid-column: span 5 !important;
-        height: 455px !important;
+        min-height: 460px !important;
+        height: 100% !important;
       }
 
       .dash-chart-head {
@@ -1574,7 +1605,21 @@
       /* 2do Renglón del Dashboard: Hidratación y Bio-Radar con altura y proporciones perfectas */
       #flip-dash-water,
       #flip-dash-bioradar {
-        height: 480px !important;
+        min-height: 520px !important;
+        height: 100% !important;
+      }
+
+      /* Mi Plan: 7 cols menu con fotos y 5 cols editor con buscador SMAE */
+      #flip-plan-card {
+        grid-column: span 7 !important;
+        min-height: 600px !important;
+        height: 100% !important;
+      }
+
+      #flip-plan-sidebar {
+        grid-column: span 5 !important;
+        min-height: 600px !important;
+        height: 100% !important;
       }
 
       /* Bio-Radar: Mantener header en 1 línea limpia y evitar cualquier corte inferior */
@@ -1768,7 +1813,8 @@
       /* Tarjetas de Perfil Personal (#mod-perfil) en Laptop */
       #flip-profile-main,
       #flip-profile-stats {
-        height: 485px !important;
+        min-height: 470px !important;
+        height: 100% !important;
       }
 
       /* Ajustes de Modulo 8 (Buzon & Expediente) en Laptop */
@@ -1788,27 +1834,23 @@
       }
     }
 
-    /* Breakpoint para pantallas medianas angostas / tablets (769px a 1120px) */
-    @media (min-width: 769px) and (max-width: 1120px) {
-      .col-8, .col-7, .col-6, .col-5, .col-4, .col-3 {
-        grid-column: span 12 !important;
+    /* Breakpoint responsivo para tablets y pantallas intermedias (769px a 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .app-layout {
+        grid-template-columns: 240px 1fr !important;
       }
-
-      #flip-dash-chart,
-      #flip-dash-rank,
       #flip-dash-water,
-      #flip-dash-bioradar,
-      #flip-profile-main,
-      #flip-profile-stats {
-        height: 460px !important;
+      #flip-dash-bioradar {
+        grid-column: span 12 !important;
+        min-height: 500px !important;
+        height: auto !important;
       }
-    }
-
-    @media (max-width: 1080px) {
-      #login-view { grid-template-columns: 100%; max-width: 100vw; overflow-x: hidden; }
-      .app-layout { grid-template-columns: 100%; max-width: 100vw; overflow-x: hidden; }
-      .sidebar { height: auto; position: relative; }
-      .col-8, .col-7, .col-6, .col-5, .col-4, .col-3 { grid-column: span 12; }
+      #flip-plan-card,
+      #flip-plan-sidebar {
+        grid-column: span 12 !important;
+        min-height: 560px !important;
+        height: auto !important;
+      }
     }
 
         /* =========================================================
@@ -4975,7 +5017,7 @@
             <div class="bento-grid">
 
               <!-- TARJETA 3D GIRATORIA 1 (COL-7): DATOS PERSONALES EDITABLES vs SEGURIDAD Y CUENTA (465px) -->
-              <div class="col-7 flip-stage-3d" id="flip-profile-main" style="height: 465px;">
+              <div class="col-7 flip-stage-3d" id="flip-profile-main" style="min-height: 470px; height: 100%;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: DATOS PERSONALES EDITABLES DE LA SOCIA -->
@@ -5110,7 +5152,7 @@
               </div>
 
               <!-- TARJETA 3D GIRATORIA 2 (COL-5): EXPEDIENTE NUTRICIONAL SINCRONIZADO vs NIVEL Y MEDALLAS (465px) -->
-              <div class="col-5 flip-stage-3d" id="flip-profile-stats" style="height: 465px;">
+              <div class="col-5 flip-stage-3d" id="flip-profile-stats" style="min-height: 470px; height: 100%;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: RESUMEN DE MEDIDAS Y OBJETIVO SINCRONIZADO CON MÓDULOS 1 Y 2 -->
@@ -5220,7 +5262,7 @@
             <div class="bento-grid">
               
               <!-- TARJETA 3D GIRATORIA 1 (COL-8): GRÁFICO INTERACTIVO MULTIMÉTRICA vs DIAGNÓSTICO CLÍNICO ICC (465px) -->
-              <div class="col-8 flip-stage-3d" id="flip-dash-chart" style="height: 465px;">
+              <div class="col-7 flip-stage-3d" id="flip-dash-chart" style="min-height: 465px; height: 100%;">
                 <div class="flip-inner-3d">
                   
                   <!-- CARA FRONTAL: EVOLUCIÓN DE PESO, CINTURA E ICC CON GRÁFICO PREMIUM -->
@@ -5393,7 +5435,7 @@
               </div>
 
               <!-- TARJETA 3D GIRATORIA 2 (COL-4): TU NIVEL EN EL CLUB + MISIONES DIARIAS XP + BÓVEDA DE POSTRES SIN AZÚCAR (465px) -->
-              <div class="col-4 flip-stage-3d" id="flip-dash-rank" style="height: 465px;">
+              <div class="col-5 flip-stage-3d" id="flip-dash-rank" style="min-height: 465px; height: 100%;">
                 <div class="flip-inner-3d">
                   
                   <!-- CARA FRONTAL: RANGO VIP, BARRA XP EN VIVO Y BÓVEDA DE POSTRES BLOQUEADA/DESBLOQUEADA -->
@@ -5591,7 +5633,7 @@
               </div>
 
               <!-- TARJETA 3D GIRATORIA 3 (COL-6): HIDRATACIÓN DIARIA + HISTORIAL LUNES A DOMINGO + RETRO DOMINICAL (480px) -->
-              <div class="col-6 flip-stage-3d" id="flip-dash-water" style="height: 480px;">
+              <div class="col-6 flip-stage-3d" id="flip-dash-water" style="min-height: 525px; height: 100%;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: VASOS INTERACTIVOS + HISTORIAL SEMANAL LUNES A DOMINGO -->
@@ -5729,7 +5771,7 @@
               </div>
 
               <!-- TARJETA 3D GIRATORIA 4 (COL-6): BIO-RADAR METABÓLICO DIARIO + PROYECCIÓN REAL A TU META (480px) -->
-              <div class="col-6 flip-stage-3d" id="flip-dash-bioradar" style="height: 480px;">
+              <div class="col-6 flip-stage-3d" id="flip-dash-bioradar" style="min-height: 525px; height: 100%;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: BIO-RADAR METABÓLICO DE HOY (EXCLUSIVO PREMIUM) -->
@@ -6403,7 +6445,7 @@
             <div class="bento-grid">
               
               <!-- TARJETA IZQUIERDA (COL-8): MI PLAN LUNES-SABADO CON FOTOS ALEGORICAS Y DOMINGO LIBRE (ALTURA FIJA 580px) -->
-              <div class="col-8 flip-stage-3d" id="flip-plan-card" style="height: 580px;">
+              <div class="col-7 flip-stage-3d" id="flip-plan-card" style="min-height: 600px; height: 100%;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: MI PLAN LUNES A SABADO CON FOTO POR COMIDA, CAMBIAR Y EDITAR -->
@@ -6575,7 +6617,7 @@
               </div>
 
               <!-- TARJETA DERECHA (COL-4): GIRO 3D ENTRE CONTROL DE CALORIAS/EDITOR DE COMIDA Y LISTA DEL SUPER (ALTURA FIJA 580px) -->
-              <div class="col-4 flip-stage-3d" id="flip-plan-sidebar" style="height: 580px;">
+              <div class="col-5 flip-stage-3d" id="flip-plan-sidebar" style="min-height: 600px; height: 100%;">
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: INGESTA DIARIA (CALORIAS PLANEADAS VS CONSUMIDAS DESDE 0) Y EDITOR CON AUTOCOMPLETADO SMAE -->
