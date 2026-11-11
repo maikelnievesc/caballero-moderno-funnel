@@ -4440,6 +4440,66 @@
     .guard-action-option:hover {
       transform: translateY(-2px);
     }
+    /* ESTILOS DE LA LISTA DEL SUPER SEMANAL CONSOLIDADA (LUNES A SABADO) */
+    .super-filter-chip {
+      background: #FFFFFF;
+      border: 1px solid #CFE0BE;
+      color: var(--text-muted);
+      border-radius: 99px;
+      padding: 3px 9px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .super-filter-chip.active, .super-filter-chip:hover {
+      background: var(--avo-primary);
+      color: #FFFFFF;
+      border-color: var(--avo-primary);
+    }
+    .super-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 10px;
+      background: #FFFFFF;
+      border: 1px solid #E2ECD8;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      gap: 8px;
+    }
+    .super-item-row:hover {
+      border-color: #A3D977;
+      background: #FAFCF8;
+    }
+    .super-item-row.is-checked {
+      background: #F0FDF4;
+      border-color: #86EFAC;
+      opacity: 0.72;
+    }
+    .super-item-row.is-checked .super-item-name {
+      text-decoration: line-through;
+      color: #166534;
+    }
+    .super-qty-badge {
+      font-size: 0.62rem;
+      font-weight: 800;
+      background: #E8F5E9;
+      color: #166534;
+      padding: 2px 6px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .super-price-tag {
+      font-size: 0.72rem;
+      font-weight: 900;
+      color: var(--avo-forest);
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -6459,12 +6519,12 @@
                           <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.85rem; margin-bottom: 8px;">&#9728;&#65039; Elige tu Desayuno Dominical Favorito:</div>
                           <label class="sunday-dish-opt">
                             <input type="radio" name="sun_b" checked style="accent-color: var(--avo-primary);">
-                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=160&q=80" alt="Chilaquiles">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1640719028782-8230f1bdc42a?auto=format&fit=crop&w=160&q=80" alt="Chilaquiles">
                             <span>Chilaquiles horneados con pollo y aguacate</span>
                           </label>
                           <label class="sunday-dish-opt">
                             <input type="radio" name="sun_b" style="accent-color: var(--avo-primary);">
-                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=160&q=80" alt="Molletes">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=160&q=80" alt="Molletes">
                             <span>Molletes en bolillo desmigajado con queso panela</span>
                           </label>
                           <label class="sunday-dish-opt" style="margin-bottom: 0;">
@@ -6478,17 +6538,17 @@
                           <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.85rem; margin-bottom: 8px;">&#127858; Elige tu Comida Familiar de Domingo:</div>
                           <label class="sunday-dish-opt">
                             <input type="radio" name="sun_l" checked style="accent-color: var(--avo-primary);">
-                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=160&q=80" alt="Carne asada">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1625166641130-089d937ffa7d?auto=format&fit=crop&w=160&q=80" alt="Carne asada">
                             <span>Carne asada magra con nopales, guacamole y 2 tortillas</span>
                           </label>
                           <label class="sunday-dish-opt">
                             <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);">
-                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=160&q=80" alt="Ceviche">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1562707774-553917f561df?auto=format&fit=crop&w=160&q=80" alt="Ceviche">
                             <span>Ceviche fresco de pescado con aguacate y tostadas</span>
                           </label>
                           <label class="sunday-dish-opt" style="margin-bottom: 0;">
                             <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);">
-                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=160&q=80" alt="Fajitas">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1567932847833-ecb7e227c2a3?auto=format&fit=crop&w=160&q=80" alt="Fajitas">
                             <span>Fajitas de pollo gratinadas con queso Oaxaca</span>
                           </label>
                         </div>
@@ -6642,45 +6702,66 @@
                     </div>
                   </div>
 
-                  <!-- CARA TRASERA: LISTA DEL SUPER MEXICANA INTERACTIVA -->
-                  <div class="flip-face-3d back">
+                  <!-- CARA TRASERA: LISTA DEL SUPER SEMANAL CONSOLIDADA (LUNES A SABADO • DOMINGO LIBRE) -->
+                  <div class="flip-face-3d back" style="padding: 14px 15px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span class="card-label" style="margin: 0;">&#128722; LISTA DEL S&Uacute;PER &bull; M&Eacute;XICO</span>
-                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
+                      <!-- Cabecera con selector de giro hacia atras -->
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; gap: 6px;">
+                        <span class="card-label" style="margin: 0; font-size: 0.67rem; padding: 3px 9px;">
+                          &#128722; LISTA DEL S&Uacute;PER &bull; SEMANAL (LUN - S&Aacute;B)
+                        </span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 4px 9px; font-size: 0.71rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
                           <i class="fa-solid fa-rotate-left"></i> Volver a Calor&iacute;as
                         </button>
                       </div>
-                      <h3 style="font-size: 1.22rem; margin-bottom: 4px;">Tu Carrito de la Semana</h3>
-                      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">Presupuesto estimado en mercado/s&uacute;per local: <strong>~$620 MXN</strong></p>
 
-                      <div style="display: flex; flex-direction: column; gap: 7px; font-size: 0.81rem;">
-                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
-                          <span><input type="checkbox" checked style="accent-color: var(--avo-primary);"> 1 kg Pechuga de pollo</span>
-                          <strong>~$135 MXN</strong>
-                        </label>
-                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
-                          <span><input type="checkbox" checked style="accent-color: var(--avo-primary);"> 4 Aguacates Hass medianos</span>
-                          <strong>~$85 MXN</strong>
-                        </label>
-                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
-                          <span><input type="checkbox" checked style="accent-color: var(--avo-primary);"> 1 Cartera de Huevo (30 pzas)</span>
-                          <strong>~$88 MXN</strong>
-                        </label>
-                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
-                          <span><input type="checkbox" style="accent-color: var(--avo-primary);"> Queso Panela 400g + Oaxaca</span>
-                          <strong>~$115 MXN</strong>
-                        </label>
-                        <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
-                          <span><input type="checkbox" style="accent-color: var(--avo-primary);"> Nopales, Jitomate, Lechuga y Tortillas</span>
-                          <strong>~$110 MXN</strong>
-                        </label>
+                      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                        <h3 style="font-size: 1.15rem; margin: 0; color: var(--avo-dark);">Tu Despensa Semanal</h3>
+                        <span id="super-weekly-budget-tag" style="font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 900; color: var(--avo-forest);">~$1,190 MXN</span>
+                      </div>
+                      <p style="font-size: 0.72rem; color: var(--text-muted); margin: 0 0 6px; line-height: 1.35;">
+                        Consolidado de lunes a s&aacute;bado (6 d&iacute;as). <strong>El domingo es libre</strong> y t&uacute; decides tu compra o comer fuera &#129361;.
+                      </p>
+
+                      <!-- Barra de progreso semanal de despensa -->
+                      <div style="background: #F4F9EE; border: 1px solid #CFE0BE; border-radius: 10px; padding: 6px 9px; margin-bottom: 7px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.66rem; font-weight: 800; color: var(--avo-dark); margin-bottom: 3px;">
+                          <span>Art&iacute;culos en despensa / comprados:</span>
+                          <span id="super-progress-text" style="color: var(--avo-forest);">0 de 22 (0%)</span>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.06); height: 5px; border-radius: 99px; overflow: hidden;">
+                          <div id="super-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #8FD14F, #22C55E); border-radius: 99px; transition: width 0.3s ease;"></div>
+                        </div>
+                      </div>
+
+                      <!-- Filtros por departamento de compras -->
+                      <div style="display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 6px;">
+                        <button type="button" class="super-filter-chip active" id="chip-cat-all" onclick="filterSupermarketList('all')">Todos (22)</button>
+                        <button type="button" class="super-filter-chip" id="chip-cat-carnes" onclick="filterSupermarketList('carnes')">&#129385; Carnes (4)</button>
+                        <button type="button" class="super-filter-chip" id="chip-cat-frescos" onclick="filterSupermarketList('frescos')">&#129361; Verduras/Frutas (6)</button>
+                        <button type="button" class="super-filter-chip" id="chip-cat-lacteos" onclick="filterSupermarketList('lacteos')">&#129472; L&aacute;cteos (3)</button>
+                        <button type="button" class="super-filter-chip" id="chip-cat-granos" onclick="filterSupermarketList('granos')">&#127806; Tortillas/Granos (6)</button>
+                        <button type="button" class="super-filter-chip" id="chip-cat-extras" onclick="filterSupermarketList('extras')">&#127792; Extras Fit (3)</button>
+                      </div>
+
+                      <!-- Lista interactiva de articulos de lunes a sabado -->
+                      <div id="super-items-container" style="max-height: 255px; overflow-y: auto; display: flex; flex-direction: column; gap: 5px; padding-right: 3px;">
+                        <!-- Inyectado dinamicamente por renderWeeklySupermarketList() -->
                       </div>
                     </div>
 
-                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center; padding: 12px;" onclick="alert('Lista del Super enviada a tu WhatsApp lista para ir al mercado.')">
-                      <i class="fa-brands fa-whatsapp"></i> Mandar mi Lista a mi WhatsApp
-                    </button>
+                    <!-- Botones de accion: WhatsApp, Copiar y Reiniciar -->
+                    <div style="display: flex; gap: 6px; padding-top: 6px; border-top: 1px solid #E2ECD8; margin-top: 4px;">
+                      <button type="button" class="btn-flip-trigger" style="flex: 1; justify-content: center; padding: 7px 10px; font-size: 0.75rem; background: #25D366; color: #FFFFFF; border: none; font-weight: 800; border-radius: 9px;" onclick="shareSupermarketListWhatsApp()">
+                        <i class="fa-brands fa-whatsapp"></i> Mandar a WhatsApp
+                      </button>
+                      <button type="button" class="btn-flip-trigger" style="padding: 7px 10px; font-size: 0.74rem; font-weight: 700; border-radius: 9px;" onclick="copySupermarketListClipboard()" title="Copiar lista de compras">
+                        <i class="fa-regular fa-copy"></i> Copiar
+                      </button>
+                      <button type="button" class="btn-flip-trigger" style="padding: 7px 9px; font-size: 0.74rem; border-radius: 9px;" onclick="resetSupermarketChecklist()" title="Reiniciar compras">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                      </button>
+                    </div>
                   </div>
 
                 </div>
@@ -6849,7 +6930,7 @@
                       <span>🩸 Apta Control Insulina</span>
                     </div>
                   </div>
-                  <div style="position: relative; border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.28); height: 185px; background: url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80') center/cover; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="alert('▶️ Reproduciendo Video-Receta Quincenal de la Nutrióloga Arianna...')">
+                  <div style="position: relative; border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.28); height: 185px; background: url('https://images.unsplash.com/photo-1640719028782-8230f1bdc42a?auto=format&fit=crop&w=800&q=80') center/cover; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="alert('▶️ Reproduciendo Video-Receta Quincenal de la Nutrióloga Arianna...')">
                     <div style="width: 62px; height: 62px; border-radius: 50%; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 10px 25px rgba(0,0,0,0.4);">
                       <i class="fa-solid fa-play"></i>
                     </div>
@@ -12523,48 +12604,331 @@
       return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="${c}"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-size="52">${ic}</text></svg>`;
     }
 
+    // =========================================================================
+    // MOTOR DE FOTOGRAFIAS ALEGORICAS DE ALTA FIDELIDAD GASTRONOMICA MEXICANA
+    // Identifica con precision cada platillo mexicano o ingrediente (sin confusiones
+    // ni fotos genericas de pizza/tostas ajenas) usando stock curated de Unsplash.
+    // =========================================================================
+
+    const CURATED_MEAL_PHOTOS = {
+      // 1. Platillos tipicos mexicanos
+      chilaquiles: 'https://images.unsplash.com/photo-1640719028782-8230f1bdc42a?auto=format&fit=crop&w=360&q=80',
+      tostadas: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=360&q=80',
+      ceviche: 'https://images.unsplash.com/photo-1562707774-553917f561df?auto=format&fit=crop&w=360&q=80',
+      quesadilla: 'https://images.unsplash.com/photo-1618040996337-56904b7850b9?auto=format&fit=crop&w=360&q=80',
+      sincronizada: 'https://images.unsplash.com/photo-1647545401800-bd8f77e670ed?auto=format&fit=crop&w=360&q=80',
+      tacos: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=360&q=80',
+      molletes: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=360&q=80',
+
+      // 2. Huevos y desayunos
+      omelette: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=360&q=80',
+      huevos: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=360&q=80',
+      avena: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=360&q=80',
+
+      // 3. Comidas y proteinas
+      fajitasPollo: 'https://images.unsplash.com/photo-1567932847833-ecb7e227c2a3?auto=format&fit=crop&w=360&q=80',
+      pescado: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=360&q=80',
+      bistecRes: 'https://images.unsplash.com/photo-1625166641130-089d937ffa7d?auto=format&fit=crop&w=360&q=80',
+      bowlAzteca: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=360&q=80',
+      ensaladaPollo: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=360&q=80',
+      sopaCaldo: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=360&q=80',
+
+      // 4. Colaciones, postres fit y snacks
+      yogur: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=360&q=80',
+      mousse: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=360&q=80',
+      frutaSnack: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=360&q=80',
+      cafeTe: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=360&q=80',
+      jugoBebida: 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=360&q=80',
+
+      // 5. Antojos universales
+      hamburguesa: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=360&q=80',
+      pizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=360&q=80',
+      sushi: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=360&q=80',
+      pasta: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=360&q=80'
+    };
+
     function getMealPhotoUrl(dishTitle, slotNum) {
-      const t = (dishTitle || '').toLowerCase();
-      if (t.includes('avena') || t.includes('batido') || t.includes('hotcake')) {
-        return 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('chilaquil') || t.includes('tostada') || t.includes('tacos dorados')) {
-        return 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('mollete')) {
-        return 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('omelette') || t.includes('huevo') || t.includes('claras')) {
-        return 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('pescado') || t.includes('ceviche') || t.includes('at\u00fan') || t.includes('atun') || t.includes('salm\u00f3n')) {
-        return 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('bistec') || t.includes('res') || t.includes('carne')) {
-        return 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('bowl') || t.includes('ensalada')) {
-        return 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('fajita') || t.includes('pechuga') || t.includes('pollo') || t.includes('rollito')) {
-        return 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('mousse') || t.includes('cacao') || t.includes('chocolate')) {
-        return 'https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('yogur') || t.includes('fresa') || t.includes('papaya') || t.includes('manzana') || t.includes('j\u00edcama')) {
-        return 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=260&q=80';
-      }
-      if (t.includes('quesadilla') || t.includes('sincronizada') || t.includes('crema')) {
-        return 'https://images.unsplash.com/photo-1618040996337-56904b7850b9?auto=format&fit=crop&w=260&q=80';
-      }
-      const defaultPhotos = {
-        1: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80',
-        2: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=260&q=80',
-        3: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=260&q=80',
-        4: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=260&q=80'
+      const raw = (dishTitle || '').trim();
+      const t = raw.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+      // 1. Chilaquiles
+      if (/chilaquil/.test(t)) return CURATED_MEAL_PHOTOS.chilaquiles;
+
+      // 2. Ceviche y mariscos frescos
+      if (/ceviche|aguachile/.test(t)) return CURATED_MEAL_PHOTOS.ceviche;
+
+      // 3. Tostadas mexicanas
+      if (/tostada/.test(t)) return CURATED_MEAL_PHOTOS.tostadas;
+
+      // 4. Molletes
+      if (/mollete/.test(t)) return CURATED_MEAL_PHOTOS.molletes;
+
+      // 5. Quesadillas y sincronizadas
+      if (/sincronizada/.test(t)) return CURATED_MEAL_PHOTOS.sincronizada;
+      if (/quesadilla|gringa/.test(t)) return CURATED_MEAL_PHOTOS.quesadilla;
+
+      // 6. Tacos, flautas y antojitos de tortilla
+      if (/taco|flauta|gordita|sope|tlacoyo/.test(t)) return CURATED_MEAL_PHOTOS.tacos;
+
+      // 7. Avena, batidos, smoothies y hot cakes
+      if (/avena|batido|licuado|smoothie|hotcake|panqueque|waffle/.test(t)) return CURATED_MEAL_PHOTOS.avena;
+
+      // 8. Mousse de cacao y postres saludables de chocolate (antes de yogur)
+      if (/mousse|cacao|chocolate|brownie/.test(t)) return CURATED_MEAL_PHOTOS.mousse;
+
+      // 9. Yogur con frutas, fresas y semillas
+      if (/yogur|yoghurt|yogurt/.test(t)) return CURATED_MEAL_PHOTOS.yogur;
+
+      // 10. Frutas y snacks frescos (manzana con crema de almendra, jicama, pepino)
+      if (/jicama|pepino|manzana/.test(t)) return CURATED_MEAL_PHOTOS.frutaSnack;
+
+      // 11. Omelettes
+      if (/omelette|omelet/.test(t)) return CURATED_MEAL_PHOTOS.omelette;
+
+      // 12. Huevos revueltos, a la mexicana, con nopales, claras
+      if (/\bhuevo|\bhuevos|\bclaras?\b/.test(t)) return CURATED_MEAL_PHOTOS.huevos;
+
+      // 13. Pescado, filete, salmon, atun
+      if (/pescado|filete|salmon|atun|tilapia|robalo|huachinango/.test(t)) return CURATED_MEAL_PHOTOS.pescado;
+
+      // 14. Carne de res magra, bistec, arrachera (evitar colision con 'fresas' o 'postres')
+      if (/\b(bistec|res|arrachera|sirloin|ribeye|ternera|carne asada)\b/.test(t)) return CURATED_MEAL_PHOTOS.bistecRes;
+
+      // 15. Bowls saludables
+      if (/bowl/.test(t)) return CURATED_MEAL_PHOTOS.bowlAzteca;
+
+      // 16. Ensaladas
+      if (/ensalada/.test(t)) return CURATED_MEAL_PHOTOS.ensaladaPollo;
+
+      // 17. Sopas, caldos y cremas caseras
+      if (/caldo|sopa|crema de|consome/.test(t)) return CURATED_MEAL_PHOTOS.sopaCaldo;
+
+      // 18. Pollo, pechuga, fajitas, rollitos
+      if (/fajita|pechuga|pollo|rollito/.test(t)) return CURATED_MEAL_PHOTOS.fajitasPollo;
+
+      // 19. Antojos universales
+      if (/hamburguesa|burger/.test(t)) return CURATED_MEAL_PHOTOS.hamburguesa;
+      if (/pizza/.test(t)) return CURATED_MEAL_PHOTOS.pizza;
+      if (/sushi|poke|maki/.test(t)) return CURATED_MEAL_PHOTOS.sushi;
+      if (/pasta|espagueti|lasana/.test(t)) return CURATED_MEAL_PHOTOS.pasta;
+      if (/cafe|latte|capuchino|te \b/.test(t)) return CURATED_MEAL_PHOTOS.cafeTe;
+      if (/agua fresca|jugo|refresco/.test(t)) return CURATED_MEAL_PHOTOS.jugoBebida;
+
+      // Fallbacks fieles segun horario de comida en vez de fotos genericas
+      const defaults = {
+        1: CURATED_MEAL_PHOTOS.omelette,
+        2: CURATED_MEAL_PHOTOS.fajitasPollo,
+        3: CURATED_MEAL_PHOTOS.yogur,
+        4: CURATED_MEAL_PHOTOS.tostadas
       };
-      return defaultPhotos[slotNum] || defaultPhotos[1];
+      return defaults[slotNum] || defaults[1];
+    }
+
+    // =========================================================================
+    // MOTOR DE LISTA DEL SUPER SEMANAL CONSOLIDADA (LUNES A SABADO • DOMINGO LIBRE)
+    // Calcula los ingredientes integrados para los 6 dias de menus estructurados,
+    // permite marcar compras hechas/en despensa, filtrar por pasillos y mandar a WhatsApp.
+    // =========================================================================
+
+    const WEEKLY_SUPERMARKET_CATALOG = [
+      {
+        id: 'carnes',
+        category: '\uD83E\uDD69 Carnicer\u00eda y Prote\u00ednas Magras',
+        icon: '\uD83E\uDD69',
+        items: [
+          { id: 'sup_pollo', name: 'Pechuga de pollo limpia (fileteada y para deshebrar)', qty: '1.2 kg', price: 165, checked: false },
+          { id: 'sup_huevo', name: 'Cartera de huevo fresco de granja (30 pzas)', qty: '1 cartera', price: 88, checked: true },
+          { id: 'sup_bistec', name: 'Bistec de res magro / arrachera para asar', qty: '500g', price: 95, checked: false },
+          { id: 'sup_pescado', name: 'Filetes de pescado blanco (tilapia / huachinango fresco)', qty: '450g', price: 78, checked: false }
+        ]
+      },
+      {
+        id: 'frescos',
+        category: '\uD83E\uDD51 Verduras y Frutas Frescas (Mercado / Tianguis)',
+        icon: '\uD83E\uDD51',
+        items: [
+          { id: 'sup_aguacate', name: 'Aguacates Hass medianos en su punto', qty: '6 a 8 pzas', price: 110, checked: true },
+          { id: 'sup_nopales', name: 'Nopales tiernos limpios y espinacas tiernas', qty: '8 pzas + manojo', price: 35, checked: false },
+          { id: 'sup_jitomate', name: 'Jitomate saladette, cebolla blanca y ajo', qty: '1 kg', price: 42, checked: true },
+          { id: 'sup_calabaza', name: 'Calabacitas tiernas y chayotes frescos', qty: '1/2 kg c/u', price: 46, checked: false },
+          { id: 'sup_frutas', name: 'Fresas frescas y papaya madura de temporada', qty: '1 kg', price: 55, checked: false },
+          { id: 'sup_limones', name: 'Limones con semilla y chiles verdes serranos', qty: '1/2 kg', price: 26, checked: true }
+        ]
+      },
+      {
+        id: 'lacteos',
+        category: '\uD83E\uDDC0 Cremer\u00eda y L\u00e1cteos Ligeros',
+        icon: '\uD83E\uDDC0',
+        items: [
+          { id: 'sup_panela', name: 'Queso Panela fresco bajo en sodio y grasa', qty: '400g', price: 65, checked: false },
+          { id: 'sup_oaxaca', name: 'Queso Oaxaca / quesillo para deshebrar', qty: '250g', price: 48, checked: false },
+          { id: 'sup_yogur', name: 'Yogur griego natural sin az\u00facar (bote grande)', qty: '900g', price: 85, checked: true }
+        ]
+      },
+      {
+        id: 'granos',
+        category: '\uD83C\uDF3E Tortiller\u00eda, Granos y Despensa B\u00e1sica',
+        icon: '\uD83C\uDF3E',
+        items: [
+          { id: 'sup_tortillas', name: 'Tortillas de ma\u00edz reci\u00e9n hechas (o nopal)', qty: '1 kg', price: 24, checked: true },
+          { id: 'sup_tostadas', name: 'Tostadas de ma\u00edz horneadas (Susalia / San\u00edssimo)', qty: '1 pqte/caja', price: 38, checked: false },
+          { id: 'sup_frijol', name: 'Frijoles negros o bayos de la olla', qty: '500g', price: 24, checked: false },
+          { id: 'sup_arroz', name: 'Arroz blanco o integral grano largo', qty: '500g', price: 19, checked: true },
+          { id: 'sup_avena', name: 'Avena entera en hojuelas', qty: '500g', price: 22, checked: false },
+          { id: 'sup_bolillo', name: 'Bolillos crujientes (para retirar migaj\u00f3n)', qty: '3 pzas', price: 12, checked: false }
+        ]
+      },
+      {
+        id: 'extras',
+        category: '\uD83C\uDF30 Semillas, Especias y Extras Fit',
+        icon: '\uD83C\uDF30',
+        items: [
+          { id: 'sup_almendras', name: 'Almendras enteras naturales o nueces en bolsa', qty: '150g', price: 54, checked: false },
+          { id: 'sup_cacao', name: 'Cacao puro 100% en polvo sin az\u00facar + Canela Ceil\u00e1n', qty: '1 frasco', price: 42, checked: false },
+          { id: 'sup_chia', name: 'Semillas de ch\u00eda o linaza molida', qty: '100g', price: 18, checked: true }
+        ]
+      }
+    ];
+
+    let currentSuperFilter = 'all';
+
+    function ensureSupermarketChecklistState() {
+      if (!clubState.weeklySupermarketChecklist || typeof clubState.weeklySupermarketChecklist !== 'object') {
+        clubState.weeklySupermarketChecklist = {};
+        WEEKLY_SUPERMARKET_CATALOG.forEach(cat => {
+          cat.items.forEach(it => {
+            clubState.weeklySupermarketChecklist[it.id] = it.checked;
+          });
+        });
+      }
+      return clubState.weeklySupermarketChecklist;
+    }
+
+    function toggleSupermarketItem(itemId) {
+      const state = ensureSupermarketChecklistState();
+      state[itemId] = !state[itemId];
+      renderWeeklySupermarketList();
+    }
+
+    function filterSupermarketList(catId) {
+      currentSuperFilter = catId;
+      document.querySelectorAll('.super-filter-chip').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('chip-cat-' + catId);
+      if (activeBtn) activeBtn.classList.add('active');
+      renderWeeklySupermarketList();
+    }
+
+    function resetSupermarketChecklist() {
+      clubState.weeklySupermarketChecklist = {};
+      WEEKLY_SUPERMARKET_CATALOG.forEach(cat => {
+        cat.items.forEach(it => {
+          clubState.weeklySupermarketChecklist[it.id] = false;
+        });
+      });
+      renderWeeklySupermarketList();
+      showToast('\uD83D\uDD04 Lista Reiniciada', 'Todos los art\u00edculos est\u00e1n listos para tu pr\u00f3xima compra.');
+    }
+
+    function renderWeeklySupermarketList() {
+      const container = document.getElementById('super-items-container');
+      if (!container) return;
+
+      const checklist = ensureSupermarketChecklistState();
+      let totalCount = 0;
+      let checkedCount = 0;
+      let totalBudget = 0;
+
+      let htmlRows = '';
+
+      WEEKLY_SUPERMARKET_CATALOG.forEach(cat => {
+        const isCatMatch = (currentSuperFilter === 'all' || currentSuperFilter === cat.id);
+        let catHasVisible = false;
+        let catRows = '';
+
+        cat.items.forEach(it => {
+          totalCount++;
+          totalBudget += it.price;
+          const isChecked = !!checklist[it.id];
+          if (isChecked) checkedCount++;
+
+          if (isCatMatch) {
+            catHasVisible = true;
+            catRows += '<div class="super-item-row ' + (isChecked ? 'is-checked' : '') + '" onclick="toggleSupermarketItem(\'' + it.id + '\')">' +
+              '<div style="display: flex; align-items: center; gap: 8px; min-width: 0;">' +
+                '<input type="checkbox" ' + (isChecked ? 'checked' : '') + ' onclick="event.stopPropagation(); toggleSupermarketItem(\'' + it.id + '\')" style="accent-color: var(--avo-primary); cursor: pointer;" />' +
+                '<span class="super-item-name" style="font-weight: 700; color: var(--avo-dark); overflow: hidden; text-overflow: ellipsis;">' + it.name + '</span>' +
+              '</div>' +
+              '<div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">' +
+                '<span class="super-qty-badge">' + it.qty + '</span>' +
+                '<span class="super-price-tag">~$' + it.price + '</span>' +
+              '</div>' +
+            '</div>';
+          }
+        });
+
+        if (isCatMatch && catHasVisible) {
+          if (currentSuperFilter === 'all') {
+            htmlRows += '<div style="font-size: 0.65rem; font-weight: 800; color: var(--avo-forest); text-transform: uppercase; margin: 4px 0 2px; padding-left: 2px;">' + cat.category + '</div>';
+          }
+          htmlRows += catRows;
+        }
+      });
+
+      container.innerHTML = htmlRows;
+
+      // Actualizar contador y progreso
+      const progPct = totalCount > 0 ? Math.round((checkedCount / totalCount) * 100) : 0;
+      const progTxt = document.getElementById('super-progress-text');
+      if (progTxt) progTxt.innerText = checkedCount + ' de ' + totalCount + ' (' + progPct + '%)';
+      const progBar = document.getElementById('super-progress-bar');
+      if (progBar) progBar.style.width = progPct + '%';
+
+      const budgetEl = document.getElementById('super-weekly-budget-tag');
+      if (budgetEl) budgetEl.innerText = '~$' + totalBudget.toLocaleString('es-MX') + ' MXN';
+    }
+
+    function shareSupermarketListWhatsApp() {
+      const checklist = ensureSupermarketChecklistState();
+      let msg = '*\uD83E\uDD51 LISTA DEL S\u00daPER SEMANAL (LUNES A S\u00c1BADO) \u2022 AVOCADO CLUB*\n';
+      msg += '\uD83D\uDCC5 *Semana:* ' + (clubState.week || 3) + ' \u2022 *Mariana G\u00f3mez*\n';
+      msg += '\uD83D\uDCB0 *Presupuesto estimado:* ~$1,190 MXN (Mercado y S\u00faper)\n';
+      msg += '\uD83D\uDCA1 _Nota: El domingo es libre (t\u00fa decides tu men\u00fa social o descanso)._\n\n';
+
+      WEEKLY_SUPERMARKET_CATALOG.forEach(cat => {
+        msg += '*' + cat.category.toUpperCase() + ':*\n';
+        cat.items.forEach(it => {
+          const check = checklist[it.id] ? '\u2705' : '\u25FD';
+          msg += check + ' ' + it.name + ' (' + it.qty + ') ~$' + it.price + ' MXN\n';
+        });
+        msg += '\n';
+      });
+
+      msg += '_Generado en Avocado Club \uD83E\uDD51_';
+      const waUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(msg);
+      window.open(waUrl, '_blank');
+    }
+
+    function copySupermarketListClipboard() {
+      const checklist = ensureSupermarketChecklistState();
+      let text = 'LISTA DEL SÚPER SEMANAL (LUNES A SÁBADO) • AVOCADO CLUB\n';
+      text += 'Presupuesto estimado semanal: ~$1,190 MXN (El domingo es libre)\n\n';
+
+      WEEKLY_SUPERMARKET_CATALOG.forEach(cat => {
+        text += cat.category + ':\n';
+        cat.items.forEach(it => {
+          const mark = checklist[it.id] ? '[x]' : '[ ]';
+          text += mark + ' ' + it.name + ' (' + it.qty + ') - ~$' + it.price + ' MXN\n';
+        });
+        text += '\n';
+      });
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('\uD83D\uDCCB Lista Copiada', 'Tu lista semanal completa est\u00e1 lista en tu portapapeles.');
+        });
+      } else {
+        showToast('\uD83D\uDCCB Lista Lista', 'Copia tu lista desde la pantalla.');
+      }
     }
 
     function ensurePlanCustomizationsState() {
@@ -12649,6 +13013,7 @@
     }
 
     function renderActiveDayPlanAndCalorieEditor() {
+      renderWeeklySupermarketList();
       ensurePlanCustomizationsState();
       syncWeekdayTabsWithRealCalendarDay();
 
