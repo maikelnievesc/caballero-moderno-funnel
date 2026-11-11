@@ -6579,9 +6579,10 @@
                 <div class="flip-inner-3d">
 
                   <!-- CARA FRONTAL: INGESTA DIARIA (CALORIAS PLANEADAS VS CONSUMIDAS DESDE 0) Y EDITOR CON AUTOCOMPLETADO SMAE -->
-                  <div class="flip-face-3d front" style="padding: 15px 16px;">
+                  <div class="flip-face-3d front" style="padding: 15px 16px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; gap: 6px;">
+                      <!-- Cabecera -->
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 6px;">
                         <span class="card-label coral" style="margin: 0; font-size: 0.67rem; padding: 3px 9px;">
                           <i class="fa-solid fa-fire-flame-curved"></i> INGESTA DIARIA &bull; <span id="kcal-panel-day-lbl">MI&Eacute;RCOLES (HOY)</span>
                         </span>
@@ -6591,56 +6592,56 @@
                       </div>
 
                       <!-- BLOQUE 1: COMPARATIVA CALORIAS PLANEADAS VS CONSUMIDAS (EMPIEZA EN 0 KCAL HASTA COMPLETAR CADA COMIDA) -->
-                      <div style="background: linear-gradient(135deg, #142B1F 0%, #214532 100%); border-radius: 14px; padding: 9px 12px; color: #FFFFFF; margin-bottom: 7px; border: 1.5px solid rgba(197, 240, 153, 0.3);">
+                      <div style="background: linear-gradient(135deg, #142B1F 0%, #214532 100%); border-radius: 14px; padding: 10px 13px; color: #FFFFFF; margin-bottom: 8px; border: 1.5px solid rgba(197, 240, 153, 0.3);">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center;">
                           <div>
-                            <div style="font-size: 0.61rem; font-weight: 800; color: #C5F099; text-transform: uppercase;">Meta Planeada (<span id="kcal-summary-day-short">Mi&eacute;</span>)</div>
-                            <div id="kcal-planned-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.14rem; font-weight: 900; color: #FFFFFF;">1,350 kcal</div>
+                            <div style="font-size: 0.62rem; font-weight: 800; color: #C5F099; text-transform: uppercase;">Meta Planeada (<span id="kcal-summary-day-short">Mi&eacute;</span>)</div>
+                            <div id="kcal-planned-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: #FFFFFF;">1,350 kcal</div>
                           </div>
                           <div style="text-align: right;">
-                            <div style="font-size: 0.61rem; font-weight: 800; color: #FDE68A; text-transform: uppercase;">Ingesta Consumida Hoy</div>
-                            <div id="kcal-consumed-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.14rem; font-weight: 900; color: #FDE68A;">0 kcal</div>
+                            <div style="font-size: 0.62rem; font-weight: 800; color: #FDE68A; text-transform: uppercase;">Ingesta Consumida Hoy</div>
+                            <div id="kcal-consumed-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 900; color: #FDE68A;">0 kcal</div>
                           </div>
                         </div>
-                        <div style="background: rgba(255,255,255,0.14); height: 7px; border-radius: 99px; overflow: hidden; margin: 5px 0 4px;">
+                        <div style="background: rgba(255,255,255,0.14); height: 7px; border-radius: 99px; overflow: hidden; margin: 6px 0 5px;">
                           <div id="kcal-day-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #8FD14F, #FDE68A); border-radius: 99px; transition: width 0.35s ease;"></div>
                         </div>
                         <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.66rem; gap: 4px;">
                           <span id="kcal-day-diff-badge" style="color: #A7F3D0; font-weight: 800;">&#9203; 0 de 4 comidas completadas (0 kcal sumadas)</span>
-                          <button type="button" onclick="resetActiveDayMeals()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; border-radius: 6px; padding: 1px 7px; font-size: 0.62rem; font-weight: 700; cursor: pointer; white-space: nowrap;" title="Reiniciar el d&iacute;a en 0 kcal">Reiniciar d&iacute;a</button>
+                          <button type="button" onclick="resetActiveDayMeals()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; border-radius: 6px; padding: 2px 8px; font-size: 0.63rem; font-weight: 700; cursor: pointer; white-space: nowrap;" title="Reiniciar el d&iacute;a en 0 kcal">Reiniciar d&iacute;a</button>
                         </div>
                       </div>
 
                       <!-- BLOQUE 2: SELECTOR DE LAS 4 COMIDAS DEL DIA SELECCIONADO -->
-                      <div class="kcal-editor-slot-tabs" style="margin-bottom: 6px;">
+                      <div class="kcal-editor-slot-tabs" style="margin-bottom: 8px;">
                         <button type="button" class="kcal-slot-tab active" id="kcal-slot-tab-1" onclick="selectMealForEdit(1)">
-                          <div id="kcal-slot-lbl-1" style="font-size: 0.65rem; font-weight: 800;">&#9728;&#65039; Des</div>
+                          <div id="kcal-slot-lbl-1" style="font-size: 0.66rem; font-weight: 800;">&#9728;&#65039; Des</div>
                           <div id="kcal-slot-val-1" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 340</div>
                         </button>
                         <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-2" onclick="selectMealForEdit(2)">
-                          <div id="kcal-slot-lbl-2" style="font-size: 0.65rem; font-weight: 800;">&#127858; Com</div>
+                          <div id="kcal-slot-lbl-2" style="font-size: 0.66rem; font-weight: 800;">&#127858; Com</div>
                           <div id="kcal-slot-val-2" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 470</div>
                         </button>
                         <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-3" onclick="selectMealForEdit(3)">
-                          <div id="kcal-slot-lbl-3" style="font-size: 0.65rem; font-weight: 800;">&#127822; Col</div>
+                          <div id="kcal-slot-lbl-3" style="font-size: 0.66rem; font-weight: 800;">&#127822; Col</div>
                           <div id="kcal-slot-val-3" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 190</div>
                         </button>
                         <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-4" onclick="selectMealForEdit(4)">
-                          <div id="kcal-slot-lbl-4" style="font-size: 0.65rem; font-weight: 800;">&#127769; Cen</div>
+                          <div id="kcal-slot-lbl-4" style="font-size: 0.66rem; font-weight: 800;">&#127769; Cen</div>
                           <div id="kcal-slot-val-4" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 350</div>
                         </button>
                       </div>
 
                       <!-- BLOQUE 3: EDITOR DE LA COMIDA SELECCIONADA + BUSCADOR AUTOCOMPLETABLE SMAE + BOTON COMPLETAR -->
-                      <div style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 8px 10px; margin-bottom: 5px;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
-                          <img id="editor-meal-thumb" src="https://images.unsplash.com/photo-1623265301140-df4d763d8297?auto=format&fit=crop&w=160&q=80" alt="Comida" style="width: 34px; height: 34px; border-radius: 9px; object-fit: cover; border: 1.5px solid var(--avo-primary); flex-shrink: 0;" />
+                      <div id="editor-meal-box" style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 11px 13px; margin-bottom: 8px;">
+                        <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 7px;">
+                          <img id="editor-meal-thumb" src="https://images.unsplash.com/photo-1623265301140-df4d763d8297?auto=format&fit=crop&w=160&q=80" alt="Comida" style="width: 38px; height: 38px; border-radius: 10px; object-fit: cover; border: 1.5px solid var(--avo-primary); flex-shrink: 0;" />
                           <div style="flex: 1; min-width: 0;">
-                            <div id="editor-meal-header-title" style="font-size: 0.74rem; font-weight: 900; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            <div id="editor-meal-header-title" style="font-size: 0.77rem; font-weight: 900; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                               &#9728;&#65039; Editando: Desayuno (Mi&eacute;rcoles)
                             </div>
-                            <div id="editor-meal-kcal-sub" style="font-size: 0.66rem; color: var(--avo-forest); font-weight: 800;">
-                              Planeado: 340 kcal &bull; A sumar: <strong>340 kcal</strong>
+                            <div id="editor-meal-kcal-sub" style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">
+                              Base: 340 kcal &bull; Total al completar: <strong>340 kcal</strong>
                             </div>
                           </div>
                         </div>
@@ -6648,16 +6649,16 @@
                         <!-- Contenedor editable que se bloquea una vez completada la comida -->
                         <div id="editor-unlocked-controls">
                           <!-- Editar nombre del platillo -->
-                          <div style="display: flex; gap: 5px; margin-bottom: 5px;">
-                            <input type="text" id="editor-custom-dish-inp" placeholder="Editar nombre del platillo..." oninput="updateSelectedMealCustomTitle(this.value)" style="flex: 1; padding: 5px 8px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.7rem; font-weight: 700; color: var(--avo-dark);" />
+                          <div style="margin-bottom: 7px;">
+                            <input type="text" id="editor-custom-dish-inp" placeholder="Editar nombre del platillo..." oninput="updateSelectedMealCustomTitle(this.value)" style="width: 100%; box-sizing: border-box; padding: 7px 10px; border-radius: 9px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.74rem; font-weight: 700; color: var(--avo-dark);" />
                           </div>
 
-                          <!-- Botones rapidos (+1 clic) -->
-                          <div style="font-size: 0.62rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 3px;">
+                          <!-- Botones rapidos (2 filas de 4 sin barra de scroll) -->
+                          <div style="font-size: 0.64rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px;">
                             &#10133; A&ntilde;adir alimento extra (botones r&aacute;pidos o buscador SMAE):
                           </div>
-                          <div class="quick-food-add-grid" id="quick-food-add-grid" style="max-height: 54px;">
-                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Tortilla de ma\u00edz', 65)">&#127805; +1 Tortilla (+65)</button>
+                          <div class="quick-food-add-grid" id="quick-food-add-grid">
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Tortilla de maíz', 65)">&#127805; +1 Tortilla (+65)</button>
                             <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Huevo entero', 75)">&#129370; +1 Huevo (+75)</button>
                             <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/3 Aguacate Hass', 80)">&#129361; +1/3 Aguacate (+80)</button>
                             <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('40g Queso Panela', 55)">&#129472; +40g Panela (+55)</button>
@@ -6669,10 +6670,10 @@
 
                           <!-- Buscador con Autocompletado de Base de Equivalencias Caloricas (SMAE) -->
                           <div class="food-autocomplete-wrap">
-                            <div style="display: flex; gap: 4px;">
-                              <input type="text" id="custom-extra-food-name" autocomplete="off" placeholder="&#128269; Escribe cualquier alimento o platillo (ej. 2 tortillas, chilaquiles, mango, caf&eacute;, salm&oacute;n)..." oninput="handleFoodAutocompleteInput(this.value)" onfocus="handleFoodAutocompleteInput(this.value)" onkeydown="handleFoodAutocompleteKeydown(event)" style="flex: 1; min-width: 0; padding: 5px 8px; border-radius: 8px; border: 1.5px solid #A3D977; background: #FFFFFF; font-family: inherit; font-size: 0.69rem; font-weight: 700; color: var(--avo-dark);" />
-                              <input type="number" id="custom-extra-food-kcal" placeholder="kcal" value="65" min="5" max="1500" step="5" title="Calor&iacute;as autom&aacute;ticas por porci&oacute;n equivalente" style="width: 54px; padding: 5px 4px; border-radius: 8px; border: 1.5px solid #CFE0BE; background: #FFFBEB; color: #92400E; font-family: inherit; font-size: 0.69rem; font-weight: 900; text-align: center;" />
-                              <button type="button" onclick="addCustomInputFoodToMeal()" style="background: var(--avo-dark); color: #FFFFFF; border: none; border-radius: 8px; padding: 5px 9px; font-family: inherit; font-size: 0.69rem; font-weight: 800; cursor: pointer; white-space: nowrap;">+ A&ntilde;adir</button>
+                            <div style="display: flex; gap: 5px;" class="food-autocomplete-input-row">
+                              <input type="text" id="custom-extra-food-name" autocomplete="off" placeholder="&#128269; Escribe cualquier alimento o platillo (ej. 2 tortillas, chilaquiles, mango)..." oninput="handleFoodAutocompleteInput(this.value)" onfocus="handleFoodAutocompleteInput(this.value)" onkeydown="handleFoodAutocompleteKeydown(event)" style="flex: 1; min-width: 0; padding: 7px 10px; border-radius: 9px; border: 1.5px solid #A3D977; background: #FFFFFF; font-family: inherit; font-size: 0.72rem; font-weight: 700; color: var(--avo-dark);" />
+                              <input type="number" id="custom-extra-food-kcal" placeholder="kcal" value="65" min="5" max="1500" step="5" title="Calor&iacute;as autom&aacute;ticas por porci&oacute;n equivalente" style="width: 56px; padding: 7px 4px; border-radius: 9px; border: 1.5px solid #CFE0BE; background: #FFFBEB; color: #92400E; font-family: inherit; font-size: 0.72rem; font-weight: 900; text-align: center;" />
+                              <button type="button" onclick="addCustomInputFoodToMeal()" style="background: var(--avo-dark); color: #FFFFFF; border: none; border-radius: 9px; padding: 7px 11px; font-family: inherit; font-size: 0.72rem; font-weight: 800; cursor: pointer; white-space: nowrap;">+ A&ntilde;adir</button>
                             </div>
                             <!-- Lista desplegable de autocompletado SMAE -->
                             <div id="food-autocomplete-dropdown" class="food-autocomplete-dropdown"></div>
@@ -6680,19 +6681,19 @@
                         </div>
 
                         <!-- Lista compacta de alimentos extra agregados a esta comida -->
-                        <div id="editor-meal-extras-list" style="margin-top: 5px; font-size: 0.66rem; color: var(--text-muted); max-height: 40px; overflow-y: auto;">
+                        <div id="editor-meal-extras-list" style="margin-top: 6px; font-size: 0.68rem; color: var(--text-muted); min-height: 20px; max-height: 48px; overflow-y: auto;">
                           Sin alimentos extra en esta comida.
                         </div>
 
                         <!-- BOTON PRINCIPAL: COMPLETAR ALIMENTO / COMIDA (SUMA LAS KCAL A LA INGESTA DIARIA, BLOQUEA ESTA COMIDA Y PASA A LA SIGUIENTE) -->
-                        <button type="button" id="btn-complete-meal-slot" class="btn-complete-meal" onclick="completeActiveMealSlot()">
+                        <button type="button" id="btn-complete-meal-slot" class="btn-complete-meal" onclick="completeActiveMealSlot()" style="margin-top: 8px; padding: 10px 14px; border-radius: 11px; font-size: 0.82rem; font-weight: 800; box-shadow: 0 4px 12px rgba(104, 163, 50, 0.25);">
                           &#9989; Completar Desayuno (+340 kcal) y pasar a Comida &rarr;
                         </button>
                       </div>
                     </div>
 
                     <!-- PIE CON ACCESO DIRECTO AL CIERRE SEMANAL EN OBJETIVOS Y MEDIDAS -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; padding-top: 5px; border-top: 1px solid #E2ECD8; flex-wrap: wrap;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; padding-top: 6px; border-top: 1px solid #E2ECD8; flex-wrap: wrap;">
                       <span style="font-size: 0.67rem; color: var(--text-muted); font-weight: 700;">
                         &#128197; &iquest;Fin de semana? Actualiza peso y plan:
                       </span>
