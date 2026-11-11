@@ -3649,6 +3649,126 @@
       }
     }
 
+    /* ESTILOS DE COMIDA COMPLETADA + AUTOCOMPLETADO DE EQUIVALENCIAS CALORICAS (SMAE) */
+    #weekday-meals-list .meal-row.completed-meal {
+      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+      border-color: #4ADE80;
+    }
+
+    .meal-actions-col .swap-btn.locked-completed-btn {
+      background: #DCFCE7;
+      border-color: #86EFAC;
+      color: #166534;
+      cursor: default;
+      font-weight: 800;
+      opacity: 0.95;
+    }
+
+    .kcal-slot-tab.is-completed-slot {
+      border-color: #4ADE80;
+      background: #F0FDF4;
+      color: #166534;
+    }
+
+    .kcal-slot-tab.is-completed-slot.active {
+      background: #15803D;
+      border-color: #15803D;
+      color: #FFFFFF;
+    }
+
+    .food-autocomplete-wrap {
+      position: relative;
+      margin-top: 5px;
+    }
+
+    .food-autocomplete-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border: 1.5px solid var(--avo-primary);
+      border-radius: 12px;
+      box-shadow: 0 14px 32px rgba(20, 43, 31, 0.22);
+      z-index: 80;
+      max-height: 175px;
+      overflow-y: auto;
+      padding: 4px;
+    }
+
+    .food-autocomplete-dropdown.is-open {
+      display: block;
+    }
+
+    .food-auto-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.14s ease;
+      font-size: 0.7rem;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .food-auto-item:last-child {
+      border-bottom: none;
+    }
+
+    .food-auto-item:hover,
+    .food-auto-item.is-active {
+      background: #F2F9E9;
+    }
+
+    .food-auto-kcal-pill {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #F59E0B;
+      border-radius: 99px;
+      padding: 1px 7px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-complete-meal {
+      width: 100%;
+      margin-top: 7px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(135deg, var(--avo-primary) 0%, var(--avo-forest) 100%);
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.77rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 6px 14px rgba(104, 163, 50, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-complete-meal:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(104, 163, 50, 0.34);
+    }
+
+    .btn-complete-meal.is-completed-locked {
+      background: #DCFCE7;
+      color: #166534;
+      border: 1.5px solid #86EFAC;
+      box-shadow: none;
+      cursor: default;
+      transform: none;
+    }
+
     /* DIAS DE LA SEMANA EN POZO CONCAVO (RECESSED BAR) */
     .day-tabs {
       display: flex;
@@ -6398,115 +6518,125 @@
               <div class="col-4 flip-stage-3d" id="flip-plan-sidebar" style="height: 580px;">
                 <div class="flip-inner-3d">
 
-                  <!-- CARA FRONTAL: INGESTA DIARIA (CALORIAS PLANEADAS VS CONSUMIDAS) Y EDITOR DE LA COMIDA SELECCIONADA -->
-                  <div class="flip-face-3d front" style="padding: 18px 18px;">
+                  <!-- CARA FRONTAL: INGESTA DIARIA (CALORIAS PLANEADAS VS CONSUMIDAS DESDE 0) Y EDITOR CON AUTOCOMPLETADO SMAE -->
+                  <div class="flip-face-3d front" style="padding: 15px 16px;">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 6px;">
-                        <span class="card-label coral" style="margin: 0; font-size: 0.68rem; padding: 4px 10px;">
-                          <i class="fa-solid fa-fire-flame-curved"></i> INGESTA DIARIA &bull; <span id="kcal-panel-day-lbl">LUNES</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; gap: 6px;">
+                        <span class="card-label coral" style="margin: 0; font-size: 0.67rem; padding: 3px 9px;">
+                          <i class="fa-solid fa-fire-flame-curved"></i> INGESTA DIARIA &bull; <span id="kcal-panel-day-lbl">MI&Eacute;RCOLES (HOY)</span>
                         </span>
-                        <button type="button" class="btn-flip-trigger" style="padding: 4px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
+                        <button type="button" class="btn-flip-trigger" style="padding: 4px 9px; font-size: 0.71rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
                           &#128722; Lista S&uacute;per <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
 
-                      <!-- BLOQUE 1: COMPARATIVA CALORIAS PLANEADAS VS CONSUMIDAS EN EL DIA SELECCIONADO -->
-                      <div style="background: linear-gradient(135deg, #142B1F 0%, #214532 100%); border-radius: 15px; padding: 10px 13px; color: #FFFFFF; margin-bottom: 8px; border: 1.5px solid rgba(197, 240, 153, 0.3);">
+                      <!-- BLOQUE 1: COMPARATIVA CALORIAS PLANEADAS VS CONSUMIDAS (EMPIEZA EN 0 KCAL HASTA COMPLETAR CADA COMIDA) -->
+                      <div style="background: linear-gradient(135deg, #142B1F 0%, #214532 100%); border-radius: 14px; padding: 9px 12px; color: #FFFFFF; margin-bottom: 7px; border: 1.5px solid rgba(197, 240, 153, 0.3);">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center;">
                           <div>
-                            <div style="font-size: 0.62rem; font-weight: 800; color: #C5F099; text-transform: uppercase;">Meta Planeada (<span id="kcal-summary-day-short">Lun</span>)</div>
-                            <div id="kcal-planned-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.18rem; font-weight: 900; color: #FFFFFF;">1,480 kcal</div>
+                            <div style="font-size: 0.61rem; font-weight: 800; color: #C5F099; text-transform: uppercase;">Meta Planeada (<span id="kcal-summary-day-short">Mi&eacute;</span>)</div>
+                            <div id="kcal-planned-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.14rem; font-weight: 900; color: #FFFFFF;">1,350 kcal</div>
                           </div>
                           <div style="text-align: right;">
-                            <div style="font-size: 0.62rem; font-weight: 800; color: #FDE68A; text-transform: uppercase;">Ingesta Consumida / Real</div>
-                            <div id="kcal-consumed-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.18rem; font-weight: 900; color: #FDE68A;">1,480 kcal</div>
+                            <div style="font-size: 0.61rem; font-weight: 800; color: #FDE68A; text-transform: uppercase;">Ingesta Consumida Hoy</div>
+                            <div id="kcal-consumed-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.14rem; font-weight: 900; color: #FDE68A;">0 kcal</div>
                           </div>
                         </div>
-                        <div style="background: rgba(255,255,255,0.14); height: 7px; border-radius: 99px; overflow: hidden; margin: 6px 0 4px;">
-                          <div id="kcal-day-progress-bar" style="width: 100%; height: 100%; background: linear-gradient(90deg, #8FD14F, #FDE68A); border-radius: 99px; transition: width 0.3s ease;"></div>
+                        <div style="background: rgba(255,255,255,0.14); height: 7px; border-radius: 99px; overflow: hidden; margin: 5px 0 4px;">
+                          <div id="kcal-day-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #8FD14F, #FDE68A); border-radius: 99px; transition: width 0.35s ease;"></div>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.68rem;">
-                          <span id="kcal-day-diff-badge" style="color: #A7F3D0; font-weight: 800;">&#9989; Exacto en tu meta planeada (0 kcal extra)</span>
-                          <button type="button" onclick="resetActiveDayMeals()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; border-radius: 6px; padding: 1px 7px; font-size: 0.63rem; font-weight: 700; cursor: pointer;" title="Restaurar el d&iacute;a a sus calor&iacute;as planeadas">Restaurar d&iacute;a</button>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.66rem; gap: 4px;">
+                          <span id="kcal-day-diff-badge" style="color: #A7F3D0; font-weight: 800;">&#9203; 0 de 4 comidas completadas (0 kcal sumadas)</span>
+                          <button type="button" onclick="resetActiveDayMeals()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; border-radius: 6px; padding: 1px 7px; font-size: 0.62rem; font-weight: 700; cursor: pointer; white-space: nowrap;" title="Reiniciar el d&iacute;a en 0 kcal">Reiniciar d&iacute;a</button>
                         </div>
                       </div>
 
                       <!-- BLOQUE 2: SELECTOR DE LAS 4 COMIDAS DEL DIA SELECCIONADO -->
-                      <div class="kcal-editor-slot-tabs">
+                      <div class="kcal-editor-slot-tabs" style="margin-bottom: 6px;">
                         <button type="button" class="kcal-slot-tab active" id="kcal-slot-tab-1" onclick="selectMealForEdit(1)">
-                          <div style="font-size: 0.66rem; font-weight: 800;">&#9728;&#65039; Des</div>
-                          <div id="kcal-slot-val-1" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">370 kcal</div>
+                          <div id="kcal-slot-lbl-1" style="font-size: 0.65rem; font-weight: 800;">&#9728;&#65039; Des</div>
+                          <div id="kcal-slot-val-1" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 340</div>
                         </button>
                         <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-2" onclick="selectMealForEdit(2)">
-                          <div style="font-size: 0.66rem; font-weight: 800;">&#127858; Com</div>
-                          <div id="kcal-slot-val-2" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">520 kcal</div>
+                          <div id="kcal-slot-lbl-2" style="font-size: 0.65rem; font-weight: 800;">&#127858; Com</div>
+                          <div id="kcal-slot-val-2" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 470</div>
                         </button>
                         <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-3" onclick="selectMealForEdit(3)">
-                          <div style="font-size: 0.66rem; font-weight: 800;">&#127822; Col</div>
-                          <div id="kcal-slot-val-3" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">205 kcal</div>
+                          <div id="kcal-slot-lbl-3" style="font-size: 0.65rem; font-weight: 800;">&#127822; Col</div>
+                          <div id="kcal-slot-val-3" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 190</div>
                         </button>
                         <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-4" onclick="selectMealForEdit(4)">
-                          <div style="font-size: 0.66rem; font-weight: 800;">&#127769; Cen</div>
-                          <div id="kcal-slot-val-4" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">385 kcal</div>
+                          <div id="kcal-slot-lbl-4" style="font-size: 0.65rem; font-weight: 800;">&#127769; Cen</div>
+                          <div id="kcal-slot-val-4" style="font-size: 0.63rem; font-weight: 700; opacity: 0.9;">0 / 350</div>
                         </button>
                       </div>
 
-                      <!-- BLOQUE 3: EDITOR DE LA COMIDA SELECCIONADA (EDITAR PLATILLO + ANADIR ALIMENTOS) -->
-                      <div style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 9px 11px; margin-bottom: 7px;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                          <img id="editor-meal-thumb" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=160&q=80" alt="Comida" style="width: 36px; height: 36px; border-radius: 9px; object-fit: cover; border: 1.5px solid var(--avo-primary); flex-shrink: 0;" />
+                      <!-- BLOQUE 3: EDITOR DE LA COMIDA SELECCIONADA + BUSCADOR AUTOCOMPLETABLE SMAE + BOTON COMPLETAR -->
+                      <div style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 8px 10px; margin-bottom: 5px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
+                          <img id="editor-meal-thumb" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=160&q=80" alt="Comida" style="width: 34px; height: 34px; border-radius: 9px; object-fit: cover; border: 1.5px solid var(--avo-primary); flex-shrink: 0;" />
                           <div style="flex: 1; min-width: 0;">
-                            <div id="editor-meal-header-title" style="font-size: 0.75rem; font-weight: 900; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                              &#9728;&#65039; Editando: Desayuno (Lunes)
+                            <div id="editor-meal-header-title" style="font-size: 0.74rem; font-weight: 900; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                              &#9728;&#65039; Editando: Desayuno (Mi&eacute;rcoles)
                             </div>
-                            <div id="editor-meal-kcal-sub" style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">
-                              Planeado: 370 kcal &bull; Real: <strong>370 kcal</strong>
+                            <div id="editor-meal-kcal-sub" style="font-size: 0.66rem; color: var(--avo-forest); font-weight: 800;">
+                              Planeado: 340 kcal &bull; A sumar: <strong>340 kcal</strong>
                             </div>
                           </div>
                         </div>
 
-                        <!-- Editar nombre del platillo o personalizarlo -->
-                        <div style="display: flex; gap: 5px; margin-bottom: 7px;">
-                          <input type="text" id="editor-custom-dish-inp" placeholder="Editar nombre del platillo..." oninput="updateSelectedMealCustomTitle(this.value)" style="flex: 1; padding: 6px 9px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.72rem; font-weight: 700; color: var(--avo-dark);" />
-                        </div>
+                        <!-- Contenedor editable que se bloquea una vez completada la comida -->
+                        <div id="editor-unlocked-controls">
+                          <!-- Editar nombre del platillo -->
+                          <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+                            <input type="text" id="editor-custom-dish-inp" placeholder="Editar nombre del platillo..." oninput="updateSelectedMealCustomTitle(this.value)" style="flex: 1; padding: 5px 8px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.7rem; font-weight: 700; color: var(--avo-dark);" />
+                          </div>
 
-                        <!-- Catalogo rapido de alimentos mexicanos (+1 clic) -->
-                        <div style="font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">
-                          &#10133; A&ntilde;adir alimento a esta comida (suma kcal):
-                        </div>
-                        <div class="quick-food-add-grid" id="quick-food-add-grid">
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Tortilla de ma\u00edz', 65)">&#127805; +1 Tortilla (+65)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Huevo entero', 75)">&#129370; +1 Huevo (+75)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/3 Aguacate Hass', 80)">&#129361; +1/3 Aguacate (+80)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('40g Queso Panela', 55)">&#129472; +40g Panela (+55)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/2 tza Frijoles', 110)">&#129752; +Frijoles (+110)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('100g Pollo/Res magra', 145)">&#127831; +Prote&iacute;na (+145)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/2 tza Arroz', 100)">&#127834; +Arroz (+100)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Fruta mediana', 60)">&#127822; +1 Fruta (+60)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('10 Almendras / Nueces', 70)">&#129372; +Nueces (+70)</button>
-                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('Caf\u00e9 con leche', 45)">&#9749; +Caf&eacute; c/leche (+45)</button>
-                        </div>
+                          <!-- Botones rapidos (+1 clic) -->
+                          <div style="font-size: 0.62rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 3px;">
+                            &#10133; A&ntilde;adir alimento extra (botones r&aacute;pidos o buscador SMAE):
+                          </div>
+                          <div class="quick-food-add-grid" id="quick-food-add-grid" style="max-height: 54px;">
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Tortilla de ma\u00edz', 65)">&#127805; +1 Tortilla (+65)</button>
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Huevo entero', 75)">&#129370; +1 Huevo (+75)</button>
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/3 Aguacate Hass', 80)">&#129361; +1/3 Aguacate (+80)</button>
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('40g Queso Panela', 55)">&#129472; +40g Panela (+55)</button>
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/2 tza Frijoles', 110)">&#129752; +Frijoles (+110)</button>
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('100g Pollo/Res magra', 145)">&#127831; +Prote&iacute;na (+145)</button>
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/2 tza Arroz', 100)">&#127834; +Arroz (+100)</button>
+                            <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Fruta mediana', 60)">&#127822; +1 Fruta (+60)</button>
+                          </div>
 
-                        <!-- Campo libre para escribir cualquier alimento + sus kcal -->
-                        <div style="display: flex; gap: 5px; margin-top: 6px;">
-                          <input type="text" id="custom-extra-food-name" placeholder="Otro alimento (ej. 1 pan)" style="flex: 1; min-width: 0; padding: 5px 8px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.7rem; font-weight: 700;" />
-                          <input type="number" id="custom-extra-food-kcal" placeholder="kcal" value="80" min="5" max="1200" step="5" style="width: 58px; padding: 5px 6px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.7rem; font-weight: 800; text-align: center;" />
-                          <button type="button" onclick="addCustomInputFoodToMeal()" style="background: var(--avo-primary); color: #FFFFFF; border: none; border-radius: 8px; padding: 5px 10px; font-family: inherit; font-size: 0.7rem; font-weight: 800; cursor: pointer; white-space: nowrap;">+ A&ntilde;adir</button>
+                          <!-- Buscador con Autocompletado de Base de Equivalencias Caloricas (SMAE) -->
+                          <div class="food-autocomplete-wrap">
+                            <div style="display: flex; gap: 4px;">
+                              <input type="text" id="custom-extra-food-name" autocomplete="off" placeholder="&#128269; Escribe un alimento (ej. pl&aacute;tano, pan, leche, at&uacute;n)..." oninput="handleFoodAutocompleteInput(this.value)" onfocus="handleFoodAutocompleteInput(this.value)" onkeydown="handleFoodAutocompleteKeydown(event)" style="flex: 1; min-width: 0; padding: 5px 8px; border-radius: 8px; border: 1.5px solid #A3D977; background: #FFFFFF; font-family: inherit; font-size: 0.69rem; font-weight: 700; color: var(--avo-dark);" />
+                              <input type="number" id="custom-extra-food-kcal" placeholder="kcal" value="65" min="5" max="1500" step="5" title="Calor&iacute;as autom&aacute;ticas por porci&oacute;n equivalente" style="width: 54px; padding: 5px 4px; border-radius: 8px; border: 1.5px solid #CFE0BE; background: #FFFBEB; color: #92400E; font-family: inherit; font-size: 0.69rem; font-weight: 900; text-align: center;" />
+                              <button type="button" onclick="addCustomInputFoodToMeal()" style="background: var(--avo-dark); color: #FFFFFF; border: none; border-radius: 8px; padding: 5px 9px; font-family: inherit; font-size: 0.69rem; font-weight: 800; cursor: pointer; white-space: nowrap;">+ A&ntilde;adir</button>
+                            </div>
+                            <!-- Lista desplegable de autocompletado SMAE -->
+                            <div id="food-autocomplete-dropdown" class="food-autocomplete-dropdown"></div>
+                          </div>
                         </div>
 
                         <!-- Lista compacta de alimentos extra agregados a esta comida -->
-                        <div id="editor-meal-extras-list" style="margin-top: 6px; font-size: 0.68rem; color: var(--text-muted);">
+                        <div id="editor-meal-extras-list" style="margin-top: 5px; font-size: 0.66rem; color: var(--text-muted); max-height: 40px; overflow-y: auto;">
                           Sin alimentos extra en esta comida.
                         </div>
+
+                        <!-- BOTON PRINCIPAL: COMPLETAR ALIMENTO / COMIDA (SUMA LAS KCAL A LA INGESTA DIARIA, BLOQUEA ESTA COMIDA Y PASA A LA SIGUIENTE) -->
+                        <button type="button" id="btn-complete-meal-slot" class="btn-complete-meal" onclick="completeActiveMealSlot()">
+                          &#9989; Completar Desayuno (+340 kcal) y pasar a Comida &rarr;
+                        </button>
                       </div>
                     </div>
 
                     <!-- PIE CON ACCESO DIRECTO AL CIERRE SEMANAL EN OBJETIVOS Y MEDIDAS -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; padding-top: 6px; border-top: 1px solid #E2ECD8; flex-wrap: wrap;">
-                      <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 700;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; padding-top: 5px; border-top: 1px solid #E2ECD8; flex-wrap: wrap;">
+                      <span style="font-size: 0.67rem; color: var(--text-muted); font-weight: 700;">
                         &#128197; &iquest;Fin de semana? Actualiza peso y plan:
                       </span>
-                      <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.7rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                      <button type="button" class="btn-flip-trigger" style="padding: 4px 10px; font-size: 0.69rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
                         &#128207; Ir a Objetivos y Medidas
                       </button>
                     </div>
@@ -8464,7 +8594,9 @@
         lastSavedTimeLabel: '',
         correctionsCount: 0
       },
-      activeWeekdayIdx: 0,
+      activeWeekdayIdx: (initialWaterSetup.todayIdx <= 5 ? initialWaterSetup.todayIdx : 5),
+      todayPlanWeekdayIdx: (initialWaterSetup.todayIdx <= 5 ? initialWaterSetup.todayIdx : 5),
+      isTodaySunday: (initialWaterSetup.todayIdx === 6),
       calculatedDailyKcal: 1480,
       deletedBuzonItems: {}
     };
@@ -11290,10 +11422,282 @@
     }
 
     // =========================================================================
-    // MOTOR DE FOTOS ALEGORICAS POR PLATILLO + EDITOR DE COMIDAS Y CALORIAS DIARIAS
-    // Cada vez que se genera un plan, se cambia de dia, se intercambia una comida
-    // o se edita/anade un alimento, se actualiza la foto alegorica y las calorias.
+    // MOTOR DE FOTOS ALEGORICAS + BASE MEXICANA DE EQUIVALENCIAS CALORICAS (SMAE)
+    // + AUTOCOMPLETADO EN VIVO + FLUJO DE COMPLETAR COMIDA (EMPIEZA EN 0 KCAL)
     // =========================================================================
+
+    const SMAE_FOOD_EQUIVALENTS_DB = [
+      // Tortillas, Panes y Cereales
+      { name: 'Tortilla de ma\u00edz', portion: '1 pieza', kcal: 65, icon: '\uD83C\uDF3D', cat: 'Cereal', kw: 'tortilla maiz taco' },
+      { name: 'Tortillas de ma\u00edz (2 piezas)', portion: '2 piezas', kcal: 130, icon: '\uD83C\uDF3D', cat: 'Cereal', kw: 'tortillas maiz tacos' },
+      { name: 'Tortilla de harina', portion: '1 pieza', kcal: 85, icon: '\uD83C\uDF3E', cat: 'Cereal', kw: 'tortilla harina' },
+      { name: 'Tortilla de nopal', portion: '2 piezas', kcal: 40, icon: '\uD83C\uDF35', cat: 'Cereal', kw: 'tortilla nopal keto' },
+      { name: 'Tostada horneada (Susalia/Sanissimo)', portion: '2 piezas', kcal: 60, icon: '\uD83C\uDF2E', cat: 'Cereal', kw: 'tostada horneada susalia sanissimo' },
+      { name: 'Bolillo sin migaj\u00f3n', portion: '1/2 pieza', kcal: 70, icon: '\uD83E\uDD56', cat: 'Cereal', kw: 'bolillo birote pan telera' },
+      { name: 'Bolillo entero con migaj\u00f3n', portion: '1 pieza', kcal: 140, icon: '\uD83E\uDD56', cat: 'Cereal', kw: 'bolillo entero birote pan' },
+      { name: 'Pan integral de caja', portion: '1 rebanada', kcal: 70, icon: '\uD83C\uDF5E', cat: 'Cereal', kw: 'pan integral bimbo rebanada sandwich' },
+      { name: 'Pan blanco de caja', portion: '1 rebanada', kcal: 75, icon: '\uD83C\uDF5E', cat: 'Cereal', kw: 'pan blanco rebanada' },
+      { name: 'Pan dulce / Concha', portion: '1/2 pieza', kcal: 135, icon: '\uD83E\uDD50', cat: 'Antojo', kw: 'pan dulce concha cuernito dona' },
+      { name: 'Avena cocida en agua', portion: '1/2 taza (3 cdas)', kcal: 70, icon: '\uD83E\uDD63', cat: 'Cereal', kw: 'avena hojuelas cereal' },
+      { name: 'Arroz cocido casero', portion: '1/2 taza', kcal: 100, icon: '\uD83C\uDF5A', cat: 'Cereal', kw: 'arroz blanco rojo' },
+      { name: 'Pasta / Espagueti cocido', portion: '1/2 taza', kcal: 105, icon: '\uD83C\uDF5D', cat: 'Cereal', kw: 'pasta espagueti sopa fideo' },
+      { name: 'Elote tierno desgranado', portion: '1/2 taza', kcal: 70, icon: '\uD83C\uDF3D', cat: 'Cereal', kw: 'elote esquites maiz' },
+      { name: 'Papa cocida o al horno', portion: '1/2 pieza mediana', kcal: 70, icon: '\uD83E\uDD54', cat: 'Cereal', kw: 'papa pure' },
+      { name: 'Camote horneado', portion: '1/3 taza', kcal: 70, icon: '\uD83C\uDF60', cat: 'Cereal', kw: 'camote' },
+      { name: 'Amaranto natural tostado', portion: '1/4 taza (4 cdas)', kcal: 65, icon: '\uD83C\uDF3E', cat: 'Cereal', kw: 'amaranto' },
+      { name: 'Quinoa cocida', portion: '1/2 taza', kcal: 105, icon: '\uD83E\uDD63', cat: 'Cereal', kw: 'quinoa quinua' },
+      { name: 'Galletas Mar\u00eda', portion: '5 piezas', kcal: 70, icon: '\uD83C\uDF6A', cat: 'Cereal', kw: 'galletas maria' },
+      { name: 'Galletas Salmas / Habaneras', portion: '1 paquetito (3-4 pzas)', kcal: 70, icon: '\uD83E\uDD58', cat: 'Cereal', kw: 'galletas salmas habaneras saladas' },
+      { name: 'Granola baja en az\u00facar', portion: '3 cucharadas', kcal: 85, icon: '\uD83E\uDD63', cat: 'Cereal', kw: 'granola' },
+
+      // Proteinas y Carnes
+      { name: 'Huevo entero', portion: '1 pieza', kcal: 75, icon: '\uD83E\uDD5A', cat: 'Prote\u00edna', kw: 'huevo revuelto estrellado cocido' },
+      { name: 'Huevos enteros (2 piezas)', portion: '2 piezas', kcal: 150, icon: '\uD83E\uDD5A', cat: 'Prote\u00edna', kw: 'huevos omelette' },
+      { name: 'Claras de huevo', portion: '2 piezas', kcal: 35, icon: '\uD83E\uDD5A', cat: 'Prote\u00edna', kw: 'claras huevo' },
+      { name: 'Pechuga de pollo asada', portion: '100g (1 palma)', kcal: 145, icon: '\uD83C\uDF57', cat: 'Prote\u00edna', kw: 'pollo pechuga fajitas' },
+      { name: 'Pollo deshebrado', portion: '1/2 taza (70g)', kcal: 110, icon: '\uD83C\uDF57', cat: 'Prote\u00edna', kw: 'pollo deshebrado' },
+      { name: 'Bistec de res magro', portion: '100g (1 palma)', kcal: 155, icon: '\uD83E\uDD69', cat: 'Prote\u00edna', kw: 'res bistec carne asada fajitas' },
+      { name: 'Carne molida magra de res/pollo', portion: '90g', kcal: 150, icon: '\uD83E\uDD69', cat: 'Prote\u00edna', kw: 'carne molida picadillo albondigas' },
+      { name: 'Filete de pescado blanco (Tilapia/Robalo)', portion: '120g (1 palma)', kcal: 115, icon: '\uD83D\uDC1F', cat: 'Prote\u00edna', kw: 'pescado filete tilapia huachinango ceviche' },
+      { name: 'Salm\u00f3n a la plancha', portion: '100g', kcal: 185, icon: '\uD83D\uDC1F', cat: 'Prote\u00edna', kw: 'salmon pescado' },
+      { name: 'At\u00fan en agua (drenado)', portion: '1 lata', kcal: 110, icon: '\uD83E\uDD6B', cat: 'Prote\u00edna', kw: 'atun lata' },
+      { name: 'Camarones cocidos', portion: '100g (1 taza)', kcal: 95, icon: '\uD83E\uDD90', cat: 'Prote\u00edna', kw: 'camaron camarones mariscos' },
+      { name: 'Jam\u00f3n de pechuga de pavo', portion: '2 rebanadas', kcal: 45, icon: '\uD83E\uDD53', cat: 'Prote\u00edna', kw: 'jamon pavo pechuga' },
+      { name: 'Lomo o pierna de cerdo magra', portion: '90g', kcal: 140, icon: '\uD83E\uDD69', cat: 'Prote\u00edna', kw: 'cerdo lomo pierna carnitas' },
+
+      // Quesos y Lacteos
+      { name: 'Queso Panela', portion: '40g (2 rebanadas)', kcal: 55, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso panela' },
+      { name: 'Queso Oaxaca / Quesillo', portion: '30g (hebra)', kcal: 85, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso oaxaca quesillo hebra' },
+      { name: 'Queso Cottage', portion: '3 cucharadas', kcal: 50, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'queso cottage' },
+      { name: 'Queso Fresco / Ranchero', portion: '40g', kcal: 70, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso fresco ranchero canasto' },
+      { name: 'Queso Manchego / Gouda', portion: '30g (1 l\u00e1mina)', kcal: 105, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso manchego gouda amarillo' },
+      { name: 'Reques\u00f3n natural', portion: '3 cucharadas', kcal: 65, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'requeson ricota' },
+      { name: 'Yogur Griego natural sin az\u00facar', portion: '1/2 taza (120g)', kcal: 75, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'yogur griego yogurt' },
+      { name: 'Yogur natural tradicional', portion: '1 taza', kcal: 120, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'yogur natural' },
+      { name: 'Leche deslactosada light', portion: '1 taza (240ml)', kcal: 100, icon: '\uD83E\uDD5B', cat: 'L\u00e1cteo', kw: 'leche deslactosada light vaca' },
+      { name: 'Leche entera', portion: '1 taza (240ml)', kcal: 145, icon: '\uD83E\uDD5B', cat: 'L\u00e1cteo', kw: 'leche entera' },
+      { name: 'Leche de almendra sin az\u00facar', portion: '1 taza (240ml)', kcal: 35, icon: '\uD83E\uDD5B', cat: 'Bebida', kw: 'leche almendra coco vegetal' },
+      { name: 'Jocoque seco', portion: '2 cucharadas', kcal: 55, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'jocoque' },
+
+      // Leguminosas
+      { name: 'Frijoles de la olla', portion: '1/2 taza', kcal: 110, icon: '\uD83E\uDED8', cat: 'Leguminosa', kw: 'frijoles olla caldoso' },
+      { name: 'Frijoles refritos caseros', portion: '1/3 taza', kcal: 135, icon: '\uD83E\uDED8', cat: 'Leguminosa', kw: 'frijoles refritos' },
+      { name: 'Lentejas cocidas', portion: '1/2 taza', kcal: 115, icon: '\uD83E\uDD63', cat: 'Leguminosa', kw: 'lentejas sopa' },
+      { name: 'Garbanzos cocidos / Hummus', portion: '1/2 taza (o 2 cdas hummus)', kcal: 120, icon: '\uD83E\uDED8', cat: 'Leguminosa', kw: 'garbanzos hummus' },
+
+      // Grasas Saludables y Semillas
+      { name: 'Aguacate Hass', portion: '1/3 pieza', kcal: 80, icon: '\uD83E\uDD51', cat: 'Grasa Buena', kw: 'aguacate hass' },
+      { name: 'Aguacate Hass (Media pieza)', portion: '1/2 pieza', kcal: 120, icon: '\uD83E\uDD51', cat: 'Grasa Buena', kw: 'medio aguacate hass' },
+      { name: 'Guacamole natural casero', portion: '2 cucharadas', kcal: 65, icon: '\uD83E\uDD51', cat: 'Grasa Buena', kw: 'guacamole aguacate' },
+      { name: 'Almendras naturales', portion: '10 piezas', kcal: 70, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'almendras' },
+      { name: 'Nueces', portion: '6 mitades', kcal: 75, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'nueces nuez pecana' },
+      { name: 'Cacahuates naturales', portion: '14 piezas', kcal: 75, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'cacahuates man\u00ed' },
+      { name: 'Semillas de ch\u00eda o linaza', portion: '1 cucharada', kcal: 55, icon: '\uD83C\uDF31', cat: 'Grasa Buena', kw: 'chia linaza semillas ajonjoli' },
+      { name: 'Crema de cacahuate o almendra sin az\u00facar', portion: '1 cucharada', kcal: 90, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'crema cacahuate almendra mantequilla' },
+      { name: 'Aceite de oliva / aguacate', portion: '1 cucharadita', kcal: 45, icon: '\uD83E\uDED2', cat: 'Grasa Buena', kw: 'aceite oliva aguacate coco' },
+      { name: 'Crema \u00e1cida ligera', portion: '1 cucharada', kcal: 35, icon: '\uD83E\uDD63', cat: 'Grasa', kw: 'crema acida lala' },
+
+      // Frutas de Mexico
+      { name: 'Manzana', portion: '1 pieza mediana', kcal: 60, icon: '\uD83C\uDF4E', cat: 'Fruta', kw: 'manzana roja verde' },
+      { name: 'Pl\u00e1tano Tabasco', portion: '1/2 pieza', kcal: 60, icon: '\uD83C\uDF4C', cat: 'Fruta', kw: 'platano banana' },
+      { name: 'Pl\u00e1tano entero', portion: '1 pieza completa', kcal: 120, icon: '\uD83C\uDF4C', cat: 'Fruta', kw: 'platano entero banana' },
+      { name: 'Fresas frescas picadas', portion: '1 taza', kcal: 50, icon: '\uD83C\uDF53', cat: 'Fruta', kw: 'fresas frutos rojos' },
+      { name: 'Papaya picada', portion: '1 taza', kcal: 55, icon: '\uD83E\uDD6D', cat: 'Fruta', kw: 'papaya' },
+      { name: 'Mango picado', portion: '1/2 taza', kcal: 60, icon: '\uD83E\uDD6D', cat: 'Fruta', kw: 'mango manila ataulfo' },
+      { name: 'Naranja', portion: '1 pieza', kcal: 60, icon: '\uD83C\uDF4A', cat: 'Fruta', kw: 'naranja gajos' },
+      { name: 'Mandarina', portion: '2 piezas chicas', kcal: 60, icon: '\uD83C\uDF4A', cat: 'Fruta', kw: 'mandarina' },
+      { name: 'Sand\u00eda picada', portion: '1 taza', kcal: 50, icon: '\uD83C\uDF49', cat: 'Fruta', kw: 'sandia' },
+      { name: 'Mel\u00f3n picado', portion: '1 taza', kcal: 50, icon: '\uD83C\uDF48', cat: 'Fruta', kw: 'melon' },
+      { name: 'Uvas', portion: '12 piezas', kcal: 60, icon: '\uD83C\uDF47', cat: 'Fruta', kw: 'uvas' },
+      { name: 'Guayaba', portion: '2 piezas', kcal: 60, icon: '\uD83C\uDF50', cat: 'Fruta', kw: 'guayaba' },
+      { name: 'Pera', portion: '1/2 pieza', kcal: 60, icon: '\uD83C\uDF50', cat: 'Fruta', kw: 'pera' },
+      { name: 'Durazno', portion: '1 pieza', kcal: 55, icon: '\uD83C\uDF51', cat: 'Fruta', kw: 'durazno melocoton' },
+      { name: 'Kiwi', portion: '1 pieza', kcal: 50, icon: '\uD83E\uDD5D', cat: 'Fruta', kw: 'kiwi' },
+      { name: 'Moras azules / Zarzamoras', portion: '3/4 taza', kcal: 55, icon: '\uD83E\uDED0', cat: 'Fruta', kw: 'moras zarzamoras blueberries frutos rojos' },
+      { name: 'Tuna', portion: '2 piezas', kcal: 60, icon: '\uD83C\uDF35', cat: 'Fruta', kw: 'tuna' },
+
+      // Verduras Mexicanas
+      { name: 'Nopales asados o cocidos', portion: '1 taza', kcal: 25, icon: '\uD83C\uDF35', cat: 'Verdura', kw: 'nopales nopal' },
+      { name: 'Calabacita al vapor o asada', portion: '1 taza', kcal: 25, icon: '\uD83E\uDD52', cat: 'Verdura', kw: 'calabacita calabaza' },
+      { name: 'Chayote cocido', portion: '1/2 taza', kcal: 25, icon: '\uD83E\uDD52', cat: 'Verdura', kw: 'chayote' },
+      { name: 'Ejotes tiernos cocidos', portion: '1/2 taza', kcal: 25, icon: '\uD83E\uDED1', cat: 'Verdura', kw: 'ejotes' },
+      { name: 'Espinacas o Acelgas', portion: '1 taza', kcal: 20, icon: '\uD83E\uDD6C', cat: 'Verdura', kw: 'espinacas acelgas hojas verdes' },
+      { name: 'J\u00edcama y pepino con lim\u00f3n', portion: '1 taza', kcal: 30, icon: '\uD83E\uDD52', cat: 'Verdura', kw: 'jicama pepino colacion' },
+      { name: 'Br\u00f3coli o Coliflor al vapor', portion: '1 taza', kcal: 30, icon: '\uD83E\uDD66', cat: 'Verdura', kw: 'brocoli coliflor' },
+      { name: 'Champi\u00f1ones salteados', portion: '1/2 taza', kcal: 25, icon: '\uD83C\uDF44', cat: 'Verdura', kw: 'champinones hongos setas' },
+      { name: 'Ensalada fresca (lechuga, jitomate, cebolla)', portion: '2 tazas', kcal: 25, icon: '\uD83E\uDD57', cat: 'Verdura', kw: 'ensalada lechuga jitomate pico de gallo' },
+
+      // Bebidas, Platillos Rapidos y Antojos Controlados
+      { name: 'Caf\u00e9 americano negro sin az\u00facar', portion: '1 taza', kcal: 5, icon: '\u2615', cat: 'Bebida', kw: 'cafe americano negro expreso' },
+      { name: 'Caf\u00e9 con leche deslactosada', portion: '1 taza', kcal: 45, icon: '\u2615', cat: 'Bebida', kw: 'cafe con leche' },
+      { name: 'Latte o Capuchino sin az\u00facar', portion: '1 vaso', kcal: 95, icon: '\u2615', cat: 'Bebida', kw: 'latte capuchino cafe' },
+      { name: 'Cacao puro / Chocolate amargo 70%', portion: '1 cuadrito (10g)', kcal: 50, icon: '\uD83C\uDF6B', cat: 'Antojo Fit', kw: 'cacao chocolate amargo' },
+      { name: 'Miel de abeja pura', portion: '1 cucharadita', kcal: 25, icon: '\uD83C\uDF6F', cat: 'Extra', kw: 'miel abeja' },
+      { name: 'Taco de pollo o bistec en tortilla de ma\u00edz', portion: '1 pieza', kcal: 155, icon: '\uD83C\uDF2E', cat: 'Platillo', kw: 'taco pollo bistec asada' },
+      { name: 'Quesadilla en tortilla de ma\u00edz con queso', portion: '1 pieza', kcal: 150, icon: '\uD83C\uDF2E', cat: 'Platillo', kw: 'quesadilla maiz queso' },
+      { name: 'Sopa de verduras o consom\u00e9 de pollo', portion: '1 taza', kcal: 65, icon: '\uD83C\uDF72', cat: 'Platillo', kw: 'sopa verduras consome caldo pollo' },
+      { name: 'Prote\u00edna en polvo (Whey / Vegetal)', portion: '1 scoop', kcal: 120, icon: '\uD83E\uDD64', cat: 'Suplemento', kw: 'proteina scoop batido licuado' }
+    ];
+
+    let currentAutocompleteMatches = [];
+    let currentAutocompleteHighlightIdx = -1;
+
+    function normalizeSearchStr(str) {
+      return (str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    }
+
+    function getTodayPlanWeekdayIdx() {
+      const jsDay = new Date().getDay(); // 0 = Domingo, 1 = Lunes ... 6 = Sabado
+      return jsDay === 0 ? 5 : (jsDay - 1); // 0 = Lun, 1 = Mar, 2 = Mie, 3 = Jue, 4 = Vie, 5 = Sab
+    }
+
+    function syncWeekdayTabsWithRealCalendarDay() {
+      const todayIdx = getTodayPlanWeekdayIdx();
+      const isSun = new Date().getDay() === 0;
+      const baseNames = ['Lunes', 'Martes', 'Mi\u00e9rcoles', 'Jueves', 'Viernes', 'S\u00e1bado'];
+      const tabs = document.querySelectorAll('#mod-plan .day-tabs .day-tab');
+      tabs.forEach((btn, idx) => {
+        if (idx < 6) {
+          if (!isSun && idx === todayIdx) {
+            btn.innerHTML = `${baseNames[idx]} <span style="font-size: 0.63rem; opacity: 0.92; font-weight: 900;">(Hoy)</span>`;
+          } else {
+            btn.innerText = baseNames[idx];
+          }
+        } else if (btn.classList.contains('sunday-free')) {
+          btn.innerHTML = isSun
+            ? `\u2600\uFE0F Domingo Libre (Hoy) <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>`
+            : `\u2600\uFE0F Domingo Libre <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>`;
+        }
+      });
+    }
+
+    function handleFoodAutocompleteInput(rawVal) {
+      const dd = document.getElementById('food-autocomplete-dropdown');
+      const kcalInp = document.getElementById('custom-extra-food-kcal');
+      if (!dd) return;
+
+      const q = normalizeSearchStr(rawVal);
+      if (!q) {
+        // Mostrar las 6 equivalencias mas usadas cuando enfoca el campo vacio
+        currentAutocompleteMatches = SMAE_FOOD_EQUIVALENTS_DB.slice(0, 8);
+      } else {
+        // Priorizar los que empiezan con la palabra buscada y luego los que la contienen
+        const starts = [];
+        const contains = [];
+        SMAE_FOOD_EQUIVALENTS_DB.forEach(item => {
+          const normName = normalizeSearchStr(item.name);
+          const normAll = normalizeSearchStr(`${item.name} ${item.portion} ${item.cat} ${item.kw}`);
+          if (normName.startsWith(q)) {
+            starts.push(item);
+          } else if (normAll.includes(q)) {
+            contains.push(item);
+          }
+        });
+        currentAutocompleteMatches = [...starts, ...contains].slice(0, 8);
+
+        // Si hay al menos una coincidencia mientras escribe, pre-llenar automaticamente sus calorias en el recuadro de kcal
+        if (currentAutocompleteMatches.length > 0 && kcalInp) {
+          kcalInp.value = currentAutocompleteMatches[0].kcal;
+        }
+      }
+
+      currentAutocompleteHighlightIdx = currentAutocompleteMatches.length > 0 ? 0 : -1;
+      renderFoodAutocompleteDropdown(q);
+    }
+
+    function renderFoodAutocompleteDropdown(queryStr) {
+      const dd = document.getElementById('food-autocomplete-dropdown');
+      if (!dd) return;
+
+      if (currentAutocompleteMatches.length === 0) {
+        dd.innerHTML = `<div style="padding: 6px 8px; font-size: 0.68rem; color: var(--text-muted);">Alimento libre: revisa las <strong>kcal</strong> a la derecha y presiona <strong>+ A\u00f1adir</strong>.</div>`;
+        dd.classList.add('is-open');
+        return;
+      }
+
+      const headerHint = queryStr
+        ? `<div style="font-size: 0.6rem; font-weight: 800; color: var(--avo-forest); padding: 2px 6px 4px; text-transform: uppercase; letter-spacing: 0.04em;">\u26A1 Equivalencias SMAE (toca para autocompletar kcal):</div>`
+        : `<div style="font-size: 0.6rem; font-weight: 800; color: var(--text-muted); padding: 2px 6px 4px; text-transform: uppercase; letter-spacing: 0.04em;">\uD83D\uDD0E Base de Equivalencias Cal\u00f3ricas (escribe para filtrar):</div>`;
+
+      dd.innerHTML = headerHint + currentAutocompleteMatches.map((item, idx) => `
+        <div class="food-auto-item ${idx === currentAutocompleteHighlightIdx ? 'is-active' : ''}" onmousedown="event.preventDefault(); selectAutocompleteFood(${idx}, false)">
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-weight: 800; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              ${item.icon} ${item.name} <span style="font-weight: 600; color: var(--text-muted);">(${item.portion})</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 4px; flex-shrink: 0;">
+            <span class="food-auto-kcal-pill">${item.kcal} kcal</span>
+            <button type="button" onmousedown="event.preventDefault(); event.stopPropagation(); selectAutocompleteFood(${idx}, true)" style="background: var(--avo-primary); color: #FFF; border: none; border-radius: 6px; padding: 2px 6px; font-size: 0.62rem; font-weight: 800; cursor: pointer;" title="Sumar directo a esta comida">+ Sumar</button>
+          </div>
+        </div>
+      `).join('');
+
+      dd.classList.add('is-open');
+    }
+
+    function selectAutocompleteFood(idx, addImmediately) {
+      const item = currentAutocompleteMatches[idx];
+      if (!item) return;
+      const nameInp = document.getElementById('custom-extra-food-name');
+      const kcalInp = document.getElementById('custom-extra-food-kcal');
+      const dd = document.getElementById('food-autocomplete-dropdown');
+
+      const fullLabel = `${item.name} (${item.portion})`;
+      if (nameInp) nameInp.value = fullLabel;
+      if (kcalInp) kcalInp.value = item.kcal;
+      if (dd) dd.classList.remove('is-open');
+
+      if (addImmediately) {
+        addExtraFoodToActiveMeal(fullLabel, item.kcal);
+        if (nameInp) nameInp.value = '';
+      }
+    }
+
+    function handleFoodAutocompleteKeydown(ev) {
+      const dd = document.getElementById('food-autocomplete-dropdown');
+      if (!dd || !dd.classList.contains('is-open')) {
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          addCustomInputFoodToMeal();
+        }
+        return;
+      }
+      if (ev.key === 'ArrowDown') {
+        ev.preventDefault();
+        if (currentAutocompleteMatches.length > 0) {
+          currentAutocompleteHighlightIdx = (currentAutocompleteHighlightIdx + 1) % currentAutocompleteMatches.length;
+          renderFoodAutocompleteDropdown(normalizeSearchStr(ev.target.value));
+        }
+      } else if (ev.key === 'ArrowUp') {
+        ev.preventDefault();
+        if (currentAutocompleteMatches.length > 0) {
+          currentAutocompleteHighlightIdx = (currentAutocompleteHighlightIdx - 1 + currentAutocompleteMatches.length) % currentAutocompleteMatches.length;
+          renderFoodAutocompleteDropdown(normalizeSearchStr(ev.target.value));
+        }
+      } else if (ev.key === 'Enter') {
+        ev.preventDefault();
+        if (currentAutocompleteHighlightIdx >= 0 && currentAutocompleteMatches[currentAutocompleteHighlightIdx]) {
+          selectAutocompleteFood(currentAutocompleteHighlightIdx, false);
+        } else {
+          addCustomInputFoodToMeal();
+        }
+      } else if (ev.key === 'Escape') {
+        dd.classList.remove('is-open');
+      }
+    }
+
+    document.addEventListener('click', function(ev) {
+      const wrap = document.querySelector('.food-autocomplete-wrap');
+      const dd = document.getElementById('food-autocomplete-dropdown');
+      if (dd && wrap && !wrap.contains(ev.target)) {
+        dd.classList.remove('is-open');
+      }
+    });
 
     function getMealFallbackSvgDataUri(slotNum) {
       const icons = { 1: '%E2%98%80%EF%B8%8F', 2: '%F0%9F%8D%B2', 3: '%F0%9F%8D%8E', 4: '%F0%9F%8C%99' };
@@ -11305,7 +11709,6 @@
 
     function getMealPhotoUrl(dishTitle, slotNum) {
       const t = (dishTitle || '').toLowerCase();
-      // Desayunos / Huevos / Avena / Chilaquiles / Molletes
       if (t.includes('avena') || t.includes('batido') || t.includes('hotcake')) {
         return 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=260&q=80';
       }
@@ -11318,7 +11721,6 @@
       if (t.includes('omelette') || t.includes('huevo') || t.includes('claras')) {
         return 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80';
       }
-      // Comidas / Carnes / Pescados / Bowls
       if (t.includes('pescado') || t.includes('ceviche') || t.includes('at\u00fan') || t.includes('atun') || t.includes('salm\u00f3n')) {
         return 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=260&q=80';
       }
@@ -11331,18 +11733,15 @@
       if (t.includes('fajita') || t.includes('pechuga') || t.includes('pollo') || t.includes('rollito')) {
         return 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=260&q=80';
       }
-      // Colaciones / Yogur / Mousse / Fruta
       if (t.includes('mousse') || t.includes('cacao') || t.includes('chocolate')) {
         return 'https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=260&q=80';
       }
       if (t.includes('yogur') || t.includes('fresa') || t.includes('papaya') || t.includes('manzana') || t.includes('j\u00edcama')) {
         return 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=260&q=80';
       }
-      // Cenas / Quesadillas / Sincronizadas / Cremas
       if (t.includes('quesadilla') || t.includes('sincronizada') || t.includes('crema')) {
         return 'https://images.unsplash.com/photo-1618040996337-56904b7850b9?auto=format&fit=crop&w=260&q=80';
       }
-      // Defaults por tiempo de comida
       const defaultPhotos = {
         1: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80',
         2: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=260&q=80',
@@ -11354,19 +11753,22 @@
 
     function ensurePlanCustomizationsState() {
       if (!clubState.mealCustomizations) {
-        // Estructura indexada por dia (0..5) y comida (1..4): { swapped: false, customTitle: '', extras: [{ name, kcal }] }
+        // Estructura indexada por dia (0..5) y comida (1..4): { swapped: false, customTitle: '', extras: [{ name, kcal }], completed: false }
         clubState.mealCustomizations = {};
+      }
+      if (typeof clubState.activeWeekdayIdx !== 'number') {
+        clubState.activeWeekdayIdx = getTodayPlanWeekdayIdx();
       }
       if (typeof clubState.activeMealSlot !== 'number' || clubState.activeMealSlot < 1 || clubState.activeMealSlot > 4) {
         clubState.activeMealSlot = 1;
       }
-      const dayIdx = clubState.activeWeekdayIdx || 0;
+      const dayIdx = clubState.activeWeekdayIdx;
       if (!clubState.mealCustomizations[dayIdx]) {
         clubState.mealCustomizations[dayIdx] = {
-          1: { swapped: false, customTitle: '', extras: [] },
-          2: { swapped: false, customTitle: '', extras: [] },
-          3: { swapped: false, customTitle: '', extras: [] },
-          4: { swapped: false, customTitle: '', extras: [] }
+          1: { swapped: false, customTitle: '', extras: [], completed: false },
+          2: { swapped: false, customTitle: '', extras: [], completed: false },
+          3: { swapped: false, customTitle: '', extras: [], completed: false },
+          4: { swapped: false, customTitle: '', extras: [], completed: false }
         };
       }
       return clubState.mealCustomizations[dayIdx];
@@ -11377,7 +11779,7 @@
       const dayData = plan.days[dayIdx] || plan.days[0];
       const dayCustom = (clubState.mealCustomizations && clubState.mealCustomizations[dayIdx])
         ? clubState.mealCustomizations[dayIdx][slotNum]
-        : { swapped: false, customTitle: '', extras: [] };
+        : { swapped: false, customTitle: '', extras: [], completed: false };
 
       const isColitis = !!clubState.antecedentesAPP.colitis;
       const altOptions = {
@@ -11397,9 +11799,11 @@
       const subMap = { 1: plan.bSub, 2: plan.lSub, 3: plan.sSub, 4: plan.dSub };
       const baseKcalMap = { 1: plan.kB, 2: plan.kL, 3: plan.kS, 4: plan.kD };
       const slotNames = { 1: 'Desayuno', 2: 'Comida', 3: 'Colaci\u00f3n', 4: 'Cena' };
+      const slotShort = { 1: 'Des', 2: 'Com', 3: 'Col', 4: 'Cen' };
       const slotIcons = { 1: '\u2600\uFE0F', 2: '\uD83C\uDF72', 3: '\uD83C\uDF4E', 4: '\uD83C\uDF19' };
 
       const swapped = !!(dayCustom && dayCustom.swapped);
+      const completed = !!(dayCustom && dayCustom.completed);
       const customTitle = (dayCustom && dayCustom.customTitle) ? dayCustom.customTitle.trim() : '';
       const extras = (dayCustom && Array.isArray(dayCustom.extras)) ? dayCustom.extras : [];
 
@@ -11413,8 +11817,10 @@
       return {
         slotNum,
         slotName: slotNames[slotNum],
+        slotShort: slotShort[slotNum],
         slotIcon: slotIcons[slotNum],
         swapped,
+        completed,
         customTitle,
         finalTitle,
         subText: subMap[slotNum],
@@ -11428,32 +11834,47 @@
 
     function renderActiveDayPlanAndCalorieEditor() {
       ensurePlanCustomizationsState();
-      const dayIdx = clubState.activeWeekdayIdx || 0;
+      syncWeekdayTabsWithRealCalendarDay();
+
+      const todayIdx = getTodayPlanWeekdayIdx();
+      const dayIdx = typeof clubState.activeWeekdayIdx === 'number' ? clubState.activeWeekdayIdx : todayIdx;
+      const isTodaySelected = (new Date().getDay() !== 0) && (dayIdx === todayIdx);
       const activeSlot = clubState.activeMealSlot || 1;
       const plan = buildPersonalizedWeeklyPlan();
       const dayData = plan.days[dayIdx] || plan.days[0];
 
       const ind = document.getElementById('active-day-indicator');
-      if (ind) ind.innerText = `\uD83D\uDCCD Viendo: ${dayData.day}`;
+      if (ind) {
+        ind.innerHTML = isTodaySelected
+          ? `\uD83D\uDCCD Hoy: <strong>${dayData.day}</strong> (Sincronizado)`
+          : `\uD83D\uDCCD Viendo: ${dayData.day}`;
+      }
 
       let dayPlannedTotal = 0;
       let dayConsumedTotal = 0;
+      let completedMealsCount = 0;
 
       for (let num = 1; num <= 4; num++) {
         const slotInfo = getResolvedMealSlotData(dayIdx, num, plan);
         dayPlannedTotal += slotInfo.plannedKcal;
-        dayConsumedTotal += slotInfo.totalSlotKcal;
+        // Las calorias SOLO se suman a la Ingesta Consumida una vez que el usuario le da a "Completar Alimento / Comida"
+        if (slotInfo.completed) {
+          dayConsumedTotal += slotInfo.totalSlotKcal;
+          completedMealsCount++;
+        }
 
         const rowEl = document.getElementById('plan-meal-row-' + num);
         if (rowEl) {
-          if (num === activeSlot) rowEl.classList.add('active-editing-meal');
-          else rowEl.classList.remove('active-editing-meal');
+          rowEl.classList.toggle('active-editing-meal', num === activeSlot);
+          rowEl.classList.toggle('completed-meal', slotInfo.completed);
         }
 
         const badgeEl = document.getElementById('meal-badge-' + num);
         if (badgeEl) {
-          if (slotInfo.extrasKcal > 0) {
-            badgeEl.innerHTML = `${slotInfo.slotIcon} ${slotInfo.slotName}<br><strong style="color: var(--coral);">${slotInfo.totalSlotKcal} kcal</strong><div style="font-size: 0.61rem; color: var(--text-muted); font-weight: 700;">Plan: ${slotInfo.plannedKcal} (+${slotInfo.extrasKcal})</div>`;
+          if (slotInfo.completed) {
+            badgeEl.innerHTML = `\u2705 ${slotInfo.slotName}<br><strong style="color: #15803D;">${slotInfo.totalSlotKcal} kcal</strong><div style="font-size: 0.6rem; color: #166534; font-weight: 800;">Sumado a hoy</div>`;
+          } else if (slotInfo.extrasKcal > 0) {
+            badgeEl.innerHTML = `${slotInfo.slotIcon} ${slotInfo.slotName}<br><strong style="color: var(--coral);">${slotInfo.totalSlotKcal} kcal</strong><div style="font-size: 0.6rem; color: var(--text-muted); font-weight: 700;">Plan: ${slotInfo.plannedKcal} (+${slotInfo.extrasKcal})</div>`;
           } else {
             badgeEl.innerHTML = `${slotInfo.slotIcon} ${slotInfo.slotName}<br>~${slotInfo.plannedKcal} kcal`;
           }
@@ -11468,40 +11889,81 @@
 
         const descEl = document.getElementById('meal-desc-' + num);
         if (descEl) {
-          const titleColor = (slotInfo.swapped || slotInfo.customTitle) ? 'var(--avo-primary)' : 'var(--text-main)';
-          const prefixTag = slotInfo.customTitle
-            ? '<span style="background: #DCFCE7; color: #166534; font-size: 0.63rem; padding: 1px 6px; border-radius: 6px; margin-right: 5px; font-weight: 800;">\u270F\uFE0F Editado</span>'
-            : (slotInfo.swapped ? '<span style="background: #FEF3C7; color: #92400E; font-size: 0.63rem; padding: 1px 6px; border-radius: 6px; margin-right: 5px; font-weight: 800;">\uD83D\uDD04 Opci\u00f3n 2</span>' : '');
+          const titleColor = slotInfo.completed
+            ? '#166534'
+            : ((slotInfo.swapped || slotInfo.customTitle) ? 'var(--avo-primary)' : 'var(--text-main)');
+
+          let statusTags = '';
+          if (slotInfo.completed) {
+            statusTags += '<span style="background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; font-size: 0.62rem; padding: 1px 6px; border-radius: 6px; margin-right: 5px; font-weight: 900;">\u2705 Completado</span>';
+          }
+          if (slotInfo.customTitle) {
+            statusTags += '<span style="background: #E0F2FE; color: #0369A1; font-size: 0.62rem; padding: 1px 6px; border-radius: 6px; margin-right: 5px; font-weight: 800;">\u270F\uFE0F Editado</span>';
+          } else if (slotInfo.swapped) {
+            statusTags += '<span style="background: #FEF3C7; color: #92400E; font-size: 0.62rem; padding: 1px 6px; border-radius: 6px; margin-right: 5px; font-weight: 800;">\uD83D\uDD04 Opci\u00f3n 2</span>';
+          }
 
           let extrasHtml = '';
           if (slotInfo.extras.length > 0) {
             extrasHtml = `<div class="meal-extra-pills-wrap">` +
-              slotInfo.extras.map((ex, idx) =>
-                `<span class="meal-extra-pill">+ ${ex.name} (+${ex.kcal} kcal) <button type="button" onclick="event.stopPropagation(); removeExtraFoodFromMeal(${num}, ${idx})" title="Quitar alimento">\u2715</button></span>`
-              ).join('') +
+              slotInfo.extras.map((ex, idx) => {
+                const delBtn = slotInfo.completed
+                  ? ''
+                  : ` <button type="button" onclick="event.stopPropagation(); removeExtraFoodFromMeal(${num}, ${idx})" title="Quitar alimento">\u2715</button>`;
+                return `<span class="meal-extra-pill">+ ${ex.name} (+${ex.kcal} kcal)${delBtn}</span>`;
+              }).join('') +
               `</div>`;
           }
 
-          descEl.innerHTML = `<div style="font-weight: 800; font-size: 0.9rem; line-height: 1.25; color: ${titleColor};">${prefixTag}${slotInfo.finalTitle}</div>` +
+          descEl.innerHTML = `<div style="font-weight: 800; font-size: 0.9rem; line-height: 1.25; color: ${titleColor};">${statusTags}${slotInfo.finalTitle}</div>` +
             `<div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; margin-top: 2px;">${slotInfo.subText}</div>` +
             extrasHtml;
         }
 
+        // Actualizar botones de accion de la fila (si ya esta completada, bloquear Cambiar y Editar)
+        if (rowEl) {
+          const actionsCol = rowEl.querySelector('.meal-actions-col');
+          if (actionsCol) {
+            if (slotInfo.completed) {
+              actionsCol.innerHTML = `
+                <button type="button" class="swap-btn locked-completed-btn" onclick="event.stopPropagation(); selectMealForEdit(${num})" title="Comida ya completada y sumada a tu ingesta">
+                  <i class="fa-solid fa-lock"></i> Completado
+                </button>
+              `;
+            } else {
+              actionsCol.innerHTML = `
+                <button type="button" class="swap-btn" onclick="event.stopPropagation(); swapMeal(${num})"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                <button type="button" class="swap-btn edit-meal-btn" onclick="event.stopPropagation(); selectMealForEdit(${num})"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+              `;
+            }
+          }
+        }
+
         // Actualizar pestanas del panel derecho
         const slotTab = document.getElementById('kcal-slot-tab-' + num);
-        if (slotTab) {
-          if (num === activeSlot) slotTab.classList.add('active');
-          else slotTab.classList.remove('active');
-        }
+        const slotLbl = document.getElementById('kcal-slot-lbl-' + num);
         const slotVal = document.getElementById('kcal-slot-val-' + num);
+        if (slotTab) {
+          slotTab.classList.toggle('active', num === activeSlot);
+          slotTab.classList.toggle('is-completed-slot', slotInfo.completed);
+        }
+        if (slotLbl) {
+          slotLbl.innerHTML = slotInfo.completed
+            ? `\u2705 ${slotInfo.slotShort}`
+            : `${slotInfo.slotIcon} ${slotInfo.slotShort}`;
+        }
         if (slotVal) {
-          slotVal.innerText = `${slotInfo.totalSlotKcal} kcal`;
+          slotVal.innerText = slotInfo.completed
+            ? `+${slotInfo.totalSlotKcal} kcal`
+            : `0 / ${slotInfo.totalSlotKcal}`;
         }
       }
 
-      // Actualizar Resumen Superior de Calorias del Dia Seleccionado en la tarjeta derecha
+      // Actualizar Resumen Superior de Calorias del Dia Seleccionado en la tarjeta derecha (Empieza en 0 kcal)
       const dayLbl = document.getElementById('kcal-panel-day-lbl');
-      if (dayLbl) dayLbl.innerText = dayData.day.toUpperCase();
+      if (dayLbl) {
+        dayLbl.innerText = isTodaySelected ? `${dayData.day.toUpperCase()} (HOY)` : dayData.day.toUpperCase();
+      }
       const dayShort = document.getElementById('kcal-summary-day-short');
       if (dayShort) dayShort.innerText = dayData.day.slice(0, 3);
 
@@ -11510,26 +11972,34 @@
       const consumedDayVal = document.getElementById('kcal-consumed-day-val');
       if (consumedDayVal) consumedDayVal.innerText = `${dayConsumedTotal.toLocaleString('es-MX')} kcal`;
 
+      const pct = dayPlannedTotal > 0 ? Math.min(100, Math.round((dayConsumedTotal / dayPlannedTotal) * 100)) : 0;
       const diff = dayConsumedTotal - dayPlannedTotal;
-      const pct = dayPlannedTotal > 0 ? Math.min(100, Math.round((dayConsumedTotal / dayPlannedTotal) * 100)) : 100;
       const barEl = document.getElementById('kcal-day-progress-bar');
       const diffBadge = document.getElementById('kcal-day-diff-badge');
+
       if (barEl) {
         barEl.style.width = `${pct}%`;
         barEl.style.background = diff > 150
           ? 'linear-gradient(90deg, #F59E0B, #E86F52)'
           : 'linear-gradient(90deg, #8FD14F, #FDE68A)';
       }
+
       if (diffBadge) {
-        if (diff === 0) {
+        if (completedMealsCount === 0) {
           diffBadge.style.color = '#A7F3D0';
-          diffBadge.innerHTML = `\u2705 Exacto en tu meta planeada (${dayPlannedTotal.toLocaleString('es-MX')} kcal)`;
-        } else if (diff > 0) {
+          diffBadge.innerHTML = `\u23F3 0 de 4 comidas completadas (Empieza en 0 kcal)`;
+        } else if (completedMealsCount < 4) {
+          const rem = Math.max(0, dayPlannedTotal - dayConsumedTotal);
           diffBadge.style.color = '#FDE68A';
-          diffBadge.innerHTML = `\u26A1 +${diff} kcal a\u00f1adidas sobre lo planeado`;
+          diffBadge.innerHTML = `\uD83D\uDD25 ${completedMealsCount}/4 comidas listas &bull; Restan ${rem.toLocaleString('es-MX')} kcal`;
         } else {
-          diffBadge.style.color = '#A7F3D0';
-          diffBadge.innerHTML = `\uD83C\uDF3F ${diff} kcal respecto a lo planeado`;
+          if (diff > 0) {
+            diffBadge.style.color = '#FDE68A';
+            diffBadge.innerHTML = `\u2705 4/4 comidas listas (+${diff} kcal sobre meta)`;
+          } else {
+            diffBadge.style.color = '#86EFAC';
+            diffBadge.innerHTML = `\uD83C\uDF1F \u00A14/4 comidas completadas en meta! (${dayConsumedTotal.toLocaleString('es-MX')} kcal)`;
+          }
         }
       }
 
@@ -11542,12 +12012,23 @@
       }
       const edTitle = document.getElementById('editor-meal-header-title');
       if (edTitle) {
-        edTitle.innerText = `${activeInfo.slotIcon} Editando: ${activeInfo.slotName} (${dayData.day})`;
+        edTitle.innerText = activeInfo.completed
+          ? `\uD83D\uDD12 ${activeInfo.slotName} Completado (${dayData.day})`
+          : `${activeInfo.slotIcon} Editando: ${activeInfo.slotName} (${dayData.day})`;
       }
       const edSub = document.getElementById('editor-meal-kcal-sub');
       if (edSub) {
         const extraNote = activeInfo.extrasKcal > 0 ? ` (+${activeInfo.extrasKcal} kcal extra)` : '';
-        edSub.innerHTML = `Planeado: ${activeInfo.plannedKcal} kcal &bull; Ingesta Real: <strong style="color: ${activeInfo.extrasKcal > 0 ? 'var(--coral)' : 'var(--avo-forest)'};">${activeInfo.totalSlotKcal} kcal${extraNote}</strong>`;
+        if (activeInfo.completed) {
+          edSub.innerHTML = `\u2705 Sumado a tu ingesta diaria: <strong style="color: #15803D;">${activeInfo.totalSlotKcal} kcal${extraNote}</strong>`;
+        } else {
+          edSub.innerHTML = `Base: ${activeInfo.plannedKcal} kcal &bull; Total al completar: <strong style="color: ${activeInfo.extrasKcal > 0 ? 'var(--coral)' : 'var(--avo-forest)'};">${activeInfo.totalSlotKcal} kcal${extraNote}</strong>`;
+        }
+      }
+
+      const unlockedControls = document.getElementById('editor-unlocked-controls');
+      if (unlockedControls) {
+        unlockedControls.style.display = activeInfo.completed ? 'none' : 'block';
       }
 
       const customInp = document.getElementById('editor-custom-dish-inp');
@@ -11558,13 +12039,33 @@
       const extrasListEl = document.getElementById('editor-meal-extras-list');
       if (extrasListEl) {
         if (activeInfo.extras.length === 0) {
-          extrasListEl.innerHTML = `<span style="color: var(--text-muted);">Sin alimentos extra a\u00f1adidos en ${activeInfo.slotName.toLowerCase()}. Toca un alimento arriba para sumarlo.</span>`;
+          extrasListEl.innerHTML = activeInfo.completed
+            ? `<span style="color: #166534; font-weight: 700;">\u2713 Registrado sin alimentos adicionales (${activeInfo.plannedKcal} kcal).</span>`
+            : `<span style="color: var(--text-muted);">Sin alimentos extra en ${activeInfo.slotName.toLowerCase()}. Usa el buscador SMAE o botones arriba.</span>`;
         } else {
           extrasListEl.innerHTML = `<div style="display: flex; flex-wrap: wrap; gap: 4px;">` +
-            activeInfo.extras.map((ex, idx) =>
-              `<span class="meal-extra-pill">+ ${ex.name} (+${ex.kcal} kcal) <button type="button" onclick="removeExtraFoodFromMeal(${activeSlot}, ${idx})">\u2715</button></span>`
-            ).join('') +
+            activeInfo.extras.map((ex, idx) => {
+              const delBtn = activeInfo.completed
+                ? ''
+                : ` <button type="button" onclick="removeExtraFoodFromMeal(${activeSlot}, ${idx})">\u2715</button>`;
+              return `<span class="meal-extra-pill">+ ${ex.name} (+${ex.kcal} kcal)${delBtn}</span>`;
+            }).join('') +
             `</div>`;
+        }
+      }
+
+      // Actualizar el boton "Completar Alimento / Comida"
+      const completeBtn = document.getElementById('btn-complete-meal-slot');
+      if (completeBtn) {
+        const nextSlotNames = { 1: 'Comida', 2: 'Colaci\u00f3n', 3: 'Cena', 4: '' };
+        const nextName = nextSlotNames[activeSlot];
+        if (activeInfo.completed) {
+          completeBtn.className = 'btn-complete-meal is-completed-locked';
+          completeBtn.innerHTML = `\uD83D\uDD12 ${activeInfo.slotName} Completado (+${activeInfo.totalSlotKcal} kcal sumadas)`;
+        } else {
+          completeBtn.className = 'btn-complete-meal';
+          const nextPhrase = nextName ? ` y pasar a ${nextName} \u2192` : ` y cerrar d\u00eda \u2713`;
+          completeBtn.innerHTML = `\u2705 Completar ${activeInfo.slotName} (+${activeInfo.totalSlotKcal} kcal)${nextPhrase}`;
         }
       }
     }
@@ -11572,14 +12073,30 @@
     function selectWeekday(dayIdx, tabEl) {
       if (typeof dayIdx === 'number') {
         clubState.activeWeekdayIdx = dayIdx;
+      } else if (typeof clubState.activeWeekdayIdx !== 'number') {
+        clubState.activeWeekdayIdx = getTodayPlanWeekdayIdx();
       }
-      document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+
+      syncWeekdayTabsWithRealCalendarDay();
+      document.querySelectorAll('#mod-plan .day-tab').forEach(t => t.classList.remove('active'));
       if (tabEl) {
         tabEl.classList.add('active');
       } else {
-        const tabs = document.querySelectorAll('.day-tab');
+        const tabs = document.querySelectorAll('#mod-plan .day-tab');
         if (tabs[clubState.activeWeekdayIdx]) tabs[clubState.activeWeekdayIdx].classList.add('active');
       }
+
+      // Seleccionar por defecto la primera comida pendiente de completar en ese dia
+      const dayMeals = ensurePlanCustomizationsState();
+      let firstPending = 1;
+      for (let s = 1; s <= 4; s++) {
+        if (!dayMeals[s]?.completed) {
+          firstPending = s;
+          break;
+        }
+      }
+      clubState.activeMealSlot = firstPending;
+
       flipToSunday(false);
       renderActiveDayPlanAndCalorieEditor();
     }
@@ -11596,6 +12113,7 @@
     function updateSelectedMealCustomTitle(newVal) {
       const dayMeals = ensurePlanCustomizationsState();
       const slot = clubState.activeMealSlot || 1;
+      if (dayMeals[slot].completed) return;
       dayMeals[slot].customTitle = newVal;
       renderActiveDayPlanAndCalorieEditor();
     }
@@ -11603,6 +12121,10 @@
     function addExtraFoodToActiveMeal(foodName, kcalVal) {
       const dayMeals = ensurePlanCustomizationsState();
       const slot = clubState.activeMealSlot || 1;
+      if (dayMeals[slot].completed) {
+        showToast('\uD83D\uDD12 Comida ya completada', 'Esta comida ya fue cerrada y sumada a tu ingesta de hoy.');
+        return;
+      }
       const cleanKcal = Math.max(5, Math.round(parseFloat(kcalVal) || 60));
       dayMeals[slot].extras.push({ name: foodName, kcal: cleanKcal });
       renderActiveDayPlanAndCalorieEditor();
@@ -11611,34 +12133,106 @@
     function addCustomInputFoodToMeal() {
       const nameInp = document.getElementById('custom-extra-food-name');
       const kcalInp = document.getElementById('custom-extra-food-kcal');
+      const dd = document.getElementById('food-autocomplete-dropdown');
       const rawName = (nameInp?.value || '').trim();
-      const rawKcal = parseFloat(kcalInp?.value || 80);
+      let rawKcal = parseFloat(kcalInp?.value || 65);
       if (!rawName) {
         if (nameInp) nameInp.focus();
         return;
       }
+      // Si el texto coincide con algun alimento de la base SMAE, usar sus kcal exactas
+      const q = normalizeSearchStr(rawName);
+      const exactMatch = SMAE_FOOD_EQUIVALENTS_DB.find(it => normalizeSearchStr(it.name) === q || normalizeSearchStr(`${it.name} (${it.portion})`) === q);
+      if (exactMatch && (!kcalInp || !kcalInp.value)) {
+        rawKcal = exactMatch.kcal;
+      }
       addExtraFoodToActiveMeal(rawName, rawKcal);
       if (nameInp) nameInp.value = '';
+      if (dd) dd.classList.remove('is-open');
     }
 
     function removeExtraFoodFromMeal(slotNum, extraIdx) {
       const dayMeals = ensurePlanCustomizationsState();
+      if (dayMeals[slotNum]?.completed) return;
       if (dayMeals[slotNum] && Array.isArray(dayMeals[slotNum].extras)) {
         dayMeals[slotNum].extras.splice(extraIdx, 1);
       }
       renderActiveDayPlanAndCalorieEditor();
     }
 
-    function resetActiveDayMeals() {
+    // Completa el alimento/comida actual, suma sus calorias a la Ingesta Consumida, bloquea la comida y avanza a la siguiente (Desayuno -> Comida -> Colacion -> Cena)
+    function completeActiveMealSlot() {
+      const dayMeals = ensurePlanCustomizationsState();
       const dayIdx = clubState.activeWeekdayIdx || 0;
+      const slot = clubState.activeMealSlot || 1;
+      const slotInfo = getResolvedMealSlotData(dayIdx, slot);
+
+      if (dayMeals[slot].completed) {
+        // Si ya estaba completada, avanzar a la siguiente comida disponible
+        for (let next = 1; next <= 4; next++) {
+          if (!dayMeals[next].completed) {
+            clubState.activeMealSlot = next;
+            renderActiveDayPlanAndCalorieEditor();
+            return;
+          }
+        }
+        return;
+      }
+
+      // Si el usuario dejo algun alimento escrito en el input sin darle "+ Anadir", sumarlo automaticamente antes de cerrar la comida
+      const pendingInp = document.getElementById('custom-extra-food-name');
+      if (pendingInp && pendingInp.value.trim().length > 0) {
+        addCustomInputFoodToMeal();
+      }
+
+      dayMeals[slot].completed = true;
+      const updatedInfo = getResolvedMealSlotData(dayIdx, slot);
+
+      // Buscar la siguiente comida pendiente (ej. de Desayuno pasa a Comida, de Comida a Colacion, de Colacion a Cena)
+      let nextSlot = slot;
+      for (let candidate = slot + 1; candidate <= 4; candidate++) {
+        if (!dayMeals[candidate].completed) {
+          nextSlot = candidate;
+          break;
+        }
+      }
+      if (nextSlot === slot) {
+        for (let candidate = 1; candidate <= 4; candidate++) {
+          if (!dayMeals[candidate].completed) {
+            nextSlot = candidate;
+            break;
+          }
+        }
+      }
+      clubState.activeMealSlot = nextSlot;
+      renderActiveDayPlanAndCalorieEditor();
+
+      const nextSlotObj = getResolvedMealSlotData(dayIdx, nextSlot);
+      if (nextSlot !== slot && !dayMeals[nextSlot].completed) {
+        showToast(
+          `\u2705 ${updatedInfo.slotName} Completado (+${updatedInfo.totalSlotKcal} kcal)`,
+          `Se sumaron ${updatedInfo.totalSlotKcal} kcal a tu ingesta de hoy. Avanzaste a ${nextSlotObj.slotName}.`
+        );
+      } else {
+        showToast(
+          `\uD83C\uDF1F \u00A14 de 4 Comidas Completadas!`,
+          `Cerraste tu registro cal\u00f3rico de hoy con \u00e9xito.`
+        );
+      }
+    }
+
+    function resetActiveDayMeals() {
+      const dayIdx = typeof clubState.activeWeekdayIdx === 'number' ? clubState.activeWeekdayIdx : getTodayPlanWeekdayIdx();
       if (!clubState.mealCustomizations) clubState.mealCustomizations = {};
       clubState.mealCustomizations[dayIdx] = {
-        1: { swapped: false, customTitle: '', extras: [] },
-        2: { swapped: false, customTitle: '', extras: [] },
-        3: { swapped: false, customTitle: '', extras: [] },
-        4: { swapped: false, customTitle: '', extras: [] }
+        1: { swapped: false, customTitle: '', extras: [], completed: false },
+        2: { swapped: false, customTitle: '', extras: [], completed: false },
+        3: { swapped: false, customTitle: '', extras: [], completed: false },
+        4: { swapped: false, customTitle: '', extras: [], completed: false }
       };
+      clubState.activeMealSlot = 1;
       renderActiveDayPlanAndCalorieEditor();
+      showToast('\uD83D\uDD04 D\u00eda Reiniciado en 0 kcal', 'Todas las comidas de este d\u00eda est\u00e1n desbloqueadas y en 0 kcal.');
     }
 
     function flipToSunday(isSunday) {
@@ -11651,9 +12245,13 @@
       }
     }
 
-    // Interaccion real: Intercambiar platillo (Swap) respetando Antecedentes y actualizando foto alegorica
+    // Interaccion real: Intercambiar platillo (Swap) respetando Antecedentes y bloqueando si ya se completo
     function swapMeal(num) {
       const dayMeals = ensurePlanCustomizationsState();
+      if (dayMeals[num]?.completed) {
+        showToast('\uD83D\uDD12 Comida ya completada', 'No puedes cambiar una comida que ya completaste y sumaste hoy.');
+        return;
+      }
       clubState.activeMealSlot = num;
       dayMeals[num].swapped = !dayMeals[num].swapped;
       dayMeals[num].customTitle = '';
@@ -11703,7 +12301,7 @@
       if (bannerSub) {
         bannerSub.innerHTML = `<strong>Patol\u00f3gicos (APP):</strong> ${appShortList} &bull; <strong>No Patol\u00f3gicos (APNP):</strong> ${apnpShortList}`;
       }
-      selectWeekday(clubState.activeWeekdayIdx || 0);
+      selectWeekday(typeof clubState.activeWeekdayIdx === 'number' ? clubState.activeWeekdayIdx : getTodayPlanWeekdayIdx());
 
       // 2. Actualizar Tarjeta 2 del Feed del Buzon (Historia Clinica Oficial) y Vista 2
       const item2Title = document.getElementById('buzon-item-2-title');
