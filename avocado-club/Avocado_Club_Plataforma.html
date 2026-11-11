@@ -3430,7 +3430,226 @@
       }
     }
 
-    /* DÍAS DE LA SEMANA EN POZO CÓNCAVO (RECESSED BAR) */
+        /* ESTILOS DE MI PLAN: FOTOS ALEGORICAS DE COMIDAS, EDITOR DE ALIMENTOS Y CONTROL DE CALORIAS */
+    #weekday-meals-list .meal-row {
+      display: grid;
+      grid-template-columns: 98px 58px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 13px;
+      border-radius: 16px;
+      border: 1.5px solid #D5E4C5;
+      margin-bottom: 9px;
+      background: #F9FCF6;
+      box-shadow: 0 4px 12px rgba(20, 43, 31, 0.03);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    #weekday-meals-list .meal-row:hover {
+      border-color: var(--avo-primary);
+      background: #FFFFFF;
+      transform: translateX(2px);
+    }
+
+    #weekday-meals-list .meal-row.active-editing-meal {
+      border: 2px solid var(--avo-primary);
+      background: linear-gradient(135deg, #FFFFFF 0%, #F2F9E9 100%);
+      box-shadow: 0 8px 20px rgba(104, 163, 50, 0.14);
+    }
+
+    .meal-photo-wrap {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid #CFE0BE;
+      background: #E8F1DE;
+      box-shadow: 0 4px 10px rgba(20, 43, 31, 0.1);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .meal-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    #weekday-meals-list .meal-row:hover .meal-photo-wrap img {
+      transform: scale(1.07);
+    }
+
+    .meal-actions-col {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: stretch;
+    }
+
+    .meal-actions-col .swap-btn {
+      padding: 5px 10px;
+      font-size: 0.71rem;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .meal-actions-col .swap-btn.edit-meal-btn {
+      background: #F4F9EE;
+      border-color: #A3D977;
+      color: var(--avo-forest);
+    }
+
+    .meal-actions-col .swap-btn.edit-meal-btn:hover,
+    #weekday-meals-list .meal-row.active-editing-meal .swap-btn.edit-meal-btn {
+      background: var(--avo-primary);
+      border-color: var(--avo-primary);
+      color: #FFFFFF;
+    }
+
+    .meal-extra-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .meal-extra-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #F59E0B;
+      border-radius: 99px;
+      padding: 1px 8px;
+      font-size: 0.67rem;
+      font-weight: 800;
+    }
+
+    .meal-extra-pill button {
+      background: none;
+      border: none;
+      color: #B45309;
+      font-weight: 900;
+      font-size: 0.68rem;
+      cursor: pointer;
+      padding: 0 0 0 2px;
+      line-height: 1;
+    }
+
+    .kcal-editor-slot-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .kcal-slot-tab {
+      border: 1.5px solid #CFE0BE;
+      background: #F9FCF6;
+      border-radius: 10px;
+      padding: 5px 4px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      font-family: inherit;
+    }
+
+    .kcal-slot-tab:hover {
+      border-color: var(--avo-primary);
+      background: #FFFFFF;
+    }
+
+    .kcal-slot-tab.active {
+      background: var(--avo-dark);
+      border-color: var(--avo-dark);
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(20, 43, 31, 0.16);
+    }
+
+    .quick-food-add-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      max-height: 88px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+
+    .quick-food-chip-btn {
+      border: 1px solid #CFE0BE;
+      background: #FFFFFF;
+      color: var(--avo-dark);
+      border-radius: 8px;
+      padding: 3px 7px;
+      font-family: inherit;
+      font-size: 0.67rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .quick-food-chip-btn:hover {
+      background: var(--avo-pale);
+      border-color: var(--avo-primary);
+      color: var(--avo-forest);
+      transform: translateY(-1px);
+    }
+
+    .sunday-dish-opt {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.79rem;
+      margin-bottom: 7px;
+      cursor: pointer;
+      padding: 5px 7px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+
+    .sunday-dish-opt:hover {
+      background: #FFFBEB;
+      border-color: #FDE68A;
+    }
+
+    .sunday-dish-thumb {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      object-fit: cover;
+      border: 1.5px solid #F5DC9B;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      #weekday-meals-list .meal-row {
+        grid-template-columns: 82px 48px 1fr;
+        gap: 9px;
+      }
+      .meal-photo-wrap {
+        width: 48px;
+        height: 48px;
+      }
+      .meal-actions-col {
+        grid-column: span 3;
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+
+    /* DIAS DE LA SEMANA EN POZO CONCAVO (RECESSED BAR) */
     .day-tabs {
       display: flex;
       gap: 6px;
@@ -4476,7 +4695,7 @@
             </li>
             <li class="nav-item" id="nav-mod-plan" onclick="openModule('mod-plan', this)">
               <i class="fa-solid fa-calendar-check"></i>
-              <span>2. Mi Plan + Domingo Libre</span>
+              <span>2. Mi Plan</span>
             </li>
             <li class="nav-item" id="nav-mod-porciones" onclick="openModule('mod-porciones', this)">
               <i class="fa-solid fa-hand-sparkles"></i>
@@ -4978,13 +5197,13 @@
                     </div>
 
                     <div class="dash-icc-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 8px;">
-                      <span id="dash-next-calibration-label" style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted);">Sincronizado en vivo con <strong>Módulo 1 (Medidas)</strong> y <strong>Módulo 2 (Cierre Semanal)</strong></span>
+                      <span id="dash-next-calibration-label" style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted);">Sincronizado en vivo con <strong>1. Objetivos y Medidas</strong> y <strong>Mi Plan</strong></span>
                       <div class="dash-icc-footer-btns" style="display: flex; gap: 8px; flex-wrap: wrap;">
                         <button type="button" class="btn-flip-trigger" style="padding: 8px 13px; font-size: 0.76rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
-                          📏 Editar en Módulo 1
+                          &#128207; Ir a Objetivos y Medidas
                         </button>
                         <button class="btn-enter-club" style="width: auto; padding: 9px 16px; font-size: 0.79rem; margin: 0;" onclick="openModule('mod-plan', document.getElementById('nav-mod-plan'))">
-                          📝 Ir al Cierre Semanal (Mód. 2)
+                          &#128197; Ir a Mi Plan
                         </button>
                       </div>
                     </div>
@@ -5971,13 +6190,13 @@
                ========================================================= -->
           <div id="mod-plan" class="module-section">
 
-            <!-- BANNER DE CALIBRACION CLINICA DEL PLAN (MUESTRA OBJETIVO + ANTECEDENTES PATOLOGICOS Y NO PATOLOGICOS + ENLACE AL BUZON) -->
+            <!-- BANNER DE CALIBRACION CLINICA DE MI PLAN -->
             <div class="plan-calibration-banner" id="plan-calibration-banner">
               <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
                 <div style="flex: 1; min-width: 260px;">
                   <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">
                     <span style="background: rgba(253, 230, 138, 0.2); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.45); font-size: 0.68rem; font-weight: 800; padding: 3px 10px; border-radius: 99px; text-transform: uppercase;">
-                      <i class="fa-solid fa-wand-magic-sparkles"></i> Plan Calibrado con tu Historia Cl&iacute;nica
+                      <i class="fa-solid fa-wand-magic-sparkles"></i> Mi Plan Calibrado con tu Historia Cl&iacute;nica
                     </span>
                     <span id="plan-banner-buzon-status" style="background: rgba(134, 239, 172, 0.18); color: #A7F3D0; border: 1px solid rgba(134, 239, 172, 0.4); font-size: 0.68rem; font-weight: 800; padding: 3px 10px; border-radius: 99px;">
                       <i class="fa-solid fa-check-double"></i> Historia Cl&iacute;nica y Plan enviados a tu Buz&oacute;n
@@ -5992,10 +6211,10 @@
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                   <button type="button" class="btn-flip-trigger" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))" style="font-size: 0.75rem; padding: 8px 13px; background: rgba(255,255,255,0.12); color: #FFFFFF; border-color: rgba(255,255,255,0.28);">
-                    <i class="fa-solid fa-sliders"></i> Ajustar Antecedentes
+                    <i class="fa-solid fa-sliders"></i> Cierre Semanal / Medidas
                   </button>
                   <button type="button" class="btn-flip-trigger gold-flip" onclick="openBuzonOnClinicalHistory()" style="font-size: 0.76rem; padding: 8px 14px;">
-                    <i class="fa-solid fa-inbox"></i> Ver Historia Cl&iacute;nica y Plan en Buz&oacute;n
+                    <i class="fa-solid fa-inbox"></i> Ver en Buz&oacute;n
                   </button>
                 </div>
               </div>
@@ -6003,186 +6222,307 @@
 
             <div class="bento-grid">
               
-              <!-- TARJETA IZQUIERDA (COL-8): GIRO 3D ENTRE LUNES-SABADO Y DOMINGO MENU ABIERTO (ALTURA FIJA 555px) -->
-              <div class="col-8 flip-stage-3d" id="flip-plan-card" style="height: 555px;">
+              <!-- TARJETA IZQUIERDA (COL-8): MI PLAN LUNES-SABADO CON FOTOS ALEGORICAS Y DOMINGO LIBRE (ALTURA FIJA 580px) -->
+              <div class="col-8 flip-stage-3d" id="flip-plan-card" style="height: 580px;">
                 <div class="flip-inner-3d">
 
-                  <!-- CARA FRONTAL: MENU GUIADO LUNES A SABADO -->
+                  <!-- CARA FRONTAL: MI PLAN LUNES A SABADO CON FOTO POR COMIDA, CAMBIAR Y EDITAR -->
                   <div class="flip-face-3d front">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
-                        <span class="card-label" id="plan-card-top-label" style="margin: 0;">&#128197; M&Oacute;DULO 2 &bull; PLAN SEMANAL (1,480 KCAL &bull; CONTROL INSULINA)</span>
-                        <span style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary);" id="active-day-indicator">📍 Viendo: Lunes</span>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 6px;">
+                        <span class="card-label" id="plan-card-top-label" style="margin: 0;">&#128197; MI PLAN &bull; MEN&Uacute; SEMANAL (1,480 KCAL &bull; CONTROL INSULINA)</span>
+                        <span style="font-size: 0.76rem; font-weight: 800; color: var(--avo-primary);" id="active-day-indicator">&#128205; Viendo: Lunes</span>
                       </div>
-                      <h2 style="font-size: 1.48rem; margin: 6px 0 10px;">Tu Menú Diario (Haz clic en Domingo para girar la tarjeta)</h2>
+                      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin: 2px 0 8px;">
+                        <h2 style="font-size: 1.45rem; margin: 0;">Mi Plan</h2>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">
+                          Toca <strong>Cambiar</strong> para otra opci&oacute;n o <strong>Editar</strong> para a&ntilde;adir alimentos y calcular tus kcal:
+                        </span>
+                      </div>
 
-                      <div class="day-tabs">
+                      <div class="day-tabs" style="margin-bottom: 12px;">
                         <button type="button" class="day-tab active" onclick="selectWeekday(0, this)">Lunes</button>
                         <button type="button" class="day-tab" onclick="selectWeekday(1, this)">Martes</button>
-                        <button type="button" class="day-tab" onclick="selectWeekday(2, this)">Miércoles</button>
+                        <button type="button" class="day-tab" onclick="selectWeekday(2, this)">Mi&eacute;rcoles</button>
                         <button type="button" class="day-tab" onclick="selectWeekday(3, this)">Jueves</button>
                         <button type="button" class="day-tab" onclick="selectWeekday(4, this)">Viernes</button>
-                        <button type="button" class="day-tab" onclick="selectWeekday(5, this)">Sábado</button>
+                        <button type="button" class="day-tab" onclick="selectWeekday(5, this)">S&aacute;bado</button>
                         <button type="button" class="day-tab sunday-free" onclick="flipToSunday(true)">
-                          ☀️ Domingo Libre <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>
+                          &#9728;&#65039; Domingo Libre <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>
                         </button>
                       </div>
 
-                                            <div id="weekday-meals-list">
-                        <div class="meal-row">
+                      <div id="weekday-meals-list">
+                        <!-- COMIDA 1: DESAYUNO -->
+                        <div class="meal-row active-editing-meal" id="plan-meal-row-1" onclick="selectMealForEdit(1)">
                           <div class="meal-time-badge" id="meal-badge-1">&#9728;&#65039; Desayuno<br>~370 kcal</div>
-                          <div id="meal-desc-1">
-                            <div style="font-weight: 800; font-size: 0.94rem;">Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate</div>
-                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 huevos + 1/2 taza nopales + 40g queso panela + 1/3 aguacate + 1 tortilla de ma&iacute;z.</div>
+                          <div class="meal-photo-wrap">
+                            <img id="meal-photo-1" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=240&q=80" alt="Desayuno" />
                           </div>
-                          <button class="swap-btn" onclick="swapMeal(1)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                          <div id="meal-desc-1" style="min-width: 0;">
+                            <div style="font-weight: 800; font-size: 0.9rem; line-height: 1.25;">Omelette de Claras y Huevo con Nopales, Queso Panela y Aguacate</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.3; margin-top: 2px;">2 huevos + 1/2 taza nopales + 40g queso panela + 1/3 aguacate + 1 tortilla de ma&iacute;z.</div>
+                          </div>
+                          <div class="meal-actions-col">
+                            <button type="button" class="swap-btn" onclick="event.stopPropagation(); swapMeal(1)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                            <button type="button" class="swap-btn edit-meal-btn" onclick="event.stopPropagation(); selectMealForEdit(1)"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                          </div>
                         </div>
 
-                        <div class="meal-row">
+                        <!-- COMIDA 2: COMIDA -->
+                        <div class="meal-row" id="plan-meal-row-2" onclick="selectMealForEdit(2)">
                           <div class="meal-time-badge" id="meal-badge-2">&#127858; Comida<br>~520 kcal</div>
-                          <div id="meal-desc-2">
-                            <div style="font-weight: 800; font-size: 0.94rem;">Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz</div>
-                            <div style="font-size: 0.8rem; color: var(--text-muted);">1 palma de pechuga + pimientos y cebolla + 1/2 taza frijoles + 1/3 aguacate.</div>
+                          <div class="meal-photo-wrap">
+                            <img id="meal-photo-2" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=240&q=80" alt="Comida" />
                           </div>
-                          <button class="swap-btn" onclick="swapMeal(2)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                          <div id="meal-desc-2" style="min-width: 0;">
+                            <div style="font-weight: 800; font-size: 0.9rem; line-height: 1.25;">Fajitas de Pollo a la Mexicana con Frijoles de la Olla y Arroz</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.3; margin-top: 2px;">1 palma de pechuga + pimientos y cebolla + 1/2 taza frijoles + 1/3 aguacate.</div>
+                          </div>
+                          <div class="meal-actions-col">
+                            <button type="button" class="swap-btn" onclick="event.stopPropagation(); swapMeal(2)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                            <button type="button" class="swap-btn edit-meal-btn" onclick="event.stopPropagation(); selectMealForEdit(2)"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                          </div>
                         </div>
 
-                        <div class="meal-row">
+                        <!-- COMIDA 3: COLACION -->
+                        <div class="meal-row" id="plan-meal-row-3" onclick="selectMealForEdit(3)">
                           <div class="meal-time-badge" id="meal-badge-3">&#127822; Colaci&oacute;n<br>~205 kcal</div>
-                          <div id="meal-desc-3">
-                            <div style="font-weight: 800; font-size: 0.94rem;">Yogur Griego Natural sin Az&uacute;car con Fresas, Cacao y Almendras</div>
-                            <div style="font-size: 0.8rem; color: var(--text-muted);">1/2 taza yogur griego + 1/2 taza fresas picadas + 10 almendras fileteadas.</div>
+                          <div class="meal-photo-wrap">
+                            <img id="meal-photo-3" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=240&q=80" alt="Colacion" />
                           </div>
-                          <button class="swap-btn" onclick="swapMeal(3)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                          <div id="meal-desc-3" style="min-width: 0;">
+                            <div style="font-weight: 800; font-size: 0.9rem; line-height: 1.25;">Yogur Griego Natural sin Az&uacute;car con Fresas, Cacao y Almendras</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.3; margin-top: 2px;">1/2 taza yogur griego + 1/2 taza fresas picadas + 10 almendras fileteadas.</div>
+                          </div>
+                          <div class="meal-actions-col">
+                            <button type="button" class="swap-btn" onclick="event.stopPropagation(); swapMeal(3)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                            <button type="button" class="swap-btn edit-meal-btn" onclick="event.stopPropagation(); selectMealForEdit(3)"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                          </div>
                         </div>
 
-                        <div class="meal-row" style="margin-bottom: 0;">
+                        <!-- COMIDA 4: CENA -->
+                        <div class="meal-row" id="plan-meal-row-4" style="margin-bottom: 0;" onclick="selectMealForEdit(4)">
                           <div class="meal-time-badge" id="meal-badge-4">&#127769; Cena<br>~385 kcal</div>
-                          <div id="meal-desc-4">
-                            <div style="font-weight: 800; font-size: 0.94rem;">Tostadas Horneadas de Pollo o Queso Panela con Aguacate</div>
-                            <div style="font-size: 0.8rem; color: var(--text-muted);">2 tostadas Susalia/horneadas + lechuga, salsa casera + prote&iacute;na y 1/3 de aguacate.</div>
+                          <div class="meal-photo-wrap">
+                            <img id="meal-photo-4" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=240&q=80" alt="Cena" />
                           </div>
-                          <button class="swap-btn" onclick="swapMeal(4)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                          <div id="meal-desc-4" style="min-width: 0;">
+                            <div style="font-weight: 800; font-size: 0.9rem; line-height: 1.25;">Tostadas Horneadas de Pollo o Queso Panela con Aguacate</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.3; margin-top: 2px;">2 tostadas Susalia/horneadas + lechuga, salsa casera + prote&iacute;na y 1/3 de aguacate.</div>
+                          </div>
+                          <div class="meal-actions-col">
+                            <button type="button" class="swap-btn" onclick="event.stopPropagation(); swapMeal(4)"><i class="fa-solid fa-arrows-rotate"></i> Cambiar</button>
+                            <button type="button" class="swap-btn edit-meal-btn" onclick="event.stopPropagation(); selectMealForEdit(4)"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- CARA TRASERA: ☀️ DOMINGO DE MENÚ ABIERTO INTELIGENTE (MISMA ALTURA 555px) -->
+                  <!-- CARA TRASERA: DOMINGO DE MENU ABIERTO INTELIGENTE CON FOTOS ALEGORICAS (MISMA ALTURA 580px) -->
                   <div class="flip-face-3d back" style="background: linear-gradient(180deg, #FFFDF7 0%, #FEF6DF 100%);">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span class="card-label gold" style="margin: 0;">☀️ DOMINGO DE MENÚ ABIERTO • RECOMENDACIÓN DE ARIANNA</span>
+                        <span class="card-label gold" style="margin: 0;">&#9728;&#65039; MI PLAN &bull; DOMINGO DE MEN&Uacute; ABIERTO</span>
                         <button type="button" class="btn-flip-trigger" onclick="flipToSunday(false)">
-                          <i class="fa-solid fa-rotate-left"></i> Volver a Lunes–Sábado
+                          <i class="fa-solid fa-rotate-left"></i> Volver a Lunes&ndash;S&aacute;bado
                         </button>
                       </div>
-                      <h2 style="font-size: 1.55rem; color: #78350F; margin-bottom: 6px;">¡Hoy es tu Domingo de Menú Abierto!</h2>
-                      <p style="font-size: 0.86rem; color: #92400E; margin-bottom: 16px;">
+                      <h2 style="font-size: 1.48rem; color: #78350F; margin-bottom: 4px;">&iexcl;Hoy es tu Domingo de Men&uacute; Abierto!</h2>
+                      <p style="font-size: 0.83rem; color: #92400E; margin-bottom: 12px;">
                         Elige libremente tus comidas favoritas de la semana para disfrutar en familia sin culpa y manteniendo tus porciones con la mano:
                       </p>
 
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
-                        <div style="background: #FFFFFF; padding: 14px 16px; border-radius: 16px; border: 1.5px solid #F5DC9B; box-shadow: 0 6px 16px rgba(217, 155, 38, 0.08);">
-                          <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.88rem; margin-bottom: 8px;">☀️ Elige tu Desayuno Dominical Favorito:</div>
-                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
-                            <input type="radio" name="sun_b" checked style="accent-color: var(--avo-primary);"> Chilaquiles horneados con pollo y aguacate
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                        <div style="background: #FFFFFF; padding: 12px 14px; border-radius: 16px; border: 1.5px solid #F5DC9B; box-shadow: 0 6px 16px rgba(217, 155, 38, 0.08);">
+                          <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.85rem; margin-bottom: 8px;">&#9728;&#65039; Elige tu Desayuno Dominical Favorito:</div>
+                          <label class="sunday-dish-opt">
+                            <input type="radio" name="sun_b" checked style="accent-color: var(--avo-primary);">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=160&q=80" alt="Chilaquiles">
+                            <span>Chilaquiles horneados con pollo y aguacate</span>
                           </label>
-                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
-                            <input type="radio" name="sun_b" style="accent-color: var(--avo-primary);"> Molletes en bolillo desmigajado con queso panela
+                          <label class="sunday-dish-opt">
+                            <input type="radio" name="sun_b" style="accent-color: var(--avo-primary);">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=160&q=80" alt="Molletes">
+                            <span>Molletes en bolillo desmigajado con queso panela</span>
                           </label>
-                          <label style="display: flex; gap: 8px; font-size: 0.81rem; cursor: pointer;">
-                            <input type="radio" name="sun_b" style="accent-color: var(--avo-primary);"> Hotcakes de avena y plátano con fresas
+                          <label class="sunday-dish-opt" style="margin-bottom: 0;">
+                            <input type="radio" name="sun_b" style="accent-color: var(--avo-primary);">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=160&q=80" alt="Hotcakes">
+                            <span>Hotcakes de avena y pl&aacute;tano con fresas</span>
                           </label>
                         </div>
 
-                        <div style="background: #FFFFFF; padding: 14px 16px; border-radius: 16px; border: 1.5px solid #F5DC9B; box-shadow: 0 6px 16px rgba(217, 155, 38, 0.08);">
-                          <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.88rem; margin-bottom: 8px;">🍲 Elige tu Comida Familiar de Domingo:</div>
-                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
-                            <input type="radio" name="sun_l" checked style="accent-color: var(--avo-primary);"> Carne asada magra con nopales, guacamole y 2 tortillas
+                        <div style="background: #FFFFFF; padding: 12px 14px; border-radius: 16px; border: 1.5px solid #F5DC9B; box-shadow: 0 6px 16px rgba(217, 155, 38, 0.08);">
+                          <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.85rem; margin-bottom: 8px;">&#127858; Elige tu Comida Familiar de Domingo:</div>
+                          <label class="sunday-dish-opt">
+                            <input type="radio" name="sun_l" checked style="accent-color: var(--avo-primary);">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=160&q=80" alt="Carne asada">
+                            <span>Carne asada magra con nopales, guacamole y 2 tortillas</span>
                           </label>
-                          <label style="display: flex; gap: 8px; font-size: 0.81rem; margin-bottom: 7px; cursor: pointer;">
-                            <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);"> Ceviche fresco de pescado con aguacate y tostadas
+                          <label class="sunday-dish-opt">
+                            <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=160&q=80" alt="Ceviche">
+                            <span>Ceviche fresco de pescado con aguacate y tostadas</span>
                           </label>
-                          <label style="display: flex; gap: 8px; font-size: 0.81rem; cursor: pointer;">
-                            <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);"> Fajitas de pollo gratinadas con queso Oaxaca
+                          <label class="sunday-dish-opt" style="margin-bottom: 0;">
+                            <input type="radio" name="sun_l" style="accent-color: var(--avo-primary);">
+                            <img class="sunday-dish-thumb" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=160&q=80" alt="Fajitas">
+                            <span>Fajitas de pollo gratinadas con queso Oaxaca</span>
                           </label>
                         </div>
                       </div>
                     </div>
 
-                    <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 13px 18px; display: flex; justify-content: space-between; align-items: center;">
-                      <div>
-                        <strong style="font-size: 0.86rem; color: var(--avo-dark);">🔄 Recuerda: Hoy domingo en la noche o mañana lunes AM</strong>
-                        <div style="font-size: 0.78rem; color: var(--text-muted);">Registra tu peso, cintura y cadera en la tarjeta derecha para que la IA calibre tu nueva semana.</div>
+                    <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 16px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+                      <div style="flex: 1; min-width: 200px;">
+                        <strong style="font-size: 0.84rem; color: var(--avo-dark);">&#128197; Cierre Semanal de Fin de Semana (Sin IA &bull; Protocolo Arianna)</strong>
+                        <div style="font-size: 0.76rem; color: var(--text-muted);">Actualiza tu peso, cintura y cadera en <strong>Objetivos y Medidas</strong> para calibrar tu nueva semana.</div>
                       </div>
-                      <button type="button" class="btn-flip-trigger coral-flip" onclick="flipToSunday(false)">
-                        ✓ Menú Dominical Listo
-                      </button>
+                      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button type="button" class="btn-flip-trigger" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                          &#128207; Ir a Objetivos y Medidas
+                        </button>
+                        <button type="button" class="btn-flip-trigger coral-flip" onclick="flipToSunday(false)">
+                          &#10003; Men&uacute; Dominical Listo
+                        </button>
+                      </div>
                     </div>
                   </div>
 
                 </div>
               </div>
 
-              <!-- TARJETA DERECHA (COL-4): GIRO 3D ENTRE CIERRE SEMANAL IA Y LISTA DEL SÚPER (ALTURA FIJA 555px) -->
-              <div class="col-4 flip-stage-3d" id="flip-plan-sidebar" style="height: 555px;">
+              <!-- TARJETA DERECHA (COL-4): GIRO 3D ENTRE CONTROL DE CALORIAS/EDITOR DE COMIDA Y LISTA DEL SUPER (ALTURA FIJA 580px) -->
+              <div class="col-4 flip-stage-3d" id="flip-plan-sidebar" style="height: 580px;">
                 <div class="flip-inner-3d">
 
-                  <!-- CARA FRONTAL: CIERRE SEMANAL IA -->
-                  <div class="flip-face-3d front">
+                  <!-- CARA FRONTAL: INGESTA DIARIA (CALORIAS PLANEADAS VS CONSUMIDAS) Y EDITOR DE LA COMIDA SELECCIONADA -->
+                  <div class="flip-face-3d front" style="padding: 18px 18px;">
                     <div>
-                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span class="card-label coral" style="margin: 0;">🔄 CIERRE SEMANAL IA</span>
-                        <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
-                          🛒 Lista Súper <i class="fa-solid fa-rotate"></i>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 6px;">
+                        <span class="card-label coral" style="margin: 0; font-size: 0.68rem; padding: 4px 10px;">
+                          <i class="fa-solid fa-fire-flame-curved"></i> INGESTA DIARIA &bull; <span id="kcal-panel-day-lbl">LUNES</span>
+                        </span>
+                        <button type="button" class="btn-flip-trigger" style="padding: 4px 10px; font-size: 0.72rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
+                          &#128722; Lista S&uacute;per <i class="fa-solid fa-rotate"></i>
                         </button>
                       </div>
-                      <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Calibra tu Próxima Semana</h3>
-                      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px;">Haz tu check-in el domingo por la noche o lunes temprano:</p>
 
-                      <div class="modern-field" style="margin-bottom: 10px;">
-                        <label>Nuevo Peso (kg)</label>
-                        <div class="modern-input-box"><input type="number" step="0.1" id="checkin-weight" value="68.4" oninput="syncFromCheckinInputs()" style="padding: 11px 14px;"></div>
-                      </div>
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
-                        <div class="modern-field" style="margin: 0;"><label>Cintura (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-waist" value="79" oninput="syncFromCheckinInputs()" style="padding: 11px 14px;"></div></div>
-                        <div class="modern-field" style="margin: 0;"><label>Cadera (cm)</label><div class="modern-input-box"><input type="number" step="0.5" id="checkin-hip" value="99" oninput="syncFromCheckinInputs()" style="padding: 11px 14px;"></div></div>
+                      <!-- BLOQUE 1: COMPARATIVA CALORIAS PLANEADAS VS CONSUMIDAS EN EL DIA SELECCIONADO -->
+                      <div style="background: linear-gradient(135deg, #142B1F 0%, #214532 100%); border-radius: 15px; padding: 10px 13px; color: #FFFFFF; margin-bottom: 8px; border: 1.5px solid rgba(197, 240, 153, 0.3);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center;">
+                          <div>
+                            <div style="font-size: 0.62rem; font-weight: 800; color: #C5F099; text-transform: uppercase;">Meta Planeada (<span id="kcal-summary-day-short">Lun</span>)</div>
+                            <div id="kcal-planned-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.18rem; font-weight: 900; color: #FFFFFF;">1,480 kcal</div>
+                          </div>
+                          <div style="text-align: right;">
+                            <div style="font-size: 0.62rem; font-weight: 800; color: #FDE68A; text-transform: uppercase;">Ingesta Consumida / Real</div>
+                            <div id="kcal-consumed-day-val" style="font-family: 'Outfit', sans-serif; font-size: 1.18rem; font-weight: 900; color: #FDE68A;">1,480 kcal</div>
+                          </div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.14); height: 7px; border-radius: 99px; overflow: hidden; margin: 6px 0 4px;">
+                          <div id="kcal-day-progress-bar" style="width: 100%; height: 100%; background: linear-gradient(90deg, #8FD14F, #FDE68A); border-radius: 99px; transition: width 0.3s ease;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.68rem;">
+                          <span id="kcal-day-diff-badge" style="color: #A7F3D0; font-weight: 800;">&#9989; Exacto en tu meta planeada (0 kcal extra)</span>
+                          <button type="button" onclick="resetActiveDayMeals()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; border-radius: 6px; padding: 1px 7px; font-size: 0.63rem; font-weight: 700; cursor: pointer;" title="Restaurar el d&iacute;a a sus calor&iacute;as planeadas">Restaurar d&iacute;a</button>
+                        </div>
                       </div>
 
-                      <div class="modern-field" style="margin-bottom: 12px;">
-                        <label>¿Cómo sentiste el menú de esta semana?</label>
-                        <select style="width: 100%; padding: 11px 12px; border-radius: 13px; border: 1.5px solid #CFE0BE; background: #F4F9EE; font-family: inherit; font-weight: 700; font-size: 0.82rem;">
-                          <option>😍 Me encantó y quedé satisfecha</option>
-                          <option>🔄 Quiero cambiar los desayunos</option>
-                          <option>⚡ Necesito recetas aún más rápidas</option>
-                        </select>
+                      <!-- BLOQUE 2: SELECTOR DE LAS 4 COMIDAS DEL DIA SELECCIONADO -->
+                      <div class="kcal-editor-slot-tabs">
+                        <button type="button" class="kcal-slot-tab active" id="kcal-slot-tab-1" onclick="selectMealForEdit(1)">
+                          <div style="font-size: 0.66rem; font-weight: 800;">&#9728;&#65039; Des</div>
+                          <div id="kcal-slot-val-1" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">370 kcal</div>
+                        </button>
+                        <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-2" onclick="selectMealForEdit(2)">
+                          <div style="font-size: 0.66rem; font-weight: 800;">&#127858; Com</div>
+                          <div id="kcal-slot-val-2" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">520 kcal</div>
+                        </button>
+                        <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-3" onclick="selectMealForEdit(3)">
+                          <div style="font-size: 0.66rem; font-weight: 800;">&#127822; Col</div>
+                          <div id="kcal-slot-val-3" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">205 kcal</div>
+                        </button>
+                        <button type="button" class="kcal-slot-tab" id="kcal-slot-tab-4" onclick="selectMealForEdit(4)">
+                          <div style="font-size: 0.66rem; font-weight: 800;">&#127769; Cen</div>
+                          <div id="kcal-slot-val-4" style="font-size: 0.65rem; font-weight: 700; opacity: 0.9;">385 kcal</div>
+                        </button>
+                      </div>
+
+                      <!-- BLOQUE 3: EDITOR DE LA COMIDA SELECCIONADA (EDITAR PLATILLO + ANADIR ALIMENTOS) -->
+                      <div style="background: #F4F9EE; border: 1.5px solid #CFE0BE; border-radius: 14px; padding: 9px 11px; margin-bottom: 7px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                          <img id="editor-meal-thumb" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=160&q=80" alt="Comida" style="width: 36px; height: 36px; border-radius: 9px; object-fit: cover; border: 1.5px solid var(--avo-primary); flex-shrink: 0;" />
+                          <div style="flex: 1; min-width: 0;">
+                            <div id="editor-meal-header-title" style="font-size: 0.75rem; font-weight: 900; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                              &#9728;&#65039; Editando: Desayuno (Lunes)
+                            </div>
+                            <div id="editor-meal-kcal-sub" style="font-size: 0.68rem; color: var(--avo-forest); font-weight: 800;">
+                              Planeado: 370 kcal &bull; Real: <strong>370 kcal</strong>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Editar nombre del platillo o personalizarlo -->
+                        <div style="display: flex; gap: 5px; margin-bottom: 7px;">
+                          <input type="text" id="editor-custom-dish-inp" placeholder="Editar nombre del platillo..." oninput="updateSelectedMealCustomTitle(this.value)" style="flex: 1; padding: 6px 9px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.72rem; font-weight: 700; color: var(--avo-dark);" />
+                        </div>
+
+                        <!-- Catalogo rapido de alimentos mexicanos (+1 clic) -->
+                        <div style="font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">
+                          &#10133; A&ntilde;adir alimento a esta comida (suma kcal):
+                        </div>
+                        <div class="quick-food-add-grid" id="quick-food-add-grid">
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Tortilla de ma\u00edz', 65)">&#127805; +1 Tortilla (+65)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Huevo entero', 75)">&#129370; +1 Huevo (+75)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/3 Aguacate Hass', 80)">&#129361; +1/3 Aguacate (+80)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('40g Queso Panela', 55)">&#129472; +40g Panela (+55)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/2 tza Frijoles', 110)">&#129752; +Frijoles (+110)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('100g Pollo/Res magra', 145)">&#127831; +Prote&iacute;na (+145)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1/2 tza Arroz', 100)">&#127834; +Arroz (+100)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('1 Fruta mediana', 60)">&#127822; +1 Fruta (+60)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('10 Almendras / Nueces', 70)">&#129372; +Nueces (+70)</button>
+                          <button type="button" class="quick-food-chip-btn" onclick="addExtraFoodToActiveMeal('Caf\u00e9 con leche', 45)">&#9749; +Caf&eacute; c/leche (+45)</button>
+                        </div>
+
+                        <!-- Campo libre para escribir cualquier alimento + sus kcal -->
+                        <div style="display: flex; gap: 5px; margin-top: 6px;">
+                          <input type="text" id="custom-extra-food-name" placeholder="Otro alimento (ej. 1 pan)" style="flex: 1; min-width: 0; padding: 5px 8px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.7rem; font-weight: 700;" />
+                          <input type="number" id="custom-extra-food-kcal" placeholder="kcal" value="80" min="5" max="1200" step="5" style="width: 58px; padding: 5px 6px; border-radius: 8px; border: 1px solid #CFE0BE; background: #FFFFFF; font-family: inherit; font-size: 0.7rem; font-weight: 800; text-align: center;" />
+                          <button type="button" onclick="addCustomInputFoodToMeal()" style="background: var(--avo-primary); color: #FFFFFF; border: none; border-radius: 8px; padding: 5px 10px; font-family: inherit; font-size: 0.7rem; font-weight: 800; cursor: pointer; white-space: nowrap;">+ A&ntilde;adir</button>
+                        </div>
+
+                        <!-- Lista compacta de alimentos extra agregados a esta comida -->
+                        <div id="editor-meal-extras-list" style="margin-top: 6px; font-size: 0.68rem; color: var(--text-muted);">
+                          Sin alimentos extra en esta comida.
+                        </div>
                       </div>
                     </div>
 
-                    <div>
-                      <button class="btn-enter-club" style="margin-top: 0;" onclick="submitWeeklyCheckin(this)">
-                        <span>🧠 Recalibrar Semana con IA</span>
+                    <!-- PIE CON ACCESO DIRECTO AL CIERRE SEMANAL EN OBJETIVOS Y MEDIDAS -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; padding-top: 6px; border-top: 1px solid #E2ECD8; flex-wrap: wrap;">
+                      <span style="font-size: 0.68rem; color: var(--text-muted); font-weight: 700;">
+                        &#128197; &iquest;Fin de semana? Actualiza peso y plan:
+                      </span>
+                      <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.7rem;" onclick="openModule('mod-onboarding', document.getElementById('nav-mod-onboarding'))">
+                        &#128207; Ir a Objetivos y Medidas
                       </button>
-                      <div style="text-align: center; margin-top: 10px;">
-                        <span style="font-size: 0.74rem; color: var(--text-muted); cursor: pointer; font-weight: 700;" onclick="toggleCardFlip('flip-plan-sidebar')">
-                          👉 Toca aquí para girar y ver tu <strong>Lista del Súper (~$620 MXN)</strong>
-                        </span>
-                      </div>
                     </div>
                   </div>
 
-                  <!-- CARA TRASERA: LISTA DEL SÚPER MEXICANA INTERACTIVA -->
+                  <!-- CARA TRASERA: LISTA DEL SUPER MEXICANA INTERACTIVA -->
                   <div class="flip-face-3d back">
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span class="card-label" style="margin: 0;">🛒 LISTA DEL SÚPER • MÉXICO</span>
+                        <span class="card-label" style="margin: 0;">&#128722; LISTA DEL S&Uacute;PER &bull; M&Eacute;XICO</span>
                         <button type="button" class="btn-flip-trigger" style="padding: 5px 10px; font-size: 0.74rem;" onclick="toggleCardFlip('flip-plan-sidebar')">
-                          <i class="fa-solid fa-rotate-left"></i> Cierre IA
+                          <i class="fa-solid fa-rotate-left"></i> Volver a Calor&iacute;as
                         </button>
                       </div>
                       <h3 style="font-size: 1.22rem; margin-bottom: 4px;">Tu Carrito de la Semana</h3>
-                      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">Presupuesto estimado en mercado/súper local: <strong>~$620 MXN</strong></p>
+                      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">Presupuesto estimado en mercado/s&uacute;per local: <strong>~$620 MXN</strong></p>
 
                       <div style="display: flex; flex-direction: column; gap: 7px; font-size: 0.81rem;">
                         <label class="metric-well" style="padding: 9px 12px; display: flex; justify-content: space-between; cursor: pointer;">
@@ -6208,7 +6548,7 @@
                       </div>
                     </div>
 
-                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center; padding: 12px;" onclick="alert('📲 Lista del Súper enviada a tu WhatsApp lista para ir al mercado.')">
+                    <button type="button" class="btn-flip-trigger" style="width: 100%; justify-content: center; padding: 12px;" onclick="alert('Lista del Super enviada a tu WhatsApp lista para ir al mercado.')">
                       <i class="fa-brands fa-whatsapp"></i> Mandar mi Lista a mi WhatsApp
                     </button>
                   </div>
@@ -6220,7 +6560,7 @@
           </div>
 
           <!-- =========================================================
-               MÓDULO 3: GUÍA SEMANAL DE PORCIONES (4 TARJETAS 3D FLIP INTERACTIVAS)
+               M&Oacute;DULO 3: GUÍA SEMANAL DE PORCIONES (4 TARJETAS 3D FLIP INTERACTIVAS)
                ========================================================= -->
           <div id="mod-porciones" class="module-section">
             <div class="bento-card" style="margin-bottom: 20px;">
@@ -10949,6 +11289,286 @@
       };
     }
 
+    // =========================================================================
+    // MOTOR DE FOTOS ALEGORICAS POR PLATILLO + EDITOR DE COMIDAS Y CALORIAS DIARIAS
+    // Cada vez que se genera un plan, se cambia de dia, se intercambia una comida
+    // o se edita/anade un alimento, se actualiza la foto alegorica y las calorias.
+    // =========================================================================
+
+    function getMealFallbackSvgDataUri(slotNum) {
+      const icons = { 1: '%E2%98%80%EF%B8%8F', 2: '%F0%9F%8D%B2', 3: '%F0%9F%8D%8E', 4: '%F0%9F%8C%99' };
+      const bg = { 1: '%23FEF3C7', 2: '%23DCFCE7', 3: '%23FFE4E6', 4: '%23E0E7FF' };
+      const ic = icons[slotNum] || '%F0%9F%A5%91';
+      const c = bg[slotNum] || '%23E8F5E9';
+      return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="${c}"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-size="52">${ic}</text></svg>`;
+    }
+
+    function getMealPhotoUrl(dishTitle, slotNum) {
+      const t = (dishTitle || '').toLowerCase();
+      // Desayunos / Huevos / Avena / Chilaquiles / Molletes
+      if (t.includes('avena') || t.includes('batido') || t.includes('hotcake')) {
+        return 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=260&q=80';
+      }
+      if (t.includes('chilaquil') || t.includes('tostada') || t.includes('tacos dorados')) {
+        return 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=260&q=80';
+      }
+      if (t.includes('mollete')) {
+        return 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=260&q=80';
+      }
+      if (t.includes('omelette') || t.includes('huevo') || t.includes('claras')) {
+        return 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80';
+      }
+      // Comidas / Carnes / Pescados / Bowls
+      if (t.includes('pescado') || t.includes('ceviche') || t.includes('at\u00fan') || t.includes('atun') || t.includes('salm\u00f3n')) {
+        return 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=260&q=80';
+      }
+      if (t.includes('bistec') || t.includes('res') || t.includes('carne')) {
+        return 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=260&q=80';
+      }
+      if (t.includes('bowl') || t.includes('ensalada')) {
+        return 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=260&q=80';
+      }
+      if (t.includes('fajita') || t.includes('pechuga') || t.includes('pollo') || t.includes('rollito')) {
+        return 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=260&q=80';
+      }
+      // Colaciones / Yogur / Mousse / Fruta
+      if (t.includes('mousse') || t.includes('cacao') || t.includes('chocolate')) {
+        return 'https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=260&q=80';
+      }
+      if (t.includes('yogur') || t.includes('fresa') || t.includes('papaya') || t.includes('manzana') || t.includes('j\u00edcama')) {
+        return 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=260&q=80';
+      }
+      // Cenas / Quesadillas / Sincronizadas / Cremas
+      if (t.includes('quesadilla') || t.includes('sincronizada') || t.includes('crema')) {
+        return 'https://images.unsplash.com/photo-1618040996337-56904b7850b9?auto=format&fit=crop&w=260&q=80';
+      }
+      // Defaults por tiempo de comida
+      const defaultPhotos = {
+        1: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80',
+        2: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=260&q=80',
+        3: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=260&q=80',
+        4: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=260&q=80'
+      };
+      return defaultPhotos[slotNum] || defaultPhotos[1];
+    }
+
+    function ensurePlanCustomizationsState() {
+      if (!clubState.mealCustomizations) {
+        // Estructura indexada por dia (0..5) y comida (1..4): { swapped: false, customTitle: '', extras: [{ name, kcal }] }
+        clubState.mealCustomizations = {};
+      }
+      if (typeof clubState.activeMealSlot !== 'number' || clubState.activeMealSlot < 1 || clubState.activeMealSlot > 4) {
+        clubState.activeMealSlot = 1;
+      }
+      const dayIdx = clubState.activeWeekdayIdx || 0;
+      if (!clubState.mealCustomizations[dayIdx]) {
+        clubState.mealCustomizations[dayIdx] = {
+          1: { swapped: false, customTitle: '', extras: [] },
+          2: { swapped: false, customTitle: '', extras: [] },
+          3: { swapped: false, customTitle: '', extras: [] },
+          4: { swapped: false, customTitle: '', extras: [] }
+        };
+      }
+      return clubState.mealCustomizations[dayIdx];
+    }
+
+    function getResolvedMealSlotData(dayIdx, slotNum, planObj) {
+      const plan = planObj || buildPersonalizedWeeklyPlan();
+      const dayData = plan.days[dayIdx] || plan.days[0];
+      const dayCustom = (clubState.mealCustomizations && clubState.mealCustomizations[dayIdx])
+        ? clubState.mealCustomizations[dayIdx][slotNum]
+        : { swapped: false, customTitle: '', extras: [] };
+
+      const isColitis = !!clubState.antecedentesAPP.colitis;
+      const altOptions = {
+        1: isColitis
+          ? 'Claras al Vapor con Espinaca Tierna, Queso Panela Asado y 1/3 Aguacate Hass'
+          : 'Molletes en Bolillo sin Migaj\u00f3n con Frijoles, Queso Panela y Aguacate',
+        2: isColitis
+          ? 'Filete de Pescado o Pechuga al Or\u00e9gano con Calabacitas, Arroz y Aguacate'
+          : 'Bistec de Res Magro Asado con Nopales, Queso Oaxaca y Tortilla',
+        3: 'Mousse R\u00e1pido de Cacao Puro, Aguacate Hass y Yogur Griego (Anti-Ansiedad)',
+        4: isColitis
+          ? 'Quesadillas Suaves en Tortilla de Ma\u00edz con Panela, Flor de Calabaza Cocida y Aguacate'
+          : 'Quesadillas en Tortilla de Ma\u00edz con Queso Oaxaca, Flor de Calabaza y Aguacate'
+      };
+
+      const origMap = { 1: dayData.b, 2: dayData.l, 3: dayData.s, 4: dayData.d };
+      const subMap = { 1: plan.bSub, 2: plan.lSub, 3: plan.sSub, 4: plan.dSub };
+      const baseKcalMap = { 1: plan.kB, 2: plan.kL, 3: plan.kS, 4: plan.kD };
+      const slotNames = { 1: 'Desayuno', 2: 'Comida', 3: 'Colaci\u00f3n', 4: 'Cena' };
+      const slotIcons = { 1: '\u2600\uFE0F', 2: '\uD83C\uDF72', 3: '\uD83C\uDF4E', 4: '\uD83C\uDF19' };
+
+      const swapped = !!(dayCustom && dayCustom.swapped);
+      const customTitle = (dayCustom && dayCustom.customTitle) ? dayCustom.customTitle.trim() : '';
+      const extras = (dayCustom && Array.isArray(dayCustom.extras)) ? dayCustom.extras : [];
+
+      const baseTitle = swapped ? altOptions[slotNum] : origMap[slotNum];
+      const finalTitle = customTitle || baseTitle;
+      const plannedKcal = baseKcalMap[slotNum];
+      const extrasKcal = extras.reduce((acc, item) => acc + (parseInt(item.kcal, 10) || 0), 0);
+      const totalSlotKcal = plannedKcal + extrasKcal;
+      const photoUrl = getMealPhotoUrl(finalTitle, slotNum);
+
+      return {
+        slotNum,
+        slotName: slotNames[slotNum],
+        slotIcon: slotIcons[slotNum],
+        swapped,
+        customTitle,
+        finalTitle,
+        subText: subMap[slotNum],
+        plannedKcal,
+        extras,
+        extrasKcal,
+        totalSlotKcal,
+        photoUrl
+      };
+    }
+
+    function renderActiveDayPlanAndCalorieEditor() {
+      ensurePlanCustomizationsState();
+      const dayIdx = clubState.activeWeekdayIdx || 0;
+      const activeSlot = clubState.activeMealSlot || 1;
+      const plan = buildPersonalizedWeeklyPlan();
+      const dayData = plan.days[dayIdx] || plan.days[0];
+
+      const ind = document.getElementById('active-day-indicator');
+      if (ind) ind.innerText = `\uD83D\uDCCD Viendo: ${dayData.day}`;
+
+      let dayPlannedTotal = 0;
+      let dayConsumedTotal = 0;
+
+      for (let num = 1; num <= 4; num++) {
+        const slotInfo = getResolvedMealSlotData(dayIdx, num, plan);
+        dayPlannedTotal += slotInfo.plannedKcal;
+        dayConsumedTotal += slotInfo.totalSlotKcal;
+
+        const rowEl = document.getElementById('plan-meal-row-' + num);
+        if (rowEl) {
+          if (num === activeSlot) rowEl.classList.add('active-editing-meal');
+          else rowEl.classList.remove('active-editing-meal');
+        }
+
+        const badgeEl = document.getElementById('meal-badge-' + num);
+        if (badgeEl) {
+          if (slotInfo.extrasKcal > 0) {
+            badgeEl.innerHTML = `${slotInfo.slotIcon} ${slotInfo.slotName}<br><strong style="color: var(--coral);">${slotInfo.totalSlotKcal} kcal</strong><div style="font-size: 0.61rem; color: var(--text-muted); font-weight: 700;">Plan: ${slotInfo.plannedKcal} (+${slotInfo.extrasKcal})</div>`;
+          } else {
+            badgeEl.innerHTML = `${slotInfo.slotIcon} ${slotInfo.slotName}<br>~${slotInfo.plannedKcal} kcal`;
+          }
+        }
+
+        const photoEl = document.getElementById('meal-photo-' + num);
+        if (photoEl) {
+          photoEl.onerror = function() { this.onerror = null; this.src = getMealFallbackSvgDataUri(num); };
+          photoEl.src = slotInfo.photoUrl;
+          photoEl.alt = slotInfo.finalTitle;
+        }
+
+        const descEl = document.getElementById('meal-desc-' + num);
+        if (descEl) {
+          const titleColor = (slotInfo.swapped || slotInfo.customTitle) ? 'var(--avo-primary)' : 'var(--text-main)';
+          const prefixTag = slotInfo.customTitle
+            ? '<span style="background: #DCFCE7; color: #166534; font-size: 0.63rem; padding: 1px 6px; border-radius: 6px; margin-right: 5px; font-weight: 800;">\u270F\uFE0F Editado</span>'
+            : (slotInfo.swapped ? '<span style="background: #FEF3C7; color: #92400E; font-size: 0.63rem; padding: 1px 6px; border-radius: 6px; margin-right: 5px; font-weight: 800;">\uD83D\uDD04 Opci\u00f3n 2</span>' : '');
+
+          let extrasHtml = '';
+          if (slotInfo.extras.length > 0) {
+            extrasHtml = `<div class="meal-extra-pills-wrap">` +
+              slotInfo.extras.map((ex, idx) =>
+                `<span class="meal-extra-pill">+ ${ex.name} (+${ex.kcal} kcal) <button type="button" onclick="event.stopPropagation(); removeExtraFoodFromMeal(${num}, ${idx})" title="Quitar alimento">\u2715</button></span>`
+              ).join('') +
+              `</div>`;
+          }
+
+          descEl.innerHTML = `<div style="font-weight: 800; font-size: 0.9rem; line-height: 1.25; color: ${titleColor};">${prefixTag}${slotInfo.finalTitle}</div>` +
+            `<div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; margin-top: 2px;">${slotInfo.subText}</div>` +
+            extrasHtml;
+        }
+
+        // Actualizar pestanas del panel derecho
+        const slotTab = document.getElementById('kcal-slot-tab-' + num);
+        if (slotTab) {
+          if (num === activeSlot) slotTab.classList.add('active');
+          else slotTab.classList.remove('active');
+        }
+        const slotVal = document.getElementById('kcal-slot-val-' + num);
+        if (slotVal) {
+          slotVal.innerText = `${slotInfo.totalSlotKcal} kcal`;
+        }
+      }
+
+      // Actualizar Resumen Superior de Calorias del Dia Seleccionado en la tarjeta derecha
+      const dayLbl = document.getElementById('kcal-panel-day-lbl');
+      if (dayLbl) dayLbl.innerText = dayData.day.toUpperCase();
+      const dayShort = document.getElementById('kcal-summary-day-short');
+      if (dayShort) dayShort.innerText = dayData.day.slice(0, 3);
+
+      const plannedDayVal = document.getElementById('kcal-planned-day-val');
+      if (plannedDayVal) plannedDayVal.innerText = `${dayPlannedTotal.toLocaleString('es-MX')} kcal`;
+      const consumedDayVal = document.getElementById('kcal-consumed-day-val');
+      if (consumedDayVal) consumedDayVal.innerText = `${dayConsumedTotal.toLocaleString('es-MX')} kcal`;
+
+      const diff = dayConsumedTotal - dayPlannedTotal;
+      const pct = dayPlannedTotal > 0 ? Math.min(100, Math.round((dayConsumedTotal / dayPlannedTotal) * 100)) : 100;
+      const barEl = document.getElementById('kcal-day-progress-bar');
+      const diffBadge = document.getElementById('kcal-day-diff-badge');
+      if (barEl) {
+        barEl.style.width = `${pct}%`;
+        barEl.style.background = diff > 150
+          ? 'linear-gradient(90deg, #F59E0B, #E86F52)'
+          : 'linear-gradient(90deg, #8FD14F, #FDE68A)';
+      }
+      if (diffBadge) {
+        if (diff === 0) {
+          diffBadge.style.color = '#A7F3D0';
+          diffBadge.innerHTML = `\u2705 Exacto en tu meta planeada (${dayPlannedTotal.toLocaleString('es-MX')} kcal)`;
+        } else if (diff > 0) {
+          diffBadge.style.color = '#FDE68A';
+          diffBadge.innerHTML = `\u26A1 +${diff} kcal a\u00f1adidas sobre lo planeado`;
+        } else {
+          diffBadge.style.color = '#A7F3D0';
+          diffBadge.innerHTML = `\uD83C\uDF3F ${diff} kcal respecto a lo planeado`;
+        }
+      }
+
+      // Actualizar el Editor de la Comida Seleccionada en la tarjeta derecha
+      const activeInfo = getResolvedMealSlotData(dayIdx, activeSlot, plan);
+      const edThumb = document.getElementById('editor-meal-thumb');
+      if (edThumb) {
+        edThumb.onerror = function() { this.onerror = null; this.src = getMealFallbackSvgDataUri(activeSlot); };
+        edThumb.src = activeInfo.photoUrl;
+      }
+      const edTitle = document.getElementById('editor-meal-header-title');
+      if (edTitle) {
+        edTitle.innerText = `${activeInfo.slotIcon} Editando: ${activeInfo.slotName} (${dayData.day})`;
+      }
+      const edSub = document.getElementById('editor-meal-kcal-sub');
+      if (edSub) {
+        const extraNote = activeInfo.extrasKcal > 0 ? ` (+${activeInfo.extrasKcal} kcal extra)` : '';
+        edSub.innerHTML = `Planeado: ${activeInfo.plannedKcal} kcal &bull; Ingesta Real: <strong style="color: ${activeInfo.extrasKcal > 0 ? 'var(--coral)' : 'var(--avo-forest)'};">${activeInfo.totalSlotKcal} kcal${extraNote}</strong>`;
+      }
+
+      const customInp = document.getElementById('editor-custom-dish-inp');
+      if (customInp && document.activeElement !== customInp) {
+        customInp.value = activeInfo.finalTitle;
+      }
+
+      const extrasListEl = document.getElementById('editor-meal-extras-list');
+      if (extrasListEl) {
+        if (activeInfo.extras.length === 0) {
+          extrasListEl.innerHTML = `<span style="color: var(--text-muted);">Sin alimentos extra a\u00f1adidos en ${activeInfo.slotName.toLowerCase()}. Toca un alimento arriba para sumarlo.</span>`;
+        } else {
+          extrasListEl.innerHTML = `<div style="display: flex; flex-wrap: wrap; gap: 4px;">` +
+            activeInfo.extras.map((ex, idx) =>
+              `<span class="meal-extra-pill">+ ${ex.name} (+${ex.kcal} kcal) <button type="button" onclick="removeExtraFoodFromMeal(${activeSlot}, ${idx})">\u2715</button></span>`
+            ).join('') +
+            `</div>`;
+        }
+      }
+    }
+
     function selectWeekday(dayIdx, tabEl) {
       if (typeof dayIdx === 'number') {
         clubState.activeWeekdayIdx = dayIdx;
@@ -10960,30 +11580,65 @@
         const tabs = document.querySelectorAll('.day-tab');
         if (tabs[clubState.activeWeekdayIdx]) tabs[clubState.activeWeekdayIdx].classList.add('active');
       }
+      flipToSunday(false);
+      renderActiveDayPlanAndCalorieEditor();
+    }
 
-      const plan = buildPersonalizedWeeklyPlan();
-      const data = plan.days[clubState.activeWeekdayIdx] || plan.days[0];
+    function selectMealForEdit(slotNum) {
+      clubState.activeMealSlot = slotNum;
+      const sideCard = document.getElementById('flip-plan-sidebar');
+      if (sideCard && sideCard.classList.contains('is-flipped')) {
+        sideCard.classList.remove('is-flipped');
+      }
+      renderActiveDayPlanAndCalorieEditor();
+    }
 
-      const ind = document.getElementById('active-day-indicator');
-      if (ind) ind.innerText = `\uD83D\uDCCD Viendo: ${data.day}`;
+    function updateSelectedMealCustomTitle(newVal) {
+      const dayMeals = ensurePlanCustomizationsState();
+      const slot = clubState.activeMealSlot || 1;
+      dayMeals[slot].customTitle = newVal;
+      renderActiveDayPlanAndCalorieEditor();
+    }
 
-      const b1 = document.getElementById('meal-badge-1');
-      if (b1) b1.innerHTML = `\u2600\uFE0F Desayuno<br>~${plan.kB} kcal`;
-      const b2 = document.getElementById('meal-badge-2');
-      if (b2) b2.innerHTML = `\uD83C\uDF72 Comida<br>~${plan.kL} kcal`;
-      const b3 = document.getElementById('meal-badge-3');
-      if (b3) b3.innerHTML = `\uD83C\uDF4E Colaci\u00f3n<br>~${plan.kS} kcal`;
-      const b4 = document.getElementById('meal-badge-4');
-      if (b4) b4.innerHTML = `\uD83C\uDF19 Cena<br>~${plan.kD} kcal`;
+    function addExtraFoodToActiveMeal(foodName, kcalVal) {
+      const dayMeals = ensurePlanCustomizationsState();
+      const slot = clubState.activeMealSlot || 1;
+      const cleanKcal = Math.max(5, Math.round(parseFloat(kcalVal) || 60));
+      dayMeals[slot].extras.push({ name: foodName, kcal: cleanKcal });
+      renderActiveDayPlanAndCalorieEditor();
+    }
 
-      const m1 = document.getElementById('meal-desc-1');
-      if (m1) m1.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.b}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.bSub}</div>`;
-      const m2 = document.getElementById('meal-desc-2');
-      if (m2) m2.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.l}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.lSub}</div>`;
-      const m3 = document.getElementById('meal-desc-3');
-      if (m3) m3.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.s}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.sSub}</div>`;
-      const m4 = document.getElementById('meal-desc-4');
-      if (m4) m4.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem;">${data.d}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${plan.dSub}</div>`;
+    function addCustomInputFoodToMeal() {
+      const nameInp = document.getElementById('custom-extra-food-name');
+      const kcalInp = document.getElementById('custom-extra-food-kcal');
+      const rawName = (nameInp?.value || '').trim();
+      const rawKcal = parseFloat(kcalInp?.value || 80);
+      if (!rawName) {
+        if (nameInp) nameInp.focus();
+        return;
+      }
+      addExtraFoodToActiveMeal(rawName, rawKcal);
+      if (nameInp) nameInp.value = '';
+    }
+
+    function removeExtraFoodFromMeal(slotNum, extraIdx) {
+      const dayMeals = ensurePlanCustomizationsState();
+      if (dayMeals[slotNum] && Array.isArray(dayMeals[slotNum].extras)) {
+        dayMeals[slotNum].extras.splice(extraIdx, 1);
+      }
+      renderActiveDayPlanAndCalorieEditor();
+    }
+
+    function resetActiveDayMeals() {
+      const dayIdx = clubState.activeWeekdayIdx || 0;
+      if (!clubState.mealCustomizations) clubState.mealCustomizations = {};
+      clubState.mealCustomizations[dayIdx] = {
+        1: { swapped: false, customTitle: '', extras: [] },
+        2: { swapped: false, customTitle: '', extras: [] },
+        3: { swapped: false, customTitle: '', extras: [] },
+        4: { swapped: false, customTitle: '', extras: [] }
+      };
+      renderActiveDayPlanAndCalorieEditor();
     }
 
     function flipToSunday(isSunday) {
@@ -10996,33 +11651,13 @@
       }
     }
 
-    // Interaccion real: Intercambiar platillo (Swap) respetando Antecedentes
-    const swapState = { 1: false, 2: false, 3: false, 4: false };
-
+    // Interaccion real: Intercambiar platillo (Swap) respetando Antecedentes y actualizando foto alegorica
     function swapMeal(num) {
-      swapState[num] = !swapState[num];
-      const plan = buildPersonalizedWeeklyPlan();
-      const dayData = plan.days[clubState.activeWeekdayIdx || 0] || plan.days[0];
-      const isColitis = !!clubState.antecedentesAPP.colitis;
-      const altOptions = {
-        1: isColitis
-          ? '\uD83D\uDD04 Claras al Vapor con Espinaca Tierna, Queso Panela Asado y 1/3 Aguacate Hass'
-          : '\uD83D\uDD04 Molletes en Bolillo sin Migaj\u00f3n con Frijoles, Queso Panela y Aguacate',
-        2: isColitis
-          ? '\uD83D\uDD04 Filete de Pescado o Pechuga al Or\u00e9gano con Calabacitas, Arroz y Aguacate'
-          : '\uD83D\uDD04 Bistec de Res Magro Asado con Nopales, Queso Oaxaca y Tortilla',
-        3: '\uD83D\uDD04 Mousse R\u00e1pido de Cacao Puro, Aguacate Hass y Yogur Griego (Anti-Ansiedad)',
-        4: isColitis
-          ? '\uD83D\uDD04 Quesadillas Suaves en Tortilla de Ma\u00edz con Panela, Flor de Calabaza Cocida y Aguacate'
-          : '\uD83D\uDD04 Quesadillas en Tortilla de Ma\u00edz con Queso Oaxaca, Flor de Calabaza y Aguacate'
-      };
-      const origMap = { 1: dayData.b, 2: dayData.l, 3: dayData.s, 4: dayData.d };
-      const subMap = { 1: plan.bSub, 2: plan.lSub, 3: plan.sSub, 4: plan.dSub };
-      const chosenTitle = swapState[num] ? altOptions[num] : origMap[num];
-      const el = document.getElementById('meal-desc-' + num);
-      if (el) {
-        el.innerHTML = `<div style="font-weight: 800; font-size: 0.94rem; color: ${swapState[num] ? 'var(--avo-primary)' : 'var(--text-main)'};">${chosenTitle}</div><div style="font-size: 0.78rem; color: var(--text-muted);">${subMap[num]}</div>`;
-      }
+      const dayMeals = ensurePlanCustomizationsState();
+      clubState.activeMealSlot = num;
+      dayMeals[num].swapped = !dayMeals[num].swapped;
+      dayMeals[num].customTitle = '';
+      renderActiveDayPlanAndCalorieEditor();
     }
 
     // Sincroniza la Historia Clinica y el Plan hacia el Modulo 2 y el Buzon (Modulo 8) usando UNICAMENTE el estado confirmado (savedMetrics)
@@ -11055,10 +11690,10 @@
         ? activeApnpKeys.map(k => apnpCatalog[k].short).join(' + ')
         : 'H\u00e1bitos de estilo de vida \u00f3ptimos';
 
-      // 1. Actualizar Modulo 2 (Banner superior + etiqueta de tarjeta + comidas del dia activo)
+      // 1. Actualizar Mi Plan (Banner superior + etiqueta de tarjeta + comidas del dia activo)
       const topPlanLbl = document.getElementById('plan-card-top-label');
       if (topPlanLbl) {
-        topPlanLbl.innerHTML = `\uD83D\uDCC5 M\u00d3DULO 2 \u2022 PLAN SEMANAL (${plan.dailyKcal.toLocaleString('es-MX')} KCAL \u2022 ${cleanProto.toUpperCase()})`;
+        topPlanLbl.innerHTML = `\uD83D\uDCC5 MI PLAN \u2022 MEN\u00da SEMANAL (${plan.dailyKcal.toLocaleString('es-MX')} KCAL \u2022 ${cleanProto.toUpperCase()})`;
       }
       const bannerHeadline = document.getElementById('plan-banner-headline');
       if (bannerHeadline) {
@@ -11153,14 +11788,27 @@
       const daysContainer = document.getElementById('buzon-plan-days-container');
       if (daysContainer) {
         daysContainer.innerHTML = plan.days.map(d => `
-          <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 13px; padding: 10px 12px; font-size: 0.74rem; line-height: 1.4;">
-            <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.8rem; margin-bottom: 4px; border-bottom: 1px solid #E2ECD8; padding-bottom: 3px;">
-              \uD83D\uDCC5 ${d.day} (${plan.dailyKcal} kcal)
+          <div style="background: #FFFFFF; border: 1.5px solid #CFE0BE; border-radius: 13px; padding: 10px 12px; font-size: 0.73rem; line-height: 1.38;">
+            <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.8rem; margin-bottom: 6px; border-bottom: 1px solid #E2ECD8; padding-bottom: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <span>\uD83D\uDCC5 ${d.day}</span>
+              <span style="color: var(--avo-primary); font-size: 0.72rem;">${plan.dailyKcal} kcal</span>
             </div>
-            <div><strong>\u2600\uFE0F Des:</strong> ${d.b}</div>
-            <div><strong>\uD83C\uDF72 Com:</strong> ${d.l}</div>
-            <div><strong>\uD83C\uDF4E Col:</strong> ${d.s}</div>
-            <div><strong>\uD83C\uDF19 Cen:</strong> ${d.d}</div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+              <img src="${getMealPhotoUrl(d.b, 1)}" alt="Desayuno" style="width: 24px; height: 24px; border-radius: 6px; object-fit: cover; flex-shrink: 0; border: 1px solid #CFE0BE;" />
+              <div><strong>\u2600\uFE0F Des:</strong> ${d.b}</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+              <img src="${getMealPhotoUrl(d.l, 2)}" alt="Comida" style="width: 24px; height: 24px; border-radius: 6px; object-fit: cover; flex-shrink: 0; border: 1px solid #CFE0BE;" />
+              <div><strong>\uD83C\uDF72 Com:</strong> ${d.l}</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+              <img src="${getMealPhotoUrl(d.s, 3)}" alt="Colacion" style="width: 24px; height: 24px; border-radius: 6px; object-fit: cover; flex-shrink: 0; border: 1px solid #CFE0BE;" />
+              <div><strong>\uD83C\uDF4E Col:</strong> ${d.s}</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <img src="${getMealPhotoUrl(d.d, 4)}" alt="Cena" style="width: 24px; height: 24px; border-radius: 6px; object-fit: cover; flex-shrink: 0; border: 1px solid #CFE0BE;" />
+              <div><strong>\uD83C\uDF19 Cen:</strong> ${d.d}</div>
+            </div>
           </div>
         `).join('');
       }
