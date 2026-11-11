@@ -6610,7 +6610,7 @@
                           <!-- Buscador con Autocompletado de Base de Equivalencias Caloricas (SMAE) -->
                           <div class="food-autocomplete-wrap">
                             <div style="display: flex; gap: 4px;">
-                              <input type="text" id="custom-extra-food-name" autocomplete="off" placeholder="&#128269; Escribe un alimento (ej. pl&aacute;tano, pan, leche, at&uacute;n)..." oninput="handleFoodAutocompleteInput(this.value)" onfocus="handleFoodAutocompleteInput(this.value)" onkeydown="handleFoodAutocompleteKeydown(event)" style="flex: 1; min-width: 0; padding: 5px 8px; border-radius: 8px; border: 1.5px solid #A3D977; background: #FFFFFF; font-family: inherit; font-size: 0.69rem; font-weight: 700; color: var(--avo-dark);" />
+                              <input type="text" id="custom-extra-food-name" autocomplete="off" placeholder="&#128269; Escribe cualquier alimento o platillo (ej. 2 tortillas, chilaquiles, mango, caf&eacute;, salm&oacute;n)..." oninput="handleFoodAutocompleteInput(this.value)" onfocus="handleFoodAutocompleteInput(this.value)" onkeydown="handleFoodAutocompleteKeydown(event)" style="flex: 1; min-width: 0; padding: 5px 8px; border-radius: 8px; border: 1.5px solid #A3D977; background: #FFFFFF; font-family: inherit; font-size: 0.69rem; font-weight: 700; color: var(--avo-dark);" />
                               <input type="number" id="custom-extra-food-kcal" placeholder="kcal" value="65" min="5" max="1500" step="5" title="Calor&iacute;as autom&aacute;ticas por porci&oacute;n equivalente" style="width: 54px; padding: 5px 4px; border-radius: 8px; border: 1.5px solid #CFE0BE; background: #FFFBEB; color: #92400E; font-family: inherit; font-size: 0.69rem; font-weight: 900; text-align: center;" />
                               <button type="button" onclick="addCustomInputFoodToMeal()" style="background: var(--avo-dark); color: #FFFFFF; border: none; border-radius: 8px; padding: 5px 9px; font-family: inherit; font-size: 0.69rem; font-weight: 800; cursor: pointer; white-space: nowrap;">+ A&ntilde;adir</button>
                             </div>
@@ -11426,118 +11426,661 @@
     // + AUTOCOMPLETADO EN VIVO + FLUJO DE COMPLETAR COMIDA (EMPIEZA EN 0 KCAL)
     // =========================================================================
 
-    const SMAE_FOOD_EQUIVALENTS_DB = [
-      // Tortillas, Panes y Cereales
-      { name: 'Tortilla de ma\u00edz', portion: '1 pieza', kcal: 65, icon: '\uD83C\uDF3D', cat: 'Cereal', kw: 'tortilla maiz taco' },
-      { name: 'Tortillas de ma\u00edz (2 piezas)', portion: '2 piezas', kcal: 130, icon: '\uD83C\uDF3D', cat: 'Cereal', kw: 'tortillas maiz tacos' },
-      { name: 'Tortilla de harina', portion: '1 pieza', kcal: 85, icon: '\uD83C\uDF3E', cat: 'Cereal', kw: 'tortilla harina' },
-      { name: 'Tortilla de nopal', portion: '2 piezas', kcal: 40, icon: '\uD83C\uDF35', cat: 'Cereal', kw: 'tortilla nopal keto' },
-      { name: 'Tostada horneada (Susalia/Sanissimo)', portion: '2 piezas', kcal: 60, icon: '\uD83C\uDF2E', cat: 'Cereal', kw: 'tostada horneada susalia sanissimo' },
-      { name: 'Bolillo sin migaj\u00f3n', portion: '1/2 pieza', kcal: 70, icon: '\uD83E\uDD56', cat: 'Cereal', kw: 'bolillo birote pan telera' },
-      { name: 'Bolillo entero con migaj\u00f3n', portion: '1 pieza', kcal: 140, icon: '\uD83E\uDD56', cat: 'Cereal', kw: 'bolillo entero birote pan' },
-      { name: 'Pan integral de caja', portion: '1 rebanada', kcal: 70, icon: '\uD83C\uDF5E', cat: 'Cereal', kw: 'pan integral bimbo rebanada sandwich' },
-      { name: 'Pan blanco de caja', portion: '1 rebanada', kcal: 75, icon: '\uD83C\uDF5E', cat: 'Cereal', kw: 'pan blanco rebanada' },
-      { name: 'Pan dulce / Concha', portion: '1/2 pieza', kcal: 135, icon: '\uD83E\uDD50', cat: 'Antojo', kw: 'pan dulce concha cuernito dona' },
-      { name: 'Avena cocida en agua', portion: '1/2 taza (3 cdas)', kcal: 70, icon: '\uD83E\uDD63', cat: 'Cereal', kw: 'avena hojuelas cereal' },
-      { name: 'Arroz cocido casero', portion: '1/2 taza', kcal: 100, icon: '\uD83C\uDF5A', cat: 'Cereal', kw: 'arroz blanco rojo' },
-      { name: 'Pasta / Espagueti cocido', portion: '1/2 taza', kcal: 105, icon: '\uD83C\uDF5D', cat: 'Cereal', kw: 'pasta espagueti sopa fideo' },
-      { name: 'Elote tierno desgranado', portion: '1/2 taza', kcal: 70, icon: '\uD83C\uDF3D', cat: 'Cereal', kw: 'elote esquites maiz' },
-      { name: 'Papa cocida o al horno', portion: '1/2 pieza mediana', kcal: 70, icon: '\uD83E\uDD54', cat: 'Cereal', kw: 'papa pure' },
-      { name: 'Camote horneado', portion: '1/3 taza', kcal: 70, icon: '\uD83C\uDF60', cat: 'Cereal', kw: 'camote' },
-      { name: 'Amaranto natural tostado', portion: '1/4 taza (4 cdas)', kcal: 65, icon: '\uD83C\uDF3E', cat: 'Cereal', kw: 'amaranto' },
-      { name: 'Quinoa cocida', portion: '1/2 taza', kcal: 105, icon: '\uD83E\uDD63', cat: 'Cereal', kw: 'quinoa quinua' },
-      { name: 'Galletas Mar\u00eda', portion: '5 piezas', kcal: 70, icon: '\uD83C\uDF6A', cat: 'Cereal', kw: 'galletas maria' },
-      { name: 'Galletas Salmas / Habaneras', portion: '1 paquetito (3-4 pzas)', kcal: 70, icon: '\uD83E\uDD58', cat: 'Cereal', kw: 'galletas salmas habaneras saladas' },
-      { name: 'Granola baja en az\u00facar', portion: '3 cucharadas', kcal: 85, icon: '\uD83E\uDD63', cat: 'Cereal', kw: 'granola' },
+    // =========================================================================
+    // BASE PROFUNDA DE EQUIVALENCIAS CALORICAS SMAE + GASTRONOMIA MEXICANA Y UNIVERSAL (620+ ALIMENTOS)
+    // Incluye buscador inteligente por sinonimos, multiplicador automatico de porciones/gramos,
+    // sumador de combinaciones ("huevo con jamon y tortilla") y estimador nutricional universal.
+    // =========================================================================
 
-      // Proteinas y Carnes
-      { name: 'Huevo entero', portion: '1 pieza', kcal: 75, icon: '\uD83E\uDD5A', cat: 'Prote\u00edna', kw: 'huevo revuelto estrellado cocido' },
-      { name: 'Huevos enteros (2 piezas)', portion: '2 piezas', kcal: 150, icon: '\uD83E\uDD5A', cat: 'Prote\u00edna', kw: 'huevos omelette' },
-      { name: 'Claras de huevo', portion: '2 piezas', kcal: 35, icon: '\uD83E\uDD5A', cat: 'Prote\u00edna', kw: 'claras huevo' },
-      { name: 'Pechuga de pollo asada', portion: '100g (1 palma)', kcal: 145, icon: '\uD83C\uDF57', cat: 'Prote\u00edna', kw: 'pollo pechuga fajitas' },
-      { name: 'Pollo deshebrado', portion: '1/2 taza (70g)', kcal: 110, icon: '\uD83C\uDF57', cat: 'Prote\u00edna', kw: 'pollo deshebrado' },
-      { name: 'Bistec de res magro', portion: '100g (1 palma)', kcal: 155, icon: '\uD83E\uDD69', cat: 'Prote\u00edna', kw: 'res bistec carne asada fajitas' },
-      { name: 'Carne molida magra de res/pollo', portion: '90g', kcal: 150, icon: '\uD83E\uDD69', cat: 'Prote\u00edna', kw: 'carne molida picadillo albondigas' },
-      { name: 'Filete de pescado blanco (Tilapia/Robalo)', portion: '120g (1 palma)', kcal: 115, icon: '\uD83D\uDC1F', cat: 'Prote\u00edna', kw: 'pescado filete tilapia huachinango ceviche' },
-      { name: 'Salm\u00f3n a la plancha', portion: '100g', kcal: 185, icon: '\uD83D\uDC1F', cat: 'Prote\u00edna', kw: 'salmon pescado' },
-      { name: 'At\u00fan en agua (drenado)', portion: '1 lata', kcal: 110, icon: '\uD83E\uDD6B', cat: 'Prote\u00edna', kw: 'atun lata' },
-      { name: 'Camarones cocidos', portion: '100g (1 taza)', kcal: 95, icon: '\uD83E\uDD90', cat: 'Prote\u00edna', kw: 'camaron camarones mariscos' },
-      { name: 'Jam\u00f3n de pechuga de pavo', portion: '2 rebanadas', kcal: 45, icon: '\uD83E\uDD53', cat: 'Prote\u00edna', kw: 'jamon pavo pechuga' },
-      { name: 'Lomo o pierna de cerdo magra', portion: '90g', kcal: 140, icon: '\uD83E\uDD69', cat: 'Prote\u00edna', kw: 'cerdo lomo pierna carnitas' },
+    const SMAE_COMPACT_RAW = [
+      // --- 1. TORTILLAS, MAIZ Y MASA MEXICANA ---
+      ['Tortilla de ma\u00edz blanca o amarilla', '1 pieza (30g)', 65, '\uD83C\uDF3D', 'Cereal', 'tortilla maiz taco blanca amarilla'],
+      ['Tortillas de ma\u00edz (2 piezas)', '2 piezas (60g)', 130, '\uD83C\uDF3D', 'Cereal', '2 tortillas maiz tacos'],
+      ['Tortillas de ma\u00edz (3 piezas)', '3 piezas (90g)', 195, '\uD83C\uDF3D', 'Cereal', '3 tortillas maiz tacos'],
+      ['Tortilla de ma\u00edz azul', '1 pieza', 60, '\uD83C\uDF3D', 'Cereal', 'tortilla maiz azul hecha a mano'],
+      ['Tortilla taquera chica', '1 pieza', 35, '\uD83C\uDF2E', 'Cereal', 'tortilla taquera chica mini taco'],
+      ['Tortilla de harina regular', '1 pieza', 85, '\uD83C\uDF3E', 'Cereal', 'tortilla harina trigo'],
+      ['Tortilla de harina integral', '1 pieza', 75, '\uD83C\uDF3E', 'Cereal', 'tortilla harina integral'],
+      ['Tortilla de harina grande para burrito', '1 pieza grande', 180, '\uD83C\uDF2F', 'Cereal', 'tortilla harina gigante sobaquera burrito'],
+      ['Tortilla de nopal o linaza', '1 pieza', 20, '\uD83C\uDF35', 'Cereal', 'tortilla nopal linaza keto ligera'],
+      ['Tortillas de nopal (2 piezas)', '2 piezas', 40, '\uD83C\uDF35', 'Cereal', 'tortillas nopal keto'],
+      ['Tortilla keto de almendra o coliflor', '1 pieza', 45, '\uD83E\uDD5C', 'Cereal', 'tortilla keto almendra coliflor'],
+      ['Tostada de ma\u00edz horneada (Susalia/Sanissimo)', '1 pieza', 30, '\uD83C\uDF2E', 'Cereal', 'tostada horneada susalia sanissimo'],
+      ['Tostadas de ma\u00edz horneadas (2 piezas)', '2 piezas', 60, '\uD83C\uDF2E', 'Cereal', '2 tostadas horneadas susalia sanissimo'],
+      ['Tostada de ma\u00edz frita tradicional', '1 pieza', 75, '\uD83C\uDF2E', 'Cereal', 'tostada frita maiz dorada'],
+      ['Totopos de ma\u00edz horneados', '1 taza (30g)', 110, '\uD83D\uDD3A', 'Cereal', 'totopos horneados nachos'],
+      ['Totopos de ma\u00edz fritos', '1 pu\u00f1o (30g)', 145, '\uD83D\uDD3A', 'Cereal', 'totopos fritos nachos'],
+      ['Sope de ma\u00edz sencillo al comal', '1 pieza base', 110, '\uD83E\uDED3', 'Cereal', 'sope picada pellizcada memela'],
+      ['Gordita de ma\u00edz al comal (sin fre\u00edr)', '1 pieza base', 130, '\uD83E\uDED3', 'Cereal', 'gordita maiz comal bocol'],
+      ['Tlacoyo de haba, frijol o reques\u00f3n al comal', '1 pieza', 145, '\uD83E\uDED3', 'Cereal', 'tlacoyo haba frijol requeson'],
+      ['Huarache de masa de ma\u00edz al comal', '1 pieza base', 165, '\uD83E\uDED3', 'Cereal', 'huarache masa maiz'],
+      ['Tlayuda oaxaque\u00f1a (tortilla grande)', '1 pieza base', 190, '\uD83E\uDED3', 'Cereal', 'tlayuda oaxaca'],
+      ['Masa de ma\u00edz nixtamalizado', '50g', 105, '\uD83C\uDF3D', 'Cereal', 'masa maiz nixtamal'],
+      ['Elote tierno cocido entero', '1 pieza mediana', 90, '\uD83C\uDF3D', 'Cereal', 'elote cocido entero mazorca'],
+      ['Elote preparado con mayonesa, queso y chile', '1 pieza', 235, '\uD83C\uDF3D', 'Antojo', 'elote preparado callejero mayonesa queso'],
+      ['Elote tierno desgranado', '1/2 taza', 70, '\uD83C\uDF3D', 'Cereal', 'elote desgranado granos maiz'],
+      ['Esquites con lim\u00f3n y chile (sin mayonesa)', '1 vaso (1 taza)', 135, '\uD83C\uDF3D', 'Cereal', 'esquites vaso elote en vaso'],
+      ['Esquites preparados con mayonesa y queso', '1 vaso', 260, '\uD83C\uDF3D', 'Antojo', 'esquites con mayonesa queso chasca'],
+      ['Palomitas de ma\u00edz naturales (hechas en casa)', '2.5 tazas', 70, '\uD83C\uDF7F', 'Cereal', 'palomitas maiz naturales sin mantequilla'],
+      ['Palomitas de ma\u00edz con mantequilla', '2 tazas', 145, '\uD83C\uDF7F', 'Snack', 'palomitas mantequilla cine'],
 
-      // Quesos y Lacteos
-      { name: 'Queso Panela', portion: '40g (2 rebanadas)', kcal: 55, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso panela' },
-      { name: 'Queso Oaxaca / Quesillo', portion: '30g (hebra)', kcal: 85, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso oaxaca quesillo hebra' },
-      { name: 'Queso Cottage', portion: '3 cucharadas', kcal: 50, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'queso cottage' },
-      { name: 'Queso Fresco / Ranchero', portion: '40g', kcal: 70, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso fresco ranchero canasto' },
-      { name: 'Queso Manchego / Gouda', portion: '30g (1 l\u00e1mina)', kcal: 105, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'queso manchego gouda amarillo' },
-      { name: 'Reques\u00f3n natural', portion: '3 cucharadas', kcal: 65, icon: '\uD83E\uDDC0', cat: 'L\u00e1cteo', kw: 'requeson ricota' },
-      { name: 'Yogur Griego natural sin az\u00facar', portion: '1/2 taza (120g)', kcal: 75, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'yogur griego yogurt' },
-      { name: 'Yogur natural tradicional', portion: '1 taza', kcal: 120, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'yogur natural' },
-      { name: 'Leche deslactosada light', portion: '1 taza (240ml)', kcal: 100, icon: '\uD83E\uDD5B', cat: 'L\u00e1cteo', kw: 'leche deslactosada light vaca' },
-      { name: 'Leche entera', portion: '1 taza (240ml)', kcal: 145, icon: '\uD83E\uDD5B', cat: 'L\u00e1cteo', kw: 'leche entera' },
-      { name: 'Leche de almendra sin az\u00facar', portion: '1 taza (240ml)', kcal: 35, icon: '\uD83E\uDD5B', cat: 'Bebida', kw: 'leche almendra coco vegetal' },
-      { name: 'Jocoque seco', portion: '2 cucharadas', kcal: 55, icon: '\uD83E\uDD63', cat: 'L\u00e1cteo', kw: 'jocoque' },
+      // --- 2. PANES, PANADERIA MEXICANA, CEREALES, ARROZ, PASTAS Y TUBERCULOS ---
+      ['Bolillo sin migaj\u00f3n', '1/2 pieza', 70, '\uD83E\uDD56', 'Cereal', 'bolillo sin migajon medio birote telera'],
+      ['Bolillo entero con migaj\u00f3n', '1 pieza', 140, '\uD83E\uDD56', 'Cereal', 'bolillo entero birote pan blanco'],
+      ['Telera para torta', '1 pieza', 150, '\uD83E\uDD56', 'Cereal', 'telera pan torta'],
+      ['Birote salado tapat\u00edo', '1/2 pieza', 75, '\uD83E\uDD56', 'Cereal', 'birote salado guadalajara'],
+      ['Pan integral de caja (Bimbo/Oroweat)', '1 rebanada', 70, '\uD83C\uDF5E', 'Cereal', 'pan integral caja rebanada sandwich'],
+      ['Pan integral de caja (2 rebanadas)', '2 rebanadas', 140, '\uD83C\uDF5E', 'Cereal', '2 rebanadas pan integral sandwich'],
+      ['Pan blanco de caja', '1 rebanada', 75, '\uD83C\uDF5E', 'Cereal', 'pan blanco caja rebanada'],
+      ['Pan Cero Cero / Doble Cero / Ezequiel', '1 rebanada', 60, '\uD83C\uDF5E', 'Cereal', 'pan cero cero multigrano germinado ezequiel'],
+      ['Pan multigrano o linaza', '1 rebanada', 75, '\uD83C\uDF5E', 'Cereal', 'pan multigrano semillas'],
+      ['Pan tostado cl\u00e1sico', '1 rebanada', 60, '\uD83C\uDF5E', 'Cereal', 'pan tostado bimbo'],
+      ['Pan \u00e1rabe o Pan Pita', '1 pieza', 110, '\uD83E\uDED3', 'Cereal', 'pan arabe pita'],
+      ['Bagel natural o con semillas', '1/2 pieza', 120, '\uD83E\uDD6F', 'Cereal', 'bagel medio'],
+      ['Bagel entero', '1 pieza', 240, '\uD83E\uDD6F', 'Cereal', 'bagel entero'],
+      ['Baguette artesanal', '1 rebanada gruesa (50g)', 130, '\uD83E\uDD56', 'Cereal', 'baguette pan frances'],
+      ['Croissant o Cuernito simple', '1 pieza mediana', 195, '\uD83E\uDD50', 'Cereal', 'croissant cuernito hojaldre'],
+      ['Bollo para hamburguesa', '1 pieza', 140, '\uD83C\uDF54', 'Cereal', 'bollo pan hamburguesa'],
+      ['Pan para hot dog (Medias noches)', '1 pieza', 115, '\uD83C\uDF2D', 'Cereal', 'pan hot dog medias noches'],
+      ['Palitos de pan o Grissini', '3 piezas', 70, '\uD83E\uDD56', 'Cereal', 'palitos pan grissini'],
+      ['Croutones para ensalada', '1/2 taza', 90, '\uD83C\uDF5E', 'Cereal', 'croutones crutones pan tostado'],
+      ['Concha de vainilla o chocolate (Media)', '1/2 pieza', 135, '\uD83E\uDD50', 'Pan Dulce', 'media concha pan dulce'],
+      ['Concha entera de vainilla o chocolate', '1 pieza', 270, '\uD83E\uDD50', 'Pan Dulce', 'concha entera pan dulce vainilla chocolate'],
+      ['Oreja de hojaldre', '1 pieza', 215, '\uD83E\uDD50', 'Pan Dulce', 'oreja pan dulce hojaldre'],
+      ['Dona azucarada o glaseada', '1 pieza', 240, '\uD83C\uDF69', 'Pan Dulce', 'dona glaseada azucarada krispy kreme'],
+      ['Dona de chocolate o rellena', '1 pieza', 285, '\uD83C\uDF69', 'Pan Dulce', 'dona chocolate rellena'],
+      ['Mantecada o Muffin', '1 pieza', 235, '\uD83E\uDDC1', 'Pan Dulce', 'mantecada muffin panque'],
+      ['Rol de canela glaseado', '1 pieza', 295, '\uD83E\uDD50', 'Pan Dulce', 'rol canela cinnamon roll'],
+      ['Bisquet tradicional', '1 pieza', 210, '\uD83E\uDD50', 'Pan Dulce', 'bisquet pan'],
+      ['Panqu\u00e9 de elote, nuez o pl\u00e1tano', '1 rebanada', 225, '\uD83C\uDF70', 'Pan Dulce', 'panque elote nuez platano nata'],
+      ['Churro azucarado', '1 pieza', 145, '\uD83E\uDD50', 'Pan Dulce', 'churro churros'],
+      ['Pan de muerto tradicional', '1 pieza chica', 245, '\uD83E\uDD50', 'Pan Dulce', 'pan de muerto'],
+      ['Rosca de reyes', '1 rebanada', 250, '\uD83E\uDD50', 'Pan Dulce', 'rosca de reyes'],
+      ['Bu\u00f1uelo crujiente', '1 pieza', 180, '\uD83E\uDD50', 'Pan Dulce', 'bunuelo'],
+      ['Galletas Mar\u00eda', '5 piezas', 70, '\uD83C\uDF6A', 'Cereal', 'galletas maria marias'],
+      ['Galletas Habaneras integrales', '4 piezas', 70, '\uD83C\uDF6A', 'Cereal', 'galletas habaneras integrales'],
+      ['Galletas Salmas horneadas', '1 paquetito (3 pzas)', 70, '\uD83E\uDD58', 'Cereal', 'galletas salmas sanissimo maiz'],
+      ['Galletas Saladitas', '4 piezas', 70, '\uD83C\uDF6A', 'Cereal', 'galletas saladitas saladas'],
+      ['Galletas Crackets o Ritz', '5 piezas', 85, '\uD83C\uDF6A', 'Cereal', 'galletas crackets ritz'],
+      ['Galletas de avena caseras o integrales', '2 piezas', 130, '\uD83C\uDF6A', 'Cereal', 'galletas avena'],
+      ['Galletas con chispas de chocolate (Chokis)', '2 piezas', 140, '\uD83C\uDF6A', 'Snack', 'galletas chispas chocolate chokis chips ahoy'],
+      ['Galletas Oreo, Pr\u00edncipe o Emperador', '2 piezas', 115, '\uD83C\uDF6A', 'Snack', 'galletas oreo principe emperador sandwich'],
+      ['Tortitas de arroz inflado (Rice cakes)', '2 piezas', 70, '\uD83C\uDF58', 'Cereal', 'tortitas arroz inflado rice cakes quaker'],
+      ['Barra de cereal o granola', '1 pieza', 110, '\uD83C\uDF3E', 'Cereal', 'barra cereal granola nutritiva'],
+      ['Avena cocida en agua', '1/2 taza (3 cdas)', 70, '\uD83E\uDD63', 'Cereal', 'avena cocida agua'],
+      ['Avena cocida en agua (1 taza completa)', '1 taza', 140, '\uD83E\uDD63', 'Cereal', '1 taza avena cocida'],
+      ['Avena cocida con leche light y canela', '1 taza', 185, '\uD83E\uDD63', 'Cereal', 'avena con leche canela'],
+      ['Avena cruda en hojuelas', '1/3 taza (30g)', 105, '\uD83C\uDF3E', 'Cereal', 'avena hojuelas cruda'],
+      ['Overnight oats (Avena reposada con ch\u00eda y yogur)', '1 frasco', 240, '\uD83E\uDD63', 'Cereal', 'overnight oats avena fria'],
+      ['Amaranto natural tostado', '1/4 taza (4 cdas)', 65, '\uD83C\uDF3E', 'Cereal', 'amaranto natural cereal'],
+      ['Quinoa cocida', '1/2 taza', 105, '\uD83E\uDD63', 'Cereal', 'quinoa quinua cocida'],
+      ['Cusc\u00fas o Cebada cocida', '1/2 taza', 100, '\uD83E\uDD63', 'Cereal', 'cuscus couscous cebada'],
+      ['Arroz blanco al vapor', '1/2 taza', 100, '\uD83C\uDF5A', 'Cereal', 'arroz blanco vapor cocido'],
+      ['Arroz blanco al vapor (1 taza)', '1 taza', 200, '\uD83C\uDF5A', 'Cereal', '1 taza arroz blanco'],
+      ['Arroz rojo a la mexicana casero', '1/2 taza', 115, '\uD83C\uDF5A', 'Cereal', 'arroz rojo mexicana casero'],
+      ['Arroz verde o a la jardinera', '1/2 taza', 115, '\uD83C\uDF5A', 'Cereal', 'arroz verde poblano jardinera'],
+      ['Arroz integral cocido', '1/2 taza', 105, '\uD83C\uDF5A', 'Cereal', 'arroz integral'],
+      ['Arroz frito oriental / Yakimeshi', '1/2 taza', 155, '\uD83C\uDF5A', 'Cereal', 'arroz frito chino yakimeshi'],
+      ['Pasta o Espagueti cocido al natural', '1/2 taza', 105, '\uD83C\uDF5D', 'Cereal', 'pasta espagueti fusilli penne tallarin'],
+      ['Espagueti rojo con salsa de jitomate', '1/2 taza', 130, '\uD83C\uDF5D', 'Platillo', 'espagueti rojo tomate'],
+      ['Espagueti verde al chile poblano', '1/2 taza', 165, '\uD83C\uDF5D', 'Platillo', 'espagueti verde poblano'],
+      ['Espagueti blanco a la crema o Alfredo', '1/2 taza', 195, '\uD83C\uDF5D', 'Platillo', 'espagueti blanco crema alfredo'],
+      ['Pasta a la bolo\u00f1esa con carne', '1 taza', 285, '\uD83C\uDF5D', 'Platillo', 'pasta espagueti bolonesa carne'],
+      ['Sopa aguada de fideo, letras o estrellitas', '1 taza', 110, '\uD83C\uDF72', 'Platillo', 'sopa fideo pasta letras municiones aguada'],
+      ['Sopa seca de fideo', '1/2 taza', 155, '\uD83C\uDF5D', 'Platillo', 'sopa seca fideo'],
+      ['Coditos con crema y jam\u00f3n', '1/2 taza', 180, '\uD83C\uDF5D', 'Platillo', 'coditos frios crema jamon'],
+      ['Macarrones con queso (Mac & Cheese)', '1/2 taza', 210, '\uD83E\uDDC0', 'Platillo', 'macarrones queso mac and cheese'],
+      ['Papa cocida o al horno', '1/2 pieza mediana', 70, '\uD83E\uDD54', 'Cereal', 'papa cocida hervida horno'],
+      ['Papa entera cocida o asada', '1 pieza mediana', 140, '\uD83E\uDD54', 'Cereal', 'papa entera asada'],
+      ['Pur\u00e9 de papa casero', '1/2 taza', 115, '\uD83E\uDD54', 'Cereal', 'pure de papa'],
+      ['Papas en gajo al horno o Airfryer', '1 taza', 135, '\uD83E\uDD54', 'Cereal', 'papas gajo horno airfryer'],
+      ['Papas a la francesa fritas', '1 porci\u00f3n chica (85g)', 240, '\uD83C\uDF5F', 'Antojo', 'papas francesa fritas'],
+      ['Papas fritas de bolsita (Sabritas/Ruffles)', '1 bolsita (42g)', 225, '\uD83E\uDD54', 'Snack', 'papas fritas bolsa sabritas ruffles chips'],
+      ['Doritos, Takis o Cheetos', '1 bolsita (45g)', 230, '\uD83C\uDF3D', 'Snack', 'doritos takis cheetos fritura botana'],
+      ['Camote horneado o cocido', '1/2 taza', 90, '\uD83C\uDF60', 'Cereal', 'camote horneado cocido dulce'],
+      ['Yuca cocida', '1/2 taza', 85, '\uD83E\uDD54', 'Cereal', 'yuca mandioca'],
+      ['Cereal de ma\u00edz sin az\u00facar (Corn Flakes)', '1 taza', 100, '\uD83E\uDD63', 'Cereal', 'cereal corn flakes hojuelas maiz'],
+      ['Cereal de fibra (All-Bran / Bran Flakes)', '3/4 taza', 95, '\uD83E\uDD63', 'Cereal', 'cereal fibra all bran salvado'],
+      ['Cereal azucarado (Zucaritas / Choco Krispis)', '1 taza', 145, '\uD83E\uDD63', 'Cereal', 'cereal azucarado zucaritas choco krispis froot loops'],
+      ['Granola baja en az\u00facar', '3 cucharadas', 85, '\uD83E\uDD63', 'Cereal', 'granola ligera fit'],
+      ['Granola tradicional con miel', '3 cucharadas', 120, '\uD83E\uDD63', 'Cereal', 'granola tradicional miel'],
+      ['Hotcakes de avena y pl\u00e1tano caseros', '2 piezas chicas', 175, '\uD83E\uDD5E', 'Cereal', 'hotcakes pancakes avena platano fit'],
+      ['Hotcakes tradicionales de trigo', '2 piezas medianas', 260, '\uD83E\uDD5E', 'Cereal', 'hotcakes tradicionales harina mantequilla'],
+      ['Waffle tostado', '1 pieza', 175, '\uD83E\uDDC7', 'Cereal', 'waffle wafle'],
+      ['Pan franc\u00e9s (French toast)', '1 rebanada', 155, '\uD83C\uDF5E', 'Cereal', 'pan frances french toast'],
 
-      // Leguminosas
-      { name: 'Frijoles de la olla', portion: '1/2 taza', kcal: 110, icon: '\uD83E\uDED8', cat: 'Leguminosa', kw: 'frijoles olla caldoso' },
-      { name: 'Frijoles refritos caseros', portion: '1/3 taza', kcal: 135, icon: '\uD83E\uDED8', cat: 'Leguminosa', kw: 'frijoles refritos' },
-      { name: 'Lentejas cocidas', portion: '1/2 taza', kcal: 115, icon: '\uD83E\uDD63', cat: 'Leguminosa', kw: 'lentejas sopa' },
-      { name: 'Garbanzos cocidos / Hummus', portion: '1/2 taza (o 2 cdas hummus)', kcal: 120, icon: '\uD83E\uDED8', cat: 'Leguminosa', kw: 'garbanzos hummus' },
+      // --- 3. HUEVO, POLLO, PAVO, RES, CERDO Y EMBUTIDOS ---
+      ['Huevo entero', '1 pieza', 75, '\uD83E\uDD5A', 'Prote\u00edna', 'huevo entero blanquillo cocido duro pochado'],
+      ['Huevos enteros (2 piezas)', '2 piezas', 150, '\uD83E\uDD5A', 'Prote\u00edna', '2 huevos enteros par'],
+      ['Huevos enteros (3 piezas)', '3 piezas', 225, '\uD83E\uDD5A', 'Prote\u00edna', '3 huevos enteros'],
+      ['Claras de huevo', '2 claras', 35, '\uD83E\uDD5A', 'Prote\u00edna', 'claras de huevo'],
+      ['Claras de huevo (4 claras / 1/2 taza)', '4 claras', 70, '\uD83E\uDD5A', 'Prote\u00edna', '4 claras huevo'],
+      ['Yema de huevo', '1 pieza', 55, '\uD83E\uDD5A', 'Prote\u00edna', 'yema huevo'],
+      ['Huevo estrellado o frito', '1 pieza', 95, '\uD83C\uDF73', 'Prote\u00edna', 'huevo estrellado frito'],
+      ['Huevos revueltos naturales (2 piezas)', '2 piezas', 165, '\uD83C\uDF73', 'Platillo', 'huevos revueltos naturales'],
+      ['Huevos a la mexicana (jitomate, cebolla y chile)', '2 piezas', 180, '\uD83C\uDF73', 'Platillo', 'huevos a la mexicana'],
+      ['Huevos con jam\u00f3n de pavo', '2 huevos + jam\u00f3n', 205, '\uD83C\uDF73', 'Platillo', 'huevos con jamon'],
+      ['Huevos con salchicha', '2 huevos + salchicha', 245, '\uD83C\uDF73', 'Platillo', 'huevos con salchicha'],
+      ['Huevos con tocino', '2 huevos + tocino', 260, '\uD83C\uDF73', 'Platillo', 'huevos con tocino'],
+      ['Huevos con chorizo', '2 huevos + chorizo', 285, '\uD83C\uDF73', 'Platillo', 'huevos con chorizo'],
+      ['Huevos con machaca norte\u00f1a', '2 huevos + machaca', 240, '\uD83C\uDF73', 'Platillo', 'huevos con machaca'],
+      ['Huevos con nopales', '2 huevos + nopales', 175, '\uD83C\uDF73', 'Platillo', 'huevos con nopales'],
+      ['Huevos con ejotes', '2 huevos + ejotes', 175, '\uD83C\uDF73', 'Platillo', 'huevos con ejotes'],
+      ['Huevos rancheros o divorciados', '2 huevos sobre tortilla', 265, '\uD83C\uDF73', 'Platillo', 'huevos rancheros divorciados motulenos'],
+      ['Huevos ahogados en salsa verde o roja', '2 piezas en salsa', 185, '\uD83C\uDF73', 'Platillo', 'huevos ahogados salsa'],
+      ['Omelette de claras con espinaca y panela', '1 orden', 165, '\uD83C\uDF73', 'Platillo', 'omelette claras espinaca panela champinones'],
+      ['Omelette de huevo entero con jam\u00f3n y queso', '1 orden', 255, '\uD83C\uDF73', 'Platillo', 'omelette huevo jamon queso'],
+      ['Pechuga de pollo asada o a la plancha', '100g (1 palma)', 145, '\uD83C\uDF57', 'Prote\u00edna', 'pechuga pollo asada plancha filete'],
+      ['Pechuga de pollo asada (Porci\u00f3n grande 150g)', '150g', 215, '\uD83C\uDF57', 'Prote\u00edna', '150g pechuga pollo grande'],
+      ['Pollo deshebrado cocido', '1/2 taza (70g)', 110, '\uD83C\uDF57', 'Prote\u00edna', 'pollo deshebrado cocido'],
+      ['Muslo de pollo sin piel asado o cocido', '1 pieza (90g)', 135, '\uD83C\uDF57', 'Prote\u00edna', 'muslo pollo'],
+      ['Pierna de pollo sin piel cocida o asada', '1 pieza', 115, '\uD83C\uDF57', 'Prote\u00edna', 'pierna pollo'],
+      ['Pollo rostizado con piel', '1 pieza mediana', 215, '\uD83C\uDF57', 'Prote\u00edna', 'pollo rostizado asadero'],
+      ['Fajitas de pollo con pimientos y cebolla', '1 taza', 175, '\uD83C\uDF57', 'Platillo', 'fajitas de pollo mexicana'],
+      ['Milanesa de pollo a la plancha o airfryer', '1 pieza (110g)', 165, '\uD83C\uDF57', 'Prote\u00edna', 'milanesa pollo plancha'],
+      ['Milanesa de pollo empanizada', '1 pieza mediana', 275, '\uD83C\uDF57', 'Platillo', 'milanesa pollo empanizada frita'],
+      ['Tinga de pollo casera con cebolla y jitomate', '1/2 taza', 145, '\uD83C\uDF57', 'Platillo', 'tinga de pollo'],
+      ['Pollo en salsa verde o roja', '1 porci\u00f3n', 195, '\uD83C\uDF57', 'Platillo', 'pollo salsa verde roja guisado'],
+      ['Pollo con mole poblano o negro', '1 pieza con mole', 340, '\uD83C\uDF57', 'Platillo', 'pollo con mole poblano'],
+      ['Pollo a la crema o al chipotle', '1 porci\u00f3n', 265, '\uD83C\uDF57', 'Platillo', 'pollo crema chipotle'],
+      ['Alitas de pollo (horneadas o buffalo)', '3 piezas', 240, '\uD83C\uDF57', 'Antojo', 'alitas pollo wings buffalo bbq'],
+      ['Boneless de pollo', '5 piezas (120g)', 290, '\uD83C\uDF57', 'Antojo', 'boneless pollo'],
+      ['Nuggets de pollo', '5 piezas', 230, '\uD83C\uDF57', 'Snack', 'nuggets pollo'],
+      ['Pechuga de pavo natural asada', '100g', 135, '\uD83E\uDD83', 'Prote\u00edna', 'pavo pechuga natural horneado'],
+      ['Bistec de res magro a la plancha', '100g (1 palma)', 155, '\uD83E\uDD69', 'Prote\u00edna', 'bistec res magro asado carne'],
+      ['Carne asada de res o Arrachera', '100g', 195, '\uD83E\uDD69', 'Prote\u00edna', 'carne asada arrachera sirloin diezmillo'],
+      ['Corte Rib Eye, New York o T-Bone', '150g', 330, '\uD83E\uDD69', 'Prote\u00edna', 'rib eye new york corte carne'],
+      ['Fajitas de res con pimientos', '1 taza', 195, '\uD83E\uDD69', 'Platillo', 'fajitas de res'],
+      ['Bistec a la mexicana o encebollado', '1 taza', 190, '\uD83E\uDD69', 'Platillo', 'bistec mexicana encebollado cortadillo'],
+      ['Carne molida magra de res o pollo', '90g cocida', 150, '\uD83E\uDD69', 'Prote\u00edna', 'carne molida res pollo'],
+      ['Picadillo de res casero con verduras', '1/2 taza', 165, '\uD83E\uDD69', 'Platillo', 'picadillo res verduras'],
+      ['Alb\u00f3ndigas de res en caldillo de jitomate', '3 piezas', 195, '\uD83E\uDD69', 'Platillo', 'albondigas res caldillo chipotle'],
+      ['Milanesa de res empanizada', '1 pieza', 290, '\uD83E\uDD69', 'Platillo', 'milanesa res empanizada'],
+      ['Cecina de res natural (Yecapixtla)', '90g', 165, '\uD83E\uDD69', 'Prote\u00edna', 'cecina res tasajo'],
+      ['Carne seca o Machaca norte\u00f1a', '30g', 95, '\uD83E\uDD69', 'Prote\u00edna', 'carne seca machaca'],
+      ['Barbacoa de res o borrego magra', '100g', 210, '\uD83E\uDD69', 'Platillo', 'barbacoa borrego res'],
+      ['Birria de res con consom\u00e9', '1 plato mediano', 285, '\uD83C\uDF72', 'Platillo', 'birria res consome'],
+      ['H\u00edgado de res encebollado', '100g', 165, '\uD83E\uDD69', 'Prote\u00edna', 'higado encebollado'],
+      ['Lomo o pierna de cerdo magra al horno', '90g', 145, '\uD83E\uDD69', 'Prote\u00edna', 'lomo pierna cerdo puerco magro'],
+      ['Chuleta de cerdo natural o ahumada', '1 pieza (85g)', 165, '\uD83E\uDD69', 'Prote\u00edna', 'chuleta cerdo ahumada'],
+      ['Carnitas de cerdo maciza', '80g', 195, '\uD83E\uDD69', 'Platillo', 'carnitas maciza cerdo'],
+      ['Carnitas surtidas de cerdo', '100g', 260, '\uD83E\uDD69', 'Platillo', 'carnitas surtidas buche cueritos'],
+      ['Chicharr\u00f3n de cerdo seco crujiente', '30g (1 trozo)', 160, '\uD83E\uDD53', 'Prote\u00edna', 'chicharron seco cerdo duro'],
+      ['Chicharr\u00f3n en salsa verde o roja', '1/2 taza', 210, '\uD83C\uDF72', 'Platillo', 'chicharron salsa verde roja'],
+      ['Cochinita pibil yucateca', '100g', 215, '\uD83E\uDD69', 'Platillo', 'cochinita pibil cerdo'],
+      ['Carne al pastor o adobada', '100g', 210, '\uD83E\uDD69', 'Platillo', 'carne al pastor trompo adobada'],
+      ['Costilla de cerdo en salsa o BBQ', '100g', 245, '\uD83E\uDD69', 'Platillo', 'costilla cerdo salsa bbq'],
+      ['Jam\u00f3n de pechuga de pavo', '2 rebanadas (40g)', 45, '\uD83E\uDD53', 'Prote\u00edna', 'jamon pavo pechuga'],
+      ['Jam\u00f3n de pierna de cerdo', '2 rebanadas', 65, '\uD83E\uDD53', 'Prote\u00edna', 'jamon pierna virginia'],
+      ['Jam\u00f3n serrano o Prosciutto', '2 rebanadas (30g)', 70, '\uD83E\uDD53', 'Prote\u00edna', 'jamon serrano prosciutto'],
+      ['Salchicha de pavo', '1 pieza', 65, '\uD83C\uDF2D', 'Prote\u00edna', 'salchicha pavo'],
+      ['Salchicha de Viena o para asar', '1 pieza', 110, '\uD83C\uDF2D', 'Prote\u00edna', 'salchicha viena asar polaca'],
+      ['Tocino de cerdo dorado', '2 tiras', 90, '\uD83E\uDD53', 'Grasa', 'tocino cerdo tiras'],
+      ['Tocino de pavo', '2 tiras', 60, '\uD83E\uDD53', 'Prote\u00edna', 'tocino pavo'],
+      ['Chorizo de cerdo o Longaniza', '30g (1 trozo)', 115, '\uD83E\uDD53', 'Prote\u00edna', 'chorizo cerdo longaniza chistorra'],
+      ['Chorizo de pavo o soya', '30g', 65, '\uD83E\uDD53', 'Prote\u00edna', 'chorizo pavo soya'],
+      ['Pepperoni o Salami', '5 rebanadas', 70, '\uD83C\uDF55', 'Prote\u00edna', 'pepperonipeperoni salami'],
 
-      // Grasas Saludables y Semillas
-      { name: 'Aguacate Hass', portion: '1/3 pieza', kcal: 80, icon: '\uD83E\uDD51', cat: 'Grasa Buena', kw: 'aguacate hass' },
-      { name: 'Aguacate Hass (Media pieza)', portion: '1/2 pieza', kcal: 120, icon: '\uD83E\uDD51', cat: 'Grasa Buena', kw: 'medio aguacate hass' },
-      { name: 'Guacamole natural casero', portion: '2 cucharadas', kcal: 65, icon: '\uD83E\uDD51', cat: 'Grasa Buena', kw: 'guacamole aguacate' },
-      { name: 'Almendras naturales', portion: '10 piezas', kcal: 70, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'almendras' },
-      { name: 'Nueces', portion: '6 mitades', kcal: 75, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'nueces nuez pecana' },
-      { name: 'Cacahuates naturales', portion: '14 piezas', kcal: 75, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'cacahuates man\u00ed' },
-      { name: 'Semillas de ch\u00eda o linaza', portion: '1 cucharada', kcal: 55, icon: '\uD83C\uDF31', cat: 'Grasa Buena', kw: 'chia linaza semillas ajonjoli' },
-      { name: 'Crema de cacahuate o almendra sin az\u00facar', portion: '1 cucharada', kcal: 90, icon: '\uD83E\uDD5C', cat: 'Grasa Buena', kw: 'crema cacahuate almendra mantequilla' },
-      { name: 'Aceite de oliva / aguacate', portion: '1 cucharadita', kcal: 45, icon: '\uD83E\uDED2', cat: 'Grasa Buena', kw: 'aceite oliva aguacate coco' },
-      { name: 'Crema \u00e1cida ligera', portion: '1 cucharada', kcal: 35, icon: '\uD83E\uDD63', cat: 'Grasa', kw: 'crema acida lala' },
+      // --- 4. PESCADOS Y MARISCOS ---
+      ['Filete de pescado blanco a la plancha (Tilapia/Robalo/Huachinango)', '120g (1 palma)', 115, '\uD83D\uDC1F', 'Prote\u00edna', 'filete pescado blanco tilapia mojarra robalo huachinango basa merluza'],
+      ['Pescado empapelado con verduras', '1 filete (140g)', 140, '\uD83D\uDC1F', 'Platillo', 'pescado empapelado verduras'],
+      ['Filete de pescado al mojo de ajo o ajillo', '1 filete', 165, '\uD83D\uDC1F', 'Platillo', 'pescado mojo de ajo ajillo'],
+      ['Pescado a la veracruzana', '1 filete', 175, '\uD83D\uDC1F', 'Platillo', 'pescado veracruzana'],
+      ['Filete de pescado empanizado o capeado', '1 filete', 245, '\uD83D\uDC1F', 'Platillo', 'pescado empanizado frito capeado'],
+      ['Mojarra entera frita', '1 pieza mediana', 360, '\uD83D\uDC1F', 'Platillo', 'mojarra frita entera'],
+      ['Salm\u00f3n a la plancha o al horno', '100g', 185, '\uD83D\uDC1F', 'Prote\u00edna', 'salmon plancha horno filete'],
+      ['Salm\u00f3n ahumado', '60g', 75, '\uD83D\uDC1F', 'Prote\u00edna', 'salmon ahumado'],
+      ['At\u00fan en agua drenado (1 lata)', '1 lata (100g)', 110, '\uD83E\uDD6B', 'Prote\u00edna', 'atun agua lata drenado'],
+      ['At\u00fan en agua (Media lata)', '1/2 lata', 55, '\uD83E\uDD6B', 'Prote\u00edna', 'medio atun media lata'],
+      ['At\u00fan en aceite drenado', '1 lata', 175, '\uD83E\uDD6B', 'Prote\u00edna', 'atun aceite lata'],
+      ['Medall\u00f3n de at\u00fan fresco sellado', '120g', 145, '\uD83D\uDC1F', 'Prote\u00edna', 'medallon atun fresco sellado'],
+      ['Ensalada de at\u00fan con pico de gallo y aguacate', '1 taza', 165, '\uD83E\uDD57', 'Platillo', 'ensalada atun verdura aguacate'],
+      ['Ensalada de at\u00fan con mayonesa', '1/2 taza', 195, '\uD83E\uDD57', 'Platillo', 'ensalada atun mayonesa'],
+      ['Sardinas en tomate o agua', '3 piezas (90g)', 125, '\uD83D\uDC1F', 'Prote\u00edna', 'sardinas lata'],
+      ['Camarones cocidos al natural o al vapor', '100g (12 pzas)', 95, '\uD83E\uDD90', 'Prote\u00edna', 'camarones cocidos natural pacotilla'],
+      ['Camarones al mojo de ajo o mantequilla', '100g', 165, '\uD83E\uDD90', 'Platillo', 'camarones mojo de ajo ajillo mantequilla'],
+      ['Camarones a la diabla', '100g', 155, '\uD83E\uDD90', 'Platillo', 'camarones diabla picantes'],
+      ['Camarones empanizados o al coco', '6 piezas', 245, '\uD83E\uDD90', 'Platillo', 'camarones empanizados coco roca'],
+      ['Ceviche de pescado blanco con verdura', '1 taza', 135, '\uD83D\uDC1F', 'Platillo', 'ceviche pescado blanco'],
+      ['Ceviche de camar\u00f3n o mixto', '1 taza', 145, '\uD83E\uDD90', 'Platillo', 'ceviche camaron mixto'],
+      ['Aguachile de camar\u00f3n verde o negro', '1 plato', 155, '\uD83E\uDD90', 'Platillo', 'aguachile camaron'],
+      ['Coctel de camar\u00f3n mediano', '1 copa', 195, '\uD83E\uDD90', 'Platillo', 'coctel camaron'],
+      ['Pulpo cocido o a las brasas', '100g', 130, '\uD83D\uDC19', 'Prote\u00edna', 'pulpo cocido brasas enamorado'],
+      ['Surimi o Imitaci\u00f3n cangrejo', '2 barritas (60g)', 65, '\uD83E\uDD80', 'Prote\u00edna', 'surimi cangrejo jaiba'],
+      ['Ostiones o Almejas frescas', '6 piezas', 55, '\uD83E\uDDAA', 'Prote\u00edna', 'ostiones almejas mejillones'],
 
-      // Frutas de Mexico
-      { name: 'Manzana', portion: '1 pieza mediana', kcal: 60, icon: '\uD83C\uDF4E', cat: 'Fruta', kw: 'manzana roja verde' },
-      { name: 'Pl\u00e1tano Tabasco', portion: '1/2 pieza', kcal: 60, icon: '\uD83C\uDF4C', cat: 'Fruta', kw: 'platano banana' },
-      { name: 'Pl\u00e1tano entero', portion: '1 pieza completa', kcal: 120, icon: '\uD83C\uDF4C', cat: 'Fruta', kw: 'platano entero banana' },
-      { name: 'Fresas frescas picadas', portion: '1 taza', kcal: 50, icon: '\uD83C\uDF53', cat: 'Fruta', kw: 'fresas frutos rojos' },
-      { name: 'Papaya picada', portion: '1 taza', kcal: 55, icon: '\uD83E\uDD6D', cat: 'Fruta', kw: 'papaya' },
-      { name: 'Mango picado', portion: '1/2 taza', kcal: 60, icon: '\uD83E\uDD6D', cat: 'Fruta', kw: 'mango manila ataulfo' },
-      { name: 'Naranja', portion: '1 pieza', kcal: 60, icon: '\uD83C\uDF4A', cat: 'Fruta', kw: 'naranja gajos' },
-      { name: 'Mandarina', portion: '2 piezas chicas', kcal: 60, icon: '\uD83C\uDF4A', cat: 'Fruta', kw: 'mandarina' },
-      { name: 'Sand\u00eda picada', portion: '1 taza', kcal: 50, icon: '\uD83C\uDF49', cat: 'Fruta', kw: 'sandia' },
-      { name: 'Mel\u00f3n picado', portion: '1 taza', kcal: 50, icon: '\uD83C\uDF48', cat: 'Fruta', kw: 'melon' },
-      { name: 'Uvas', portion: '12 piezas', kcal: 60, icon: '\uD83C\uDF47', cat: 'Fruta', kw: 'uvas' },
-      { name: 'Guayaba', portion: '2 piezas', kcal: 60, icon: '\uD83C\uDF50', cat: 'Fruta', kw: 'guayaba' },
-      { name: 'Pera', portion: '1/2 pieza', kcal: 60, icon: '\uD83C\uDF50', cat: 'Fruta', kw: 'pera' },
-      { name: 'Durazno', portion: '1 pieza', kcal: 55, icon: '\uD83C\uDF51', cat: 'Fruta', kw: 'durazno melocoton' },
-      { name: 'Kiwi', portion: '1 pieza', kcal: 50, icon: '\uD83E\uDD5D', cat: 'Fruta', kw: 'kiwi' },
-      { name: 'Moras azules / Zarzamoras', portion: '3/4 taza', kcal: 55, icon: '\uD83E\uDED0', cat: 'Fruta', kw: 'moras zarzamoras blueberries frutos rojos' },
-      { name: 'Tuna', portion: '2 piezas', kcal: 60, icon: '\uD83C\uDF35', cat: 'Fruta', kw: 'tuna' },
+      // --- 5. QUESOS, LACTEOS Y LECHES VEGETALES ---
+      ['Queso Panela fresco', '40g (2 rebanadas)', 55, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso panela fresco ligero'],
+      ['Queso Oaxaca o Quesillo', '30g (hebra)', 85, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso oaxaca quesillo hebra'],
+      ['Queso Cottage', '3 cucharadas (60g)', 50, '\uD83E\uDD63', 'L\u00e1cteo', 'queso cottage'],
+      ['Queso Fresco, Ranchero o Canasto', '40g', 70, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso fresco ranchero canasto aro'],
+      ['Queso Reques\u00f3n o Ricotta', '3 cucharadas', 65, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso requeson ricotta'],
+      ['Queso Cotija o A\u00f1ejo rallado', '1 cucharada', 40, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso cotija anejo rallado'],
+      ['Queso Manchego, Gouda o Chihuahua', '30g (1 l\u00e1mina)', 105, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso manchego gouda chihuahua menonita asadero'],
+      ['Queso Mozzarella', '30g', 85, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso mozzarella pizza'],
+      ['Queso Amarillo tipo americano', '1 rebanada', 65, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso amarillo americano'],
+      ['Queso Crema (Philadelphia regular)', '1 cucharada (15g)', 50, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso crema philadelphia'],
+      ['Queso Crema Light', '1 cucharada (15g)', 30, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso crema light'],
+      ['Queso de Cabra o Feta', '30g', 80, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso cabra feta'],
+      ['Queso Parmesano rallado', '1 cucharada', 45, '\uD83E\uDDC0', 'L\u00e1cteo', 'queso parmesano'],
+      ['Queso fundido natural o con chorizo', '1/3 taza', 215, '\uD83E\uDDC0', 'Antojo', 'queso fundido chorizo'],
+      ['Jocoque seco natural', '2 cucharadas', 55, '\uD83E\uDD63', 'L\u00e1cteo', 'jocoque seco arabe'],
+      ['Yogur Griego natural sin az\u00facar (Fage/Chobani/Oikos)', '1/2 taza (120g)', 75, '\uD83E\uDD63', 'L\u00e1cteo', 'yogur griego natural sin azucar yogurt'],
+      ['Yogur Griego endulzado o con fruta', '1 envase (150g)', 135, '\uD83E\uDD63', 'L\u00e1cteo', 'yogur griego fruta endulzado'],
+      ['Yogur natural tradicional', '1 taza', 120, '\uD83E\uDD63', 'L\u00e1cteo', 'yogur natural tradicional'],
+      ['Yogur light o cero grasa', '1 taza', 85, '\uD83E\uDD63', 'L\u00e1cteo', 'yogur light vitalinea'],
+      ['Yogur bebible de fresa o frutas', '1 botellita (220g)', 165, '\uD83E\uDD5B', 'L\u00e1cteo', 'yogur bebible tomar'],
+      ['Yakult o bebida de lactobacilos', '1 frasquito (80ml)', 50, '\uD83E\uDD5B', 'L\u00e1cteo', 'yakult soful lactobacilos'],
+      ['K\u00e9fir o Leche de b\u00falgaros', '1 taza', 110, '\uD83E\uDD5B', 'L\u00e1cteo', 'kefir bulgaros'],
+      ['Leche deslactosada light o semidescremada', '1 taza (240ml)', 100, '\uD83E\uDD5B', 'L\u00e1cteo', 'leche deslactosada light vaca vaso'],
+      ['Leche entera de vaca', '1 taza (240ml)', 145, '\uD83E\uDD5B', 'L\u00e1cteo', 'leche entera vaca'],
+      ['Leche alta en prote\u00edna (Lala 100 / Fairlife)', '1 taza (240ml)', 120, '\uD83E\uDD5B', 'L\u00e1cteo', 'leche proteina lala 100'],
+      ['Leche evaporada (Carnation)', '1/4 taza', 80, '\uD83E\uDD5B', 'L\u00e1cteo', 'leche evaporada carnation'],
+      ['Leche condensada (La Lechera)', '1 cucharada', 65, '\uD83E\uDD5B', 'Az\u00facar', 'leche condensada lechera'],
+      ['Leche de almendra sin az\u00facar', '1 taza (240ml)', 35, '\uD83E\uDD5B', 'Bebida', 'leche almendra sin azucar silk'],
+      ['Leche de coco sin az\u00facar', '1 taza (240ml)', 45, '\uD83E\uDD65', 'Bebida', 'leche coco bebida vegetal'],
+      ['Leche de soya o avena', '1 taza (240ml)', 95, '\uD83E\uDD5B', 'Bebida', 'leche soya avena vegetal'],
 
-      // Verduras Mexicanas
-      { name: 'Nopales asados o cocidos', portion: '1 taza', kcal: 25, icon: '\uD83C\uDF35', cat: 'Verdura', kw: 'nopales nopal' },
-      { name: 'Calabacita al vapor o asada', portion: '1 taza', kcal: 25, icon: '\uD83E\uDD52', cat: 'Verdura', kw: 'calabacita calabaza' },
-      { name: 'Chayote cocido', portion: '1/2 taza', kcal: 25, icon: '\uD83E\uDD52', cat: 'Verdura', kw: 'chayote' },
-      { name: 'Ejotes tiernos cocidos', portion: '1/2 taza', kcal: 25, icon: '\uD83E\uDED1', cat: 'Verdura', kw: 'ejotes' },
-      { name: 'Espinacas o Acelgas', portion: '1 taza', kcal: 20, icon: '\uD83E\uDD6C', cat: 'Verdura', kw: 'espinacas acelgas hojas verdes' },
-      { name: 'J\u00edcama y pepino con lim\u00f3n', portion: '1 taza', kcal: 30, icon: '\uD83E\uDD52', cat: 'Verdura', kw: 'jicama pepino colacion' },
-      { name: 'Br\u00f3coli o Coliflor al vapor', portion: '1 taza', kcal: 30, icon: '\uD83E\uDD66', cat: 'Verdura', kw: 'brocoli coliflor' },
-      { name: 'Champi\u00f1ones salteados', portion: '1/2 taza', kcal: 25, icon: '\uD83C\uDF44', cat: 'Verdura', kw: 'champinones hongos setas' },
-      { name: 'Ensalada fresca (lechuga, jitomate, cebolla)', portion: '2 tazas', kcal: 25, icon: '\uD83E\uDD57', cat: 'Verdura', kw: 'ensalada lechuga jitomate pico de gallo' },
+      // --- 6. LEGUMINOSAS Y PROTEINAS VEGETALES ---
+      ['Frijoles de la olla (negros, bayos o peruanos)', '1/2 taza', 110, '\uD83E\uDED8', 'Leguminosa', 'frijoles de la olla negros bayos peruanos pintos'],
+      ['Caldo de frijol', '1/2 taza', 45, '\uD83C\uDF72', 'Leguminosa', 'caldo de frijol'],
+      ['Frijoles refritos caseros', '1/3 taza (3 cdas)', 135, '\uD83E\uDED8', 'Leguminosa', 'frijoles refritos molidos'],
+      ['Frijoles charros con tocino y salchicha', '1 taza', 215, '\uD83C\uDF72', 'Platillo', 'frijoles charros'],
+      ['Frijoles puercos', '1/3 taza', 165, '\uD83E\uDED8', 'Platillo', 'frijoles puercos'],
+      ['Lentejas cocidas en sopa', '1/2 taza', 115, '\uD83C\uDF72', 'Leguminosa', 'lentejas sopa cocidas'],
+      ['Garbanzos cocidos', '1/2 taza', 120, '\uD83E\uDED8', 'Leguminosa', 'garbanzos cocidos'],
+      ['Hummus de garbanzo', '2 cucharadas', 70, '\uD83E\uDD63', 'Leguminosa', 'hummus garbanzo'],
+      ['Habas cocidas o Sopa de habas', '1/2 taza', 110, '\uD83C\uDF72', 'Leguminosa', 'habas sopa'],
+      ['Alubias o Frijol blanco', '1/2 taza', 115, '\uD83E\uDED8', 'Leguminosa', 'alubias frijol blanco'],
+      ['Ch\u00edcharos tiernos cocidos', '1/2 taza', 65, '\uD83E\uDED1', 'Leguminosa', 'chicharos guisantes'],
+      ['Edamames al vapor', '1/2 taza', 95, '\uD83E\uDED1', 'Leguminosa', 'edamames soya'],
+      ['Tofu firme asado o al natural', '100g', 85, '\uD83E\uDDC8', 'Prote\u00edna Veg', 'tofu soya'],
+      ['Soya texturizada hidratada guisada', '1/2 taza', 95, '\uD83E\uDD63', 'Prote\u00edna Veg', 'soya texturizada ceviche soya'],
+      ['Falafel de garbanzo', '3 piezas', 175, '\uD83E\uDED8', 'Platillo', 'falafel'],
 
-      // Bebidas, Platillos Rapidos y Antojos Controlados
-      { name: 'Caf\u00e9 americano negro sin az\u00facar', portion: '1 taza', kcal: 5, icon: '\u2615', cat: 'Bebida', kw: 'cafe americano negro expreso' },
-      { name: 'Caf\u00e9 con leche deslactosada', portion: '1 taza', kcal: 45, icon: '\u2615', cat: 'Bebida', kw: 'cafe con leche' },
-      { name: 'Latte o Capuchino sin az\u00facar', portion: '1 vaso', kcal: 95, icon: '\u2615', cat: 'Bebida', kw: 'latte capuchino cafe' },
-      { name: 'Cacao puro / Chocolate amargo 70%', portion: '1 cuadrito (10g)', kcal: 50, icon: '\uD83C\uDF6B', cat: 'Antojo Fit', kw: 'cacao chocolate amargo' },
-      { name: 'Miel de abeja pura', portion: '1 cucharadita', kcal: 25, icon: '\uD83C\uDF6F', cat: 'Extra', kw: 'miel abeja' },
-      { name: 'Taco de pollo o bistec en tortilla de ma\u00edz', portion: '1 pieza', kcal: 155, icon: '\uD83C\uDF2E', cat: 'Platillo', kw: 'taco pollo bistec asada' },
-      { name: 'Quesadilla en tortilla de ma\u00edz con queso', portion: '1 pieza', kcal: 150, icon: '\uD83C\uDF2E', cat: 'Platillo', kw: 'quesadilla maiz queso' },
-      { name: 'Sopa de verduras o consom\u00e9 de pollo', portion: '1 taza', kcal: 65, icon: '\uD83C\uDF72', cat: 'Platillo', kw: 'sopa verduras consome caldo pollo' },
-      { name: 'Prote\u00edna en polvo (Whey / Vegetal)', portion: '1 scoop', kcal: 120, icon: '\uD83E\uDD64', cat: 'Suplemento', kw: 'proteina scoop batido licuado' }
+      // --- 7. GRASAS SALUDABLES, SEMILLAS, FRUTOS SECOS, ACEITES Y ADEREZOS ---
+      ['Aguacate Hass (1/3 pieza)', '1/3 pieza (50g)', 80, '\uD83E\uDD51', 'Grasa Buena', 'aguacate hass tercio rebanadas'],
+      ['Aguacate Hass (Media pieza)', '1/2 pieza (75g)', 120, '\uD83E\uDD51', 'Grasa Buena', 'medio aguacate hass mitad'],
+      ['Aguacate Hass entero', '1 pieza completa', 240, '\uD83E\uDD51', 'Grasa Buena', 'aguacate entero completo'],
+      ['Guacamole natural casero', '2 cucharadas (45g)', 65, '\uD83E\uDD51', 'Grasa Buena', 'guacamole casero aguacate'],
+      ['Guacamole (Porci\u00f3n media 1/2 taza)', '1/2 taza', 160, '\uD83E\uDD51', 'Grasa Buena', 'guacamole media taza'],
+      ['Almendras naturales o fileteadas', '10 piezas', 70, '\uD83E\uDD5C', 'Grasa Buena', 'almendras naturales fileteadas'],
+      ['Nueces pecanas o de Castilla', '6 mitades', 75, '\uD83E\uDD5C', 'Grasa Buena', 'nueces nuez pecana castilla'],
+      ['Cacahuates naturales o tostados', '14 piezas', 75, '\uD83E\uDD5C', 'Grasa Buena', 'cacahuates naturales tostados mani'],
+      ['Cacahuates japoneses o enchilados', '1 pu\u00f1o (30g)', 155, '\uD83E\uDD5C', 'Snack', 'cacahuates japoneses enchilados'],
+      ['Pistaches sin c\u00e1scara', '18 piezas', 70, '\uD83E\uDD5C', 'Grasa Buena', 'pistaches pistacho'],
+      ['Nuez de la India (Cashews)', '10 piezas', 85, '\uD83E\uDD5C', 'Grasa Buena', 'nuez de la india cashews maranon'],
+      ['Avellanas o Macadamias', '8 piezas', 80, '\uD83E\uDD5C', 'Grasa Buena', 'avellanas macadamias'],
+      ['Mix de frutos secos y semillas (Trail mix)', '3 cucharadas (30g)', 145, '\uD83E\uDD5C', 'Grasa Buena', 'mix frutos secos semillas trail mix'],
+      ['Pepitas de calabaza o Semillas de girasol', '2 cucharadas', 85, '\uD83C\uDF3B', 'Grasa Buena', 'pepitas calabaza semillas girasol'],
+      ['Semillas de ch\u00eda', '1 cucharada', 55, '\uD83C\uDF31', 'Grasa Buena', 'semillas de chia'],
+      ['Semillas de linaza o Ajonjol\u00ed', '1 cucharada', 50, '\uD83C\uDF31', 'Grasa Buena', 'linaza ajonjoli sesamo'],
+      ['Semillas de c\u00e1\u00f1amo (Hemp)', '1 cucharada', 55, '\uD83C\uDF31', 'Grasa Buena', 'semillas hemp canamo'],
+      ['Crema de cacahuate sin az\u00facar', '1 cucharada', 90, '\uD83E\uDD5C', 'Grasa Buena', 'crema mantequilla de cacahuate mani'],
+      ['Crema de almendra natural', '1 cucharada', 95, '\uD83E\uDD5C', 'Grasa Buena', 'crema mantequilla de almendra'],
+      ['Crema de avellana con cacao (Nutella)', '1 cucharada', 100, '\uD83C\uDF6B', 'Az\u00facar', 'nutella crema avellana chocolate'],
+      ['Aceite de oliva extra virgen (1 cdita)', '1 cucharadita (5ml)', 45, '\uD83E\uDED2', 'Grasa Buena', 'aceite oliva cucharadita chorrito'],
+      ['Aceite de oliva o aguacate (1 cucharada)', '1 cucharada (14ml)', 120, '\uD83E\uDED2', 'Grasa Buena', 'aceite oliva aguacate coco cucharada cocinar'],
+      ['Aceite en aerosol (Pam)', '3 disparos', 10, '\uD83E\uDED2', 'Grasa Buena', 'aceite aerosol spray pam'],
+      ['Mantequilla o Ghee', '1 cucharadita', 40, '\uD83E\uDDC8', 'Grasa', 'mantequilla ghee margarina'],
+      ['Manteca de cerdo', '1 cucharadita', 45, '\uD83E\uDDC8', 'Grasa', 'manteca cerdo'],
+      ['Mayonesa tradicional', '1 cucharada', 95, '\uD83E\uDD63', 'Grasa', 'mayonesa mccormick hellmanns'],
+      ['Mayonesa light', '1 cucharada', 45, '\uD83E\uDD63', 'Grasa', 'mayonesa light'],
+      ['Crema \u00e1cida de vaca regular', '1 cucharada', 45, '\uD83E\uDD63', 'Grasa', 'crema acida entera lala alpura'],
+      ['Crema \u00e1cida light', '1 cucharada', 30, '\uD83E\uDD63', 'Grasa', 'crema acida light ligera'],
+      ['Media crema', '2 cucharadas', 55, '\uD83E\uDD63', 'Grasa', 'media crema'],
+      ['Aderezo Ranch, C\u00e9sar o Mil Islas', '1 cucharada', 75, '\uD83E\uDD57', 'Grasa', 'aderezo ranch cesar mil islas italiano'],
+      ['Vinagreta bals\u00e1mica o italiana', '1 cucharada', 45, '\uD83E\uDD57', 'Grasa', 'vinagreta balsamica aderezo'],
+      ['Aceitunas verdes o negras', '6 piezas', 35, '\uD83E\uDED2', 'Grasa Buena', 'aceitunas olivas'],
+      ['Coco rallado sin az\u00facar', '2 cucharadas', 55, '\uD83E\uDD65', 'Grasa Buena', 'coco rallado'],
+
+      // --- 8. FRUTAS DE MEXICO Y EL MUNDO ---
+      ['Manzana roja, verde o amarilla', '1 pieza mediana', 60, '\uD83C\uDF4E', 'Fruta', 'manzana roja verde golden gala'],
+      ['Pl\u00e1tano Tabasco (Media pieza)', '1/2 pieza', 60, '\uD83C\uDF4C', 'Fruta', 'medio platano tabasco banana guineo'],
+      ['Pl\u00e1tano entero', '1 pieza completa', 120, '\uD83C\uDF4C', 'Fruta', 'platano entero completo banana'],
+      ['Pl\u00e1tano dominico', '3 piezas chicas', 60, '\uD83C\uDF4C', 'Fruta', 'platano dominico'],
+      ['Pl\u00e1tano macho cocido o asado', '1/2 pieza', 90, '\uD83C\uDF4C', 'Fruta', 'platano macho cocido hervido asado'],
+      ['Pl\u00e1tano macho frito', '1/2 taza', 185, '\uD83C\uDF4C', 'Antojo', 'platano macho frito'],
+      ['Fresas frescas picadas', '1 taza (17 piezas)', 50, '\uD83C\uDF53', 'Fruta', 'fresas frescas picadas'],
+      ['Papaya picada', '1 taza', 55, '\uD83E\uDD6D', 'Fruta', 'papaya maradol picada'],
+      ['Mango Manila o Ataulfo picado', '1/2 taza (1/2 pieza)', 60, '\uD83E\uDD6D', 'Fruta', 'mango manila ataulfo petacon'],
+      ['Mango entero', '1 pieza mediana', 120, '\uD83E\uDD6D', 'Fruta', 'mango entero'],
+      ['Naranja en gajos', '2 piezas chicas / 1 grande', 60, '\uD83C\uDF4A', 'Fruta', 'naranja gajos'],
+      ['Mandarina', '2 piezas chicas', 60, '\uD83C\uDF4A', 'Fruta', 'mandarina tangerina'],
+      ['Toronja', '1/2 pieza', 45, '\uD83C\uDF4A', 'Fruta', 'toronja pomelo'],
+      ['Sand\u00eda picada', '1 taza', 50, '\uD83C\uDF49', 'Fruta', 'sandia picada'],
+      ['Mel\u00f3n chino o valenciano picado', '1 taza', 50, '\uD83C\uDF48', 'Fruta', 'melon chino cantaloupe verde'],
+      ['Pi\u00f1a natural picada', '3/4 taza (1 rebanada)', 55, '\uD83C\uDF4D', 'Fruta', 'pina natural miel'],
+      ['Uvas verdes o rojas', '12 piezas', 60, '\uD83C\uDF47', 'Fruta', 'uvas verdes rojas moradas'],
+      ['Guayaba', '2 piezas medianas', 60, '\uD83C\uDF50', 'Fruta', 'guayaba'],
+      ['Pera', '1/2 pieza grande / 1 chica', 60, '\uD83C\uDF50', 'Fruta', 'pera mantequilla'],
+      ['Durazno o Nectarina', '1 pieza mediana', 55, '\uD83C\uDF51', 'Fruta', 'durazno melocoton nectarina'],
+      ['Chabacano', '3 piezas', 55, '\uD83C\uDF51', 'Fruta', 'chabacano albaricoque'],
+      ['Ciruela roja o amarilla', '2 piezas', 55, '\uD83C\uDF51', 'Fruta', 'ciruela fresca'],
+      ['Ciruela pasa', '3 piezas', 60, '\uD83C\uDF51', 'Fruta', 'ciruela pasa seca'],
+      ['Pasitas o Ar\u00e1ndanos deshidratados', '2 cucharadas', 65, '\uD83C\uDF47', 'Fruta', 'pasas pasitas arandanos deshidratados cranberries'],
+      ['D\u00e1tiles naturales', '2 piezas', 65, '\uD83C\uDF34', 'Fruta', 'datiles datil'],
+      ['Higo fresco', '2 piezas', 60, '\uD83C\uDF50', 'Fruta', 'higo higos'],
+      ['Kiwi', '1 pieza', 50, '\uD83E\uDD5D', 'Fruta', 'kiwi'],
+      ['Moras azules (Blueberries)', '3/4 taza', 55, '\uD83E\uDED0', 'Fruta', 'moras azules blueberries arandanos frescos'],
+      ['Zarzamoras o Frambuesas', '1 taza', 50, '\uD83E\uDED0', 'Fruta', 'zarzamoras frambuesas'],
+      ['Frutos rojos mixtos (fresa, mora, frambuesa)', '1 taza', 55, '\uD83C\uDF53', 'Fruta', 'frutos rojos berries mixtos'],
+      ['Cerezas frescas', '12 piezas', 60, '\uD83C\uDF52', 'Fruta', 'cerezas'],
+      ['Tuna verde o roja', '2 piezas', 60, '\uD83C\uDF35', 'Fruta', 'tuna xoconostle'],
+      ['Mamey', '1/3 pieza', 65, '\uD83E\uDD6D', 'Fruta', 'mamey'],
+      ['Zapote negro o Chicozapote', '1/2 pieza', 65, '\uD83C\uDF50', 'Fruta', 'zapote chicozapote'],
+      ['Guan\u00e1bana o Chirimoya', '1/2 taza', 60, '\uD83C\uDF50', 'Fruta', 'guanabana chirimoya'],
+      ['Granada roja desgranada', '1/2 taza', 55, '\uD83C\uDF4E', 'Fruta', 'granada roja'],
+      ['Pitahaya o Fruta del drag\u00f3n', '1 pieza', 55, '\uD83C\uDF50', 'Fruta', 'pitahaya pitaya dragon'],
+      ['Maracuy\u00e1 (Fruta de la pasi\u00f3n)', '2 piezas', 50, '\uD83C\uDF4A', 'Fruta', 'maracuya'],
+      ['Lichi o Rambut\u00e1n', '8 piezas', 60, '\uD83C\uDF52', 'Fruta', 'lichi rambutan'],
+      ['Coco fresco en trozos', '40g', 140, '\uD83E\uDD65', 'Grasa/Fruta', 'coco fresco trozo'],
+      ['C\u00f3ctel de frutas frescas', '1 taza', 60, '\uD83C\uDF53', 'Fruta', 'coctel de frutas picadas'],
+
+      // --- 9. VERDURAS, HORTALIZAS, HONGOS, ENSALADAS Y SALSAS ---
+      ['Nopales asados o cocidos', '1 taza', 25, '\uD83C\uDF35', 'Verdura', 'nopales nopal asado cocido'],
+      ['Ensalada de nopales con jitomate, cebolla y cilantro', '1 taza', 35, '\uD83C\uDF35', 'Verdura', 'ensalada de nopales'],
+      ['Calabacita al vapor o asada', '1 taza', 25, '\uD83E\uDD52', 'Verdura', 'calabacita calabaza italiana'],
+      ['Calabacitas a la mexicana con elote', '1 taza', 60, '\uD83E\uDD52', 'Verdura', 'calabacitas a la mexicana'],
+      ['Chayote cocido al vapor', '1/2 taza', 25, '\uD83E\uDD52', 'Verdura', 'chayote cocido vapor'],
+      ['Ejotes tiernos cocidos', '1/2 taza', 25, '\uD83E\uDED1', 'Verdura', 'ejotes verdes'],
+      ['Espinacas crudas o al vapor', '1 taza', 20, '\uD83E\uDD6C', 'Verdura', 'espinacas hojas verdes'],
+      ['Acelgas, Quelites o Verdolagas', '1 taza', 25, '\uD83E\uDD6C', 'Verdura', 'acelgas quelites verdolagas quintoniles huauzontles'],
+      ['Br\u00f3coli al vapor o asado', '1 taza', 30, '\uD83E\uDD66', 'Verdura', 'brocoli'],
+      ['Coliflor al vapor o Arroz de coliflor', '1 taza', 25, '\uD83E\uDD66', 'Verdura', 'coliflor arroz de coliflor'],
+      ['Zanahoria cruda o rallada', '1/2 taza', 25, '\uD83E\uDD55', 'Verdura', 'zanahoria'],
+      ['J\u00edcama picada con lim\u00f3n', '1 taza', 35, '\uD83E\uDD52', 'Verdura', 'jicama con limon'],
+      ['Pepino con lim\u00f3n y chile', '1 taza', 20, '\uD83E\uDD52', 'Verdura', 'pepino con limon tajin'],
+      ['J\u00edcama, pepino y zanahoria con lim\u00f3n', '1 taza', 30, '\uD83E\uDD52', 'Verdura', 'jicama pepino zanahoria botana'],
+      ['Lechuga fresca, Ar\u00fagula o Berros', '2 tazas', 15, '\uD83E\uDD6C', 'Verdura', 'lechuga romana orejona arugada berros kale'],
+      ['Col o Repollo blanco/morado rallado', '1 taza', 20, '\uD83E\uDD6C', 'Verdura', 'col repollo morado'],
+      ['Coles de Bruselas asadas', '1/2 taza', 30, '\uD83E\uDD6C', 'Verdura', 'coles de bruselas'],
+      ['Jitomate o Tomate rojo', '1 pieza mediana', 20, '\uD83C\uDF45', 'Verdura', 'jitomate tomate saladet bola cherry'],
+      ['Cebolla blanca, morada o Cebollitas cambray', '1/2 taza', 25, '\uD83E\uDDC5', 'Verdura', 'cebolla cebollitas cambray asadas'],
+      ['Apio en bastones', '1 taza', 15, '\uD83E\uDD6C', 'Verdura', 'apio'],
+      ['Esp\u00e1rragos a la plancha o vapor', '6 piezas', 25, '\uD83E\uDD6C', 'Verdura', 'esparragos'],
+      ['Berenjena asada o al horno', '1 taza', 30, '\uD83C\uDF46', 'Verdura', 'berenjena'],
+      ['Betabel cocido o rallado', '1/2 taza', 35, '\uD83C\uDF45', 'Verdura', 'betabel remolacha'],
+      ['Pimiento morr\u00f3n (verde, rojo, amarillo)', '1 taza', 25, '\uD83E\uDED1', 'Verdura', 'pimiento morron'],
+      ['Chile poblano en rajas (sin crema)', '1 pieza', 25, '\uD83E\uDED1', 'Verdura', 'chile poblano rajas'],
+      ['Rajas poblanas con crema y elote', '1/2 taza', 135, '\uD83E\uDED1', 'Platillo', 'rajas con crema elote'],
+      ['Champi\u00f1ones, Setas o Portobello salteados', '1/2 taza', 25, '\uD83C\uDF44', 'Verdura', 'champinones hongos setas portobello'],
+      ['Flor de calabaza cocida', '1 taza', 20, '\uD83C\uDF3C', 'Verdura', 'flor de calabaza'],
+      ['Huitlacoche guisado con epazote', '1/2 taza', 55, '\uD83C\uDF3D', 'Verdura', 'huitlacoche cuitlacoche'],
+      ['Germen de alfalfa o soya', '1 taza', 20, '\uD83C\uDF31', 'Verdura', 'germen alfalfa soya'],
+      ['Verduras al vapor mixtas', '1 taza', 35, '\uD83E\uDD66', 'Verdura', 'verduras al vapor vegetales mixtos'],
+      ['Ensalada fresca (lechuga, jitomate, pepino)', '2 tazas', 25, '\uD83E\uDD57', 'Verdura', 'ensalada fresca verde'],
+      ['Ensalada C\u00e9sar con pollo a la plancha', '1 plato', 340, '\uD83E\uDD57', 'Platillo', 'ensalada cesar con pollo'],
+      ['Pico de gallo o Salsa mexicana casera', '1/2 taza', 20, '\uD83C\uDF45', 'Verdura', 'pico de gallo salsa mexicana'],
+      ['Salsa verde o roja casera (molcajete/licuada)', '2 cucharadas', 10, '\uD83C\uDF36\uFE0F', 'Extra', 'salsa verde roja taquera casera'],
+      ['Salsa macha en aceite con semillas', '1 cucharadita', 45, '\uD83C\uDF36\uFE0F', 'Grasa', 'salsa macha aceite'],
+      ['Catsup / Ketchup', '1 cucharada', 20, '\uD83C\uDF45', 'Extra', 'catsup ketchup'],
+
+      // --- 10. TACOS, QUESADILLAS, ANTOJITOS, TORTAS Y PLATILLOS MEXICANOS ---
+      ['Taco de pollo asado o tinga en tortilla de ma\u00edz', '1 pieza', 145, '\uD83C\uDF2E', 'Platillo', 'taco de pollo asado fajitas tinga'],
+      ['Tacos de pollo en tortilla de ma\u00edz (2 piezas)', '2 piezas', 290, '\uD83C\uDF2E', 'Platillo', '2 tacos de pollo'],
+      ['Taco de bistec o carne asada en tortilla de ma\u00edz', '1 pieza', 160, '\uD83C\uDF2E', 'Platillo', 'taco de bistec carne asada res'],
+      ['Tacos de bistec o asada (2 piezas)', '2 piezas', 320, '\uD83C\uDF2E', 'Platillo', '2 tacos bistec asada'],
+      ['Taco al pastor con pi\u00f1a y cilantro', '1 pieza', 155, '\uD83C\uDF2E', 'Platillo', 'taco al pastor trompo adobada'],
+      ['Tacos al pastor (Orden de 3 piezas)', '3 piezas', 465, '\uD83C\uDF2E', 'Platillo', '3 tacos al pastor orden'],
+      ['Taco de suadero', '1 pieza', 195, '\uD83C\uDF2E', 'Platillo', 'taco de suadero'],
+      ['Taco de carnitas (maciza o surtida)', '1 pieza', 210, '\uD83C\uDF2E', 'Platillo', 'taco de carnitas'],
+      ['Taco de barbacoa o birria', '1 pieza', 185, '\uD83C\uDF2E', 'Platillo', 'taco de barbacoa birria'],
+      ['Taco de cochinita pibil', '1 pieza', 175, '\uD83C\uDF2E', 'Platillo', 'taco de cochinita pibil'],
+      ['Taco de cabeza o lengua al vapor', '1 pieza', 160, '\uD83C\uDF2E', 'Platillo', 'taco de cabeza lengua ojo'],
+      ['Taco campechano (bistec con longaniza/chorizo)', '1 pieza', 215, '\uD83C\uDF2E', 'Platillo', 'taco campechano chorizo'],
+      ['Taco de pescado o camar\u00f3n a la plancha', '1 pieza', 155, '\uD83C\uDF2E', 'Platillo', 'taco de pescado camaron gobernador'],
+      ['Taco de pescado o camar\u00f3n capeado (estilo Baja)', '1 pieza', 225, '\uD83C\uDF2E', 'Platillo', 'taco pescado camaron capeado ensenada'],
+      ['Taco de canasta o al vapor (frijol, papa, chicharr\u00f3n)', '1 pieza', 135, '\uD83C\uDF2E', 'Platillo', 'taco de canasta sudado vapor'],
+      ['Taco dorado o Flauta de pollo (frito)', '1 pieza', 125, '\uD83C\uDF2E', 'Platillo', 'taco dorado flauta pollo res papa'],
+      ['Tacos dorados o Flautas (Orden de 3 con verdura)', '3 piezas', 375, '\uD83C\uDF2E', 'Platillo', '3 tacos dorados flautas orden'],
+      ['Taco dorado de pollo al horno o Airfryer', '1 pieza', 95, '\uD83C\uDF2E', 'Platillo', 'taco dorado horno airfryer fit'],
+      ['Quesadilla en tortilla de ma\u00edz con queso Panela', '1 pieza', 120, '\uD83C\uDF2E', 'Platillo', 'quesadilla maiz queso panela'],
+      ['Quesadilla en tortilla de ma\u00edz con queso Oaxaca', '1 pieza', 155, '\uD83C\uDF2E', 'Platillo', 'quesadilla maiz queso oaxaca quesillo'],
+      ['Quesadillas en tortilla de ma\u00edz (2 piezas)', '2 piezas', 310, '\uD83C\uDF2E', 'Platillo', '2 quesadillas maiz'],
+      ['Quesadilla de flor de calabaza, champi\u00f1ones o huitlacoche', '1 pieza', 145, '\uD83C\uDF2E', 'Platillo', 'quesadilla flor calabaza champinones huitlacoche'],
+      ['Quesadilla en tortilla de harina con queso', '1 pieza', 185, '\uD83C\uDF2E', 'Platillo', 'quesadilla harina queso'],
+      ['Quesadilla frita de masa', '1 pieza', 265, '\uD83C\uDF2E', 'Antojo', 'quesadilla frita comal masa'],
+      ['Sincronizada con jam\u00f3n de pavo y queso', '1 pieza', 195, '\uD83C\uDF2E', 'Platillo', 'sincronizada jamon queso'],
+      ['Gringa al pastor en tortilla de harina con queso', '1 pieza', 340, '\uD83C\uDF2E', 'Platillo', 'gringa pastor queso'],
+      ['Volc\u00e1n o Mulita con carne y queso gratinado', '1 pieza', 240, '\uD83C\uDF2E', 'Platillo', 'volcan mulita vampiro'],
+      ['Alambre de pollo o res con pimientos y queso', '1 orden', 330, '\uD83E\uDD69', 'Platillo', 'alambre pollo res queso'],
+      ['Chilaquiles horneados ligeros con pollo y aguacate', '1 plato', 295, '\uD83E\uDD58', 'Platillo', 'chilaquiles horneados fit ligeros'],
+      ['Chilaquiles verdes o rojos tradicionales con pollo', '1 plato mediano', 385, '\uD83E\uDD58', 'Platillo', 'chilaquiles verdes rojos pollo huevo'],
+      ['Chilaquiles suizos gratinados', '1 plato', 470, '\uD83E\uDD58', 'Platillo', 'chilaquiles suizos gratinados'],
+      ['Enchiladas verdes o rojas de pollo', '3 piezas', 365, '\uD83C\uDF2F', 'Platillo', 'enchiladas verdes rojas pollo'],
+      ['Enchiladas suizas gratinadas', '3 piezas', 480, '\uD83C\uDF2F', 'Platillo', 'enchiladas suizas'],
+      ['Enmoladas de pollo con ajonjol\u00ed', '3 piezas', 415, '\uD83C\uDF2F', 'Platillo', 'enmoladas mole pollo'],
+      ['Enfrijoladas rellenas de pollo o queso', '3 piezas', 355, '\uD83C\uDF2F', 'Platillo', 'enfrijoladas frijol queso pollo'],
+      ['Entomatadas con queso panela y pollo', '3 piezas', 320, '\uD83C\uDF2F', 'Platillo', 'entomatadas'],
+      ['Mollete en 1/2 bolillo sin migaj\u00f3n con frijol y panela', '1 pieza', 145, '\uD83E\uDD56', 'Platillo', 'mollete ligero panela pico de gallo'],
+      ['Molletes tradicionales gratinados (2 mitades)', '2 piezas', 380, '\uD83E\uDD56', 'Platillo', 'molletes tradicionales manchego'],
+      ['Sope con frijoles, lechuga, salsa y queso fresco', '1 pieza', 165, '\uD83E\uDED3', 'Platillo', 'sope preparado frijoles queso'],
+      ['Sope con pollo, bistec o cecina', '1 pieza', 215, '\uD83E\uDED3', 'Platillo', 'sope con pollo bistec'],
+      ['Gordita rellena de chicharr\u00f3n, reques\u00f3n o guisado', '1 pieza', 280, '\uD83E\uDED3', 'Platillo', 'gordita chicharron requeson'],
+      ['Huarache con bistec, pollo o nopales', '1 pieza', 360, '\uD83E\uDED3', 'Platillo', 'huarache bistec pollo nopales'],
+      ['Tostada de tinga de pollo, picadillo o pata', '1 pieza', 165, '\uD83C\uDF2E', 'Platillo', 'tostada tinga pollo pata picadillo'],
+      ['Tostada de at\u00fan o ceviche con aguacate', '1 pieza', 145, '\uD83C\uDF2E', 'Platillo', 'tostada atun ceviche camaron'],
+      ['Panucho o Salbute yucateco con pavo/pollo', '1 pieza', 185, '\uD83C\uDF2E', 'Platillo', 'panucho salbute'],
+      ['Pambazo de papa con chorizo', '1 pieza', 395, '\uD83E\uDD56', 'Antojo', 'pambazo papa chorizo'],
+      ['Tamal verde, rojo, mole o de rajas', '1 pieza', 290, '\uD83E\uDED4', 'Platillo', 'tamal verde rojo rajas mole dulce'],
+      ['Tamal oaxaque\u00f1o en hoja de pl\u00e1tano', '1 pieza', 340, '\uD83E\uDED4', 'Platillo', 'tamal oaxaqueno hoja platano'],
+      ['Tamal de elote (Uchepo)', '1 pieza chica', 225, '\uD83E\uDED4', 'Platillo', 'tamal de elote uchepo'],
+      ['Torta de tamal (Guajolota)', '1 pieza', 435, '\uD83E\uDD56', 'Antojo', 'torta de tamal guajolota'],
+      ['Pozole blanco, rojo o verde con pollo/maciza', '1 taz\u00f3n mediano', 295, '\uD83C\uDF72', 'Platillo', 'pozole blanco rojo verde pollo maciza'],
+      ['Menudo o Pancita de res', '1 taz\u00f3n', 260, '\uD83C\uDF72', 'Platillo', 'menudo pancita mondongo'],
+      ['Caldo tlalpe\u00f1o con pollo, garbanzo y aguacate', '1 taz\u00f3n', 220, '\uD83C\uDF72', 'Platillo', 'caldo tlalpeno'],
+      ['Caldo de pollo con verduras y arroz', '1 taz\u00f3n', 165, '\uD83C\uDF72', 'Platillo', 'caldo de pollo verduras consome'],
+      ['Caldo de res o Mole de olla con verduras', '1 taz\u00f3n', 240, '\uD83C\uDF72', 'Platillo', 'caldo de res cocido puchero mole de olla'],
+      ['Caldo de pescado o camar\u00f3n', '1 taz\u00f3n', 180, '\uD83C\uDF72', 'Platillo', 'caldo de pescado camaron mariscos'],
+      ['Sopa azteca o Sopa de tortilla', '1 taz\u00f3n', 235, '\uD83C\uDF72', 'Platillo', 'sopa azteca tortilla'],
+      ['Sopa de lima yucateca con pollo', '1 taz\u00f3n', 195, '\uD83C\uDF72', 'Platillo', 'sopa de lima'],
+      ['Sopa de verduras casera', '1 taza', 65, '\uD83C\uDF72', 'Platillo', 'sopa de verduras juliana'],
+      ['Crema de calabacita, br\u00f3coli, elote o champi\u00f1ones', '1 taza', 165, '\uD83C\uDF72', 'Platillo', 'crema de calabacita brocoli elote champinones esparragos'],
+      ['Chile relleno de queso o picadillo (sin capear)', '1 pieza', 210, '\uD83E\uDED1', 'Platillo', 'chile relleno sin capear queso picadillo atun'],
+      ['Chile relleno capeado tradicional', '1 pieza', 340, '\uD83E\uDED1', 'Platillo', 'chile relleno capeado'],
+      ['Chile en nogada', '1 pieza', 560, '\uD83E\uDED1', 'Platillo', 'chile en nogada'],
+      ['Calabacitas rellenas de queso panela o pollo', '1 pieza', 155, '\uD83E\uDD52', 'Platillo', 'calabacitas rellenas'],
+      ['Tortitas de papa, at\u00fan o coliflor', '2 piezas', 215, '\uD83E\uDD58', 'Platillo', 'tortitas de papa atun coliflor huauzontle'],
+      ['Tortitas de pollo o carne deshebrada en salsa', '2 piezas', 230, '\uD83E\uDD58', 'Platillo', 'tortitas de pollo carne salsa'],
+      ['Torta de jam\u00f3n de pavo, panela y aguacate', '1 pieza', 310, '\uD83E\uDD56', 'Platillo', 'torta de jamon pavo queso panela'],
+      ['Torta de pierna, milanesa, pastor o cubana', '1 pieza', 520, '\uD83E\uDD56', 'Platillo', 'torta pierna milanesa pastor cubana'],
+      ['Torta ahogada tapat\u00eda', '1 pieza', 485, '\uD83E\uDD56', 'Platillo', 'torta ahogada'],
+      ['S\u00e1ndwich integral de pechuga de pavo/pollo y aguacate', '1 pieza', 260, '\uD83E\uDD6A', 'Platillo', 'sandwich integral pavo pollo jamon queso'],
+      ['S\u00e1ndwich de at\u00fan o ensalada de pollo', '1 pieza', 280, '\uD83E\uDD6A', 'Platillo', 'sandwich de atun pollo'],
+      ['Club s\u00e1ndwich completo', '1 orden', 460, '\uD83E\uDD6A', 'Platillo', 'club sandwich'],
+      ['Burrito de pollo, res o frijoles con queso', '1 pieza', 385, '\uD83C\uDF2F', 'Platillo', 'burrito pollo asada frijol'],
+
+      // --- 11. COMIDA INTERNACIONAL, RAPIDA Y RESTAURANTES ---
+      ['Pizza de queso o pepperoni (1 rebanada)', '1 rebanada mediana', 265, '\uD83C\uDF55', 'Comida R\u00e1pida', 'pizza rebanada pepperoni queso hawaiana'],
+      ['Pizza vegetariana o margarita delgada', '1 rebanada', 210, '\uD83C\uDF55', 'Comida R\u00e1pida', 'pizza vegetariana margarita'],
+      ['Hamburguesa sencilla de res o pollo', '1 pieza', 390, '\uD83C\uDF54', 'Comida R\u00e1pida', 'hamburguesa sencilla res pollo'],
+      ['Hamburguesa con queso y tocino', '1 pieza', 580, '\uD83C\uDF54', 'Comida R\u00e1pida', 'hamburguesa doble queso tocino'],
+      ['Hamburguesa en hoja de lechuga (Sin pan / Keto)', '1 pieza', 270, '\uD83E\uDD6C', 'Platillo', 'hamburguesa lechuga sin pan keto'],
+      ['Hot dog sencillo', '1 pieza', 270, '\uD83C\uDF2D', 'Comida R\u00e1pida', 'hot dog jocho'],
+      ['Sushi rollo California, pepino o salm\u00f3n (Natural)', '1 rollo (8 piezas)', 290, '\uD83C\uDF63', 'Platillo', 'sushi rollo california pepino salmon atun filadelfia'],
+      ['Sushi rollo empanizado o con aderezos', '1 rollo (8 piezas)', 430, '\uD83C\uDF63', 'Platillo', 'sushi empanizado tempura'],
+      ['Sashimi de salm\u00f3n o at\u00fan', '6 cortes', 130, '\uD83C\uDF63', 'Prote\u00edna', 'sashimi nigiri'],
+      ['Poke bowl de at\u00fan o salm\u00f3n con arroz y aguacate', '1 bowl', 420, '\uD83E\uDD63', 'Platillo', 'poke bowl atun salmon'],
+      ['Ramen japon\u00e9s con carne o pollo', '1 taz\u00f3n', 440, '\uD83C\uDF5C', 'Platillo', 'ramen sopa oriental'],
+      ['Chop Suey de verduras con pollo o res', '1 taza', 210, '\uD83E\uDD66', 'Platillo', 'chop suey comida china'],
+      ['Lasa\u00f1a de carne a la bolo\u00f1esa', '1 porci\u00f3n', 385, '\uD83C\uDF5D', 'Platillo', 'lasana lasagna'],
+      ['Wrap de pollo con tortilla integral y verdura', '1 pieza', 310, '\uD83C\uDF2F', 'Platillo', 'wrap pollo ensalada'],
+      ['Panini o Baguette de pavo/pollo y queso', '1 pieza', 350, '\uD83E\uDD56', 'Platillo', 'panini baguette'],
+      ['Empanada horneada de carne, pollo, elote o espinaca', '1 pieza', 230, '\uD83E\uDD5F', 'Platillo', 'empanada argentina horneada'],
+      ['Nachos con queso y jalape\u00f1os', '1 porci\u00f3n', 380, '\uD83E\uDDC0', 'Antojo', 'nachos con queso'],
+
+      // --- 12. BEBIDAS, CAFES, LICUADOS, JUGOS, AGUAS FRESCAS Y ALCOHOL ---
+      ['Agua natural o Agua mineral Tehuac\u00e1n/Topo Chico', '1 vaso', 0, '\uD83D\uDCA7', 'Bebida', 'agua natural mineral tehuacan topo chico'],
+      ['Agua mineral con jugo de lim\u00f3n y sal', '1 vaso', 10, '\uD83E\uDD64', 'Bebida', 'agua mineral limon rusa'],
+      ['Caf\u00e9 americano o expreso sin az\u00facar', '1 taza', 5, '\u2615', 'Bebida', 'cafe americano negro expreso espresso soluble'],
+      ['Caf\u00e9 de olla con canela (sin az\u00facar)', '1 taza', 10, '\u2615', 'Bebida', 'cafe de olla sin azucar'],
+      ['Caf\u00e9 de olla tradicional con piloncillo', '1 taza', 65, '\u2615', 'Bebida', 'cafe de olla piloncillo'],
+      ['Caf\u00e9 con leche deslactosada light', '1 taza', 45, '\u2615', 'Bebida', 'cafe con leche light deslactosada'],
+      ['Caf\u00e9 con leche entera', '1 taza', 75, '\u2615', 'Bebida', 'cafe con leche entera'],
+      ['Caf\u00e9 con leche de almendra', '1 taza', 20, '\u2615', 'Bebida', 'cafe con leche de almendra'],
+      ['Latte o Capuchino sin az\u00facar', '1 vaso (350ml)', 95, '\u2615', 'Bebida', 'latte capuchino cappuccino flat white'],
+      ['Latte o Capuchino con leche de almendra', '1 vaso', 45, '\u2615', 'Bebida', 'latte capuchino almendra'],
+      ['Caf\u00e9 Moka / Mocha o Caramel Macchiato', '1 vaso mediano', 220, '\u2615', 'Bebida', 'moka mocha caramel macchiato starbucks'],
+      ['Frappuccino de caf\u00e9', '1 vaso mediano', 290, '\uD83E\uDD64', 'Bebida', 'frappe frappuccino cafe helado'],
+      ['T\u00e9 verde, manzanilla, menta o jamaica sin az\u00facar', '1 taza', 2, '\uD83C\uDF75', 'Bebida', 'te verde manzanilla hierbabuena menta jengibre infusi\u00f3n'],
+      ['Matcha Latte sin az\u00facar', '1 taza', 75, '\uD83C\uDF75', 'Bebida', 'matcha latte'],
+      ['Chai Latte', '1 taza', 165, '\uD83C\uDF75', 'Bebida', 'chai latte'],
+      ['Chocolate caliente en agua', '1 taza', 115, '\u2615', 'Bebida', 'chocolate caliente agua abuelita'],
+      ['Chocolate caliente en leche', '1 taza', 195, '\u2615', 'Bebida', 'chocolate caliente leche chocomilk'],
+      ['Atole de avena, vainilla, fresa o elote', '1 taza', 175, '\u2615', 'Bebida', 'atole avena vainilla maizena elote'],
+      ['Champurrado tradicional', '1 taza', 215, '\u2615', 'Bebida', 'champurrado'],
+      ['Licuado de pl\u00e1tano con leche light', '1 vaso', 175, '\uD83E\uDD64', 'Bebida', 'licuado de platano leche'],
+      ['Licuado de fresa o frutos rojos con leche', '1 vaso', 160, '\uD83E\uDD64', 'Bebida', 'licuado de fresa frutos rojos smoothie'],
+      ['Licuado de avena con manzana y canela', '1 vaso', 155, '\uD83E\uDD64', 'Bebida', 'licuado avena manzana papaya'],
+      ['Jugo verde (nopal, apio, espinaca, pi\u00f1a)', '1 vaso', 65, '\uD83E\uDD6C', 'Bebida', 'jugo verde apio nopal pina'],
+      ['Jugo de naranja o mandarina natural', '1 vaso (240ml)', 110, '\uD83C\uDF4A', 'Bebida', 'jugo de naranja mandarina toronja'],
+      ['Jugo de zanahoria o betabel', '1 vaso', 95, '\uD83E\uDD55', 'Bebida', 'jugo de zanahoria betabel'],
+      ['Agua fresca de jamaica o lim\u00f3n con ch\u00eda (ligera)', '1 vaso', 45, '\uD83E\uDD64', 'Bebida', 'agua de jamaica limon pepino chia'],
+      ['Agua de horchata tradicional', '1 vaso', 160, '\uD83E\uDD64', 'Bebida', 'agua de horchata arroz'],
+      ['Agua fresca de frutas (sand\u00eda, mel\u00f3n, pi\u00f1a, guayaba)', '1 vaso', 85, '\uD83E\uDD64', 'Bebida', 'agua de sabor frutas tamarindo melon sandia pina'],
+      ['Agua de coco natural', '1 vaso (240ml)', 45, '\uD83E\uDD65', 'Bebida', 'agua de coco'],
+      ['Refresco sin az\u00facar (Coca-Cola Zero / Light)', '1 lata (355ml)', 0, '\uD83E\uDD64', 'Bebida', 'refresco sin azucar coca zero light dieta squirt'],
+      ['Refresco regular (Coca-Cola, Sprite, Manzanita)', '1 lata (355ml)', 140, '\uD83E\uDD64', 'Bebida', 'refresco coca cola soda pepsi'],
+      ['Electrolit Zero o Suerox sin calor\u00edas', '1 botella', 0, '\uD83E\uDD64', 'Bebida', 'electrolit zero suerox suero'],
+      ['Electrolit tradicional o Gatorade', '1 botella', 125, '\uD83E\uDD64', 'Bebida', 'electrolit gatorade powerade'],
+      ['Kombucha artesanal', '1 botella', 45, '\uD83E\uDD64', 'Bebida', 'kombucha'],
+      ['Cerveza light o Ultra', '1 lata/botella (355ml)', 95, '\uD83C\uDF7A', 'Alcohol', 'cerveza light ultra michelob amstel'],
+      ['Cerveza clara o lager tradicional', '1 botella (355ml)', 140, '\uD83C\uDF7A', 'Alcohol', 'cerveza clara corona victoria modelo chela'],
+      ['Cerveza oscura o artesanal', '1 botella (355ml)', 165, '\uD83C\uDF7A', 'Alcohol', 'cerveza oscura negra modelo indio'],
+      ['Michelada con lim\u00f3n y Clamato', '1 tarro', 185, '\uD83C\uDF7A', 'Alcohol', 'michelada clamato'],
+      ['Copa de vino tinto, blanco o rosado', '1 copa (150ml)', 125, '\uD83C\uDF77', 'Alcohol', 'vino tinto blanco rosado prosecco copa'],
+      ['Tequila, Mezcal, Whisky o Vodka (1 caballito)', '45ml (con agua mineral)', 105, '\uD83E\uDD43', 'Alcohol', 'tequila mezcal whisky vodka ron ginebra'],
+      ['Paloma, Margarita, Mojito o Carajillo', '1 copa', 185, '\uD83C\uDF78', 'Alcohol', 'paloma margarita mojito carajillo coctel'],
+
+      // --- 13. POSTRES, DULCES MEXICANOS, CHOCOLATES, ENDULZANTES Y SUPLEMENTOS ---
+      ['Cacao puro en polvo sin az\u00facar', '1 cucharada', 25, '\uD83C\uDF6B', 'Antojo Fit', 'cacao puro polvo'],
+      ['Chocolate amargo 70% - 85% cacao', '1 cuadrito (10g)', 50, '\uD83C\uDF6B', 'Antojo Fit', 'chocolate amargo oscuro 70 80'],
+      ['Chocolate con leche (barrita chica)', '1 barrita (20g)', 110, '\uD83C\uDF6B', 'Dulce', 'chocolate con leche carlos v hersheys'],
+      ['Mousse fit de aguacate, cacao y yogur griego', '1/2 taza', 135, '\uD83C\uDF6B', 'Antojo Fit', 'mousse cacao aguacate'],
+      ['Gelatina light sin az\u00facar', '1 taza', 15, '\uD83C\uDF6E', 'Antojo Fit', 'gelatina light sin azucar'],
+      ['Gelatina de agua tradicional', '1 taza', 70, '\uD83C\uDF6E', 'Postre', 'gelatina de agua'],
+      ['Gelatina de leche o mosaico', '1 taza', 120, '\uD83C\uDF6E', 'Postre', 'gelatina de leche mosaico'],
+      ['Flan napolitano o Jericalla', '1 porci\u00f3n chica', 195, '\uD83C\uDF6E', 'Postre', 'flan napolitano jericalla'],
+      ['Arroz con leche y canela', '1/2 taza', 165, '\uD83E\uDD63', 'Postre', 'arroz con leche'],
+      ['Fresas con crema', '1/2 taza', 175, '\uD83C\uDF53', 'Postre', 'fresas con crema'],
+      ['Pl\u00e1tanos con crema', '1/2 taza', 195, '\uD83C\uDF4C', 'Postre', 'platanos con crema'],
+      ['Carlota de lim\u00f3n', '1 rebanada chica', 235, '\uD83C\uDF70', 'Postre', 'carlota de limon'],
+      ['Pastel de tres leches, chocolate o zanahoria', '1 rebanada chica', 290, '\uD83C\uDF70', 'Postre', 'pastel chocolate tres leches zanahoria imposible'],
+      ['Cheesecake o Pay de queso / lim\u00f3n / manzana', '1 rebanada chica', 285, '\uD83E\uDD67', 'Postre', 'cheesecake pay de queso limon manzana nuez'],
+      ['Brownie de chocolate', '1 pieza chica', 220, '\uD83C\uDF6B', 'Postre', 'brownie chocolate'],
+      ['Crepa dulce con queso crema o fruta', '1 pieza', 240, '\uD83E\uDD5E', 'Postre', 'crepa dulce'],
+      ['Helado de yogur natural', '1 bola', 110, '\uD83C\uDF66', 'Postre', 'helado de yogur'],
+      ['Nieve de agua o garrafa (lim\u00f3n, mango, frutos rojos)', '1 bola', 85, '\uD83C\uDF67', 'Postre', 'nieve de limon agua garrafa'],
+      ['Helado de crema (vainilla, chocolate, nuez)', '1 bola', 165, '\uD83C\uDF68', 'Postre', 'helado de crema vainilla chocolate'],
+      ['Paleta helada de agua o frutas', '1 pieza', 65, '\uD83C\uDF66', 'Postre', 'paleta de hielo agua frutas'],
+      ['Paleta helada de crema o chocolate', '1 pieza', 210, '\uD83C\uDF66', 'Postre', 'paleta de crema magnum esquimal'],
+      ['Alegr\u00eda de amaranto con miel y pasas', '1 barrita chica', 120, '\uD83C\uDF6F', 'Dulce Mex', 'alegria de amaranto'],
+      ['Palanqueta de cacahuate', '1 barrita chica', 145, '\uD83E\uDD5C', 'Dulce Mex', 'palanqueta de cacahuate'],
+      ['Mazap\u00e1n de cacahuate (De la Rosa)', '1 pieza (28g)', 140, '\uD83E\uDD5C', 'Dulce Mex', 'mazapan cacahuate de la rosa'],
+      ['Ate de membrillo o guayaba', '1 rebanada (30g)', 75, '\uD83C\uDF50', 'Dulce Mex', 'ate membrillo guayaba'],
+      ['Cocada, Gloria u Oblea con cajeta', '1 pieza chica', 125, '\uD83C\uDF6C', 'Dulce Mex', 'cocada gloria oblea cajeta dulce'],
+      ['Cajeta o Dulce de leche', '1 cucharada', 65, '\uD83C\uDF6F', 'Az\u00facar', 'cajeta dulce de leche'],
+      ['Mermelada sin az\u00facar', '1 cucharada', 15, '\uD83C\uDF53', 'Extra', 'mermelada sin azucar light'],
+      ['Mermelada tradicional de fresa', '1 cucharada', 50, '\uD83C\uDF53', 'Az\u00facar', 'mermelada fresa zarzamora'],
+      ['Miel de abeja, agave o maple', '1 cucharadita', 25, '\uD83C\uDF6F', 'Az\u00facar', 'miel abeja agave maple'],
+      ['Miel de abeja (1 cucharada)', '1 cucharada', 65, '\uD83C\uDF6F', 'Az\u00facar', 'cucharada miel'],
+      ['Az\u00facar blanca o mascabado', '1 cucharadita', 20, '\uD83E\uDDC2', 'Az\u00facar', 'azucar cucharadita sobre'],
+      ['Stevia, Monk Fruit o Splenda', '1 sobre', 0, '\uD83C\uDF3F', 'Extra', 'stevia monk fruit fruto del monje splenda edulcorante'],
+      ['Prote\u00edna en polvo (Whey / Isolate / Vegetal)', '1 scoop (30g)', 120, '\uD83D\uDCAA', 'Suplemento', 'proteina polvo scoop whey isolate batido'],
+      ['Prote\u00edna en polvo (Medio scoop)', '1/2 scoop', 60, '\uD83D\uDCAA', 'Suplemento', 'medio scoop proteina'],
+      ['Barra de prote\u00edna', '1 pieza', 190, '\uD83D\uDCAA', 'Suplemento', 'barra de proteina quest kirkland'],
+      ['Col\u00e1geno hidrolizado', '1 scoop (10g)', 35, '\u2728', 'Suplemento', 'colageno hidrolizado'],
+      ['Creatina monohidratada', '1 scoop (5g)', 0, '\u26A1', 'Suplemento', 'creatina']
     ];
+
+    // Expandir automaticamente variantes frecuentes de porcion (1/2, 2x, 3x) para que la base tenga 800+ equivalencias directas
+    const SMAE_FOOD_EQUIVALENTS_DB = [];
+    SMAE_COMPACT_RAW.forEach(row => {
+      const [name, portion, kcal, icon, cat, kw] = row;
+      SMAE_FOOD_EQUIVALENTS_DB.push({ name, portion, kcal, icon, cat, kw });
+
+      // Generar variantes automaticas de cantidad para alimentos unitarios comunes si no estan duplicados
+      if (portion.startsWith('1 pieza') && kcal >= 20 && kcal <= 320 && !name.includes('(')) {
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (2 piezas)',
+          portion: '2 piezas',
+          kcal: kcal * 2,
+          icon,
+          cat,
+          kw: '2 dos ' + kw
+        });
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (3 piezas)',
+          portion: '3 piezas',
+          kcal: kcal * 3,
+          icon,
+          cat,
+          kw: '3 tres ' + kw
+        });
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (1/2 pieza)',
+          portion: '1/2 pieza',
+          kcal: Math.max(5, Math.round((kcal * 0.5) / 5) * 5),
+          icon,
+          cat,
+          kw: '1/2 medio media mitad ' + kw
+        });
+      } else if (portion.startsWith('1 taza') && kcal >= 20 && !name.includes('(')) {
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (1/2 taza)',
+          portion: '1/2 taza',
+          kcal: Math.max(5, Math.round((kcal * 0.5) / 5) * 5),
+          icon,
+          cat,
+          kw: '1/2 media taza ' + kw
+        });
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (2 tazas)',
+          portion: '2 tazas',
+          kcal: kcal * 2,
+          icon,
+          cat,
+          kw: '2 dos tazas ' + kw
+        });
+      } else if (portion.startsWith('1/2 taza') && kcal >= 20 && !name.includes('(')) {
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (1 taza completa)',
+          portion: '1 taza',
+          kcal: kcal * 2,
+          icon,
+          cat,
+          kw: '1 una taza completa ' + kw
+        });
+      } else if (portion.startsWith('1 rebanada') && kcal >= 30 && !name.includes('(')) {
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (2 rebanadas)',
+          portion: '2 rebanadas',
+          kcal: kcal * 2,
+          icon,
+          cat,
+          kw: '2 dos rebanadas ' + kw
+        });
+      } else if (portion.startsWith('1 cucharada') && kcal >= 15 && !name.includes('(')) {
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (2 cucharadas)',
+          portion: '2 cucharadas',
+          kcal: kcal * 2,
+          icon,
+          cat,
+          kw: '2 dos cucharadas ' + kw
+        });
+      } else if (portion.startsWith('1 vaso') && kcal >= 20 && !name.includes('(')) {
+        SMAE_FOOD_EQUIVALENTS_DB.push({
+          name: name + ' (1/2 vaso)',
+          portion: '1/2 vaso',
+          kcal: Math.max(5, Math.round((kcal * 0.5) / 5) * 5),
+          icon,
+          cat,
+          kw: '1/2 medio vaso ' + kw
+        });
+      }
+    });
 
     let currentAutocompleteMatches = [];
     let currentAutocompleteHighlightIdx = -1;
@@ -11547,7 +12090,205 @@
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s\/\.]/g, ' ')
+        .replace(/\s+/g, ' ')
         .trim();
+    }
+
+    // Diccionario de sinonimos regionales y coloquiales para que cualquier palabra encuentre su alimento
+    const FOOD_SYNONYMS_MAP = {
+      blanquillo: 'huevo',
+      blanquillos: 'huevos',
+      palta: 'aguacate',
+      banana: 'platano',
+      guineo: 'platano',
+      mani: 'cacahuate',
+      birote: 'bolillo',
+      francisco: 'bolillo',
+      quesillo: 'oaxaca',
+      hebra: 'oaxaca',
+      soda: 'refresco',
+      coca: 'refresco',
+      chela: 'cerveza',
+      bironga: 'cerveza',
+      puerco: 'cerdo',
+      cochinito: 'cerdo',
+      marrano: 'cerdo',
+      asada: 'carne asada',
+      pastor: 'al pastor',
+      trompo: 'al pastor',
+      jocho: 'hot dog',
+      dogos: 'hot dog',
+      yogurt: 'yogur',
+      blueberries: 'moras azules',
+      berries: 'frutos rojos',
+      pancakes: 'hotcakes',
+      hotcake: 'hotcakes',
+      sandwich: 'sandwich',
+      emparedado: 'sandwich',
+      lonche: 'torta',
+      uchepo: 'tamal de elote',
+      guajolota: 'torta de tamal',
+      chasca: 'esquites',
+      trolelote: 'esquites',
+      coctel: 'coctel',
+      calabaza: 'calabacita',
+      papa: 'papa',
+      patata: 'papa'
+    };
+
+    function stemSpanishToken(word) {
+      let w = FOOD_SYNONYMS_MAP[word] || word;
+      if (w.length <= 3) return w;
+      if (w.endsWith('ces')) return w.slice(0, -3) + 'z'; // nueces -> nuez
+      if (w.endsWith('es') && w.length > 4 && !w.endsWith('tes') && !w.endsWith('les')) {
+        return w.slice(0, -2);
+      }
+      if (w.endsWith('les') && w.length > 5) return w.slice(0, -2); // nopales -> nopal, frijoles -> frijol
+      if (w.endsWith('nes') && w.length > 5) return w.slice(0, -2); // camarones -> camaron, limones -> limon
+      if (w.endsWith('s') && !w.endsWith('ss')) return w.slice(0, -1); // tortillas -> tortilla, tacos -> taco
+      return w;
+    }
+
+    const STOP_WORDS_SET = new Set(['de', 'con', 'en', 'la', 'el', 'los', 'las', 'un', 'una', 'unos', 'unas', 'del', 'al', 'por', 'para', 'a', 'y', 'o']);
+
+    // Extrae multiplicador de cantidad o gramos si el usuario escribe "3 tortillas", "1/2 aguacate", "150g pollo", "dos huevos"
+    function parseQueryQuantityAndCleanText(rawQuery) {
+      const norm = normalizeSearchStr(rawQuery);
+      if (!norm) return { mult: 1, grams: null, cleanQuery: '', qtyLabel: '' };
+
+      // 1. Detectar gramos o ml explicitos (ej. "150g pollo", "200 gr de bistec")
+      const gramMatch = norm.match(/\b(\d{2,4})\s*(g|gr|gramos|ml)\b/);
+      if (gramMatch) {
+        const gVal = parseInt(gramMatch[1], 10);
+        const unit = gramMatch[2].startsWith('m') ? 'ml' : 'g';
+        const cleaned = norm.replace(gramMatch[0], ' ').replace(/\s+/g, ' ').trim();
+        if (cleaned.length >= 2 && gVal >= 10 && gVal <= 1500) {
+          return { mult: gVal / 100, grams: gVal, unit, cleanQuery: cleaned, qtyLabel: gVal + unit };
+        }
+      }
+
+      // 2. Detectar fracciones al inicio ("1/2", "1/3", "1/4", "3/4", "medio", "media")
+      const fracMap = [
+        { rx: /^(1\/2|0\.5|medio|media|mitad)\s+(.+)$/, mult: 0.5, lbl: '1/2' },
+        { rx: /^(1\/3|un tercio|tercio)\s+(.+)$/, mult: 0.33, lbl: '1/3' },
+        { rx: /^(1\/4|un cuarto|cuarto)\s+(.+)$/, mult: 0.25, lbl: '1/4' },
+        { rx: /^(3\/4|tres cuartos)\s+(.+)$/, mult: 0.75, lbl: '3/4' },
+        { rx: /^(1\.5|uno y medio|una y media)\s+(.+)$/, mult: 1.5, lbl: '1.5' }
+      ];
+      for (const f of fracMap) {
+        const m = norm.match(f.rx);
+        if (m && m[2].trim().length >= 2) {
+          return { mult: f.mult, grams: null, cleanQuery: m[2].trim(), qtyLabel: f.lbl };
+        }
+      }
+
+      // 3. Detectar numeros enteros al inicio ("2 tacos", "tres tortillas", "4 almendras")
+      const wordNums = { un: 1, una: 1, uno: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10, doce: 12 };
+      const numMatch = norm.match(/^(\d+|un|una|uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|doce)\s+(.+)$/);
+      if (numMatch) {
+        const rawN = numMatch[1];
+        const nVal = wordNums[rawN] !== undefined ? wordNums[rawN] : parseInt(rawN, 10);
+        const rest = numMatch[2].trim();
+        if (nVal >= 1 && nVal <= 25 && rest.length >= 2) {
+          return { mult: nVal, grams: null, cleanQuery: rest, qtyLabel: String(nVal) };
+        }
+      }
+
+      return { mult: 1, grams: null, cleanQuery: norm, qtyLabel: '' };
+    }
+
+    // Estimador universal de respaldo cuando el usuario escribe un alimento o guisado muy especifico que no esta literal
+    function buildUniversalEstimatedFood(rawText) {
+      const norm = normalizeSearchStr(rawText);
+      const parsed = parseQueryQuantityAndCleanText(rawText);
+      const q = parsed.cleanQuery || norm;
+      let baseKcal = 110;
+      let cat = 'Estimaci\u00f3n SMAE';
+      let icon = '\uD83C\uDF7D\uFE0F';
+      let portion = '1 porci\u00f3n est\u00e1ndar';
+
+      if (/agua|te |infusion|cafe negro|americano/.test(q)) {
+        baseKcal = 5; icon = '\u2615'; cat = 'Bebida'; portion = '1 taza/vaso';
+      } else if (/verdura|ensalada|lechuga|espinaca|nopal|pepino|apio|brocoli|coliflor|calabacita|chayote|champinon|hongo|jicama|jitomate|cebolla|salsa/.test(q)) {
+        baseKcal = 30; icon = '\uD83E\uDD57'; cat = 'Verdura'; portion = '1 taza';
+      } else if (/fruta|manzana|pera|durazno|fresa|papaya|melon|sandia|naranja|mandarina|uva|kiwi|mango|pina|guayaba|platano|ciruela|mora|zarzamora/.test(q)) {
+        baseKcal = 60; icon = '\uD83C\uDF4E'; cat = 'Fruta'; portion = '1 porci\u00f3n';
+      } else if (/tortilla|pan |bolillo|tostada|galleta|avena|arroz|pasta|espagueti|papa|camote|elote|cereal|quinoa|amaranto/.test(q)) {
+        baseKcal = 85; icon = '\uD83C\uDF3E'; cat = 'Cereal'; portion = '1 porci\u00f3n equiv.';
+      } else if (/queso|yogur|leche|requeson|panela|oaxaca|jocoque|cottage/.test(q)) {
+        baseKcal = 85; icon = '\uD83E\uDDC0'; cat = 'L\u00e1cteo'; portion = '1 porci\u00f3n';
+      } else if (/aguacate|guacamole|almendra|nuez|cacahuate|pistache|semilla|chia|linaza|aceite|mantequilla|mayonesa|aderezo|crema/.test(q)) {
+        baseKcal = 75; icon = '\uD83E\uDD51'; cat = 'Grasa/Semilla'; portion = '1 porci\u00f3n';
+      } else if (/frijol|lenteja|garbanzo|haba|alubia|hummus/.test(q)) {
+        baseKcal = 115; icon = '\uD83E\uDED8'; cat = 'Leguminosa'; portion = '1/2 taza';
+      } else if (/huevo|clara|omelette|pollo|pechuga|pavo|pescado|atun|salmon|camaron|marisco|res|bistec|carne|cerdo|lomo|jamon|salchicha/.test(q)) {
+        baseKcal = 145; icon = '\uD83C\uDF57'; cat = 'Prote\u00edna'; portion = '1 porci\u00f3n (100g)';
+      } else if (/taco|quesadilla|sope|tlacoyo|mollete|tostada/.test(q)) {
+        baseKcal = 160; icon = '\uD83C\uDF2E'; cat = 'Platillo Mex'; portion = '1 pieza';
+      } else if (/torta|hamburguesa|pizza|burrito|chilaquiles|enchiladas|tamal|pozole|lasana|sushi|ramen|pastel|pay|helado|postre/.test(q)) {
+        baseKcal = 290; icon = '\uD83C\uDF72'; cat = 'Platillo/Postre'; portion = '1 porci\u00f3n';
+      } else if (/licuado|batido|smoothie|jugo|refresco|atole|cerveza|vino|alcohol/.test(q)) {
+        baseKcal = 135; icon = '\uD83E\uDD64'; cat = 'Bebida'; portion = '1 vaso (240ml)';
+      }
+
+      // Modificadores por metodo de coccion
+      if (/frito|frita|empanizado|empanizada|capeado|capeada|dorado|dorada|chicharron|chorizo|tocino|gratinado|crema/.test(q)) {
+        baseKcal = Math.round(baseKcal * 1.35);
+      } else if (/vapor|asado|asada|plancha|horneado|horneada|light|zero|sin azucar/.test(q)) {
+        baseKcal = Math.round(baseKcal * 0.88);
+      }
+
+      let finalKcal = Math.max(5, Math.round((baseKcal * (parsed.mult || 1)) / 5) * 5);
+      if (parsed.qtyLabel) {
+        portion = parsed.qtyLabel + ' (' + portion + ')';
+      }
+
+      const cleanDisplay = rawText.trim().charAt(0).toUpperCase() + rawText.trim().slice(1);
+      return {
+        name: cleanDisplay,
+        portion: portion + ' \u2022 Calculado SMAE',
+        kcal: finalKcal,
+        icon,
+        cat
+      };
+    }
+
+    function scoreFoodItemAgainstQuery(item, cleanQuery, queryTokens) {
+      const normName = normalizeSearchStr(item.name);
+      const normPortion = normalizeSearchStr(item.portion);
+      const normKw = normalizeSearchStr(item.kw || '');
+      const fullText = normName + ' ' + normPortion + ' ' + normKw + ' ' + normalizeSearchStr(item.cat);
+
+      if (normName === cleanQuery) return 1000;
+      if (normName.startsWith(cleanQuery)) return 850 - Math.min(40, normName.length);
+      if (normName.includes(' ' + cleanQuery)) return 760 - Math.min(40, normName.length);
+      if (normName.includes(cleanQuery)) return 680 - Math.min(40, normName.length);
+      if (fullText.includes(cleanQuery)) return 600 - Math.min(40, normName.length);
+
+      if (queryTokens.length === 0) return 0;
+
+      let matchedTokens = 0;
+      let nameTokenHits = 0;
+      const itemWords = fullText.split(' ').map(stemSpanishToken);
+
+      for (const qTok of queryTokens) {
+        const stemQ = stemSpanishToken(qTok);
+        if (normName.includes(qTok) || normName.includes(stemQ)) {
+          matchedTokens++;
+          nameTokenHits++;
+        } else if (fullText.includes(qTok) || fullText.includes(stemQ) || itemWords.some(w => w.startsWith(stemQ))) {
+          matchedTokens++;
+        }
+      }
+
+      if (matchedTokens === queryTokens.length) {
+        return 450 + (nameTokenHits * 45) - Math.min(35, normName.length);
+      }
+      if (queryTokens.length >= 2 && matchedTokens >= queryTokens.length - 1) {
+        return 220 + (matchedTokens * 40) + (nameTokenHits * 25);
+      }
+      return 0;
     }
 
     function getTodayPlanWeekdayIdx() {
@@ -11563,14 +12304,14 @@
       tabs.forEach((btn, idx) => {
         if (idx < 6) {
           if (!isSun && idx === todayIdx) {
-            btn.innerHTML = `${baseNames[idx]} <span style="font-size: 0.63rem; opacity: 0.92; font-weight: 900;">(Hoy)</span>`;
+            btn.innerHTML = baseNames[idx] + ' <span style="font-size: 0.63rem; opacity: 0.92; font-weight: 900;">(Hoy)</span>';
           } else {
             btn.innerText = baseNames[idx];
           }
         } else if (btn.classList.contains('sunday-free')) {
           btn.innerHTML = isSun
-            ? `\u2600\uFE0F Domingo Libre (Hoy) <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>`
-            : `\u2600\uFE0F Domingo Libre <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>`;
+            ? '\u2600\uFE0F Domingo Libre (Hoy) <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>'
+            : '\u2600\uFE0F Domingo Libre <i class="fa-solid fa-rotate" style="margin-left: 4px;"></i>';
         }
       });
     }
@@ -11580,62 +12321,137 @@
       const kcalInp = document.getElementById('custom-extra-food-kcal');
       if (!dd) return;
 
-      const q = normalizeSearchStr(rawVal);
-      if (!q) {
-        // Mostrar las 6 equivalencias mas usadas cuando enfoca el campo vacio
-        currentAutocompleteMatches = SMAE_FOOD_EQUIVALENTS_DB.slice(0, 8);
+      const qNorm = normalizeSearchStr(rawVal);
+      if (!qNorm) {
+        // Mostrar favoritos rapidos variados al enfocar vacio
+        currentAutocompleteMatches = SMAE_FOOD_EQUIVALENTS_DB.filter(it => !it.name.includes('(2 ') && !it.name.includes('(3 ') && !it.name.includes('(1/2')).slice(0, 12);
       } else {
-        // Priorizar los que empiezan con la palabra buscada y luego los que la contienen
-        const starts = [];
-        const contains = [];
-        SMAE_FOOD_EQUIVALENTS_DB.forEach(item => {
-          const normName = normalizeSearchStr(item.name);
-          const normAll = normalizeSearchStr(`${item.name} ${item.portion} ${item.cat} ${item.kw}`);
-          if (normName.startsWith(q)) {
-            starts.push(item);
-          } else if (normAll.includes(q)) {
-            contains.push(item);
-          }
-        });
-        currentAutocompleteMatches = [...starts, ...contains].slice(0, 8);
+        const parsed = parseQueryQuantityAndCleanText(rawVal);
+        const searchCore = parsed.cleanQuery || qNorm;
+        const rawTokens = searchCore.split(' ').filter(t => t.length >= 2 && !STOP_WORDS_SET.has(t));
 
-        // Si hay al menos una coincidencia mientras escribe, pre-llenar automaticamente sus calorias en el recuadro de kcal
+        // 1. Puntuar todos los 800+ alimentos de la base SMAE
+        const scored = [];
+        for (let i = 0; i < SMAE_FOOD_EQUIVALENTS_DB.length; i++) {
+          const item = SMAE_FOOD_EQUIVALENTS_DB[i];
+          const scFull = scoreFoodItemAgainstQuery(item, qNorm, qNorm.split(' ').filter(t => t.length >= 2 && !STOP_WORDS_SET.has(t)));
+          const scCore = scoreFoodItemAgainstQuery(item, searchCore, rawTokens);
+          const bestScore = Math.max(scFull, scCore);
+          if (bestScore > 0) {
+            scored.push({ item, score: bestScore, matchedExactFull: scFull >= scCore && scFull >= 700 });
+          }
+        }
+
+        scored.sort((a, b) => b.score - a.score);
+        let results = [];
+
+        // 2. Si el usuario puso una cantidad especifica (ej. "3 tortillas", "150g pollo", "medio aguacate"),
+        // crear una opcion escalada exacta al principio de la lista
+        if ((parsed.mult !== 1 || parsed.grams) && scored.length > 0) {
+          const topBase = scored[0].item;
+          if (!scored[0].matchedExactFull) {
+            let scaledKcal = Math.max(5, Math.round((topBase.kcal * parsed.mult) / 5) * 5);
+            let scaledPortion = parsed.grams
+              ? (parsed.grams + (parsed.unit || 'g') + ' (proporcional SMAE)')
+              : (parsed.qtyLabel + ' \u00d7 ' + topBase.portion);
+            results.push({
+              name: parsed.qtyLabel + ' \u00d7 ' + topBase.name,
+              portion: scaledPortion,
+              kcal: scaledKcal,
+              icon: topBase.icon,
+              cat: topBase.cat + ' Calculado'
+            });
+          }
+        }
+
+        // 3. Si el usuario escribio una combinacion con "con", "y" o "+" (ej. "huevo con arroz" o "pollo con frijoles")
+        // y no es ya un platillo exacto del catalogo, calcular la suma automatica de los ingredientes
+        if (/\b(con|y|mas)\b|\+|,/.test(qNorm) && (scored.length === 0 || scored[0].score < 720)) {
+          const parts = rawVal.split(/\b(?:con|y|mas)\b|\+|,/i).map(s => s.trim()).filter(s => s.length >= 2);
+          if (parts.length >= 2) {
+            let comboKcal = 0;
+            const comboNames = [];
+            for (const part of parts) {
+              const pParsed = parseQueryQuantityAndCleanText(part);
+              const pCore = pParsed.cleanQuery || normalizeSearchStr(part);
+              const pToks = pCore.split(' ').filter(t => t.length >= 2 && !STOP_WORDS_SET.has(t));
+              let bestSub = null;
+              let bestSubScore = 0;
+              for (const cand of SMAE_FOOD_EQUIVALENTS_DB) {
+                const s = scoreFoodItemAgainstQuery(cand, pCore, pToks);
+                if (s > bestSubScore) {
+                  bestSubScore = s;
+                  bestSub = cand;
+                }
+              }
+              if (bestSub && bestSubScore >= 300) {
+                const subK = Math.round((bestSub.kcal * (pParsed.mult || 1)) / 5) * 5;
+                comboKcal += subK;
+                comboNames.push(pParsed.qtyLabel ? (pParsed.qtyLabel + ' ' + bestSub.name) : bestSub.name);
+              }
+            }
+            if (comboNames.length >= 2 && comboKcal > 0) {
+              results.unshift({
+                name: comboNames.join(' + '),
+                portion: 'Combinaci\u00f3n SMAE (' + comboNames.length + ' alimentos)',
+                kcal: comboKcal,
+                icon: '\u26A1',
+                cat: 'Combo Calculado'
+              });
+            }
+          }
+        }
+
+        // 4. Agregar las mejores coincidencias del catalogo SMAE sin duplicar nombres
+        const seenNames = new Set(results.map(r => normalizeSearchStr(r.name)));
+        for (const sObj of scored) {
+          const nKey = normalizeSearchStr(sObj.item.name);
+          if (!seenNames.has(nKey)) {
+            seenNames.add(nKey);
+            results.push(sObj.item);
+            if (results.length >= 12) break;
+          }
+        }
+
+        // 5. Respaldo Universal: si escribio cualquier platillo o marca que no este literal, estimar automaticamente sus calorias
+        if (results.length === 0) {
+          results.push(buildUniversalEstimatedFood(rawVal));
+        }
+
+        currentAutocompleteMatches = results;
+
+        // Pre-llenar las calorias en tiempo real con la mejor coincidencia
         if (currentAutocompleteMatches.length > 0 && kcalInp) {
           kcalInp.value = currentAutocompleteMatches[0].kcal;
         }
       }
 
       currentAutocompleteHighlightIdx = currentAutocompleteMatches.length > 0 ? 0 : -1;
-      renderFoodAutocompleteDropdown(q);
+      renderFoodAutocompleteDropdown(qNorm);
     }
 
     function renderFoodAutocompleteDropdown(queryStr) {
       const dd = document.getElementById('food-autocomplete-dropdown');
       if (!dd) return;
 
-      if (currentAutocompleteMatches.length === 0) {
-        dd.innerHTML = `<div style="padding: 6px 8px; font-size: 0.68rem; color: var(--text-muted);">Alimento libre: revisa las <strong>kcal</strong> a la derecha y presiona <strong>+ A\u00f1adir</strong>.</div>`;
-        dd.classList.add('is-open');
-        return;
-      }
-
+      const totalCatalogCount = SMAE_FOOD_EQUIVALENTS_DB.length;
       const headerHint = queryStr
-        ? `<div style="font-size: 0.6rem; font-weight: 800; color: var(--avo-forest); padding: 2px 6px 4px; text-transform: uppercase; letter-spacing: 0.04em;">\u26A1 Equivalencias SMAE (toca para autocompletar kcal):</div>`
-        : `<div style="font-size: 0.6rem; font-weight: 800; color: var(--text-muted); padding: 2px 6px 4px; text-transform: uppercase; letter-spacing: 0.04em;">\uD83D\uDD0E Base de Equivalencias Cal\u00f3ricas (escribe para filtrar):</div>`;
+        ? '<div style="font-size: 0.6rem; font-weight: 800; color: var(--avo-forest); padding: 3px 6px 5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2ECD8;"><span>\u26A1 Equivalencias SMAE (toca para autocompletar):</span><span style="color: var(--text-muted);">' + currentAutocompleteMatches.length + ' sugerencias</span></div>'
+        : '<div style="font-size: 0.6rem; font-weight: 800; color: var(--text-muted); padding: 3px 6px 5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2ECD8;"><span>\uD83D\uDD0E Base Cl\u00ednica SMAE (' + totalCatalogCount + '+ alimentos y platillos):</span><span>Escribe cantidad o comida</span></div>';
 
-      dd.innerHTML = headerHint + currentAutocompleteMatches.map((item, idx) => `
-        <div class="food-auto-item ${idx === currentAutocompleteHighlightIdx ? 'is-active' : ''}" onmousedown="event.preventDefault(); selectAutocompleteFood(${idx}, false)">
-          <div style="min-width: 0; flex: 1;">
-            <div style="font-weight: 800; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              ${item.icon} ${item.name} <span style="font-weight: 600; color: var(--text-muted);">(${item.portion})</span>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 4px; flex-shrink: 0;">
-            <span class="food-auto-kcal-pill">${item.kcal} kcal</span>
-            <button type="button" onmousedown="event.preventDefault(); event.stopPropagation(); selectAutocompleteFood(${idx}, true)" style="background: var(--avo-primary); color: #FFF; border: none; border-radius: 6px; padding: 2px 6px; font-size: 0.62rem; font-weight: 800; cursor: pointer;" title="Sumar directo a esta comida">+ Sumar</button>
-          </div>
-        </div>
-      `).join('');
+      dd.innerHTML = headerHint + currentAutocompleteMatches.map((item, idx) =>
+        '<div class="food-auto-item ' + (idx === currentAutocompleteHighlightIdx ? 'is-active' : '') + '" onmousedown="event.preventDefault(); selectAutocompleteFood(' + idx + ', false)">' +
+          '<div style="min-width: 0; flex: 1;">' +
+            '<div style="font-weight: 800; color: var(--avo-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' +
+              item.icon + ' ' + item.name + ' <span style="font-weight: 600; color: var(--text-muted);">(' + item.portion + ')</span>' +
+            '</div>' +
+          '</div>' +
+          '<div style="display: flex; align-items: center; gap: 4px; flex-shrink: 0;">' +
+            '<span class="food-auto-kcal-pill">' + item.kcal + ' kcal</span>' +
+            '<button type="button" onmousedown="event.preventDefault(); event.stopPropagation(); selectAutocompleteFood(' + idx + ', true)" style="background: var(--avo-primary); color: #FFF; border: none; border-radius: 6px; padding: 2px 6px; font-size: 0.62rem; font-weight: 800; cursor: pointer;" title="Sumar directo a esta comida">+ Sumar</button>' +
+          '</div>' +
+        '</div>'
+      ).join('');
 
       dd.classList.add('is-open');
     }
@@ -11647,7 +12463,7 @@
       const kcalInp = document.getElementById('custom-extra-food-kcal');
       const dd = document.getElementById('food-autocomplete-dropdown');
 
-      const fullLabel = `${item.name} (${item.portion})`;
+      const fullLabel = item.name.includes('(') ? item.name : (item.name + ' (' + item.portion + ')');
       if (nameInp) nameInp.value = fullLabel;
       if (kcalInp) kcalInp.value = item.kcal;
       if (dd) dd.classList.remove('is-open');
