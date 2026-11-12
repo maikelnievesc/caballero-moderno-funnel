@@ -2593,9 +2593,10 @@
         height: auto !important;
         transform: none !important;
         display: flex !important;
-        padding: 16px 14px !important;
+        flex-direction: column !important;
+        padding: 14px 12px !important;
         border-radius: 20px;
-        gap: 14px;
+        gap: 10px;
         animation: mobileFlipCardIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
@@ -2613,10 +2614,106 @@
         height: auto !important;
         transform: none !important;
         display: flex !important;
-        padding: 16px 14px !important;
+        flex-direction: column !important;
+        padding: 14px 12px !important;
         border-radius: 20px;
-        gap: 14px;
+        gap: 10px;
         animation: mobileFlipCardIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* Módulo 1 Onboarding & Protocolo Clínico en Celular */
+      .obj-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        margin-bottom: 14px !important;
+      }
+      .obj-grid .obj-card:last-child {
+        grid-column: span 2 !important;
+      }
+      .obj-card {
+        padding: 10px 8px !important;
+      }
+
+      #flip-onboarding-protocol {
+        height: auto !important;
+        min-height: 0 !important;
+        margin-bottom: 14px !important;
+      }
+
+      .clinical-protocol-face {
+        padding: 14px 12px !important;
+        height: auto !important;
+      }
+
+      .clinical-protocol-header {
+        font-size: 0.86rem !important;
+        line-height: 1.3 !important;
+      }
+
+      .clinical-conditions-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        margin: 6px 0 8px !important;
+        width: 100% !important;
+      }
+
+      .clinical-condition-card {
+        padding: 10px 11px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .clinical-condition-card strong {
+        font-size: 0.82rem !important;
+      }
+
+      .clinical-condition-card span {
+        font-size: 0.72rem !important;
+      }
+
+      .clinical-weight-combine-box {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 10px 12px !important;
+        gap: 8px !important;
+        font-size: 0.76rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .clinical-weight-combine-title {
+        white-space: normal !important;
+        font-size: 0.80rem !important;
+        line-height: 1.3 !important;
+      }
+
+      .clinical-weight-combine-options {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 7px !important;
+        width: 100% !important;
+        align-items: flex-start !important;
+      }
+
+      .clinical-weight-combine-options label {
+        white-space: normal !important;
+        font-size: 0.75rem !important;
+        line-height: 1.25 !important;
+      }
+
+      #flip-onboarding-protocol .flip-face-3d.back > div:first-child {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+      #flip-onboarding-protocol .flip-face-3d.back > div:last-child {
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+      }
+      #flip-onboarding-protocol .flip-face-3d.back > div:last-child span {
+        font-size: 0.72rem !important;
+        padding: 5px 8px !important;
       }
 
             /* Ajustes de Modulo 8 (Buzon & Expediente) en Celular */
@@ -4013,6 +4110,114 @@
       background: linear-gradient(180deg, #FFFFFF 0%, #FFF3EF 100%);
       box-shadow: 0 12px 24px rgba(232, 111, 82, 0.18);
       transform: translateY(-2px);
+    }
+
+    /* PROTOCOLO CLÍNICO Y SUBPANEL EN MÓDULO 1 */
+    .clinical-protocol-face {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .clinical-protocol-header {
+      font-weight: 800;
+      color: var(--avo-dark);
+      font-size: 0.94rem;
+      line-height: 1.35;
+    }
+
+    .clinical-conditions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .clinical-condition-card {
+      background: #FFFFFF;
+      padding: 11px 12px;
+      border-radius: 13px;
+      border: 1.5px solid #CFE0BE;
+      cursor: pointer;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .clinical-condition-card:hover {
+      border-color: var(--avo-primary);
+      background: #FAFCF7;
+    }
+
+    .clinical-condition-card:has(input:checked) {
+      border-color: var(--avo-primary) !important;
+      border-width: 2px !important;
+      background: #FFFFFF !important;
+      box-shadow: 0 4px 14px rgba(104, 163, 50, 0.16) !important;
+    }
+
+    .clinical-condition-card input[type="radio"] {
+      margin-top: 3px;
+      accent-color: var(--avo-primary);
+      flex-shrink: 0;
+    }
+
+    .clinical-condition-card strong {
+      font-size: 0.82rem;
+      display: block;
+      color: var(--avo-dark);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+
+    .clinical-condition-card span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.2;
+      display: block;
+    }
+
+    .clinical-weight-combine-box {
+      background: #FFFFFF;
+      padding: 9px 14px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.8rem;
+      box-sizing: border-box;
+    }
+
+    .clinical-weight-combine-title {
+      font-weight: 800;
+      color: var(--avo-dark);
+      white-space: nowrap;
+    }
+
+    .clinical-weight-combine-options {
+      display: flex;
+      gap: 14px;
+      font-weight: 700;
+      align-items: center;
+    }
+
+    .clinical-weight-combine-options label {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .clinical-weight-combine-options input[type="radio"] {
+      accent-color: var(--coral);
+      margin: 0;
     }
 
     .food-chip {
@@ -6060,38 +6265,38 @@
                 <div class="flip-inner-3d">
                   
                   <!-- CARA FRONTAL: PROTOCOLO CLÍNICO DE ARIANNA (3 AFECCIONES) -->
-                  <div class="flip-face-3d front" style="background: var(--avo-pale); padding: 18px 22px;">
-                    <div style="font-weight: 800; color: var(--avo-dark); font-size: 0.94rem;">
+                  <div class="flip-face-3d front clinical-protocol-face" style="background: var(--avo-pale);">
+                    <div class="clinical-protocol-header">
                       👩‍⚕️ Protocolo de Control Clínico de la Nutrióloga Arianna — Selecciona la condición principal:
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                      <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 2px solid var(--avo-primary); cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
-                        <input type="radio" name="clin" value="🩸 Control Insulina" checked onchange="updateClinicalProtocol()" style="margin-top: 3px; accent-color: var(--avo-primary);">
+                    <div class="clinical-conditions-grid">
+                      <label class="clinical-condition-card">
+                        <input type="radio" name="clin" value="🩸 Control Insulina" checked onchange="updateClinicalProtocol()">
                         <div>
-                          <strong style="font-size: 0.82rem; display: block;">🩸 1. Insulina, Glucosa y SOP</strong>
-                          <span style="font-size: 0.72rem; color: var(--text-muted);">Bajo índice glucémico + fibra y aguacate.</span>
+                          <strong>🩸 1. Insulina, Glucosa y SOP</strong>
+                          <span>Bajo índice glucémico + fibra y aguacate.</span>
                         </div>
                       </label>
-                      <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 1px solid #CFE0BE; cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
-                        <input type="radio" name="clin" value="❤️ Presión Arterial" onchange="updateClinicalProtocol()" style="margin-top: 3px; accent-color: var(--avo-primary);">
+                      <label class="clinical-condition-card">
+                        <input type="radio" name="clin" value="❤️ Presión Arterial" onchange="updateClinicalProtocol()">
                         <div>
-                          <strong style="font-size: 0.82rem; display: block;">❤️ 2. Presión Arterial</strong>
-                          <span style="font-size: 0.72rem; color: var(--text-muted);">Bajo en sodio oculto, rico en potasio.</span>
+                          <strong>❤️ 2. Presión Arterial</strong>
+                          <span>Bajo en sodio oculto, rico en potasio.</span>
                         </div>
                       </label>
-                      <label style="background: #fff; padding: 11px 12px; border-radius: 13px; border: 1px solid #CFE0BE; cursor: pointer; display: flex; gap: 8px; align-items: flex-start;">
-                        <input type="radio" name="clin" value="🌿 Colitis y Gastritis" onchange="updateClinicalProtocol()" style="margin-top: 3px; accent-color: var(--avo-primary);">
+                      <label class="clinical-condition-card">
+                        <input type="radio" name="clin" value="🌿 Colitis y Gastritis" onchange="updateClinicalProtocol()">
                         <div>
-                          <strong style="font-size: 0.82rem; display: block;">🌿 3. Colitis y Gastritis</strong>
-                          <span style="font-size: 0.72rem; color: var(--text-muted);">Desinflamación abdominal sin irritantes.</span>
+                          <strong>🌿 3. Colitis y Gastritis</strong>
+                          <span>Desinflamación abdominal sin irritantes.</span>
                         </div>
                       </label>
                     </div>
-                    <div style="background: #FFFFFF; padding: 9px 14px; border-radius: 11px; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
-                      <span style="font-weight: 800;">⚖️ ¿Combinar Control Clínico con pérdida de peso?</span>
-                      <div style="display: flex; gap: 14px; font-weight: 700;">
-                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" value="+ Bajar Peso" checked onchange="updateClinicalProtocol()" style="accent-color: var(--coral);"> Sí, Control Clínico + Bajar de Peso</label>
-                        <label style="cursor: pointer;"><input type="radio" name="clin_weight" value="+ Mantener Peso" onchange="updateClinicalProtocol()" style="accent-color: var(--coral);"> Solo Control Clínico + Mantener Peso</label>
+                    <div class="clinical-weight-combine-box">
+                      <span class="clinical-weight-combine-title">⚖️ ¿Combinar Control Clínico con pérdida de peso?</span>
+                      <div class="clinical-weight-combine-options">
+                        <label><input type="radio" name="clin_weight" value="+ Bajar Peso" checked onchange="updateClinicalProtocol()"> Sí, Control Clínico + Bajar de Peso</label>
+                        <label><input type="radio" name="clin_weight" value="+ Mantener Peso" onchange="updateClinicalProtocol()"> Solo Control Clínico + Mantener Peso</label>
                       </div>
                     </div>
                   </div>
