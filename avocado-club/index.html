@@ -5086,8 +5086,8 @@
     /* CONSTRUCTOR DEL PLATO 50/25/25 */
     .plate-builder-layout {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 22px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(380px, 0.85fr);
+      gap: 24px;
       align-items: start;
     }
     .plate-step-box {
@@ -5820,22 +5820,25 @@
   
     /* === GOURMET CERAMIC PLATE SIMULATOR STYLES === */
     .plate-graphic-circle {
-      width: 275px;
-      height: 275px;
+      width: 335px;
+      height: 335px;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
       background: #FAFDF7;
-      border: 14px solid #FFFFFF;
+      border: 15px solid #FFFFFF;
       outline: 2px solid #CFE0BC;
-      box-shadow: 0 20px 48px rgba(20, 43, 31, 0.16), inset 0 3px 8px rgba(255, 255, 255, 0.95), inset 0 -6px 14px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 22px 50px rgba(20, 43, 31, 0.18), inset 0 3px 8px rgba(255, 255, 255, 0.95), inset 0 -6px 14px rgba(0, 0, 0, 0.05);
       position: relative;
       overflow: hidden;
       margin: 0 auto 16px auto;
       display: flex;
       transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      box-sizing: border-box;
     }
     .plate-graphic-circle:hover {
       transform: scale(1.02);
-      box-shadow: 0 24px 54px rgba(20, 43, 31, 0.20), inset 0 3px 8px rgba(255, 255, 255, 0.95), inset 0 -6px 14px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 26px 56px rgba(20, 43, 31, 0.22), inset 0 3px 8px rgba(255, 255, 255, 0.95), inset 0 -6px 14px rgba(0, 0, 0, 0.05);
     }
     .plate-half-veggie {
       width: 50%;
@@ -5846,7 +5849,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 10px 8px;
+      padding: 12px 28px 12px 12px;
       text-align: center;
       box-sizing: border-box;
       position: relative;
@@ -5866,7 +5869,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 6px 8px;
+      padding: 8px 12px 18px 22px;
       text-align: center;
       box-sizing: border-box;
       position: relative;
@@ -5878,7 +5881,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 6px 8px;
+      padding: 18px 12px 8px 22px;
       text-align: center;
       box-sizing: border-box;
       position: relative;
@@ -5888,51 +5891,52 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 76px;
-      height: 76px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: linear-gradient(135deg, #FEF9C3 0%, #FDE68A 100%);
-      border: 3.5px solid #FFFFFF;
+      border: 3px solid #FFFFFF;
       outline: 1.5px solid #F59E0B;
-      box-shadow: 0 6px 18px rgba(217, 119, 6, 0.32);
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       z-index: 5;
-      padding: 4px;
+      padding: 2px;
       box-sizing: border-box;
+      pointer-events: none;
     }
     .plate-quad-pill {
-      font-size: 0.61rem;
+      font-size: 0.60rem;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.25px;
       padding: 2px 6px;
       border-radius: 99px;
       margin-bottom: 4px;
       white-space: nowrap;
     }
     .plate-quad-pill.veggie {
-      background: rgba(34, 197, 94, 0.15);
+      background: rgba(34, 197, 94, 0.16);
       color: #166534;
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      border: 1px solid rgba(34, 197, 94, 0.35);
     }
     .plate-quad-pill.protein {
-      background: rgba(232, 111, 82, 0.15);
+      background: rgba(232, 111, 82, 0.16);
       color: #9A3412;
-      border: 1px solid rgba(232, 111, 82, 0.3);
+      border: 1px solid rgba(232, 111, 82, 0.35);
     }
     .plate-quad-pill.carb {
-      background: rgba(217, 119, 6, 0.15);
+      background: rgba(217, 119, 6, 0.16);
       color: #78350F;
-      border: 1px solid rgba(217, 119, 6, 0.3);
+      border: 1px solid rgba(217, 119, 6, 0.35);
     }
     .plate-quad-pill.fat {
-      background: rgba(245, 158, 11, 0.22);
+      background: rgba(245, 158, 11, 0.24);
       color: #78350F;
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       padding: 1px 5px;
     }
     .plate-quad-icon-chip {
@@ -5948,11 +5952,11 @@
       margin-bottom: 3px;
     }
     .plate-quad-food-name {
-      font-size: 0.70rem;
+      font-size: 0.72rem;
       font-weight: 800;
       color: var(--avo-dark);
-      line-height: 1.2;
-      max-width: 95px;
+      line-height: 1.25;
+      max-width: 120px;
       white-space: normal;
       text-align: center;
     }
@@ -5960,6 +5964,84 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
       gap: 7px;
+    }
+
+    /* DESGLOSE DETALLADO DE INGREDIENTES EN TU PLATO */
+    .plate-ingredients-breakdown {
+      background: #F8FAF5;
+      border: 1.5px solid #E2ECD8;
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin: 0 auto 14px auto;
+      width: 100%;
+      max-width: 360px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .plate-breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.77rem;
+      padding: 4px 6px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    .plate-breakdown-row:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .breakdown-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+      flex: 1;
+    }
+    .breakdown-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .breakdown-dot.veggie { background: #22C55E; box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2); }
+    .breakdown-dot.protein { background: #E86F52; box-shadow: 0 0 0 2px rgba(232, 111, 82, 0.2); }
+    .breakdown-dot.carb { background: #D97706; box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.2); }
+    .breakdown-dot.fat { background: #EAB308; box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2); }
+    .breakdown-macro-lbl {
+      font-size: 0.71rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .breakdown-food-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--avo-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .breakdown-badge {
+      font-size: 0.70rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 99px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+    .breakdown-badge.veggie { background: #DCFCE7; color: #166534; }
+    .breakdown-badge.protein { background: #FEE2E2; color: #991B1B; }
+    .breakdown-badge.carb { background: #FEF3C7; color: #92400E; }
+    .breakdown-badge.fat { background: #FEF9C3; color: #854D0E; }
+
+    @media (max-width: 900px) {
+      .plate-graphic-circle {
+        width: 300px;
+        height: 300px;
+      }
     }
     .plate-choice-btn {
       background: #FFFFFF;
@@ -8675,7 +8757,7 @@
                       <span id="plate-total-kcal" class="plate-kcal-pill">~345 kcal totales</span>
                     </div>
 
-                    <!-- EL PLATO DE CERÁMICA GOURMET -->
+                    <!-- EL PLATO DE CERÁMICA GOURMET (AMPLIADO 335px) -->
                     <div class="plate-graphic-circle" title="Plato Avocado 50/25/25 en Proporción Oficial">
                       <!-- MITAD IZQUIERDA: 50% VERDURAS -->
                       <div class="plate-half-veggie">
@@ -8692,7 +8774,7 @@
                           <div id="plate-disp-proteina-name" class="plate-quad-food-name">Pechuga asada</div>
                         </div>
                         <div class="plate-subquad-carb">
-                          <span class="plate-quad-pill carb">25% CARB ✊</span>
+                          <span class="plate-quad-pill carb">25% CARBO ✊</span>
                           <div class="plate-quad-icon-chip" id="plate-disp-carbohidrato-icon">🌽</div>
                           <div id="plate-disp-carbohidrato-name" class="plate-quad-food-name">2 Tortillas maíz</div>
                         </div>
@@ -8702,7 +8784,43 @@
                       <div class="plate-center-fat">
                         <span class="plate-quad-pill fat">GRASA 👍</span>
                         <div id="plate-disp-grasa-icon" style="font-size: 1.15rem; line-height: 1;">🥑</div>
-                        <div id="plate-disp-grasa-name" style="font-size: 0.60rem; font-weight: 800; color: #78350F; line-height: 1.1; margin-top: 1px;">1/3 Aguacate</div>
+                        <div id="plate-disp-grasa-name" style="font-size: 0.58rem; font-weight: 800; color: #78350F; line-height: 1.1; margin-top: 1px; max-width: 54px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">1/3 Aguacate</div>
+                      </div>
+                    </div>
+
+                    <!-- DESGLOSE DETALLADO DE INGREDIENTES EN TU PLATO -->
+                    <div class="plate-ingredients-breakdown">
+                      <div class="plate-breakdown-row veggie">
+                        <div class="breakdown-left">
+                          <span class="breakdown-dot veggie"></span>
+                          <span class="breakdown-macro-lbl">50% Fibra:</span>
+                          <strong class="breakdown-food-title" id="legend-verdura-name">Nopales asados al comal (1-2 tazas)</strong>
+                        </div>
+                        <span class="breakdown-badge veggie">Libre</span>
+                      </div>
+                      <div class="plate-breakdown-row protein">
+                        <div class="breakdown-left">
+                          <span class="breakdown-dot protein"></span>
+                          <span class="breakdown-macro-lbl">25% Proteína:</span>
+                          <strong class="breakdown-food-title" id="legend-proteina-name">Pechuga de pollo asada (~110g)</strong>
+                        </div>
+                        <span class="breakdown-badge protein" id="legend-proteina-kcal">~140 kcal</span>
+                      </div>
+                      <div class="plate-breakdown-row carb">
+                        <div class="breakdown-left">
+                          <span class="breakdown-dot carb"></span>
+                          <span class="breakdown-macro-lbl">25% Carbo:</span>
+                          <strong class="breakdown-food-title" id="legend-carbohidrato-name">2 Tortillas de maíz calientes</strong>
+                        </div>
+                        <span class="breakdown-badge carb" id="legend-carbohidrato-kcal">~110 kcal</span>
+                      </div>
+                      <div class="plate-breakdown-row fat">
+                        <div class="breakdown-left">
+                          <span class="breakdown-dot fat"></span>
+                          <span class="breakdown-macro-lbl">Grasa Buena:</span>
+                          <strong class="breakdown-food-title" id="legend-grasa-name">1/3 Aguacate Hass fresco (~45g)</strong>
+                        </div>
+                        <span class="breakdown-badge fat" id="legend-grasa-kcal">~65 kcal</span>
                       </div>
                     </div>
 
@@ -16473,42 +16591,42 @@
         // METRICAS DEL SIMULADOR DEL PLATO 50/25/25
     const PLATE_METRICS = {
       // 50% VERDURAS
-      'nopales-asados': { name: 'Nopales asados', icon: '🌵', kcal: 30, p: 2, c: 5, f: 0, fib: 4 },
-      'calabacitas-mexicana': { name: 'Calabacitas', icon: '🥒', kcal: 35, p: 2, c: 6, f: 0, fib: 3 },
-      'ensalada-mixta': { name: 'Ensalada verde', icon: '🥗', kcal: 25, p: 1, c: 4, f: 0, fib: 3.5 },
-      'pico-de-gallo': { name: 'Pico de gallo', icon: '🍅', kcal: 30, p: 1, c: 6, f: 0, fib: 2.5 },
-      'brocoli-vapor': { name: 'Brócoli al vapor', icon: '🥦', kcal: 35, p: 3, c: 6, f: 0.5, fib: 3.8 },
-      'champinones-salteados': { name: 'Champiñones', icon: '🍄', kcal: 28, p: 3, c: 4, f: 0.5, fib: 2.2 },
-      'fajitas-pimiento': { name: 'Pimientos asados', icon: '🫑', kcal: 32, p: 1.5, c: 6.5, f: 0.2, fib: 2.6 },
-      'espinacas-baby': { name: 'Espinacas baby', icon: '🥬', kcal: 22, p: 2.5, c: 3.5, f: 0.3, fib: 3 },
+      'nopales-asados': { name: 'Nopales asados', fullName: 'Nopales asados al comal (1-2 tazas)', icon: '🌵', kcal: 30, p: 2, c: 5, f: 0, fib: 4 },
+      'calabacitas-mexicana': { name: 'Calabacitas', fullName: 'Calabacitas a la mexicana (1 taza)', icon: '🥒', kcal: 35, p: 2, c: 6, f: 0, fib: 3 },
+      'ensalada-mixta': { name: 'Ensalada verde', fullName: 'Ensalada verde mixta fresca (2 tazas)', icon: '🥗', kcal: 25, p: 1, c: 4, f: 0, fib: 3.5 },
+      'pico-de-gallo': { name: 'Pico de gallo', fullName: 'Pico de gallo generoso (3/4 taza)', icon: '🍅', kcal: 30, p: 1, c: 6, f: 0, fib: 2.5 },
+      'brocoli-vapor': { name: 'Brócoli vapor', fullName: 'Brócoli al vapor con limón (1.5 tazas)', icon: '🥦', kcal: 35, p: 3, c: 6, f: 0.5, fib: 3.8 },
+      'champinones-salteados': { name: 'Champiñones', fullName: 'Champiñones al ajillo ligero (1 taza)', icon: '🍄', kcal: 28, p: 3, c: 4, f: 0.5, fib: 2.2 },
+      'fajitas-pimiento': { name: 'Pimientos asados', fullName: 'Pimientos asados en tiras (1 taza)', icon: '🫑', kcal: 32, p: 1.5, c: 6.5, f: 0.2, fib: 2.6 },
+      'espinacas-baby': { name: 'Espinacas baby', fullName: 'Espinacas baby salteadas (2 tazas)', icon: '🥬', kcal: 22, p: 2.5, c: 3.5, f: 0.3, fib: 3 },
 
       // 25% PROTEÍNA
-      'pechuga-pollo': { name: 'Pechuga pollo', icon: '🍗', kcal: 140, p: 31, c: 0, f: 2, fib: 0 },
-      'bistec-res': { name: 'Bistec magro', icon: '🥩', kcal: 160, p: 28, c: 0, f: 5, fib: 0 },
-      'pescado-blanco': { name: 'Pescado blanco', icon: '🐟', kcal: 125, p: 27, c: 0, f: 1.5, fib: 0 },
-      'queso-panela': { name: 'Queso Panela', icon: '🧀', kcal: 150, p: 16, c: 2, f: 9, fib: 0 },
-      'huevo': { name: '2 Huevos + claras', icon: '🍳', kcal: 170, p: 20, c: 1, f: 10, fib: 0 },
-      'atun-agua': { name: 'Atún en agua', icon: '🥫', kcal: 130, p: 29, c: 0, f: 1, fib: 0 },
-      'lomo-cerdo': { name: 'Lomo de cerdo', icon: '🥩', kcal: 150, p: 26, c: 0, f: 5, fib: 0 },
-      'salmon-fresco': { name: 'Salmón fresco', icon: '🍣', kcal: 190, p: 24, c: 0, f: 11, fib: 0 },
+      'pechuga-pollo': { name: 'Pechuga pollo', fullName: 'Pechuga de pollo asada (~110g)', icon: '🍗', kcal: 140, p: 31, c: 0, f: 2, fib: 0 },
+      'bistec-res': { name: 'Bistec magro', fullName: 'Bistec de res magro asado (~100g)', icon: '🥩', kcal: 160, p: 28, c: 0, f: 5, fib: 0 },
+      'pescado-blanco': { name: 'Pescado blanco', fullName: 'Filete de pescado blanco comal (~120g)', icon: '🐟', kcal: 125, p: 27, c: 0, f: 1.5, fib: 0 },
+      'queso-panela': { name: 'Queso Panela', fullName: 'Queso Panela asado (4 rebanadas ~90g)', icon: '🧀', kcal: 150, p: 16, c: 2, f: 9, fib: 0 },
+      'huevo': { name: 'Huevos + Claras', fullName: '2 Huevos enteros + 2 claras al gusto', icon: '🍳', kcal: 170, p: 20, c: 1, f: 10, fib: 0 },
+      'atun-agua': { name: 'Atún en agua', fullName: '1 Lata de atún en agua drenada (~120g)', icon: '🥫', kcal: 130, p: 29, c: 0, f: 1, fib: 0 },
+      'lomo-cerdo': { name: 'Lomo de cerdo', fullName: 'Lomo de cerdo magro al horno (~100g)', icon: '🥩', kcal: 150, p: 26, c: 0, f: 5, fib: 0 },
+      'salmon-fresco': { name: 'Salmón fresco', fullName: 'Filete de salmón fresco a la plancha (~110g)', icon: '🍣', kcal: 190, p: 24, c: 0, f: 11, fib: 0 },
 
       // 25% CARBOHIDRATO COMPLEJO
-      'tortilla-maiz': { name: '2 Tortillas maíz', icon: '🌽', kcal: 110, p: 3, c: 24, f: 1, fib: 3 },
-      'arroz-cocido': { name: '1/2 Taza arroz int.', icon: '🍚', kcal: 110, p: 2.5, c: 23, f: 0.8, fib: 2 },
-      'frijoles-olla': { name: '1/2 Taza frijoles', icon: '🫘', kcal: 110, p: 7, c: 20, f: 0.5, fib: 6 },
-      'tostadas-horneadas': { name: '2 Tostadas horn.', icon: '🌮', kcal: 65, p: 2, c: 14, f: 0.5, fib: 2 },
-      'camote-papa': { name: '1/2 Camote vapor', icon: '🍠', kcal: 90, p: 2, c: 21, f: 0.2, fib: 3 },
-      'lentejas-cocidas': { name: '1/2 Taza lentejas', icon: '🫘', kcal: 115, p: 8.5, c: 20, f: 0.5, fib: 5.5 },
-      'quinoa-cocida': { name: '1/2 Taza quinoa', icon: '🌾', kcal: 110, p: 4, c: 20, f: 1.8, fib: 2.8 },
-      'pasta-integral': { name: '1/2 Taza pasta int.', icon: '🍝', kcal: 105, p: 4.5, c: 21, f: 0.8, fib: 3 },
+      'tortilla-maiz': { name: '2 Tortillas maíz', fullName: '2 Tortillas de maíz calientes (~50g)', icon: '🌽', kcal: 110, p: 3, c: 24, f: 1, fib: 3 },
+      'arroz-cocido': { name: '1/2 Tza arroz', fullName: '1/2 Taza de arroz cocido (~80g)', icon: '🍚', kcal: 110, p: 2.5, c: 23, f: 0.8, fib: 2 },
+      'frijoles-olla': { name: '1/2 Tza frijoles', fullName: '1/2 Taza de frijoles de la olla enteros', icon: '🫘', kcal: 110, p: 7, c: 20, f: 0.5, fib: 6 },
+      'tostadas-horneadas': { name: '2 Tostadas horn.', fullName: '2 Tostadas horneadas sin grasa', icon: '🌮', kcal: 65, p: 2, c: 14, f: 0.5, fib: 2 },
+      'camote-papa': { name: '1/2 Camote vapor', fullName: '1/2 Camote o papa al vapor (~100g)', icon: '🍠', kcal: 90, p: 2, c: 21, f: 0.2, fib: 3 },
+      'lentejas-cocidas': { name: '1/2 Tza lentejas', fullName: '1/2 Taza de lentejas cocidas enteras', icon: '🫘', kcal: 115, p: 8.5, c: 20, f: 0.5, fib: 5.5 },
+      'quinoa-cocida': { name: '1/2 Tza quinoa', fullName: '1/2 Taza de quinoa cocida al vapor', icon: '🌾', kcal: 110, p: 4, c: 20, f: 1.8, fib: 2.8 },
+      'pasta-integral': { name: '1/2 Tza pasta int.', fullName: '1/2 Taza de pasta integral cocida', icon: '🍝', kcal: 105, p: 4.5, c: 21, f: 0.8, fib: 3 },
 
       // TOQUE DE GRASA SALUDABLE
-      'aguacate-hass': { name: '1/3 Aguacate', icon: '🥑', kcal: 65, p: 1, c: 3, f: 6, fib: 3 },
-      'guacamole-casero': { name: '2 Cdas Guacamole', icon: '🥑', kcal: 60, p: 1, c: 3, f: 5.5, fib: 2.5 },
-      'almendras-naturales': { name: '10 Almendras', icon: '🥜', kcal: 70, p: 2.5, c: 2.5, f: 6, fib: 1.5 },
-      'aceite-oliva': { name: '1 Cdita Aceite', icon: '🫒', kcal: 45, p: 0, c: 0, f: 5, fib: 0 },
-      'semillas-calabaza': { name: '1 Cda Pepitas', icon: '🌻', kcal: 55, p: 2.5, c: 1.5, f: 4.5, fib: 1 },
-      'crema-cacahuate': { name: '1 Cda Crema puro', icon: '🥜', kcal: 75, p: 3.5, c: 3, f: 6.5, fib: 1.5 }
+      'aguacate-hass': { name: '1/3 Aguacate', fullName: '1/3 Aguacate Hass fresco (~45g)', icon: '🥑', kcal: 65, p: 1, c: 3, f: 6, fib: 3 },
+      'guacamole-casero': { name: '2 Cdas Guacamole', fullName: '2 Cucharadas de guacamole casero fresco', icon: '🥑', kcal: 60, p: 1, c: 3, f: 5.5, fib: 2.5 },
+      'almendras-naturales': { name: '10 Almendras', fullName: '10 Almendras naturales sin sal', icon: '🥜', kcal: 70, p: 2.5, c: 2.5, f: 6, fib: 1.5 },
+      'aceite-oliva': { name: '1 Cdita Aceite', fullName: '1 Cucharadita de aceite de oliva extravirgen', icon: '🫒', kcal: 45, p: 0, c: 0, f: 5, fib: 0 },
+      'semillas-calabaza': { name: '1 Cda Pepitas', fullName: '1 Cucharada de pepitas de calabaza asadas', icon: '🌻', kcal: 55, p: 2.5, c: 1.5, f: 4.5, fib: 1 },
+      'crema-cacahuate': { name: '1 Cda Crema puro', fullName: '1 Cucharada de crema de cacahuate 100% puro', icon: '🥜', kcal: 75, p: 3.5, c: 3, f: 6.5, fib: 1.5 }
     };
 
     // Escenarios Quincenales Fuera de Casa
@@ -16861,6 +16979,23 @@
       if (carbEl) carbEl.innerText = `${totalC}g`;
       if (fatEl) fatEl.innerText = `${totalF}g`;
       if (fibEl) fibEl.innerText = `${totalFib}g`;
+
+      // Actualizar desglose detallado (Leyenda del plato)
+      const legV = document.getElementById('legend-verdura-name');
+      const legP = document.getElementById('legend-proteina-name');
+      const legPKcal = document.getElementById('legend-proteina-kcal');
+      const legC = document.getElementById('legend-carbohidrato-name');
+      const legCKcal = document.getElementById('legend-carbohidrato-kcal');
+      const legG = document.getElementById('legend-grasa-name');
+      const legGKcal = document.getElementById('legend-grasa-kcal');
+
+      if (legV) legV.innerText = v.fullName || v.name;
+      if (legP) legP.innerText = p.fullName || p.name;
+      if (legPKcal) legPKcal.innerText = '~' + p.kcal + ' kcal';
+      if (legC) legC.innerText = c.fullName || c.name;
+      if (legCKcal) legCKcal.innerText = '~' + c.kcal + ' kcal';
+      if (legG) legG.innerText = g.fullName || g.name;
+      if (legGKcal) legGKcal.innerText = '~' + g.kcal + ' kcal';
 
       // Mensaje dinámico de Arianna
       const msgEl = document.getElementById('plate-arianna-msg');
