@@ -8865,29 +8865,17 @@
 
               <!-- PESTAÑAS DE LAS 8 QUINCENAS ROTATIVAS (CICLO COMPLETO DE 4 MESES) -->
               <div class="quincena-tabs-bar" id="quincena-tabs-container">
-                <button type="button" class="quincena-tab-btn active" data-key="tacos" data-num="1" onclick="switchQuincena('tacos', this)">
-                  🌮 Quincena 1: Taquería Mexicana
+                <button type="button" class="quincena-tab-btn active" data-key="tacos" data-num="1" onclick="switchQuincena('tacos', this)" title="Pauta Comunitaria Oficial en curso">
+                  🌮 Quincena 1 (ACTIVA): Taquería Mexicana
                 </button>
-                <button type="button" class="quincena-tab-btn" data-key="fonda" data-num="2" onclick="switchQuincena('fonda', this)">
+                <button type="button" class="quincena-tab-btn" data-key="fonda" data-num="2" onclick="switchQuincena('fonda', this)" title="Estrategia de la quincena">
                   🍲 Quincena 2: Fondas y Comida Corrida
                 </button>
-                <button type="button" class="quincena-tab-btn" data-key="buffet" data-num="3" onclick="switchQuincena('buffet', this)">
+                <button type="button" class="quincena-tab-btn" data-key="buffet" data-num="3" onclick="switchQuincena('buffet', this)" title="Estrategia de la quincena">
                   🎉 Quincena 3: Asados y Fiestas Familiares
                 </button>
-                <button type="button" class="quincena-tab-btn" data-key="viaje" data-num="4" onclick="switchQuincena('viaje', this)">
+                <button type="button" class="quincena-tab-btn" data-key="viaje" data-num="4" onclick="switchQuincena('viaje', this)" title="Estrategia de la quincena">
                   ✈️ Quincena 4: Plazas, Carretera y Aeropuerto
-                </button>
-                <button type="button" class="quincena-tab-btn" data-key="sushi" data-num="5" onclick="switchQuincena('sushi', this)">
-                  🥢 Quincena 5: Sushi & Comida Oriental
-                </button>
-                <button type="button" class="quincena-tab-btn" data-key="cine" data-num="6" onclick="switchQuincena('cine', this)">
-                  🎬 Quincena 6: Cine, Películas & Snacks
-                </button>
-                <button type="button" class="quincena-tab-btn" data-key="cafeteria" data-num="7" onclick="switchQuincena('cafeteria', this)">
-                  ☕ Quincena 7: Cafeterías & Brunch
-                </button>
-                <button type="button" class="quincena-tab-btn" data-key="italiano" data-num="8" onclick="switchQuincena('italiano', this)">
-                  🍝 Quincena 8: Cocina Italiana & Pastas
                 </button>
               </div>
 
@@ -16618,6 +16606,8 @@
     const QUINCENA_SCENARIOS = {
       tacos: {
         num: 1,
+        icon: '🌮',
+        tabLabel: 'Taquería Mexicana',
         title: '🌮 Taquería Mexicana y Antojitos: La Guía Inteligente',
         sub: 'Cómo pedir en la taquería sin romper tu déficit ni disparar tu glucosa',
         steps: [
@@ -16634,6 +16624,8 @@
       },
       fonda: {
         num: 2,
+        icon: '🍲',
+        tabLabel: 'Fondas y Comida Corrida',
         title: '🍲 Fondas y Comida Corrida: Estrategia de Oficina',
         sub: 'Cómo navegar el menú de 3 tiempos en la oficina o cerca de casa',
         steps: [
@@ -16650,6 +16642,8 @@
       },
       buffet: {
         num: 3,
+        icon: '🎉',
+        tabLabel: 'Asados y Fiestas Familiares',
         title: '🎉 Fiestas Familiares, Asados y Buffets de Fin de Semana',
         sub: 'El método del primer viaje al plato en reuniones de fin de semana',
         steps: [
@@ -16666,6 +16660,8 @@
       },
       viaje: {
         num: 4,
+        icon: '✈️',
+        tabLabel: 'Plazas, Carretera y Aeropuerto',
         title: '✈️ Plazas Comerciales, Carretera y Aeropuertos',
         sub: 'Opciones salvavidas cuando viajas o tienes prisa fuera de casa',
         steps: [
@@ -16682,6 +16678,8 @@
       },
       sushi: {
         num: 5,
+        icon: '🥢',
+        tabLabel: 'Sushi & Comida Oriental',
         title: '🥢 Sushi & Comida Oriental: La Guía Inteligente',
         sub: 'Cómo disfrutar comida japonesa sin el pico glucémico del arroz con azúcar',
         steps: [
@@ -16698,6 +16696,8 @@
       },
       cine: {
         num: 6,
+        icon: '🎬',
+        tabLabel: 'Cine, Películas & Snacks',
         title: '🎬 Cine, Películas y Snacks: Estrategia Anti-Inflamación',
         sub: 'Cómo sobrevivir al dulcerío sin salir con inflamación estomacal ni culpa',
         steps: [
@@ -16714,6 +16714,8 @@
       },
       cafeteria: {
         num: 7,
+        icon: '☕',
+        tabLabel: 'Cafeterías & Brunch',
         title: '☕ Cafeterías, Desayunos & Brunch de Domingo',
         sub: 'Cómo pedir en cafeterías y restaurantes de desayuno sin trampas de azúcar',
         steps: [
@@ -16730,6 +16732,8 @@
       },
       italiano: {
         num: 8,
+        icon: '🍝',
+        tabLabel: 'Cocina Italiana & Pastas',
         title: '🍝 Cocina Italiana, Pastas & Pizzas Artesanales',
         sub: 'Estrategia de carbohidratos controlados para cenar comida italiana',
         steps: [
@@ -17093,12 +17097,18 @@
       const activeIndex = Math.floor(diffDays / cycleDays) % total;
       const daysElapsed = diffDays % cycleDays;
       const daysRemaining = cycleDays - daysElapsed;
+      const block = activeIndex < 4 ? 1 : 2;
+      const blockKeys = block === 1
+        ? ['tacos', 'fonda', 'buffet', 'viaje']
+        : ['sushi', 'cine', 'cafeteria', 'italiano'];
 
       return {
         index: activeIndex,
         key: keys[activeIndex],
         num: activeIndex + 1,
-        daysRemaining: daysRemaining === 0 ? cycleDays : daysRemaining
+        daysRemaining: daysRemaining === 0 ? cycleDays : daysRemaining,
+        block: block,
+        blockKeys: blockKeys
       };
     }
 
@@ -17111,32 +17121,27 @@
         badgeEl.innerHTML = `<i class="fa-regular fa-clock"></i> Quincena ${activeInfo.num} Activa &bull; Días restantes: ${activeInfo.daysRemaining}`;
       }
 
-      // 2. Marcar la pestaña activa y actualizar su etiqueta
-      const tabs = document.querySelectorAll('.quincena-tab-btn');
-      let activeBtn = null;
-      tabs.forEach(btn => {
-        const key = btn.getAttribute('data-key');
-        const num = btn.getAttribute('data-num');
-        const baseTitle = btn.innerText.replace(' (ACTIVA):', ':').replace(' (ACTIVA)', '');
-        
-        if (key === activeInfo.key) {
-          activeBtn = btn;
-          btn.classList.add('active');
-          if (!btn.innerText.includes('(ACTIVA)')) {
-            btn.innerText = baseTitle.replace(`Quincena ${num}:`, `Quincena ${num} (ACTIVA):`);
-          }
-          btn.setAttribute('title', 'Pauta Comunitaria Oficial en curso');
-        } else {
-          btn.classList.remove('active');
-          btn.innerText = baseTitle;
-          btn.setAttribute('title', 'Consulta libre de la biblioteca');
-        }
-      });
+      // 2. Renderizar dinámicamente únicamente las 4 pestañas del bloque actual (Bimestre en curso: Q1-Q4 o Q5-Q8)
+      const tabsContainer = document.getElementById('quincena-tabs-container');
+      if (tabsContainer) {
+        let tabsHtml = '';
+        activeInfo.blockKeys.forEach(k => {
+          const sc = QUINCENA_SCENARIOS[k];
+          if (!sc) return;
+          const isActive = (k === activeInfo.key);
+          const activeClass = isActive ? 'active' : '';
+          const activeTag = isActive ? ' (ACTIVA):' : ':';
+          const titleAttr = isActive ? 'Pauta Comunitaria Oficial en curso' : 'Estrategia de la quincena';
+          tabsHtml += `\n                <button type="button" class="quincena-tab-btn ${activeClass}" data-key="${k}" data-num="${sc.num}" onclick="switchQuincena('${k}', this)" title="${titleAttr}">\n                  ${sc.icon} Quincena ${sc.num}${activeTag} ${sc.tabLabel}\n                </button>`;
+        });
+        tabsContainer.innerHTML = tabsHtml.trim();
+      }
 
       // 3. Renderizar el escenario activo de forma predeterminada
       renderQuincenaScenario(activeInfo.key);
 
-      // 4. Si la pestaña activa no está en vista horizontal, centrarla
+      // 4. Centrar pestaña activa en vista horizontal si aplica
+      const activeBtn = tabsContainer ? tabsContainer.querySelector('.quincena-tab-btn.active') : null;
       if (activeBtn && activeBtn.scrollIntoView) {
         activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
