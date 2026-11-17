@@ -5178,9 +5178,24 @@
       overflow-x: auto;
       padding-bottom: 8px;
       margin-bottom: 14px;
-      scrollbar-width: none;
+      scrollbar-width: thin;
+      scrollbar-color: #B8D69A #F4F8EE;
+      -webkit-overflow-scrolling: touch;
     }
-    .quincena-tabs-bar::-webkit-scrollbar { display: none; }
+    .quincena-tabs-bar::-webkit-scrollbar {
+      height: 5px;
+    }
+    .quincena-tabs-bar::-webkit-scrollbar-track {
+      background: #F4F8EE;
+      border-radius: 99px;
+    }
+    .quincena-tabs-bar::-webkit-scrollbar-thumb {
+      background: #B8D69A;
+      border-radius: 99px;
+    }
+    .quincena-tabs-bar::-webkit-scrollbar-thumb:hover {
+      background: #97C072;
+    }
     .quincena-tab-btn {
       background: #F4F8EE;
       border: 1px solid #D0E2BD;
@@ -8842,25 +8857,37 @@
                   </p>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="font-size: 0.72rem; font-weight: 800; color: #9A3412; background: #FFEDD5; border: 1px solid #FDBA74; padding: 4px 10px; border-radius: 99px;">
-                    ⏳ Quincena 1 Activa &bull; Días restantes: 6
+                  <span id="quincena-live-badge" style="font-size: 0.72rem; font-weight: 800; color: #9A3412; background: #FFEDD5; border: 1px solid #FDBA74; padding: 4px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 5px;">
+                    <i class="fa-regular fa-clock"></i> Quincena 1 Activa &bull; Días restantes: 6
                   </span>
                 </div>
               </div>
 
-              <!-- PESTAÑAS DE LAS 4 QUINCENAS ROTATIVAS -->
-              <div class="quincena-tabs-bar">
-                <button type="button" class="quincena-tab-btn active" onclick="switchQuincena('tacos', this)">
-                  🌮 Quincena 1 (ACTIVA): Taquería Mexicana
+              <!-- PESTAÑAS DE LAS 8 QUINCENAS ROTATIVAS (CICLO COMPLETO DE 4 MESES) -->
+              <div class="quincena-tabs-bar" id="quincena-tabs-container">
+                <button type="button" class="quincena-tab-btn active" data-key="tacos" data-num="1" onclick="switchQuincena('tacos', this)">
+                  🌮 Quincena 1: Taquería Mexicana
                 </button>
-                <button type="button" class="quincena-tab-btn" onclick="switchQuincena('fonda', this)">
+                <button type="button" class="quincena-tab-btn" data-key="fonda" data-num="2" onclick="switchQuincena('fonda', this)">
                   🍲 Quincena 2: Fondas y Comida Corrida
                 </button>
-                <button type="button" class="quincena-tab-btn" onclick="switchQuincena('buffet', this)">
+                <button type="button" class="quincena-tab-btn" data-key="buffet" data-num="3" onclick="switchQuincena('buffet', this)">
                   🎉 Quincena 3: Asados y Fiestas Familiares
                 </button>
-                <button type="button" class="quincena-tab-btn" onclick="switchQuincena('viaje', this)">
+                <button type="button" class="quincena-tab-btn" data-key="viaje" data-num="4" onclick="switchQuincena('viaje', this)">
                   ✈️ Quincena 4: Plazas, Carretera y Aeropuerto
+                </button>
+                <button type="button" class="quincena-tab-btn" data-key="sushi" data-num="5" onclick="switchQuincena('sushi', this)">
+                  🥢 Quincena 5: Sushi & Comida Oriental
+                </button>
+                <button type="button" class="quincena-tab-btn" data-key="cine" data-num="6" onclick="switchQuincena('cine', this)">
+                  🎬 Quincena 6: Cine, Películas & Snacks
+                </button>
+                <button type="button" class="quincena-tab-btn" data-key="cafeteria" data-num="7" onclick="switchQuincena('cafeteria', this)">
+                  ☕ Quincena 7: Cafeterías & Brunch
+                </button>
+                <button type="button" class="quincena-tab-btn" data-key="italiano" data-num="8" onclick="switchQuincena('italiano', this)">
+                  🍝 Quincena 8: Cocina Italiana & Pastas
                 </button>
               </div>
 
@@ -16590,8 +16617,9 @@
     // Escenarios Quincenales Fuera de Casa
     const QUINCENA_SCENARIOS = {
       tacos: {
+        num: 1,
         title: '🌮 Taquería Mexicana y Antojitos: La Guía Inteligente',
-        sub: 'Quincena 1 (Activa) • Cómo pedir en la taquería sin romper tu déficit',
+        sub: 'Cómo pedir en la taquería sin romper tu déficit ni disparar tu glucosa',
         steps: [
           { num: 'Paso 1: Antes de ordenar', desc: 'Pide una orden de cebollitas cambray y nopales asados al centro. Cómela antes de tus tacos para amortiguar el pico de glucosa.' },
           { num: 'Paso 2: La regla de la copia', desc: 'Pide 2 o 3 tacos con copia sencilla (retira la segunda tortilla). Elige bistec, cecina o pechuga magra.' },
@@ -16605,23 +16633,25 @@
         quote: '"En la taquería no tienes que privarte de la convivencia: la regla de oro es sustituir la segunda tortilla por nopales y cebollitas. Mismo sabor mexicano, cero culpa y glucosa plana." — Nutrióloga Arianna'
       },
       fonda: {
+        num: 2,
         title: '🍲 Fondas y Comida Corrida: Estrategia de Oficina',
-        sub: 'Quincena 2 • Cómo navegar el menú del día de 3 tiempos',
+        sub: 'Cómo navegar el menú de 3 tiempos en la oficina o cerca de casa',
         steps: [
           { num: 'Paso 1: Sopa o Consomé', desc: 'Elige consomé desgrasado o sopa de verduras. Si pides sopa de pasta, no consumas arroz en el segundo tiempo.' },
           { num: 'Paso 2: Arroz O Frijoles', desc: 'Pide 1/2 taza de arroz O 1/2 taza de frijoles de la olla, nunca ambos en la misma comida.' },
           { num: 'Paso 3: Guisado limpio', desc: 'Elige guisados en salsa (verde, pasilla, entomatado) o a la plancha. Evita capear o empanizar.' }
         ],
         semaforo: {
-          verde: ['Consomé de pollo desgrasado', 'Guisados en salsa verde o jitomate', 'Pollo a la plancha con ensalada', 'Agua de jamaica o limón sin azúcar'],
-          amarillo: ['Arroz blanco (1/2 taza exacta)', 'Pechuga en chipotle suave sin crema excesiva', 'Frijoles refritos ligeros'],
-          rojo: ['Milanesas empanizadas o pechuga rellena', 'Chiles rellenos capeados en huevo y aceite', 'Pastas con crema blanca pesada', 'Postre del menú (flanes y gelatinas azucaradas)']
+          verde: ['Consomé de pollo desgrasado', 'Guisados en salsa verde o jitomate', 'Pollo a la plancha con ensalada fresca', 'Agua de jamaica o limón sin azúcar'],
+          amarillo: ['Arroz blanco o rojo (1/2 taza exacta)', 'Pechuga en chipotle suave sin crema excesiva', 'Frijoles de la olla o refritos ligeros'],
+          rojo: ['Milanesas empanizadas o capeadas', 'Chiles rellenos capeados en huevo y fritos', 'Crema ácida o mayonesa en exceso', 'Postres de cortesía (flanes o gelatinas azucaradas)']
         },
-        quote: '"La comida corrida mexicana es maravillosa si sabes elegir: pide siempre ensalada verde en lugar del postre y agua natural para beber." — Nutrióloga Arianna'
+        quote: '"En la fonda la clave es la regla «Arroz O Frijol»: jamás juntes pasta, arroz y frijoles en la misma sentada. Con eso proteges tu déficit al 100%." — Nutrióloga Arianna'
       },
       buffet: {
+        num: 3,
         title: '🎉 Fiestas Familiares, Asados y Buffets de Fin de Semana',
-        sub: 'Quincena 3 • El método del primer viaje al plato',
+        sub: 'El método del primer viaje al plato en reuniones de fin de semana',
         steps: [
           { num: 'Paso 1: El primer viaje', desc: 'Llena la mitad de tu plato con ensalada fresca, nopales y pico de gallo antes de servirte la proteína.' },
           { num: 'Paso 2: Cortes magros', desc: 'En asados elige arrachera magra, sirloin o pechuga asada. Modera chorizos y embutidos con alta grasa saturada.' },
@@ -16629,25 +16659,90 @@
         ],
         semaforo: {
           verde: ['Arrachera magra, sirloin y pollo asado', 'Nopales, cebollitas cambray y guacamole', 'Pico de gallo, salsas tatemadas y limón', 'Agua mineral con limón y sal'],
-          amarillo: ['Quesadillas en comal (1 pieza)', 'Elote tierno asado', 'Costilla de res con hueso moderada'],
+          amarillo: ['Quesadillas al comal (1 pieza)', 'Elote tierno asado con limón', 'Costilla de res con hueso moderada'],
           rojo: ['Chistorra y chorizo frito en exceso', 'Totopos fritos en aceite comercial', 'Bebidas alcohólicas azucaradas (margaritas, piña colada)', 'Postres procesados del buffet']
         },
         quote: '"El buffet no es un examen de resistencia. Aplica la técnica 50/25/25 en tu plato y disfruta de tu familia sin remordimientos." — Nutrióloga Arianna'
       },
       viaje: {
+        num: 4,
         title: '✈️ Plazas Comerciales, Carretera y Aeropuertos',
-        sub: 'Quincena 4 • Opciones salvavidas cuando estás fuera de casa',
+        sub: 'Opciones salvavidas cuando viajas o tienes prisa fuera de casa',
         steps: [
           { num: 'Paso 1: Fast Food inteligente', desc: 'En plazas busca bowls estilo mexicano (base lechuga, frijoles negros, fajitas de pollo y guacamole).' },
-          { num: 'Paso 2: Tiendas de paso (Oxxo)', desc: 'Si vas en carretera compra atún en sobre, cacahuates/almendras naturales, queso panela y agua natural.' },
+          { num: 'Paso 2: Tiendas de paso (Oxxo/7-Eleven)', desc: 'Si vas en carretera compra atún en sobre, cacahuates/almendras naturales sin sal, queso panela y agua natural.' },
           { num: 'Paso 3: En el aeropuerto', desc: 'Evita repostería y panes dulces. Elige sándwiches integrales con pechuga de pavo o ensaladas con aderezo aparte.' }
         ],
         semaforo: {
           verde: ['Bowls de pollo con frijol y ensalada', 'Atún en sobre con tostadas horneadas', 'Frutos secos naturales sin sal ni azúcar', 'Queso panela fresco en rebanadas'],
-          amarillo: ['Hamburguesa con 1 sola tapa de pan o estilo lechuga', 'Subway integral de pechuga con verduras dobles', 'Fruta picada fresca'],
-          rojo: ['Combos de comida rápida con papas fritas', 'Panes dulces y galletas de carretera', 'Bebidas energéticas y cafés embotellados con 30g de azúcar', 'Botanas fritas con exceso de sodio']
+          amarillo: ['Hamburguesa con 1 sola tapa de pan o estilo lechuga', 'Subway integral de pechuga con verduras dobles', 'Fruta picada fresca (melón, sandía, papaya)'],
+          rojo: ['Combos de comida rápida con papas fritas gigantes', 'Panes dulces, galletas y botanas de carretera', 'Bebidas energéticas y cafés ultra endulzados', 'Frappés con jarabes comerciales']
         },
-        quote: '"Viajar no significa abandonar tu salud. Hay opciones limpias en cualquier aeropuerto o tienda de conveniencia de México si sabes qué buscar." — Nutrióloga Arianna'
+        quote: '"Viajar no significa tirar la toalla: en cualquier tienda de paso mexicana encuentras atún, nueces y tostadas horneadas. La preparación vence a la improvisación." — Nutrióloga Arianna'
+      },
+      sushi: {
+        num: 5,
+        title: '🥢 Sushi & Comida Oriental: La Guía Inteligente',
+        sub: 'Cómo disfrutar comida japonesa sin el pico glucémico del arroz con azúcar',
+        steps: [
+          { num: 'Paso 1: Edamames de inicio', desc: 'Pide edamames al vapor con sal de mar o ensalada sunomono. Aportan fibra y proteína vegetal antes del arroz.' },
+          { num: 'Paso 2: Sashimi o rollos limpios', desc: 'Pide sashimi de salmón o atún (pura proteína y omega 3). Si pides rollo, elige makis sencillos sin capear ni tempura.' },
+          { num: 'Paso 3: Salsa soya baja en sodio', desc: 'Usa salsa de soya moderada (pide baja en sodio o rebájala con limón). Evita salsa de anguila (es jarabe de azúcar puro).' }
+        ],
+        semaforo: {
+          verde: ['Sashimi fresco de salmón o atún', 'Edamames al vapor con limón y sal de mar', 'Ensalada de pepino sunomono sin azúcar', 'Brochetas yakitori de pollo o champiñones sin empanizar'],
+          amarillo: ['Rollos de arroz tradicionales (máx. 6-8 piezas sin capear)', 'Arroz yakimeshi al vapor con verduras (1 taza)', 'Sopa miso tradicional'],
+          rojo: ['Rollos fritos, capeados o tempura', 'Queso crema (Philadelphia) en exceso en el centro y fuera', 'Salsa de anguila dulce (azúcar caramelizada)', 'Kushiages empanizados fritos']
+        },
+        quote: '"El secreto del sushi está en evitar la salsa de anguila y los rollos empanizados. Pide sashimi o rollos tradicionales con edamames y tendrás una cena ligera y limpia." — Nutrióloga Arianna'
+      },
+      cine: {
+        num: 6,
+        title: '🎬 Cine, Películas y Snacks: Estrategia Anti-Inflamación',
+        sub: 'Cómo sobrevivir al dulcerío sin salir con inflamación estomacal ni culpa',
+        steps: [
+          { num: 'Paso 1: Las palomitas ideales', desc: 'Pide palomitas naturales tamaño chico o mediano para compartir. Evita mantequilla extra o sabores caramelo/doritos.' },
+          { num: 'Paso 2: Bebida cero calorías', desc: 'Pide agua embotellada, té helado sin endulzar o agua mineral con limón. Un refresco grande de cine tiene hasta 80g de azúcar.' },
+          { num: 'Paso 3: Snacks inteligentes', desc: 'Si tienes antojo de algo dulce, lleva contigo almendras con cacao amargo 70%+ o pide frutos secos naturales.' }
+        ],
+        semaforo: {
+          verde: ['Palomitas naturales chicas/medianas sin mantequilla añadida', 'Agua natural embotellada o agua mineral con limón', 'Almendras o nueces naturales sin sal', 'Té verde o negro helado sin jarabe'],
+          amarillo: ['Palomitas saborizadas ligeras (compartidas en grupo)', 'Hot dog sencillo con mostaza (evita mayonesa en exceso)', 'Gomitas sin azúcar en porción pequeña'],
+          rojo: ['Palomitas con caramelo o mantequilla extra líquida', 'Nachos con queso amarillo procesado y jalapeños', 'Refrescos gigantes de más de 1 litro', 'Chocolates comerciales rellenos de caramelo']
+        },
+        quote: '"El cine es para disfrutar la película, no para comer por aburrimiento. Las palomitas naturales tienen fibra; el peligro real es el refresco gigante y los nachos grasosos." — Nutrióloga Arianna'
+      },
+      cafeteria: {
+        num: 7,
+        title: '☕ Cafeterías, Desayunos & Brunch de Domingo',
+        sub: 'Cómo pedir en cafeterías y restaurantes de desayuno sin trampas de azúcar',
+        steps: [
+          { num: 'Paso 1: El café limpio', desc: 'Pide café americano, espresso o latte con leche descremada o vegetal sin azúcar. Dile NO a los jarabes de vainilla o caramelo.' },
+          { num: 'Paso 2: Huevos al gusto', desc: 'Pide huevos revueltos con nopales, champiñones o a la mexicana con 2 tortillas de maíz o 1 rebanada de masa madre.' },
+          { num: 'Paso 3: Cuidado con los bowls de açaí', desc: 'Los bowls comerciales suelen tener hasta 50g de azúcar oculta. Prefiere yogur griego natural con fresas y nueces.' },
+        ],
+        semaforo: {
+          verde: ['Café americano, espresso o cold brew sin endulzar', 'Huevos con verduras y frijoles de la olla', 'Omelette de claras con espinacas y panela', 'Yogur griego sin azúcar con frutos rojos'],
+          amarillo: ['Panini de pechuga de pavo en pan integral (1/2 pieza)', 'Chilaquiles al comal con salsa verde y pollo sin crema excesiva', 'Leche de almendra o avena sin azúcar añadida'],
+          rojo: ['Frappuccinos con crema batida y jarabes de sabor', 'Hot cakes o waffles con miel de maple comercial', 'Pan dulce (conchas, croissants, donas)', 'Jugos de naranja o "verdes" colados sin fibra']
+        },
+        quote: '"En el brunch, cambia el jugo de naranja por fruta entera con yogur griego, y el café con jarabes por un cold brew refrescante. Tendrás energía toda la mañana sin bajón." — Nutrióloga Arianna'
+      },
+      italiano: {
+        num: 8,
+        title: '🍝 Cocina Italiana, Pastas & Pizzas Artesanales',
+        sub: 'Estrategia de carbohidratos controlados para cenar comida italiana',
+        steps: [
+          { num: 'Paso 1: Ensalada Caprese o Verde', desc: 'Inicia siempre con hojas verdes, jitomate y aceite de oliva virgen para tapizar tus receptores de glucosa.' },
+          { num: 'Paso 2: Pasta al dente en salsa roja', desc: 'Elige salsas a base de jitomate (pomodoro, arrabbiata) o al ajillo. La pasta al dente tiene menor índice glucémico que la muy cocida.' },
+          { num: 'Paso 3: La regla de la pizza', desc: 'Si pides pizza, come 1 o máximo 2 rebanadas de masa delgada acompañadas de abundante ensalada verde, no la pizza sola.' }
+        ],
+        semaforo: {
+          verde: ['Ensalada Caprese con aceite de oliva y albahaca', 'Carpaccio de res o salmón con alcaparras y limón', 'Pescado o pechuga a la plancha con verduras al horno', 'Agua San Pellegrino con rodajas de limón'],
+          amarillo: ['Pasta corta o larga al dente con salsa pomodoro (1 taza)', '1 a 2 rebanadas de pizza artesanal de masa delgada', '1 copa de vino tinto seco (opcional con comida)'],
+          rojo: ['Pastas con salsa Alfredo o 4 quesos con crema pesada', 'Lasaña gratinada con exceso de bechamel y carne grasa', 'Pan de ajo bañado en mantequilla como botana', 'Tiramisú o postres italianos con mascarpone azucarado']
+        },
+        quote: '"La comida italiana auténtica es mediterránea y sana: jitomate, albahaca, aceite de oliva y pescado. Lo que engorda son las cremas pesadas y el pan con mantequilla antes de comer." — Nutrióloga Arianna'
       }
     };
 
@@ -16984,20 +17079,92 @@
     }
 
     // GUÍA QUINCENAL ROTATIVA
+    // CALENDARIO REAL EN PILOTO AUTOMÁTICO (8 QUINCENAS = 4 MESES)
+    function getActiveQuincenaInfo() {
+      // Ancla calibrada: Lunes 9 de Noviembre de 2026
+      const anchor = new Date(2026, 10, 9);
+      const now = new Date();
+      const msPerDay = 1000 * 60 * 60 * 24;
+      const diffDays = Math.max(0, Math.floor((now.getTime() - anchor.getTime()) / msPerDay));
+      const cycleDays = 14;
+      const keys = ['tacos', 'fonda', 'buffet', 'viaje', 'sushi', 'cine', 'cafeteria', 'italiano'];
+      const total = keys.length;
+
+      const activeIndex = Math.floor(diffDays / cycleDays) % total;
+      const daysElapsed = diffDays % cycleDays;
+      const daysRemaining = cycleDays - daysElapsed;
+
+      return {
+        index: activeIndex,
+        key: keys[activeIndex],
+        num: activeIndex + 1,
+        daysRemaining: daysRemaining === 0 ? cycleDays : daysRemaining
+      };
+    }
+
+    function syncQuincenalCalendar() {
+      const activeInfo = getActiveQuincenaInfo();
+
+      // 1. Actualizar badge quincenal en vivo
+      const badgeEl = document.getElementById('quincena-live-badge');
+      if (badgeEl) {
+        badgeEl.innerHTML = `<i class="fa-regular fa-clock"></i> Quincena ${activeInfo.num} Activa &bull; Días restantes: ${activeInfo.daysRemaining}`;
+      }
+
+      // 2. Marcar la pestaña activa y actualizar su etiqueta
+      const tabs = document.querySelectorAll('.quincena-tab-btn');
+      let activeBtn = null;
+      tabs.forEach(btn => {
+        const key = btn.getAttribute('data-key');
+        const num = btn.getAttribute('data-num');
+        const baseTitle = btn.innerText.replace(' (ACTIVA):', ':').replace(' (ACTIVA)', '');
+        
+        if (key === activeInfo.key) {
+          activeBtn = btn;
+          btn.classList.add('active');
+          if (!btn.innerText.includes('(ACTIVA)')) {
+            btn.innerText = baseTitle.replace(`Quincena ${num}:`, `Quincena ${num} (ACTIVA):`);
+          }
+          btn.setAttribute('title', 'Pauta Comunitaria Oficial en curso');
+        } else {
+          btn.classList.remove('active');
+          btn.innerText = baseTitle;
+          btn.setAttribute('title', 'Consulta libre de la biblioteca');
+        }
+      });
+
+      // 3. Renderizar el escenario activo de forma predeterminada
+      renderQuincenaScenario(activeInfo.key);
+
+      // 4. Si la pestaña activa no está en vista horizontal, centrarla
+      if (activeBtn && activeBtn.scrollIntoView) {
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
     function renderQuincenaScenario(scenarioKey) {
+      const activeInfo = getActiveQuincenaInfo();
       const scenario = QUINCENA_SCENARIOS[scenarioKey] || QUINCENA_SCENARIOS.tacos;
       const container = document.getElementById('quincena-scenario-content');
       if (!container) return;
 
+      const isActive = (scenarioKey === activeInfo.key);
+      const statusPill = isActive
+        ? `<span style="background: #DCFCE7; color: #166534; font-size: 0.74rem; font-weight: 800; padding: 4px 11px; border-radius: 99px; border: 1px solid #86EFAC; white-space: nowrap;"><i class="fa-solid fa-circle-check"></i> Quincena ${scenario.num} (Pauta Comunitaria Activa)</span>`
+        : `<span style="background: #F1F5F9; color: #475569; font-size: 0.74rem; font-weight: 800; padding: 4px 11px; border-radius: 99px; border: 1px solid #CBD5E1; white-space: nowrap;"><i class="fa-solid fa-book-open"></i> Quincena ${scenario.num} (Consulta Libre)</span>`;
+
       container.innerHTML = `
-        <div class="quincena-header-row">
+        <div class="quincena-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
           <div>
             <h4 style="font-size: 1.25rem; color: var(--avo-dark); margin: 0 0 4px 0;">${scenario.title}</h4>
             <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0;">${scenario.sub}</p>
           </div>
-          <span style="background: var(--avo-pale); color: var(--avo-forest); font-size: 0.76rem; font-weight: 800; padding: 4px 11px; border-radius: 99px; border: 1px solid #CFE0BC; white-space: nowrap;">
-            <i class="fa-solid fa-user-doctor"></i> Pauta de Arianna
-          </span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            ${statusPill}
+            <span style="background: var(--avo-pale); color: var(--avo-forest); font-size: 0.76rem; font-weight: 800; padding: 4px 11px; border-radius: 99px; border: 1px solid #CFE0BC; white-space: nowrap;">
+              <i class="fa-solid fa-user-doctor"></i> Pauta de Arianna
+            </span>
+          </div>
         </div>
 
         <div style="font-size: 0.85rem; font-weight: 800; color: var(--avo-dark); margin-bottom: 8px;">
@@ -17047,7 +17214,12 @@
 
     function switchQuincena(scenarioKey, btnEl) {
       document.querySelectorAll('.quincena-tab-btn').forEach(b => b.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
+      if (btnEl) {
+        btnEl.classList.add('active');
+      } else {
+        const targetBtn = document.querySelector(`.quincena-tab-btn[data-key="${scenarioKey}"]`);
+        if (targetBtn) targetBtn.classList.add('active');
+      }
       renderQuincenaScenario(scenarioKey);
     }
 
@@ -17066,7 +17238,7 @@
       }
       renderPortionCards('');
       updatePlatePreview();
-      renderQuincenaScenario('tacos');
+      syncQuincenalCalendar();
     }
 
     initPortionesModule();
