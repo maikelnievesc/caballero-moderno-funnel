@@ -5935,6 +5935,54 @@
     .breakdown-badge.carb { background: #FEF3C7; color: #92400E; }
     .breakdown-badge.fat { background: #FEF9C3; color: #854D0E; }
 
+    /* BARRA DE MACRONUTRIENTES ESTIMADOS (4 COLUMNAS BALANCEADAS) */
+    .plate-macros-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2ECD8;
+      border-radius: 14px;
+      padding: 10px 6px;
+      margin: 12px 0 12px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+    .plate-macro-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 0;
+    }
+    .macro-val {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 900;
+      color: var(--avo-dark);
+      line-height: 1.1;
+    }
+    .macro-lbl {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-top: 3px;
+    }
+
+    /* RECOMENDACIÓN CLÍNICA DE NUTRIÓLOGA ARIANNA */
+    .plate-arianna-feedback {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F9FCF5 100%);
+      border: 1.5px solid #D6E8C4;
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      box-shadow: 0 4px 12px rgba(30, 63, 45, 0.04);
+    }
+
     @media (max-width: 900px) {
       .plate-graphic-circle {
         width: 260px !important;
@@ -8772,10 +8820,7 @@
                       </div>
                     </div>
 
-                    <!-- BOTÓN DE FAVORITO CON FEEDBACK VISUAL -->
-                    <button type="button" class="btn-save-plate-fav" onclick="savePlateFavorite(this)">
-                      <i class="fa-solid fa-bookmark"></i> Guardar Esta Combinación como Favorita
-                    </button>
+                    
                   </div>
                 </div>
               </div>
