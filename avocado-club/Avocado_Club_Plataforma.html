@@ -5598,6 +5598,225 @@
       }
     }
 
+  
+    /* === PORCIONES FIXES & MULTIPLIER STYLES === */
+    .portion-measure-highlight {
+      background: #F8FAF5;
+      border: 1px dashed #CFE0BC;
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin: 8px 0;
+      font-size: 0.82rem;
+      color: var(--avo-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .portion-measure-text {
+      flex: 1;
+      min-width: 0;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .portion-kcal-pill {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--coral);
+      background: rgba(224, 86, 36, 0.09);
+      border: 1px solid rgba(224, 86, 36, 0.22);
+      padding: 3px 8px;
+      border-radius: 8px;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1.2;
+      letter-spacing: -0.2px;
+    }
+    .portion-multiplier-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: #F4F8EE;
+      border: 1px solid #D6E8C4;
+      border-radius: 14px;
+      padding: 8px 14px;
+      margin-bottom: 12px;
+    }
+    .multiplier-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .multiplier-btn {
+      background: #FFFFFF;
+      border: 1px solid #CFE0BC;
+      border-radius: 8px;
+      padding: 4px 11px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .multiplier-btn:hover {
+      border-color: var(--avo-primary);
+      color: var(--avo-forest);
+    }
+    .multiplier-btn.active {
+      background: var(--avo-forest);
+      color: #FFFFFF;
+      border-color: var(--avo-forest);
+      box-shadow: 0 2px 6px rgba(30, 63, 45, 0.2);
+    }
+    .multiplier-status-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--coral);
+      background: rgba(224, 86, 36, 0.1);
+      padding: 3px 9px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .arianna-golden-rules-card {
+      background: linear-gradient(135deg, #FAFDF6 0%, #F2F8EB 100%);
+      border: 1.5px solid #D6E8C4;
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      transition: all 0.25s ease;
+    }
+    .golden-rules-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      gap: 10px;
+    }
+    .btn-toggle-rules {
+      background: #FFFFFF;
+      border: 1px solid #CFE0BC;
+      border-radius: 99px;
+      padding: 5px 14px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--avo-forest);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .btn-toggle-rules:hover {
+      background: var(--avo-pale);
+      border-color: var(--avo-primary);
+    }
+    .golden-rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed #CFE0BC;
+    }
+    .rule-mini-card {
+      background: #FFFFFF;
+      border: 1px solid #E2ECD8;
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .rule-mini-card .rule-icon {
+      font-size: 1.15rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .rule-mini-card .rule-text {
+      font-size: 0.75rem;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+    .rule-mini-card .rule-text strong {
+      color: var(--avo-dark);
+    }
+    .portion-modal-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: rgba(15, 35, 25, 0.72) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      z-index: 999999 !important;
+      display: none;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 16px !important;
+      box-sizing: border-box !important;
+    }
+    .portion-modal-card {
+      background: #FFFFFF !important;
+      border-radius: 22px !important;
+      padding: 22px 24px !important;
+      max-width: 520px !important;
+      width: 100% !important;
+      max-height: 88vh !important;
+      overflow-y: auto !important;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45) !important;
+      border: 2px solid #D6E8C4 !important;
+      animation: modalFadeIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) !important;
+      position: relative !important;
+      z-index: 1000000 !important;
+    }
+    .modal-sub-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 14px;
+      background: #F8FAF5;
+      border: 1px solid #E2ECD8;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .modal-sub-item:hover {
+      background: #EFF6E8;
+      border-color: #B5D890;
+      transform: translateX(3px);
+    }
+    .modal-sub-item .sub-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.83rem;
+      color: var(--avo-dark);
+      font-weight: 600;
+    }
+    .modal-sub-item .sub-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--avo-forest);
+      background: rgba(34, 197, 94, 0.12);
+      padding: 3px 8px;
+      border-radius: 99px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
   </style>
 </head>
 <body>
@@ -7946,6 +8165,22 @@
                 </button>
               </div>
 
+              <!-- TOOLBAR DE MULTIPLICADOR DE PORCIONES -->
+              <div class="portion-multiplier-toolbar">
+                <div class="multiplier-btn-group">
+                  <span style="font-size: 0.77rem; font-weight: 800; color: var(--avo-dark); margin-right: 4px;">
+                    <i class="fa-solid fa-calculator" style="color: var(--avo-forest);"></i> Multiplicar ración:
+                  </span>
+                  <button type="button" class="multiplier-btn active" onclick="setPortionMultiplier(1, this)">1x (Base)</button>
+                  <button type="button" class="multiplier-btn" onclick="setPortionMultiplier(1.5, this)">1.5x</button>
+                  <button type="button" class="multiplier-btn" onclick="setPortionMultiplier(2, this)">2x (Doble)</button>
+                  <button type="button" class="multiplier-btn" onclick="setPortionMultiplier(3, this)">3x (Triple)</button>
+                </div>
+                <span id="multiplier-status-tag" class="multiplier-status-tag" style="display: none;">
+                  Calculando x2 porciones
+                </span>
+              </div>
+
               <!-- CHIPS DE FILTRO POR CATEGORÍA SMAE -->
               <div class="portion-filter-chips">
                 <button type="button" class="portion-chip active" onclick="setPortionCategory('todos', this)">
@@ -7966,6 +8201,66 @@
                 <button type="button" class="portion-chip" onclick="setPortionCategory('fruta', this)">
                   ✊ Frutas (1 Puño)
                 </button>
+                <button type="button" class="portion-chip" onclick="setPortionCategory('cero-glucosa', this)" style="border-color: #FBBF24; color: #92400E; background: #FFFBEB;">
+                  🔥 Cero Glucosa
+                </button>
+                <button type="button" class="portion-chip" onclick="setPortionCategory('alta-saciedad', this)" style="border-color: #A7F3D0; color: #065F46; background: #ECFDF5;">
+                  ⚡ Alta Saciedad
+                </button>
+              </div>
+
+              <!-- REGLAS DE ORO DEL OJO CLÍNICO DE ARIANNA (DESPLEGABLE) -->
+              <div class="arianna-golden-rules-card">
+                <div class="golden-rules-header" onclick="toggleGoldenRules()">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.35rem;">💡</span>
+                    <div>
+                      <h4 style="font-size: 0.95rem; color: var(--avo-dark); margin: 0; font-weight: 800;">
+                        5 Reglas Visuales de Mesa de la Nutrióloga Arianna
+                      </h4>
+                      <p style="font-size: 0.74rem; color: var(--text-muted); margin: 1px 0 0 0;">
+                        Aprende a medir cualquier alimento a simple vista en restaurantes, fondas o tu cocina
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" id="btn-toggle-rules" class="btn-toggle-rules">
+                    <span>Ver trucos</span> <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div id="golden-rules-content" class="golden-rules-content" style="display: none;">
+                  <div class="golden-rules-grid">
+                    <div class="rule-mini-card">
+                      <div class="rule-icon">🥄</div>
+                      <div class="rule-text">
+                        <strong>Aceite y Aderezos:</strong> 1 pulgar = 1 cucharada sopera (~10ml / ~90 kcal). 1 meñique = 1 cucharadita cafetera (~5ml / ~45 kcal). Si brilla en exceso, son más de 2 pulgares de aceite.
+                      </div>
+                    </div>
+                    <div class="rule-mini-card">
+                      <div class="rule-icon">🥩</div>
+                      <div class="rule-text">
+                        <strong>Grosor de la Carne:</strong> Tu palma cuenta en superficie Y en grosor (el de tu meñique, ~1 cm). Si el corte es el doble de grueso, cuenta como 2 palmas completas (~200g-220g).
+                      </div>
+                    </div>
+                    <div class="rule-mini-card">
+                      <div class="rule-icon">🍚</div>
+                      <div class="rule-text">
+                        <strong>Cereales Cocidos vs Crudos:</strong> Arroz, pasta y avena se miden ya cocidos (1/2 puño = 1/2 taza). En crudo rinden el triple de volumen al hidratarse con agua.
+                      </div>
+                    </div>
+                    <div class="rule-mini-card">
+                      <div class="rule-icon">🧀</div>
+                      <div class="rule-text">
+                        <strong>Queso y Densidad:</strong> Panela o queso fresco = 2 a 3 dedos juntos (~80g). Queso manchego, gouda o fundido = 2 dados de juego (~30g) por su mayor concentración de grasa.
+                      </div>
+                    </div>
+                    <div class="rule-mini-card">
+                      <div class="rule-icon">🥑</div>
+                      <div class="rule-text">
+                        <strong>El Aguacate Hass:</strong> 1/3 de pieza mediana equivale a 1 pulgar completo (~80 kcal). Es grasa monoinsaturada cardiosaludable que estabiliza tu glucosa vespertina.
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <!-- CONTENEDOR DE RESULTADOS DINÁMICOS -->
@@ -8401,37 +8696,7 @@
               </div>
             </div>
 
-            <!-- MODAL FLOTANTE DE SUSTITUTOS EQUIVALENTES SMAE -->
-            <div id="portion-substitutes-modal" class="portion-modal-overlay" onclick="closeSubstitutesModal(event)">
-              <div class="portion-modal-card" onclick="event.stopPropagation()">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px;">
-                  <div>
-                    <span class="card-label coral" style="margin: 0;"><i class="fa-solid fa-repeat"></i> INTERCAMBIO EQUIVALENTE SMAE</span>
-                    <h3 id="modal-sub-food-name" style="font-size: 1.25rem; color: var(--avo-dark); margin: 3px 0 2px 0;">Sustitutos</h3>
-                    <p id="modal-sub-food-measure" style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Medida de referencia</p>
-                  </div>
-                  <button type="button" class="btn-modal-close" onclick="closeSubstitutesModalDirect()">
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                </div>
-
-                <div class="modal-notice-banner">
-                  <i class="fa-solid fa-lightbulb" style="color: var(--gold); font-size: 1rem;"></i>
-                  <span>¿No tienes este alimento hoy? Puedes reemplazarlo 1 a 1 por cualquiera de estas opciones sin alterar tus calorías ni tus macronutrientes:</span>
-                </div>
-
-                <div id="modal-substitutes-list" class="modal-subs-list">
-                  <!-- Se llena dinámicamente -->
-                </div>
-
-                <div style="margin-top: 14px; text-align: right;">
-                  <button type="button" class="btn-modal-ok" onclick="closeSubstitutesModalDirect()">
-                    Entendido, gracias <i class="fa-solid fa-check"></i>
-                  </button>
-                </div>
-              </div>
             </div>
-          </div>
 
           <!-- =========================================================
                MÓDULO 4: RECETARIO DINÁMICO QUINCENAL + TARJETAS DE RECETA 3D FLIP
@@ -9820,6 +10085,53 @@
     <div style="flex: 1;">
       <div id="avo-toast-title" style="font-weight: 800; font-size: 0.86rem; color: #FDE68A; margin-bottom: 2px;">Historia Cl&iacute;nica y Plan Enviados</div>
       <div id="avo-toast-msg" style="font-size: 0.76rem; color: #E2E8F0; line-height: 1.35;">Se actualizaron en tu Buz&oacute;n correctamente.</div>
+    </div>
+  </div>
+
+    <!-- MODAL GLOBAL DE SUSTITUTOS EQUIVALENTES SMAE -->
+  <div id="portion-substitutes-modal" class="portion-modal-overlay" onclick="closeSubstitutesModal(event)" style="display: none;">
+    <div class="portion-modal-card" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px;">
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+            <span class="card-label coral" style="margin: 0; font-size: 0.68rem;"><i class="fa-solid fa-repeat"></i> INTERCAMBIO EQUIVALENTE SMAE</span>
+            <span id="modal-sub-category-badge" class="portion-hand-badge" style="font-size: 0.68rem; padding: 2px 7px;">Proteína</span>
+          </div>
+          <h3 id="modal-sub-food-name" style="font-size: 1.25rem; color: var(--avo-dark); margin: 3px 0 2px 0; font-weight: 800;">Sustitutos</h3>
+          <p id="modal-sub-food-measure" style="font-size: 0.8rem; color: var(--text-muted); margin: 0; font-weight: 600;">Medida de referencia</p>
+        </div>
+        <button type="button" class="btn-modal-close" onclick="closeSubstitutesModalDirect()" title="Cerrar ventana">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- BANNER CLÍNICO DE ARIANNA -->
+      <div class="modal-notice-banner">
+        <i class="fa-solid fa-user-doctor" style="color: var(--avo-forest); font-size: 1.15rem; flex-shrink: 0; margin-top: 2px;"></i>
+        <div style="font-size: 0.77rem; line-height: 1.38; color: var(--text-main);">
+          <strong style="color: var(--avo-dark);">Regla Clínica de la Nutrióloga Arianna:</strong> Todos estos sustitutos pertenecen al mismo grupo del Sistema Mexicano de Alimentos Equivalentes (SMAE). Aportan el mismo bloque de calorías y macronutrientes, por lo que puedes intercambiarlos 1 a 1 sin romper tu déficit ni elevar tu insulina.
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin: 14px 0 8px 0;">
+        <div style="font-size: 0.84rem; font-weight: 800; color: var(--avo-dark);">
+          🔄 Opciones de intercambio recomendadas:
+        </div>
+        <span style="font-size: 0.72rem; color: var(--avo-forest); font-weight: 700;">Equivalencia 1 a 1</span>
+      </div>
+
+      <div id="modal-substitutes-list" class="modal-subs-list">
+        <!-- Inyectado por JS -->
+      </div>
+
+      <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; border-top: 1px solid #E5E7EB; padding-top: 12px; flex-wrap: wrap;">
+        <span style="font-size: 0.73rem; color: var(--text-muted);">
+          <i class="fa-solid fa-circle-info"></i> Toca cualquier opción para copiarla
+        </span>
+        <button type="button" class="btn-modal-ok" onclick="closeSubstitutesModalDirect()">
+          Entendido, gracias <i class="fa-solid fa-check"></i>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -15998,6 +16310,39 @@
     };
 
     let activePortionCategory = 'todos';
+    let currentPortionMultiplier = 1;
+
+    // MULTIPLICADOR DE RACIONES (1x, 1.5x, 2x, 3x)
+    function setPortionMultiplier(mult, btnEl) {
+      currentPortionMultiplier = Number(mult) || 1;
+      document.querySelectorAll('.multiplier-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      const statusTag = document.getElementById('multiplier-status-tag');
+      if (statusTag) {
+        if (currentPortionMultiplier === 1) {
+          statusTag.style.display = 'none';
+        } else {
+          statusTag.style.display = 'inline-block';
+          statusTag.innerText = 'Calculando x' + currentPortionMultiplier + ' porciones (' + (currentPortionMultiplier === 2 ? 'Doble' : currentPortionMultiplier === 3 ? 'Triple' : 'Mediana') + ')';
+        }
+      }
+
+      const searchVal = document.getElementById('portion-search-input')?.value || '';
+      renderPortionCards(searchVal);
+    }
+
+    // TOGGLE REGLAS DE ORO DE ARIANNA
+    function toggleGoldenRules() {
+      const box = document.getElementById('golden-rules-content');
+      const btn = document.getElementById('btn-toggle-rules');
+      if (!box || !btn) return;
+      const isHidden = box.style.display === 'none' || !box.style.display;
+      box.style.display = isHidden ? 'block' : 'none';
+      btn.innerHTML = isHidden 
+        ? '<span>Ocultar trucos</span> <i class="fa-solid fa-chevron-up"></i>'
+        : '<span>Ver trucos</span> <i class="fa-solid fa-chevron-down"></i>';
+    }
 
     // RENDERIZADO DEL CATÁLOGO DE ALIMENTOS
     function renderPortionCards(filterText = '') {
@@ -16008,16 +16353,27 @@
 
       const normFilter = (filterText || '').trim().toLowerCase();
       const filtered = PORCIONES_CATALOG.filter(item => {
-        const matchCat = (activePortionCategory === 'todos') || (item.cat === activePortionCategory);
+        let matchCat = false;
+        if (activePortionCategory === 'todos') {
+          matchCat = true;
+        } else if (activePortionCategory === 'cero-glucosa') {
+          matchCat = (item.cat === 'proteina' || item.cat === 'verdura' || item.id === 'aguacate-hass');
+        } else if (activePortionCategory === 'alta-saciedad') {
+          const sIds = ['avena-integral', 'frijoles-olla', 'huevos-enteros', 'lentejas-cocidas', 'manzana-entera', 'pechuga-pollo', 'salmon-atun', 'queso-panela'];
+          matchCat = sIds.includes(item.id);
+        } else {
+          matchCat = (item.cat === activePortionCategory);
+        }
+
         const matchText = !normFilter || 
           item.name.toLowerCase().includes(normFilter) || 
           item.hand.toLowerCase().includes(normFilter) || 
-          item.measure.toLowerCase().includes(normFilter) ||
+          item.measure.toLowerCase().includes(normFilter) || 
           item.tip.toLowerCase().includes(normFilter);
         return matchCat && matchText;
       });
 
-      if (counter) counter.innerText = `Mostrando ${filtered.length} alimentos`;
+      if (counter) counter.innerText = 'Mostrando ' + filtered.length + ' alimentos';
 
       if (filtered.length === 0) {
         grid.innerHTML = '';
@@ -16028,6 +16384,15 @@
       if (noRes) noRes.style.display = 'none';
 
       grid.innerHTML = filtered.map(item => {
+        const baseKcalNum = parseInt(item.kcal.replace(/[^0-9]/g, '')) || 100;
+        const finalKcalNum = Math.round(baseKcalNum * currentPortionMultiplier);
+        const finalKcalDisplay = '~' + finalKcalNum + ' kcal';
+
+        let finalMeasureDisplay = item.measure;
+        if (currentPortionMultiplier !== 1) {
+          finalMeasureDisplay = item.measure + ' <span style="color: var(--coral); font-weight: 800;">(x' + currentPortionMultiplier + ')</span>';
+        }
+
         return `
           <div class="portion-food-card">
             <div>
@@ -16039,8 +16404,12 @@
                 <span class="portion-hand-badge ${item.cat}">${item.hand}</span>
               </div>
               <div class="portion-measure-highlight">
-                <span><strong>Medida:</strong> ${item.measure}</span>
-                <span style="font-size: 0.78rem; font-weight: 800; color: var(--coral);">${item.kcal}</span>
+                <div class="portion-measure-text">
+                  <strong>Medida:</strong> ${finalMeasureDisplay}
+                </div>
+                <span class="portion-kcal-pill">
+                  <i class="fa-solid fa-fire-flame-curved" style="font-size: 0.7rem;"></i> ${finalKcalDisplay}
+                </span>
               </div>
               <div class="portion-card-tip">
                 <strong>Tip de Arianna:</strong> ${item.tip}
@@ -16081,43 +16450,92 @@
       renderPortionCards(searchVal);
     }
 
-    // MODAL DE SUSTITUTOS
+    // MODAL GLOBAL DE SUSTITUTOS
     function openSubstitutesModal(foodId) {
+      let modal = document.getElementById('portion-substitutes-modal');
+      if (!modal) return;
+
+      if (modal.parentElement !== document.body) {
+        document.body.appendChild(modal);
+      }
+
       const item = PORCIONES_CATALOG.find(x => x.id === foodId);
       if (!item) return;
 
-      const modal = document.getElementById('portion-substitutes-modal');
       const nameEl = document.getElementById('modal-sub-food-name');
       const measureEl = document.getElementById('modal-sub-food-measure');
       const listEl = document.getElementById('modal-substitutes-list');
+      const catBadge = document.getElementById('modal-sub-category-badge');
 
-      if (nameEl) nameEl.innerHTML = `${item.name} (${item.hand})`;
-      if (measureEl) measureEl.innerText = `Porción estándar: ${item.measure} • ${item.kcal}`;
+      const baseKcalNum = parseInt(item.kcal.replace(/[^0-9]/g, '')) || 100;
+      const finalKcalNum = Math.round(baseKcalNum * currentPortionMultiplier);
+
+      if (nameEl) nameEl.innerHTML = item.name;
+      if (measureEl) {
+        let multInfo = currentPortionMultiplier !== 1 ? ' &bull; <strong>x' + currentPortionMultiplier + ' raciones</strong>' : '';
+        measureEl.innerHTML = '<strong>Porción base:</strong> ' + item.measure + multInfo + ' &bull; <span style="color: var(--coral); font-weight: 800;">~' + finalKcalNum + ' kcal</span>';
+      }
+      if (catBadge) {
+        catBadge.className = 'portion-hand-badge ' + item.cat;
+        catBadge.innerText = item.hand;
+      }
 
       if (listEl) {
         listEl.innerHTML = item.substitutes.map(sub => {
+          const safeSub = sub.replace(/'/g, "\\'");
           return `
-            <div class="modal-sub-item">
-              <i class="fa-solid fa-circle-check" style="color: #22C55E; font-size: 0.95rem;"></i>
-              <span>${sub}</span>
+            <div class="modal-sub-item" onclick="copySubstituteToClipboard('${safeSub}', this)" title="Toca para copiar sustituto">
+              <div class="sub-left">
+                <i class="fa-solid fa-circle-check" style="color: #22C55E; font-size: 1.05rem; flex-shrink: 0;"></i>
+                <span>${sub}</span>
+              </div>
+              <span class="sub-tag">Equivalente 1:1</span>
             </div>
           `;
         }).join('');
       }
 
-      if (modal) modal.style.display = 'flex';
-    }
-
-    function closeSubstitutesModal(event) {
-      if (event && event.target && event.target.id === 'portion-substitutes-modal') {
-        event.target.style.display = 'none';
-      }
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
     }
 
     function closeSubstitutesModalDirect() {
       const modal = document.getElementById('portion-substitutes-modal');
       if (modal) modal.style.display = 'none';
+      document.body.style.overflow = '';
     }
+
+    function closeSubstitutesModal(event) {
+      if (event && event.target && event.target.id === 'portion-substitutes-modal') {
+        closeSubstitutesModalDirect();
+      }
+    }
+
+    function copySubstituteToClipboard(text, el) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          const tag = el ? el.querySelector('.sub-tag') : null;
+          if (tag) {
+            const oldText = tag.innerText;
+            tag.innerText = '¡Copiado! ✓';
+            tag.style.background = 'var(--avo-primary)';
+            tag.style.color = '#FFFFFF';
+            setTimeout(() => {
+              tag.innerText = oldText;
+              tag.style.background = '';
+              tag.style.color = '';
+            }, 1600);
+          }
+        }).catch(() => {});
+      }
+    }
+
+    // Atajo ESC para cerrar modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSubstitutesModalDirect();
+      }
+    });
 
     // SIMULADOR DEL PLATO 50/25/25
     function selectPlateItem(category, itemId, btnEl) {
@@ -16275,6 +16693,10 @@
 
     // Inicializador del Módulo 3
     function initPortionesModule() {
+      const modal = document.getElementById('portion-substitutes-modal');
+      if (modal && modal.parentElement !== document.body) {
+        document.body.appendChild(modal);
+      }
       renderPortionCards('');
       updatePlatePreview();
       renderQuincenaScenario('tacos');
